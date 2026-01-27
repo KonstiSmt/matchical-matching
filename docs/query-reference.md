@@ -83,9 +83,7 @@ A **Demand** is a "request" you want to staff. It includes:
 * Desired location (plus location filter category)
 * Desired availability (plus availability filter category)
 * Capacity constraints
-* Contract-type flags (Only show freelancer / temporary / permanent)
 * Pricing context (client offsite rate)
-* A computed/maintained number: `ExperienceFilterCount` (how many demand requirements have active filter semantics)
 
 ### 2.2 Demand Requirements
 
@@ -125,9 +123,15 @@ Then:
 
 * Partial scores are summed per consultant → `MatchingScore`.
 
-Additionally:
+### 2.5 Filter Enforcement (Early NOT EXISTS)
 
-* Soft/Hard filters are enforced using helper fields that detect whether a consultant fails any filtered requirement.
+Soft/Hard filters are enforced **early** in the `eligible_consultant` CTE using a NOT EXISTS pattern:
+
+* **Hard filter:** Consultant must have `Score >= ReqScore` for the requirement
+* **Soft filter:** Consultant must have `Score > 0` for the requirement
+* **Coverage check:** Consultant must have at least one matching experience row for every filtered requirement
+
+This approach eliminates consultants who fail filters **before** the expensive scoring phase, improving performance.
 
 ---
 
@@ -135,11 +139,11 @@ Additionally:
 
 The query is organized as a chain of **Common Table Expressions (CTEs)**. Treat each CTE as a named pipeline stage.
 
-### 3.1 `d` CTE: Demand Context (Single Row)
+### 3.1 `demand` CTE: Demand Context (Single Row)
 
 Extracts demand fields once:
 
-* `LocFilter`, `AvailFilter`, capacity flags, contract-type flags
+* `LocationFilter`, `AvailabilityFilter`, capacity flags
 * `CleanedStartDate` computed once:
   * If demand start date is sentinel, keep sentinel
   * If demand start date is earlier than today, clamp to today
@@ -147,7 +151,9 @@ Extracts demand fields once:
 
 This is a correctness + performance pattern: compute once, reuse.
 
-### 3.2 `req` CTE: Active, Valid Demand Requirements
+**Security:** The CTE filters by both `@DemandId` AND `@TenantId` to ensure tenant isolation.
+
+### 3.2 `requirement` CTE: Active, Valid Demand Requirements
 
 Pulls all requirement lines for this demand:
 
@@ -155,68 +161,70 @@ Pulls all requirement lines for this demand:
 * No missing keys
 * Includes category identifiers and all matching keys needed to join to experience
 
-### 3.3 `ec` CTE: Eligible Consultants (Prefilter)
+### 3.3 `filtered_requirement` CTE: Hard/Soft Filter Requirements
 
-The "cheap" filter stage. Returns only consultant identifiers that are eligible to even be considered.
+Extracts only requirements where `FilterCategoryId <> @Filter_Default`:
+
+* Same filters as `requirement` CTE
+* Used by the NOT EXISTS filter enforcement in `eligible_consultant`
+
+### 3.4 `eligible_consultant` CTE: Prefilter + Filter Enforcement
+
+The main filtering stage. Returns only consultant identifiers that are eligible.
 
 Includes:
 
 * Tenant constraint
 * Internal/external visibility logic
 * "Not available" exclusion when availability filter is not default
-* Contract-type filters (only apply if at least one demand flag is set)
 * Location filtering driven by demand's location filter category (Default / Soft / Hard)
 * Availability window logic using `CleanedStartDate`, next availability date, notice period
 * Capacity constraints
+* **Filter requirement enforcement via NOT EXISTS**
 
-**Important**: This stage reduces the dataset before scoring joins happen.
+The filter enforcement uses a "double NOT EXISTS" pattern:
+```
+NOT EXISTS (filtered requirement WHERE NOT EXISTS (satisfying experience))
+```
 
-The consultant's status is validated by joining `{Status}` and requiring `{Status}.[IsReady] = 1` and `{Status}.[IsActive] = 1`.
+This means: "There must not exist any filtered requirement for which no satisfying experience exists."
 
-### 3.4 Category Branches: `b_roleskill`, `b_role`, `b_industry`, `b_functional`, `b_language`
+**Fast path:** If no filtered requirements exist, the check is skipped entirely.
+
+### 3.5 Category Branches: `branch_roleskill`, `branch_role`, `branch_industry`, `branch_functional`, `branch_language`
 
 These branches:
 
-* Join `req` to `{Experience}` for one category using the correct keys.
-* Join to `ec` to ensure only eligible consultants participate.
-* Compute:
-  * `partial_score` (using `DOUBLE PRECISION`)
-  * `excl_partial` (whether this requirement fails a filter)
-  * `has_filter_partial` (whether this requirement is a filter at all)
+* Join `requirement` to `{Experience}` for one category using the correct keys.
+* Join to `eligible_consultant` to ensure only eligible consultants participate.
+* Compute `partial_score` (using `DOUBLE PRECISION`)
 
 Role-skill differs from the others:
 
 * It multiplies by `RoleWeight`.
 * Others multiply by `100.0`.
 
-Most branches prune `partial_score > 0` to reduce downstream data.
+Branches prune rows where `ReqScore = 0` or `Score <= 0` (except Language which allows presence-only).
 
-### 3.5 `partials` CTE: Union of Category Branches
+### 3.6 `partials` CTE: Union of Category Branches
 
 Uses `UNION ALL` (avoids distinct-sort overhead) to combine everything.
 
-### 3.6 `scores` CTE: Aggregate Per Consultant
+### 3.7 `scores` CTE: Aggregate Per Consultant
 
 Per consultant:
 
 * `SUM(partial_score)` → `MatchingScore`
-* `MAX(excl_partial)` → `IsExcludedMax` (if any filtered requirement excludes them)
-* `SUM(has_filter_partial)` → `HasFilterSum` (how many filtered requirements were seen/satisfied)
 
-### 3.7 `kept` CTE: Enforce "Must Satisfy All Filtered Requirements"
+Simple aggregation since filter enforcement happened earlier in `eligible_consultant`.
 
-Removes consultants that:
+### 3.8 `kept` CTE: Positive Score Filter
 
-* Have `IsExcludedMax = 1`, or
-* Have `HasFilterSum <> d.ExperienceFilterCount`
+Removes consultants with zero or negative MatchingScore:
 
-Also requires:
+* `WHERE MatchingScore > 0`
 
-* `MatchingScore > 0`
-
-This is the "filter enforcement" strategy.
-
-### 3.8 Final SELECT: Identity Fields + Price-Performance + Pagination + Capped Count
+### 3.9 Final SELECT: Identity Fields + Price-Performance + Pagination + Capped Count
 
 Final stage:
 
@@ -224,11 +232,11 @@ Final stage:
 * Joins `{ExternalUser}` and `{ConsultancyUser}` to produce Email/Name/Photo fields
 * Computes `PricePerformanceScore` guarded against division by zero and rate thresholds
 * Produces `Count` via a capped count subquery:
-  * `(SELECT COUNT(*) FROM (SELECT 1 FROM kept LIMIT @CountCap) t)`
+  * `(SELECT COUNT(*) FROM (SELECT 1 FROM kept LIMIT @CountCap) count_subquery)`
 
 Pagination:
 
-* `ORDER BY k.MatchingScore DESC`
+* `ORDER BY kept_consultant.MatchingScore DESC`
 * `LIMIT @MaxRecords`
 * `OFFSET @StartIndex`
 
@@ -254,14 +262,14 @@ The current count:
 
 ---
 
-## 5) Known Scalability Bottlenecks
+## 5) Performance Characteristics
 
 ### 5.1 Join Explosion in the Scoring Phase
 
 The work scales roughly with:
 
-* Number of eligible consultants (`ec`)
-  × number of requirements (`req`)
+* Number of eligible consultants (`eligible_consultant`)
+  × number of requirements (`requirement`)
   × density of experience rows per consultant per category
 
 As the skill graph becomes richer (multi-parent), if you pre-calculate more "indirect" experience rows, you increase experience density, which increases join and aggregate load.
@@ -270,124 +278,94 @@ As the skill graph becomes richer (multi-parent), if you pre-calculate more "ind
 
 Sorting large candidate sets is expensive. Even if you only return 12 rows, if the database can't cheaply restrict to "top K" early, it can still sort a huge intermediate set.
 
-### 5.3 Filter Enforcement Method (IsExcludedMax, HasFilterSum)
+### 5.3 Early Filter Enforcement Benefits
 
-This method forces you to:
+The NOT EXISTS approach in `eligible_consultant`:
 
-* Carry additional columns through the branch unions
-* Aggregate them
-* Then filter in `kept`
-
-It works, but it can be heavier than necessary.
+* **Short-circuits:** Stops checking as soon as one violation is found
+* **Reduces row volume:** Consultants failing filters are excluded before scoring joins
+* **Leverages indexes:** Can use `(ConsultantId, CategoryId, ...)` composite indexes efficiently
 
 ---
 
-## 6) Open Improvement Direction: Replace IsExcludedMax/HasFilterSum with Early Rejection
+## 6) Indexing Recommendations
 
-### 6.1 Conceptual Change
+### 6.1 Experience Table (Critical for NOT EXISTS)
 
-Instead of:
+Primary indexes (ConsultantId-first, for NOT EXISTS filter enforcement):
 
-* computing `excl_partial` + `has_filter_partial`
-* aggregating them
-* comparing to `ExperienceFilterCount`
+| Index | Columns |
+|-------|---------|
+| 1 | `(ConsultantId, CategoryId, RoleId, SkillId, Score)` |
+| 2 | `(ConsultantId, CategoryId, RoleId, Score)` |
+| 3 | `(ConsultantId, CategoryId, IndustryId, Score)` |
+| 4 | `(ConsultantId, CategoryId, FunctionalAreaId, Score)` |
+| 5 | `(ConsultantId, CategoryId, LanguageId, Score)` |
 
-You'd do something like:
+Secondary indexes (TenantId-first, for branch CTEs if needed):
 
-* "Keep consultant only if there does not exist any filtered requirement that is not satisfied by an experience row."
+| Index | Columns |
+|-------|---------|
+| 6 | `(TenantId, CategoryId, RoleId, SkillId, ConsultantId, Score)` |
+| 7 | `(TenantId, CategoryId, RoleId, ConsultantId, Score)` |
+| 8 | `(TenantId, CategoryId, IndustryId, ConsultantId, Score)` |
+| 9 | `(TenantId, CategoryId, FunctionalAreaId, ConsultantId, Score)` |
+| 10 | `(TenantId, CategoryId, LanguageId, ConsultantId, Score)` |
 
-That can eliminate:
+### 6.2 Closure and Mapping Tables
 
-* `IsExcludedMax`
-* `HasFilterSum`
-* `ExperienceFilterCount` usage (or at least reduce reliance on it)
-
-### 6.2 Why It Can Be Faster
-
-* `NOT EXISTS` allows the planner to short-circuit when it finds the first violation.
-* It can also leverage indexes differently than "compute everything then aggregate."
-
-### 6.3 Why It's Tricky
-
-* Must replicate exactly the semantics of Soft vs Hard filters (score = 0 vs score < required score).
-* Must ensure category-specific key matching is identical.
-* Must ensure you're not changing scoring or inclusion behavior.
-
-Needs careful implementation + regression testing.
-
----
-
-## 7) Indexing Checklist
-
-Beyond primary keys and foreign keys:
-
-### 7.1 Closure and Mapping Tables
-
-* `{LocationTagsClosure}`: composite index on
+* `{LocationTagsClosure}`: composite indexes on
   * `(AncestorId, DescendantId)`
-  * and (if you also query reversed direction frequently) `(DescendantId, AncestorId)`
+  * `(DescendantId, AncestorId)`
 * `{ConsultantLocations}`: composite index on
   * `(ConsultantId, LocationTagId)`
 
-### 7.2 Experience Table (Biggest Win Candidate)
+### 6.3 Other Tables
 
-Category branches join `{Experience}` on combinations of:
-
-* Tenant identifier
-* Category identifier
-* Consultant identifier
-* One of: (RoleId, SkillId), RoleId, IndustryId, FunctionalAreaId, LanguageId
-
-Typical composite indexes per category pattern:
-
-* Role-skill branch: `(TenantId, CategoryId, RoleId, SkillId, ConsultantId)`
-* Role branch: `(TenantId, CategoryId, RoleId, ConsultantId)`
-* Industry branch: `(TenantId, CategoryId, IndustryId, ConsultantId)`
-* Functional area branch: `(TenantId, CategoryId, FunctionalAreaId, ConsultantId)`
-* Language branch: `(TenantId, CategoryId, LanguageId, ConsultantId)`
-
-### 7.3 Boolean and Status Flags
-
-* Ensure `{Consultant}.[StatusId]` is indexed (typically is as a foreign key).
-* If the status table is tiny, `IsReady` and `IsActive` indexes are irrelevant.
+* `{DemandRequirement}`: `(DemandId, TenantId, IsActive)`
+* `{Consultant}`: `(TenantId, StatusId)`
 
 ---
 
-## 8) Safe Workflow for Modifying This Query
+## 7) Safe Workflow for Modifying This Query
 
-### 8.1 Never Change Unless Explicitly Requested
+### 7.1 Never Change Unless Explicitly Requested
 
 * Output column list and order:
   * `Id, MatchingScore, PricePerformanceScore, Email, Name, FirstName, LastName, PhotoUrl, EuroFixedRate, Count`
 * Sort order:
-  * `ORDER BY k.MatchingScore DESC` (unless explicitly changing ranking)
+  * `ORDER BY kept_consultant.MatchingScore DESC` (unless explicitly changing ranking)
 * Pagination contract:
   * `LIMIT @MaxRecords`
   * `OFFSET @StartIndex`
 * No trailing semicolon at the end
 
-### 8.2 Where Changes Usually Belong
+### 7.2 Where Changes Usually Belong
 
-* Pure eligibility filters: **`ec` CTE**
-* Pure scoring changes: **category branches** (`b_*`)
+* Pure eligibility filters: **`eligible_consultant` CTE**
+* Filter enforcement logic: **`eligible_consultant` CTE (NOT EXISTS block)**
+* Filtered requirement definition: **`filtered_requirement` CTE**
+* Pure scoring changes: **category branches** (`branch_*`)
 * Output field changes (adding/removing columns): **final SELECT**
 * Count behavior: **final SELECT's Count expression**
-* Requirements selection logic: **`req` CTE** or branch membership
+* Requirements selection logic: **`requirement` CTE**
 
-### 8.3 Regression Checks After Changes
+### 7.3 Regression Checks After Changes
 
 * Compare result set ordering (top 12) before vs after on a known demand
 * Compare inclusion/exclusion of edge cases:
   * Location hard vs soft
   * Availability default vs soft
-  * Contract type flags (none selected vs some selected)
+  * Hard filter enforcement (consultant below threshold excluded)
+  * Soft filter enforcement (consultant with Score=0 excluded)
+  * Missing experience coverage (consultant with no matching experience excluded)
   * Not-available status behavior when availability filter is not default
 * Compare `Count` correctness (especially with cap)
 * Validate that internal/external identity fields still resolve correctly
 
 ---
 
-## 9) Performance Analysis
+## 8) Performance Analysis
 
 If you want to systematically find bottlenecks:
 
@@ -396,6 +374,7 @@ If you want to systematically find bottlenecks:
   * Large row counts in intermediate steps (especially union/aggregate stages)
   * Sort nodes with big memory or disk spill
   * Nested loop joins with high loop counts
+  * Sequential scans on Experience table (should use index scans)
 
 Pragmatic expectations:
 
@@ -404,14 +383,16 @@ Pragmatic expectations:
 
 ---
 
-## 10) Current State Summary (What the Query Gets Right)
+## 9) Current State Summary
 
 * Correct separation of stages via CTEs.
-* Prefilter stage (`ec`) limits candidates before expensive scoring joins.
+* **Early filter enforcement** in `eligible_consultant` using NOT EXISTS pattern.
+* Prefilter stage limits candidates before expensive scoring joins.
 * Location filter uses `EXISTS` to avoid score multiplication from multiple consultant locations.
 * Count is capped (`@CountCap`) to avoid full-window count.
 * Cleaned start date computed once and reused.
 * Uses `DOUBLE PRECISION` to reduce cast overhead and keep numeric stability for scoring.
+* Descriptive CTE and alias names for maintainability.
 
 ---
 
@@ -420,7 +401,7 @@ Pragmatic expectations:
 | Parameter | Description |
 |-----------|-------------|
 | `@DemandId` | ID of the demand to match against |
-| `@TenantId` | Tenant context for multi-tenancy |
+| `@TenantId` | Tenant context for multi-tenancy (security: validates demand access) |
 | `@Nulldate` | Sentinel value for "no date" (typically 1900-01-01) |
 | `@Filter_Default` | Filter category ID for "Default" (no filtering) |
 | `@Filter_Soft` | Filter category ID for "Soft" filter |

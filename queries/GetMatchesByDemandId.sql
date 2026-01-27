@@ -1,10 +1,11 @@
 /* GetMatchesByDemandId – Advanced SQL (Aurora Postgres, ODC)
    Purpose: return consultant matches for a demand with scoring, paging, and filters.
 
-   Updates in this version:
-     • Count is capped using @CountCap (no full window COUNT over all rows)
-     • CleanedStartDate is computed once in CTE d and reused
-     • Scoring uses DOUBLE PRECISION
+   Refactored version:
+     • Early NOT EXISTS filter enforcement in ec CTE (consultants failing filters excluded before scoring)
+     • Removed aggregate-based filter enforcement (excl_partial, has_filter_partial, IsExcludedMax, HasFilterSum)
+     • Removed contract-type filter (OnlyShowFreelancer/Temporary/Permanent)
+     • Removed ExperienceFilterCount dependency
 
    Output columns (ordered):
      Id, MatchingScore, PricePerformanceScore, Email, Name, FirstName, LastName, PhotoUrl, EuroFixedRate, Count
@@ -12,13 +13,13 @@
 
 WITH
 /* ------------- Demand context (single row) ------------- */
-d AS (
+demand AS (
   SELECT
     {Demand}.[Id]                           AS DemandId,
     {Demand}.[TenantId]                     AS TenantId,
     {Demand}.[LocationTagId]                AS LocationTagId,
-    {Demand}.[LocationFilterCategoryId]     AS LocFilter,         -- Default / Soft / Hard
-    {Demand}.[AvailabilityFilterCategoryId] AS AvailFilter,       -- Default / Soft / Hard
+    {Demand}.[LocationFilterCategoryId]     AS LocationFilter,
+    {Demand}.[AvailabilityFilterCategoryId] AS AvailabilityFilter,
     {Demand}.[IsCapacityFilterActive]       AS IsCapacityFilterActive,
     {Demand}.[Capacity]                     AS Capacity,
     {Demand}.[StartDate]                    AS StartDate,
@@ -28,155 +29,152 @@ d AS (
       WHEN {Demand}.[StartDate] < CURRENT_DATE THEN CURRENT_DATE
       ELSE {Demand}.[StartDate]
     END                                      AS CleanedStartDate,
-    {Demand}.[ExperienceFilterCount]        AS ExperienceFilterCount,
-    {Demand}.[ClientOffsiteRate]            AS ClientOffsiteRate,
-    {Demand}.[OnlyShowFreelancer]           AS OnlyShowFreelancer,
-    {Demand}.[OnlyShowTemporary]            AS OnlyShowTemporary,
-    {Demand}.[OnlyShowPermanent]            AS OnlyShowPermanent
+    {Demand}.[ClientOffsiteRate]            AS ClientOffsiteRate
   FROM {Demand}
   WHERE {Demand}.[Id] = @DemandId
     AND {Demand}.[TenantId] = @TenantId
 ),
 
 /* ------------- Requirements (valid only) ------------- */
-req AS (
+requirement AS (
   SELECT
-    r.[CategoryId],
-    r.[RoleId],
-    r.[SkillId],
-    r.[IndustryId],
-    r.[FunctionalAreaId],
-    r.[LanguageId],
-    r.[Score]            AS ReqScore,
-    r.[DynamicWeight],
-    r.[RoleWeight],
-    r.[FilterCategoryId] AS FilterCat,
-    r.[TenantId]
-  FROM {DemandRequirement} r
-  WHERE r.[DemandId] = @DemandId
-    AND r.[TenantId]  = @TenantId
-    AND r.[IsActive]  = 1
-    AND NOT (r.[HasMissingKeys] = 1)
+    req.[CategoryId],
+    req.[RoleId],
+    req.[SkillId],
+    req.[IndustryId],
+    req.[FunctionalAreaId],
+    req.[LanguageId],
+    req.[Score]            AS ReqScore,
+    req.[DynamicWeight],
+    req.[RoleWeight],
+    req.[FilterCategoryId] AS FilterCategory,
+    req.[TenantId]
+  FROM {DemandRequirement} req
+  WHERE req.[DemandId] = @DemandId
+    AND req.[TenantId]  = @TenantId
+    AND req.[IsActive]  = 1
+    AND NOT (req.[HasMissingKeys] = 1)
 ),
 
-/* ------------- Eligible consultants (prefilter) ------------- */
-ec AS (
-  SELECT c.[Id] AS ConsultantId
-  FROM {Consultant} c
-  JOIN {Status} s
-    ON s.[Id] = c.[StatusId]
-  CROSS JOIN d
+/* ------------- Filtered requirements (Hard/Soft only) ------------- */
+filtered_requirement AS (
+  SELECT
+    freq.[CategoryId],
+    freq.[RoleId],
+    freq.[SkillId],
+    freq.[IndustryId],
+    freq.[FunctionalAreaId],
+    freq.[LanguageId],
+    freq.[Score]            AS ReqScore,
+    freq.[FilterCategoryId] AS FilterCategory,
+    freq.[TenantId]
+  FROM {DemandRequirement} freq
+  WHERE freq.[DemandId] = @DemandId
+    AND freq.[TenantId]  = @TenantId
+    AND freq.[IsActive]  = 1
+    AND NOT (freq.[HasMissingKeys] = 1)
+    AND freq.[FilterCategoryId] <> @Filter_Default
+),
+
+/* ------------- Eligible consultants (prefilter + filter enforcement) ------------- */
+eligible_consultant AS (
+  SELECT consultant.[Id] AS ConsultantId
+  FROM {Consultant} consultant
+  JOIN {Status} consultant_status
+    ON consultant_status.[Id] = consultant.[StatusId]
+  CROSS JOIN demand
   WHERE
     /* Tenant & status-based readiness/active */
-    c.[TenantId] = d.TenantId
-    AND s.[IsReady] = 1
-    AND s.[IsActive] = 1
+    consultant.[TenantId] = demand.TenantId
+    AND consultant_status.[IsReady] = 1
+    AND consultant_status.[IsActive] = 1
 
     /* Internal/External visibility selector */
     AND (
           (NOT (@IsInExternalFilterActive = 1))
-          OR (@ShowInternal = c.[IsInternal])
-          OR (@ShowExternal <> c.[IsInternal])
+          OR (@ShowInternal = consultant.[IsInternal])
+          OR (@ShowExternal <> consultant.[IsInternal])
         )
 
     /* "Not Available" status: when availability filter is NOT Default, exclude such consultants */
     AND (
-          d.AvailFilter = @Filter_Default
-          OR c.[StatusId] <> @Status_NotAvailable
-        )
-
-    /* Contract-type filter (applies to everyone when any demand flag is true) */
-    AND (
-          /* No flags selected → ignore contract type entirely */
-          (d.OnlyShowFreelancer <> 1 AND d.OnlyShowTemporary <> 1 AND d.OnlyShowPermanent <> 1)
-
-          /* One or more flags selected → keep only externals matching at least one selected type.
-             Internals have no types → will not satisfy this EXISTS and are excluded. */
-          OR EXISTS (
-               SELECT 1
-               FROM {ExternalUser} eu_ct
-               WHERE eu_ct.[Id] = c.[ExternalUserId]
-                 AND (
-                      (d.OnlyShowFreelancer = 1 AND eu_ct.[IsFreelancer] = 1) OR
-                      (d.OnlyShowTemporary  = 1 AND eu_ct.[IsTemporary]  = 1) OR
-                      (d.OnlyShowPermanent  = 1 AND eu_ct.[IsPermanent]  = 1)
-                 )
-          )
+          demand.AvailabilityFilter = @Filter_Default
+          OR consultant.[StatusId] <> @Status_NotAvailable
         )
 
     /* Location constraint driven by demand.LocationFilterCategoryId */
     AND (
           /* Default: no location filtering OR missing demand location */
-          d.LocFilter = @Filter_Default
-          OR d.LocationTagId IS NULL
+          demand.LocationFilter = @Filter_Default
+          OR demand.LocationTagId IS NULL
 
           /* Hard: consultant contained in demand (demand ancestor/equal of consultant) */
           OR (
-               d.LocFilter = @Filter_Hard
+               demand.LocationFilter = @Filter_Hard
                AND EXISTS (
                      SELECT 1
-                     FROM {ConsultantLocations} cl_h
-                     JOIN {LocationTagsClosure} lc_h
-                       ON lc_h.[AncestorId]   = d.LocationTagId       -- demand node
-                      AND lc_h.[DescendantId] = cl_h.[LocationTagId]  -- consultant node (equal or more specific)
-                     WHERE cl_h.[ConsultantId] = c.[Id]
+                     FROM {ConsultantLocations} consultant_location
+                     JOIN {LocationTagsClosure} location_closure
+                       ON location_closure.[AncestorId]   = demand.LocationTagId
+                      AND location_closure.[DescendantId] = consultant_location.[LocationTagId]
+                     WHERE consultant_location.[ConsultantId] = consultant.[Id]
                    )
              )
 
           /* Soft: contained OR covering (bidirectional) */
           OR (
-               d.LocFilter = @Filter_Soft
+               demand.LocationFilter = @Filter_Soft
                AND (
                     /* consultant contained in demand */
                     EXISTS (
                       SELECT 1
-                      FROM {ConsultantLocations} cl_u
-                      JOIN {LocationTagsClosure} lc_u
-                        ON lc_u.[AncestorId]   = d.LocationTagId
-                       AND lc_u.[DescendantId] = cl_u.[LocationTagId]
-                      WHERE cl_u.[ConsultantId] = c.[Id]
+                      FROM {ConsultantLocations} consultant_location
+                      JOIN {LocationTagsClosure} location_closure
+                        ON location_closure.[AncestorId]   = demand.LocationTagId
+                       AND location_closure.[DescendantId] = consultant_location.[LocationTagId]
+                      WHERE consultant_location.[ConsultantId] = consultant.[Id]
                     )
                     OR
                     /* consultant covers demand */
                     EXISTS (
                       SELECT 1
-                      FROM {ConsultantLocations} cl_d
-                      JOIN {LocationTagsClosure} lc_d
-                        ON lc_d.[AncestorId]   = cl_d.[LocationTagId]
-                       AND lc_d.[DescendantId] = d.LocationTagId
-                      WHERE cl_d.[ConsultantId] = c.[Id]
+                      FROM {ConsultantLocations} consultant_location
+                      JOIN {LocationTagsClosure} location_closure
+                        ON location_closure.[AncestorId]   = consultant_location.[LocationTagId]
+                       AND location_closure.[DescendantId] = demand.LocationTagId
+                      WHERE consultant_location.[ConsultantId] = consultant.[Id]
                     )
                   )
              )
         )
 
-    /* Availability using d.CleanedStartDate + NullDate sentinel */
+    /* Availability using demand.CleanedStartDate + NullDate sentinel */
     AND (
-          (d.AvailFilter = @Filter_Default)
-          OR (c.[IsImmediatelyAvailable] = 1)
+          (demand.AvailabilityFilter = @Filter_Default)
+          OR (consultant.[IsImmediatelyAvailable] = 1)
           OR (
                /* CleanedStartDate >= NextAvailabilityDate and NextAvailabilityDate != NullDate */
-               d.CleanedStartDate >= c.[NextAvailabiltyDate]
-             AND c.[NextAvailabiltyDate] <> @Nulldate
+               demand.CleanedStartDate >= consultant.[NextAvailabiltyDate]
+             AND consultant.[NextAvailabiltyDate] <> @Nulldate
              )
           OR (
                /* CleanedStartDate >= (today + noticePeriod) when noticePeriod != 0 */
-               d.CleanedStartDate >= (CURRENT_DATE + c.[NoticePeriod])::timestamptz
-             AND c.[NoticePeriod] <> 0
+               demand.CleanedStartDate >= (CURRENT_DATE + consultant.[NoticePeriod])::timestamptz
+             AND consultant.[NoticePeriod] <> 0
              )
           OR (
-               d.AvailFilter = @Filter_Soft
+               demand.AvailabilityFilter = @Filter_Soft
                AND (
                      (
                        /* (today + 60) >= NextAvailabilityDate and != NullDate */
-                       (CURRENT_DATE + 60)::timestamptz >= c.[NextAvailabiltyDate]
-                       AND c.[NextAvailabiltyDate] <> @Nulldate
+                       (CURRENT_DATE + 60)::timestamptz >= consultant.[NextAvailabiltyDate]
+                       AND consultant.[NextAvailabiltyDate] <> @Nulldate
                      )
                      OR
                      (
                        /* CleanedStartDate >= (today + (noticePeriod - 60)) when noticePeriod != 0 */
-                       d.CleanedStartDate >= (CURRENT_DATE + (c.[NoticePeriod] - 60))::timestamptz
-                       AND c.[NoticePeriod] <> 0
+                       demand.CleanedStartDate >= (CURRENT_DATE + (consultant.[NoticePeriod] - 60))::timestamptz
+                       AND consultant.[NoticePeriod] <> 0
                      )
                    )
              )
@@ -184,272 +182,271 @@ ec AS (
 
     /* Capacity (only when active) */
     AND (
-          (NOT (d.IsCapacityFilterActive = 1))
-          OR (d.Capacity >= c.[MinCapacity] AND d.Capacity <= c.[MaxCapacity])
+          (NOT (demand.IsCapacityFilterActive = 1))
+          OR (demand.Capacity >= consultant.[MinCapacity] AND demand.Capacity <= consultant.[MaxCapacity])
+        )
+
+    /* Filter requirement enforcement: consultant must satisfy ALL filtered requirements */
+    AND (
+          /* Fast path: if no filtered requirements exist, skip the check */
+          NOT EXISTS (SELECT 1 FROM filtered_requirement)
+          OR
+          /* Otherwise: no filtered requirement may be unsatisfied */
+          NOT EXISTS (
+            SELECT 1 FROM filtered_requirement filter_req
+            WHERE NOT EXISTS (
+              SELECT 1 FROM {Experience} experience
+              WHERE experience.[ConsultantId] = consultant.[Id]
+                AND experience.[TenantId] = filter_req.[TenantId]
+                AND experience.[CategoryId] = filter_req.[CategoryId]
+                /* Category-specific key matching */
+                AND (
+                  (filter_req.[CategoryId] = @Cat_RoleSkill
+                   AND experience.[RoleId] = filter_req.[RoleId]
+                   AND experience.[SkillId] = filter_req.[SkillId])
+                  OR (filter_req.[CategoryId] = @Cat_Role
+                      AND experience.[RoleId] = filter_req.[RoleId]
+                      AND experience.[SkillId] IS NULL)
+                  OR (filter_req.[CategoryId] = @Cat_Industry
+                      AND experience.[IndustryId] = filter_req.[IndustryId])
+                  OR (filter_req.[CategoryId] = @Cat_FunctionalArea
+                      AND experience.[FunctionalAreaId] = filter_req.[FunctionalAreaId])
+                  OR (filter_req.[CategoryId] = @Cat_Language
+                      AND experience.[LanguageId] = filter_req.[LanguageId])
+                )
+                /* Score condition based on filter type */
+                AND (
+                  (filter_req.FilterCategory = @Filter_Hard AND experience.[Score] >= filter_req.ReqScore)
+                  OR (filter_req.FilterCategory = @Filter_Soft AND experience.[Score] > 0)
+                )
+            )
+          )
         )
 ),
 
 /* ------------- Category branches with computed partial_score (DOUBLE PRECISION) ------------- */
 
 /* RoleSkill: match (RoleId, SkillId) */
-b_roleskill AS (
-  SELECT * FROM (
-    SELECT
-      e.[ConsultantId] AS ConsultantId,
-      CAST(
-        CASE
-          WHEN r.ReqScore = 0 THEN 0
-          ELSE
-            (
-              CASE
-                WHEN e.[Score] >= r.ReqScore THEN r.[DynamicWeight]
-                ELSE r.[DynamicWeight] * (CAST(e.[Score] AS DOUBLE PRECISION) / CAST(r.ReqScore AS DOUBLE PRECISION))
-              END
-            ) * CAST(r.[RoleWeight] AS DOUBLE PRECISION)
-        END
-      AS DOUBLE PRECISION) AS partial_score,
-      CASE
-        WHEN r.FilterCat = @Filter_Soft THEN CAST((e.[Score] = 0) AS INT)
-        WHEN r.FilterCat = @Filter_Hard THEN CAST((e.[Score] < r.ReqScore) AS INT)
-        ELSE 0
-      END AS excl_partial,
-      CAST((r.FilterCat IS NOT NULL AND r.FilterCat <> @Filter_Default) AS INT) AS has_filter_partial
-    FROM req r
-    JOIN {Experience} e
-      ON e.[TenantId] = r.[TenantId]
-     AND e.[CategoryId] = @Cat_RoleSkill
-     AND r.[CategoryId] = @Cat_RoleSkill
-     AND e.[RoleId]  = r.[RoleId]
-     AND e.[SkillId] = r.[SkillId]
-    JOIN ec ON ec.ConsultantId = e.[ConsultantId]
-  ) x
-  WHERE x.partial_score > 0
-),
-
-/* Role: match RoleId and SkillId IS NULL on experience */
-b_role AS (
-  SELECT * FROM (
-    SELECT
-      e.[ConsultantId] AS ConsultantId,
-      CAST(
-        CASE
-          WHEN r.ReqScore = 0 THEN 0
-          ELSE
-            (
-              CASE
-                WHEN e.[Score] >= r.ReqScore THEN r.[DynamicWeight]
-                ELSE r.[DynamicWeight] * (CAST(e.[Score] AS DOUBLE PRECISION) / CAST(r.ReqScore AS DOUBLE PRECISION))
-              END
-            ) * 100.0
-        END
-      AS DOUBLE PRECISION) AS partial_score,
-      CASE
-        WHEN r.FilterCat = @Filter_Soft THEN CAST((e.[Score] = 0) AS INT)
-        WHEN r.FilterCat = @Filter_Hard THEN CAST((e.[Score] < r.ReqScore) AS INT)
-        ELSE 0
-      END AS excl_partial,
-      CAST((r.FilterCat IS NOT NULL AND r.FilterCat <> @Filter_Default) AS INT) AS has_filter_partial
-    FROM req r
-    JOIN {Experience} e
-      ON e.[TenantId] = r.[TenantId]
-     AND e.[CategoryId] = @Cat_Role
-     AND r.[CategoryId] = @Cat_Role
-     AND e.[RoleId] = r.[RoleId]
-     AND e.[SkillId] IS NULL
-    JOIN ec ON ec.ConsultantId = e.[ConsultantId]
-  ) x
-  WHERE x.partial_score > 0
-),
-
-/* Industry: match IndustryId */
-b_industry AS (
-  SELECT * FROM (
-    SELECT
-      e.[ConsultantId] AS ConsultantId,
-      CAST(
-        CASE
-          WHEN r.ReqScore = 0 THEN 0
-          ELSE
-            (
-              CASE
-                WHEN e.[Score] >= r.ReqScore THEN r.[DynamicWeight]
-                ELSE r.[DynamicWeight] * (CAST(e.[Score] AS DOUBLE PRECISION) / CAST(r.ReqScore AS DOUBLE PRECISION))
-              END
-            ) * 100.0
-        END
-      AS DOUBLE PRECISION) AS partial_score,
-      CASE
-        WHEN r.FilterCat = @Filter_Soft THEN CAST((e.[Score] = 0) AS INT)
-        WHEN r.FilterCat = @Filter_Hard THEN CAST((e.[Score] < r.ReqScore) AS INT)
-        ELSE 0
-      END AS excl_partial,
-      CAST((r.FilterCat IS NOT NULL AND r.FilterCat <> @Filter_Default) AS INT) AS has_filter_partial
-    FROM req r
-    JOIN {Experience} e
-      ON e.[TenantId] = r.[TenantId]
-     AND e.[CategoryId] = @Cat_Industry
-     AND r.[CategoryId] = @Cat_Industry
-     AND e.[IndustryId] = r.[IndustryId]
-    JOIN ec ON ec.ConsultantId = e.[ConsultantId]
-  ) x
-  WHERE x.partial_score > 0
-),
-
-/* FunctionalArea: match FunctionalAreaId */
-b_functional AS (
-  SELECT * FROM (
-    SELECT
-      e.[ConsultantId] AS ConsultantId,
-      CAST(
-        CASE
-          WHEN r.ReqScore = 0 THEN 0
-          ELSE
-            (
-              CASE
-                WHEN e.[Score] >= r.ReqScore THEN r.[DynamicWeight]
-                ELSE r.[DynamicWeight] * (CAST(e.[Score] AS DOUBLE PRECISION) / CAST(r.ReqScore AS DOUBLE PRECISION))
-              END
-            ) * 100.0
-        END
-      AS DOUBLE PRECISION) AS partial_score,
-      CASE
-        WHEN r.FilterCat = @Filter_Soft THEN CAST((e.[Score] = 0) AS INT)
-        WHEN r.FilterCat = @Filter_Hard THEN CAST((e.[Score] < r.ReqScore) AS INT)
-        ELSE 0
-      END AS excl_partial,
-      CAST((r.FilterCat IS NOT NULL AND r.FilterCat <> @Filter_Default) AS INT) AS has_filter_partial
-    FROM req r
-    JOIN {Experience} e
-      ON e.[TenantId] = r.[TenantId]
-     AND e.[CategoryId] = @Cat_FunctionalArea
-     AND r.[CategoryId] = @Cat_FunctionalArea
-     AND e.[FunctionalAreaId] = r.[FunctionalAreaId]
-    JOIN ec ON ec.ConsultantId = e.[ConsultantId]
-  ) x
-  WHERE x.partial_score > 0
-),
-
-/* Language: match LanguageId (no pruning by partial_score; presence-only allowed) */
-b_language AS (
+branch_roleskill AS (
   SELECT
-    e.[ConsultantId] AS ConsultantId,
+    experience.[ConsultantId] AS ConsultantId,
     CAST(
       CASE
-        WHEN r.ReqScore = 0 THEN 0
+        WHEN req.ReqScore = 0 THEN 0
         ELSE
           (
             CASE
-              WHEN e.[Score] >= r.ReqScore THEN r.[DynamicWeight]
-              ELSE r.[DynamicWeight] * (CAST(e.[Score] AS DOUBLE PRECISION) / CAST(r.ReqScore AS DOUBLE PRECISION))
+              WHEN experience.[Score] >= req.ReqScore THEN req.[DynamicWeight]
+              ELSE req.[DynamicWeight] * (CAST(experience.[Score] AS DOUBLE PRECISION) / CAST(req.ReqScore AS DOUBLE PRECISION))
+            END
+          ) * CAST(req.[RoleWeight] AS DOUBLE PRECISION)
+      END
+    AS DOUBLE PRECISION) AS partial_score
+  FROM requirement req
+  JOIN {Experience} experience
+    ON experience.[TenantId] = req.[TenantId]
+   AND experience.[CategoryId] = @Cat_RoleSkill
+   AND req.[CategoryId] = @Cat_RoleSkill
+   AND experience.[RoleId]  = req.[RoleId]
+   AND experience.[SkillId] = req.[SkillId]
+  JOIN eligible_consultant ec ON ec.ConsultantId = experience.[ConsultantId]
+  WHERE req.ReqScore <> 0
+    AND experience.[Score] > 0
+),
+
+/* Role: match RoleId and SkillId IS NULL on experience */
+branch_role AS (
+  SELECT
+    experience.[ConsultantId] AS ConsultantId,
+    CAST(
+      CASE
+        WHEN req.ReqScore = 0 THEN 0
+        ELSE
+          (
+            CASE
+              WHEN experience.[Score] >= req.ReqScore THEN req.[DynamicWeight]
+              ELSE req.[DynamicWeight] * (CAST(experience.[Score] AS DOUBLE PRECISION) / CAST(req.ReqScore AS DOUBLE PRECISION))
             END
           ) * 100.0
       END
-    AS DOUBLE PRECISION) AS partial_score,
-    CASE
-      WHEN r.FilterCat = @Filter_Soft THEN CAST((e.[Score] = 0) AS INT)
-      WHEN r.FilterCat = @Filter_Hard THEN CAST((e.[Score] < r.ReqScore) AS INT)
-      ELSE 0
-    END AS excl_partial,
-    CAST((r.FilterCat IS NOT NULL AND r.FilterCat <> @Filter_Default) AS INT) AS has_filter_partial
-  FROM req r
-  JOIN {Experience} e
-    ON e.[TenantId] = r.[TenantId]
-   AND e.[CategoryId] = @Cat_Language
-   AND r.[CategoryId] = @Cat_Language
-   AND e.[LanguageId] = r.[LanguageId]
-  JOIN ec ON ec.ConsultantId = e.[ConsultantId]
+    AS DOUBLE PRECISION) AS partial_score
+  FROM requirement req
+  JOIN {Experience} experience
+    ON experience.[TenantId] = req.[TenantId]
+   AND experience.[CategoryId] = @Cat_Role
+   AND req.[CategoryId] = @Cat_Role
+   AND experience.[RoleId] = req.[RoleId]
+   AND experience.[SkillId] IS NULL
+  JOIN eligible_consultant ec ON ec.ConsultantId = experience.[ConsultantId]
+  WHERE req.ReqScore <> 0
+    AND experience.[Score] > 0
+),
+
+/* Industry: match IndustryId */
+branch_industry AS (
+  SELECT
+    experience.[ConsultantId] AS ConsultantId,
+    CAST(
+      CASE
+        WHEN req.ReqScore = 0 THEN 0
+        ELSE
+          (
+            CASE
+              WHEN experience.[Score] >= req.ReqScore THEN req.[DynamicWeight]
+              ELSE req.[DynamicWeight] * (CAST(experience.[Score] AS DOUBLE PRECISION) / CAST(req.ReqScore AS DOUBLE PRECISION))
+            END
+          ) * 100.0
+      END
+    AS DOUBLE PRECISION) AS partial_score
+  FROM requirement req
+  JOIN {Experience} experience
+    ON experience.[TenantId] = req.[TenantId]
+   AND experience.[CategoryId] = @Cat_Industry
+   AND req.[CategoryId] = @Cat_Industry
+   AND experience.[IndustryId] = req.[IndustryId]
+  JOIN eligible_consultant ec ON ec.ConsultantId = experience.[ConsultantId]
+  WHERE req.ReqScore <> 0
+    AND experience.[Score] > 0
+),
+
+/* FunctionalArea: match FunctionalAreaId */
+branch_functional AS (
+  SELECT
+    experience.[ConsultantId] AS ConsultantId,
+    CAST(
+      CASE
+        WHEN req.ReqScore = 0 THEN 0
+        ELSE
+          (
+            CASE
+              WHEN experience.[Score] >= req.ReqScore THEN req.[DynamicWeight]
+              ELSE req.[DynamicWeight] * (CAST(experience.[Score] AS DOUBLE PRECISION) / CAST(req.ReqScore AS DOUBLE PRECISION))
+            END
+          ) * 100.0
+      END
+    AS DOUBLE PRECISION) AS partial_score
+  FROM requirement req
+  JOIN {Experience} experience
+    ON experience.[TenantId] = req.[TenantId]
+   AND experience.[CategoryId] = @Cat_FunctionalArea
+   AND req.[CategoryId] = @Cat_FunctionalArea
+   AND experience.[FunctionalAreaId] = req.[FunctionalAreaId]
+  JOIN eligible_consultant ec ON ec.ConsultantId = experience.[ConsultantId]
+  WHERE req.ReqScore <> 0
+    AND experience.[Score] > 0
+),
+
+/* Language: match LanguageId */
+branch_language AS (
+  SELECT
+    experience.[ConsultantId] AS ConsultantId,
+    CAST(
+      CASE
+        WHEN req.ReqScore = 0 THEN 0
+        ELSE
+          (
+            CASE
+              WHEN experience.[Score] >= req.ReqScore THEN req.[DynamicWeight]
+              ELSE req.[DynamicWeight] * (CAST(experience.[Score] AS DOUBLE PRECISION) / CAST(req.ReqScore AS DOUBLE PRECISION))
+            END
+          ) * 100.0
+      END
+    AS DOUBLE PRECISION) AS partial_score
+  FROM requirement req
+  JOIN {Experience} experience
+    ON experience.[TenantId] = req.[TenantId]
+   AND experience.[CategoryId] = @Cat_Language
+   AND req.[CategoryId] = @Cat_Language
+   AND experience.[LanguageId] = req.[LanguageId]
+  JOIN eligible_consultant ec ON ec.ConsultantId = experience.[ConsultantId]
 ),
 
 /* ------------- Union of all category branches ------------- */
 partials AS (
-  SELECT * FROM b_roleskill
+  SELECT * FROM branch_roleskill
   UNION ALL
-  SELECT * FROM b_role
+  SELECT * FROM branch_role
   UNION ALL
-  SELECT * FROM b_industry
+  SELECT * FROM branch_industry
   UNION ALL
-  SELECT * FROM b_functional
+  SELECT * FROM branch_functional
   UNION ALL
-  SELECT * FROM b_language
+  SELECT * FROM branch_language
 ),
 
-/* ------------- Aggregate per consultant (no identity fields here) ------------- */
+/* ------------- Aggregate per consultant ------------- */
 scores AS (
   SELECT
-    p.ConsultantId,
-    SUM(p.partial_score)        AS MatchingScore,
-    MAX(p.excl_partial)         AS IsExcludedMax,
-    SUM(p.has_filter_partial)   AS HasFilterSum
-  FROM partials p
-  GROUP BY p.ConsultantId
+    partial.ConsultantId,
+    SUM(partial.partial_score) AS MatchingScore
+  FROM partials partial
+  GROUP BY partial.ConsultantId
 ),
 
-/* ------------- Keep only consultants that pass aggregate rules ------------- */
+/* ------------- Keep only consultants with positive score ------------- */
 kept AS (
-  SELECT s.*
-  FROM scores s
-  CROSS JOIN d
-  WHERE NOT (
-      s.IsExcludedMax = 1
-      OR s.HasFilterSum <> d.ExperienceFilterCount
-    )
-    AND s.MatchingScore > 0
+  SELECT score.*
+  FROM scores score
+  WHERE score.MatchingScore > 0
 )
 
 /* ------------- Final projection: join identity & compute price-performance ------------- */
 SELECT
   /* 1) Id */
-  k.ConsultantId                                                                                       AS Id,
+  kept_consultant.ConsultantId                                                                           AS Id,
 
   /* 2) MatchingScore */
-  k.MatchingScore                                                                                      AS MatchingScore,
+  kept_consultant.MatchingScore                                                                          AS MatchingScore,
 
   /* 3) PricePerformanceScore (guards preserved; math in DOUBLE PRECISION) */
   (CASE
-     WHEN (CAST(c.[EuroFixedRate] AS DOUBLE PRECISION) = 0.0)
-          OR ((CAST(d.ClientOffsiteRate AS DOUBLE PRECISION) <> 0.0)
-              AND (CAST(c.[EuroFixedRate] AS DOUBLE PRECISION) > CAST(d.ClientOffsiteRate AS DOUBLE PRECISION)))
+     WHEN (CAST(consultant.[EuroFixedRate] AS DOUBLE PRECISION) = 0.0)
+          OR ((CAST(demand.ClientOffsiteRate AS DOUBLE PRECISION) <> 0.0)
+              AND (CAST(consultant.[EuroFixedRate] AS DOUBLE PRECISION) > CAST(demand.ClientOffsiteRate AS DOUBLE PRECISION)))
           OR (CAST(@PricePerformanceRatio AS DOUBLE PRECISION) = 0.0)
        THEN 0
-     ELSE (k.MatchingScore / NULLIF(CAST(c.[EuroFixedRate] AS DOUBLE PRECISION), 0.0))
+     ELSE (kept_consultant.MatchingScore / NULLIF(CAST(consultant.[EuroFixedRate] AS DOUBLE PRECISION), 0.0))
             / NULLIF(CAST(@PricePerformanceRatio AS DOUBLE PRECISION), 0.0)
    END)                                                                                                  AS PricePerformanceScore,
 
   /* 4) Email */
-  (CASE WHEN c.[IsInternal] = 1 THEN cu.[Email]     ELSE eu.[Email]     END)                            AS Email,
+  (CASE WHEN consultant.[IsInternal] = 1 THEN consultancy_user.[Email]     ELSE external_user.[Email]     END) AS Email,
 
   /* 5) Name */
-  ((CASE WHEN c.[IsInternal] = 1 THEN cu.[FirstName] ELSE eu.[FirstName] END)
+  ((CASE WHEN consultant.[IsInternal] = 1 THEN consultancy_user.[FirstName] ELSE external_user.[FirstName] END)
     || ' ' ||
-   (CASE WHEN c.[IsInternal] = 1 THEN cu.[LastName]  ELSE eu.[LastName]  END))                          AS Name,
+   (CASE WHEN consultant.[IsInternal] = 1 THEN consultancy_user.[LastName]  ELSE external_user.[LastName]  END)) AS Name,
 
   /* 6) FirstName */
-  (CASE WHEN c.[IsInternal] = 1 THEN cu.[FirstName] ELSE eu.[FirstName] END)                            AS FirstName,
+  (CASE WHEN consultant.[IsInternal] = 1 THEN consultancy_user.[FirstName] ELSE external_user.[FirstName] END) AS FirstName,
 
   /* 7) LastName */
-  (CASE WHEN c.[IsInternal] = 1 THEN cu.[LastName]  ELSE eu.[LastName]  END)                            AS LastName,
+  (CASE WHEN consultant.[IsInternal] = 1 THEN consultancy_user.[LastName]  ELSE external_user.[LastName]  END) AS LastName,
 
   /* 8) PhotoUrl */
-  (CASE WHEN c.[IsInternal] = 1 THEN COALESCE(NULLIF(cu.[DefaultPhotoUrlRound], ''), cu.[DefaultPhotoUrl])  ELSE COALESCE(NULLIF(eu.[DefaultPhotoUrlRound], ''), eu.[DefaultPhotoUrl])  END)                            AS PhotoUrl,
+  (CASE WHEN consultant.[IsInternal] = 1
+        THEN COALESCE(NULLIF(consultancy_user.[DefaultPhotoUrlRound], ''), consultancy_user.[DefaultPhotoUrl])
+        ELSE COALESCE(NULLIF(external_user.[DefaultPhotoUrlRound], ''), external_user.[DefaultPhotoUrl])
+   END) AS PhotoUrl,
 
   /* 9) EuroFixedRate */
-  c.[EuroFixedRate]                                                                                     AS EuroFixedRate,
+  consultant.[EuroFixedRate]                                                                             AS EuroFixedRate,
 
   /* 10) Total row count, capped at @CountCap */
-  (SELECT COUNT(*) FROM (SELECT 1 FROM kept LIMIT @CountCap) t)                                         AS Count
+  (SELECT COUNT(*) FROM (SELECT 1 FROM kept LIMIT @CountCap) count_subquery)                             AS Count
 
-FROM kept k
-JOIN {Consultant} c
-  ON c.[Id] = k.ConsultantId
-  AND c.[TenantId] = @TenantId
-LEFT JOIN {ExternalUser} eu
-  ON c.[ExternalUserId] = eu.[Id]
-  AND NOT (c.[IsInternal] = 1)
-LEFT JOIN {ConsultancyUser} cu
-  ON c.[ConsultancyUserId] = cu.[Id]
-  AND c.[IsInternal] = 1
-CROSS JOIN d
+FROM kept kept_consultant
+JOIN {Consultant} consultant
+  ON consultant.[Id] = kept_consultant.ConsultantId
+  AND consultant.[TenantId] = @TenantId
+LEFT JOIN {ExternalUser} external_user
+  ON consultant.[ExternalUserId] = external_user.[Id]
+  AND NOT (consultant.[IsInternal] = 1)
+LEFT JOIN {ConsultancyUser} consultancy_user
+  ON consultant.[ConsultancyUserId] = consultancy_user.[Id]
+  AND consultant.[IsInternal] = 1
+CROSS JOIN demand
 
-ORDER BY k.MatchingScore DESC
+ORDER BY kept_consultant.MatchingScore DESC
 LIMIT @MaxRecords
 OFFSET @StartIndex

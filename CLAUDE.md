@@ -86,7 +86,112 @@ After any change, verify:
 - Top 12 ordering matches expected behavior on test demands
 - Location filter (Default/Soft/Hard) edge cases
 - Availability filter edge cases
-- Contract-type filter combinations
 - "Not Available" status exclusion when availability filter is active
 - Count accuracy with cap
 - Internal vs external identity field resolution
+
+## Entity Reference
+
+### Consultant
+Primary entity representing a consultant (internal or external).
+
+| Attribute | Description |
+|-----------|-------------|
+| `Id` | Primary key |
+| `TenantId` | Tenant isolation |
+| `IsInternal` | Boolean: internal (ConsultancyUser) vs external (ExternalUser) |
+| `ConsultancyUserId` | FK to ConsultancyUser (when IsInternal=1) |
+| `ExternalUserId` | FK to ExternalUser (when IsInternal=0) |
+| `StatusId` | FK to Status |
+| `EuroFixedRate` | Rate for price-performance calculation |
+| `NextAvailabiltyDate` | Next availability date (NullDate sentinel if not set) |
+| `IsImmediatelyAvailable` | Boolean: immediately available |
+| `NoticePeriod` | Notice period in days |
+| `MinCapacity`, `MaxCapacity` | Capacity range |
+
+### Experience
+Pre-calculated skill/experience scores per consultant per category.
+
+| Attribute | Description |
+|-----------|-------------|
+| `Id` | Primary key |
+| `ConsultantId` | FK to Consultant |
+| `TenantId` | Tenant isolation |
+| `CategoryId` | Category: RoleSkill, Role, Industry, FunctionalArea, Language |
+| `RoleId`, `SkillId` | Keys for RoleSkill/Role categories |
+| `IndustryId` | Key for Industry category |
+| `FunctionalAreaId` | Key for FunctionalArea category |
+| `LanguageId` | Key for Language category |
+| `Score` | Pre-calculated experience score (typically 1-5) |
+
+### Demand
+A staffing request to be matched against consultants.
+
+| Attribute | Description |
+|-----------|-------------|
+| `Id` | Primary key |
+| `TenantId` | Tenant isolation |
+| `LocationTagId` | Desired location |
+| `LocationFilterCategoryId` | Location filter: Default/Soft/Hard |
+| `AvailabilityFilterCategoryId` | Availability filter: Default/Soft/Hard |
+| `IsCapacityFilterActive` | Boolean: capacity filtering enabled |
+| `Capacity` | Required capacity |
+| `StartDate` | Demand start date |
+| `ClientOffsiteRate` | Rate for price-performance threshold |
+
+### DemandRequirement
+Individual requirement line for a demand (skills, roles, industries, etc.).
+
+| Attribute | Description |
+|-----------|-------------|
+| `Id` | Primary key |
+| `DemandId` | FK to Demand |
+| `TenantId` | Tenant isolation |
+| `CategoryId` | Category: RoleSkill, Role, Industry, FunctionalArea, Language |
+| `RoleId`, `SkillId` | Keys for RoleSkill/Role categories |
+| `IndustryId` | Key for Industry category |
+| `FunctionalAreaId` | Key for FunctionalArea category |
+| `LanguageId` | Key for Language category |
+| `Score` | Required score (1-5) |
+| `DynamicWeight` | Weight for scoring |
+| `RoleWeight` | Additional weight multiplier (RoleSkill only) |
+| `FilterCategoryId` | Filter type: Default (scoring only), Soft, Hard |
+| `IsActive` | Boolean: requirement is active |
+| `HasMissingKeys` | Boolean: requirement has invalid/missing keys |
+
+### ConsultancyUser (Internal User Identity)
+Identity fields for internal consultants.
+
+| Attribute | Description |
+|-----------|-------------|
+| `Id` | Primary key |
+| `Email` | Email address |
+| `FirstName`, `LastName` | Name |
+| `DefaultPhotoUrl`, `DefaultPhotoUrlRound` | Photo URLs |
+
+### ExternalUser (External User Identity)
+Identity fields for external consultants.
+
+| Attribute | Description |
+|-----------|-------------|
+| `Id` | Primary key |
+| `Email` | Email address |
+| `FirstName`, `LastName` | Name |
+| `DefaultPhotoUrl`, `DefaultPhotoUrlRound` | Photo URLs |
+
+### Status
+Consultant status reference.
+
+| Attribute | Description |
+|-----------|-------------|
+| `Id` | Primary key |
+| `IsReady` | Boolean: consultant is ready for matching |
+| `IsActive` | Boolean: status is active |
+
+### Filter Categories
+
+| Parameter | Meaning |
+|-----------|---------|
+| `@Filter_Default` | No filtering, scoring only |
+| `@Filter_Soft` | Soft filter: Score > 0 required |
+| `@Filter_Hard` | Hard filter: Score >= ReqScore required |
