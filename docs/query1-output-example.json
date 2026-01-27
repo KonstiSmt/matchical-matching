@@ -1,0 +1,76 @@
+{
+  "description": "GetMatchesByDemandId - Query 1 Output Example",
+  "note": "Pure scoring query - returns only ConsultantId, MatchingScore, and Count. No display data.",
+  "singleRow": {
+    "Id": "550e8400-e29b-41d4-a716-446655440001",
+    "MatchingScore": 80.5,
+    "Count": 156
+  },
+  "exampleResultSet": [
+    {
+      "Id": "550e8400-e29b-41d4-a716-446655440001",
+      "MatchingScore": 80.5,
+      "Count": 156
+    },
+    {
+      "Id": "550e8400-e29b-41d4-a716-446655440002",
+      "MatchingScore": 52.3,
+      "Count": 156
+    },
+    {
+      "Id": "550e8400-e29b-41d4-a716-446655440003",
+      "MatchingScore": 49.0,
+      "Count": 156
+    },
+    {
+      "Id": "550e8400-e29b-41d4-a716-446655440004",
+      "MatchingScore": 49.0,
+      "Count": 156
+    },
+    {
+      "Id": "550e8400-e29b-41d4-a716-446655440005",
+      "MatchingScore": 48.2,
+      "Count": 156
+    },
+    {
+      "Id": "550e8400-e29b-41d4-a716-446655440006",
+      "MatchingScore": 46.1,
+      "Count": 156
+    },
+    {
+      "Id": "550e8400-e29b-41d4-a716-446655440007",
+      "MatchingScore": 45.8,
+      "Count": 156
+    },
+    {
+      "Id": "550e8400-e29b-41d4-a716-446655440008",
+      "MatchingScore": 45.5,
+      "Count": 156
+    },
+    {
+      "Id": "550e8400-e29b-41d4-a716-446655440009",
+      "MatchingScore": 45.0,
+      "Count": 156
+    },
+    {
+      "Id": "550e8400-e29b-41d4-a716-446655440010",
+      "MatchingScore": 45.0,
+      "Count": 156
+    },
+    {
+      "Id": "550e8400-e29b-41d4-a716-446655440011",
+      "MatchingScore": 44.8,
+      "Count": 156
+    },
+    {
+      "Id": "550e8400-e29b-41d4-a716-446655440012",
+      "MatchingScore": 44.5,
+      "Count": 156
+    }
+  ],
+  "fieldDescriptions": {
+    "Id": "Consultant.Id - the matched consultant's unique identifier",
+    "MatchingScore": "Computed score (0-100) based on requirement matching",
+    "Count": "Total number of matching consultants (capped at @CountCap)"
+  }
+}
