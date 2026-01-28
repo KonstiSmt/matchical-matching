@@ -1,6 +1,9 @@
 /* GetMatchesByDemandId – Advanced SQL (Aurora Postgres, ODC)
    Purpose: return consultant matches for a demand with scoring, paging, and filters.
 
+   This is the SCORING QUERY (Query 1). Returns only IDs and scores.
+   Display data (names, photos, etc.) comes from GetConsultantMatchDetails (Query 2).
+
    Refactored version:
      • Early NOT EXISTS filter enforcement in ec CTE (consultants failing filters excluded before scoring)
      • Removed aggregate-based filter enforcement (excl_partial, has_filter_partial, IsExcludedMax, HasFilterSum)
@@ -8,7 +11,7 @@
      • Removed ExperienceFilterCount dependency
 
    Output columns (ordered):
-     Id, MatchingScore, PricePerformanceScore, Email, Name, FirstName, LastName, PhotoUrl, EuroFixedRate, Count
+     Id, MatchingScore, Count
 */
 
 WITH
@@ -25,7 +28,7 @@ demand AS (
     {Demand}.[StartDate]                    AS StartDate,
     /* Clean once, reuse everywhere */
     CASE
-      WHEN {Demand}.[StartDate] = @Nulldate THEN @Nulldate
+      WHEN NULLIF({Demand}.[StartDate], '1900-01-01') IS NULL THEN NULL
       WHEN {Demand}.[StartDate] < CURRENT_DATE THEN CURRENT_DATE
       ELSE {Demand}.[StartDate]
     END                                      AS CleanedStartDate,
@@ -149,31 +152,32 @@ eligible_consultant AS (
         )
 
     /* Availability using demand.CleanedStartDate + NullDate sentinel */
+    /* Note: In PostgreSQL, DATE + INTEGER adds that many days (no INTERVAL needed) */
     AND (
           (demand.AvailabilityFilter = @Filter_Default)
           OR (consultant.[IsImmediatelyAvailable] = 1)
           OR (
-               /* CleanedStartDate >= NextAvailabilityDate and NextAvailabilityDate != NullDate */
+               /* CleanedStartDate >= NextAvailabilityDate */
                demand.CleanedStartDate >= consultant.[NextAvailabiltyDate]
-             AND consultant.[NextAvailabiltyDate] <> @Nulldate
+             AND consultant.[NextAvailabiltyDate] IS NOT NULL
              )
           OR (
-               /* CleanedStartDate >= (today + noticePeriod) when noticePeriod != 0 */
-               demand.CleanedStartDate >= (CURRENT_DATE + consultant.[NoticePeriod])::timestamptz
+               /* CleanedStartDate >= (today + noticePeriod days) when noticePeriod != 0 */
+               demand.CleanedStartDate >= CURRENT_DATE + consultant.[NoticePeriod]
              AND consultant.[NoticePeriod] <> 0
              )
           OR (
                demand.AvailabilityFilter = @Filter_Soft
                AND (
                      (
-                       /* (today + 60) >= NextAvailabilityDate and != NullDate */
-                       (CURRENT_DATE + 60)::timestamptz >= consultant.[NextAvailabiltyDate]
-                       AND consultant.[NextAvailabiltyDate] <> @Nulldate
+                       /* (today + 60 days) >= NextAvailabilityDate */
+                       CURRENT_DATE + 60 >= consultant.[NextAvailabiltyDate]
+                       AND consultant.[NextAvailabiltyDate] IS NOT NULL
                      )
                      OR
                      (
-                       /* CleanedStartDate >= (today + (noticePeriod - 60)) when noticePeriod != 0 */
-                       demand.CleanedStartDate >= (CURRENT_DATE + (consultant.[NoticePeriod] - 60))::timestamptz
+                       /* CleanedStartDate >= (today + (noticePeriod - 60) days) when noticePeriod != 0 */
+                       demand.CleanedStartDate >= CURRENT_DATE + (consultant.[NoticePeriod] - 60)
                        AND consultant.[NoticePeriod] <> 0
                      )
                    )
@@ -390,62 +394,18 @@ kept AS (
   WHERE score.MatchingScore > 0
 )
 
-/* ------------- Final projection: join identity & compute price-performance ------------- */
+/* ------------- Final projection: scoring only ------------- */
 SELECT
   /* 1) Id */
-  kept_consultant.ConsultantId                                                                           AS Id,
+  kept_consultant.ConsultantId AS Id,
 
   /* 2) MatchingScore */
-  kept_consultant.MatchingScore                                                                          AS MatchingScore,
+  kept_consultant.MatchingScore AS MatchingScore,
 
-  /* 3) PricePerformanceScore (guards preserved; math in DOUBLE PRECISION) */
-  (CASE
-     WHEN (CAST(consultant.[EuroFixedRate] AS DOUBLE PRECISION) = 0.0)
-          OR ((CAST(demand.ClientOffsiteRate AS DOUBLE PRECISION) <> 0.0)
-              AND (CAST(consultant.[EuroFixedRate] AS DOUBLE PRECISION) > CAST(demand.ClientOffsiteRate AS DOUBLE PRECISION)))
-          OR (CAST(@PricePerformanceRatio AS DOUBLE PRECISION) = 0.0)
-       THEN 0
-     ELSE (kept_consultant.MatchingScore / NULLIF(CAST(consultant.[EuroFixedRate] AS DOUBLE PRECISION), 0.0))
-            / NULLIF(CAST(@PricePerformanceRatio AS DOUBLE PRECISION), 0.0)
-   END)                                                                                                  AS PricePerformanceScore,
-
-  /* 4) Email */
-  (CASE WHEN consultant.[IsInternal] = 1 THEN consultancy_user.[Email]     ELSE external_user.[Email]     END) AS Email,
-
-  /* 5) Name */
-  ((CASE WHEN consultant.[IsInternal] = 1 THEN consultancy_user.[FirstName] ELSE external_user.[FirstName] END)
-    || ' ' ||
-   (CASE WHEN consultant.[IsInternal] = 1 THEN consultancy_user.[LastName]  ELSE external_user.[LastName]  END)) AS Name,
-
-  /* 6) FirstName */
-  (CASE WHEN consultant.[IsInternal] = 1 THEN consultancy_user.[FirstName] ELSE external_user.[FirstName] END) AS FirstName,
-
-  /* 7) LastName */
-  (CASE WHEN consultant.[IsInternal] = 1 THEN consultancy_user.[LastName]  ELSE external_user.[LastName]  END) AS LastName,
-
-  /* 8) PhotoUrl */
-  (CASE WHEN consultant.[IsInternal] = 1
-        THEN COALESCE(NULLIF(consultancy_user.[DefaultPhotoUrlRound], ''), consultancy_user.[DefaultPhotoUrl])
-        ELSE COALESCE(NULLIF(external_user.[DefaultPhotoUrlRound], ''), external_user.[DefaultPhotoUrl])
-   END) AS PhotoUrl,
-
-  /* 9) EuroFixedRate */
-  consultant.[EuroFixedRate]                                                                             AS EuroFixedRate,
-
-  /* 10) Total row count, capped at @CountCap */
-  (SELECT COUNT(*) FROM (SELECT 1 FROM kept LIMIT @CountCap) count_subquery)                             AS Count
+  /* 3) Total row count */
+  (SELECT COUNT(*) FROM kept) AS Count
 
 FROM kept kept_consultant
-JOIN {Consultant} consultant
-  ON consultant.[Id] = kept_consultant.ConsultantId
-  AND consultant.[TenantId] = @TenantId
-LEFT JOIN {ExternalUser} external_user
-  ON consultant.[ExternalUserId] = external_user.[Id]
-  AND NOT (consultant.[IsInternal] = 1)
-LEFT JOIN {ConsultancyUser} consultancy_user
-  ON consultant.[ConsultancyUserId] = consultancy_user.[Id]
-  AND consultant.[IsInternal] = 1
-CROSS JOIN demand
 
 ORDER BY kept_consultant.MatchingScore DESC
 LIMIT @MaxRecords
