@@ -215,8 +215,11 @@ Uses `UNION ALL` (avoids distinct-sort overhead) to combine everything.
 Per consultant:
 
 * `SUM(partial_score)` → `MatchingScore`
+* `COUNT(*) FILTER (WHERE CategoryId <> @Cat_Language)` → `MatchedRequirementsCount`
 
 Simple aggregation since filter enforcement happened earlier in `eligible_consultant`.
+
+Note: The count excludes Language requirements (business rule: language proficiency tracked separately).
 
 ### 3.8 `kept` CTE: Positive Score Filter
 
@@ -242,8 +245,9 @@ Edge cases:
 
 Final stage:
 
-* Outputs `Id`, `MatchingScore`, `PricePerformanceScore`, `Count`
-* Produces `Count` via subquery on `kept`
+* Outputs `Id`, `MatchingScore`, `PricePerformanceScore`, `MatchedRequirementsCount`, `Count`
+* `MatchedRequirementsCount` is per-consultant (excludes Language)
+* Produces `Count` via subquery on `kept` (total consultants)
 
 Pagination:
 
@@ -343,7 +347,7 @@ Secondary indexes (TenantId-first, for branch CTEs if needed):
 ### 7.1 Never Change Unless Explicitly Requested
 
 * Output column list and order:
-  * `Id, MatchingScore, PricePerformanceScore, Count`
+  * `Id, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count`
 * Sort order:
   * `ORDER BY MatchingScore DESC` (unless explicitly changing ranking)
 * Pagination contract:

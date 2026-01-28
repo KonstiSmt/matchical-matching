@@ -58,6 +58,7 @@ requirement_matches AS (
   SELECT
     experience.[ConsultantId] AS ConsultantId,
     req.RequirementId,
+    req.[CategoryId]          AS CategoryId,
     experience.[Score]        AS ConsultantScore,
 
     /* partial_score: same formula as Query 1 branches */
@@ -159,11 +160,10 @@ ranked_matches AS (
   SELECT
     rm.ConsultantId,
     rm.RequirementId,
+    rm.CategoryId,
     rm.ConsultantScore,
     rm.partial_score,
-    rm.RequirementName,
-    ROW_NUMBER() OVER (PARTITION BY rm.ConsultantId ORDER BY rm.partial_score DESC) AS Rank,
-    COUNT(*) OVER (PARTITION BY rm.ConsultantId) AS TotalMatchingRequirements
+    rm.RequirementName
   FROM requirement_matches rm
 )
 
@@ -196,27 +196,29 @@ SELECT
   /* 8) EuroFixedRate */
   cb.EuroFixedRate AS EuroFixedRate,
 
-  /* 9) TotalMatchingRequirements */
-  COALESCE(
-    (SELECT MAX(rm.TotalMatchingRequirements) FROM ranked_matches rm WHERE rm.ConsultantId = cb.ConsultantId),
-    0
-  ) AS TotalMatchingRequirements,
+  /* 9) TotalMatchingRequirements - placeholder, filled by app from Query 1 */
+  0 AS TotalMatchingRequirements,
 
-  /* 10) TopMatchesJson - JSON array of top 3 matches */
+  /* 10) TopMatchesJson - JSON array of top 3 matches (excludes Role category) */
   (
     SELECT COALESCE(
       json_agg(
         json_build_object(
-          'RequirementId', rm.RequirementId,
-          'RequirementName', rm.RequirementName,
-          'ConsultantScore', rm.ConsultantScore
+          'RequirementId', top_matches.RequirementId,
+          'RequirementName', top_matches.RequirementName,
+          'ConsultantScore', top_matches.ConsultantScore
         )
       ),
       '[]'::json
     )
-    FROM ranked_matches rm
-    WHERE rm.ConsultantId = cb.ConsultantId
-      AND rm.Rank <= 3
+    FROM (
+      SELECT rm.RequirementId, rm.RequirementName, rm.ConsultantScore
+      FROM ranked_matches rm
+      WHERE rm.ConsultantId = cb.ConsultantId
+        AND rm.CategoryId <> @Cat_Role
+      ORDER BY rm.partial_score DESC
+      LIMIT 3
+    ) top_matches
   ) AS TopMatchesJson,
 
   /* 11) TopMatches - empty placeholder for OutSystems structure definition */

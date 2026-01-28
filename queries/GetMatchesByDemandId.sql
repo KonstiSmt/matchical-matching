@@ -11,7 +11,7 @@
      • Removed ExperienceFilterCount dependency
 
    Output columns (ordered):
-     Id, MatchingScore, Count
+     Id, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count
 */
 
 WITH
@@ -234,6 +234,7 @@ eligible_consultant AS (
 branch_roleskill AS (
   SELECT
     experience.[ConsultantId] AS ConsultantId,
+    @Cat_RoleSkill AS CategoryId,
     CAST(
       CASE
         WHEN req.ReqScore = 0 THEN 0
@@ -262,6 +263,7 @@ branch_roleskill AS (
 branch_role AS (
   SELECT
     experience.[ConsultantId] AS ConsultantId,
+    @Cat_Role AS CategoryId,
     CAST(
       CASE
         WHEN req.ReqScore = 0 THEN 0
@@ -290,6 +292,7 @@ branch_role AS (
 branch_industry AS (
   SELECT
     experience.[ConsultantId] AS ConsultantId,
+    @Cat_Industry AS CategoryId,
     CAST(
       CASE
         WHEN req.ReqScore = 0 THEN 0
@@ -317,6 +320,7 @@ branch_industry AS (
 branch_functional AS (
   SELECT
     experience.[ConsultantId] AS ConsultantId,
+    @Cat_FunctionalArea AS CategoryId,
     CAST(
       CASE
         WHEN req.ReqScore = 0 THEN 0
@@ -344,6 +348,7 @@ branch_functional AS (
 branch_language AS (
   SELECT
     experience.[ConsultantId] AS ConsultantId,
+    @Cat_Language AS CategoryId,
     CAST(
       CASE
         WHEN req.ReqScore = 0 THEN 0
@@ -382,14 +387,18 @@ partials AS (
 scores AS (
   SELECT
     partial.ConsultantId,
-    SUM(partial.partial_score) AS MatchingScore
+    SUM(partial.partial_score) AS MatchingScore,
+    COUNT(*) FILTER (WHERE partial.CategoryId <> @Cat_Language) AS MatchedRequirementsCount
   FROM partials partial
   GROUP BY partial.ConsultantId
 ),
 
 /* _____________ Keep only consultants with positive score _____________ */
 kept AS (
-  SELECT score.*
+  SELECT
+    score.ConsultantId,
+    score.MatchingScore,
+    score.MatchedRequirementsCount
   FROM scores score
   WHERE score.MatchingScore > 0
 ),
@@ -399,6 +408,7 @@ price_performance AS (
   SELECT
     kept_consultant.ConsultantId,
     kept_consultant.MatchingScore,
+    kept_consultant.MatchedRequirementsCount,
     CASE
       WHEN consultant.[EuroFixedRate] > 0
       THEN kept_consultant.MatchingScore / consultant.[EuroFixedRate]
@@ -430,7 +440,10 @@ SELECT
     ELSE 0
   END AS PricePerformanceScore,
 
-  /* 4) Total row count */
+  /* 4) MatchedRequirementsCount (excludes Language) */
+  pp.MatchedRequirementsCount AS MatchedRequirementsCount,
+
+  /* 5) Total row count */
   (SELECT COUNT(*) FROM kept) AS Count
 
 FROM price_performance pp

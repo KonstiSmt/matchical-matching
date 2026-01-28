@@ -8,7 +8,7 @@ This repository is for iterating on the consultant-to-demand matching queries ru
 
 ## Repository Structure
 
-- `queries/GetMatchesByDemandId.sql` — Query 1: Scoring query (returns ConsultantId, MatchingScore, PricePerformanceScore, Count)
+- `queries/GetMatchesByDemandId.sql` — Query 1: Scoring query (returns ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count)
 - `queries/GetConsultantMatchDetails.sql` — Query 2: Hydration query (returns display data for matched consultants)
 - `docs/query-reference.md` — Full documentation (matching concepts, CTE walkthrough, performance notes)
 - `docs/query1-output-example.json` — Example output for Query 1
@@ -18,12 +18,12 @@ This repository is for iterating on the consultant-to-demand matching queries ru
 
 ```
 Single Backend Call:
-┌─────────────────────────────────────────────────────────────┐
-│ Query 1: GetMatchesByDemandId (Scoring)                      │
-│   → ConsultantId, MatchingScore, PricePerformanceScore, Count│
-│   → Pure scoring, no display data                            │
-│   → Returns: 12-20 rows                                      │
-└─────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Query 1: GetMatchesByDemandId (Scoring)                                       │
+│   → ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count│
+│   → Pure scoring + per-consultant fulfilled count, no display data            │
+│   → Returns: 12-20 rows                                                       │
+└──────────────────────────────────────────────────────────────────────────────┘
                             ↓
                    (Pass ConsultantIds)
                             ↓
@@ -75,7 +75,7 @@ price_performance (window function for ratio calculation) → final SELECT
 
 **Query 1 (GetMatchesByDemandId):**
 ```
-Id, MatchingScore, PricePerformanceScore, Count
+Id, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count
 ```
 
 **Query 2 (GetConsultantMatchDetails):**
