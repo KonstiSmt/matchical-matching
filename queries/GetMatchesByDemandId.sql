@@ -1,4 +1,4 @@
-/* GetMatchesByDemandId – Advanced SQL (Aurora Postgres, ODC)
+/* GetMatchesByDemandId : Advanced SQL (Aurora Postgres, ODC)
    Purpose: return consultant matches for a demand with scoring, paging, and filters.
 
    This is the SCORING QUERY (Query 1). Returns only IDs and scores.
@@ -15,7 +15,7 @@
 */
 
 WITH
-/* ------------- Demand context (single row) ------------- */
+/* _____________ Demand context (single row) _____________ */
 demand AS (
   SELECT
     {Demand}.[Id]                           AS DemandId,
@@ -38,7 +38,7 @@ demand AS (
     AND {Demand}.[TenantId] = @TenantId
 ),
 
-/* ------------- Requirements (valid only) ------------- */
+/* _____________ Requirements (valid only) _____________ */
 requirement AS (
   SELECT
     req.[CategoryId],
@@ -59,7 +59,7 @@ requirement AS (
     AND NOT (req.[HasMissingKeys] = 1)
 ),
 
-/* ------------- Filtered requirements (Hard/Soft only) ------------- */
+/* _____________ Filtered requirements (Hard/Soft only) _____________ */
 filtered_requirement AS (
   SELECT
     freq.[CategoryId],
@@ -79,7 +79,7 @@ filtered_requirement AS (
     AND freq.[FilterCategoryId] <> @Filter_Default
 ),
 
-/* ------------- Eligible consultants (prefilter + filter enforcement) ------------- */
+/* _____________ Eligible consultants (prefilter + filter enforcement) _____________ */
 eligible_consultant AS (
   SELECT consultant.[Id] AS ConsultantId
   FROM {Consultant} consultant
@@ -228,7 +228,7 @@ eligible_consultant AS (
         )
 ),
 
-/* ------------- Category branches with computed partial_score (DOUBLE PRECISION) ------------- */
+/* _____________ Category branches with computed partial_score (DOUBLE PRECISION) _____________ */
 
 /* RoleSkill: match (RoleId, SkillId) */
 branch_roleskill AS (
@@ -365,7 +365,7 @@ branch_language AS (
   JOIN eligible_consultant ec ON ec.ConsultantId = experience.[ConsultantId]
 ),
 
-/* ------------- Union of all category branches ------------- */
+/* _____________ Union of all category branches _____________ */
 partials AS (
   SELECT * FROM branch_roleskill
   UNION ALL
@@ -378,7 +378,7 @@ partials AS (
   SELECT * FROM branch_language
 ),
 
-/* ------------- Aggregate per consultant ------------- */
+/* _____________ Aggregate per consultant _____________ */
 scores AS (
   SELECT
     partial.ConsultantId,
@@ -387,14 +387,14 @@ scores AS (
   GROUP BY partial.ConsultantId
 ),
 
-/* ------------- Keep only consultants with positive score ------------- */
+/* _____________ Keep only consultants with positive score _____________ */
 kept AS (
   SELECT score.*
   FROM scores score
   WHERE score.MatchingScore > 0
 ),
 
-/* ------------- Price-performance calculation with window function ------------- */
+/* _____________ Price-performance calculation with window function _____________ */
 price_performance AS (
   SELECT
     kept_consultant.ConsultantId,
@@ -415,7 +415,7 @@ price_performance AS (
   JOIN {Consultant} consultant ON consultant.[Id] = kept_consultant.ConsultantId
 )
 
-/* ------------- Final projection: scoring + price-performance ------------- */
+/* _____________ Final projection: scoring + price-performance _____________ */
 SELECT
   /* 1) Id */
   pp.ConsultantId AS Id,

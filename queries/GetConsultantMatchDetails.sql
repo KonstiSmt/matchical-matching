@@ -1,4 +1,4 @@
-/* GetConsultantMatchDetails – Advanced SQL (Aurora Postgres, ODC)
+/* GetConsultantMatchDetails : Advanced SQL (Aurora Postgres, ODC)
    Purpose: Hydration query for consultant match cards.
 
    This is the DISPLAY QUERY (Query 2). Called after GetMatchesByDemandId (Query 1).
@@ -16,7 +16,7 @@
 */
 
 WITH
-/* ------------- Consultant base info ------------- */
+/* _____________ Consultant base info _____________ */
 consultant_base AS (
   SELECT
     consultant.[Id]               AS ConsultantId,
@@ -30,7 +30,7 @@ consultant_base AS (
     AND consultant.[TenantId] = @TenantId
 ),
 
-/* ------------- Requirements (valid only) ------------- */
+/* _____________ Requirements (valid only) _____________ */
 requirement AS (
   SELECT
     req.[Id]               AS RequirementId,
@@ -53,7 +53,7 @@ requirement AS (
     AND NOT (req.[HasMissingKeys] = 1)
 ),
 
-/* ------------- Requirement matches with partial_score and names ------------- */
+/* _____________ Requirement matches with partial_score and names _____________ */
 requirement_matches AS (
   SELECT
     experience.[ConsultantId] AS ConsultantId,
@@ -154,7 +154,7 @@ requirement_matches AS (
   WHERE req.ReqScore > 0
 ),
 
-/* ------------- Ranked matches per consultant ------------- */
+/* _____________ Ranked matches per consultant _____________ */
 ranked_matches AS (
   SELECT
     rm.ConsultantId,
@@ -167,7 +167,7 @@ ranked_matches AS (
   FROM requirement_matches rm
 )
 
-/* ------------- Final projection ------------- */
+/* _____________ Final projection _____________ */
 SELECT
   /* 1) ConsultantId */
   cb.ConsultantId AS ConsultantId,

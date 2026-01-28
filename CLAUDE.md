@@ -53,6 +53,12 @@ Single Backend Call:
 
 **Null dates:** Use `@Nulldate` sentinel (typically `1900-01-01`), not SQL `NULL`.
 
+**CRITICAL: No dashes in comments.** Dashes (`-`) in SQL comments can cause query failures in ODC. Use underscores for comment separators instead:
+```sql
+/* _____________ Good _____________ */
+/* ------------- Bad ------------- */
+```
+
 ## Query Architecture (CTE Pipeline)
 
 ```
