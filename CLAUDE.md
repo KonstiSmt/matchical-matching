@@ -4,12 +4,38 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Purpose
 
-This repository is for iterating on the **GetMatchesByDemandId** SQL query—a consultant-to-demand matching query running on **OutSystems ODC** with **Aurora PostgreSQL**.
+This repository is for iterating on the consultant-to-demand matching queries running on **OutSystems ODC** with **Aurora PostgreSQL**.
 
 ## Repository Structure
 
-- `queries/GetMatchesByDemandId.sql` — The active matching query
-- `docs/query-reference.md` — Full documentation (matching concepts, CTE walkthrough, performance notes, improvement directions)
+- `queries/GetMatchesByDemandId.sql` — Query 1: Scoring query (returns ConsultantId, MatchingScore, PricePerformanceScore, Count)
+- `queries/GetConsultantMatchDetails.sql` — Query 2: Hydration query (returns display data for matched consultants)
+- `docs/query-reference.md` — Full documentation (matching concepts, CTE walkthrough, performance notes)
+- `docs/query1-output-example.json` — Example output for Query 1
+- `docs/query2-output-example.json` — Example output for Query 2
+
+## Two-Query Architecture
+
+```
+Single Backend Call:
+┌─────────────────────────────────────────────────────────────┐
+│ Query 1: GetMatchesByDemandId (Scoring)                      │
+│   → ConsultantId, MatchingScore, PricePerformanceScore, Count│
+│   → Pure scoring, no display data                            │
+│   → Returns: 12-20 rows                                      │
+└─────────────────────────────────────────────────────────────┘
+                            ↓
+                   (Pass ConsultantIds)
+                            ↓
+┌─────────────────────────────────────────────────────────────┐
+│ Query 2: GetConsultantMatchDetails (Hydration)               │
+│   → Input: ConsultantIds (comma-separated), DemandId         │
+│   → Output: Nested JSON per consultant                       │
+│     • Consultant info (name, photo, role, rate)              │
+│     • Top 3 matches + total count                            │
+│   → Returns: 12-20 rows (one per consultant)                 │
+└─────────────────────────────────────────────────────────────┘
+```
 
 ## OutSystems ODC Advanced SQL Rules
 
@@ -34,16 +60,45 @@ d (demand context) → req (requirements) → ec (eligible consultants prefilter
     ↓
 b_roleskill, b_role, b_industry, b_functional, b_language (scoring branches)
     ↓
-partials (union) → scores (aggregate) → kept (filter enforcement) → final SELECT
+partials (union) → scores (aggregate) → kept (filter enforcement)
+    ↓
+price_performance (window function for ratio calculation) → final SELECT
 ```
 
-## Output Column Contract (DO NOT REORDER)
+## Output Column Contracts (DO NOT REORDER)
 
+**Query 1 (GetMatchesByDemandId):**
 ```
-Id, MatchingScore, PricePerformanceScore, Email, Name, FirstName, LastName, PhotoUrl, EuroFixedRate, Count
+Id, MatchingScore, PricePerformanceScore, Count
+```
+
+**Query 2 (GetConsultantMatchDetails):**
+```
+ConsultantId, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches
 ```
 
 Column order is contractual with the OutSystems output structure.
+
+**JSON Column Naming Convention:** Columns containing JSON data should be suffixed with `Json` (e.g., `TopMatchesJson`). Documentation should show the expanded structure for clarity.
+
+## OutSystems Nested JSON Output Rule
+
+When a query output contains nested structures (lists/arrays of objects), return **both**:
+- `FieldNameJson` (Text) - The actual JSON string with data
+- `FieldName` (List) - An empty array `'[]'::json` as structure placeholder
+
+**Why:** OutSystems requires the output structure to match exactly. The empty placeholder allows OutSystems to define the nested structure, while the JSON column provides the data.
+
+**Example:**
+```sql
+/* Actual data */
+(SELECT COALESCE(json_agg(...), '[]'::json) ...) AS TopMatchesJson,
+
+/* Empty placeholder for structure definition */
+'[]'::json AS TopMatches
+```
+
+**Recursive:** If nested items have their own nested arrays, apply the same pattern at each level.
 
 ## Safe Modification Zones
 
@@ -51,6 +106,7 @@ Column order is contractual with the OutSystems output structure.
 |-------------|-------------|
 | Eligibility filters | `ec` CTE |
 | Scoring logic | `b_*` category branches |
+| Price-performance calculation | `price_performance` CTE |
 | Output fields | Final SELECT |
 | Count behavior | Final SELECT's Count expression |
 | Requirement selection | `req` CTE |
@@ -61,6 +117,7 @@ Column order is contractual with the OutSystems output structure.
 2. Changes must be **surgical**—modify only what's required, keep everything else verbatim
 3. Never change column order without explicit request
 4. Never add trailing semicolon
+5. **When query output changes, always update the corresponding output example file** (`docs/query1-output-example.json` or `docs/query2-output-example.json`)
 
 ## Naming Conventions
 
@@ -87,8 +144,12 @@ After any change, verify:
 - Location filter (Default/Soft/Hard) edge cases
 - Availability filter edge cases
 - "Not Available" status exclusion when availability filter is active
-- Count accuracy with cap
-- Internal vs external identity field resolution
+- Count accuracy
+- PricePerformanceScore: best ratio consultant = 10, others scaled proportionally
+- PricePerformanceScore edge case: EuroFixedRate = 0 results in score = 0
+- Internal vs external identity field resolution (Query 2)
+- Requirement names resolve correctly for all 5 categories (Query 2)
+- TopMatches JSON contains top 3 ranked by partial_score (Query 2)
 
 ## Entity Reference
 
@@ -103,6 +164,7 @@ Primary entity representing a consultant (internal or external).
 | `ConsultancyUserId` | FK to ConsultancyUser (when IsInternal=1) |
 | `ExternalUserId` | FK to ExternalUser (when IsInternal=0) |
 | `StatusId` | FK to Status |
+| `TopRoleId` | FK to Role (consultant's primary role, for display) |
 | `EuroFixedRate` | Rate for price-performance calculation |
 | `NextAvailabiltyDate` | Next availability date (NullDate sentinel if not set) |
 | `IsImmediatelyAvailable` | Boolean: immediately available |
@@ -148,7 +210,9 @@ Individual requirement line for a demand (skills, roles, industries, etc.).
 | `DemandId` | FK to Demand |
 | `TenantId` | Tenant isolation |
 | `CategoryId` | Category: RoleSkill, Role, Industry, FunctionalArea, Language |
-| `RoleId`, `SkillId` | Keys for RoleSkill/Role categories |
+| `RoleId`, `SkillId` | Keys for RoleSkill/Role categories (Experience matching) |
+| `SkillAliasId` | FK to SkillAlias (for RoleSkill category display name) |
+| `RoleAliasId` | FK to RoleAlias (for Role category display name) |
 | `IndustryId` | Key for Industry category |
 | `FunctionalAreaId` | Key for FunctionalArea category |
 | `LanguageId` | Key for Language category |
@@ -195,3 +259,38 @@ Consultant status reference.
 | `@Filter_Default` | No filtering, scoring only |
 | `@Filter_Soft` | Soft filter: Score > 0 required |
 | `@Filter_Hard` | Hard filter: Score >= ReqScore required |
+
+## LocaleDict Joining Pattern
+
+All translatable text is stored via LocaleKey → LocaleDict:
+- Entity has `NameLocaleKeyId` (or similar) attribute
+- Join directly to `{LocaleDict}` (skip `{LocaleKey}` table)
+- Filter by `LanguageId` parameter
+
+**Example:**
+```sql
+LEFT JOIN {LocaleDict} name_locale
+  ON name_locale.[LocaleKeyId] = {Entity}.[NameLocaleKeyId]
+  AND name_locale.[LanguageId] = @SystemLanguage
+```
+
+**Entities with LocaleDict (via NameLocaleKeyId):**
+
+| Entity | Join Path |
+|--------|-----------|
+| Role | Role.NameLocaleKeyId → LocaleDict |
+| RoleAlias | RoleAlias.NameLocaleKeyId → LocaleDict |
+| SkillAlias | SkillAlias.NameLocaleKeyId → LocaleDict |
+| Industry | Industry.NameLocaleKeyId → LocaleDict |
+| FunctionalArea | FunctionalArea.NameLocaleKeyId → LocaleDict |
+| Language | Language.NameLocaleKeyId → LocaleDict |
+
+**Requirement Name Resolution (Query 2):**
+
+| Category | DemandRequirement Field | Join Path |
+|----------|------------------------|-----------|
+| RoleSkill | `SkillAliasId` | → SkillAlias → LocaleDict |
+| Role | `RoleAliasId` | → RoleAlias → LocaleDict |
+| Industry | `IndustryId` | → Industry → LocaleDict |
+| FunctionalArea | `FunctionalAreaId` | → FunctionalArea → LocaleDict |
+| Language | `LanguageId` | → Language → LocaleDict |

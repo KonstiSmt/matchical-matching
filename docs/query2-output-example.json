@@ -1,9 +1,10 @@
 {
   "description": "GetConsultantMatchDetails - Query 2 Output Example",
-  "note": "Hydration query - returns consultant details and top 3 matching requirements as nested JSON. One row per consultant.",
+  "note": "Hydration query - returns consultant details and top 3 matching requirements. One row per consultant. MatchingScore and PricePerformanceScore are placeholders (0) - filled by app from Query 1.",
+  "columnOrder": "ConsultantId, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches",
   "singleRow": {
     "ConsultantId": "550e8400-e29b-41d4-a716-446655440001",
-    "MatchingScore": 80.5,
+    "MatchingScore": 0,
     "PricePerformanceScore": 0,
     "FirstName": "György",
     "LastName": "Almási",
@@ -11,7 +12,9 @@
     "RoleTitle": "Quality Assurance Specialist",
     "EuroFixedRate": 85.00,
     "TotalMatchingRequirements": 5,
-    "TopMatches": [
+    "TopMatchesJson": "[{\"RequirementId\":\"req-001\",\"RequirementName\":\"Cognigy\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":5},{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":4}]",
+    "TopMatches": [],
+    "TopMatches (expanded for documentation)": [
       {
         "RequirementId": "req-001",
         "RequirementName": "Cognigy",
@@ -32,7 +35,7 @@
   "exampleResultSet": [
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440001",
-      "MatchingScore": 80.5,
+      "MatchingScore": 0,
       "PricePerformanceScore": 0,
       "FirstName": "György",
       "LastName": "Almási",
@@ -40,55 +43,25 @@
       "RoleTitle": "Quality Assurance Specialist",
       "EuroFixedRate": 85.00,
       "TotalMatchingRequirements": 5,
-      "TopMatches": [
-        {
-          "RequirementId": "req-001",
-          "RequirementName": "Cognigy",
-          "ConsultantScore": 5
-        },
-        {
-          "RequirementId": "req-002",
-          "RequirementName": "AI Testing",
-          "ConsultantScore": 5
-        },
-        {
-          "RequirementId": "req-003",
-          "RequirementName": "Test Automation Conception",
-          "ConsultantScore": 4
-        }
-      ]
+      "TopMatchesJson": "[{\"RequirementId\":\"req-001\",\"RequirementName\":\"Cognigy\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":5},{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":4}]",
+      "TopMatches": []
     },
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440002",
-      "MatchingScore": 52.3,
-      "PricePerformanceScore": 1.2,
+      "MatchingScore": 0,
+      "PricePerformanceScore": 0,
       "FirstName": "Ralph",
       "LastName": "Luedecke",
       "PhotoUrl": "https://storage.example.com/photos/rl-round.jpg",
       "RoleTitle": "Quality Assurance Specialist",
       "EuroFixedRate": 75.00,
       "TotalMatchingRequirements": 4,
-      "TopMatches": [
-        {
-          "RequirementId": "req-003",
-          "RequirementName": "Test Automation Conception",
-          "ConsultantScore": 5
-        },
-        {
-          "RequirementId": "req-002",
-          "RequirementName": "AI Testing",
-          "ConsultantScore": 3
-        },
-        {
-          "RequirementId": "req-004",
-          "RequirementName": "AI Quality Assurance",
-          "ConsultantScore": 2
-        }
-      ]
+      "TopMatchesJson": "[{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":3},{\"RequirementId\":\"req-004\",\"RequirementName\":\"AI Quality Assurance\",\"ConsultantScore\":2}]",
+      "TopMatches": []
     },
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440003",
-      "MatchingScore": 49.0,
+      "MatchingScore": 0,
       "PricePerformanceScore": 0,
       "FirstName": "Hüseyin Ibrahim",
       "LastName": "Adam",
@@ -96,36 +69,51 @@
       "RoleTitle": "Quality Assurance Specialist",
       "EuroFixedRate": 0,
       "TotalMatchingRequirements": 3,
-      "TopMatches": [
-        {
-          "RequirementId": "req-003",
-          "RequirementName": "Test Automation Conception",
-          "ConsultantScore": 5
-        },
-        {
-          "RequirementId": "req-002",
-          "RequirementName": "AI Testing",
-          "ConsultantScore": 2
-        },
-        {
-          "RequirementId": "req-004",
-          "RequirementName": "AI Quality Assurance",
-          "ConsultantScore": 2
-        }
-      ]
+      "TopMatchesJson": "[{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":2},{\"RequirementId\":\"req-004\",\"RequirementName\":\"AI Quality Assurance\",\"ConsultantScore\":2}]",
+      "TopMatches": []
     }
   ],
   "fieldDescriptions": {
     "ConsultantId": "Consultant.Id - the matched consultant's unique identifier",
-    "MatchingScore": "Passed from Query 1 (or recomputed if needed)",
-    "PricePerformanceScore": "Computed from MatchingScore / EuroFixedRate / @PricePerformanceRatio. 0 if rate is 0 or exceeds ClientOffsiteRate.",
+    "MatchingScore": "Placeholder (returns 0). Actual value from Query 1, mapped in application layer.",
+    "PricePerformanceScore": "Placeholder (returns 0). Actual value from Query 1, mapped in application layer.",
     "FirstName": "From ConsultancyUser (if IsInternal=1) or ExternalUser (if IsInternal=0)",
     "LastName": "From ConsultancyUser (if IsInternal=1) or ExternalUser (if IsInternal=0)",
     "PhotoUrl": "DefaultPhotoUrlRound from ConsultancyUser or ExternalUser based on IsInternal",
     "RoleTitle": "Consultant.TopRoleId → Role.NameLocaleKeyId → LocaleDict.TextValue (filtered by @SystemLanguage)",
-    "EuroFixedRate": "Consultant.EuroFixedRate - used for price-performance calculation",
+    "EuroFixedRate": "Consultant.EuroFixedRate - displayed on consultant card",
     "TotalMatchingRequirements": "Total count of requirements where consultant has Score > 0",
-    "TopMatches": "JSON array of top 3 requirements (ranked by partial_score contribution, not raw score)"
+    "TopMatchesJson": "JSON string containing array of top 3 requirements (ranked by partial_score contribution)",
+    "TopMatches": "Empty array placeholder for OutSystems structure definition (actual data is in TopMatchesJson)"
   },
-  "topMatchesNote": "TopMatches is sorted by partial_score contribution to MatchingScore, not by ConsultantScore. A requirement with 8% weight at 4/4 (100% fulfillment = 8% contribution) ranks higher than 10% weight at 3/5 (60% fulfillment = 6% contribution)."
+  "topMatchesJsonStructure": {
+    "description": "Expanded structure of TopMatchesJson array elements",
+    "fields": {
+      "RequirementId": "DemandRequirement.Id",
+      "RequirementName": "Localized name via category-specific join (SkillAlias/RoleAlias/Industry/FunctionalArea/Language → LocaleDict)",
+      "ConsultantScore": "Experience.Score - the consultant's score for this requirement"
+    },
+    "example": [
+      {
+        "RequirementId": "req-001",
+        "RequirementName": "Cognigy",
+        "ConsultantScore": 5
+      },
+      {
+        "RequirementId": "req-002",
+        "RequirementName": "AI Testing",
+        "ConsultantScore": 5
+      },
+      {
+        "RequirementId": "req-003",
+        "RequirementName": "Test Automation Conception",
+        "ConsultantScore": 4
+      }
+    ]
+  },
+  "topMatchesNote": "TopMatchesJson is sorted by partial_score contribution to MatchingScore, not by ConsultantScore. A requirement with 8% weight at 4/4 (100% fulfillment = 8% contribution) ranks higher than 10% weight at 3/5 (60% fulfillment = 6% contribution).",
+  "appLayerMapping": {
+    "description": "After Query 2 returns, map MatchingScore and PricePerformanceScore from Query 1 results",
+    "pseudoCode": "FOR each row in Query2Results: match = Query1Results.Find(r => r.Id == row.ConsultantId); row.MatchingScore = match.MatchingScore; row.PricePerformanceScore = match.PricePerformanceScore"
+  }
 }

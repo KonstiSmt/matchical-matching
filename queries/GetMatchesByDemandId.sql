@@ -392,21 +392,49 @@ kept AS (
   SELECT score.*
   FROM scores score
   WHERE score.MatchingScore > 0
+),
+
+/* ------------- Price-performance calculation with window function ------------- */
+price_performance AS (
+  SELECT
+    kept_consultant.ConsultantId,
+    kept_consultant.MatchingScore,
+    CASE
+      WHEN consultant.[EuroFixedRate] > 0
+      THEN kept_consultant.MatchingScore / consultant.[EuroFixedRate]
+      ELSE 0
+    END AS Ratio,
+    MAX(
+      CASE
+        WHEN consultant.[EuroFixedRate] > 0
+        THEN kept_consultant.MatchingScore / consultant.[EuroFixedRate]
+        ELSE 0
+      END
+    ) OVER () AS BestRatio
+  FROM kept kept_consultant
+  JOIN {Consultant} consultant ON consultant.[Id] = kept_consultant.ConsultantId
 )
 
-/* ------------- Final projection: scoring only ------------- */
+/* ------------- Final projection: scoring + price-performance ------------- */
 SELECT
   /* 1) Id */
-  kept_consultant.ConsultantId AS Id,
+  pp.ConsultantId AS Id,
 
   /* 2) MatchingScore */
-  kept_consultant.MatchingScore AS MatchingScore,
+  pp.MatchingScore AS MatchingScore,
 
-  /* 3) Total row count */
+  /* 3) PricePerformanceScore (0-10 scale) */
+  CASE
+    WHEN pp.BestRatio > 0
+    THEN (pp.Ratio / pp.BestRatio) * 10
+    ELSE 0
+  END AS PricePerformanceScore,
+
+  /* 4) Total row count */
   (SELECT COUNT(*) FROM kept) AS Count
 
-FROM kept kept_consultant
+FROM price_performance pp
 
-ORDER BY kept_consultant.MatchingScore DESC
+ORDER BY pp.MatchingScore DESC
 LIMIT @MaxRecords
 OFFSET @StartIndex

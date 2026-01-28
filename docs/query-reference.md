@@ -224,19 +224,30 @@ Removes consultants with zero or negative MatchingScore:
 
 * `WHERE MatchingScore > 0`
 
-### 3.9 Final SELECT: Identity Fields + Price-Performance + Pagination + Capped Count
+### 3.9 `price_performance` CTE: Price-Performance Ratio Calculation
+
+Computes the price-performance score using a window function:
+
+* **Ratio** = `MatchingScore / EuroFixedRate` (higher = better value per euro)
+* **Best Ratio** = `MAX(Ratio) OVER ()` across all kept consultants
+* **PricePerformanceScore** = `(Ratio / BestRatio) * 10` (scaled 0-10)
+
+Uses a window function to compute the best ratio in a single pass, avoiding extra subqueries.
+
+Edge cases:
+* `EuroFixedRate <= 0`: Ratio treated as 0
+* `BestRatio = 0` (all consultants have zero rate): PricePerformanceScore = 0
+
+### 3.10 Final SELECT: Scoring + Pagination
 
 Final stage:
 
-* Joins `{Consultant}` again (identity join after scoring)
-* Joins `{ExternalUser}` and `{ConsultancyUser}` to produce Email/Name/Photo fields
-* Computes `PricePerformanceScore` guarded against division by zero and rate thresholds
-* Produces `Count` via a capped count subquery:
-  * `(SELECT COUNT(*) FROM (SELECT 1 FROM kept LIMIT @CountCap) count_subquery)`
+* Outputs `Id`, `MatchingScore`, `PricePerformanceScore`, `Count`
+* Produces `Count` via subquery on `kept`
 
 Pagination:
 
-* `ORDER BY kept_consultant.MatchingScore DESC`
+* `ORDER BY MatchingScore DESC`
 * `LIMIT @MaxRecords`
 * `OFFSET @StartIndex`
 
@@ -332,9 +343,9 @@ Secondary indexes (TenantId-first, for branch CTEs if needed):
 ### 7.1 Never Change Unless Explicitly Requested
 
 * Output column list and order:
-  * `Id, MatchingScore, PricePerformanceScore, Email, Name, FirstName, LastName, PhotoUrl, EuroFixedRate, Count`
+  * `Id, MatchingScore, PricePerformanceScore, Count`
 * Sort order:
-  * `ORDER BY kept_consultant.MatchingScore DESC` (unless explicitly changing ranking)
+  * `ORDER BY MatchingScore DESC` (unless explicitly changing ranking)
 * Pagination contract:
   * `LIMIT @MaxRecords`
   * `OFFSET @StartIndex`
@@ -346,6 +357,7 @@ Secondary indexes (TenantId-first, for branch CTEs if needed):
 * Filter enforcement logic: **`eligible_consultant` CTE (NOT EXISTS block)**
 * Filtered requirement definition: **`filtered_requirement` CTE**
 * Pure scoring changes: **category branches** (`branch_*`)
+* Price-performance calculation: **`price_performance` CTE**
 * Output field changes (adding/removing columns): **final SELECT**
 * Count behavior: **final SELECT's Count expression**
 * Requirements selection logic: **`requirement` CTE**
@@ -361,6 +373,8 @@ Secondary indexes (TenantId-first, for branch CTEs if needed):
   * Missing experience coverage (consultant with no matching experience excluded)
   * Not-available status behavior when availability filter is not default
 * Compare `Count` correctness (especially with cap)
+* Verify PricePerformanceScore: best ratio consultant = 10, others scaled proportionally
+* Verify edge case: EuroFixedRate = 0 results in PricePerformanceScore = 0
 * Validate that internal/external identity fields still resolve correctly
 
 ---
