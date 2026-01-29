@@ -427,27 +427,34 @@ price_performance AS (
 
 /* _____________ Final projection: scoring + price-performance _____________ */
 SELECT
-  /* 1) Id */
-  pp.ConsultantId AS Id,
+  final.Id,
+  final.MatchingScore,
+  final.PricePerformanceScore,
+  final.MatchedRequirementsCount,
+  final.Count
+FROM (
+  SELECT
+    /* 1) Id */
+    pp.ConsultantId AS Id,
 
-  /* 2) MatchingScore */
-  pp.MatchingScore AS MatchingScore,
+    /* 2) MatchingScore */
+    pp.MatchingScore AS MatchingScore,
 
-  /* 3) PricePerformanceScore (0-10 scale) */
-  CASE
-    WHEN pp.BestRatio > 0
-    THEN (pp.Ratio / pp.BestRatio) * 10
-    ELSE 0
-  END AS PricePerformanceScore,
+    /* 3) PricePerformanceScore (0-10 scale) */
+    CASE
+      WHEN pp.BestRatio > 0
+      THEN (pp.Ratio / pp.BestRatio) * 10
+      ELSE 0
+    END AS PricePerformanceScore,
 
-  /* 4) MatchedRequirementsCount (excludes Language) */
-  pp.MatchedRequirementsCount AS MatchedRequirementsCount,
+    /* 4) MatchedRequirementsCount (excludes Language) */
+    pp.MatchedRequirementsCount AS MatchedRequirementsCount,
 
-  /* 5) Total row count */
-  (SELECT COUNT(*) FROM kept) AS Count
+    /* 5) Total row count (computed once via window function) */
+    COUNT(*) OVER() AS Count
 
-FROM price_performance pp
-
-ORDER BY pp.MatchingScore DESC
+  FROM price_performance pp
+) final
+ORDER BY final.MatchingScore DESC
 LIMIT @MaxRecords
 OFFSET @StartIndex
