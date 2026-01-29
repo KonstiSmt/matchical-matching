@@ -1,9 +1,10 @@
 {
   "description": "GetConsultantMatchDetails - Query 2 Output Example",
   "note": "Hydration query - returns consultant details and top 2 matching requirements. One row per consultant. MatchingScore and PricePerformanceScore are placeholders (0) - filled by app from Query 1.",
-  "columnOrder": "ConsultantId, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches, IsPinned",
+  "columnOrder": "ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches",
   "singleRow": {
     "ConsultantId": "550e8400-e29b-41d4-a716-446655440001",
+    "IsPinned": 1,
     "MatchingScore": 0,
     "PricePerformanceScore": 0,
     "FirstName": "György",
@@ -14,7 +15,6 @@
     "TotalMatchingRequirements": 5,
     "TopMatchesJson": "[{\"RequirementId\":\"req-001\",\"RequirementName\":\"Cognigy\",\"ConsultantScore\":10},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":10}]",
     "TopMatches": null,
-    "IsPinned": 1,
     "TopMatches (expanded for documentation)": [
       {
         "RequirementId": "req-001",
@@ -31,6 +31,7 @@
   "exampleResultSet": [
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440001",
+      "IsPinned": 1,
       "MatchingScore": 0,
       "PricePerformanceScore": 0,
       "FirstName": "György",
@@ -40,11 +41,11 @@
       "EuroFixedRate": 85.00,
       "TotalMatchingRequirements": 5,
       "TopMatchesJson": "[{\"RequirementId\":\"req-001\",\"RequirementName\":\"Cognigy\",\"ConsultantScore\":10},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":10}]",
-      "TopMatches": null,
-      "IsPinned": 1
+      "TopMatches": null
     },
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440002",
+      "IsPinned": 0,
       "MatchingScore": 0,
       "PricePerformanceScore": 0,
       "FirstName": "Ralph",
@@ -54,11 +55,11 @@
       "EuroFixedRate": 75.00,
       "TotalMatchingRequirements": 4,
       "TopMatchesJson": "[{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":10},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":6}]",
-      "TopMatches": null,
-      "IsPinned": 0
+      "TopMatches": null
     },
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440003",
+      "IsPinned": 0,
       "MatchingScore": 0,
       "PricePerformanceScore": 0,
       "FirstName": "Hüseyin Ibrahim",
@@ -68,12 +69,12 @@
       "EuroFixedRate": 0,
       "TotalMatchingRequirements": 3,
       "TopMatchesJson": "[{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":10},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":4}]",
-      "TopMatches": null,
-      "IsPinned": 0
+      "TopMatches": null
     }
   ],
   "fieldDescriptions": {
     "ConsultantId": "Consultant.Id - the matched consultant's unique identifier",
+    "IsPinned": "Boolean (0/1): true if consultant is already assigned to this demand (exists in DemandConsultants)",
     "MatchingScore": "Placeholder (returns 0). Actual value from Query 1, mapped in application layer.",
     "PricePerformanceScore": "Placeholder (returns 0). Actual value from Query 1, mapped in application layer.",
     "FirstName": "From ConsultancyUser (if IsInternal=1) or ExternalUser (if IsInternal=0)",
@@ -83,8 +84,7 @@
     "EuroFixedRate": "Consultant.EuroFixedRate - displayed on consultant card",
     "TotalMatchingRequirements": "Total count of requirements where consultant has Score > 0",
     "TopMatchesJson": "JSON string containing array of top 2 requirements (ranked by partial_score contribution)",
-    "TopMatches": "NULL placeholder for OutSystems structure definition (actual data is in TopMatchesJson)",
-    "IsPinned": "Boolean (0/1): true if consultant is already assigned to this demand (exists in DemandConsultants)"
+    "TopMatches": "NULL placeholder for OutSystems structure definition (actual data is in TopMatchesJson)"
   },
   "topMatchesJsonStructure": {
     "description": "Expanded structure of TopMatchesJson array elements",

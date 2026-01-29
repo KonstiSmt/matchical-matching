@@ -97,7 +97,7 @@ Id, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count
 
 **Query 2 (GetConsultantMatchDetails):**
 ```
-ConsultantId, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches, IsPinned
+ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches
 ```
 
 **Query 3 (GetMatchingScoreByConsultantIds):**

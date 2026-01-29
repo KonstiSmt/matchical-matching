@@ -7,8 +7,8 @@
    Input: @ConsultantIds (comma-separated, Expand Inline), @DemandId, @TenantId, @SystemLanguage
 
    Output columns (ordered):
-     ConsultantId, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl,
-     RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches, IsPinned
+     ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl,
+     RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches
 
    NOTE: MatchingScore and PricePerformanceScore return 0 as placeholders.
    These values are already calculated in Query 1 and should be mapped in the
@@ -172,34 +172,37 @@ SELECT
   /* 1) ConsultantId */
   cb.ConsultantId AS ConsultantId,
 
-  /* 2) MatchingScore - placeholder, filled by app from Query 1 */
+  /* 2) IsPinned - true if consultant is assigned to this demand */
+  CASE WHEN demand_consultant.[Id] IS NOT NULL THEN 1 ELSE 0 END AS IsPinned,
+
+  /* 3) MatchingScore - placeholder, filled by app from Query 1 */
   0 AS MatchingScore,
 
-  /* 3) PricePerformanceScore - placeholder, filled by app from Query 1 */
+  /* 4) PricePerformanceScore - placeholder, filled by app from Query 1 */
   0 AS PricePerformanceScore,
 
-  /* 4) FirstName */
+  /* 5) FirstName */
   (CASE WHEN cb.IsInternal = 1 THEN consultancy_user.[FirstName] ELSE external_user.[FirstName] END) AS FirstName,
 
-  /* 5) LastName */
+  /* 6) LastName */
   (CASE WHEN cb.IsInternal = 1 THEN consultancy_user.[LastName] ELSE external_user.[LastName] END) AS LastName,
 
-  /* 6) PhotoUrl */
+  /* 7) PhotoUrl */
   (CASE WHEN cb.IsInternal = 1
         THEN COALESCE(NULLIF(consultancy_user.[DefaultPhotoUrlRound], ''), consultancy_user.[DefaultPhotoUrl])
         ELSE COALESCE(NULLIF(external_user.[DefaultPhotoUrlRound], ''), external_user.[DefaultPhotoUrl])
    END) AS PhotoUrl,
 
-  /* 7) RoleTitle */
+  /* 8) RoleTitle */
   role_locale.[TextValue] AS RoleTitle,
 
-  /* 8) EuroFixedRate */
+  /* 9) EuroFixedRate */
   cb.EuroFixedRate AS EuroFixedRate,
 
-  /* 9) TotalMatchingRequirements - placeholder, filled by app from Query 1 */
+  /* 10) TotalMatchingRequirements - placeholder, filled by app from Query 1 */
   0 AS TotalMatchingRequirements,
 
-  /* 10) TopMatchesJson - JSON array of top 2 matches (excludes Role category) */
+  /* 11) TopMatchesJson - JSON array of top 2 matches (excludes Role category) */
   (
     SELECT COALESCE(
       json_agg(
@@ -221,15 +224,8 @@ SELECT
     ) top_matches
   ) AS TopMatchesJson,
 
-  /* 11) TopMatches - NULL placeholder for OutSystems structure definition */
-  NULL AS TopMatches,
-
-  /* 12) IsPinned - true if consultant is assigned to this demand */
-  CASE WHEN EXISTS (
-    SELECT 1 FROM {DemandConsultants} demand_consultant
-    WHERE demand_consultant.[ConsultantId] = cb.ConsultantId
-      AND demand_consultant.[DemandId] = @DemandId
-  ) THEN 1 ELSE 0 END AS IsPinned
+  /* 12) TopMatches - NULL placeholder for OutSystems structure definition */
+  NULL AS TopMatches
 
 FROM consultant_base cb
 LEFT JOIN {ConsultancyUser} consultancy_user
@@ -243,3 +239,6 @@ LEFT JOIN {Role} role_ref
 LEFT JOIN {LocaleDict} role_locale
   ON role_locale.[LocaleKeyId] = role_ref.[NameLocaleKeyId]
   AND role_locale.[LanguageId] = @SystemLanguage
+LEFT JOIN {DemandConsultants} demand_consultant
+  ON demand_consultant.[ConsultantId] = cb.ConsultantId
+  AND demand_consultant.[DemandId] = @DemandId
