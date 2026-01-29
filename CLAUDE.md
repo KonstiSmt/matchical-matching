@@ -10,11 +10,13 @@ This repository is for iterating on the consultant-to-demand matching queries ru
 
 - `queries/GetMatchesByDemandId.sql` — Query 1: Scoring query (returns ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count)
 - `queries/GetConsultantMatchDetails.sql` — Query 2: Hydration query (returns display data for matched consultants)
+- `queries/GetMatchingScoreByConsultantIds.sql` — Query 3: Lightweight scoring query (returns ConsultantId, MatchingScore for specific consultants)
 - `docs/query-reference.md` — Full documentation (matching concepts, CTE walkthrough, performance notes)
 - `docs/query1-output-example.json` — Example output for Query 1
 - `docs/query2-output-example.json` — Example output for Query 2
+- `docs/query3-output-example.json` — Example output for Query 3
 
-## Two-Query Architecture
+## Query Architecture
 
 ```
 Single Backend Call:
@@ -35,6 +37,15 @@ Single Backend Call:
 │     • Top 3 matches + total count                            │
 │   → Returns: 12-20 rows (one per consultant)                 │
 └─────────────────────────────────────────────────────────────┘
+
+Score Recalculation (On-Demand):
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Query 3: GetMatchingScoreByConsultantIds (Lightweight Scoring)               │
+│   → Input: ConsultantIds (comma-separated), DemandId, TenantId               │
+│   → Output: ConsultantId, MatchingScore                                      │
+│   → No filters, no sorting, no pagination                                    │
+│   → Used when requirements or experiences change                             │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ## OutSystems ODC Advanced SQL Rules
@@ -46,6 +57,12 @@ Single Backend Call:
 ```
 
 **Parameters:** `@ParamName`
+
+**List parameters (Expand Inline):** When a parameter contains multiple IDs (e.g., `@ConsultantIds`), it uses "Expand Inline" in OutSystems. The parameter value is expanded directly into the SQL as literal text. Use it directly in an IN clause:
+```sql
+WHERE consultant.[Id] IN (@ConsultantIds)
+```
+Do NOT try to parse it as a string with `STRING_TO_ARRAY` or `UNNEST`. It's not a string—it's already expanded SQL.
 
 **CRITICAL: No trailing semicolon.** ODC Advanced SQL can fail with a trailing `;`. End with the last SQL token (e.g., `OFFSET @StartIndex`).
 
@@ -81,6 +98,11 @@ Id, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count
 **Query 2 (GetConsultantMatchDetails):**
 ```
 ConsultantId, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches
+```
+
+**Query 3 (GetMatchingScoreByConsultantIds):**
+```
+Id, MatchingScore
 ```
 
 Column order is contractual with the OutSystems output structure.

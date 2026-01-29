@@ -437,3 +437,88 @@ Pragmatic expectations:
 | `@CountCap` | Maximum count to return (avoids full count) |
 | `@MaxRecords` | Page size for pagination |
 | `@StartIndex` | Offset for pagination |
+
+---
+
+## 10) GetMatchingScoreByConsultantIds (Query 3)
+
+### Purpose
+
+A lightweight scoring query that returns only `MatchingScore` for specific consultant(s) against a demand. Used when demand requirements or consultant experiences change and scores need recalculation.
+
+### Input Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `@TenantId` | GUID | Tenant isolation |
+| `@DemandId` | GUID | Target demand |
+| `@ConsultantIds` | Text (Expand Inline) | Comma-separated consultant UUIDs for IN clause |
+| `@Cat_RoleSkill` | Category ID | Category ID for RoleSkill |
+| `@Cat_Role` | Category ID | Category ID for Role |
+| `@Cat_Industry` | Category ID | Category ID for Industry |
+| `@Cat_FunctionalArea` | Category ID | Category ID for FunctionalArea |
+| `@Cat_Language` | Category ID | Category ID for Language |
+
+### Output Columns
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `Id` | GUID | The consultant ID |
+| `MatchingScore` | Decimal | Aggregated score from all matched requirements (0 if no matches) |
+
+### Query Architecture
+
+Streamlined pipeline with no filters, no sorting, no pagination:
+
+```
+input_consultant (SELECT from Consultant WHERE Id IN @ConsultantIds)
+    ↓
+requirement (active requirements for demand)
+    ↓
+5 category branches (join to Experience WHERE ConsultantId IN @ConsultantIds)
+    ↓
+partials (UNION ALL)
+    ↓
+scores (GROUP BY ConsultantId → SUM(partial_score))
+    ↓
+final SELECT (LEFT JOIN input_consultant to scores, COALESCE for 0)
+```
+
+### Key Differences from Query 1
+
+| Removed | Reason |
+|---------|--------|
+| `demand` CTE | No filters needed |
+| `eligible_consultant` CTE | Direct ConsultantId filtering via input |
+| `filtered_requirement` CTE | No filter enforcement |
+| `kept` CTE | Return all scores, even 0 |
+| `price_performance` CTE | Not needed |
+| Count window function | No pagination |
+| ORDER BY / LIMIT / OFFSET | No pagination |
+| MatchedRequirementsCount | Not needed |
+
+### Scoring Logic
+
+Identical to Query 1:
+* **RoleSkill**: `DynamicWeight * RoleWeight` (proportional if below required score)
+* **Role**: `DynamicWeight * 100.0` (proportional if below required score)
+* **Industry**: `DynamicWeight * 100.0` (proportional if below required score)
+* **FunctionalArea**: `DynamicWeight * 100.0` (proportional if below required score)
+* **Language**: `DynamicWeight * 100.0` (proportional if below required score)
+
+### LEFT JOIN Guarantee
+
+All input consultants appear in the output:
+* Consultants with matching experience: actual calculated score
+* Consultants with no matching experience: `MatchingScore = 0`
+
+### Performance Characteristics
+
+**Expected: Sub-millisecond to few milliseconds**
+
+Why it's fast:
+1. **Direct lookup** via ConsultantId IN (...) with no full table scan
+2. **Experience table indexes** on (ConsultantId, CategoryId, TenantId)
+3. **Simple aggregation** with just SUM, no window functions
+4. **No sorting** as results returned as-is
+5. **Bulk is efficient** as same query works for 1 or 100 consultants
