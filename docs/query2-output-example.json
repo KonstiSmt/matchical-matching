@@ -1,7 +1,7 @@
 {
   "description": "GetConsultantMatchDetails - Query 2 Output Example",
   "note": "Hydration query - returns consultant details and top 3 matching requirements. One row per consultant. MatchingScore and PricePerformanceScore are placeholders (0) - filled by app from Query 1.",
-  "columnOrder": "ConsultantId, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches",
+  "columnOrder": "ConsultantId, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches, IsPinned",
   "singleRow": {
     "ConsultantId": "550e8400-e29b-41d4-a716-446655440001",
     "MatchingScore": 0,
@@ -14,6 +14,7 @@
     "TotalMatchingRequirements": 5,
     "TopMatchesJson": "[{\"RequirementId\":\"req-001\",\"RequirementName\":\"Cognigy\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":5},{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":4}]",
     "TopMatches": [],
+    "IsPinned": 1,
     "TopMatches (expanded for documentation)": [
       {
         "RequirementId": "req-001",
@@ -44,7 +45,8 @@
       "EuroFixedRate": 85.00,
       "TotalMatchingRequirements": 5,
       "TopMatchesJson": "[{\"RequirementId\":\"req-001\",\"RequirementName\":\"Cognigy\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":5},{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":4}]",
-      "TopMatches": []
+      "TopMatches": [],
+      "IsPinned": 1
     },
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440002",
@@ -57,7 +59,8 @@
       "EuroFixedRate": 75.00,
       "TotalMatchingRequirements": 4,
       "TopMatchesJson": "[{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":3},{\"RequirementId\":\"req-004\",\"RequirementName\":\"AI Quality Assurance\",\"ConsultantScore\":2}]",
-      "TopMatches": []
+      "TopMatches": [],
+      "IsPinned": 0
     },
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440003",
@@ -70,7 +73,8 @@
       "EuroFixedRate": 0,
       "TotalMatchingRequirements": 3,
       "TopMatchesJson": "[{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":2},{\"RequirementId\":\"req-004\",\"RequirementName\":\"AI Quality Assurance\",\"ConsultantScore\":2}]",
-      "TopMatches": []
+      "TopMatches": [],
+      "IsPinned": 0
     }
   ],
   "fieldDescriptions": {
@@ -84,7 +88,8 @@
     "EuroFixedRate": "Consultant.EuroFixedRate - displayed on consultant card",
     "TotalMatchingRequirements": "Total count of requirements where consultant has Score > 0",
     "TopMatchesJson": "JSON string containing array of top 3 requirements (ranked by partial_score contribution)",
-    "TopMatches": "Empty array placeholder for OutSystems structure definition (actual data is in TopMatchesJson)"
+    "TopMatches": "Empty array placeholder for OutSystems structure definition (actual data is in TopMatchesJson)",
+    "IsPinned": "Boolean (0/1): true if consultant is already assigned to this demand (exists in DemandConsultants)"
   },
   "topMatchesJsonStructure": {
     "description": "Expanded structure of TopMatchesJson array elements",

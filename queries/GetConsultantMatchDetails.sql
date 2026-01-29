@@ -8,7 +8,7 @@
 
    Output columns (ordered):
      ConsultantId, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl,
-     RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches
+     RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches, IsPinned
 
    NOTE: MatchingScore and PricePerformanceScore return 0 as placeholders.
    These values are already calculated in Query 1 and should be mapped in the
@@ -222,7 +222,14 @@ SELECT
   ) AS TopMatchesJson,
 
   /* 11) TopMatches - empty placeholder for OutSystems structure definition */
-  '[]'::json AS TopMatches
+  '[]'::json AS TopMatches,
+
+  /* 12) IsPinned - true if consultant is assigned to this demand */
+  CASE WHEN EXISTS (
+    SELECT 1 FROM {DemandConsultants} demand_consultant
+    WHERE demand_consultant.[ConsultantId] = cb.ConsultantId
+      AND demand_consultant.[DemandId] = @DemandId
+  ) THEN 1 ELSE 0 END AS IsPinned
 
 FROM consultant_base cb
 LEFT JOIN {ConsultancyUser} consultancy_user

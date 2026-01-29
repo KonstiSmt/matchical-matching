@@ -97,7 +97,7 @@ Id, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count
 
 **Query 2 (GetConsultantMatchDetails):**
 ```
-ConsultantId, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches
+ConsultantId, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches, IsPinned
 ```
 
 **Query 3 (GetMatchingScoreByConsultantIds):**
@@ -250,6 +250,23 @@ Individual requirement line for a demand (skills, roles, industries, etc.).
 | `FilterCategoryId` | Filter type: Default (scoring only), Soft, Hard |
 | `IsActive` | Boolean: requirement is active |
 | `HasMissingKeys` | Boolean: requirement has invalid/missing keys |
+
+### DemandConsultants
+Junction table linking consultants assigned to demands.
+
+| Attribute | Description |
+|-----------|-------------|
+| `Id` | Primary key |
+| `DemandId` | FK to Demand |
+| `ConsultantId` | FK to Consultant |
+| `TenantId` | Tenant isolation |
+| `CreatedAt` | Timestamp when assigned |
+| `UpdatedAt` | Timestamp of last update |
+| `MatchingScore` | Score at time of assignment |
+| `CustomRolesMatchingScore` | Custom roles score |
+| `Rate` | Rate for this assignment |
+| `CandidateStageId` | FK to CandidateStage |
+| `StatusId` | FK to Status |
 
 ### ConsultancyUser (Internal User Identity)
 Identity fields for internal consultants.
