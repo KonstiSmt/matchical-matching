@@ -199,14 +199,14 @@ SELECT
   /* 9) TotalMatchingRequirements - placeholder, filled by app from Query 1 */
   0 AS TotalMatchingRequirements,
 
-  /* 10) TopMatchesJson - JSON array of top 3 matches (excludes Role category) */
+  /* 10) TopMatchesJson - JSON array of top 2 matches (excludes Role category) */
   (
     SELECT COALESCE(
       json_agg(
         json_build_object(
           'RequirementId', top_matches.RequirementId,
           'RequirementName', top_matches.RequirementName,
-          'ConsultantScore', top_matches.ConsultantScore
+          'ConsultantScore', top_matches.ConsultantScore * 2
         )
       ),
       '[]'::json
@@ -217,12 +217,12 @@ SELECT
       WHERE rm.ConsultantId = cb.ConsultantId
         AND rm.CategoryId <> @Cat_Role
       ORDER BY rm.partial_score DESC
-      LIMIT 3
+      LIMIT 2
     ) top_matches
   ) AS TopMatchesJson,
 
-  /* 11) TopMatches - empty placeholder for OutSystems structure definition */
-  '[]'::json AS TopMatches,
+  /* 11) TopMatches - NULL placeholder for OutSystems structure definition */
+  NULL AS TopMatches,
 
   /* 12) IsPinned - true if consultant is assigned to this demand */
   CASE WHEN EXISTS (

@@ -1,6 +1,6 @@
 {
   "description": "GetConsultantMatchDetails - Query 2 Output Example",
-  "note": "Hydration query - returns consultant details and top 3 matching requirements. One row per consultant. MatchingScore and PricePerformanceScore are placeholders (0) - filled by app from Query 1.",
+  "note": "Hydration query - returns consultant details and top 2 matching requirements. One row per consultant. MatchingScore and PricePerformanceScore are placeholders (0) - filled by app from Query 1.",
   "columnOrder": "ConsultantId, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches, IsPinned",
   "singleRow": {
     "ConsultantId": "550e8400-e29b-41d4-a716-446655440001",
@@ -12,24 +12,19 @@
     "RoleTitle": "Quality Assurance Specialist",
     "EuroFixedRate": 85.00,
     "TotalMatchingRequirements": 5,
-    "TopMatchesJson": "[{\"RequirementId\":\"req-001\",\"RequirementName\":\"Cognigy\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":5},{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":4}]",
-    "TopMatches": [],
+    "TopMatchesJson": "[{\"RequirementId\":\"req-001\",\"RequirementName\":\"Cognigy\",\"ConsultantScore\":10},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":10}]",
+    "TopMatches": null,
     "IsPinned": 1,
     "TopMatches (expanded for documentation)": [
       {
         "RequirementId": "req-001",
         "RequirementName": "Cognigy",
-        "ConsultantScore": 5
+        "ConsultantScore": 10
       },
       {
         "RequirementId": "req-002",
         "RequirementName": "AI Testing",
-        "ConsultantScore": 5
-      },
-      {
-        "RequirementId": "req-003",
-        "RequirementName": "Test Automation Conception",
-        "ConsultantScore": 4
+        "ConsultantScore": 10
       }
     ]
   },
@@ -44,8 +39,8 @@
       "RoleTitle": "Quality Assurance Specialist",
       "EuroFixedRate": 85.00,
       "TotalMatchingRequirements": 5,
-      "TopMatchesJson": "[{\"RequirementId\":\"req-001\",\"RequirementName\":\"Cognigy\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":5},{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":4}]",
-      "TopMatches": [],
+      "TopMatchesJson": "[{\"RequirementId\":\"req-001\",\"RequirementName\":\"Cognigy\",\"ConsultantScore\":10},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":10}]",
+      "TopMatches": null,
       "IsPinned": 1
     },
     {
@@ -58,8 +53,8 @@
       "RoleTitle": "Quality Assurance Specialist",
       "EuroFixedRate": 75.00,
       "TotalMatchingRequirements": 4,
-      "TopMatchesJson": "[{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":3},{\"RequirementId\":\"req-004\",\"RequirementName\":\"AI Quality Assurance\",\"ConsultantScore\":2}]",
-      "TopMatches": [],
+      "TopMatchesJson": "[{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":10},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":6}]",
+      "TopMatches": null,
       "IsPinned": 0
     },
     {
@@ -72,8 +67,8 @@
       "RoleTitle": "Quality Assurance Specialist",
       "EuroFixedRate": 0,
       "TotalMatchingRequirements": 3,
-      "TopMatchesJson": "[{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":2},{\"RequirementId\":\"req-004\",\"RequirementName\":\"AI Quality Assurance\",\"ConsultantScore\":2}]",
-      "TopMatches": [],
+      "TopMatchesJson": "[{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":10},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":4}]",
+      "TopMatches": null,
       "IsPinned": 0
     }
   ],
@@ -87,8 +82,8 @@
     "RoleTitle": "Consultant.TopRoleId → Role.NameLocaleKeyId → LocaleDict.TextValue (filtered by @SystemLanguage)",
     "EuroFixedRate": "Consultant.EuroFixedRate - displayed on consultant card",
     "TotalMatchingRequirements": "Total count of requirements where consultant has Score > 0",
-    "TopMatchesJson": "JSON string containing array of top 3 requirements (ranked by partial_score contribution)",
-    "TopMatches": "Empty array placeholder for OutSystems structure definition (actual data is in TopMatchesJson)",
+    "TopMatchesJson": "JSON string containing array of top 2 requirements (ranked by partial_score contribution)",
+    "TopMatches": "NULL placeholder for OutSystems structure definition (actual data is in TopMatchesJson)",
     "IsPinned": "Boolean (0/1): true if consultant is already assigned to this demand (exists in DemandConsultants)"
   },
   "topMatchesJsonStructure": {
@@ -96,23 +91,18 @@
     "fields": {
       "RequirementId": "DemandRequirement.Id",
       "RequirementName": "Localized name via category-specific join (SkillAlias/RoleAlias/Industry/FunctionalArea/Language → LocaleDict)",
-      "ConsultantScore": "Experience.Score - the consultant's score for this requirement"
+      "ConsultantScore": "Experience.Score * 2 - scaled to 0-10 range"
     },
     "example": [
       {
         "RequirementId": "req-001",
         "RequirementName": "Cognigy",
-        "ConsultantScore": 5
+        "ConsultantScore": 10
       },
       {
         "RequirementId": "req-002",
         "RequirementName": "AI Testing",
-        "ConsultantScore": 5
-      },
-      {
-        "RequirementId": "req-003",
-        "RequirementName": "Test Automation Conception",
-        "ConsultantScore": 4
+        "ConsultantScore": 10
       }
     ]
   },

@@ -34,7 +34,7 @@ Single Backend Call:
 │   → Input: ConsultantIds (comma-separated), DemandId         │
 │   → Output: Nested JSON per consultant                       │
 │     • Consultant info (name, photo, role, rate)              │
-│     • Top 3 matches + total count                            │
+│     • Top 2 matches + total count                            │
 │   → Returns: 12-20 rows (one per consultant)                 │
 └─────────────────────────────────────────────────────────────┘
 
@@ -113,17 +113,17 @@ Column order is contractual with the OutSystems output structure.
 
 When a query output contains nested structures (lists/arrays of objects), return **both**:
 - `FieldNameJson` (Text) - The actual JSON string with data
-- `FieldName` (List) - An empty array `'[]'::json` as structure placeholder
+- `FieldName` (List) - `NULL` as structure placeholder
 
-**Why:** OutSystems requires the output structure to match exactly. The empty placeholder allows OutSystems to define the nested structure, while the JSON column provides the data.
+**Why:** OutSystems requires the output structure to match exactly. The NULL placeholder allows OutSystems to define the nested structure, while the JSON column provides the data.
 
 **Example:**
 ```sql
 /* Actual data */
 (SELECT COALESCE(json_agg(...), '[]'::json) ...) AS TopMatchesJson,
 
-/* Empty placeholder for structure definition */
-'[]'::json AS TopMatches
+/* NULL placeholder for structure definition */
+NULL AS TopMatches
 ```
 
 **Recursive:** If nested items have their own nested arrays, apply the same pattern at each level.
@@ -177,7 +177,8 @@ After any change, verify:
 - PricePerformanceScore edge case: EuroFixedRate = 0 results in score = 0
 - Internal vs external identity field resolution (Query 2)
 - Requirement names resolve correctly for all 5 categories (Query 2)
-- TopMatches JSON contains top 3 ranked by partial_score (Query 2)
+- TopMatches JSON contains top 2 ranked by partial_score (Query 2)
+- ConsultantScore in TopMatches is 0-10 scale (Experience.Score * 2)
 
 ## Entity Reference
 
