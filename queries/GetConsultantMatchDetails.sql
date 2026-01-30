@@ -8,7 +8,7 @@
 
    Output columns (ordered):
      ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl,
-     RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches
+     TopRoleName, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches
 
    NOTE: MatchingScore and PricePerformanceScore return 0 as placeholders.
    These values are already calculated in Query 1 and should be mapped in the
@@ -193,8 +193,8 @@ SELECT
         ELSE COALESCE(NULLIF(external_user.[DefaultPhotoUrlRound], ''), external_user.[DefaultPhotoUrl])
    END) AS PhotoUrl,
 
-  /* 8) RoleTitle */
-  role_locale.[TextValue] AS RoleTitle,
+  /* 8) TopRoleName */
+  role_locale.[TextValue] AS TopRoleName,
 
   /* 9) EuroFixedRate */
   cb.EuroFixedRate AS EuroFixedRate,
@@ -209,10 +209,10 @@ SELECT
         json_build_object(
           'RequirementId', top_matches.RequirementId,
           'RequirementName', top_matches.RequirementName,
-          'ConsultantScore', top_matches.ConsultantScore * 2
+          'ConsultantScore', top_matches.ConsultantScore
         )
       ),
-      '[]'::json
+      NULL
     )
     FROM (
       SELECT rm.RequirementId, rm.RequirementName, rm.ConsultantScore

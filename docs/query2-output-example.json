@@ -1,7 +1,7 @@
 {
   "description": "GetConsultantMatchDetails - Query 2 Output Example",
   "note": "Hydration query - returns consultant details and top 2 matching requirements. One row per consultant. MatchingScore and PricePerformanceScore are placeholders (0) - filled by app from Query 1.",
-  "columnOrder": "ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches",
+  "columnOrder": "ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches",
   "singleRow": {
     "ConsultantId": "550e8400-e29b-41d4-a716-446655440001",
     "IsPinned": 1,
@@ -10,21 +10,21 @@
     "FirstName": "György",
     "LastName": "Almási",
     "PhotoUrl": "https://storage.example.com/photos/ga-round.jpg",
-    "RoleTitle": "Quality Assurance Specialist",
+    "TopRoleName": "Quality Assurance Specialist",
     "EuroFixedRate": 85.00,
     "TotalMatchingRequirements": 5,
-    "TopMatchesJson": "[{\"RequirementId\":\"req-001\",\"RequirementName\":\"Cognigy\",\"ConsultantScore\":10},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":10}]",
+    "TopMatchesJson": "[{\"RequirementId\":\"req-001\",\"RequirementName\":\"Cognigy\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":5}]",
     "TopMatches": null,
     "TopMatches (expanded for documentation)": [
       {
         "RequirementId": "req-001",
         "RequirementName": "Cognigy",
-        "ConsultantScore": 10
+        "ConsultantScore": 5
       },
       {
         "RequirementId": "req-002",
         "RequirementName": "AI Testing",
-        "ConsultantScore": 10
+        "ConsultantScore": 5
       }
     ]
   },
@@ -37,10 +37,10 @@
       "FirstName": "György",
       "LastName": "Almási",
       "PhotoUrl": "https://storage.example.com/photos/ga-round.jpg",
-      "RoleTitle": "Quality Assurance Specialist",
+      "TopRoleName": "Quality Assurance Specialist",
       "EuroFixedRate": 85.00,
       "TotalMatchingRequirements": 5,
-      "TopMatchesJson": "[{\"RequirementId\":\"req-001\",\"RequirementName\":\"Cognigy\",\"ConsultantScore\":10},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":10}]",
+      "TopMatchesJson": "[{\"RequirementId\":\"req-001\",\"RequirementName\":\"Cognigy\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":5}]",
       "TopMatches": null
     },
     {
@@ -51,10 +51,10 @@
       "FirstName": "Ralph",
       "LastName": "Luedecke",
       "PhotoUrl": "https://storage.example.com/photos/rl-round.jpg",
-      "RoleTitle": "Quality Assurance Specialist",
+      "TopRoleName": "Quality Assurance Specialist",
       "EuroFixedRate": 75.00,
       "TotalMatchingRequirements": 4,
-      "TopMatchesJson": "[{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":10},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":6}]",
+      "TopMatchesJson": "[{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":3}]",
       "TopMatches": null
     },
     {
@@ -65,10 +65,10 @@
       "FirstName": "Hüseyin Ibrahim",
       "LastName": "Adam",
       "PhotoUrl": "https://storage.example.com/photos/ha-round.jpg",
-      "RoleTitle": "Quality Assurance Specialist",
+      "TopRoleName": "Quality Assurance Specialist",
       "EuroFixedRate": 0,
       "TotalMatchingRequirements": 3,
-      "TopMatchesJson": "[{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":10},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":4}]",
+      "TopMatchesJson": "[{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":2}]",
       "TopMatches": null
     }
   ],
@@ -80,7 +80,7 @@
     "FirstName": "From ConsultancyUser (if IsInternal=1) or ExternalUser (if IsInternal=0)",
     "LastName": "From ConsultancyUser (if IsInternal=1) or ExternalUser (if IsInternal=0)",
     "PhotoUrl": "DefaultPhotoUrlRound from ConsultancyUser or ExternalUser based on IsInternal",
-    "RoleTitle": "Consultant.TopRoleId → Role.NameLocaleKeyId → LocaleDict.TextValue (filtered by @SystemLanguage)",
+    "TopRoleName": "Consultant.TopRoleId → Role.NameLocaleKeyId → LocaleDict.TextValue (filtered by @SystemLanguage)",
     "EuroFixedRate": "Consultant.EuroFixedRate - displayed on consultant card",
     "TotalMatchingRequirements": "Total count of requirements where consultant has Score > 0",
     "TopMatchesJson": "JSON string containing array of top 2 requirements (ranked by partial_score contribution)",
@@ -91,18 +91,18 @@
     "fields": {
       "RequirementId": "DemandRequirement.Id",
       "RequirementName": "Localized name via category-specific join (SkillAlias/RoleAlias/Industry/FunctionalArea/Language → LocaleDict)",
-      "ConsultantScore": "Experience.Score * 2 - scaled to 0-10 range"
+      "ConsultantScore": "Experience.Score (1-5, raw value without scaling)"
     },
     "example": [
       {
         "RequirementId": "req-001",
         "RequirementName": "Cognigy",
-        "ConsultantScore": 10
+        "ConsultantScore": 5
       },
       {
         "RequirementId": "req-002",
         "RequirementName": "AI Testing",
-        "ConsultantScore": 10
+        "ConsultantScore": 5
       }
     ]
   },

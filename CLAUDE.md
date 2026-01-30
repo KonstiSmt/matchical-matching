@@ -11,10 +11,12 @@ This repository is for iterating on the consultant-to-demand matching queries ru
 - `queries/GetMatchesByDemandId.sql` — Query 1: Scoring query (returns ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count)
 - `queries/GetConsultantMatchDetails.sql` — Query 2: Hydration query (returns display data for matched consultants)
 - `queries/GetMatchingScoreByConsultantIds.sql` — Query 3: Lightweight scoring query (returns ConsultantId, MatchingScore for specific consultants)
+- `queries/GetConsultantFullDetails.sql` — Query 4: Full details query (returns complete matching breakdown for single consultant)
 - `docs/query-reference.md` — Full documentation (matching concepts, CTE walkthrough, performance notes)
 - `docs/query1-output-example.json` — Example output for Query 1
 - `docs/query2-output-example.json` — Example output for Query 2
 - `docs/query3-output-example.json` — Example output for Query 3
+- `docs/query4-output-example.json` — Example output for Query 4
 
 ## Query Architecture
 
@@ -45,6 +47,17 @@ Score Recalculation (On-Demand):
 │   → Output: ConsultantId, MatchingScore                                      │
 │   → No filters, no sorting, no pagination                                    │
 │   → Used when requirements or experiences change                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Sidebar Details (Single Consultant):
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Query 4: GetConsultantFullDetails (Full Breakdown)                           │
+│   → Input: ConsultantId (single), DemandId, TenantId                         │
+│   → Output: All requirements with scores, grouped by category                │
+│     • RoleSkills (nested: Roles with Skills)                                 │
+│     • Industries, FunctionalAreas, Languages (flat arrays)                   │
+│     • Language level labels for display                                      │
+│   → Returns: 1 row with nested JSON arrays                                   │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -97,12 +110,17 @@ Id, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count
 
 **Query 2 (GetConsultantMatchDetails):**
 ```
-ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, RoleTitle, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches
+ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches
 ```
 
 **Query 3 (GetMatchingScoreByConsultantIds):**
 ```
 Id, MatchingScore
+```
+
+**Query 4 (GetConsultantFullDetails):**
+```
+ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, ClientOffsiteRate, ContingentDays, RequiredLocationName, MatchingConsultantLocationName, RoleSkillsJson, IndustriesJson, FunctionalAreasJson, LanguagesJson, RoleSkills, Industries, FunctionalAreas, Languages
 ```
 
 Column order is contractual with the OutSystems output structure.
@@ -126,7 +144,29 @@ When a query output contains nested structures (lists/arrays of objects), return
 NULL AS TopMatches
 ```
 
-**Recursive:** If nested items have their own nested arrays, apply the same pattern at each level.
+**No Sub-Nesting Rule:** The dual-key pattern (`FieldJson` + `FieldName: null`) only applies at the **SQL output column level**. Within JSON structures (e.g., inside RoleSkillsJson), nested arrays are direct arrays without separate Json/null pairs:
+
+```json
+{
+  "RoleAliasName": "Scrum Master",
+  "Skills": [...]     /* Direct array, NOT "SkillsJson" + "Skills" */
+}
+```
+
+**NULL Placeholder Column Positioning:** All NULL placeholder columns (e.g., `RoleSkills`, `Industries`, `FunctionalAreas`, `Languages`) must be positioned at the **end** of the output column list, after all JSON columns.
+
+**COALESCE with NULL (not empty array):** When using COALESCE for JSON aggregation, always use `NULL` as the fallback, never `'[]'::json`:
+```sql
+/* Correct */
+SELECT COALESCE(json_agg(...), NULL) AS FieldJson
+
+/* Wrong */
+SELECT COALESCE(json_agg(...), '[]'::json) AS FieldJson
+```
+
+**JSON Array Ordering Rule:** All JSON arrays in Query 4 are ordered by:
+1. `DynamicWeight DESC` (highest weight first)
+2. `Name ASC` (alphabetical when weights are equal)
 
 ## Safe Modification Zones
 
@@ -175,10 +215,10 @@ After any change, verify:
 - Count accuracy
 - PricePerformanceScore: best ratio consultant = 10, others scaled proportionally
 - PricePerformanceScore edge case: EuroFixedRate = 0 results in score = 0
-- Internal vs external identity field resolution (Query 2)
-- Requirement names resolve correctly for all 5 categories (Query 2)
+- Internal vs external identity field resolution (Query 2, Query 4)
+- Requirement names resolve correctly for all 5 categories (Query 2, Query 4)
 - TopMatches JSON contains top 2 ranked by partial_score (Query 2)
-- ConsultantScore in TopMatches is 0-10 scale (Experience.Score * 2)
+- ConsultantScore is raw Experience.Score (1-5, or 1-6 for languages)
 
 ## Entity Reference
 
@@ -251,6 +291,7 @@ Individual requirement line for a demand (skills, roles, industries, etc.).
 | `FilterCategoryId` | Filter type: Default (scoring only), Soft, Hard |
 | `IsActive` | Boolean: requirement is active |
 | `HasMissingKeys` | Boolean: requirement has invalid/missing keys |
+| `IsNiceToHave` | Boolean: true if nice-to-have, false if must-have |
 
 ### DemandConsultants
 Junction table linking consultants assigned to demands.
@@ -297,6 +338,40 @@ Consultant status reference.
 | `Id` | Primary key |
 | `IsReady` | Boolean: consultant is ready for matching |
 | `IsActive` | Boolean: status is active |
+
+### LocationTag
+Location hierarchy node (city, region, country, etc.).
+
+| Attribute | Description |
+|-----------|-------------|
+| `Id` | Primary key |
+| `NameLocaleKeyId` | FK to LocaleDict for localized name |
+
+### LocationTagsClosure
+Closure table for location hierarchy (ancestor/descendant relationships).
+
+| Attribute | Description |
+|-----------|-------------|
+| `AncestorId` | FK to LocationTag (parent in hierarchy) |
+| `DescendantId` | FK to LocationTag (child in hierarchy) |
+
+### ConsultantLocations
+Junction table linking consultants to their available locations.
+
+| Attribute | Description |
+|-----------|-------------|
+| `ConsultantId` | FK to Consultant |
+| `LocationTagId` | FK to LocationTag |
+
+### LanguageLevel
+Static entity for language proficiency levels (Beginner through Native).
+
+| Attribute | Description |
+|-----------|-------------|
+| `Id` | Primary key |
+| `Label` | English label |
+| `LabelTranslationsJSON` | JSON with translations: `{"en":"Native","de":"Muttersprache"}` |
+| `Order` | Sort order (1-6: Beginner, Elementary, Intermediate, Advanced, Proficient, Native) |
 
 ### Filter Categories
 
