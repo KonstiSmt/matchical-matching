@@ -43,6 +43,7 @@ requirement AS (
   SELECT
     req.[CategoryId],
     req.[RoleId],
+    req.[CustomRoleId],
     req.[SkillId],
     req.[IndustryId],
     req.[FunctionalAreaId],
@@ -64,6 +65,7 @@ filtered_requirement AS (
   SELECT
     freq.[CategoryId],
     freq.[RoleId],
+    freq.[CustomRoleId],
     freq.[SkillId],
     freq.[IndustryId],
     freq.[FunctionalAreaId],
@@ -203,18 +205,35 @@ eligible_consultant AS (
               WHERE experience.[ConsultantId] = consultant.[Id]
                 AND experience.[TenantId] = filter_req.[TenantId]
                 AND experience.[CategoryId] = filter_req.[CategoryId]
-                /* Category-specific key matching */
+                /* Category-specific key matching (supports both standard and custom roles) */
                 AND (
-                  (filter_req.[CategoryId] = @Cat_RoleSkill
+                  /* Standard RoleSkill */
+                  (@UseCustomRoles <> 1
+                   AND filter_req.[CategoryId] = @Cat_RoleSkill
                    AND experience.[RoleId] = filter_req.[RoleId]
                    AND experience.[SkillId] = filter_req.[SkillId])
-                  OR (filter_req.[CategoryId] = @Cat_Role
+                  /* Custom RoleSkill */
+                  OR (@UseCustomRoles = 1
+                      AND filter_req.[CategoryId] = @Cat_CustomRoleSkill
+                      AND experience.[CustomRoleId] = filter_req.[CustomRoleId]
+                      AND experience.[SkillId] = filter_req.[SkillId])
+                  /* Standard Role */
+                  OR (@UseCustomRoles <> 1
+                      AND filter_req.[CategoryId] = @Cat_Role
                       AND experience.[RoleId] = filter_req.[RoleId]
                       AND experience.[SkillId] IS NULL)
+                  /* Custom Role */
+                  OR (@UseCustomRoles = 1
+                      AND filter_req.[CategoryId] = @Cat_CustomRole
+                      AND experience.[CustomRoleId] = filter_req.[CustomRoleId]
+                      AND experience.[SkillId] IS NULL)
+                  /* Industry (unchanged) */
                   OR (filter_req.[CategoryId] = @Cat_Industry
                       AND experience.[IndustryId] = filter_req.[IndustryId])
+                  /* FunctionalArea (unchanged) */
                   OR (filter_req.[CategoryId] = @Cat_FunctionalArea
                       AND experience.[FunctionalAreaId] = filter_req.[FunctionalAreaId])
+                  /* Language (unchanged) */
                   OR (filter_req.[CategoryId] = @Cat_Language
                       AND experience.[LanguageId] = filter_req.[LanguageId])
                 )
@@ -230,11 +249,11 @@ eligible_consultant AS (
 
 /* _____________ Category branches with computed partial_score (DOUBLE PRECISION) _____________ */
 
-/* RoleSkill: match (RoleId, SkillId) */
+/* RoleSkill: match (RoleId, SkillId) or CustomRoleSkill: match (CustomRoleId, SkillId) */
 branch_roleskill AS (
   SELECT
     experience.[ConsultantId] AS ConsultantId,
-    @Cat_RoleSkill AS CategoryId,
+    CASE WHEN @UseCustomRoles = 1 THEN @Cat_CustomRoleSkill ELSE @Cat_RoleSkill END AS CategoryId,
     CAST(
       CASE
         WHEN req.ReqScore = 0 THEN 0
@@ -250,20 +269,30 @@ branch_roleskill AS (
   FROM requirement req
   JOIN {Experience} experience
     ON experience.[TenantId] = req.[TenantId]
-   AND experience.[CategoryId] = @Cat_RoleSkill
-   AND req.[CategoryId] = @Cat_RoleSkill
-   AND experience.[RoleId]  = req.[RoleId]
-   AND experience.[SkillId] = req.[SkillId]
+   AND (
+     /* Standard RoleSkill */
+     (@UseCustomRoles <> 1
+      AND experience.[CategoryId] = @Cat_RoleSkill
+      AND req.[CategoryId] = @Cat_RoleSkill
+      AND experience.[RoleId] = req.[RoleId]
+      AND experience.[SkillId] = req.[SkillId])
+     /* Custom RoleSkill */
+     OR (@UseCustomRoles = 1
+         AND experience.[CategoryId] = @Cat_CustomRoleSkill
+         AND req.[CategoryId] = @Cat_CustomRoleSkill
+         AND experience.[CustomRoleId] = req.[CustomRoleId]
+         AND experience.[SkillId] = req.[SkillId])
+   )
   JOIN eligible_consultant ec ON ec.ConsultantId = experience.[ConsultantId]
   WHERE req.ReqScore <> 0
     AND experience.[Score] > 0
 ),
 
-/* Role: match RoleId and SkillId IS NULL on experience */
+/* Role: match RoleId or CustomRole: match CustomRoleId (SkillId IS NULL on experience) */
 branch_role AS (
   SELECT
     experience.[ConsultantId] AS ConsultantId,
-    @Cat_Role AS CategoryId,
+    CASE WHEN @UseCustomRoles = 1 THEN @Cat_CustomRole ELSE @Cat_Role END AS CategoryId,
     CAST(
       CASE
         WHEN req.ReqScore = 0 THEN 0
@@ -279,10 +308,20 @@ branch_role AS (
   FROM requirement req
   JOIN {Experience} experience
     ON experience.[TenantId] = req.[TenantId]
-   AND experience.[CategoryId] = @Cat_Role
-   AND req.[CategoryId] = @Cat_Role
-   AND experience.[RoleId] = req.[RoleId]
-   AND experience.[SkillId] IS NULL
+   AND (
+     /* Standard Role */
+     (@UseCustomRoles <> 1
+      AND experience.[CategoryId] = @Cat_Role
+      AND req.[CategoryId] = @Cat_Role
+      AND experience.[RoleId] = req.[RoleId]
+      AND experience.[SkillId] IS NULL)
+     /* Custom Role */
+     OR (@UseCustomRoles = 1
+         AND experience.[CategoryId] = @Cat_CustomRole
+         AND req.[CategoryId] = @Cat_CustomRole
+         AND experience.[CustomRoleId] = req.[CustomRoleId]
+         AND experience.[SkillId] IS NULL)
+   )
   JOIN eligible_consultant ec ON ec.ConsultantId = experience.[ConsultantId]
   WHERE req.ReqScore <> 0
     AND experience.[Score] > 0

@@ -220,6 +220,16 @@ After any change, verify:
 - TopMatches JSON contains top 2 ranked by partial_score (Query 2)
 - ConsultantScore is raw Experience.Score (1-5, or 1-6 for languages)
 
+**Custom Roles Regression (when @UseCustomRoles = 1):**
+- Scoring uses CustomRoleId for matching (Query 1, Query 3)
+- Filter enforcement uses CustomRoleId (Query 1)
+- Name resolution uses CustomRole → RoleName path (Query 2, Query 4)
+- TopMatchesJson excludes CustomRole category (Query 2)
+- TopRoleName uses TopCustomRoleId → CustomRole → RoleName path (Query 2, Query 4)
+- RoleSkillsJson groups by CustomRoleId (Query 4)
+- RoleAliasId outputs CustomRoleId value (Query 4)
+- Standard mode (@UseCustomRoles = 0) returns identical results to pre-custom-roles behavior
+
 ## Entity Reference
 
 ### Consultant
@@ -234,6 +244,7 @@ Primary entity representing a consultant (internal or external).
 | `ExternalUserId` | FK to ExternalUser (when IsInternal=0) |
 | `StatusId` | FK to Status |
 | `TopRoleId` | FK to Role (consultant's primary role, for display) |
+| `TopCustomRoleId` | FK to CustomRole (consultant's primary custom role, when custom roles active) |
 | `EuroFixedRate` | Rate for price-performance calculation |
 | `NextAvailabiltyDate` | Next availability date (NullDate sentinel if not set) |
 | `IsImmediatelyAvailable` | Boolean: immediately available |
@@ -248,8 +259,9 @@ Pre-calculated skill/experience scores per consultant per category.
 | `Id` | Primary key |
 | `ConsultantId` | FK to Consultant |
 | `TenantId` | Tenant isolation |
-| `CategoryId` | Category: RoleSkill, Role, Industry, FunctionalArea, Language |
+| `CategoryId` | Category: RoleSkill, Role, CustomRoleSkill, CustomRole, Industry, FunctionalArea, Language |
 | `RoleId`, `SkillId` | Keys for RoleSkill/Role categories |
+| `CustomRoleId` | Key for CustomRoleSkill/CustomRole categories |
 | `IndustryId` | Key for Industry category |
 | `FunctionalAreaId` | Key for FunctionalArea category |
 | `LanguageId` | Key for Language category |
@@ -278,8 +290,9 @@ Individual requirement line for a demand (skills, roles, industries, etc.).
 | `Id` | Primary key |
 | `DemandId` | FK to Demand |
 | `TenantId` | Tenant isolation |
-| `CategoryId` | Category: RoleSkill, Role, Industry, FunctionalArea, Language |
+| `CategoryId` | Category: RoleSkill, Role, CustomRoleSkill, CustomRole, Industry, FunctionalArea, Language |
 | `RoleId`, `SkillId` | Keys for RoleSkill/Role categories (Experience matching) |
+| `CustomRoleId` | Key for CustomRoleSkill/CustomRole categories (Experience matching) |
 | `SkillAliasId` | FK to SkillAlias (for RoleSkill category display name) |
 | `RoleAliasId` | FK to RoleAlias (for Role category display name) |
 | `IndustryId` | Key for Industry category |
@@ -373,6 +386,24 @@ Static entity for language proficiency levels (Beginner through Native).
 | `LabelTranslationsJSON` | JSON with translations: `{"en":"Native","de":"Muttersprache"}` |
 | `Order` | Sort order (1-6: Beginner, Elementary, Intermediate, Advanced, Proficient, Native) |
 
+### CustomRole
+Custom role definition mapped to a canonical role name. Used when `@UseCustomRoles = 1`.
+
+| Attribute | Description |
+|-----------|-------------|
+| `Id` | Primary key |
+| `RoleNameId` | FK to RoleName (for localized name) |
+| `ExternalId` | External system identifier |
+| `TenantId` | Tenant isolation |
+
+### RoleName
+Canonical role names with localization support. Used for custom role display names.
+
+| Attribute | Description |
+|-----------|-------------|
+| `Id` | Primary key |
+| `NameLocaleKeyId` | FK to LocaleKey for localized name |
+
 ### Filter Categories
 
 | Parameter | Meaning |
@@ -380,6 +411,21 @@ Static entity for language proficiency levels (Beginner through Native).
 | `@Filter_Default` | No filtering, scoring only |
 | `@Filter_Soft` | Soft filter: Score > 0 required |
 | `@Filter_Hard` | Hard filter: Score >= ReqScore required |
+
+### Custom Roles Parameters
+
+When `@UseCustomRoles = 1`, queries switch from standard Role/RoleSkill matching to CustomRole/CustomRoleSkill matching. Output structure remains unchanged - RoleAliasId/RoleAliasName fields are populated with CustomRoleId/CustomRoleName values.
+
+| Parameter | Meaning |
+|-----------|---------|
+| `@UseCustomRoles` | Boolean (0/1): Switch between standard roles (0) and custom roles (1) |
+| `@Cat_CustomRole` | Category ID for CustomRole experience |
+| `@Cat_CustomRoleSkill` | Category ID for CustomRoleSkill experience |
+
+**Custom Role Join Path:**
+```
+CustomRole → RoleName → LocaleDict (via RoleName.NameLocaleKeyId)
+```
 
 ## LocaleDict Joining Pattern
 
@@ -401,17 +447,20 @@ LEFT JOIN {LocaleDict} name_locale
 |--------|-----------|
 | Role | Role.NameLocaleKeyId → LocaleDict |
 | RoleAlias | RoleAlias.NameLocaleKeyId → LocaleDict |
+| RoleName | RoleName.NameLocaleKeyId → LocaleDict (for custom roles) |
 | SkillAlias | SkillAlias.NameLocaleKeyId → LocaleDict |
 | Industry | Industry.NameLocaleKeyId → LocaleDict |
 | FunctionalArea | FunctionalArea.NameLocaleKeyId → LocaleDict |
 | Language | Language.NameLocaleKeyId → LocaleDict |
 
-**Requirement Name Resolution (Query 2):**
+**Requirement Name Resolution (Query 2, Query 4):**
 
 | Category | DemandRequirement Field | Join Path |
 |----------|------------------------|-----------|
 | RoleSkill | `SkillAliasId` | → SkillAlias → LocaleDict |
 | Role | `RoleAliasId` | → RoleAlias → LocaleDict |
+| CustomRoleSkill | `SkillAliasId` | → SkillAlias → LocaleDict (same as RoleSkill) |
+| CustomRole | `CustomRoleId` | → CustomRole → RoleName → LocaleDict |
 | Industry | `IndustryId` | → Industry → LocaleDict |
 | FunctionalArea | `FunctionalAreaId` | → FunctionalArea → LocaleDict |
 | Language | `LanguageId` | → Language → LocaleDict |
