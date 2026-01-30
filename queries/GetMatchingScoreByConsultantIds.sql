@@ -8,7 +8,7 @@
    Input: @ConsultantIds (comma-separated, Expand Inline), @DemandId, @TenantId
 
    Output columns (ordered):
-     Id, MatchingScore
+     ConsultantId, MatchingScore
 */
 
 WITH
@@ -227,7 +227,7 @@ scores AS (
 
 /* _____________ Final projection: all input consultants with their scores _____________ */
 SELECT
-  input.ConsultantId AS Id,
+  input.ConsultantId AS ConsultantId,
   COALESCE(score.MatchingScore, 0) AS MatchingScore
 FROM input_consultant input
 LEFT JOIN scores score ON score.ConsultantId = input.ConsultantId

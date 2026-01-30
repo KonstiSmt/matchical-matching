@@ -1,7 +1,7 @@
 {
   "description": "GetConsultantFullDetails - Query 4 Output Example",
   "note": "Full details query - returns complete matching breakdown for a single consultant against a demand. One row per consultant with all requirements grouped by category. All arrays are ordered by DynamicWeight DESC, then Name ASC.",
-  "columnOrder": "ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, ClientOffsiteRate, ContingentDays, RequiredLocationName, MatchingConsultantLocationName, RoleSkillsJson, IndustriesJson, FunctionalAreasJson, LanguagesJson, RoleSkills, Industries, FunctionalAreas, Languages",
+  "columnOrder": "ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, ClientOffsiteRate, ContingentDays, RequiredLocationName, RequiredLocationColor, MatchingConsultantLocationName, MatchingConsultantLocationColor, RoleSkillsJson, IndustriesJson, FunctionalAreasJson, LanguagesJson, RoleSkills, Industries, FunctionalAreas, Languages",
   "singleRow": {
     "ConsultantId": "550e8400-e29b-41d4-a716-446655440001",
     "IsPinned": 1,
@@ -15,7 +15,9 @@
     "ClientOffsiteRate": 150.00,
     "ContingentDays": 20,
     "RequiredLocationName": "Nürnberg",
+    "RequiredLocationColor": "#4A90D9",
     "MatchingConsultantLocationName": "Germany",
+    "MatchingConsultantLocationColor": "#7CB342",
     "RoleSkillsJson": "[{\"RoleAliasId\":\"role-001\",\"RoleAliasName\":\"Scrum Master\",\"ConsultantScore\":4,\"RequiredScore\":4,\"DynamicWeight\":25.0,\"PartialScore\":25.0,\"IsMustHave\":0,\"Skills\":[{\"SkillAliasId\":\"skill-001\",\"SkillAliasName\":\"Software Project Management\",\"ConsultantScore\":4,\"RequiredScore\":3,\"DynamicWeight\":20.5,\"PartialScore\":20.5,\"IsMustHave\":1},{\"SkillAliasId\":\"skill-002\",\"SkillAliasName\":\"Java\",\"ConsultantScore\":0,\"RequiredScore\":2,\"DynamicWeight\":13.6,\"PartialScore\":0,\"IsMustHave\":1}]}]",
     "IndustriesJson": "[{\"IndustryId\":\"ind-001\",\"IndustryName\":\"Public Services\",\"ConsultantScore\":5,\"RequiredScore\":2,\"DynamicWeight\":13.6,\"PartialScore\":13.6,\"IsMustHave\":1}]",
     "FunctionalAreasJson": "[{\"FunctionalAreaId\":\"fa-001\",\"FunctionalAreaName\":\"Project Management\",\"ConsultantScore\":4,\"RequiredScore\":2,\"DynamicWeight\":13.6,\"PartialScore\":13.6,\"IsMustHave\":1},{\"FunctionalAreaId\":\"fa-002\",\"FunctionalAreaName\":\"Quality Assurance\",\"ConsultantScore\":5,\"RequiredScore\":2,\"DynamicWeight\":13.6,\"PartialScore\":13.6,\"IsMustHave\":1}]",
@@ -109,7 +111,9 @@
     "ClientOffsiteRate": "Demand.ClientOffsiteRate - rate for margin calculation",
     "ContingentDays": "Demand.ContingentDays - contingent days for margin calculation",
     "RequiredLocationName": "Demand.LocationTagId → LocationTag → LocaleDict (the required location)",
+    "RequiredLocationColor": "Demand.LocationTagId → LocationTag.CategoryId → Category.Color (color for location tag display)",
     "MatchingConsultantLocationName": "The consultant's location that matches the demand location (via LocationTagsClosure)",
+    "MatchingConsultantLocationColor": "ConsultantLocation → LocationTag.CategoryId → Category.Color (color for location tag display)",
     "RoleSkillsJson": "JSON string - Roles (Cat_Role) with nested Skills (Cat_RoleSkill) grouped by RoleId",
     "IndustriesJson": "JSON string - Industry requirements (Cat_Industry)",
     "FunctionalAreasJson": "JSON string - FunctionalArea requirements (Cat_FunctionalArea)",

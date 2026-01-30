@@ -105,7 +105,7 @@ price_performance (window function for ratio calculation) → final SELECT
 
 **Query 1 (GetMatchesByDemandId):**
 ```
-Id, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count
+ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count
 ```
 
 **Query 2 (GetConsultantMatchDetails):**
@@ -115,15 +115,17 @@ ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastNam
 
 **Query 3 (GetMatchingScoreByConsultantIds):**
 ```
-Id, MatchingScore
+ConsultantId, MatchingScore
 ```
 
 **Query 4 (GetConsultantFullDetails):**
 ```
-ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, ClientOffsiteRate, ContingentDays, RequiredLocationName, MatchingConsultantLocationName, RoleSkillsJson, IndustriesJson, FunctionalAreasJson, LanguagesJson, RoleSkills, Industries, FunctionalAreas, Languages
+ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, ClientOffsiteRate, ContingentDays, RequiredLocationName, RequiredLocationColor, MatchingConsultantLocationName, MatchingConsultantLocationColor, RoleSkillsJson, IndustriesJson, FunctionalAreasJson, LanguagesJson, RoleSkills, Industries, FunctionalAreas, Languages
 ```
 
 Column order is contractual with the OutSystems output structure.
+
+**Output Column Naming Rule:** Never use plain `Id` as an output column name. Always use descriptive names like `ConsultantId`, `DemandId`, `RequirementId`, etc.
 
 **JSON Column Naming Convention:** Columns containing JSON data should be suffixed with `Json` (e.g., `TopMatchesJson`). Documentation should show the expanded structure for clarity.
 
@@ -359,6 +361,20 @@ Location hierarchy node (city, region, country, etc.).
 |-----------|-------------|
 | `Id` | Primary key |
 | `NameLocaleKeyId` | FK to LocaleDict for localized name |
+| `CategoryId` | FK to Category (location type: city, region, country, etc.) |
+
+### Category
+Generic category entity used for classifying entities (e.g., location types).
+
+| Attribute | Description |
+|-----------|-------------|
+| `Id` | Primary key |
+| `Label` | English label |
+| `LabelTranslationsJSON` | JSON with translations |
+| `Order` | Sort order |
+| `Color` | Display color (hex code) |
+| `ParentCategoryId` | FK to parent Category |
+| `IconCode` | Icon identifier |
 
 ### LocationTagsClosure
 Closure table for location hierarchy (ancestor/descendant relationships).

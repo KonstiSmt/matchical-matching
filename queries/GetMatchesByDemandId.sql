@@ -11,7 +11,7 @@
      • Removed ExperienceFilterCount dependency
 
    Output columns (ordered):
-     Id, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count
+     ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count
 */
 
 WITH
@@ -466,15 +466,15 @@ price_performance AS (
 
 /* _____________ Final projection: scoring + price-performance _____________ */
 SELECT
-  final.Id,
+  final.ConsultantId,
   final.MatchingScore,
   final.PricePerformanceScore,
   final.MatchedRequirementsCount,
   final.Count
 FROM (
   SELECT
-    /* 1) Id */
-    pp.ConsultantId AS Id,
+    /* 1) ConsultantId */
+    pp.ConsultantId AS ConsultantId,
 
     /* 2) MatchingScore */
     pp.MatchingScore AS MatchingScore,
