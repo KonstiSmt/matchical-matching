@@ -237,7 +237,8 @@ SELECT
   /* 10) TotalMatchingRequirements - placeholder, filled by app from Query 1 */
   0 AS TotalMatchingRequirements,
 
-  /* 11) TopMatchesJson - JSON array of top 2 matches (excludes Role and CustomRole categories) */
+  /* 11) TopMatchesJson - JSON array of top matches (excludes Role and CustomRole categories)
+         Shows top 3 if exactly 3 non-role matches exist, otherwise top 2 */
   (
     SELECT COALESCE(
       json_agg(
@@ -246,18 +247,23 @@ SELECT
           'RequirementName', top_matches.RequirementName,
           'ConsultantScore', top_matches.ConsultantScore
         )
+        ORDER BY top_matches.rn
       ),
       NULL
     )
     FROM (
-      SELECT rm.RequirementId, rm.RequirementName, rm.ConsultantScore
+      SELECT
+        rm.RequirementId,
+        rm.RequirementName,
+        rm.ConsultantScore,
+        ROW_NUMBER() OVER (ORDER BY rm.partial_score DESC) AS rn,
+        COUNT(*) OVER () AS total_non_role_matches
       FROM ranked_matches rm
       WHERE rm.ConsultantId = cb.ConsultantId
         AND rm.CategoryId <> @Cat_Role
         AND rm.CategoryId <> @Cat_CustomRole
-      ORDER BY rm.partial_score DESC
-      LIMIT 2
     ) top_matches
+    WHERE top_matches.rn <= CASE WHEN top_matches.total_non_role_matches = 3 THEN 3 ELSE 2 END
   ) AS TopMatchesJson,
 
   /* 12) TopMatches - NULL placeholder for OutSystems structure definition */

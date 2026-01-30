@@ -1,6 +1,6 @@
 {
   "description": "GetConsultantMatchDetails - Query 2 Output Example",
-  "note": "Hydration query - returns consultant details and top 2 matching requirements. One row per consultant. MatchingScore and PricePerformanceScore are placeholders (0) - filled by app from Query 1.",
+  "note": "Hydration query - returns consultant details and top matching requirements. One row per consultant. MatchingScore and PricePerformanceScore are placeholders (0) - filled by app from Query 1.",
   "columnOrder": "ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches",
   "singleRow": {
     "ConsultantId": "550e8400-e29b-41d4-a716-446655440001",
@@ -83,7 +83,7 @@
     "TopRoleName": "Consultant.TopRoleId → Role.NameLocaleKeyId → LocaleDict.TextValue (filtered by @SystemLanguage)",
     "EuroFixedRate": "Consultant.EuroFixedRate - displayed on consultant card",
     "TotalMatchingRequirements": "Total count of requirements where consultant has Score > 0",
-    "TopMatchesJson": "JSON string containing array of top 2 requirements (ranked by partial_score contribution)",
+    "TopMatchesJson": "JSON string containing array of top requirements (ranked by partial_score). Shows top 3 if exactly 3 non-role matches, otherwise top 2. Excludes Role/CustomRole categories.",
     "TopMatches": "NULL placeholder for OutSystems structure definition (actual data is in TopMatchesJson)"
   },
   "topMatchesJsonStructure": {
@@ -106,7 +106,7 @@
       }
     ]
   },
-  "topMatchesNote": "TopMatchesJson is sorted by partial_score contribution to MatchingScore, not by ConsultantScore. A requirement with 8% weight at 4/4 (100% fulfillment = 8% contribution) ranks higher than 10% weight at 3/5 (60% fulfillment = 6% contribution).",
+  "topMatchesNote": "TopMatchesJson is sorted by partial_score contribution to MatchingScore, not by ConsultantScore. Shows top 3 when exactly 3 non-role matches exist (to avoid showing '+1'), otherwise top 2. Role and CustomRole categories are excluded from this array. A requirement with 8% weight at 4/4 (100% fulfillment = 8% contribution) ranks higher than 10% weight at 3/5 (60% fulfillment = 6% contribution).",
   "appLayerMapping": {
     "description": "After Query 2 returns, map MatchingScore and PricePerformanceScore from Query 1 results",
     "pseudoCode": "FOR each row in Query2Results: match = Query1Results.Find(r => r.Id == row.ConsultantId); row.MatchingScore = match.MatchingScore; row.PricePerformanceScore = match.PricePerformanceScore"
