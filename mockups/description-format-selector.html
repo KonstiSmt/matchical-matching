@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Description Format Selector - Mockup</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #f0f2f5;
+      color: #2c3e50;
+      line-height: 1.5;
+      min-height: 100vh;
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    :root {
+      --orange-primary: #e67e22;
+      --orange-light: #fff4eb;
+      --orange-hover: #d35400;
+      --gray-100: #f8f9fa;
+      --gray-200: #e9ecef;
+      --gray-300: #dee2e6;
+      --gray-400: #ced4da;
+      --gray-500: #adb5bd;
+      --gray-600: #6c757d;
+      --gray-700: #495057;
+      --gray-800: #343a40;
+      --white: #ffffff;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1500px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 8px;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--gray-800);
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--gray-600);
+      margin-bottom: 32px;
+      font-size: 14px;
+    }
+
+    /* Main Layout: Sidebar + Content */
+    .main-layout {
+      display: flex;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      min-height: 720px;
+    }
+
+    /* Left Sidebar Tabs */
+    .sidebar {
+      width: 220px;
+      background: var(--gray-100);
+      border-right: 1px solid var(--gray-200);
+      padding: 20px 0;
+      flex-shrink: 0;
+    }
+
+    .sidebar-section {
+      margin-bottom: 8px;
+    }
+
+    .sidebar-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 8px 20px;
+    }
+
+    .sidebar-tab {
+      display: block;
+      width: 100%;
+      padding: 12px 20px;
+      border: none;
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--gray-600);
+      transition: all 0.15s;
+      position: relative;
+      border-left: 3px solid transparent;
+    }
+
+    .sidebar-tab:hover {
+      color: var(--gray-800);
+      background: var(--gray-200);
+    }
+
+    .sidebar-tab.active {
+      color: var(--orange-primary);
+      background: var(--white);
+      border-left-color: var(--orange-primary);
+      font-weight: 500;
+    }
+
+    /* Content Area */
+    .content-area {
+      flex: 1;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tab-panel {
+      display: none;
+      flex: 1;
+    }
+
+    .tab-panel.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .panel-header h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--gray-800);
+    }
+
+    .panel-badge {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+      background: var(--orange-light);
+      color: var(--orange-primary);
+    }
+
+    /* Data Maintenance Panel */
+    .format-tabs {
+      display: flex;
+      background: var(--gray-100);
+      border-radius: var(--radius-md);
+      padding: 4px;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+
+    .format-tab {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 12px 8px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 12px;
+      color: var(--gray-600);
+    }
+
+    .format-tab:hover {
+      background: var(--gray-200);
+    }
+
+    .format-tab.active {
+      background: var(--white);
+      color: var(--orange-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .format-tab svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .format-tab.active svg {
+      stroke: var(--orange-primary);
+    }
+
+    .format-explanation {
+      background: var(--gray-100);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: var(--gray-700);
+    }
+
+    .format-explanation strong {
+      color: var(--gray-800);
+    }
+
+    .content-textarea {
+      width: 100%;
+      flex: 1;
+      min-height: 200px;
+      padding: 16px;
+      border: 1px solid var(--gray-300);
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      line-height: 1.6;
+      resize: vertical;
+      font-family: inherit;
+    }
+
+    .content-textarea:focus {
+      outline: none;
+      border-color: var(--orange-primary);
+      box-shadow: 0 0 0 3px var(--orange-light);
+    }
+
+    /* CV Export Layout: Settings + Preview */
+    .export-layout {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 32px;
+      flex: 1;
+    }
+
+    .settings-panel {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .preview-panel {
+      background: var(--gray-100);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .preview-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .preview-content {
+      flex: 1;
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--gray-700);
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+
+    .preview-content ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .preview-content li {
+      margin-bottom: 6px;
+    }
+
+    /* Selector Patterns */
+    .selector-section {
+      margin-bottom: 20px;
+    }
+
+    .selector-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gray-600);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    /* Segmented Control */
+    .segmented-control {
+      display: flex;
+      background: var(--gray-100);
+      border-radius: var(--radius-md);
+      padding: 4px;
+    }
+
+    .segment {
+      flex: 1;
+      padding: 10px 8px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--gray-600);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .segment:hover {
+      color: var(--gray-800);
+    }
+
+    .segment.active {
+      background: var(--white);
+      color: var(--orange-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .segment .gear-icon {
+      width: 14px;
+      height: 14px;
+      opacity: 0.7;
+    }
+
+    .segment.active .gear-icon {
+      opacity: 1;
+    }
+
+    /* Settings Box */
+    .settings-box {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-top: 16px;
+      display: none;
+    }
+
+    .settings-box.open {
+      display: block;
+    }
+
+    .settings-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .settings-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gray-800);
+    }
+
+    .restore-btn {
+      font-size: 12px;
+      color: var(--orange-primary);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      transition: all 0.15s;
+    }
+
+    .restore-btn:hover {
+      background: var(--orange-light);
+    }
+
+    .setting-row {
+      margin-bottom: 18px;
+    }
+
+    .setting-row:last-of-type {
+      margin-bottom: 20px;
+    }
+
+    .setting-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gray-700);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    /* Slider Styles */
+    .slider-container {
+      position: relative;
+      padding-top: 20px;
+      padding-bottom: 24px;
+    }
+
+    .slider-ticks {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      font-size: 9px;
+      color: var(--gray-500);
+    }
+
+    .slider-tick {
+      text-align: center;
+      position: relative;
+      width: 50px;
+    }
+
+    .slider-tick::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 5px;
+      background: var(--gray-400);
+    }
+
+    .slider-recommended-tick {
+      position: absolute;
+      bottom: 0;
+      font-size: 9px;
+      color: var(--orange-primary);
+      transform: translateX(-50%);
+      white-space: nowrap;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .slider-recommended-tick::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--orange-primary);
+      border-radius: 50%;
+      margin-bottom: 4px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--gray-200);
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      margin: 6px 0;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--orange-primary);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(230, 126, 34, 0.3);
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--orange-primary);
+      cursor: pointer;
+      border: none;
+    }
+
+    /* Selector Buttons */
+    .selector-group {
+      display: flex;
+      background: var(--gray-100);
+      border-radius: var(--radius-sm);
+      padding: 3px;
+    }
+
+    .selector-btn {
+      flex: 1;
+      padding: 8px 10px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--gray-600);
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .selector-btn:hover {
+      color: var(--gray-800);
+    }
+
+    .selector-btn.active {
+      background: var(--white);
+      color: var(--orange-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .selector-btn .recommended-dot {
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      width: 6px;
+      height: 6px;
+      background: var(--orange-primary);
+      border-radius: 50%;
+    }
+
+    /* Dropdown Styles */
+    .dropdown-wrapper {
+      position: relative;
+    }
+
+    .dropdown {
+      width: 100%;
+      padding: 10px 12px;
+      padding-right: 32px;
+      border: 1px solid var(--gray-300);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      background: var(--white);
+      color: var(--gray-700);
+      cursor: pointer;
+      appearance: none;
+    }
+
+    .dropdown:focus {
+      outline: none;
+      border-color: var(--orange-primary);
+      box-shadow: 0 0 0 3px var(--orange-light);
+    }
+
+    .dropdown-wrapper::after {
+      content: '';
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid var(--gray-500);
+      pointer-events: none;
+    }
+
+    .dropdown-recommended {
+      position: absolute;
+      right: 32px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      background: var(--orange-primary);
+      border-radius: 50%;
+      pointer-events: none;
+      display: none;
+    }
+
+    .dropdown-recommended.show {
+      display: block;
+    }
+
+    /* Legend */
+    .legend {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      color: var(--gray-500);
+      margin-top: 8px;
+    }
+
+    .legend-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--orange-primary);
+      border-radius: 50%;
+    }
+
+    /* Collapsible Section */
+    .collapsible-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .collapsible-trigger:hover {
+      background: var(--gray-200);
+      border-color: var(--gray-300);
+    }
+
+    .collapsible-trigger.open {
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      border-bottom-color: transparent;
+    }
+
+    .collapsible-hint {
+      flex: 1;
+      font-size: 11px;
+      color: var(--gray-500);
+      text-align: left;
+    }
+
+    .chevron-icon {
+      color: var(--gray-500);
+      transition: transform 0.2s ease;
+    }
+
+    .collapsible-trigger.open .chevron-icon {
+      transform: rotate(180deg);
+    }
+
+    .collapsible-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease-out;
+      border: 1px solid var(--gray-200);
+      border-top: none;
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      background: var(--white);
+    }
+
+    .collapsible-content.open {
+      max-height: 120px;
+    }
+
+    .collapsible-content .notes-textarea {
+      border: none;
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      min-height: 70px;
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 12px;
+      font-family: inherit;
+      resize: none;
+    }
+
+    .collapsible-content .notes-textarea:focus {
+      outline: none;
+      box-shadow: inset 0 0 0 2px var(--orange-light);
+    }
+
+    /* Action Buttons */
+    .settings-actions {
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+      padding-top: 16px;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .btn {
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      border: 1px solid var(--gray-300);
+      color: var(--gray-700);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gray-400);
+      background: var(--gray-50);
+    }
+
+    .btn-primary {
+      background: var(--orange-primary);
+      border: 1px solid var(--orange-primary);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-hover);
+      border-color: var(--orange-hover);
+    }
+
+    /* Pattern B: Two-Level Selection */
+    .two-level-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .source-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gray-700);
+      white-space: nowrap;
+    }
+
+    .toggle-group {
+      display: flex;
+      background: var(--gray-100);
+      border-radius: var(--radius-md);
+      padding: 3px;
+    }
+
+    .toggle-btn {
+      padding: 8px 14px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gray-600);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toggle-btn:hover {
+      color: var(--gray-800);
+    }
+
+    .toggle-btn.active {
+      background: var(--white);
+      color: var(--orange-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .static-dropdown {
+      padding: 8px 12px;
+      border: 1px solid var(--gray-300);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      background: var(--white);
+      color: var(--gray-700);
+      cursor: pointer;
+      min-width: 110px;
+    }
+
+    .static-dropdown:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* Pattern B Settings - Horizontal Layout */
+    .settings-horizontal {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .settings-horizontal .setting-row {
+      margin-bottom: 0;
+    }
+
+    /* Pattern C: Radio Cards */
+    .radio-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .radio-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .radio-card:hover {
+      border-color: var(--gray-300);
+    }
+
+    .radio-card.selected {
+      border-color: var(--orange-primary);
+      background: var(--orange-light);
+    }
+
+    .radio-card input[type="radio"] {
+      display: none;
+    }
+
+    .radio-indicator {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--gray-400);
+      border-radius: 50%;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .radio-card.selected .radio-indicator {
+      border-color: var(--orange-primary);
+    }
+
+    .radio-card.selected .radio-indicator::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      background: var(--orange-primary);
+      border-radius: 50%;
+    }
+
+    .radio-card-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .radio-card-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-700);
+    }
+
+    .radio-card.selected .radio-card-label {
+      color: var(--orange-primary);
+    }
+
+    /* Pattern C Settings - Compact Cards */
+    .settings-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .setting-card {
+      background: var(--gray-100);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+    }
+
+    .setting-card .setting-label {
+      margin-bottom: 6px;
+      font-size: 11px;
+    }
+
+    .setting-card .mini-selector {
+      display: flex;
+      gap: 4px;
+    }
+
+    .mini-btn {
+      flex: 1;
+      padding: 6px 4px;
+      border: none;
+      background: var(--white);
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--gray-600);
+      transition: all 0.15s;
+      position: relative;
+    }
+
+    .mini-btn:hover {
+      color: var(--gray-800);
+    }
+
+    .mini-btn.active {
+      background: var(--orange-primary);
+      color: var(--white);
+    }
+
+    .mini-btn .rec-dot {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 4px;
+      height: 4px;
+      background: var(--orange-primary);
+      border-radius: 50%;
+    }
+
+    .mini-btn.active .rec-dot {
+      background: var(--white);
+    }
+
+    .setting-card .mini-dropdown {
+      width: 100%;
+      padding: 6px 8px;
+      border: 1px solid var(--gray-300);
+      border-radius: 4px;
+      font-size: 11px;
+      background: var(--white);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Description Format System</h1>
+    <p class="subtitle">Interactive mockup: Data maintenance and CV Export format selection</p>
+
+    <div class="main-layout">
+      <!-- Left Sidebar -->
+      <div class="sidebar">
+        <div class="sidebar-section">
+          <div class="sidebar-label">Data</div>
+          <button class="sidebar-tab active" data-panel="maintenance">Data Maintenance</button>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-label">CV Export</div>
+          <button class="sidebar-tab" data-panel="patternA">Pattern A</button>
+          <button class="sidebar-tab" data-panel="patternB">Pattern B</button>
+          <button class="sidebar-tab" data-panel="patternC">Pattern C</button>
+        </div>
+      </div>
+
+      <!-- Content Area -->
+      <div class="content-area">
+
+        <!-- Data Maintenance Panel -->
+        <div class="tab-panel active" id="panel-maintenance">
+          <div class="panel-header">
+            <h2>Engagement Description</h2>
+            <span class="panel-badge">Data Maintenance</span>
+          </div>
+
+          <div class="format-tabs" id="formatTabs">
+            <button class="format-tab active" data-format="bullet">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+              </svg>
+              Bullet
+            </button>
+            <button class="format-tab" data-format="paragraph">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h12" />
+              </svg>
+              Paragraph
+            </button>
+            <button class="format-tab" data-format="mixed">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h10M4 14h16M4 18h8" />
+              </svg>
+              Mixed
+            </button>
+            <button class="format-tab" data-format="raw">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="6" rx="8" ry="3" />
+                <path d="M4 6v6c0 1.657 3.582 3 8 3s8-1.343 8-3V6" />
+                <path d="M4 12v6c0 1.657 3.582 3 8 3s8-1.343 8-3v-6" />
+              </svg>
+              Raw
+            </button>
+          </div>
+
+          <div class="format-explanation" id="formatExplanation">
+            <strong>Bullet format:</strong> Clean bullet-point list. Best for scanning key responsibilities and achievements quickly.
+          </div>
+
+          <textarea class="content-textarea" id="contentTextarea">• Development and implementation of backend systems for stakeholders in the grant recipient register domain
+• Identification and documentation of requirements in coordination with the business area via Confluence
+• Design of the target architecture based on Spring and Hibernate
+• Implementation of auditing solutions using Hibernate Envers
+• Implementation of registry management and JPA-based data storage
+• Processing of XML mass data using STAX and SAX
+• Setup and configuration of CI/CD pipelines with Jenkins
+• Execution and automation of tests (UI, integration, E2E) with PlayWright</textarea>
+        </div>
+
+        <!-- Pattern A Panel -->
+        <div class="tab-panel" id="panel-patternA">
+          <div class="panel-header">
+            <h2>Pattern A: Segmented Control</h2>
+            <span class="panel-badge">CV Export</span>
+          </div>
+
+          <div class="export-layout">
+            <div class="settings-panel">
+              <div class="selector-section">
+                <label class="selector-label">Description Format</label>
+                <div class="segmented-control" id="selectorA">
+                  <button class="segment" data-value="bullet">Bullet</button>
+                  <button class="segment" data-value="paragraph">Paragraph</button>
+                  <button class="segment" data-value="mixed">Mixed</button>
+                  <button class="segment ai-segment active" data-value="ai">
+                    AI Optimized
+                    <svg class="gear-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="settings-box open" id="settingsA">
+                <div class="settings-header">
+                  <span class="settings-title">AI Generation Settings</span>
+                  <button class="restore-btn" onclick="restoreRecommendedA()">Restore Recommended</button>
+                </div>
+
+                <!-- Length Slider -->
+                <div class="setting-row">
+                  <label class="setting-label">Length</label>
+                  <div class="slider-container">
+                    <div class="slider-ticks">
+                      <span class="slider-tick">Minimal</span>
+                      <span class="slider-tick">Short</span>
+                      <span class="slider-tick">Medium</span>
+                      <span class="slider-tick">Long</span>
+                      <span class="slider-tick">Extended</span>
+                    </div>
+                    <input type="range" min="0" max="100" step="1" value="40" id="lengthSliderA" oninput="updatePreviewA()">
+                    <div class="slider-recommended-tick" style="left: 40%;" title="Recommended for this template">
+                      Recommended
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tone Selector -->
+                <div class="setting-row">
+                  <label class="setting-label">Tone</label>
+                  <div class="selector-group" id="toneSelectorA">
+                    <button class="selector-btn" data-value="conservative">Conservative</button>
+                    <button class="selector-btn active" data-value="balanced">
+                      Balanced
+                      <span class="recommended-dot" title="Recommended"></span>
+                    </button>
+                    <button class="selector-btn" data-value="bold">Bold</button>
+                  </div>
+                </div>
+
+                <!-- Output Format Selector -->
+                <div class="setting-row">
+                  <label class="setting-label">Output Format</label>
+                  <div class="selector-group" id="formatSelectorA">
+                    <button class="selector-btn active" data-value="bullet">
+                      Bullet
+                      <span class="recommended-dot" title="Recommended"></span>
+                    </button>
+                    <button class="selector-btn" data-value="paragraph">Paragraph</button>
+                    <button class="selector-btn" data-value="mixed">Mixed</button>
+                  </div>
+                </div>
+
+                <!-- Perspective Dropdown -->
+                <div class="setting-row">
+                  <label class="setting-label">Perspective</label>
+                  <div class="dropdown-wrapper">
+                    <select class="dropdown" id="perspectiveDropdownA" onchange="updatePerspectiveIndicatorA()">
+                      <option value="first">1st Person ("I developed...")</option>
+                      <option value="third">3rd Person ("The consultant...")</option>
+                      <option value="impersonal" selected>Impersonal ("Development of...")</option>
+                    </select>
+                    <span class="dropdown-recommended show" id="perspectiveRecA" title="Recommended"></span>
+                  </div>
+                </div>
+
+                <!-- Focus Dropdown -->
+                <div class="setting-row">
+                  <label class="setting-label">Focus</label>
+                  <div class="dropdown-wrapper">
+                    <select class="dropdown" id="focusDropdownA" onchange="updateFocusIndicatorA()">
+                      <option value="task">Task-focused</option>
+                      <option value="outcome" selected>Outcome-focused</option>
+                      <option value="technology">Technology-focused</option>
+                    </select>
+                    <span class="dropdown-recommended show" id="focusRecA" title="Recommended"></span>
+                  </div>
+                </div>
+
+                <!-- Additional Instructions (Collapsible) -->
+                <div class="setting-row">
+                  <button class="collapsible-trigger" id="notesToggleA" onclick="toggleNotes('A')">
+                    <span class="setting-label" style="margin-bottom: 0;">Additional Instructions</span>
+                    <span class="collapsible-hint">Optional</span>
+                    <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div class="collapsible-content" id="notesContentA">
+                    <textarea class="notes-textarea" placeholder="E.g., 'Emphasize leadership', 'Focus on cloud tech'..."></textarea>
+                  </div>
+                </div>
+
+                <div class="legend">
+                  <span class="legend-dot"></span>
+                  <span>Recommended setting for this template</span>
+                </div>
+
+                <div class="settings-actions">
+                  <button class="btn btn-secondary">Apply</button>
+                  <button class="btn btn-primary">Save & Apply</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="preview-panel">
+              <div class="preview-label">Live Preview</div>
+              <div class="preview-content" id="previewA"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pattern B Panel -->
+        <div class="tab-panel" id="panel-patternB">
+          <div class="panel-header">
+            <h2>Pattern B: Two-Level Selection</h2>
+            <span class="panel-badge">CV Export</span>
+          </div>
+
+          <div class="export-layout">
+            <div class="settings-panel">
+              <div class="selector-section">
+                <label class="selector-label">Description Source</label>
+                <div class="two-level-row">
+                  <div class="toggle-group" id="toggleB">
+                    <button class="toggle-btn" data-value="static">Static</button>
+                    <button class="toggle-btn active" data-value="ai">
+                      AI Optimized
+                      <svg class="gear-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <select class="static-dropdown" id="staticDropdownB" disabled>
+                    <option>Bullet</option>
+                    <option>Paragraph</option>
+                    <option>Mixed</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="settings-box open" id="settingsB">
+                <div class="settings-header">
+                  <span class="settings-title">AI Settings (Horizontal Layout)</span>
+                  <button class="restore-btn" onclick="restoreRecommendedB()">Restore Recommended</button>
+                </div>
+
+                <div class="settings-horizontal">
+                  <!-- Length -->
+                  <div class="setting-row">
+                    <label class="setting-label">Length</label>
+                    <div class="selector-group" id="lengthSelectorB">
+                      <button class="selector-btn" data-value="0">Min</button>
+                      <button class="selector-btn active" data-value="1">
+                        Short
+                        <span class="recommended-dot"></span>
+                      </button>
+                      <button class="selector-btn" data-value="2">Med</button>
+                      <button class="selector-btn" data-value="3">Long</button>
+                    </div>
+                  </div>
+
+                  <!-- Tone -->
+                  <div class="setting-row">
+                    <label class="setting-label">Tone</label>
+                    <div class="selector-group" id="toneSelectorB">
+                      <button class="selector-btn" data-value="conservative">Conserv.</button>
+                      <button class="selector-btn active" data-value="balanced">
+                        Balanced
+                        <span class="recommended-dot"></span>
+                      </button>
+                      <button class="selector-btn" data-value="bold">Bold</button>
+                    </div>
+                  </div>
+
+                  <!-- Output Format -->
+                  <div class="setting-row">
+                    <label class="setting-label">Format</label>
+                    <div class="selector-group" id="formatSelectorB">
+                      <button class="selector-btn active" data-value="bullet">
+                        Bullet
+                        <span class="recommended-dot"></span>
+                      </button>
+                      <button class="selector-btn" data-value="paragraph">Para</button>
+                      <button class="selector-btn" data-value="mixed">Mixed</button>
+                    </div>
+                  </div>
+
+                  <!-- Perspective -->
+                  <div class="setting-row">
+                    <label class="setting-label">Perspective</label>
+                    <div class="dropdown-wrapper">
+                      <select class="dropdown" id="perspectiveDropdownB">
+                        <option value="first">1st Person</option>
+                        <option value="third">3rd Person</option>
+                        <option value="impersonal" selected>Impersonal</option>
+                      </select>
+                      <span class="dropdown-recommended show"></span>
+                    </div>
+                  </div>
+
+                  <!-- Focus -->
+                  <div class="setting-row">
+                    <label class="setting-label">Focus</label>
+                    <div class="dropdown-wrapper">
+                      <select class="dropdown" id="focusDropdownB">
+                        <option value="task">Task</option>
+                        <option value="outcome" selected>Outcome</option>
+                        <option value="technology">Technology</option>
+                      </select>
+                      <span class="dropdown-recommended show"></span>
+                    </div>
+                  </div>
+
+                  <!-- Notes -->
+                  <div class="setting-row" style="grid-column: span 2;">
+                    <label class="setting-label">Additional Instructions</label>
+                    <textarea class="notes-textarea" style="min-height: 50px; width: 100%; padding: 8px; border: 1px solid var(--gray-300); border-radius: var(--radius-sm); font-size: 12px;" placeholder="Optional custom instructions..."></textarea>
+                  </div>
+                </div>
+
+                <div class="legend">
+                  <span class="legend-dot"></span>
+                  <span>Recommended setting</span>
+                </div>
+
+                <div class="settings-actions">
+                  <button class="btn btn-secondary">Apply</button>
+                  <button class="btn btn-primary">Save & Apply</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="preview-panel">
+              <div class="preview-label">Live Preview</div>
+              <div class="preview-content" id="previewB"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pattern C Panel -->
+        <div class="tab-panel" id="panel-patternC">
+          <div class="panel-header">
+            <h2>Pattern C: Radio Cards</h2>
+            <span class="panel-badge">CV Export</span>
+          </div>
+
+          <div class="export-layout">
+            <div class="settings-panel">
+              <div class="selector-section">
+                <label class="selector-label">Description Source</label>
+                <div class="radio-cards" id="radioCardsC">
+                  <label class="radio-card" data-value="static">
+                    <input type="radio" name="sourceC" value="static">
+                    <span class="radio-indicator"></span>
+                    <div class="radio-card-content">
+                      <span class="radio-card-label">Use static version</span>
+                      <select class="static-dropdown" style="max-width: 120px;">
+                        <option>Bullet</option>
+                        <option>Paragraph</option>
+                        <option>Mixed</option>
+                      </select>
+                    </div>
+                  </label>
+                  <label class="radio-card selected" data-value="ai">
+                    <input type="radio" name="sourceC" value="ai" checked>
+                    <span class="radio-indicator"></span>
+                    <div class="radio-card-content">
+                      <span class="radio-card-label">Generate with AI</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <div class="settings-box open" id="settingsC">
+                <div class="settings-header">
+                  <span class="settings-title">AI Settings (Compact Cards)</span>
+                  <button class="restore-btn" onclick="restoreRecommendedC()">Restore Recommended</button>
+                </div>
+
+                <div class="settings-cards">
+                  <div class="setting-card">
+                    <label class="setting-label">Length</label>
+                    <div class="mini-selector" id="lengthSelectorC">
+                      <button class="mini-btn" data-value="0">Min</button>
+                      <button class="mini-btn active" data-value="1">Short<span class="rec-dot"></span></button>
+                      <button class="mini-btn" data-value="2">Med</button>
+                      <button class="mini-btn" data-value="3">Long</button>
+                    </div>
+                  </div>
+
+                  <div class="setting-card">
+                    <label class="setting-label">Tone</label>
+                    <div class="mini-selector" id="toneSelectorC">
+                      <button class="mini-btn" data-value="conservative">Cons.</button>
+                      <button class="mini-btn active" data-value="balanced">Bal.<span class="rec-dot"></span></button>
+                      <button class="mini-btn" data-value="bold">Bold</button>
+                    </div>
+                  </div>
+
+                  <div class="setting-card">
+                    <label class="setting-label">Format</label>
+                    <div class="mini-selector" id="formatSelectorC">
+                      <button class="mini-btn active" data-value="bullet">Bullet<span class="rec-dot"></span></button>
+                      <button class="mini-btn" data-value="paragraph">Para</button>
+                      <button class="mini-btn" data-value="mixed">Mixed</button>
+                    </div>
+                  </div>
+
+                  <div class="setting-card">
+                    <label class="setting-label">Perspective</label>
+                    <select class="mini-dropdown" id="perspectiveSelectorC">
+                      <option value="first">1st Person</option>
+                      <option value="third">3rd Person</option>
+                      <option value="impersonal" selected>Impersonal *</option>
+                    </select>
+                  </div>
+
+                  <div class="setting-card">
+                    <label class="setting-label">Focus</label>
+                    <select class="mini-dropdown" id="focusSelectorC">
+                      <option value="task">Task-focused</option>
+                      <option value="outcome" selected>Outcome *</option>
+                      <option value="technology">Technology</option>
+                    </select>
+                  </div>
+
+                  <div class="setting-card">
+                    <label class="setting-label">Notes</label>
+                    <input type="text" class="mini-dropdown" placeholder="Custom instructions..." style="font-size: 10px;">
+                  </div>
+                </div>
+
+                <div class="legend">
+                  <span class="legend-dot"></span>
+                  <span>Recommended (* in dropdowns)</span>
+                </div>
+
+                <div class="settings-actions">
+                  <button class="btn btn-secondary">Apply</button>
+                  <button class="btn btn-primary">Save & Apply</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="preview-panel">
+              <div class="preview-label">Live Preview</div>
+              <div class="preview-content" id="previewC"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Sample content variations
+    const previewContent = {
+      bullet: {
+        minimal: "• Backend development for federal registry\n• Spring/Hibernate architecture design\n• CI/CD pipeline setup",
+        short: "• Development and implementation of backend systems for grant recipient register\n• Design of target architecture based on Spring and Hibernate\n• Implementation of auditing solutions using Hibernate Envers\n• Setup and configuration of CI/CD pipelines with Jenkins",
+        medium: "• Development and implementation of backend systems for stakeholders in the grant recipient register domain\n• Identification and documentation of requirements in coordination with the business area via Confluence\n• Design of the target architecture based on Spring and Hibernate\n• Implementation of auditing solutions using Hibernate Envers\n• Implementation of registry management and JPA-based data storage\n• Processing of XML mass data using STAX and SAX",
+        long: "• Development and implementation of backend systems for stakeholders in the grant recipient register domain\n• Identification and documentation of requirements in coordination with the business area via Confluence\n• Design of the target architecture based on Spring and Hibernate\n• Implementation of auditing solutions using Hibernate Envers\n• Implementation of registry management and JPA-based data storage\n• Processing of XML mass data using STAX and SAX\n• Setup and configuration of CI/CD pipelines with Jenkins\n• Execution and automation of tests (UI, integration, E2E) with PlayWright\n• Application of Domain Driven Design principles",
+        extended: "• Development and implementation of backend systems for stakeholders in the grant recipient register domain, ensuring scalability for 1M+ records\n• Identification and documentation of requirements in coordination with the business area via Confluence, facilitating clear communication between technical and business teams\n• Design of the target architecture based on Spring and Hibernate, establishing patterns for maintainable codebase\n• Implementation of auditing solutions using Hibernate Envers for complete audit trail compliance\n• Implementation of registry management and JPA-based data storage with optimized query performance\n• Processing of XML mass data using STAX and SAX, achieving 40% performance improvement through streaming\n• Setup and configuration of CI/CD pipelines with Jenkins for automated deployment\n• Execution and automation of tests (UI, integration, E2E) with PlayWright, achieving 85% coverage\n• Application of Domain Driven Design principles and definition of architecture rules\n• Mentoring of junior developers and conducting code reviews"
+      },
+      paragraph: {
+        minimal: "Developed backend systems for federal registry using Spring and Hibernate. Implemented CI/CD pipelines and automated testing.",
+        short: "In my role as software architect, I designed and implemented backend systems for the grant recipient registry. Key achievements included establishing a modern architecture using Spring and Hibernate, implementing comprehensive auditing with Hibernate Envers, and setting up CI/CD pipelines.",
+        medium: "In my role as software architect and developer, the focus was on designing and implementing backend systems for various stakeholders in the area of subsidy recipient registers. I was responsible for eliciting and documenting functional requirements in Confluence and designed a modern target architecture using Spring and Hibernate.\n\nA key part of my responsibilities included implementing auditing processes with Hibernate Envers as well as the efficient processing of XML mass data using STAX and SAX.",
+        long: "In my role as software architect and developer, the focus was on designing and implementing backend systems for various stakeholders, particularly in the area of subsidy recipient registers. I was responsible for eliciting and documenting functional requirements in Confluence and designed a modern target architecture using Spring and Hibernate.\n\nA key part of my responsibilities included implementing auditing processes with Hibernate Envers as well as the efficient processing of XML mass data using STAX and SAX. In addition to backend development with MariaDB and JPA, I built CI/CD pipelines under Jenkins and ensured software quality through automated UI, integration, and end-to-end tests with PlayWright.\n\nBy applying Domain Driven Design and defining clear architectural rules, a sustainable and high-performance system landscape was created.",
+        extended: "In my role as software architect and developer, the focus was on designing and implementing backend systems for various stakeholders, particularly in the area of subsidy recipient registers. I was responsible for eliciting and documenting functional requirements in Confluence and designed a modern target architecture using Spring and Hibernate.\n\nA key part of my responsibilities included implementing auditing processes with Hibernate Envers as well as the efficient processing of XML mass data using STAX and SAX. The streaming approach I implemented achieved a 40% performance improvement over the previous batch processing method. In addition to backend development with MariaDB and JPA, I built CI/CD pipelines under Jenkins and ensured software quality through automated UI, integration, and end-to-end tests with PlayWright, achieving 85% test coverage.\n\nBy applying Domain Driven Design and defining clear architectural rules, a sustainable and high-performance system landscape was created. I also mentored two junior developers and established code review practices that improved overall code quality. The system was designed to handle over 1 million records with sub-second response times for typical queries."
+      },
+      mixed: {
+        minimal: "Backend development for federal registry.\n\n• Spring/Hibernate architecture\n• CI/CD with Jenkins",
+        short: "Development of backend systems for the grant recipient registry using modern technologies.\n\nKey responsibilities:\n• Architecture design with Spring and Hibernate\n• Auditing implementation with Hibernate Envers\n• CI/CD pipeline configuration",
+        medium: "In this project, I served as software architect responsible for the backend systems of the grant recipient registry.\n\nCore technical achievements:\n• Designed scalable architecture using Spring and Hibernate\n• Implemented comprehensive auditing with Hibernate Envers\n• Built efficient XML processing with STAX and SAX\n• Established CI/CD pipelines with Jenkins\n\nThe solution handles over 1 million records with optimized performance.",
+        long: "In this project, I served as software architect responsible for the backend systems of the grant recipient registry. Working closely with business stakeholders, I gathered requirements and translated them into technical specifications documented in Confluence.\n\nCore technical achievements:\n• Designed scalable architecture using Spring and Hibernate\n• Implemented comprehensive auditing with Hibernate Envers\n• Built efficient XML processing with STAX and SAX (40% performance gain)\n• Established CI/CD pipelines with Jenkins\n• Created automated test suite with PlayWright (85% coverage)\n\nThe solution handles over 1 million records with optimized performance and full audit compliance.",
+        extended: "In this project, I served as software architect responsible for the backend systems of the grant recipient registry. Working closely with business stakeholders, I gathered requirements and translated them into technical specifications documented in Confluence. The project involved a team of 10 developers working over 6 months.\n\nCore technical achievements:\n• Designed scalable architecture using Spring and Hibernate following DDD principles\n• Implemented comprehensive auditing with Hibernate Envers for regulatory compliance\n• Built efficient XML processing with STAX and SAX, achieving 40% performance improvement\n• Established CI/CD pipelines with Jenkins for automated deployments\n• Created automated test suite with PlayWright achieving 85% coverage\n• Implemented registry management with JPA-based data storage\n\nBeyond technical delivery, I mentored two junior developers and established code review practices. The solution handles over 1 million records with sub-second response times, meeting all government security requirements.\n\nClient feedback: \"Excellent technical leadership and proactive communication.\""
+      }
+    };
+
+    // Get length category from slider value (0-100)
+    function getLengthCategory(value) {
+      if (value <= 10) return 'minimal';
+      if (value <= 30) return 'short';
+      if (value <= 50) return 'medium';
+      if (value <= 75) return 'long';
+      return 'extended';
+    }
+
+    // Get length category from discrete selector (0-3)
+    function getLengthCategoryDiscrete(value) {
+      const map = ['minimal', 'short', 'medium', 'long'];
+      return map[value] || 'short';
+    }
+
+    // Sidebar tab switching
+    document.querySelectorAll('.sidebar-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+
+        tab.classList.add('active');
+        const panelId = 'panel-' + tab.dataset.panel;
+        document.getElementById(panelId).classList.add('active');
+
+        // Initialize previews when switching tabs
+        if (tab.dataset.panel === 'patternA') updatePreviewA();
+        if (tab.dataset.panel === 'patternB') updatePreviewB();
+        if (tab.dataset.panel === 'patternC') updatePreviewC();
+      });
+    });
+
+    // Format explanations for data maintenance
+    const formatExplanations = {
+      bullet: '<strong>Bullet format:</strong> Clean bullet-point list. Best for scanning key responsibilities and achievements quickly.',
+      paragraph: '<strong>Paragraph format:</strong> Flowing prose text. Ideal for narrative descriptions that tell a story.',
+      mixed: '<strong>Mixed format:</strong> Combination of paragraphs and bullets. Context with prose, details with bullets.',
+      raw: '<strong>Raw dump:</strong> Unformatted source material. Store all notes and details here for AI to use as input.'
+    };
+
+    const sampleContent = {
+      bullet: "• Development and implementation of backend systems for stakeholders in the grant recipient register domain\n• Identification and documentation of requirements in coordination with the business area via Confluence\n• Design of the target architecture based on Spring and Hibernate\n• Implementation of auditing solutions using Hibernate Envers\n• Implementation of registry management and JPA-based data storage\n• Processing of XML mass data using STAX and SAX\n• Setup and configuration of CI/CD pipelines with Jenkins\n• Execution and automation of tests (UI, integration, E2E) with PlayWright",
+      paragraph: "In my role as software architect and developer, the focus was on designing and implementing backend systems for various stakeholders, particularly in the area of subsidy recipient registers. I was responsible for eliciting and documenting functional requirements in Confluence and designed a modern target architecture using Spring and Hibernate.\n\nA key part of my responsibilities included implementing auditing processes with Hibernate Envers as well as the efficient processing of XML mass data using STAX and SAX. In addition to backend development with MariaDB and JPA, I built CI/CD pipelines under Jenkins and ensured software quality through automated UI, integration, and end-to-end tests with PlayWright.",
+      mixed: "Project size: 10 people\nFocus: Backend\n\nTasks:\nDevelopment and implementation of the backend for the respective stakeholders.\n\n• Gather requirements and document them with the business unit in Confluence\n• Design of the target architecture with Spring and Hibernate\n• Auditing with Hibernate Envers, design and implementation\n• Implementation of the registry and management of JPA with Hibernate\n• Processing large data sets in XML with STAX and SAX",
+      raw: "NOTES AND RAW DATA:\n===================\nProject: Federal Registry System\nClient: Informationstechnikzentrum Bund\nDuration: Jan 2024 - Jun 2024\nTeam size: 10 developers\n\nTECHNOLOGIES:\n- Java, Spring Boot, Hibernate\n- MariaDB, JPA\n- XML (STAX, SAX)\n- Jenkins, Docker, PlayWright\n\nKEY ACHIEVEMENTS:\n- Scalable arch for 1M+ records\n- 40% faster XML processing\n- 85% test coverage\n\nCLIENT FEEDBACK:\n\"Excellent technical leadership.\""
+    };
+
+    // Data maintenance format tabs
+    document.getElementById('formatTabs').addEventListener('click', (e) => {
+      const tab = e.target.closest('.format-tab');
+      if (!tab) return;
+
+      document.querySelectorAll('#formatTabs .format-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const format = tab.dataset.format;
+      document.getElementById('formatExplanation').innerHTML = formatExplanations[format];
+      document.getElementById('contentTextarea').value = sampleContent[format];
+    });
+
+    // ========== PATTERN A ==========
+    document.getElementById('selectorA').addEventListener('click', (e) => {
+      const segment = e.target.closest('.segment');
+      if (!segment) return;
+
+      document.querySelectorAll('#selectorA .segment').forEach(s => s.classList.remove('active'));
+      segment.classList.add('active');
+
+      const settings = document.getElementById('settingsA');
+      settings.classList.toggle('open', segment.dataset.value === 'ai');
+      updatePreviewA();
+    });
+
+    document.querySelectorAll('#settingsA .selector-group').forEach(group => {
+      group.addEventListener('click', (e) => {
+        const btn = e.target.closest('.selector-btn');
+        if (!btn) return;
+        group.querySelectorAll('.selector-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        updatePreviewA();
+      });
+    });
+
+    function updatePreviewA() {
+      const lengthValue = document.getElementById('lengthSliderA').value;
+      const lengthCat = getLengthCategory(lengthValue);
+      const formatBtn = document.querySelector('#formatSelectorA .selector-btn.active');
+      const format = formatBtn ? formatBtn.dataset.value : 'bullet';
+
+      const content = previewContent[format]?.[lengthCat] || previewContent.bullet.medium;
+      document.getElementById('previewA').innerText = content;
+    }
+
+    function updatePerspectiveIndicatorA() {
+      const dropdown = document.getElementById('perspectiveDropdownA');
+      const indicator = document.getElementById('perspectiveRecA');
+      indicator.classList.toggle('show', dropdown.value === 'impersonal');
+    }
+
+    function updateFocusIndicatorA() {
+      const dropdown = document.getElementById('focusDropdownA');
+      const indicator = document.getElementById('focusRecA');
+      indicator.classList.toggle('show', dropdown.value === 'outcome');
+    }
+
+    function restoreRecommendedA() {
+      document.getElementById('lengthSliderA').value = 40;
+      document.querySelectorAll('#toneSelectorA .selector-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector('#toneSelectorA .selector-btn[data-value="balanced"]').classList.add('active');
+      document.querySelectorAll('#formatSelectorA .selector-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector('#formatSelectorA .selector-btn[data-value="bullet"]').classList.add('active');
+      document.getElementById('perspectiveDropdownA').value = 'impersonal';
+      document.getElementById('focusDropdownA').value = 'outcome';
+      updatePerspectiveIndicatorA();
+      updateFocusIndicatorA();
+      updatePreviewA();
+    }
+
+    // ========== PATTERN B ==========
+    document.getElementById('toggleB').addEventListener('click', (e) => {
+      const btn = e.target.closest('.toggle-btn');
+      if (!btn) return;
+
+      document.querySelectorAll('#toggleB .toggle-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const isStatic = btn.dataset.value === 'static';
+      document.getElementById('staticDropdownB').disabled = !isStatic;
+      document.getElementById('settingsB').classList.toggle('open', !isStatic);
+      updatePreviewB();
+    });
+
+    document.querySelectorAll('#settingsB .selector-group').forEach(group => {
+      group.addEventListener('click', (e) => {
+        const btn = e.target.closest('.selector-btn');
+        if (!btn) return;
+        group.querySelectorAll('.selector-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        updatePreviewB();
+      });
+    });
+
+    function updatePreviewB() {
+      const lengthBtn = document.querySelector('#lengthSelectorB .selector-btn.active');
+      const lengthCat = getLengthCategoryDiscrete(parseInt(lengthBtn?.dataset.value || 1));
+      const formatBtn = document.querySelector('#formatSelectorB .selector-btn.active');
+      const format = formatBtn ? formatBtn.dataset.value : 'bullet';
+
+      const content = previewContent[format]?.[lengthCat] || previewContent.bullet.short;
+      document.getElementById('previewB').innerText = content;
+    }
+
+    function restoreRecommendedB() {
+      document.querySelectorAll('#lengthSelectorB .selector-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector('#lengthSelectorB .selector-btn[data-value="1"]').classList.add('active');
+      document.querySelectorAll('#toneSelectorB .selector-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector('#toneSelectorB .selector-btn[data-value="balanced"]').classList.add('active');
+      document.querySelectorAll('#formatSelectorB .selector-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector('#formatSelectorB .selector-btn[data-value="bullet"]').classList.add('active');
+      document.getElementById('perspectiveDropdownB').value = 'impersonal';
+      document.getElementById('focusDropdownB').value = 'outcome';
+      updatePreviewB();
+    }
+
+    // ========== PATTERN C ==========
+    document.querySelectorAll('#radioCardsC .radio-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('#radioCardsC .radio-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        card.querySelector('input').checked = true;
+
+        const isAI = card.dataset.value === 'ai';
+        document.getElementById('settingsC').classList.toggle('open', isAI);
+        updatePreviewC();
+      });
+    });
+
+    document.querySelectorAll('#settingsC .mini-selector').forEach(group => {
+      group.addEventListener('click', (e) => {
+        const btn = e.target.closest('.mini-btn');
+        if (!btn) return;
+        group.querySelectorAll('.mini-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        updatePreviewC();
+      });
+    });
+
+    function updatePreviewC() {
+      const lengthBtn = document.querySelector('#lengthSelectorC .mini-btn.active');
+      const lengthCat = getLengthCategoryDiscrete(parseInt(lengthBtn?.dataset.value || 1));
+      const formatBtn = document.querySelector('#formatSelectorC .mini-btn.active');
+      const format = formatBtn ? formatBtn.dataset.value : 'bullet';
+
+      const content = previewContent[format]?.[lengthCat] || previewContent.bullet.short;
+      document.getElementById('previewC').innerText = content;
+    }
+
+    function restoreRecommendedC() {
+      document.querySelectorAll('#lengthSelectorC .mini-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector('#lengthSelectorC .mini-btn[data-value="1"]').classList.add('active');
+      document.querySelectorAll('#toneSelectorC .mini-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector('#toneSelectorC .mini-btn[data-value="balanced"]').classList.add('active');
+      document.querySelectorAll('#formatSelectorC .mini-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector('#formatSelectorC .mini-btn[data-value="bullet"]').classList.add('active');
+      document.getElementById('perspectiveSelectorC').value = 'impersonal';
+      document.getElementById('focusSelectorC').value = 'outcome';
+      updatePreviewC();
+    }
+
+    // Collapsible notes
+    function toggleNotes(pattern) {
+      const trigger = document.getElementById('notesToggle' + pattern);
+      const content = document.getElementById('notesContent' + pattern);
+      trigger.classList.toggle('open');
+      content.classList.toggle('open');
+    }
+
+    // Initialize previews
+    updatePreviewA();
+    updatePreviewB();
+    updatePreviewC();
+  </script>
+</body>
+</html>
