@@ -266,14 +266,15 @@ Pagination:
 
 **Key implication:** With an `ORDER BY MatchingScore`, the database generally must compute enough of the ordering to know which rows are "top" after the offset. That can still be expensive even if you only return 12 rows.
 
-### 4.2 Count Mechanics (Capped)
+### 4.2 Count Mechanics
 
-The current count:
+The current count uses `COUNT(*) OVER()` window function:
 
-* Counts up to `@CountCap` rows from `kept`.
-* Avoids a full window count like `COUNT(*) OVER()` (which forces counting all rows).
+* Computed once across all rows in `price_performance`
+* Returns total matching consultants (before pagination)
+* Efficient in PostgreSQL as window functions compute in a single pass
 
-**Performance reality:** Even capped count can still be expensive if `kept` itself is expensive to materialize. The count is not always the dominant cost; often the expensive part is producing and sorting scored rows.
+**Performance reality:** The count is not typically the dominant cost; the expensive part is producing and sorting scored rows.
 
 ---
 
@@ -403,9 +404,10 @@ Pragmatic expectations:
 
 * Correct separation of stages via CTEs.
 * **Early filter enforcement** in `eligible_consultant` using NOT EXISTS pattern.
+* **Pre-materialized filter check** in `has_filtered_requirements` CTE (evaluated once, not per consultant).
 * Prefilter stage limits candidates before expensive scoring joins.
 * Location filter uses `EXISTS` to avoid score multiplication from multiple consultant locations.
-* Count is capped (`@CountCap`) to avoid full-window count.
+* Count uses `COUNT(*) OVER()` window function for efficient single-pass computation.
 * Cleaned start date computed once and reused.
 * Uses `DOUBLE PRECISION` to reduce cast overhead and keep numeric stability for scoring.
 * Descriptive CTE and alias names for maintainability.
@@ -428,11 +430,12 @@ Pragmatic expectations:
 | `@ShowExternal` | Show external consultants flag |
 | `@Cat_RoleSkill` | Category ID for RoleSkill |
 | `@Cat_Role` | Category ID for Role |
+| `@Cat_CustomRoleSkill` | Category ID for CustomRoleSkill |
+| `@Cat_CustomRole` | Category ID for CustomRole |
 | `@Cat_Industry` | Category ID for Industry |
 | `@Cat_FunctionalArea` | Category ID for FunctionalArea |
 | `@Cat_Language` | Category ID for Language |
-| `@PricePerformanceRatio` | Divisor for price-performance calculation |
-| `@CountCap` | Maximum count to return (avoids full count) |
+| `@UseCustomRoles` | Boolean (0/1): Switch between standard roles (0) and custom roles (1) |
 | `@MaxRecords` | Page size for pagination |
 | `@StartIndex` | Offset for pagination |
 
