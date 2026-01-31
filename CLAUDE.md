@@ -105,7 +105,7 @@ price_performance (window function for ratio calculation) → final SELECT
 
 **Query 1 (GetMatchesByDemandId):**
 ```
-ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count
+ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count, HasActiveFilters
 ```
 
 **Query 2 (GetConsultantMatchDetails):**

@@ -1,12 +1,13 @@
 {
   "description": "GetMatchesByDemandId - Query 1 Output Example",
-  "note": "Pure scoring query - returns ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, and Count. No display data.",
+  "note": "Pure scoring query - returns ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count, and HasActiveFilters. No display data.",
   "singleRow": {
     "ConsultantId": "550e8400-e29b-41d4-a716-446655440001",
     "MatchingScore": 80.5,
     "PricePerformanceScore": 8.2,
     "MatchedRequirementsCount": 7,
-    "Count": 156
+    "Count": 156,
+    "HasActiveFilters": true
   },
   "exampleResultSet": [
     {
@@ -14,84 +15,96 @@
       "MatchingScore": 80.5,
       "PricePerformanceScore": 8.2,
       "MatchedRequirementsCount": 7,
-      "Count": 156
+      "Count": 156,
+      "HasActiveFilters": true
     },
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440002",
       "MatchingScore": 52.3,
       "PricePerformanceScore": 10.0,
       "MatchedRequirementsCount": 5,
-      "Count": 156
+      "Count": 156,
+      "HasActiveFilters": true
     },
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440003",
       "MatchingScore": 49.0,
       "PricePerformanceScore": 7.8,
       "MatchedRequirementsCount": 6,
-      "Count": 156
+      "Count": 156,
+      "HasActiveFilters": true
     },
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440004",
       "MatchingScore": 49.0,
       "PricePerformanceScore": 6.5,
       "MatchedRequirementsCount": 4,
-      "Count": 156
+      "Count": 156,
+      "HasActiveFilters": true
     },
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440005",
       "MatchingScore": 48.2,
       "PricePerformanceScore": 9.1,
       "MatchedRequirementsCount": 5,
-      "Count": 156
+      "Count": 156,
+      "HasActiveFilters": true
     },
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440006",
       "MatchingScore": 46.1,
       "PricePerformanceScore": 7.3,
       "MatchedRequirementsCount": 4,
-      "Count": 156
+      "Count": 156,
+      "HasActiveFilters": true
     },
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440007",
       "MatchingScore": 45.8,
       "PricePerformanceScore": 5.9,
       "MatchedRequirementsCount": 5,
-      "Count": 156
+      "Count": 156,
+      "HasActiveFilters": true
     },
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440008",
       "MatchingScore": 45.5,
       "PricePerformanceScore": 8.6,
       "MatchedRequirementsCount": 3,
-      "Count": 156
+      "Count": 156,
+      "HasActiveFilters": true
     },
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440009",
       "MatchingScore": 45.0,
       "PricePerformanceScore": 7.1,
       "MatchedRequirementsCount": 4,
-      "Count": 156
+      "Count": 156,
+      "HasActiveFilters": true
     },
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440010",
       "MatchingScore": 45.0,
       "PricePerformanceScore": 6.8,
       "MatchedRequirementsCount": 6,
-      "Count": 156
+      "Count": 156,
+      "HasActiveFilters": true
     },
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440011",
       "MatchingScore": 44.8,
       "PricePerformanceScore": 9.4,
       "MatchedRequirementsCount": 5,
-      "Count": 156
+      "Count": 156,
+      "HasActiveFilters": true
     },
     {
       "ConsultantId": "550e8400-e29b-41d4-a716-446655440012",
       "MatchingScore": 44.5,
       "PricePerformanceScore": 7.0,
       "MatchedRequirementsCount": 4,
-      "Count": 156
+      "Count": 156,
+      "HasActiveFilters": true
     }
   ],
   "fieldDescriptions": {
@@ -99,6 +112,7 @@
     "MatchingScore": "Computed score based on requirement matching (weighted sum of partial scores)",
     "PricePerformanceScore": "0-10 scale where 10 = best value (highest MatchingScore/EuroFixedRate ratio)",
     "MatchedRequirementsCount": "Number of matched requirements (RoleSkill, Role, Industry, FunctionalArea - excludes Language)",
-    "Count": "Total number of matching consultants (capped at @CountCap)"
+    "Count": "Total number of matching consultants (capped at @CountCap)",
+    "HasActiveFilters": "Boolean: true if any requirement has Hard or Soft filter active, false otherwise"
   }
 }

@@ -245,7 +245,7 @@ Edge cases:
 
 Final stage:
 
-* Outputs `Id`, `MatchingScore`, `PricePerformanceScore`, `MatchedRequirementsCount`, `Count`
+* Outputs `ConsultantId`, `MatchingScore`, `PricePerformanceScore`, `MatchedRequirementsCount`, `Count`, `HasActiveFilters`
 * `MatchedRequirementsCount` is per-consultant (excludes Language)
 * Produces `Count` via subquery on `kept` (total consultants)
 
@@ -305,27 +305,25 @@ The NOT EXISTS approach in `eligible_consultant`:
 
 ## 6) Indexing Recommendations
 
-### 6.1 Experience Table (Critical for NOT EXISTS)
+### 6.1 Experience Table (Critical)
 
-Primary indexes (ConsultantId-first, for NOT EXISTS filter enforcement):
+All indexes use the **TenantId-first pattern** for multi-tenant optimization:
 
-| Index | Columns |
-|-------|---------|
-| 1 | `(ConsultantId, CategoryId, RoleId, SkillId, Score)` |
-| 2 | `(ConsultantId, CategoryId, RoleId, Score)` |
-| 3 | `(ConsultantId, CategoryId, IndustryId, Score)` |
-| 4 | `(ConsultantId, CategoryId, FunctionalAreaId, Score)` |
-| 5 | `(ConsultantId, CategoryId, LanguageId, Score)` |
+| Category | Index Columns |
+|----------|---------------|
+| Role | `(TenantId, ConsultantId, CategoryId, RoleId, Score)` |
+| RoleSkill | `(TenantId, ConsultantId, CategoryId, RoleId, SkillId, Score)` |
+| CustomRole | `(TenantId, ConsultantId, CategoryId, CustomRoleId, Score)` |
+| CustomRoleSkill | `(TenantId, ConsultantId, CategoryId, CustomRoleId, SkillId, Score)` |
+| Industry | `(TenantId, ConsultantId, CategoryId, IndustryId, Score)` |
+| FunctionalArea | `(TenantId, ConsultantId, CategoryId, FunctionalAreaId, Score)` |
+| Language | `(TenantId, ConsultantId, CategoryId, LanguageId, Score)` |
 
-Secondary indexes (TenantId-first, for branch CTEs if needed):
-
-| Index | Columns |
-|-------|---------|
-| 6 | `(TenantId, CategoryId, RoleId, SkillId, ConsultantId, Score)` |
-| 7 | `(TenantId, CategoryId, RoleId, ConsultantId, Score)` |
-| 8 | `(TenantId, CategoryId, IndustryId, ConsultantId, Score)` |
-| 9 | `(TenantId, CategoryId, FunctionalAreaId, ConsultantId, Score)` |
-| 10 | `(TenantId, CategoryId, LanguageId, ConsultantId, Score)` |
+**Why TenantId-first:**
+* Multi-tenant isolation: TenantId partitions data logically
+* With 30k+ consultants per tenant, TenantId narrows search space immediately
+* All query WHERE clauses filter by TenantId early
+* Supports both filter enforcement (NOT EXISTS) and branch CTE joins
 
 ### 6.2 Closure and Mapping Tables
 
@@ -347,7 +345,7 @@ Secondary indexes (TenantId-first, for branch CTEs if needed):
 ### 7.1 Never Change Unless Explicitly Requested
 
 * Output column list and order:
-  * `Id, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count`
+  * `ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count, HasActiveFilters`
 * Sort order:
   * `ORDER BY MatchingScore DESC` (unless explicitly changing ranking)
 * Pagination contract:

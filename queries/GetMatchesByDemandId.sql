@@ -11,7 +11,7 @@
      • Removed ExperienceFilterCount dependency
 
    Output columns (ordered):
-     ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count
+     ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count, HasActiveFilters
 */
 
 WITH
@@ -81,6 +81,11 @@ filtered_requirement AS (
     AND freq.[FilterCategoryId] <> @Filter_Default
 ),
 
+/* _____________ Pre-materialized filter check (evaluated once, not per consultant) _____________ */
+has_filtered_requirements AS (
+  SELECT EXISTS (SELECT 1 FROM filtered_requirement) AS HasFilters
+),
+
 /* _____________ Eligible consultants (prefilter + filter enforcement) _____________ */
 eligible_consultant AS (
   SELECT consultant.[Id] AS ConsultantId
@@ -88,6 +93,7 @@ eligible_consultant AS (
   JOIN {Status} consultant_status
     ON consultant_status.[Id] = consultant.[StatusId]
   CROSS JOIN demand
+  CROSS JOIN has_filtered_requirements has_filter
   WHERE
     /* Tenant & status-based readiness/active */
     consultant.[TenantId] = demand.TenantId
@@ -194,8 +200,8 @@ eligible_consultant AS (
 
     /* Filter requirement enforcement: consultant must satisfy ALL filtered requirements */
     AND (
-          /* Fast path: if no filtered requirements exist, skip the check */
-          NOT EXISTS (SELECT 1 FROM filtered_requirement)
+          /* Fast path: HasFilters is pre-materialized (evaluated once, not per consultant) */
+          has_filter.HasFilters = FALSE
           OR
           /* Otherwise: no filtered requirement may be unsatisfied */
           NOT EXISTS (
@@ -470,7 +476,8 @@ SELECT
   final.MatchingScore,
   final.PricePerformanceScore,
   final.MatchedRequirementsCount,
-  final.Count
+  final.Count,
+  final.HasActiveFilters
 FROM (
   SELECT
     /* 1) ConsultantId */
@@ -490,7 +497,10 @@ FROM (
     pp.MatchedRequirementsCount AS MatchedRequirementsCount,
 
     /* 5) Total row count (computed once via window function) */
-    COUNT(*) OVER() AS Count
+    COUNT(*) OVER() AS Count,
+
+    /* 6) HasActiveFilters (true if any requirement has Hard/Soft filter) */
+    (SELECT HasFilters FROM has_filtered_requirements) AS HasActiveFilters
 
   FROM price_performance pp
 ) final
