@@ -273,11 +273,11 @@ SELECT
                 'SkillAliasName', skill_alias_locale_inner.[TextValue],
                 'ConsultantScore', em_skill.ConsultantScore,
                 'RequiredScore', em_skill.ReqScore,
-                'DynamicWeight', em_skill.[DynamicWeight],
+                'DynamicWeight', em_skill.[DynamicWeight] * em_skill.[RoleWeight] / 100.0,
                 'PartialScore', em_skill.partial_score,
                 'IsMustHave', em_skill.IsMustHave
               )
-              ORDER BY em_skill.[DynamicWeight] DESC, skill_alias_locale_inner.[TextValue] ASC
+              ORDER BY (em_skill.[DynamicWeight] * em_skill.[RoleWeight] / 100.0) DESC, skill_alias_locale_inner.[TextValue] ASC
             ),
             NULL
           )
