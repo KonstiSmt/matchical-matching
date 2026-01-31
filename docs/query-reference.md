@@ -424,7 +424,8 @@ Pragmatic expectations:
 | `@Filter_Default` | Filter category ID for "Default" (no filtering) |
 | `@Filter_Soft` | Filter category ID for "Soft" filter |
 | `@Filter_Hard` | Filter category ID for "Hard" filter |
-| `@Status_NotAvailable` | Status ID for "Not Available" status |
+| `@AvailabilityCategory_Yes` | Category ID for "Available" (Boolean Yes) |
+| `@AvailabilityCategory_No` | Category ID for "Not Available" (Boolean No) |
 | `@IsInExternalFilterActive` | Whether internal/external filter is active |
 | `@ShowInternal` | Show internal consultants flag |
 | `@ShowExternal` | Show external consultants flag |

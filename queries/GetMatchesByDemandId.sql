@@ -25,13 +25,6 @@ demand AS (
     {Demand}.[AvailabilityFilterCategoryId] AS AvailabilityFilter,
     {Demand}.[IsCapacityFilterActive]       AS IsCapacityFilterActive,
     {Demand}.[Capacity]                     AS Capacity,
-    {Demand}.[StartDate]                    AS StartDate,
-    /* Clean once, reuse everywhere */
-    CASE
-      WHEN NULLIF({Demand}.[StartDate], '1900-01-01') IS NULL THEN NULL
-      WHEN {Demand}.[StartDate] < CURRENT_DATE THEN CURRENT_DATE
-      ELSE {Demand}.[StartDate]
-    END                                      AS CleanedStartDate,
     {Demand}.[ClientOffsiteRate]            AS ClientOffsiteRate
   FROM {Demand}
   WHERE {Demand}.[Id] = @DemandId
@@ -107,12 +100,6 @@ eligible_consultant AS (
           OR (@ShowExternal <> consultant.[IsInternal])
         )
 
-    /* "Not Available" status: when availability filter is NOT Default, exclude such consultants */
-    AND (
-          demand.AvailabilityFilter = @Filter_Default
-          OR consultant.[StatusId] <> @Status_NotAvailable
-        )
-
     /* Location constraint driven by demand.LocationFilterCategoryId */
     AND (
           /* Default: no location filtering OR missing demand location */
@@ -159,37 +146,16 @@ eligible_consultant AS (
              )
         )
 
-    /* Availability using demand.CleanedStartDate + NullDate sentinel */
-    /* Note: In PostgreSQL, DATE + INTEGER adds that many days (no INTERVAL needed) */
+    /* Availability filter based on AvailabilityCategoryId */
     AND (
-          (demand.AvailabilityFilter = @Filter_Default)
-          OR (consultant.[IsImmediatelyAvailable] = 1)
-          OR (
-               /* CleanedStartDate >= NextAvailabilityDate */
-               demand.CleanedStartDate >= consultant.[NextAvailabiltyDate]
-             AND consultant.[NextAvailabiltyDate] IS NOT NULL
-             )
-          OR (
-               /* CleanedStartDate >= (today + noticePeriod days) when noticePeriod != 0 */
-               demand.CleanedStartDate >= CURRENT_DATE + consultant.[NoticePeriod]
-             AND consultant.[NoticePeriod] <> 0
-             )
-          OR (
-               demand.AvailabilityFilter = @Filter_Soft
-               AND (
-                     (
-                       /* (today + 60 days) >= NextAvailabilityDate */
-                       CURRENT_DATE + 60 >= consultant.[NextAvailabiltyDate]
-                       AND consultant.[NextAvailabiltyDate] IS NOT NULL
-                     )
-                     OR
-                     (
-                       /* CleanedStartDate >= (today + (noticePeriod - 60) days) when noticePeriod != 0 */
-                       demand.CleanedStartDate >= CURRENT_DATE + (consultant.[NoticePeriod] - 60)
-                       AND consultant.[NoticePeriod] <> 0
-                     )
-                   )
-             )
+          /* Default: no filtering */
+          demand.AvailabilityFilter = @Filter_Default
+          /* Soft: only consultants marked as NOT available */
+          OR (demand.AvailabilityFilter = @Filter_Soft
+              AND consultant.[AvailabilityCategoryId] = @AvailabilityCategory_No)
+          /* Hard: only consultants marked as available */
+          OR (demand.AvailabilityFilter = @Filter_Hard
+              AND consultant.[AvailabilityCategoryId] = @AvailabilityCategory_Yes)
         )
 
     /* Capacity (only when active) */

@@ -8,7 +8,7 @@
 
    Output columns (ordered):
      ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl,
-     TopRoleName, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches
+     TopRoleName, EuroFixedRate, AvailabilityCategoryId, TotalMatchingRequirements, TopMatchesJson, TopMatches
 
    NOTE: MatchingScore and PricePerformanceScore return 0 as placeholders.
    These values are already calculated in Query 1 and should be mapped in the
@@ -25,7 +25,8 @@ consultant_base AS (
     consultant.[ExternalUserId]   AS ExternalUserId,
     consultant.[TopRoleId]        AS TopRoleId,
     consultant.[TopCustomRoleId]  AS TopCustomRoleId,
-    consultant.[EuroFixedRate]    AS EuroFixedRate
+    consultant.[EuroFixedRate]    AS EuroFixedRate,
+    consultant.[AvailabilityCategoryId] AS AvailabilityCategoryId
   FROM {Consultant} consultant
   WHERE consultant.[Id] IN (@ConsultantIds)
     AND consultant.[TenantId] = @TenantId
@@ -234,10 +235,13 @@ SELECT
   /* 9) EuroFixedRate */
   cb.EuroFixedRate AS EuroFixedRate,
 
-  /* 10) TotalMatchingRequirements - placeholder, filled by app from Query 1 */
+  /* 10) AvailabilityCategoryId */
+  cb.AvailabilityCategoryId AS AvailabilityCategoryId,
+
+  /* 11) TotalMatchingRequirements - placeholder, filled by app from Query 1 */
   0 AS TotalMatchingRequirements,
 
-  /* 11) TopMatchesJson - JSON array of top matches (excludes Role and CustomRole categories)
+  /* 12) TopMatchesJson - JSON array of top matches (excludes Role and CustomRole categories)
          Shows top 3 if exactly 3 non-role matches exist, otherwise top 2 */
   (
     SELECT COALESCE(
@@ -266,7 +270,7 @@ SELECT
     WHERE top_matches.rn <= CASE WHEN top_matches.total_non_role_matches = 3 THEN 3 ELSE 2 END
   ) AS TopMatchesJson,
 
-  /* 12) TopMatches - NULL placeholder for OutSystems structure definition */
+  /* 13) TopMatches - NULL placeholder for OutSystems structure definition */
   NULL AS TopMatches
 
 FROM consultant_base cb

@@ -110,7 +110,7 @@ ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Co
 
 **Query 2 (GetConsultantMatchDetails):**
 ```
-ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, TotalMatchingRequirements, TopMatchesJson, TopMatches
+ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, AvailabilityCategoryId, TotalMatchingRequirements, TopMatchesJson, TopMatches
 ```
 
 **Query 3 (GetMatchingScoreByConsultantIds):**
@@ -212,8 +212,7 @@ The goal is **human readability and maintainability**. Someone reading the query
 After any change, verify:
 - Top 12 ordering matches expected behavior on test demands
 - Location filter (Default/Soft/Hard) edge cases
-- Availability filter edge cases
-- "Not Available" status exclusion when availability filter is active
+- Availability filter edge cases (Default=all, Soft=No only, Hard=Yes only)
 - Count accuracy
 - PricePerformanceScore: best ratio consultant = 10, others scaled proportionally
 - PricePerformanceScore edge case: EuroFixedRate = 0 results in score = 0
@@ -248,9 +247,7 @@ Primary entity representing a consultant (internal or external).
 | `TopRoleId` | FK to Role (consultant's primary role, for display) |
 | `TopCustomRoleId` | FK to CustomRole (consultant's primary custom role, when custom roles active) |
 | `EuroFixedRate` | Rate for price-performance calculation |
-| `NextAvailabiltyDate` | Next availability date (NullDate sentinel if not set) |
-| `IsImmediatelyAvailable` | Boolean: immediately available |
-| `NoticePeriod` | Notice period in days |
+| `AvailabilityCategoryId` | FK to Category for availability status (Yes/No/Unknown) |
 | `MinCapacity`, `MaxCapacity` | Capacity range |
 
 ### Experience
