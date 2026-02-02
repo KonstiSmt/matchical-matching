@@ -121,36 +121,42 @@ experience_match AS (
   LEFT JOIN {Experience} experience
     ON experience.[ConsultantId] = @ConsultantId
     AND experience.[TenantId] = req.[TenantId]
-    AND experience.[CategoryId] = req.[CategoryId]
     AND (
       /* Standard RoleSkill */
       (@UseCustomRoles <> 1
+       AND experience.[CategoryId] = @Cat_RoleSkill
        AND req.[CategoryId] = @Cat_RoleSkill
        AND experience.[RoleId] = req.[RoleId]
        AND experience.[SkillId] = req.[SkillId])
       /* Custom RoleSkill */
       OR (@UseCustomRoles = 1
+          AND experience.[CategoryId] = @Cat_CustomRoleSkill
           AND req.[CategoryId] = @Cat_CustomRoleSkill
           AND experience.[CustomRoleId] = req.[CustomRoleId]
           AND experience.[SkillId] = req.[SkillId])
       /* Standard Role */
       OR (@UseCustomRoles <> 1
+          AND experience.[CategoryId] = @Cat_Role
           AND req.[CategoryId] = @Cat_Role
           AND experience.[RoleId] = req.[RoleId]
           AND experience.[SkillId] IS NULL)
       /* Custom Role */
       OR (@UseCustomRoles = 1
+          AND experience.[CategoryId] = @Cat_CustomRole
           AND req.[CategoryId] = @Cat_CustomRole
           AND experience.[CustomRoleId] = req.[CustomRoleId]
           AND experience.[SkillId] IS NULL)
       /* Industry (unchanged) */
-      OR (req.[CategoryId] = @Cat_Industry
+      OR (experience.[CategoryId] = @Cat_Industry
+          AND req.[CategoryId] = @Cat_Industry
           AND experience.[IndustryId] = req.[IndustryId])
       /* FunctionalArea (unchanged) */
-      OR (req.[CategoryId] = @Cat_FunctionalArea
+      OR (experience.[CategoryId] = @Cat_FunctionalArea
+          AND req.[CategoryId] = @Cat_FunctionalArea
           AND experience.[FunctionalAreaId] = req.[FunctionalAreaId])
       /* Language (unchanged) */
-      OR (req.[CategoryId] = @Cat_Language
+      OR (experience.[CategoryId] = @Cat_Language
+          AND req.[CategoryId] = @Cat_Language
           AND experience.[LanguageId] = req.[LanguageId])
     )
 ),
