@@ -124,7 +124,7 @@ ConsultantId, MatchingScore
 
 **Query 4 (GetConsultantFullDetails):**
 ```
-ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, ClientOffsiteRate, ContingentDays, RequiredLocationName, RequiredLocationColor, MatchingConsultantLocationName, MatchingConsultantLocationColor, RoleSkillsJson, IndustriesJson, FunctionalAreasJson, LanguagesJson, RoleSkills, Industries, FunctionalAreas, Languages
+ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, ClientOffsiteRate, ContingentDays, AvailabilityCategoryId, AvailableFrom, AvailableTo, AvailableDaysPerWeek, IsWillingToTravel, RequiredLocationName, RequiredLocationColor, MatchingConsultantLocationName, MatchingConsultantLocationColor, RoleSkillsJson, IndustriesJson, FunctionalAreasJson, LanguagesJson, RoleSkills, Industries, FunctionalAreas, Languages
 ```
 
 Column order is contractual with the OutSystems output structure.
@@ -252,6 +252,10 @@ Primary entity representing a consultant (internal or external).
 | `TopCustomRoleId` | FK to CustomRole (consultant's primary custom role, when custom roles active) |
 | `EuroFixedRate` | Rate for price-performance calculation |
 | `AvailabilityCategoryId` | FK to Category for availability status (Yes/No/Unknown) |
+| `AvailableFrom` | Start date of availability period |
+| `AvailableTo` | End date of availability period |
+| `AvailableDaysPerWeek` | Decimal: days available per week (e.g., 4.5) |
+| `IsWillingToTravel` | Boolean: willingness to travel |
 | `MinCapacity`, `MaxCapacity` | Capacity range |
 
 ### Experience

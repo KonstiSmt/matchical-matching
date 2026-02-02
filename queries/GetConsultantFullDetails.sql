@@ -11,6 +11,7 @@
    Output columns (ordered):
      ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl,
      TopRoleName, EuroFixedRate, ClientOffsiteRate, ContingentDays,
+     AvailabilityCategoryId, AvailableFrom, AvailableTo, AvailableDaysPerWeek, IsWillingToTravel,
      RequiredLocationName, RequiredLocationColor, MatchingConsultantLocationName, MatchingConsultantLocationColor,
      RoleSkillsJson, IndustriesJson, FunctionalAreasJson, LanguagesJson,
      RoleSkills, Industries, FunctionalAreas, Languages
@@ -26,9 +27,14 @@ consultant_base AS (
     consultant.[IsInternal]        AS IsInternal,
     consultant.[ConsultancyUserId] AS ConsultancyUserId,
     consultant.[ExternalUserId]    AS ExternalUserId,
-    consultant.[TopRoleId]         AS TopRoleId,
-    consultant.[TopCustomRoleId]   AS TopCustomRoleId,
-    consultant.[EuroFixedRate]     AS EuroFixedRate
+    consultant.[TopRoleId]            AS TopRoleId,
+    consultant.[TopCustomRoleId]      AS TopCustomRoleId,
+    consultant.[EuroFixedRate]        AS EuroFixedRate,
+    consultant.[AvailabilityCategoryId] AS AvailabilityCategoryId,
+    consultant.[AvailableFrom]        AS AvailableFrom,
+    consultant.[AvailableTo]          AS AvailableTo,
+    consultant.[AvailableDaysPerWeek] AS AvailableDaysPerWeek,
+    consultant.[IsWillingToTravel]    AS IsWillingToTravel
   FROM {Consultant} consultant
   WHERE consultant.[Id] = @ConsultantId
     AND consultant.[TenantId] = @TenantId
@@ -223,19 +229,34 @@ SELECT
   /* 11) ContingentDays */
   d.ContingentDays AS ContingentDays,
 
-  /* 12) RequiredLocationName */
+  /* 12) AvailabilityCategoryId */
+  cb.AvailabilityCategoryId AS AvailabilityCategoryId,
+
+  /* 13) AvailableFrom */
+  cb.AvailableFrom AS AvailableFrom,
+
+  /* 14) AvailableTo */
+  cb.AvailableTo AS AvailableTo,
+
+  /* 15) AvailableDaysPerWeek */
+  cb.AvailableDaysPerWeek AS AvailableDaysPerWeek,
+
+  /* 16) IsWillingToTravel */
+  cb.IsWillingToTravel AS IsWillingToTravel,
+
+  /* 17) RequiredLocationName */
   demand_location_locale.[TextValue] AS RequiredLocationName,
 
-  /* 13) RequiredLocationColor */
+  /* 18) RequiredLocationColor */
   demand_location_category.[Color] AS RequiredLocationColor,
 
-  /* 14) MatchingConsultantLocationName */
+  /* 19) MatchingConsultantLocationName */
   lm.MatchingConsultantLocationName AS MatchingConsultantLocationName,
 
-  /* 15) MatchingConsultantLocationColor */
+  /* 20) MatchingConsultantLocationColor */
   lm.MatchingConsultantLocationColor AS MatchingConsultantLocationColor,
 
-  /* 16) RoleSkillsJson (nested: roles with skills inside, ordered by DynamicWeight DESC, Name ASC) */
+  /* 21) RoleSkillsJson (nested: roles with skills inside, ordered by DynamicWeight DESC, Name ASC) */
   /* Supports both standard roles (RoleAlias) and custom roles (CustomRole → RoleName) */
   (
     SELECT COALESCE(
@@ -325,7 +346,7 @@ SELECT
     ) role_data
   ) AS RoleSkillsJson,
 
-  /* 17) IndustriesJson (ordered by DynamicWeight DESC, Name ASC) */
+  /* 22) IndustriesJson (ordered by DynamicWeight DESC, Name ASC) */
   (
     SELECT COALESCE(
       json_agg(
@@ -351,7 +372,7 @@ SELECT
     WHERE em.[CategoryId] = @Cat_Industry
   ) AS IndustriesJson,
 
-  /* 18) FunctionalAreasJson (ordered by DynamicWeight DESC, Name ASC) */
+  /* 23) FunctionalAreasJson (ordered by DynamicWeight DESC, Name ASC) */
   (
     SELECT COALESCE(
       json_agg(
@@ -377,7 +398,7 @@ SELECT
     WHERE em.[CategoryId] = @Cat_FunctionalArea
   ) AS FunctionalAreasJson,
 
-  /* 19) LanguagesJson (with level labels, ordered by DynamicWeight DESC, Name ASC) */
+  /* 24) LanguagesJson (with level labels, ordered by DynamicWeight DESC, Name ASC) */
   (
     SELECT COALESCE(
       json_agg(
@@ -409,16 +430,16 @@ SELECT
     WHERE em.[CategoryId] = @Cat_Language
   ) AS LanguagesJson,
 
-  /* 20) RoleSkills (NULL placeholder for OutSystems structure) */
+  /* 25) RoleSkills (NULL placeholder for OutSystems structure) */
   NULL AS RoleSkills,
 
-  /* 21) Industries (NULL placeholder for OutSystems structure) */
+  /* 26) Industries (NULL placeholder for OutSystems structure) */
   NULL AS Industries,
 
-  /* 22) FunctionalAreas (NULL placeholder for OutSystems structure) */
+  /* 27) FunctionalAreas (NULL placeholder for OutSystems structure) */
   NULL AS FunctionalAreas,
 
-  /* 23) Languages (NULL placeholder for OutSystems structure) */
+  /* 28) Languages (NULL placeholder for OutSystems structure) */
   NULL AS Languages
 
 FROM consultant_base cb
