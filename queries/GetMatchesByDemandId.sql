@@ -2,7 +2,7 @@
    Purpose: return consultant matches for a demand with scoring, paging, and filters.
 
    This is the SCORING QUERY (Query 1). Returns only IDs and scores.
-   Display data (names, photos, etc.) comes from GetConsultantMatchDetails (Query 2).
+   Display data (names, photos, etc.) comes from GetConsultantMatchPreview (Query 2).
 
    Refactored version:
      • Early NOT EXISTS filter enforcement in ec CTE (consultants failing filters excluded before scoring)
@@ -76,7 +76,15 @@ filtered_requirement AS (
 
 /* _____________ Pre-materialized filter check (evaluated once, not per consultant) _____________ */
 has_filtered_requirements AS (
-  SELECT EXISTS (SELECT 1 FROM filtered_requirement) AS HasFilters
+  SELECT (
+    /* Requirement filters (Hard/Soft on individual requirements) */
+    EXISTS (SELECT 1 FROM filtered_requirement)
+    /* Availability filter active */
+    OR (SELECT AvailabilityFilter FROM demand) <> @Filter_Default
+    /* Location filter active (not Default AND has location) */
+    OR ((SELECT LocationFilter FROM demand) <> @Filter_Default
+        AND (SELECT LocationTagId FROM demand) IS NOT NULL)
+  ) AS HasFilters
 ),
 
 /* _____________ Eligible consultants (prefilter + filter enforcement) _____________ */
@@ -465,7 +473,7 @@ FROM (
     /* 5) Total row count (computed once via window function) */
     COUNT(*) OVER() AS Count,
 
-    /* 6) HasActiveFilters (true if any requirement has Hard/Soft filter) */
+    /* 6) HasActiveFilters (true if any filter is active: requirement, availability, or location) */
     (SELECT HasFilters FROM has_filtered_requirements) AS HasActiveFilters
 
   FROM price_performance pp

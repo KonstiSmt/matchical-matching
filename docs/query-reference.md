@@ -248,6 +248,7 @@ Final stage:
 * Outputs `ConsultantId`, `MatchingScore`, `PricePerformanceScore`, `MatchedRequirementsCount`, `Count`, `HasActiveFilters`
 * `MatchedRequirementsCount` is per-consultant (excludes Language)
 * Produces `Count` via subquery on `kept` (total consultants)
+* `HasActiveFilters` is true if any filter is active: requirement filters (Hard/Soft), availability filter (not Default), or location filter (not Default with location set)
 
 Pagination:
 

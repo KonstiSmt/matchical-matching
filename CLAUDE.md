@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Critical Rules
+
+**NEVER commit changes without explicit user instruction.** Wait for the user to tell you to commit.
+
 ## Project Purpose
 
 This repository is for iterating on the consultant-to-demand matching queries running on **OutSystems ODC** with **Aurora PostgreSQL**.
@@ -9,7 +13,7 @@ This repository is for iterating on the consultant-to-demand matching queries ru
 ## Repository Structure
 
 - `queries/GetMatchesByDemandId.sql` — Query 1: Scoring query (returns ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count)
-- `queries/GetConsultantMatchDetails.sql` — Query 2: Hydration query (returns display data for matched consultants)
+- `queries/GetConsultantMatchPreview.sql` — Query 2: Preview query (returns display data for matched consultants)
 - `queries/GetMatchingScoreByConsultantIds.sql` — Query 3: Lightweight scoring query (returns ConsultantId, MatchingScore for specific consultants)
 - `queries/GetConsultantFullDetails.sql` — Query 4: Full details query (returns complete matching breakdown for single consultant)
 - `docs/query-reference.md` — Full documentation (matching concepts, CTE walkthrough, performance notes)
@@ -32,10 +36,10 @@ Single Backend Call:
                    (Pass ConsultantIds)
                             ↓
 ┌─────────────────────────────────────────────────────────────┐
-│ Query 2: GetConsultantMatchDetails (Hydration)               │
+│ Query 2: GetConsultantMatchPreview (Preview)                 │
 │   → Input: ConsultantIds (comma-separated), DemandId         │
 │   → Output: Nested JSON per consultant                       │
-│     • Consultant info (name, photo, role, rate)              │
+│     • Consultant info (name, photo, role, rate, status)      │
 │     • Top 2 matches + total count                            │
 │   → Returns: 12-20 rows (one per consultant)                 │
 └─────────────────────────────────────────────────────────────┘
@@ -108,9 +112,9 @@ price_performance (window function for ratio calculation) → final SELECT
 ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count, HasActiveFilters
 ```
 
-**Query 2 (GetConsultantMatchDetails):**
+**Query 2 (GetConsultantMatchPreview):**
 ```
-ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, AvailabilityCategoryId, TotalMatchingRequirements, TopMatchesJson, TopMatches
+ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, AvailabilityCategoryId, EmploymentStatusId, EmploymentStatusLabelTranslationsJSON, TotalMatchingRequirements, TopMatchesJson, TopMatches
 ```
 
 **Query 3 (GetMatchingScoreByConsultantIds):**
@@ -243,7 +247,7 @@ Primary entity representing a consultant (internal or external).
 | `IsInternal` | Boolean: internal (ConsultancyUser) vs external (ExternalUser) |
 | `ConsultancyUserId` | FK to ConsultancyUser (when IsInternal=1) |
 | `ExternalUserId` | FK to ExternalUser (when IsInternal=0) |
-| `StatusId` | FK to Status |
+| `StatusId` | FK to Status (for matching eligibility: IsReady, IsActive) |
 | `TopRoleId` | FK to Role (consultant's primary role, for display) |
 | `TopCustomRoleId` | FK to CustomRole (consultant's primary custom role, when custom roles active) |
 | `EuroFixedRate` | Rate for price-performance calculation |
@@ -331,6 +335,7 @@ Identity fields for internal consultants.
 | `Email` | Email address |
 | `FirstName`, `LastName` | Name |
 | `DefaultPhotoUrl`, `DefaultPhotoUrlRound` | Photo URLs |
+| `EmploymentStatusId` | FK to Status (for display: employment status label) |
 
 ### ExternalUser (External User Identity)
 Identity fields for external consultants.

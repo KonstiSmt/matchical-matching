@@ -1,7 +1,7 @@
 {
-  "description": "GetConsultantMatchDetails - Query 2 Output Example",
-  "note": "Hydration query - returns consultant details and top matching requirements. One row per consultant. MatchingScore and PricePerformanceScore are placeholders (0) - filled by app from Query 1.",
-  "columnOrder": "ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, AvailabilityCategoryId, TotalMatchingRequirements, TopMatchesJson, TopMatches",
+  "description": "GetConsultantMatchPreview - Query 2 Output Example",
+  "note": "Preview query - returns consultant details for match preview cards. One row per consultant. MatchingScore and PricePerformanceScore are placeholders (0) - filled by app from Query 1.",
+  "columnOrder": "ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, AvailabilityCategoryId, EmploymentStatusId, EmploymentStatusLabelTranslationsJSON, TotalMatchingRequirements, TopMatchesJson, TopMatches",
   "singleRow": {
     "ConsultantId": "550e8400-e29b-41d4-a716-446655440001",
     "IsPinned": 1,
@@ -13,6 +13,8 @@
     "TopRoleName": "Quality Assurance Specialist",
     "EuroFixedRate": 85.00,
     "AvailabilityCategoryId": "cat-avail-yes-001",
+    "EmploymentStatusId": "status-active-001",
+    "EmploymentStatusLabelTranslationsJSON": "{\"en\":\"Active\",\"de\":\"Aktiv\"}",
     "TotalMatchingRequirements": 5,
     "TopMatchesJson": "[{\"RequirementId\":\"req-001\",\"RequirementName\":\"Cognigy\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":5}]",
     "TopMatches": null,
@@ -41,6 +43,8 @@
       "TopRoleName": "Quality Assurance Specialist",
       "EuroFixedRate": 85.00,
       "AvailabilityCategoryId": "cat-avail-yes-001",
+      "EmploymentStatusId": "status-active-001",
+      "EmploymentStatusLabelTranslationsJSON": "{\"en\":\"Active\",\"de\":\"Aktiv\"}",
       "TotalMatchingRequirements": 5,
       "TopMatchesJson": "[{\"RequirementId\":\"req-001\",\"RequirementName\":\"Cognigy\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":5}]",
       "TopMatches": null
@@ -56,6 +60,8 @@
       "TopRoleName": "Quality Assurance Specialist",
       "EuroFixedRate": 75.00,
       "AvailabilityCategoryId": "cat-avail-no-001",
+      "EmploymentStatusId": "status-onboarding-001",
+      "EmploymentStatusLabelTranslationsJSON": "{\"en\":\"Onboarding\",\"de\":\"Einarbeitung\"}",
       "TotalMatchingRequirements": 4,
       "TopMatchesJson": "[{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":3}]",
       "TopMatches": null
@@ -71,6 +77,9 @@
       "TopRoleName": "Quality Assurance Specialist",
       "EuroFixedRate": 0,
       "AvailabilityCategoryId": null,
+      "EmploymentStatusId": null,
+      "EmploymentStatusLabelTranslationsJSON": null,
+      "_note": "External consultant (IsInternal=0) - EmploymentStatusId/LabelTranslationsJSON are NULL",
       "TotalMatchingRequirements": 3,
       "TopMatchesJson": "[{\"RequirementId\":\"req-003\",\"RequirementName\":\"Test Automation Conception\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"AI Testing\",\"ConsultantScore\":2}]",
       "TopMatches": null
@@ -87,6 +96,8 @@
     "TopRoleName": "Consultant.TopRoleId → Role.NameLocaleKeyId → LocaleDict.TextValue (filtered by @SystemLanguage)",
     "EuroFixedRate": "Consultant.EuroFixedRate - displayed on consultant card",
     "AvailabilityCategoryId": "Consultant.AvailabilityCategoryId - FK to Category for availability status (Yes/No/null for unknown)",
+    "EmploymentStatusId": "ConsultancyUser.EmploymentStatusId - FK to Status for employment status (internal consultants only, NULL for external)",
+    "EmploymentStatusLabelTranslationsJSON": "Status.LabelTranslationsJSON - JSON with localized status labels (internal consultants only, NULL for external)",
     "TotalMatchingRequirements": "Total count of requirements where consultant has Score > 0",
     "TopMatchesJson": "JSON string containing array of top requirements (ranked by partial_score). Shows top 3 if exactly 3 non-role matches, otherwise top 2. Excludes Role/CustomRole categories.",
     "TopMatches": "NULL placeholder for OutSystems structure definition (actual data is in TopMatchesJson)"

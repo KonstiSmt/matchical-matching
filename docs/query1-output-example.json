@@ -112,7 +112,7 @@
     "MatchingScore": "Computed score based on requirement matching (weighted sum of partial scores)",
     "PricePerformanceScore": "0-10 scale where 10 = best value (highest MatchingScore/EuroFixedRate ratio)",
     "MatchedRequirementsCount": "Number of matched requirements (RoleSkill, Role, Industry, FunctionalArea - excludes Language)",
-    "Count": "Total number of matching consultants (capped at @CountCap)",
-    "HasActiveFilters": "Boolean: true if any requirement has Hard or Soft filter active, false otherwise"
+    "Count": "Total number of matching consultants",
+    "HasActiveFilters": "Boolean: true if any filter is active (requirement Hard/Soft, availability filter, or location filter)"
   }
 }

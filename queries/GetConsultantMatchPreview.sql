@@ -1,14 +1,15 @@
-/* GetConsultantMatchDetails : Advanced SQL (Aurora Postgres, ODC)
-   Purpose: Hydration query for consultant match cards.
+/* GetConsultantMatchPreview : Advanced SQL (Aurora Postgres, ODC)
+   Purpose: Preview query for consultant match cards.
 
-   This is the DISPLAY QUERY (Query 2). Called after GetMatchesByDemandId (Query 1).
-   Takes ConsultantIds from Query 1 and returns full display data.
+   This is the PREVIEW QUERY (Query 2). Called after GetMatchesByDemandId (Query 1).
+   Takes ConsultantIds from Query 1 and returns display data for preview cards.
 
    Input: @ConsultantIds (comma-separated, Expand Inline), @DemandId, @TenantId, @SystemLanguage
 
    Output columns (ordered):
      ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl,
-     TopRoleName, EuroFixedRate, AvailabilityCategoryId, TotalMatchingRequirements, TopMatchesJson, TopMatches
+     TopRoleName, EuroFixedRate, AvailabilityCategoryId, EmploymentStatusId, EmploymentStatusLabelTranslationsJSON,
+     TotalMatchingRequirements, TopMatchesJson, TopMatches
 
    NOTE: MatchingScore and PricePerformanceScore return 0 as placeholders.
    These values are already calculated in Query 1 and should be mapped in the
@@ -238,10 +239,16 @@ SELECT
   /* 10) AvailabilityCategoryId */
   cb.AvailabilityCategoryId AS AvailabilityCategoryId,
 
-  /* 11) TotalMatchingRequirements - placeholder, filled by app from Query 1 */
+  /* 11) EmploymentStatusId (internal consultants only, NULL for external) */
+  consultancy_user.[EmploymentStatusId] AS EmploymentStatusId,
+
+  /* 12) EmploymentStatusLabelTranslationsJSON (internal consultants only, NULL for external) */
+  employment_status.[LabelTranslationsJSON] AS EmploymentStatusLabelTranslationsJSON,
+
+  /* 13) TotalMatchingRequirements - placeholder, filled by app from Query 1 */
   0 AS TotalMatchingRequirements,
 
-  /* 12) TopMatchesJson - JSON array of top matches (excludes Role and CustomRole categories)
+  /* 14) TopMatchesJson - JSON array of top matches (excludes Role and CustomRole categories)
          Shows top 3 if exactly 3 non-role matches exist, otherwise top 2 */
   (
     SELECT COALESCE(
@@ -270,13 +277,15 @@ SELECT
     WHERE top_matches.rn <= CASE WHEN top_matches.total_non_role_matches = 3 THEN 3 ELSE 2 END
   ) AS TopMatchesJson,
 
-  /* 13) TopMatches - NULL placeholder for OutSystems structure definition */
+  /* 15) TopMatches - NULL placeholder for OutSystems structure definition */
   NULL AS TopMatches
 
 FROM consultant_base cb
 LEFT JOIN {ConsultancyUser} consultancy_user
   ON cb.ConsultancyUserId = consultancy_user.[Id]
   AND cb.IsInternal = 1
+LEFT JOIN {Status} employment_status
+  ON employment_status.[Id] = consultancy_user.[EmploymentStatusId]
 LEFT JOIN {ExternalUser} external_user
   ON cb.ExternalUserId = external_user.[Id]
   AND cb.IsInternal <> 1
