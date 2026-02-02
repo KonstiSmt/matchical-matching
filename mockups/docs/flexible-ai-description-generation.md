@@ -3,7 +3,7 @@
 > Feature specification for on-demand AI-optimized description generation in CV exports
 
 **Status:** Concept / Mockup Phase
-**Last Updated:** 2026-01-31
+**Last Updated:** 2026-02-02
 **Mockup:** [description-format-selector.html](../description-format-selector.html)
 
 ---
@@ -16,7 +16,7 @@ The current system maintains multiple static text versions (bullet, paragraph, o
 
 ### The Solution
 
-1. **Reduce static versions to 4 canonical formats** in the database (Bullet, Paragraph, Mixed, Raw)
+1. **Reduce static versions to 4 canonical formats** in the database (Bullet, Paragraph, Mixed, Original)
 2. **Generate AI-optimized versions on-demand** at CV export time with configurable parameters
 3. **Template-specific recommended settings** with user override capability
 
@@ -49,20 +49,21 @@ Instead of maintaining many static versions, we reduce to exactly four formats t
 
 | Version | Purpose | Source | Used in CV Export |
 |---------|---------|--------|-------------------|
-| **Bullet** | Clean bullet-point list for scanning | User-maintained or AI-generated | Yes (static option) |
-| **Paragraph** | Flowing prose text for narrative | User-maintained or AI-generated | Yes (static option) |
-| **Mixed** | Combination of prose + bullets | User-maintained or AI-generated | Yes (static option) |
-| **Raw Dump** | Unformatted source material | CV parsing output, user-editable | No (AI source only) |
+| **Bullet** | Clean bullet-point list for scanning | User-maintained or AI-generated | Yes (static option, Strict mode input) |
+| **Paragraph** | Flowing prose text for narrative | User-maintained or AI-generated | Yes (static option, Strict mode input) |
+| **Mixed** | Combination of prose + bullets | User-maintained or AI-generated | Yes (static option, Strict mode input) |
+| **Original** | Source description in mixed format | CV parsing output, user-editable | No (AI source for optimized modes) |
 
-### Raw Dump: The Source of Truth
+### Original: The Source of Truth
 
-The Raw Dump serves as a **data reservoir** for AI generation:
+The Original field serves as a **data reservoir** for AI generation:
 
-- Contains all available information about the engagement/project
-- Can include unstructured notes, achievements, metrics, context
+- Contains the source description (original extracted/provided description text)
+- Formatted as mixed style (text + bullets) based on input
 - Is populated initially from CV parsing
+- May contain more detail than the polished Bullet/Paragraph/Mixed versions
 - Users can add additional context that wouldn't fit in polished versions
-- **Never exported directly** - only used as input for AI generation
+- **Never exported directly** - only used as input for AI generation in optimized modes
 
 ### Why This Architecture?
 
@@ -71,15 +72,24 @@ The Raw Dump serves as a **data reservoir** for AI generation:
 - Problem: Versions get out of sync when user edits one
 
 **New approach:** Maintain canonical versions + generate on-demand
-- User maintains up to 4 versions (or lets AI populate 3 from Raw)
-- AI generates export-specific versions from Raw Dump at export time
+- User maintains up to 4 versions (or lets AI populate 3 from Original)
+- AI generates export-specific versions from Original at export time
 - No stale pre-generated versions
 
-### AI Generation Source
+### AI Generation Source: Depends on Tone
 
-**Decision:** AI optimization always pulls from the **Raw Dump** as primary source.
+**Decision:** Input source depends on the selected Tone:
 
-**Rationale:** Using already-polished versions (Bullet, Paragraph) as AI input creates "salt on salt" - the AI optimizes content that was already AI-optimized, potentially losing information or amplifying stylistic choices. The Raw Dump contains the most complete, unfiltered information.
+| Tone | Requested Output | Input Source |
+|------|-----------------|--------------|
+| **Strict** | Bullet | Use `Bullet` field |
+| **Strict** | Paragraph | Use `Paragraph` field |
+| **Strict** | Mixed | Use `Mixed` field |
+| **Conservative/Balanced/Bold** | Any | Use `Original` field |
+
+**Rationale:**
+- **Strict mode** only does stylistic transformations (no content optimization), so it uses the matching pre-formatted version directly
+- **Optimized modes** (Conservative/Balanced/Bold) use the Original field which may contain more detail for enhancement
 
 ---
 
@@ -87,31 +97,42 @@ The Raw Dump serves as a **data reservoir** for AI generation:
 
 ### User Flow
 
-In the CV Export wizard, users select how descriptions should appear:
+In the CV Export wizard, users select how descriptions should appear via the **Tone** setting:
 
-1. **Static Option:** Use one of the three maintained formats (Bullet, Paragraph, Mixed) as-is
-2. **AI Optimized Option:** Generate a new version with configurable settings
+1. **Strict:** Stylistic transformation only (format, length, perspective) - uses pre-formatted version as input
+2. **Conservative/Balanced/Bold:** Content optimization at varying levels - uses Original as input
 
-### Static vs. AI Optimized
+### Strict vs. Optimized Modes
 
-| Aspect | Static | AI Optimized |
-|--------|--------|--------------|
-| Source | Pulls from user-maintained version | Generates from Raw Dump |
-| Customization | None (what you see is what you get) | Length, tone, format, perspective, focus |
-| Template fit | May not fit template constraints | Can be tuned to template requirements |
-| Consistency | Identical every export | May vary slightly between generations |
+| Aspect | Strict | Conservative/Balanced/Bold |
+|--------|--------|---------------------------|
+| Source | Pre-formatted version (Bullet/Paragraph/Mixed) | Original field |
+| Content changes | None - only stylistic transformations | Yes - synonym switches, rephrasing, context addition |
+| Customization | Length, format, perspective, focus | Length, tone level, format, perspective, focus |
+| Template fit | Limited to what's in source | Can be tuned to template requirements |
+| Consistency | High - deterministic transformations | May vary between generations |
 
 ### When to Use Each
 
-**Use Static when:**
+**Use Strict when:**
 - User has carefully crafted the description
 - Exact wording matters (legal, compliance)
 - Consistency across exports is critical
+- User wants full control over content
 
-**Use AI Optimized when:**
-- Template has specific length constraints
-- Tailoring to a specific client/demand
-- User wants to highlight certain aspects
+**Use Conservative when:**
+- Minor enhancements acceptable (synonyms, keyword matching)
+- Staying very close to source material
+
+**Use Balanced when:**
+- Moderate optimization is acceptable
+- Template has specific constraints
+- Standard use case
+
+**Use Bold when:**
+- Maximum impact needed
+- Tailoring to specific client/demand
+- User wants to highlight achievements aggressively (within truth bounds)
 
 ---
 
@@ -140,13 +161,34 @@ When AI Optimized is selected, users can configure these parameters:
 
 #### 2. Tone
 
-**Type:** Segmented selector (3 options)
+**Type:** Segmented selector (4 options)
+
+##### Core Maxim (Red Line - All Modes)
+
+> **Never make stuff up. Always source from actual consultant data.**
+>
+> Test: "Will the consultant confidently be able to say in the interview that they're capable of XYZ that we claim?"
+>
+> If enhancement would fail this test → don't do it.
+
 **Options:**
-| Tone | Description |
-|------|-------------|
-| **Conservative** | Factual, understated, lets achievements speak for themselves |
-| **Balanced** | Professional confidence without overselling |
-| **Bold** | Emphasizes impact, uses stronger language, more "salesy" |
+| Tone | Description | Input Source |
+|------|-------------|--------------|
+| **Strict** | No content optimization. Only stylistic transformations (format conversion, length trimming, perspective, focus). | Pre-formatted version (Bullet/Paragraph/Mixed) |
+| **Conservative** | Minimal content enhancement. Synonym switches, keyword matching. E.g., client wants "relational databases" + consultant knows SQL → output "relational databases (SQL)". | Original |
+| **Balanced** | Moderate optimization. Rephrase for clarity, add context from skill section, improve flow. | Original |
+| **Bold** | Aggressive optimization. Shine best light on facts, maximize impact. Still strictly truth-sourced - never crosses the interview confidence threshold. | Original |
+
+##### Strict Mode Constraints
+
+When `Tone = Strict`:
+- **No content optimization** - no rewording, embellishment, or inference
+- **Only stylistic adjustments allowed**:
+  - Length (trim/expand within existing content)
+  - Output format (bullet/paragraph/mixed conversion)
+  - Perspective (1st person / 3rd person / impersonal)
+  - Focus (task/outcome/technology emphasis)
+- Additional instructions must be stylistic only (e.g., "shorter", "more formal")
 
 #### 3. Output Format
 
@@ -260,7 +302,7 @@ Parameters:
 - Additional instructions: {customInstructions}
 
 Source material:
-{rawDumpContent}
+{sourceContent}
 
 Generate a description following the parameters above.
 ```
@@ -275,7 +317,7 @@ Generate a description following the parameters above.
 **Question:** Should AI-generated outputs be cached?
 
 **Current thinking:** No persistent caching. Each "Apply" generates fresh output. Reasons:
-- Source data (Raw Dump) may have changed
+- Source data (Original) may have changed
 - User expects "fresh" generation
 - Storage overhead for all user/template/setting combinations
 
@@ -379,7 +421,7 @@ All patterns include a **live preview panel** that updates in real-time when:
 ### For Future Iterations
 
 1. **AI-Assisted Sync**
-   - When user edits Raw Dump, offer to regenerate other versions
+   - When user edits Original, offer to regenerate other versions
    - "Your Bullet version may be out of date. Regenerate?"
 
 2. **Generation History**
@@ -405,4 +447,5 @@ All patterns include a **live preview panel** that updates in real-time when:
 
 | Date | Changes |
 |------|---------|
+| 2026-02-02 | Added Strict mode as 4th tone option. Updated input source logic (Strict uses pre-formatted versions, optimized modes use Original). Added Core Maxim (interview confidence test). Renamed Raw Dump to Original (formatted as mixed, not unformatted). |
 | 2026-01-31 | Initial specification created from concept discussion |
