@@ -26,7 +26,7 @@ Do NOT use `STRING_TO_ARRAY` or `UNNEST`. It's already expanded SQL.
 
 **Booleans:** `0/1` integers. Use `= 1` and `<> 1`.
 
-**Null dates:** Use `@Nulldate` sentinel (typically `1900-01-01`), not SQL `NULL`.
+**Null dates:** Use standard SQL `IS NULL` / `IS NOT NULL` checks.
 
 ---
 
@@ -73,6 +73,12 @@ SELECT COALESCE(json_agg(...), NULL) AS FieldJson
 /* Wrong */
 SELECT COALESCE(json_agg(...), '[]'::json) AS FieldJson
 ```
+
+**Output examples:** Provide expanded (deserialized) examples for the placeholder columns, even if the SQL returns NULL.
+This documents the intended output structure for future versions.
+
+**Flattening rule:** Only flatten the first layer of nesting (use `FieldJson` + `Field` NULL placeholder).
+Nested objects inside the JSON payload can remain nested; do not flatten sub objects.
 
 ---
 

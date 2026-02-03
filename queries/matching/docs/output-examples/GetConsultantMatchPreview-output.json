@@ -1,5 +1,5 @@
 {
-  "description": "GetConsultantMatchPreview - Query 2 Output Example",
+  "description": "GetConsultantMatchPreview output example",
   "note": "Preview query - returns consultant details for match preview cards. One row per consultant. MatchingScore and PricePerformanceScore are placeholders (0) - filled by app from Query 1.",
   "columnOrder": "ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, AvailabilityCategoryId, EmploymentStatusId, EmploymentStatusLabelTranslationsJSON, TotalMatchingRequirements, TopMatchesJson, TopMatches",
   "singleRow": {

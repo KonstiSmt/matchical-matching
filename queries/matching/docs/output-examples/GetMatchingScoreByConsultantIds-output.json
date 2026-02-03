@@ -1,5 +1,5 @@
 {
-  "description": "Example output from GetMatchingScoreByConsultantIds (Query 3)",
+  "description": "GetMatchingScoreByConsultantIds output example",
   "parameters": {
     "TenantId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
     "DemandId": "d1e2f3a4-b5c6-7890-1234-567890abcdef",

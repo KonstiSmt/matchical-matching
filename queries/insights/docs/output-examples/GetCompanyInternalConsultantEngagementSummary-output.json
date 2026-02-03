@@ -1,0 +1,43 @@
+{
+  "description": "GetCompanyInternalConsultantEngagementSummary output example",
+  "columnOrder": "CompanyId, CompanyName, EngagementCount, ConsultantCount, TotalMonths, ConsultantsJson, Consultants",
+  "singleRow": {
+    "CompanyId": "550e8400-e29b-41d4-a716-446655440111",
+    "CompanyName": "Acme Manufacturing",
+    "EngagementCount": 7,
+    "ConsultantCount": 3,
+    "TotalMonths": 18.5,
+    "ConsultantsJson": "[\"Ada Lovelace\",\"Grace Hopper\",\"Katherine Johnson\"]",
+    "Consultants": [
+      "Ada Lovelace",
+      "Grace Hopper",
+      "Katherine Johnson"
+    ]
+  },
+  "exampleResultSet": [
+    {
+      "CompanyId": "550e8400-e29b-41d4-a716-446655440111",
+      "CompanyName": "Acme Manufacturing",
+      "EngagementCount": 7,
+      "ConsultantCount": 3,
+      "TotalMonths": 18.5,
+      "ConsultantsJson": "[\"Ada Lovelace\",\"Grace Hopper\",\"Katherine Johnson\"]",
+      "Consultants": [
+        "Ada Lovelace",
+        "Grace Hopper",
+        "Katherine Johnson"
+      ]
+    },
+    {
+      "CompanyId": "550e8400-e29b-41d4-a716-446655440222",
+      "CompanyName": "Globex Systems",
+      "EngagementCount": 2,
+      "ConsultantCount": 1,
+      "TotalMonths": 4.0,
+      "ConsultantsJson": "[\"Margaret Hamilton\"]",
+      "Consultants": [
+        "Margaret Hamilton"
+      ]
+    }
+  ]
+}
