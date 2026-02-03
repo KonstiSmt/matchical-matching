@@ -1,0 +1,48 @@
+{
+  "description": "Schema for engagement description output.",
+  "type": "object",
+  "properties": {
+    "RationaleOriginalVersion": {
+      "type": "string",
+      "description": "Plain-text rationale for the OriginalVersion."
+    },
+    "OriginalVersion": {
+      "type": "string",
+      "description": "Original engagement description in HTML."
+    },
+    "RationaleBulletVersion": {
+      "type": "string",
+      "description": "Plain-text rationale for the BulletVersion."
+    },
+    "BulletVersion": {
+      "type": "string",
+      "description": "Bullet engagement description in HTML."
+    },
+    "RationaleMixedVersion": {
+      "type": "string",
+      "description": "Plain-text rationale for the MixedVersion."
+    },
+    "MixedVersion": {
+      "type": "string",
+      "description": "Mixed engagement description in HTML."
+    },
+    "RationaleTextVersion": {
+      "type": "string",
+      "description": "Plain-text rationale for the TextVersion."
+    },
+    "TextVersion": {
+      "type": "string",
+      "description": "Text engagement description in HTML."
+    }
+  },
+  "required": [
+    "RationaleOriginalVersion",
+    "OriginalVersion",
+    "RationaleBulletVersion",
+    "BulletVersion",
+    "RationaleMixedVersion",
+    "MixedVersion",
+    "RationaleTextVersion",
+    "TextVersion"
+  ]
+}
