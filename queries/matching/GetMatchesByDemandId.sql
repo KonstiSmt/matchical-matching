@@ -10,13 +10,18 @@
      • Removed contract-type filter (OnlyShowFreelancer/Temporary/Permanent)
      • Removed ExperienceFilterCount dependency
 
+   Performance note:
+     • MATERIALIZED hints on CTEs (demand, requirement, filtered_requirement, has_filtered_requirements,
+       eligible_consultant) prevent PostgreSQL planner instability that can cause 100x slowdowns.
+     • If performance issues occur, check MATERIALIZED first. See queries/matching/CLAUDE.md for details.
+
    Output columns (ordered):
      ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count, HasActiveFilters
 */
 
 WITH
 /* _____________ Demand context (single row) _____________ */
-demand AS (
+demand AS MATERIALIZED (
   SELECT
     {Demand}.[Id]                           AS DemandId,
     {Demand}.[TenantId]                     AS TenantId,
@@ -32,7 +37,7 @@ demand AS (
 ),
 
 /* _____________ Requirements (valid only) _____________ */
-requirement AS (
+requirement AS MATERIALIZED (
   SELECT
     req.[CategoryId],
     req.[RoleId],
@@ -54,7 +59,7 @@ requirement AS (
 ),
 
 /* _____________ Filtered requirements (Hard/Soft only) _____________ */
-filtered_requirement AS (
+filtered_requirement AS MATERIALIZED (
   SELECT
     freq.[CategoryId],
     freq.[RoleId],
@@ -75,7 +80,7 @@ filtered_requirement AS (
 ),
 
 /* _____________ Pre-materialized filter check (evaluated once, not per consultant) _____________ */
-has_filtered_requirements AS (
+has_filtered_requirements AS MATERIALIZED (
   SELECT (
     /* Requirement filters (Hard/Soft on individual requirements) */
     EXISTS (SELECT 1 FROM filtered_requirement)
@@ -88,7 +93,7 @@ has_filtered_requirements AS (
 ),
 
 /* _____________ Eligible consultants (prefilter + filter enforcement) _____________ */
-eligible_consultant AS (
+eligible_consultant AS MATERIALIZED (
   SELECT consultant.[Id] AS ConsultantId
   FROM {Consultant} consultant
   JOIN {Status} consultant_status
