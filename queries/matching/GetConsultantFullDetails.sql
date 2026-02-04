@@ -12,6 +12,7 @@
      ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl,
      TopRoleName, EuroFixedRate, ClientOffsiteRate, ContingentDays,
      AvailabilityCategoryId, AvailableFrom, AvailableTo, AvailableDaysPerWeek, IsWillingToTravel,
+     AvailabilityComment,
      RequiredLocationName, RequiredLocationColor, MatchingConsultantLocationName, MatchingConsultantLocationColor,
      RoleSkillsJson, IndustriesJson, FunctionalAreasJson, LanguagesJson,
      RoleSkills, Industries, FunctionalAreas, Languages
@@ -34,7 +35,8 @@ consultant_base AS (
     consultant.[AvailableFrom]        AS AvailableFrom,
     consultant.[AvailableTo]          AS AvailableTo,
     consultant.[AvailableDaysPerWeek] AS AvailableDaysPerWeek,
-    consultant.[IsWillingToTravel]    AS IsWillingToTravel
+    consultant.[IsWillingToTravel]    AS IsWillingToTravel,
+    consultant.[AvailabilityCommentLocaleKey] AS AvailabilityCommentLocaleKeyId
   FROM {Consultant} consultant
   WHERE consultant.[Id] = @ConsultantId
     AND consultant.[TenantId] = @TenantId
@@ -250,19 +252,22 @@ SELECT
   /* 16) IsWillingToTravel */
   cb.IsWillingToTravel AS IsWillingToTravel,
 
-  /* 17) RequiredLocationName */
+  /* 17) AvailabilityComment */
+  availability_comment_locale.[TextValue] AS AvailabilityComment,
+
+  /* 18) RequiredLocationName */
   demand_location_locale.[TextValue] AS RequiredLocationName,
 
-  /* 18) RequiredLocationColor */
+  /* 19) RequiredLocationColor */
   demand_location_category.[Color] AS RequiredLocationColor,
 
-  /* 19) MatchingConsultantLocationName */
+  /* 20) MatchingConsultantLocationName */
   lm.MatchingConsultantLocationName AS MatchingConsultantLocationName,
 
-  /* 20) MatchingConsultantLocationColor */
+  /* 21) MatchingConsultantLocationColor */
   lm.MatchingConsultantLocationColor AS MatchingConsultantLocationColor,
 
-  /* 21) RoleSkillsJson (nested: roles with skills inside, ordered by DynamicWeight DESC, Name ASC) */
+  /* 22) RoleSkillsJson (nested: roles with skills inside, ordered by DynamicWeight DESC, Name ASC) */
   /* Supports both standard roles (RoleAlias) and custom roles (CustomRole → RoleName) */
   (
     SELECT COALESCE(
@@ -352,7 +357,7 @@ SELECT
     ) role_data
   ) AS RoleSkillsJson,
 
-  /* 22) IndustriesJson (ordered by DynamicWeight DESC, Name ASC) */
+  /* 23) IndustriesJson (ordered by DynamicWeight DESC, Name ASC) */
   (
     SELECT COALESCE(
       json_agg(
@@ -378,7 +383,7 @@ SELECT
     WHERE em.[CategoryId] = @Cat_Industry
   ) AS IndustriesJson,
 
-  /* 23) FunctionalAreasJson (ordered by DynamicWeight DESC, Name ASC) */
+  /* 24) FunctionalAreasJson (ordered by DynamicWeight DESC, Name ASC) */
   (
     SELECT COALESCE(
       json_agg(
@@ -404,7 +409,7 @@ SELECT
     WHERE em.[CategoryId] = @Cat_FunctionalArea
   ) AS FunctionalAreasJson,
 
-  /* 24) LanguagesJson (with level labels, ordered by DynamicWeight DESC, Name ASC) */
+  /* 25) LanguagesJson (with level labels, ordered by DynamicWeight DESC, Name ASC) */
   (
     SELECT COALESCE(
       json_agg(
@@ -436,16 +441,16 @@ SELECT
     WHERE em.[CategoryId] = @Cat_Language
   ) AS LanguagesJson,
 
-  /* 25) RoleSkills (NULL placeholder for OutSystems structure) */
+  /* 26) RoleSkills (NULL placeholder for OutSystems structure) */
   NULL AS RoleSkills,
 
-  /* 26) Industries (NULL placeholder for OutSystems structure) */
+  /* 27) Industries (NULL placeholder for OutSystems structure) */
   NULL AS Industries,
 
-  /* 27) FunctionalAreas (NULL placeholder for OutSystems structure) */
+  /* 28) FunctionalAreas (NULL placeholder for OutSystems structure) */
   NULL AS FunctionalAreas,
 
-  /* 28) Languages (NULL placeholder for OutSystems structure) */
+  /* 29) Languages (NULL placeholder for OutSystems structure) */
   NULL AS Languages
 
 FROM consultant_base cb
@@ -484,6 +489,9 @@ LEFT JOIN {Category} demand_location_category
 LEFT JOIN {LocaleDict} demand_location_locale
   ON demand_location_locale.[LocaleKeyId] = demand_location.[NameLocaleKeyId]
   AND demand_location_locale.[LanguageId] = @SystemLanguage
+LEFT JOIN {LocaleDict} availability_comment_locale
+  ON availability_comment_locale.[LocaleKeyId] = cb.AvailabilityCommentLocaleKeyId
+  AND availability_comment_locale.[LanguageId] = @SystemLanguage
 LEFT JOIN {DemandConsultants} demand_consultant
   ON demand_consultant.[ConsultantId] = cb.ConsultantId
   AND demand_consultant.[DemandId] = d.DemandId

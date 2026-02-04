@@ -1,7 +1,7 @@
 {
   "description": "GetConsultantFullDetails output example",
   "note": "Full details query - returns complete matching breakdown for a single consultant against a demand. One row per consultant with all requirements grouped by category. All arrays are ordered by DynamicWeight DESC, then Name ASC.",
-  "columnOrder": "ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, ClientOffsiteRate, ContingentDays, AvailabilityCategoryId, AvailableFrom, AvailableTo, AvailableDaysPerWeek, IsWillingToTravel, RequiredLocationName, RequiredLocationColor, MatchingConsultantLocationName, MatchingConsultantLocationColor, RoleSkillsJson, IndustriesJson, FunctionalAreasJson, LanguagesJson, RoleSkills, Industries, FunctionalAreas, Languages",
+  "columnOrder": "ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, ClientOffsiteRate, ContingentDays, AvailabilityCategoryId, AvailableFrom, AvailableTo, AvailableDaysPerWeek, IsWillingToTravel, AvailabilityComment, RequiredLocationName, RequiredLocationColor, MatchingConsultantLocationName, MatchingConsultantLocationColor, RoleSkillsJson, IndustriesJson, FunctionalAreasJson, LanguagesJson, RoleSkills, Industries, FunctionalAreas, Languages",
   "singleRow": {
     "ConsultantId": "550e8400-e29b-41d4-a716-446655440001",
     "IsPinned": 1,
@@ -19,6 +19,7 @@
     "AvailableTo": "2024-12-31",
     "AvailableDaysPerWeek": 4.5,
     "IsWillingToTravel": 1,
+    "AvailabilityComment": "Available for remote work, on-site in Munich area 2 days/week",
     "RequiredLocationName": "Nürnberg",
     "RequiredLocationColor": "#4A90D9",
     "MatchingConsultantLocationName": "Germany",
@@ -120,6 +121,7 @@
     "AvailableTo": "Consultant.AvailableTo - end date of availability period",
     "AvailableDaysPerWeek": "Consultant.AvailableDaysPerWeek - decimal: days available per week (e.g., 4.5)",
     "IsWillingToTravel": "Consultant.IsWillingToTravel - boolean (0/1) for travel willingness",
+    "AvailabilityComment": "Consultant.AvailabilityCommentLocaleKey → LocaleDict.TextValue - free-text availability notes",
     "RequiredLocationName": "Demand.LocationTagId → LocationTag → LocaleDict (the required location)",
     "RequiredLocationColor": "Demand.LocationTagId → LocationTag.CategoryId → Category.Color (color for location tag display)",
     "MatchingConsultantLocationName": "The consultant's location that matches the demand location (via LocationTagsClosure)",
