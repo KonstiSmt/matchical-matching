@@ -10,25 +10,17 @@
       "type": "string",
       "description": "Original engagement description in HTML."
     },
-    "RationaleBulletVersion": {
+    "RationaleCleanVersions": {
       "type": "string",
-      "description": "Plain-text rationale for the BulletVersion."
+      "description": "Brief rationale shared across clean versions (Bullet, Mixed, Text)."
     },
     "BulletVersion": {
       "type": "string",
       "description": "Bullet engagement description in HTML."
     },
-    "RationaleMixedVersion": {
-      "type": "string",
-      "description": "Plain-text rationale for the MixedVersion."
-    },
     "MixedVersion": {
       "type": "string",
       "description": "Mixed engagement description in HTML."
-    },
-    "RationaleTextVersion": {
-      "type": "string",
-      "description": "Plain-text rationale for the TextVersion."
     },
     "TextVersion": {
       "type": "string",
@@ -38,11 +30,9 @@
   "required": [
     "RationaleOriginalVersion",
     "OriginalVersion",
-    "RationaleBulletVersion",
+    "RationaleCleanVersions",
     "BulletVersion",
-    "RationaleMixedVersion",
     "MixedVersion",
-    "RationaleTextVersion",
     "TextVersion"
   ]
 }
