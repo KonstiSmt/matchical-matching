@@ -1,6 +1,6 @@
-# Query 1 Performance Analysis
+# Matching Query Performance Analysis
 
-Performance analysis and scalability documentation for `GetMatchesByDemandId` (Query 1).
+Performance analysis and scalability documentation for matching queries.
 
 ---
 
@@ -116,6 +116,24 @@ All indexes follow the **TenantId-first pattern** for multi-tenant optimization:
 - All query WHERE clauses filter by TenantId early
 - Supports both filter enforcement (NOT EXISTS) and branch CTE joins
 
+### DemandRequirement Table (for Inverse Matching, Query 5)
+
+Per-category composite indexes needed for Query 5 (GetMatchesByConsultantId), where scoring branches join `consultant_experience → {DemandRequirement}` on category-specific keys. Without these, PostgreSQL must sequential-scan DemandRequirement per branch.
+
+| Category | Index Columns |
+|----------|---------------|
+| RoleSkill | `(TenantId, CategoryId, RoleId, SkillId)` |
+| CustomRoleSkill | `(TenantId, CategoryId, CustomRoleId, SkillId)` |
+| Role | `(TenantId, CategoryId, RoleId)` |
+| CustomRole | `(TenantId, CategoryId, CustomRoleId)` |
+| Industry | `(TenantId, CategoryId, IndustryId)` |
+| FunctionalArea | `(TenantId, CategoryId, FunctionalAreaId)` |
+| Language | `(TenantId, CategoryId, LanguageId)` |
+
+**Why per-category:** Each scoring branch filters by a specific CategoryId then matches on that category's key columns. Per-category indexes avoid wasted entries from unrelated categories and keep index depth shallow.
+
+**Impact without indexes:** With ~30K DemandRequirement rows per tenant, sequential scan per branch adds ~5-15ms each (~25-75ms total). Acceptable at current scale but degrades as demand count grows. The indexes are cheap (small table, low write frequency).
+
 ### Other Tables
 
 | Table | Index | Purpose |
@@ -124,7 +142,7 @@ All indexes follow the **TenantId-first pattern** for multi-tenant optimization:
 | LocationTagsClosure | `(AncestorId, DescendantId)` | Location hierarchy (contained) |
 | LocationTagsClosure | `(DescendantId, AncestorId)` | Location hierarchy (covers) |
 | Consultant | `(TenantId, StatusId)` | Eligibility filter |
-| DemandRequirement | `(DemandId, TenantId, IsActive)` | Requirements lookup |
+| DemandRequirement | `(DemandId, TenantId, IsActive)` | Forward requirements lookup (Query 1) |
 
 ---
 

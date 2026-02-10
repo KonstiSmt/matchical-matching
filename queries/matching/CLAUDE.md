@@ -8,6 +8,9 @@
 | Query 2 | Preview | Display data for match cards (nested JSON) |
 | Query 3 | Lightweight scoring | ConsultantId, MatchingScore (for recalculation) |
 | Query 4 | Full details | Complete matching breakdown with all categories |
+| Query 5 | Inverse scoring | DemandId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count |
+| Query 6 | Inverse preview | Display data for demand match cards (nested JSON) |
+| Query 7 | Inverse full details | Complete matching breakdown for a single demand |
 
 ## Output Column Contracts (DO NOT REORDER)
 
@@ -28,7 +31,22 @@ ConsultantId, MatchingScore
 
 **Query 4 (GetConsultantFullDetails):**
 ```
-ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, ClientOffsiteRate, ContingentDays, AvailabilityCategoryId, AvailableFrom, AvailableTo, AvailableDaysPerWeek, IsWillingToTravel, RequiredLocationName, RequiredLocationColor, MatchingConsultantLocationName, MatchingConsultantLocationColor, RoleSkillsJson, IndustriesJson, FunctionalAreasJson, LanguagesJson, RoleSkills, Industries, FunctionalAreas, Languages
+ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, ClientOffsiteRate, ContingentDays, AvailabilityCategoryId, AvailableFrom, AvailableTo, AvailableDaysPerWeek, IsWillingToTravel, AvailabilityComment, RequiredLocationName, RequiredLocationColor, MatchingConsultantLocationName, MatchingConsultantLocationColor, RoleSkillsJson, IndustriesJson, FunctionalAreasJson, LanguagesJson, RoleSkills, Industries, FunctionalAreas, Languages
+```
+
+**Query 5 (GetMatchesByConsultantId):**
+```
+DemandId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count
+```
+
+**Query 6 (GetDemandMatchPreview):**
+```
+DemandId, IsPinned, MatchingScore, PricePerformanceScore, DemandName, ClientCompanyName, LogoUrl, TotalMatchingRequirements, TopMatchesJson, TopMatches
+```
+
+**Query 7 (GetDemandFullDetails):**
+```
+DemandId, IsPinned, MatchingScore, PricePerformanceScore, DemandName, ClientCompanyName, LogoUrl, EuroFixedRate, ClientOffsiteRate, ContingentDays, RequiredLocationName, RequiredLocationColor, MatchingConsultantLocationName, MatchingConsultantLocationColor, RoleSkillsJson, IndustriesJson, FunctionalAreasJson, LanguagesJson, RoleSkills, Industries, FunctionalAreas, Languages
 ```
 
 ---
@@ -37,6 +55,24 @@ ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastNam
 
 ```
 demand → requirements → eligible_consultants → scoring branches → partials → scores → kept → price_performance → final SELECT
+```
+
+## CTE Pipeline (Query 5)
+
+```
+consultant → consultant_experience → scoring branches → partials → scores → kept → price_performance → final SELECT
+```
+
+## CTE Pipeline (Query 6)
+
+```
+demand_base → requirement_matches (Experience JOIN DemandRequirement + name resolution) → ranked_matches → final SELECT (display joins + TopMatchesJson)
+```
+
+## CTE Pipeline (Query 7)
+
+```
+demand_base → requirement → experience_match (LEFT JOIN Experience with partial_score) → matching_score → final SELECT (display joins + JSON item subqueries)
 ```
 
 ---
@@ -77,7 +113,7 @@ After any change, verify:
 
 ## Performance: MATERIALIZED CTEs
 
-**Status:** Enabled in Query 1 (GetMatchesByDemandId)
+**Status:** Enabled in Query 1 (GetMatchesByDemandId) and Query 5 (GetMatchesByConsultantId)
 
 ### What It Does
 The `MATERIALIZED` keyword on CTEs forces PostgreSQL to compute and store the CTE result once, preventing the planner from inlining it. This creates an "optimization fence" that stabilizes query execution plans.
@@ -89,12 +125,16 @@ Without MATERIALIZED, PostgreSQL's planner can choose different execution plans 
 
 This 100x variance was caused by planner instability, not data issues.
 
-### CTEs with MATERIALIZED
+### CTEs with MATERIALIZED (Query 1)
 - `demand` (1 row) - negligible cost
 - `requirement` (5-20 rows) - negligible cost
 - `filtered_requirement` (0-10 rows) - negligible cost
 - `has_filtered_requirements` (1 row) - negligible cost
 - `eligible_consultant` (100-1000+ rows) - small cost, monitor this one
+
+### CTEs with MATERIALIZED (Query 5)
+- `consultant` (1 row) - negligible cost
+- `consultant_experience` (~500 rows) - small cost, read by all 5 scoring branches
 
 ### Troubleshooting Performance Issues
 
