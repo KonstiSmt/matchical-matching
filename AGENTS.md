@@ -7,6 +7,11 @@ Repository includes development artifacts for Matchical: queries, prompts, mocku
 - Entity definitions: `docs/entities/README.md`
 - Never assume entity attributes; ask if unsure
 
+## Python Environment Rules
+- Use the repository-root virtual environment `.venv/`; do not create virtual environments inside subfolders (for example, under `tmp/`).
+- If a tracked Python script needs third-party packages, list them in repository-root `requirements.txt`.
+- Always use repository-root `.env` for shared environment variables required by scripts and tooling; do not use per-folder env files.
+
 ## Directory Guide
 - `prompts/`: AI pipeline prompts. Follow `prompts/AGENTS.md`.
 - `queries/`: SQL queries. Follow `queries/AGENTS.md`.

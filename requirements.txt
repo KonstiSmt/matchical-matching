@@ -1,0 +1,2 @@
+# Third-party Python dependencies for tracked repository scripts.
+# Keep this file updated when adding non-stdlib imports.
