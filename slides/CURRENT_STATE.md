@@ -21,7 +21,8 @@ Create/edit a root `.env` file at:
 Add the following keys:
 
 ```env
-# Font Awesome kit for slide icons (URL or kit ID)
+# Optional Font Awesome kit for premium/pro icons (URL or kit ID).
+# Leave empty to use bundled Font Awesome Free fallback.
 VITE_FONT_AWESOME_KIT_URL=
 
 # DevTools API script credentials (scripts/devtools_api.py)
@@ -33,6 +34,17 @@ MATCHICAL_DEVTOOLS_API_KEY=
 Notes:
 - `MATCHICAL_DEVTOOLS_BASE_URL` is optional (script has a default), but keeping it explicit is recommended.
 - `.env` is gitignored.
+
+## Worktree Setup (JS Dependencies)
+From `slides/`, run:
+
+```bash
+pnpm install
+```
+
+Notes:
+- `node_modules/` is worktree-local and gitignored.
+- `slides/package.json` and `slides/pnpm-lock.yaml` remain the tracked source of truth.
 
 ## Quick Commands
 From repo root:

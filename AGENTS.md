@@ -11,6 +11,11 @@ Repository includes development artifacts for Matchical: queries, prompts, mocku
 - Use the repository-root virtual environment `.venv/`; do not create virtual environments inside subfolders (for example, under `tmp/`).
 - If a tracked Python script needs third-party packages, list them in repository-root `requirements.txt`.
 - Always use repository-root `.env` for shared environment variables required by scripts and tooling; do not use per-folder env files.
+- In a worktree, if repository-root `.env` is missing and env changes are requested, create `.env` in that worktree and report which keys were added and still need user-provided values.
+
+## JS Dependency Rules
+- Keep JavaScript dependency manifests and lockfiles tracked in-repo (for example, `slides/package.json` and `slides/pnpm-lock.yaml`); never commit `node_modules/`.
+- In each new worktree, run `pnpm install` in `slides/` before slide development and report that it was executed.
 
 ## Directory Guide
 - `prompts/`: AI pipeline prompts. Follow `prompts/AGENTS.md`.

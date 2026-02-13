@@ -32,8 +32,8 @@ pnpm export:pdf -- --deck variant-a --out output/variant-a.pdf
 ```
 
 ## Font Awesome (Kit) Setup
-Font Awesome Free is bundled locally as a default fallback.
-Adding a kit URL lets you use your own/pro icon set with the same HTML class syntax.
+Font Awesome Free is bundled locally as the default.
+Adding a kit URL is optional and enables your premium/pro icon set with the same HTML class syntax.
 
 1. Edit the repository-global env file:
 ```bash
@@ -41,9 +41,9 @@ cat ../.env
 ```
 If it does not exist yet, create it from:
 ```bash
-cp ../.env.example ../.env
+cp ../global.env.example ../.env
 ```
-2. Set your kit credential in `.env`:
+2. Optionally set your kit credential in `.env`:
 ```bash
 VITE_FONT_AWESOME_KIT_URL=https://kit.fontawesome.com/<your-kit-id>.js
 ```
@@ -51,7 +51,8 @@ You can also set only the kit id:
 ```bash
 VITE_FONT_AWESOME_KIT_URL=<your-kit-id>
 ```
-3. Restart `pnpm dev` from `slides/`.
+Leave `VITE_FONT_AWESOME_KIT_URL` empty to keep using bundled free icons.
+3. Restart `pnpm dev` from `slides/` if you changed the value.
 
 ### Usage in slides
 Use icon classes directly in HTML:
