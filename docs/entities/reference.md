@@ -140,6 +140,20 @@ Output structure remains unchanged - RoleAliasId/RoleAliasName fields are popula
 
 ---
 
+## Global Skill Experience Parameters
+
+When `@UseGlobalSkillExperienceForRoleSkill = 1`, role-skill requirements still use `DemandRequirement.CategoryId = RoleSkill/CustomRoleSkill`, but consultant experience is matched via skill-level categories using `SkillId` only.
+
+| Parameter | Meaning |
+|-----------|---------|
+| `@UseGlobalSkillExperienceForRoleSkill` | Boolean (0/1): Switch role-skill matching from role-scoped experience to global skill experience |
+| `@Cat_Skill` | Category ID for Skill experience (`SkillId` key) |
+| `@Cat_CustomSkill` | Category ID for CustomSkill experience (`SkillId` key) |
+
+Default (`@UseGlobalSkillExperienceForRoleSkill = 0`) keeps the existing role-scoped matching behavior.
+
+---
+
 ## Requirement Name Resolution
 
 | Category | DemandRequirement Field | Join Path |

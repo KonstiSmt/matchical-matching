@@ -10,7 +10,7 @@ Pre-calculated skill/experience scores per consultant per category.
 | `TenantId` | GUID | Tenant isolation |
 | `CategoryId` | GUID | Category (see below) |
 | `RoleId` | GUID | Key for RoleSkill/Role categories |
-| `SkillId` | GUID | Key for RoleSkill categories |
+| `SkillId` | GUID | Key for RoleSkill, CustomRoleSkill, Skill, and CustomSkill categories |
 | `CustomRoleId` | GUID | Key for CustomRoleSkill/CustomRole categories |
 | `IndustryId` | GUID | Key for Industry category |
 | `FunctionalAreaId` | GUID | Key for FunctionalArea category |
@@ -33,6 +33,8 @@ The `CategoryId` determines which key fields are relevant:
 | Role | `RoleId` | 1-5 |
 | CustomRoleSkill | `CustomRoleId`, `SkillId` | 1-5 |
 | CustomRole | `CustomRoleId` | 1-5 |
+| Skill | `SkillId` | 1-5 |
+| CustomSkill | `SkillId` | 1-5 |
 | Industry | `IndustryId` | 1-5 |
 | FunctionalArea | `FunctionalAreaId` | 1-5 |
 | Language | `LanguageId` | 1-6 |

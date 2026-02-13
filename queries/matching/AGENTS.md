@@ -64,6 +64,7 @@ After any change, verify:
 - PricePerformanceScore: best ratio = 10, others scaled
 - PricePerformanceScore: EuroFixedRate = 0 results in score = 0
 - Internal vs external identity field resolution
+- Mandatory role soft gate: consultant has `Score > 0` in at least one required role (Role/CustomRole by mode)
 - TopMatches JSON contains top 2 ranked by partial_score
 - ConsultantScore is raw Experience.Score (1-5, or 1-6 for languages)
 

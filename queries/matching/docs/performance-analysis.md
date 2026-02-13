@@ -9,6 +9,8 @@ Performance analysis and scalability documentation for `GetMatchesByDemandId` (Q
 ```
 demand (1 row)           →  requirement (~15 rows)
                               ↓
+role_requirement (0-3 rows) → has_role_requirements (1 row, scalar)
+                              ↓
 filtered_requirement (0-5 rows) → has_filtered_requirements (1 row, scalar)
                               ↓
 eligible_consultant (N consultants filtered)
@@ -18,6 +20,7 @@ eligible_consultant (N consultants filtered)
     • Location filter (EXISTS checks)
     • Availability filter
     • Capacity filter
+    • Mandatory role soft gate (EXISTS, Score > 0 in at least one required role)
     • Requirement filter enforcement (NOT EXISTS)
                               ↓
 5 branch CTEs (Experience JOIN requirement JOIN eligible_consultant)
@@ -49,9 +52,11 @@ final (pagination: ORDER BY, LIMIT, OFFSET)
 |-------|------------|-------|
 | demand | O(1) | Primary key lookup |
 | requirement | O(R) | Index on (DemandId, TenantId), ~15 rows |
+| role_requirement | O(Rr) | Subset of R by role category, usually tiny |
+| has_role_requirements | O(1) | Scalar EXISTS check |
 | filtered_requirement | O(F) | Subset of R, ~0-5 rows |
 | has_filtered_requirements | O(1) | Scalar EXISTS check |
-| eligible_consultant | O(N × F × log(E)) | With TenantId-first indexes |
+| eligible_consultant | O(N × (F + Rr) × log(E)) | With TenantId-first indexes |
 | branch CTEs | O(R × matches) | Index-driven joins |
 | scores aggregation | O(matches) | Hash aggregate |
 | price_performance | O(kept) | Primary key join |
@@ -60,6 +65,7 @@ final (pagination: ORDER BY, LIMIT, OFFSET)
 Where:
 - N = consultants in tenant
 - R = requirements (~15)
+- Rr = role requirements in active role mode (usually 0-3)
 - F = filtered requirements (~0-5)
 - E = experiences per consultant (~500)
 
@@ -87,6 +93,7 @@ Where:
 
 **Scaling factors:**
 - Experience table size dominates performance
+- Mandatory role soft gate adds one indexed EXISTS check per consultant
 - Filter enforcement adds ~30-50% overhead when active
 - Cold cache (first run): 2-3x slower
 - Complex location hierarchies: +20-50ms
@@ -106,6 +113,7 @@ All indexes follow the **TenantId-first pattern** for multi-tenant optimization:
 | RoleSkill | `(TenantId, ConsultantId, CategoryId, RoleId, SkillId, Score)` |
 | CustomRole | `(TenantId, ConsultantId, CategoryId, CustomRoleId, Score)` |
 | CustomRoleSkill | `(TenantId, ConsultantId, CategoryId, CustomRoleId, SkillId, Score)` |
+| Skill + CustomSkill | `(TenantId, ConsultantId, CategoryId, SkillId, Score)` |
 | Industry | `(TenantId, ConsultantId, CategoryId, IndustryId, Score)` |
 | FunctionalArea | `(TenantId, ConsultantId, CategoryId, FunctionalAreaId, Score)` |
 | Language | `(TenantId, ConsultantId, CategoryId, LanguageId, Score)` |
@@ -115,6 +123,16 @@ All indexes follow the **TenantId-first pattern** for multi-tenant optimization:
 - With 30k+ consultants per tenant, TenantId narrows search space immediately
 - All query WHERE clauses filter by TenantId early
 - Supports both filter enforcement (NOT EXISTS) and branch CTE joins
+
+**Global skill mode requirement (`@UseGlobalSkillExperienceForRoleSkill = 1`):**
+- RoleSkill/CustomRoleSkill requirements match `@Cat_Skill` / `@Cat_CustomSkill` using `SkillId` only.
+- Missing the skill-level index can cause slower nested-loop plans in both filter enforcement and `branch_roleskill`.
+
+Recommended DDL (apply in DBA/migration workflow before enabling the mode in production):
+```sql
+CREATE INDEX IF NOT EXISTS idx_experience_tenant_consultant_category_skill_score
+ON <physical_experience_table_name> ("TenantId", "ConsultantId", "CategoryId", "SkillId", "Score")
+```
 
 ### Other Tables
 

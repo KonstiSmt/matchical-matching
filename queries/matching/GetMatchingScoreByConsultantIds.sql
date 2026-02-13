@@ -5,7 +5,9 @@
    This is a LIGHTWEIGHT SCORING QUERY (Query 3). Returns only ConsultantId and MatchingScore.
    No filters, no sorting, no pagination. Just pure scoring for the given consultants.
 
-   Input: @ConsultantIds (comma-separated, Expand Inline), @DemandId, @TenantId
+   Input: @ConsultantIds (comma-separated, Expand Inline), @DemandId, @TenantId,
+          @UseCustomRoles, @UseGlobalSkillExperienceForRoleSkill,
+          @Cat_RoleSkill, @Cat_Skill, @Cat_CustomRoleSkill, @Cat_CustomSkill
 
    Output columns (ordered):
      ConsultantId, MatchingScore
@@ -43,7 +45,7 @@ requirement AS (
 
 /* _____________ Category branches with computed partial_score (DOUBLE PRECISION) _____________ */
 
-/* RoleSkill: match (RoleId, SkillId) or CustomRoleSkill: match (CustomRoleId, SkillId) */
+/* RoleSkill: role-scoped matching (default) or global skill matching (optional mode) */
 branch_roleskill AS (
   SELECT
     experience.[ConsultantId] AS ConsultantId,
@@ -64,17 +66,31 @@ branch_roleskill AS (
   JOIN {Experience} experience
     ON experience.[TenantId] = req.[TenantId]
    AND (
-     /* Standard RoleSkill */
+     /* Standard RoleSkill (role-scoped mode) */
      (@UseCustomRoles <> 1
-      AND experience.[CategoryId] = @Cat_RoleSkill
+      AND @UseGlobalSkillExperienceForRoleSkill <> 1
       AND req.[CategoryId] = @Cat_RoleSkill
+      AND experience.[CategoryId] = @Cat_RoleSkill
       AND experience.[RoleId] = req.[RoleId]
       AND experience.[SkillId] = req.[SkillId])
-     /* Custom RoleSkill */
+     /* Standard RoleSkill (global skill mode) */
+     OR (@UseCustomRoles <> 1
+         AND @UseGlobalSkillExperienceForRoleSkill = 1
+         AND req.[CategoryId] = @Cat_RoleSkill
+         AND experience.[CategoryId] = @Cat_Skill
+         AND experience.[SkillId] = req.[SkillId])
+     /* Custom RoleSkill (role-scoped mode) */
      OR (@UseCustomRoles = 1
-         AND experience.[CategoryId] = @Cat_CustomRoleSkill
+         AND @UseGlobalSkillExperienceForRoleSkill <> 1
          AND req.[CategoryId] = @Cat_CustomRoleSkill
+         AND experience.[CategoryId] = @Cat_CustomRoleSkill
          AND experience.[CustomRoleId] = req.[CustomRoleId]
+         AND experience.[SkillId] = req.[SkillId])
+     /* Custom RoleSkill (global skill mode) */
+     OR (@UseCustomRoles = 1
+         AND @UseGlobalSkillExperienceForRoleSkill = 1
+         AND req.[CategoryId] = @Cat_CustomRoleSkill
+         AND experience.[CategoryId] = @Cat_CustomSkill
          AND experience.[SkillId] = req.[SkillId])
    )
   WHERE experience.[ConsultantId] IN (@ConsultantIds)
