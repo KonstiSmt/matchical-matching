@@ -19,6 +19,10 @@ Repository includes development artifacts for Matchical: queries, prompts, mocku
 - Keep planned/future-state knowledge in `docs/knowledge-base/roadmap/` and current/live state in domain docs.
 - Always use repository-relative paths in docs/instructions; never use worktree-specific absolute paths.
 
+## Technical Capability Documentation
+- Document technical repository capabilities and workflows (for example, code-based slide production) in the relevant `AGENTS.md` files.
+- Do not document technical capabilities in `docs/knowledge-base/`; that folder is only for business concepts and market/product knowledge.
+
 ## Instruction Maintenance
 - When the user gives a durable rule (for example: "always", "never", "from now on"), add it to `AGENTS.md`.
 - Add the rule at the narrowest valid scope:
@@ -34,6 +38,10 @@ Repository includes development artifacts for Matchical: queries, prompts, mocku
 - User may issue requests via voice dictation
 - Treat obvious minor transcription errors as intended wording
 - If ambiguity could materially change the technical result, ask a focused clarification before proceeding
+
+## External File Discovery
+- Do not run broad/random filesystem searches for user-provided external files.
+- If external file paths are unclear or unavailable, ask the user to provide or re-provide exact paths.
 
 ## Worktree Merge Workflow
 - Trigger condition: when the user says a worktree is done and requests merging to the main checkout.
