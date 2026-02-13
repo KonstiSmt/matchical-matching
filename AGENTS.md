@@ -13,6 +13,11 @@ Repository includes development artifacts for Matchical: queries, prompts, mocku
 - `mockups/`: UI mockups and specifications.
 - `docs/entities/`: Entity reference documentation.
 
+## Knowledge Base Awareness
+- If relevant new business concepts or workflow features are introduced, proactively ask whether `docs/knowledge-base/` should be updated.
+- Keep technical implementation details (queries/prompts/scripts) in their own folders, not in the knowledge base.
+- Keep planned/future-state knowledge in `docs/knowledge-base/roadmap/` and current/live state in domain docs.
+
 ## Instruction Maintenance
 - When the user gives a durable rule (for example: "always", "never", "from now on"), add it to `AGENTS.md`.
 - Add the rule at the narrowest valid scope:
