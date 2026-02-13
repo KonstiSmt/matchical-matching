@@ -17,3 +17,8 @@ This agent focuses exclusively on **prompts**. When working in this repository, 
 - Entity docs in `docs/entities/` (never assume attributes - ask if unsure)
 - Platform: OutSystems ODC with Aurora PostgreSQL
 - See global `CLAUDE.md` for repository overview if needed
+
+## Knowledge Base Awareness
+- If relevant new business concepts or workflow features are introduced, proactively ask whether `docs/knowledge-base/` should be updated.
+- Keep technical implementation details (queries/prompts/scripts) in their own folders, not in the knowledge base.
+- Keep planned/future-state knowledge in `docs/knowledge-base/roadmap/` and current/live state in domain docs.
