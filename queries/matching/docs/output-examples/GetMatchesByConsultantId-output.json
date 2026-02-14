@@ -1,0 +1,62 @@
+{
+  "description": "GetMatchesByConsultantId output example",
+  "note": "Inverse scoring query - returns matching Demands for a given Consultant, scored by how well the consultant's experiences match each demand's requirements. No display data.",
+  "singleRow": {
+    "DemandId": "d1e2f3a4-b5c6-7890-1234-567890abcdef",
+    "MatchingScore": 12450.5,
+    "PricePerformanceScore": 10.0,
+    "MatchedRequirementsCount": 9,
+    "Count": 47
+  },
+  "exampleResultSet": [
+    {
+      "DemandId": "d1e2f3a4-b5c6-7890-1234-567890abcdef",
+      "MatchingScore": 12450.5,
+      "PricePerformanceScore": 10.0,
+      "MatchedRequirementsCount": 9,
+      "Count": 47
+    },
+    {
+      "DemandId": "a2b3c4d5-e6f7-8901-2345-678901bcdef0",
+      "MatchingScore": 8320.0,
+      "PricePerformanceScore": 7.4,
+      "MatchedRequirementsCount": 6,
+      "Count": 47
+    },
+    {
+      "DemandId": "b3c4d5e6-f7a8-9012-3456-789012cdef01",
+      "MatchingScore": 6100.75,
+      "PricePerformanceScore": 8.9,
+      "MatchedRequirementsCount": 5,
+      "Count": 47
+    },
+    {
+      "DemandId": "c4d5e6f7-a8b9-0123-4567-890123def012",
+      "MatchingScore": 5800.0,
+      "PricePerformanceScore": 6.2,
+      "MatchedRequirementsCount": 7,
+      "Count": 47
+    },
+    {
+      "DemandId": "d5e6f7a8-b9c0-1234-5678-901234ef0123",
+      "MatchingScore": 4200.25,
+      "PricePerformanceScore": 5.1,
+      "MatchedRequirementsCount": 4,
+      "Count": 47
+    },
+    {
+      "DemandId": "e6f7a8b9-c0d1-2345-6789-012345f01234",
+      "MatchingScore": 3950.0,
+      "PricePerformanceScore": 9.3,
+      "MatchedRequirementsCount": 3,
+      "Count": 47
+    }
+  ],
+  "fieldDescriptions": {
+    "DemandId": "Demand.Id - the matched demand's unique identifier",
+    "MatchingScore": "Computed score based on requirement matching (weighted sum of partial scores across all matched requirements)",
+    "PricePerformanceScore": "0-10 scale where 10 = best rate per score point (highest ClientOffsiteRate/MatchingScore ratio)",
+    "MatchedRequirementsCount": "Number of matched requirements (RoleSkill, Role, Industry, FunctionalArea - excludes Language)",
+    "Count": "Total number of matching demands (before pagination)"
+  }
+}

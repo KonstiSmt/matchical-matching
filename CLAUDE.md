@@ -24,3 +24,6 @@ Always read `queries/CLAUDE.md` first. Critical syntax rules for OutSystems ODC.
 
 ## When Working on Prompts
 Always read `prompts/CLAUDE.md` first. Prompt engineering conventions.
+
+## Voice Dictation Note
+User input is often transcribed via voice dictation (mVoiceDictation), which can introduce obvious spelling artifacts (e.g., "mName" instead of "Name", or garbled attribute names). If you spot these, flag them and use the obvious correction when the intent is clear.

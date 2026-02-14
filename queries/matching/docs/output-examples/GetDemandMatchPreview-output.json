@@ -1,0 +1,78 @@
+{
+  "description": "GetDemandMatchPreview output example",
+  "note": "Preview query for demand match cards. Called after GetMatchesByConsultantId (Query 5). MatchingScore/PricePerformanceScore/TotalMatchingRequirements are placeholders (filled by app from Query 5).",
+  "singleRow": {
+    "DemandId": "d1e2f3a4-b5c6-7890-1234-567890abcdef",
+    "IsPinned": 1,
+    "MatchingScore": 0,
+    "PricePerformanceScore": 0,
+    "DemandName": "Senior Java Developer",
+    "ClientCompanyName": "Acme Corporation",
+    "LogoUrl": "https://storage.example.com/logos/acme-corp.png",
+    "TotalMatchingRequirements": 0,
+    "TopMatchesJson": "[{\"RequirementId\":\"req-001\",\"RequirementName\":\"Spring Boot\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"Microservices\",\"ConsultantScore\":4}]",
+    "TopMatches": null
+  },
+  "exampleResultSet": [
+    {
+      "DemandId": "d1e2f3a4-b5c6-7890-1234-567890abcdef",
+      "IsPinned": 1,
+      "MatchingScore": 0,
+      "PricePerformanceScore": 0,
+      "DemandName": "Senior Java Developer",
+      "ClientCompanyName": "Acme Corporation",
+      "LogoUrl": "https://storage.example.com/logos/acme-corp.png",
+      "TotalMatchingRequirements": 0,
+      "TopMatchesJson": "[{\"RequirementId\":\"req-001\",\"RequirementName\":\"Spring Boot\",\"ConsultantScore\":5},{\"RequirementId\":\"req-002\",\"RequirementName\":\"Microservices\",\"ConsultantScore\":4}]",
+      "TopMatches": null
+    },
+    {
+      "DemandId": "a2b3c4d5-e6f7-8901-2345-678901bcdef0",
+      "IsPinned": 0,
+      "MatchingScore": 0,
+      "PricePerformanceScore": 0,
+      "DemandName": "QA Engineer - Automation",
+      "ClientCompanyName": "TechStart GmbH",
+      "LogoUrl": "https://storage.example.com/logos/techstart.png",
+      "TotalMatchingRequirements": 0,
+      "TopMatchesJson": "[{\"RequirementId\":\"req-010\",\"RequirementName\":\"Selenium\",\"ConsultantScore\":4},{\"RequirementId\":\"req-011\",\"RequirementName\":\"CI/CD\",\"ConsultantScore\":3}]",
+      "TopMatches": null
+    },
+    {
+      "DemandId": "b3c4d5e6-f7a8-9012-3456-789012cdef01",
+      "IsPinned": 0,
+      "MatchingScore": 0,
+      "PricePerformanceScore": 0,
+      "DemandName": "Full Stack Developer",
+      "ClientCompanyName": "Digital Solutions AG",
+      "LogoUrl": null,
+      "TotalMatchingRequirements": 0,
+      "TopMatchesJson": "[{\"RequirementId\":\"req-020\",\"RequirementName\":\"React\",\"ConsultantScore\":5},{\"RequirementId\":\"req-021\",\"RequirementName\":\"Node.js\",\"ConsultantScore\":4},{\"RequirementId\":\"req-022\",\"RequirementName\":\"TypeScript\",\"ConsultantScore\":3}]",
+      "TopMatches": null
+    }
+  ],
+  "fieldDescriptions": {
+    "DemandId": "Demand.Id - the matched demand's unique identifier",
+    "IsPinned": "1 if consultant is already assigned to this demand (via DemandConsultants), 0 otherwise",
+    "MatchingScore": "Placeholder (0). Actual value comes from Query 5 (GetMatchesByConsultantId)",
+    "PricePerformanceScore": "Placeholder (0). Actual value comes from Query 5",
+    "DemandName": "Demand name resolved via NameLocaleKeyId → LocaleDict for @SystemLanguage",
+    "ClientCompanyName": "Client company name via Demand → Opportunity → Company → Name",
+    "LogoUrl": "Client company logo URL from Company.LogoUrl (nullable)",
+    "TotalMatchingRequirements": "Placeholder (0). Actual value comes from Query 5",
+    "TopMatchesJson": "JSON array of top 2-3 matched requirements (excludes Role/CustomRole), sorted by partial_score contribution. Structure: [{RequirementId, RequirementName, ConsultantScore}]",
+    "TopMatches": "NULL placeholder for OutSystems structure definition (deserialized TopMatchesJson)"
+  },
+  "topMatchesJsonExpanded": [
+    {
+      "RequirementId": "req-001",
+      "RequirementName": "Spring Boot",
+      "ConsultantScore": 5
+    },
+    {
+      "RequirementId": "req-002",
+      "RequirementName": "Microservices",
+      "ConsultantScore": 4
+    }
+  ]
+}
