@@ -1,4 +1,8 @@
-# Prompting Conventions
+# AI Pipeline Prompts
+
+This directory contains prompts for Matchical's AI pipelines.
+
+## Prompting Conventions
 
 ## Required Structure
 Every prompt must use this section order and heading levels:
@@ -49,3 +53,13 @@ python3 scripts/devtools_api.py post <category_id> "<comment>" \
   <openai_schema_file> \
   <gemini_schema_file>
 ```
+
+---
+
+## Planned Modules
+
+Folders will be created as needed:
+- CV parsing pipeline
+- Skill classification
+- Requirement matching justification
+- Translation

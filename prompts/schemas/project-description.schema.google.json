@@ -1,0 +1,33 @@
+{
+  "description": "Schema for project description output.",
+  "type": "object",
+  "properties": {
+    "Rationale": {
+      "type": "string",
+      "description": "Brief rationale describing how inputs were interpreted and any missing information."
+    },
+    "RawVersion": {
+      "type": "string",
+      "description": "Aggregated raw project description in HTML."
+    },
+    "BulletVersion": {
+      "type": "string",
+      "description": "Bullet project description in HTML."
+    },
+    "MixedVersion": {
+      "type": "string",
+      "description": "Mixed project description in HTML."
+    },
+    "TextVersion": {
+      "type": "string",
+      "description": "Text project description in HTML."
+    }
+  },
+  "required": [
+    "Rationale",
+    "RawVersion",
+    "BulletVersion",
+    "MixedVersion",
+    "TextVersion"
+  ]
+}
