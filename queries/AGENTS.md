@@ -10,6 +10,8 @@
 
 **Parameters:** `@ParamName`
 
+**Tenant scoping default:** Include `@TenantId` and tenant filtering by default in all queries. Omit tenant filtering only when explicitly requested for admin/internal global reporting.
+
 **List parameters (Expand Inline):** Use directly in IN clause:
 ```sql
 WHERE consultant.[Id] IN (@ConsultantIds)

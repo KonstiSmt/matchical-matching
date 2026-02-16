@@ -1,6 +1,6 @@
-/* GetTenantInternalConsultantDataQualityRaw : Advanced SQL (Aurora Postgres, ODC)
+/* GetInternalConsultantDataQuality : Advanced SQL (Aurora Postgres, ODC)
    Purpose: Tenant scoped raw data quality export for internal consultants.
-   Input: @TenantId, @ConsultantUrlPrefix
+   Input: @TenantId, @ConsultantUrlPrefix, @SystemLanguage, @BooleanCategory_Yes, @BooleanCategory_No
 */
 
 WITH
@@ -15,7 +15,19 @@ consultant_scope AS (
     consultancy_user.[Email] AS Email,
     consultancy_user.[DefaultPhotoUrl] AS DefaultPhotoUrl,
     consultancy_user.[EntryDate] AS EntryDate,
+    consultancy_user.[DepartmentId] AS DepartmentId,
+    consultancy_user.[TeamId] AS TeamId,
+    consultancy_user.[UnitId] AS UnitId,
+    consultancy_user.[LegalEntityId] AS LegalEntityId,
+    consultancy_user.[LocationId] AS LocationId,
+    consultancy_user.[LeadId] AS LeadId,
     consultant.[WorkExperienceSince] AS WorkExperienceSince,
+    consultant.[AvailabilityCategoryId] AS AvailabilityCategoryId,
+    consultant.[AvailableFrom] AS AvailableFrom,
+    consultant.[AvailableTo] AS AvailableTo,
+    consultant.[IsWillingToTravel] AS IsWillingToTravel,
+    consultant.[AvailableDaysPerWeek] AS AvailableDaysPerWeek,
+    consultant.[AvailabilityCommentLocaleKey] AS AvailabilityCommentLocaleKeyId,
     LEAST(
       COALESCE(
         NULLIF(consultancy_user.[ExitDate], DATE '1900-01-01'),
@@ -342,7 +354,27 @@ SELECT
   END AS Weighted_coverage_ratio_before_entry,
   baselines.IsEntryDateMissing AS Is_entry_date_missing,
   baselines.IsWorkExperienceSinceMissing AS Is_work_experience_since_missing,
-  baselines.IsWorkExperienceSinceAfterEntryDate AS Is_work_experience_since_after_entry_date
+  baselines.IsWorkExperienceSinceAfterEntryDate AS Is_work_experience_since_after_entry_date,
+  CASE
+    WHEN scope.AvailabilityCategoryId = @BooleanCategory_Yes THEN 'Yes'
+    WHEN scope.AvailabilityCategoryId = @BooleanCategory_No THEN 'No'
+    ELSE '-'
+  END AS Is_available,
+  scope.AvailableFrom AS Available_from,
+  scope.AvailableTo AS Available_to,
+  CASE
+    WHEN scope.IsWillingToTravel = 1 THEN TRUE
+    WHEN scope.IsWillingToTravel = 0 THEN FALSE
+    ELSE NULL
+  END AS Is_willing_to_travel,
+  ROUND(scope.AvailableDaysPerWeek::NUMERIC, 2) AS Available_days_per_week,
+  availability_comment_locale.[TextValue] AS Availability_comment,
+  department_locale.[TextValue] AS Department,
+  team_locale.[TextValue] AS Team,
+  unit_locale.[TextValue] AS Unit,
+  legal_entity_locale.[TextValue] AS Legal_entity,
+  location_locale.[TextValue] AS Location,
+  NULLIF(TRIM(CONCAT(COALESCE(lead_user.[FirstName], ''), ' ', COALESCE(lead_user.[LastName], ''))), '') AS Lead
 FROM consultant_scope scope
 LEFT JOIN engagement_stats stats
   ON stats.ConsultantId = scope.ConsultantId
@@ -354,6 +386,42 @@ LEFT JOIN last_finished_engagement last_finished
   ON last_finished.ConsultantId = scope.ConsultantId
 LEFT JOIN consultant_baselines baselines
   ON baselines.ConsultantId = scope.ConsultantId
+LEFT JOIN {LocaleDict} availability_comment_locale
+  ON availability_comment_locale.[LocaleKeyId] = scope.AvailabilityCommentLocaleKeyId
+ AND availability_comment_locale.[LanguageId] = @SystemLanguage
+LEFT JOIN {Department} department_ref
+  ON department_ref.[Id] = scope.DepartmentId
+ AND department_ref.[TenantId] = @TenantId
+LEFT JOIN {LocaleDict} department_locale
+  ON department_locale.[LocaleKeyId] = department_ref.[NameLocaleKeyId]
+ AND department_locale.[LanguageId] = @SystemLanguage
+LEFT JOIN {Department} team_ref
+  ON team_ref.[Id] = scope.TeamId
+ AND team_ref.[TenantId] = @TenantId
+LEFT JOIN {LocaleDict} team_locale
+  ON team_locale.[LocaleKeyId] = team_ref.[NameLocaleKeyId]
+ AND team_locale.[LanguageId] = @SystemLanguage
+LEFT JOIN {Department} unit_ref
+  ON unit_ref.[Id] = scope.UnitId
+ AND unit_ref.[TenantId] = @TenantId
+LEFT JOIN {LocaleDict} unit_locale
+  ON unit_locale.[LocaleKeyId] = unit_ref.[NameLocaleKeyId]
+ AND unit_locale.[LanguageId] = @SystemLanguage
+LEFT JOIN {Department} legal_entity_ref
+  ON legal_entity_ref.[Id] = scope.LegalEntityId
+ AND legal_entity_ref.[TenantId] = @TenantId
+LEFT JOIN {LocaleDict} legal_entity_locale
+  ON legal_entity_locale.[LocaleKeyId] = legal_entity_ref.[NameLocaleKeyId]
+ AND legal_entity_locale.[LanguageId] = @SystemLanguage
+LEFT JOIN {OfficeLocation} office_location
+  ON office_location.[Id] = scope.LocationId
+ AND office_location.[TenantId] = @TenantId
+LEFT JOIN {LocaleDict} location_locale
+  ON location_locale.[LocaleKeyId] = office_location.[NameLocaleKeyId]
+ AND location_locale.[LanguageId] = @SystemLanguage
+LEFT JOIN {ConsultancyUser} lead_user
+  ON lead_user.[Id] = scope.LeadId
+ AND lead_user.[TenantId] = @TenantId
 ORDER BY
   Full_name,
   scope.ConsultantId

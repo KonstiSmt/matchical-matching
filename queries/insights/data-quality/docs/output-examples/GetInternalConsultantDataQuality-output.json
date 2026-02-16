@@ -1,6 +1,6 @@
 {
-  "description": "GetTenantInternalConsultantDataQualityRaw output example",
-  "columnOrder": "External_id, Mat_id, Url, Full_name, Email, Entry_date, Work_experience_since, Total_engagements, Engagements_with_invalid_dates, Ongoing_engagements, Oldest_ongoing_engagement_start_date, Last_finished_engagement_start_date, Last_finished_engagement_end_date, Is_profile_photo_missing, Months_since_entry_baseline, Absolute_months_since_entry, Weighted_months_since_entry, Absolute_missing_months_since_entry, Weighted_missing_months_since_entry, Absolute_coverage_ratio_since_entry, Weighted_coverage_ratio_since_entry, Months_before_entry_baseline, Absolute_months_before_entry, Weighted_months_before_entry, Absolute_missing_months_before_entry, Weighted_missing_months_before_entry, Absolute_coverage_ratio_before_entry, Weighted_coverage_ratio_before_entry, Is_entry_date_missing, Is_work_experience_since_missing, Is_work_experience_since_after_entry_date",
+  "description": "GetInternalConsultantDataQuality output example",
+  "columnOrder": "External_id, Mat_id, Url, Full_name, Email, Entry_date, Work_experience_since, Total_engagements, Engagements_with_invalid_dates, Ongoing_engagements, Oldest_ongoing_engagement_start_date, Last_finished_engagement_start_date, Last_finished_engagement_end_date, Is_profile_photo_missing, Months_since_entry_baseline, Absolute_months_since_entry, Weighted_months_since_entry, Absolute_missing_months_since_entry, Weighted_missing_months_since_entry, Absolute_coverage_ratio_since_entry, Weighted_coverage_ratio_since_entry, Months_before_entry_baseline, Absolute_months_before_entry, Weighted_months_before_entry, Absolute_missing_months_before_entry, Weighted_missing_months_before_entry, Absolute_coverage_ratio_before_entry, Weighted_coverage_ratio_before_entry, Is_entry_date_missing, Is_work_experience_since_missing, Is_work_experience_since_after_entry_date, Is_available, Available_from, Available_to, Is_willing_to_travel, Available_days_per_week, Availability_comment, Department, Team, Unit, Legal_entity, Location, Lead",
   "singleRow": {
     "External_id": "ext-29184",
     "Mat_id": "MAT-1042",
@@ -32,7 +32,19 @@
     "Weighted_coverage_ratio_before_entry": 0.67,
     "Is_entry_date_missing": false,
     "Is_work_experience_since_missing": false,
-    "Is_work_experience_since_after_entry_date": false
+    "Is_work_experience_since_after_entry_date": false,
+    "Is_available": "Yes",
+    "Available_from": "2025-07-01",
+    "Available_to": "2025-12-31",
+    "Is_willing_to_travel": true,
+    "Available_days_per_week": 4.5,
+    "Availability_comment": "Available from July with 4.5 days per week.",
+    "Department": "Technology",
+    "Team": "Data Engineering",
+    "Unit": "Platform",
+    "Legal_entity": "bridgingIT GmbH",
+    "Location": "Mannheim",
+    "Lead": "Grace Hopper"
   },
   "exampleResultSet": [
     {
@@ -66,7 +78,19 @@
       "Weighted_coverage_ratio_before_entry": 0.67,
       "Is_entry_date_missing": false,
       "Is_work_experience_since_missing": false,
-      "Is_work_experience_since_after_entry_date": false
+      "Is_work_experience_since_after_entry_date": false,
+      "Is_available": "Yes",
+      "Available_from": "2025-07-01",
+      "Available_to": "2025-12-31",
+      "Is_willing_to_travel": true,
+      "Available_days_per_week": 4.5,
+      "Availability_comment": "Available from July with 4.5 days per week.",
+      "Department": "Technology",
+      "Team": "Data Engineering",
+      "Unit": "Platform",
+      "Legal_entity": "bridgingIT GmbH",
+      "Location": "Mannheim",
+      "Lead": "Grace Hopper"
     },
     {
       "External_id": "ext-45500",
@@ -99,7 +123,19 @@
       "Weighted_coverage_ratio_before_entry": null,
       "Is_entry_date_missing": true,
       "Is_work_experience_since_missing": true,
-      "Is_work_experience_since_after_entry_date": false
+      "Is_work_experience_since_after_entry_date": false,
+      "Is_available": "-",
+      "Available_from": null,
+      "Available_to": null,
+      "Is_willing_to_travel": null,
+      "Available_days_per_week": null,
+      "Availability_comment": null,
+      "Department": null,
+      "Team": null,
+      "Unit": null,
+      "Legal_entity": null,
+      "Location": null,
+      "Lead": null
     }
   ]
 }
