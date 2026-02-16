@@ -127,9 +127,11 @@ All indexes follow the **TenantId-first pattern** for multi-tenant optimization:
 **Role-skill scoring mode requirement (`@RoleSkillScoringModeId`):**
 - Strict Role mode uses role-scoped categories (`@Cat_RoleSkill` / `@Cat_CustomRoleSkill`).
 - Global Skill mode uses skill-scoped categories (`@Cat_Skill` / `@Cat_CustomSkill`) by `SkillId`.
+- Global Skill mode bypasses role gate and role-filter enforcement, redistributes role weight to skills, then deduplicates role-skill requirements by `SkillId` at demand level.
 - Role-First Hybrid mode reads both score sources and applies `max(role_score, max(global_score - 1, 0))`.
 - Missing the skill-level index can cause slower nested-loop plans in Global Skill and Role-First Hybrid paths.
-- Hybrid mode adds moderate overhead from dual source aggregation but remains index-driven with the existing composite indexes.
+- Global Skill and Hybrid modes add moderate overhead from score/weight aggregation; Global Skill dedup also reduces downstream consultant-join fanout on demands with repeated skills across roles.
+- The new aggregation work is requirement-side only (small per-demand sets), so consultant-side cost remains index-driven by Experience composite indexes.
 
 Recommended DDL (apply in DBA/migration workflow before enabling the mode in production):
 ```sql
@@ -173,7 +175,7 @@ Per-category composite indexes needed for Query 5 (GetMatchesByConsultantId), wh
 
 1. **Pre-materialized filter check** (Jan 2026)
    - Added `has_filtered_requirements` CTE
-   - Evaluates `EXISTS (SELECT 1 FROM filtered_requirement)` once globally
+   - Evaluates `EXISTS (SELECT 1 FROM filtered_requirement_for_enforcement)` once globally
    - Previously: evaluated per-consultant in WHERE clause
    - Impact: Eliminates redundant CTE materialization when no filters active
 

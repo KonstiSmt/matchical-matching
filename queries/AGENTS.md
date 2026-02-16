@@ -28,6 +28,11 @@ Do NOT use `STRING_TO_ARRAY` or `UNNEST`. It's already expanded SQL.
 
 **Null dates:** Use standard SQL `IS NULL` / `IS NOT NULL` checks.
 
+**ID typing contract (critical):**
+- Business/entity IDs are GUIDs (text/varchar in SQL), not integers.
+- Only static entity identifiers (for example Category, Status) are integer/long integer.
+- In `UNION` branches, never force GUID key columns with `CAST(NULL AS INTEGER)`; use untyped `NULL` or cast to the matching GUID/text type.
+
 ---
 
 ## Performance

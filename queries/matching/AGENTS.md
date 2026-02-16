@@ -67,8 +67,14 @@ After any change, verify:
 - Mandatory role soft gate: consultant has `Score > 0` in at least one required role (Role/CustomRole by mode)
 - RoleSkill scoring mode parity: Strict Role and Global Skill match their expected baseline outputs
 - RoleSkill hybrid correctness: `effective_score = max(role_score, max(global_score - 1, 0))` in scoring and filter checks
+- Global Skill mode: mandatory role soft gate and role/category filter enforcement are bypassed
+- Global Skill mode: role requirement contribution is redistributed to same-role skills, then deduplicated by `SkillId`
+- Global Skill mode dedup merge: `ReqScore = MAX`, `SkillWeightEffective = SUM`, must-have = any must-have
+- Global Skill mode filtered role-skill merge uses Hard > Soft > Default precedence
 - TopMatches JSON contains top 2 ranked by partial_score
 - ConsultantScore is effective score for role-skill categories and raw Experience.Score for non role-skill categories
+- Full details Global Skill mode: one wrapper role object is returned; wrapper role scoring fields are `NULL`; nested skills are distinct deduplicated skills
+- Wrapper role selection in Global Skill mode is deterministic: highest role requirement DynamicWeight, tie-break by RequirementId ascending
 
 **Custom Roles (when @UseCustomRoles = 1):**
 - Scoring uses CustomRoleId for matching

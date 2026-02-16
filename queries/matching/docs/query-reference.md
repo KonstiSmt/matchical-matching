@@ -121,6 +121,23 @@ Where:
 * `role_score` comes from role-scoped categories (`@Cat_RoleSkill` / `@Cat_CustomRoleSkill`) with role key + `SkillId`
 * `global_score` comes from skill-scoped categories (`@Cat_Skill` / `@Cat_CustomSkill`) with `SkillId` only
 
+Global Skill refinements:
+* Mandatory role soft gate is bypassed.
+* Role/CustomRole requirement filters are ignored.
+* Role/CustomRole scoring contribution is disabled.
+* Role requirement weight is redistributed to same-role skills:
+  * `RoleContribution_r = role_requirement.DynamicWeight * 100.0`
+  * `SkillBase_k = skill_requirement.DynamicWeight * skill_requirement.RoleWeight`
+  * `SkillBaseSum_r = SUM(SkillBase_k)`
+  * `SkillWeightEffective_k = SkillBase_k + RoleContribution_r * (SkillBase_k / SkillBaseSum_r)`
+* After redistribution, role-skill requirements are deduplicated by `SkillId`:
+  * `ReqScore = MAX(ReqScore)` across duplicate skill requirements
+  * `SkillWeightEffective = SUM(SkillWeightAfterDistribution)` across duplicate skill requirements
+  * Must-have merge is "any must-have" (`IsNiceToHave = MIN(IsNiceToHave)`)
+* Query 1 filtered role-skill merge uses filter precedence: Hard > Soft > Default.
+* Query 4 keeps RoleSkillsJson shape, but in Global Skill mode returns one wrapper role object with role scoring fields as `NULL` and nested distinct skills.
+  * Wrapper role identity comes from the highest role requirement dynamic weight (tie-break: lowest requirement id).
+
 ### 2.4 Scoring Model
 
 For each demand requirement that matches an experience row, the query computes a partial contribution:
@@ -179,7 +196,7 @@ Extracts only role requirements used for the mandatory soft role gate:
 * Same validity filters as `requirement` (active, no missing keys)
 * In standard mode (`@UseCustomRoles <> 1`): includes only `@Cat_Role`
 * In custom mode (`@UseCustomRoles = 1`): includes only `@Cat_CustomRole`
-* Independent of `@RoleSkillScoringModeId`
+* Requirement extraction is independent of `@RoleSkillScoringModeId` (enforcement is bypassed in Global Skill mode)
 
 ### 3.4 `has_role_requirements` CTE: Role Gate Fast Path Flag
 
@@ -188,12 +205,17 @@ Computes a scalar boolean (`HasRoleRequirements`) once:
 * `TRUE` if at least one role requirement exists in active role mode
 * `FALSE` if none exist (mandatory role gate is skipped)
 
-### 3.5 `filtered_requirement` CTE: Hard/Soft Filter Requirements
+### 3.5 `filtered_requirement` and enforcement CTEs: Hard/Soft Filter Requirements
 
 Extracts only requirements where `FilterCategoryId <> @Filter_Default`:
 
 * Same validity filters as `requirement` CTE
 * Used by the NOT EXISTS filter enforcement in `eligible_consultant`
+* In Global Skill mode, role-skill filtered requirements are normalized before enforcement:
+  * redistribute (already demand-side)
+  * deduplicate by `SkillId`
+  * merge `ReqScore` as max
+  * merge filter category as Hard > Soft > Default
 
 ### 3.6 `eligible_consultant` CTE: Prefilter + Filter Enforcement
 
@@ -214,7 +236,7 @@ Mandatory role soft-match gate:
 * Consultant must match at least one required role (`@Cat_Role` / `@Cat_CustomRole`) with `Experience.Score > 0`
 * Category path follows `@UseCustomRoles` mode
 * Fast path: if `has_role_requirements.HasRoleRequirements = FALSE`, this gate is skipped
-* This gate is independent of `@RoleSkillScoringModeId`
+* Global Skill mode bypasses this gate
 
 The filter enforcement uses a "double NOT EXISTS" pattern:
 ```
@@ -237,7 +259,8 @@ Role-skill differs from the others:
 
 * It multiplies by `RoleWeight`.
 * Others multiply by `100.0`.
-* Role-skill partial scoring always keeps role-skill weighting (`DynamicWeight * RoleWeight`).
+* Strict/Hybrid role-skill partial scoring uses `DynamicWeight * RoleWeight`.
+* Global Skill mode uses redistributed-and-deduplicated role-skill weight (`SkillWeightEffective`) and disables role-only branch scoring.
 * The consultant score source for role-skill partials depends on `@RoleSkillScoringModeId` effective-score mode.
 
 Branches prune rows where `ReqScore = 0` or `Score <= 0` (except Language which allows presence-only).
@@ -555,8 +578,10 @@ final SELECT (LEFT JOIN input_consultant to scores, COALESCE for 0)
 ### Scoring Logic
 
 Identical to Query 1:
-* **RoleSkill**: `DynamicWeight * RoleWeight` (proportional if below required score)
-* **Role**: `DynamicWeight * 100.0` (proportional if below required score)
+* **RoleSkill**:
+  * Strict/Hybrid: `DynamicWeight * RoleWeight` (proportional if below required score)
+  * Global Skill: redistributed + deduplicated `SkillWeightEffective` by `SkillId` (proportional if below required score)
+* **Role**: `DynamicWeight * 100.0` (proportional if below required score, disabled in Global Skill mode)
 * **Industry**: `DynamicWeight * 100.0` (proportional if below required score)
 * **FunctionalArea**: `DynamicWeight * 100.0` (proportional if below required score)
 * **Language**: `DynamicWeight * 100.0` (proportional if below required score)
