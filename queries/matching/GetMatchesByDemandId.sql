@@ -15,7 +15,7 @@
      • MATERIALIZED hints on CTEs (demand, requirement, filtered_requirement, has_filtered_requirements,
        eligible_consultant) prevent PostgreSQL planner instability that can cause 100x slowdowns.
      • If performance issues occur, check MATERIALIZED first. See queries/matching/CLAUDE.md for details.
-     • Role-skill matching supports optional global skill mode via @UseGlobalSkillExperienceForRoleSkill.
+     • Role-skill matching uses selected scoring mode via @RoleSkillScoringModeId.
 
    Output columns (ordered):
      ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count, HasActiveFilters
@@ -41,6 +41,7 @@ demand AS MATERIALIZED (
 /* _____________ Requirements (valid only) _____________ */
 requirement AS MATERIALIZED (
   SELECT
+    req.[Id]               AS RequirementId,
     req.[CategoryId],
     req.[RoleId],
     req.[CustomRoleId],
@@ -86,6 +87,7 @@ has_role_requirements AS MATERIALIZED (
 /* _____________ Filtered requirements (Hard/Soft only) _____________ */
 filtered_requirement AS MATERIALIZED (
   SELECT
+    freq.[Id]               AS RequirementId,
     freq.[CategoryId],
     freq.[RoleId],
     freq.[CustomRoleId],
@@ -102,6 +104,148 @@ filtered_requirement AS MATERIALIZED (
     AND freq.[IsActive]  = 1
     AND NOT (freq.[HasMissingKeys] = 1)
     AND freq.[FilterCategoryId] <> @Filter_Default
+),
+
+/* _____________ Filtered role-skill requirements in active role mode _____________ */
+filtered_roleskill_requirement AS MATERIALIZED (
+  SELECT
+    filter_req.RequirementId,
+    filter_req.[CategoryId],
+    filter_req.[RoleId],
+    filter_req.[CustomRoleId],
+    filter_req.[SkillId],
+    filter_req.ReqScore,
+    filter_req.FilterCategory,
+    filter_req.[TenantId]
+  FROM filtered_requirement filter_req
+  WHERE (
+    (@UseCustomRoles <> 1 AND filter_req.[CategoryId] = @Cat_RoleSkill)
+    OR (@UseCustomRoles = 1 AND filter_req.[CategoryId] = @Cat_CustomRoleSkill)
+  )
+),
+
+/* _____________ Filtered role-scoped scores per consultant and requirement _____________ */
+filtered_roleskill_role_score AS (
+  SELECT
+    filter_req.RequirementId,
+    experience.[ConsultantId] AS ConsultantId,
+    MAX(experience.[Score])   AS RoleScore
+  FROM filtered_roleskill_requirement filter_req
+  JOIN {Experience} experience
+    ON experience.[TenantId] = filter_req.[TenantId]
+   AND experience.[Score] > 0
+   AND (
+     (@UseCustomRoles <> 1
+      AND experience.[CategoryId] = @Cat_RoleSkill
+      AND experience.[RoleId] = filter_req.[RoleId]
+      AND experience.[SkillId] = filter_req.[SkillId])
+     OR (@UseCustomRoles = 1
+         AND experience.[CategoryId] = @Cat_CustomRoleSkill
+         AND experience.[CustomRoleId] = filter_req.[CustomRoleId]
+         AND experience.[SkillId] = filter_req.[SkillId])
+   )
+  GROUP BY
+    filter_req.RequirementId,
+    experience.[ConsultantId]
+),
+
+/* _____________ Filtered global-skill scores per consultant and requirement _____________ */
+filtered_roleskill_global_score AS (
+  SELECT
+    filter_req.RequirementId,
+    experience.[ConsultantId] AS ConsultantId,
+    MAX(experience.[Score])   AS GlobalScore
+  FROM filtered_roleskill_requirement filter_req
+  JOIN {Experience} experience
+    ON experience.[TenantId] = filter_req.[TenantId]
+   AND experience.[Score] > 0
+   AND (
+     (@UseCustomRoles <> 1
+      AND experience.[CategoryId] = @Cat_Skill
+      AND experience.[SkillId] = filter_req.[SkillId])
+     OR (@UseCustomRoles = 1
+         AND experience.[CategoryId] = @Cat_CustomSkill
+         AND experience.[SkillId] = filter_req.[SkillId])
+   )
+  GROUP BY
+    filter_req.RequirementId,
+    experience.[ConsultantId]
+),
+
+/* _____________ Combined role/global candidate scores for filtered role-skill requirements _____________ */
+filtered_roleskill_score AS (
+  SELECT
+    filtered_score.RequirementId,
+    filtered_score.ConsultantId,
+    MAX(filtered_score.RoleScore)   AS RoleScore,
+    MAX(filtered_score.GlobalScore) AS GlobalScore
+  FROM (
+    SELECT
+      role_score.RequirementId,
+      role_score.ConsultantId,
+      role_score.RoleScore,
+      CAST(NULL AS INTEGER) AS GlobalScore
+    FROM filtered_roleskill_role_score role_score
+
+    UNION ALL
+
+    SELECT
+      global_score.RequirementId,
+      global_score.ConsultantId,
+      CAST(NULL AS INTEGER) AS RoleScore,
+      global_score.GlobalScore
+    FROM filtered_roleskill_global_score global_score
+  ) filtered_score
+  GROUP BY
+    filtered_score.RequirementId,
+    filtered_score.ConsultantId
+),
+
+/* _____________ Filtered role-skill requirements satisfied by effective score mode _____________ */
+filtered_roleskill_pass AS MATERIALIZED (
+  SELECT
+    filter_req.RequirementId,
+    filter_score.ConsultantId
+  FROM filtered_roleskill_requirement filter_req
+  JOIN filtered_roleskill_score filter_score
+    ON filter_score.RequirementId = filter_req.RequirementId
+  WHERE
+    (
+      filter_req.FilterCategory = @Filter_Hard
+      AND (
+        (@RoleSkillScoringModeId = @ScoringMode_StrictRole
+         AND COALESCE(filter_score.RoleScore, 0) >= filter_req.ReqScore)
+        OR (@RoleSkillScoringModeId = @ScoringMode_GlobalSkill
+            AND COALESCE(filter_score.GlobalScore, 0) >= filter_req.ReqScore)
+        OR (@RoleSkillScoringModeId = @ScoringMode_RoleFirstHybrid
+            AND GREATEST(
+                  COALESCE(filter_score.RoleScore, 0),
+                  GREATEST(COALESCE(filter_score.GlobalScore, 0) - 1, 0)
+                ) >= filter_req.ReqScore)
+        OR (@RoleSkillScoringModeId <> @ScoringMode_StrictRole
+            AND @RoleSkillScoringModeId <> @ScoringMode_GlobalSkill
+            AND @RoleSkillScoringModeId <> @ScoringMode_RoleFirstHybrid
+            AND COALESCE(filter_score.RoleScore, 0) >= filter_req.ReqScore)
+      )
+    )
+    OR (
+      filter_req.FilterCategory = @Filter_Soft
+      AND (
+        (@RoleSkillScoringModeId = @ScoringMode_StrictRole
+         AND COALESCE(filter_score.RoleScore, 0) > 0)
+        OR (@RoleSkillScoringModeId = @ScoringMode_GlobalSkill
+            AND COALESCE(filter_score.GlobalScore, 0) > 0)
+        OR (@RoleSkillScoringModeId = @ScoringMode_RoleFirstHybrid
+            AND GREATEST(
+                  COALESCE(filter_score.RoleScore, 0),
+                  GREATEST(COALESCE(filter_score.GlobalScore, 0) - 1, 0)
+                ) > 0)
+        OR (@RoleSkillScoringModeId <> @ScoringMode_StrictRole
+            AND @RoleSkillScoringModeId <> @ScoringMode_GlobalSkill
+            AND @RoleSkillScoringModeId <> @ScoringMode_RoleFirstHybrid
+            AND COALESCE(filter_score.RoleScore, 0) > 0)
+      )
+    )
 ),
 
 /* _____________ Pre-materialized filter check (evaluated once, not per consultant) _____________ */
@@ -240,68 +384,54 @@ eligible_consultant AS MATERIALIZED (
           /* Otherwise: no filtered requirement may be unsatisfied */
           NOT EXISTS (
             SELECT 1 FROM filtered_requirement filter_req
-            WHERE NOT EXISTS (
-              SELECT 1 FROM {Experience} experience
-              WHERE experience.[ConsultantId] = consultant.[Id]
-                AND experience.[TenantId] = filter_req.[TenantId]
-                /* Category-specific key matching (supports both standard and custom roles) */
-                AND (
-                  /* Standard RoleSkill (role-scoped mode) */
-                  (@UseCustomRoles <> 1
-                   AND @UseGlobalSkillExperienceForRoleSkill <> 1
-                   AND filter_req.[CategoryId] = @Cat_RoleSkill
-                   AND experience.[CategoryId] = @Cat_RoleSkill
-                   AND experience.[RoleId] = filter_req.[RoleId]
-                   AND experience.[SkillId] = filter_req.[SkillId])
-                  /* Standard RoleSkill (global skill mode) */
-                  OR (@UseCustomRoles <> 1
-                      AND @UseGlobalSkillExperienceForRoleSkill = 1
-                      AND filter_req.[CategoryId] = @Cat_RoleSkill
-                      AND experience.[CategoryId] = @Cat_Skill
-                      AND experience.[SkillId] = filter_req.[SkillId])
-                  /* Custom RoleSkill (role-scoped mode) */
-                  OR (@UseCustomRoles = 1
-                      AND @UseGlobalSkillExperienceForRoleSkill <> 1
-                      AND filter_req.[CategoryId] = @Cat_CustomRoleSkill
-                      AND experience.[CategoryId] = @Cat_CustomRoleSkill
-                      AND experience.[CustomRoleId] = filter_req.[CustomRoleId]
-                      AND experience.[SkillId] = filter_req.[SkillId])
-                  /* Custom RoleSkill (global skill mode) */
-                  OR (@UseCustomRoles = 1
-                      AND @UseGlobalSkillExperienceForRoleSkill = 1
-                      AND filter_req.[CategoryId] = @Cat_CustomRoleSkill
-                      AND experience.[CategoryId] = @Cat_CustomSkill
-                      AND experience.[SkillId] = filter_req.[SkillId])
-                  /* Standard Role */
-                  OR (@UseCustomRoles <> 1
-                      AND filter_req.[CategoryId] = @Cat_Role
-                      AND experience.[CategoryId] = @Cat_Role
-                      AND experience.[RoleId] = filter_req.[RoleId]
-                      AND experience.[SkillId] IS NULL)
-                  /* Custom Role */
-                  OR (@UseCustomRoles = 1
-                      AND filter_req.[CategoryId] = @Cat_CustomRole
-                      AND experience.[CategoryId] = @Cat_CustomRole
-                      AND experience.[CustomRoleId] = filter_req.[CustomRoleId]
-                      AND experience.[SkillId] IS NULL)
-                  /* Industry (unchanged) */
-                  OR (filter_req.[CategoryId] = @Cat_Industry
-                      AND experience.[CategoryId] = @Cat_Industry
-                      AND experience.[IndustryId] = filter_req.[IndustryId])
-                  /* FunctionalArea (unchanged) */
-                  OR (filter_req.[CategoryId] = @Cat_FunctionalArea
-                      AND experience.[CategoryId] = @Cat_FunctionalArea
-                      AND experience.[FunctionalAreaId] = filter_req.[FunctionalAreaId])
-                  /* Language (unchanged) */
-                  OR (filter_req.[CategoryId] = @Cat_Language
-                      AND experience.[CategoryId] = @Cat_Language
-                      AND experience.[LanguageId] = filter_req.[LanguageId])
+            WHERE NOT (
+              (
+                (
+                  (@UseCustomRoles <> 1 AND filter_req.[CategoryId] = @Cat_RoleSkill)
+                  OR (@UseCustomRoles = 1 AND filter_req.[CategoryId] = @Cat_CustomRoleSkill)
                 )
-                /* Score condition based on filter type */
-                AND (
-                  (filter_req.FilterCategory = @Filter_Hard AND experience.[Score] >= filter_req.ReqScore)
-                  OR (filter_req.FilterCategory = @Filter_Soft AND experience.[Score] > 0)
+                AND EXISTS (
+                  SELECT 1
+                  FROM filtered_roleskill_pass filtered_pass
+                  WHERE filtered_pass.RequirementId = filter_req.RequirementId
+                    AND filtered_pass.ConsultantId = consultant.[Id]
                 )
+              )
+              OR EXISTS (
+                SELECT 1 FROM {Experience} experience
+                WHERE experience.[ConsultantId] = consultant.[Id]
+                  AND experience.[TenantId] = filter_req.[TenantId]
+                  AND (
+                    /* Standard Role */
+                    (@UseCustomRoles <> 1
+                     AND filter_req.[CategoryId] = @Cat_Role
+                     AND experience.[CategoryId] = @Cat_Role
+                     AND experience.[RoleId] = filter_req.[RoleId]
+                     AND experience.[SkillId] IS NULL)
+                    /* Custom Role */
+                    OR (@UseCustomRoles = 1
+                        AND filter_req.[CategoryId] = @Cat_CustomRole
+                        AND experience.[CategoryId] = @Cat_CustomRole
+                        AND experience.[CustomRoleId] = filter_req.[CustomRoleId]
+                        AND experience.[SkillId] IS NULL)
+                    /* Industry */
+                    OR (filter_req.[CategoryId] = @Cat_Industry
+                        AND experience.[CategoryId] = @Cat_Industry
+                        AND experience.[IndustryId] = filter_req.[IndustryId])
+                    /* FunctionalArea */
+                    OR (filter_req.[CategoryId] = @Cat_FunctionalArea
+                        AND experience.[CategoryId] = @Cat_FunctionalArea
+                        AND experience.[FunctionalAreaId] = filter_req.[FunctionalAreaId])
+                    /* Language */
+                    OR (filter_req.[CategoryId] = @Cat_Language
+                        AND experience.[CategoryId] = @Cat_Language
+                        AND experience.[LanguageId] = filter_req.[LanguageId])
+                  )
+                  AND (
+                    (filter_req.FilterCategory = @Filter_Hard AND experience.[Score] >= filter_req.ReqScore)
+                    OR (filter_req.FilterCategory = @Filter_Soft AND experience.[Score] > 0)
+                  )
+              )
             )
           )
         )
@@ -309,10 +439,122 @@ eligible_consultant AS MATERIALIZED (
 
 /* _____________ Category branches with computed partial_score (DOUBLE PRECISION) _____________ */
 
-/* RoleSkill: role-scoped matching (default) or global skill matching (optional mode) */
+/* RoleSkill requirements in active role mode */
+roleskill_requirement AS (
+  SELECT
+    req.RequirementId,
+    req.[CategoryId],
+    req.[RoleId],
+    req.[CustomRoleId],
+    req.[SkillId],
+    req.ReqScore,
+    req.[DynamicWeight],
+    req.[RoleWeight],
+    req.[TenantId]
+  FROM requirement req
+  WHERE (
+    (@UseCustomRoles <> 1 AND req.[CategoryId] = @Cat_RoleSkill)
+    OR (@UseCustomRoles = 1 AND req.[CategoryId] = @Cat_CustomRoleSkill)
+  )
+),
+
+/* Role-scoped RoleSkill candidate scores */
+roleskill_role_score AS (
+  SELECT
+    req.RequirementId,
+    experience.[ConsultantId] AS ConsultantId,
+    MAX(experience.[Score])   AS RoleScore
+  FROM roleskill_requirement req
+  JOIN {Experience} experience
+    ON experience.[TenantId] = req.[TenantId]
+   AND experience.[Score] > 0
+   AND (
+     (@UseCustomRoles <> 1
+      AND experience.[CategoryId] = @Cat_RoleSkill
+      AND experience.[RoleId] = req.[RoleId]
+      AND experience.[SkillId] = req.[SkillId])
+     OR (@UseCustomRoles = 1
+         AND experience.[CategoryId] = @Cat_CustomRoleSkill
+         AND experience.[CustomRoleId] = req.[CustomRoleId]
+         AND experience.[SkillId] = req.[SkillId])
+   )
+  JOIN eligible_consultant ec
+    ON ec.ConsultantId = experience.[ConsultantId]
+  GROUP BY
+    req.RequirementId,
+    experience.[ConsultantId]
+),
+
+/* Skill-scoped RoleSkill candidate scores */
+roleskill_global_score AS (
+  SELECT
+    req.RequirementId,
+    experience.[ConsultantId] AS ConsultantId,
+    MAX(experience.[Score])   AS GlobalScore
+  FROM roleskill_requirement req
+  JOIN {Experience} experience
+    ON experience.[TenantId] = req.[TenantId]
+   AND experience.[Score] > 0
+   AND (
+     (@UseCustomRoles <> 1
+      AND experience.[CategoryId] = @Cat_Skill
+      AND experience.[SkillId] = req.[SkillId])
+     OR (@UseCustomRoles = 1
+         AND experience.[CategoryId] = @Cat_CustomSkill
+         AND experience.[SkillId] = req.[SkillId])
+   )
+  JOIN eligible_consultant ec
+    ON ec.ConsultantId = experience.[ConsultantId]
+  GROUP BY
+    req.RequirementId,
+    experience.[ConsultantId]
+),
+
+/* Effective score for selected RoleSkill scoring mode */
+roleskill_score AS (
+  SELECT
+    score_source.RequirementId,
+    score_source.ConsultantId,
+    MAX(score_source.RoleScore)   AS RoleScore,
+    MAX(score_source.GlobalScore) AS GlobalScore,
+    CASE
+      WHEN @RoleSkillScoringModeId = @ScoringMode_StrictRole
+      THEN COALESCE(MAX(score_source.RoleScore), 0)
+      WHEN @RoleSkillScoringModeId = @ScoringMode_GlobalSkill
+      THEN COALESCE(MAX(score_source.GlobalScore), 0)
+      WHEN @RoleSkillScoringModeId = @ScoringMode_RoleFirstHybrid
+      THEN GREATEST(
+             COALESCE(MAX(score_source.RoleScore), 0),
+             GREATEST(COALESCE(MAX(score_source.GlobalScore), 0) - 1, 0)
+           )
+      ELSE COALESCE(MAX(score_source.RoleScore), 0)
+    END AS EffectiveScore
+  FROM (
+    SELECT
+      role_score.RequirementId,
+      role_score.ConsultantId,
+      role_score.RoleScore,
+      CAST(NULL AS INTEGER) AS GlobalScore
+    FROM roleskill_role_score role_score
+
+    UNION ALL
+
+    SELECT
+      global_score.RequirementId,
+      global_score.ConsultantId,
+      CAST(NULL AS INTEGER) AS RoleScore,
+      global_score.GlobalScore
+    FROM roleskill_global_score global_score
+  ) score_source
+  GROUP BY
+    score_source.RequirementId,
+    score_source.ConsultantId
+),
+
+/* RoleSkill scoring branch using effective score from selected mode */
 branch_roleskill AS (
   SELECT
-    experience.[ConsultantId] AS ConsultantId,
+    roleskill_score.ConsultantId AS ConsultantId,
     CASE WHEN @UseCustomRoles = 1 THEN @Cat_CustomRoleSkill ELSE @Cat_RoleSkill END AS CategoryId,
     CAST(
       CASE
@@ -320,46 +562,17 @@ branch_roleskill AS (
         ELSE
           (
             CASE
-              WHEN experience.[Score] >= req.ReqScore THEN req.[DynamicWeight]
-              ELSE req.[DynamicWeight] * (CAST(experience.[Score] AS DOUBLE PRECISION) / CAST(req.ReqScore AS DOUBLE PRECISION))
+              WHEN roleskill_score.EffectiveScore >= req.ReqScore THEN req.[DynamicWeight]
+              ELSE req.[DynamicWeight] * (CAST(roleskill_score.EffectiveScore AS DOUBLE PRECISION) / CAST(req.ReqScore AS DOUBLE PRECISION))
             END
           ) * CAST(req.[RoleWeight] AS DOUBLE PRECISION)
       END
     AS DOUBLE PRECISION) AS partial_score
-  FROM requirement req
-  JOIN {Experience} experience
-    ON experience.[TenantId] = req.[TenantId]
-   AND (
-     /* Standard RoleSkill (role-scoped mode) */
-     (@UseCustomRoles <> 1
-      AND @UseGlobalSkillExperienceForRoleSkill <> 1
-      AND req.[CategoryId] = @Cat_RoleSkill
-      AND experience.[CategoryId] = @Cat_RoleSkill
-      AND experience.[RoleId] = req.[RoleId]
-      AND experience.[SkillId] = req.[SkillId])
-     /* Standard RoleSkill (global skill mode) */
-     OR (@UseCustomRoles <> 1
-         AND @UseGlobalSkillExperienceForRoleSkill = 1
-         AND req.[CategoryId] = @Cat_RoleSkill
-         AND experience.[CategoryId] = @Cat_Skill
-         AND experience.[SkillId] = req.[SkillId])
-     /* Custom RoleSkill (role-scoped mode) */
-     OR (@UseCustomRoles = 1
-         AND @UseGlobalSkillExperienceForRoleSkill <> 1
-         AND req.[CategoryId] = @Cat_CustomRoleSkill
-         AND experience.[CategoryId] = @Cat_CustomRoleSkill
-         AND experience.[CustomRoleId] = req.[CustomRoleId]
-         AND experience.[SkillId] = req.[SkillId])
-     /* Custom RoleSkill (global skill mode) */
-     OR (@UseCustomRoles = 1
-         AND @UseGlobalSkillExperienceForRoleSkill = 1
-         AND req.[CategoryId] = @Cat_CustomRoleSkill
-         AND experience.[CategoryId] = @Cat_CustomSkill
-         AND experience.[SkillId] = req.[SkillId])
-   )
-  JOIN eligible_consultant ec ON ec.ConsultantId = experience.[ConsultantId]
+  FROM roleskill_requirement req
+  JOIN roleskill_score
+    ON roleskill_score.RequirementId = req.RequirementId
   WHERE req.ReqScore <> 0
-    AND experience.[Score] > 0
+    AND roleskill_score.EffectiveScore > 0
 ),
 
 /* Role: match RoleId or CustomRole: match CustomRoleId (SkillId IS NULL on experience) */

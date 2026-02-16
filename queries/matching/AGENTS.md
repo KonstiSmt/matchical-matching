@@ -65,8 +65,10 @@ After any change, verify:
 - PricePerformanceScore: EuroFixedRate = 0 results in score = 0
 - Internal vs external identity field resolution
 - Mandatory role soft gate: consultant has `Score > 0` in at least one required role (Role/CustomRole by mode)
+- RoleSkill scoring mode parity: Strict Role and Global Skill match their expected baseline outputs
+- RoleSkill hybrid correctness: `effective_score = max(role_score, max(global_score - 1, 0))` in scoring and filter checks
 - TopMatches JSON contains top 2 ranked by partial_score
-- ConsultantScore is raw Experience.Score (1-5, or 1-6 for languages)
+- ConsultantScore is effective score for role-skill categories and raw Experience.Score for non role-skill categories
 
 **Custom Roles (when @UseCustomRoles = 1):**
 - Scoring uses CustomRoleId for matching

@@ -112,9 +112,14 @@ Crucial point:
 * Skill hierarchy has already been "baked into" the experience calculation step (historically via a closure table).
 * Therefore, matching is "flat": it compares demand requirements directly to experience rows by matching keys (role id, skill id, industry id, etc.).
 
-Optional role-skill behavior:
-* Default mode (`@UseGlobalSkillExperienceForRoleSkill <> 1`): RoleSkill/CustomRoleSkill requirements match role-scoped experience (`@Cat_RoleSkill` / `@Cat_CustomRoleSkill`) by role key + `SkillId`.
-* Global skill mode (`@UseGlobalSkillExperienceForRoleSkill = 1`): RoleSkill/CustomRoleSkill requirements still come from demand requirements, but match skill-level experience (`@Cat_Skill` / `@Cat_CustomSkill`) by `SkillId` only.
+Role-skill scoring mode behavior:
+* Strict Role (`@RoleSkillScoringModeId = @ScoringMode_StrictRole`): `effective_score = role_score`
+* Global Skill (`@RoleSkillScoringModeId = @ScoringMode_GlobalSkill`): `effective_score = global_score`
+* Role-First Hybrid (`@RoleSkillScoringModeId = @ScoringMode_RoleFirstHybrid`): `effective_score = max(role_score, max(global_score - 1, 0))`
+
+Where:
+* `role_score` comes from role-scoped categories (`@Cat_RoleSkill` / `@Cat_CustomRoleSkill`) with role key + `SkillId`
+* `global_score` comes from skill-scoped categories (`@Cat_Skill` / `@Cat_CustomSkill`) with `SkillId` only
 
 ### 2.4 Scoring Model
 
@@ -134,6 +139,8 @@ Soft/Hard filters are enforced **early** in the `eligible_consultant` CTE using 
 * **Hard filter:** Consultant must have `Score >= ReqScore` for the requirement
 * **Soft filter:** Consultant must have `Score > 0` for the requirement
 * **Coverage check:** Consultant must have at least one matching experience row for every filtered requirement
+
+For RoleSkill and CustomRoleSkill requirements, Hard/Soft checks use the selected mode's `effective_score`.
 
 This approach eliminates consultants who fail filters **before** the expensive scoring phase, improving performance.
 
@@ -172,7 +179,7 @@ Extracts only role requirements used for the mandatory soft role gate:
 * Same validity filters as `requirement` (active, no missing keys)
 * In standard mode (`@UseCustomRoles <> 1`): includes only `@Cat_Role`
 * In custom mode (`@UseCustomRoles = 1`): includes only `@Cat_CustomRole`
-* Independent of `@UseGlobalSkillExperienceForRoleSkill`
+* Independent of `@RoleSkillScoringModeId`
 
 ### 3.4 `has_role_requirements` CTE: Role Gate Fast Path Flag
 
@@ -207,7 +214,7 @@ Mandatory role soft-match gate:
 * Consultant must match at least one required role (`@Cat_Role` / `@Cat_CustomRole`) with `Experience.Score > 0`
 * Category path follows `@UseCustomRoles` mode
 * Fast path: if `has_role_requirements.HasRoleRequirements = FALSE`, this gate is skipped
-* This gate is independent of `@UseGlobalSkillExperienceForRoleSkill`
+* This gate is independent of `@RoleSkillScoringModeId`
 
 The filter enforcement uses a "double NOT EXISTS" pattern:
 ```
@@ -230,7 +237,8 @@ Role-skill differs from the others:
 
 * It multiplies by `RoleWeight`.
 * Others multiply by `100.0`.
-* In global skill mode, role-skill requirements still use role-skill weighting, but experience source rows come from `@Cat_Skill` / `@Cat_CustomSkill`.
+* Role-skill partial scoring always keeps role-skill weighting (`DynamicWeight * RoleWeight`).
+* The consultant score source for role-skill partials depends on `@RoleSkillScoringModeId` effective-score mode.
 
 Branches prune rows where `ReqScore = 0` or `Score <= 0` (except Language which allows presence-only).
 
@@ -469,7 +477,10 @@ Pragmatic expectations:
 | `@Cat_FunctionalArea` | Category ID for FunctionalArea |
 | `@Cat_Language` | Category ID for Language |
 | `@UseCustomRoles` | Boolean (0/1): Switch between standard roles (0) and custom roles (1) |
-| `@UseGlobalSkillExperienceForRoleSkill` | Boolean (0/1): Use skill-level experience categories for role-skill matching |
+| `@RoleSkillScoringModeId` | Category ID: selected role-skill scoring mode |
+| `@ScoringMode_StrictRole` | Category ID constant for strict role mode |
+| `@ScoringMode_GlobalSkill` | Category ID constant for global skill mode |
+| `@ScoringMode_RoleFirstHybrid` | Category ID constant for role-first hybrid mode |
 | `@MaxRecords` | Page size for pagination |
 | `@StartIndex` | Offset for pagination |
 
@@ -498,7 +509,10 @@ A lightweight scoring query that returns only `MatchingScore` for specific consu
 | `@Cat_FunctionalArea` | Category ID | Category ID for FunctionalArea |
 | `@Cat_Language` | Category ID | Category ID for Language |
 | `@UseCustomRoles` | Boolean | Switch between standard and custom role categories |
-| `@UseGlobalSkillExperienceForRoleSkill` | Boolean | Switch role-skill matching source to skill-level categories |
+| `@RoleSkillScoringModeId` | Category ID | Selected role-skill scoring mode |
+| `@ScoringMode_StrictRole` | Category ID | Mode constant for strict role |
+| `@ScoringMode_GlobalSkill` | Category ID | Mode constant for global skill |
+| `@ScoringMode_RoleFirstHybrid` | Category ID | Mode constant for role-first hybrid |
 
 ### Output Columns
 

@@ -140,17 +140,23 @@ Output structure remains unchanged - RoleAliasId/RoleAliasName fields are popula
 
 ---
 
-## Global Skill Experience Parameters
+## RoleSkill Scoring Mode Parameters
 
-When `@UseGlobalSkillExperienceForRoleSkill = 1`, role-skill requirements still use `DemandRequirement.CategoryId = RoleSkill/CustomRoleSkill`, but consultant experience is matched via skill-level categories using `SkillId` only.
+RoleSkill and CustomRoleSkill requirements keep their demand requirement category, but consultant score source depends on `@RoleSkillScoringModeId`.
 
 | Parameter | Meaning |
 |-----------|---------|
-| `@UseGlobalSkillExperienceForRoleSkill` | Boolean (0/1): Switch role-skill matching from role-scoped experience to global skill experience |
+| `@RoleSkillScoringModeId` | Selected scoring mode category ID for role-skill matching |
+| `@ScoringMode_StrictRole` | Mode ID: use only role-scoped score (`RoleSkill` / `CustomRoleSkill`) |
+| `@ScoringMode_GlobalSkill` | Mode ID: use only skill-scoped score (`Skill` / `CustomSkill`) |
+| `@ScoringMode_RoleFirstHybrid` | Mode ID: use `max(role_score, max(global_score - 1, 0))` |
 | `@Cat_Skill` | Category ID for Skill experience (`SkillId` key) |
 | `@Cat_CustomSkill` | Category ID for CustomSkill experience (`SkillId` key) |
 
-Default (`@UseGlobalSkillExperienceForRoleSkill = 0`) keeps the existing role-scoped matching behavior.
+Mode formulas:
+* Strict Role: `effective_score = role_score`
+* Global Skill: `effective_score = global_score`
+* Role-First Hybrid: `effective_score = max(role_score, max(global_score - 1, 0))`
 
 ---
 

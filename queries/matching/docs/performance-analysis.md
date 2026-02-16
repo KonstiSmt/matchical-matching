@@ -124,9 +124,12 @@ All indexes follow the **TenantId-first pattern** for multi-tenant optimization:
 - All query WHERE clauses filter by TenantId early
 - Supports both filter enforcement (NOT EXISTS) and branch CTE joins
 
-**Global skill mode requirement (`@UseGlobalSkillExperienceForRoleSkill = 1`):**
-- RoleSkill/CustomRoleSkill requirements match `@Cat_Skill` / `@Cat_CustomSkill` using `SkillId` only.
-- Missing the skill-level index can cause slower nested-loop plans in both filter enforcement and `branch_roleskill`.
+**Role-skill scoring mode requirement (`@RoleSkillScoringModeId`):**
+- Strict Role mode uses role-scoped categories (`@Cat_RoleSkill` / `@Cat_CustomRoleSkill`).
+- Global Skill mode uses skill-scoped categories (`@Cat_Skill` / `@Cat_CustomSkill`) by `SkillId`.
+- Role-First Hybrid mode reads both score sources and applies `max(role_score, max(global_score - 1, 0))`.
+- Missing the skill-level index can cause slower nested-loop plans in Global Skill and Role-First Hybrid paths.
+- Hybrid mode adds moderate overhead from dual source aggregation but remains index-driven with the existing composite indexes.
 
 Recommended DDL (apply in DBA/migration workflow before enabling the mode in production):
 ```sql
