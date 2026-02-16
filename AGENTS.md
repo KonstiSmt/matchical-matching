@@ -21,6 +21,7 @@ Repository includes development artifacts for Matchical: queries, prompts, mocku
 ## Knowledge Base Awareness
 - If relevant new business concepts or workflow features are introduced, proactively ask whether `docs/knowledge-base/` should be updated.
 - Keep technical implementation details (queries/prompts/scripts) in their own folders, not in the knowledge base.
+- Do not add generic reporting or query artifacts to `docs/knowledge-base/`; only add customer-facing value propositions or offering-level insights.
 - Keep planned/future-state knowledge in `docs/knowledge-base/roadmap/` and current/live state in domain docs.
 - Always use repository-relative paths in docs/instructions; never use worktree-specific absolute paths.
 
