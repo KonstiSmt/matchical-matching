@@ -31,6 +31,14 @@ Every prompt must use this section order and heading levels:
 - Do not add inferred requirements unless the user explicitly asks for exploration/elaboration.
 - If a requirement is uncertain or ambiguous, ask a focused clarification question before changing the prompt.
 - Do not reword or simplify existing prompt language unless the user explicitly asks for that wording change.
+- Before adding handling for a potential edge case, confirm with the user that the edge case can occur in runtime.
+
+## Prompt Docs Files (`*.docs.md`)
+- Use prompt docs files for non-runtime context only: intent, non-intent, design decisions, findings, and open questions.
+- Keep all runtime output behavior in the prompt file itself (`.md`), not in the docs file.
+- If a rule changes model output, format, or constraints, update the prompt first and reflect only a short rationale in docs.
+- Keep docs concise and decision-oriented; avoid duplicating full prompt text.
+- Maintain one docs file per prompt when useful (for example, `engagement-description.docs.md`, `project-description.docs.md`).
 
 ## DevTools Prompt Workflow
 - Use the DevTools REST API to discover categories, fetch active prompts, and sync local files when requested.
