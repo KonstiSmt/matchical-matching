@@ -27,6 +27,10 @@ Every prompt must use this section order and heading levels:
 ## Change Discipline
 - Make targeted changes that address the requested update only, unless a broader review is requested.
 - Keep examples aligned with the current rules and output structure.
+- Keep prompt edits tightly scoped to explicitly provided requirements.
+- Do not add inferred requirements unless the user explicitly asks for exploration/elaboration.
+- If a requirement is uncertain or ambiguous, ask a focused clarification question before changing the prompt.
+- Do not reword or simplify existing prompt language unless the user explicitly asks for that wording change.
 
 ## DevTools Prompt Workflow
 - Use the DevTools REST API to discover categories, fetch active prompts, and sync local files when requested.
