@@ -58,9 +58,16 @@ engagement_prepared AS (
     scope.ConsultantId,
     engagement.[Id] AS EngagementId,
     engagement.[StartDate] AS StartDate,
-    engagement.[EndDate] AS EndDate,
     CASE
-      WHEN engagement.[EndDate] IS NOT NULL THEN LEAST(engagement.[EndDate], CURRENT_DATE)
+      WHEN engagement.[EndDate] IS NOT NULL
+       AND engagement.[EndDate] > DATE '1900-01-01'
+      THEN engagement.[EndDate]
+      ELSE NULL
+    END AS EndDate,
+    CASE
+      WHEN engagement.[EndDate] IS NOT NULL
+       AND engagement.[EndDate] > DATE '1900-01-01'
+      THEN LEAST(engagement.[EndDate], CURRENT_DATE)
       WHEN engagement.[IsOngoing] = 1 THEN CURRENT_DATE
       ELSE NULL
     END AS EffectiveEndDate,
@@ -74,14 +81,18 @@ engagement_prepared AS (
        AND engagement.[StartDate] IS NOT NULL
        AND (
          CASE
-           WHEN engagement.[EndDate] IS NOT NULL THEN LEAST(engagement.[EndDate], CURRENT_DATE)
+           WHEN engagement.[EndDate] IS NOT NULL
+            AND engagement.[EndDate] > DATE '1900-01-01'
+           THEN engagement.[EndDate]
            WHEN engagement.[IsOngoing] = 1 THEN CURRENT_DATE
            ELSE NULL
          END
        ) IS NOT NULL
        AND (
          CASE
-           WHEN engagement.[EndDate] IS NOT NULL THEN LEAST(engagement.[EndDate], CURRENT_DATE)
+           WHEN engagement.[EndDate] IS NOT NULL
+            AND engagement.[EndDate] > DATE '1900-01-01'
+           THEN engagement.[EndDate]
            WHEN engagement.[IsOngoing] = 1 THEN CURRENT_DATE
            ELSE NULL
          END
@@ -90,7 +101,9 @@ engagement_prepared AS (
         (
           (
             CASE
-              WHEN engagement.[EndDate] IS NOT NULL THEN LEAST(engagement.[EndDate], CURRENT_DATE)
+              WHEN engagement.[EndDate] IS NOT NULL
+               AND engagement.[EndDate] > DATE '1900-01-01'
+              THEN engagement.[EndDate]
               WHEN engagement.[IsOngoing] = 1 THEN CURRENT_DATE
               ELSE NULL
             END
@@ -98,7 +111,7 @@ engagement_prepared AS (
           - engagement.[StartDate]::date
         )::DOUBLE PRECISION
       ELSE NULL
-    END AS EngagementDays
+    END AS EngagementTotalDays
   FROM consultant_scope scope
   LEFT JOIN {Engagement} engagement
     ON engagement.[ConsultantId] = scope.ConsultantId
@@ -111,7 +124,7 @@ engagement_contrib_since_entry AS (
     scope.ConsultantId,
     SUM(
       CASE
-        WHEN engagement.EngagementDays IS NOT NULL
+        WHEN engagement.EngagementTotalDays IS NOT NULL
          AND scope.EntryDate IS NOT NULL
          AND scope.EntryBaselineEndDate > scope.EntryDate
         THEN
@@ -124,14 +137,14 @@ engagement_contrib_since_entry AS (
                 )::DOUBLE PRECISION,
                 0.0
               )
-              / NULLIF(engagement.EngagementDays, 0.0)
+              / NULLIF(engagement.EngagementTotalDays, 0.0)
             )
         ELSE 0.0
       END
     ) AS AbsoluteMonthsSinceEntry,
     SUM(
       CASE
-        WHEN engagement.EngagementDays IS NOT NULL
+        WHEN engagement.EngagementTotalDays IS NOT NULL
          AND scope.EntryDate IS NOT NULL
          AND scope.EntryBaselineEndDate > scope.EntryDate
         THEN
@@ -144,7 +157,7 @@ engagement_contrib_since_entry AS (
                 )::DOUBLE PRECISION,
                 0.0
               )
-              / NULLIF(engagement.EngagementDays, 0.0)
+              / NULLIF(engagement.EngagementTotalDays, 0.0)
             )
         ELSE 0.0
       END
@@ -162,7 +175,7 @@ engagement_contrib_before_entry AS (
     scope.ConsultantId,
     SUM(
       CASE
-        WHEN engagement.EngagementDays IS NOT NULL
+        WHEN engagement.EngagementTotalDays IS NOT NULL
          AND scope.EntryDate IS NOT NULL
          AND scope.WorkExperienceSince IS NOT NULL
          AND scope.EntryDate > scope.WorkExperienceSince
@@ -176,14 +189,14 @@ engagement_contrib_before_entry AS (
                 )::DOUBLE PRECISION,
                 0.0
               )
-              / NULLIF(engagement.EngagementDays, 0.0)
+              / NULLIF(engagement.EngagementTotalDays, 0.0)
             )
         ELSE 0.0
       END
     ) AS AbsoluteMonthsBeforeEntry,
     SUM(
       CASE
-        WHEN engagement.EngagementDays IS NOT NULL
+        WHEN engagement.EngagementTotalDays IS NOT NULL
          AND scope.EntryDate IS NOT NULL
          AND scope.WorkExperienceSince IS NOT NULL
          AND scope.EntryDate > scope.WorkExperienceSince
@@ -197,7 +210,7 @@ engagement_contrib_before_entry AS (
                 )::DOUBLE PRECISION,
                 0.0
               )
-              / NULLIF(engagement.EngagementDays, 0.0)
+              / NULLIF(engagement.EngagementTotalDays, 0.0)
             )
         ELSE 0.0
       END
@@ -258,10 +271,12 @@ consultant_baselines AS (
     scope.ConsultantId,
     CASE
       WHEN scope.EntryDate IS NOT NULL
+       AND scope.EntryDate > scope.EntryBaselineEndDate
+      THEN NULL
+      WHEN scope.EntryDate IS NOT NULL
        AND scope.EntryBaselineEndDate > scope.EntryDate
       THEN
-        (EXTRACT(YEAR FROM AGE(scope.EntryBaselineEndDate::date, scope.EntryDate::date)) * 12)
-        + EXTRACT(MONTH FROM AGE(scope.EntryBaselineEndDate::date, scope.EntryDate::date))
+        ((scope.EntryBaselineEndDate::date - scope.EntryDate::date)::DOUBLE PRECISION / 30.4375)
       WHEN scope.EntryDate IS NOT NULL
       THEN 0.0
       ELSE NULL
@@ -271,8 +286,7 @@ consultant_baselines AS (
        AND scope.WorkExperienceSince IS NOT NULL
        AND scope.EntryDate > scope.WorkExperienceSince
       THEN
-        (EXTRACT(YEAR FROM AGE(scope.EntryDate::date, scope.WorkExperienceSince::date)) * 12)
-        + EXTRACT(MONTH FROM AGE(scope.EntryDate::date, scope.WorkExperienceSince::date))
+        ((scope.EntryDate::date - scope.WorkExperienceSince::date)::DOUBLE PRECISION / 30.4375)
       WHEN scope.EntryDate IS NOT NULL
        AND scope.WorkExperienceSince IS NOT NULL
       THEN 0.0
@@ -307,8 +321,20 @@ SELECT
     ELSE FALSE
   END AS Is_profile_photo_missing,
   ROUND(baselines.MonthsSinceEntryBaseline::NUMERIC, 2) AS Months_since_entry_baseline,
-  ROUND(COALESCE(since_entry.AbsoluteMonthsSinceEntry, 0.0)::NUMERIC, 2) AS Absolute_months_since_entry,
-  ROUND(COALESCE(since_entry.WeightedMonthsSinceEntry, 0.0)::NUMERIC, 2) AS Weighted_months_since_entry,
+  CASE
+    WHEN baselines.MonthsSinceEntryBaseline IS NULL THEN NULL
+    ELSE ROUND(COALESCE(since_entry.AbsoluteMonthsSinceEntry, 0.0)::NUMERIC, 2)
+  END AS Absolute_months_since_entry,
+  CASE
+    WHEN baselines.MonthsSinceEntryBaseline IS NULL THEN NULL
+    ELSE ROUND(
+      GREATEST(
+        0.0,
+        LEAST(COALESCE(since_entry.WeightedMonthsSinceEntry, 0.0), baselines.MonthsSinceEntryBaseline)
+      )::NUMERIC,
+      2
+    )
+  END AS Weighted_months_since_entry,
   CASE
     WHEN baselines.MonthsSinceEntryBaseline IS NOT NULL
     THEN ROUND((baselines.MonthsSinceEntryBaseline - COALESCE(since_entry.AbsoluteMonthsSinceEntry, 0.0))::NUMERIC, 2)
@@ -316,7 +342,16 @@ SELECT
   END AS Absolute_missing_months_since_entry,
   CASE
     WHEN baselines.MonthsSinceEntryBaseline IS NOT NULL
-    THEN ROUND((baselines.MonthsSinceEntryBaseline - COALESCE(since_entry.WeightedMonthsSinceEntry, 0.0))::NUMERIC, 2)
+    THEN ROUND(
+      (
+        baselines.MonthsSinceEntryBaseline
+        - GREATEST(
+          0.0,
+          LEAST(COALESCE(since_entry.WeightedMonthsSinceEntry, 0.0), baselines.MonthsSinceEntryBaseline)
+        )
+      )::NUMERIC,
+      2
+    )
     ELSE NULL
   END AS Weighted_missing_months_since_entry,
   CASE
@@ -326,12 +361,31 @@ SELECT
   END AS Absolute_coverage_ratio_since_entry,
   CASE
     WHEN baselines.MonthsSinceEntryBaseline > 0
-    THEN ROUND((COALESCE(since_entry.WeightedMonthsSinceEntry, 0.0) / baselines.MonthsSinceEntryBaseline)::NUMERIC, 2)
+    THEN ROUND(
+      (
+        GREATEST(
+          0.0,
+          LEAST(COALESCE(since_entry.WeightedMonthsSinceEntry, 0.0), baselines.MonthsSinceEntryBaseline)
+        )
+        / baselines.MonthsSinceEntryBaseline
+      )::NUMERIC,
+      2
+    )
     ELSE NULL
   END AS Weighted_coverage_ratio_since_entry,
   ROUND(baselines.MonthsBeforeEntryBaseline::NUMERIC, 2) AS Months_before_entry_baseline,
   ROUND(COALESCE(before_entry.AbsoluteMonthsBeforeEntry, 0.0)::NUMERIC, 2) AS Absolute_months_before_entry,
-  ROUND(COALESCE(before_entry.WeightedMonthsBeforeEntry, 0.0)::NUMERIC, 2) AS Weighted_months_before_entry,
+  ROUND(
+    CASE
+      WHEN baselines.MonthsBeforeEntryBaseline IS NULL
+      THEN GREATEST(0.0, COALESCE(before_entry.WeightedMonthsBeforeEntry, 0.0))
+      ELSE GREATEST(
+        0.0,
+        LEAST(COALESCE(before_entry.WeightedMonthsBeforeEntry, 0.0), baselines.MonthsBeforeEntryBaseline)
+      )
+    END::NUMERIC,
+    2
+  ) AS Weighted_months_before_entry,
   CASE
     WHEN baselines.MonthsBeforeEntryBaseline IS NOT NULL
     THEN ROUND((baselines.MonthsBeforeEntryBaseline - COALESCE(before_entry.AbsoluteMonthsBeforeEntry, 0.0))::NUMERIC, 2)
@@ -339,7 +393,16 @@ SELECT
   END AS Absolute_missing_months_before_entry,
   CASE
     WHEN baselines.MonthsBeforeEntryBaseline IS NOT NULL
-    THEN ROUND((baselines.MonthsBeforeEntryBaseline - COALESCE(before_entry.WeightedMonthsBeforeEntry, 0.0))::NUMERIC, 2)
+    THEN ROUND(
+      (
+        baselines.MonthsBeforeEntryBaseline
+        - GREATEST(
+          0.0,
+          LEAST(COALESCE(before_entry.WeightedMonthsBeforeEntry, 0.0), baselines.MonthsBeforeEntryBaseline)
+        )
+      )::NUMERIC,
+      2
+    )
     ELSE NULL
   END AS Weighted_missing_months_before_entry,
   CASE
@@ -349,7 +412,16 @@ SELECT
   END AS Absolute_coverage_ratio_before_entry,
   CASE
     WHEN baselines.MonthsBeforeEntryBaseline > 0
-    THEN ROUND((COALESCE(before_entry.WeightedMonthsBeforeEntry, 0.0) / baselines.MonthsBeforeEntryBaseline)::NUMERIC, 2)
+    THEN ROUND(
+      (
+        GREATEST(
+          0.0,
+          LEAST(COALESCE(before_entry.WeightedMonthsBeforeEntry, 0.0), baselines.MonthsBeforeEntryBaseline)
+        )
+        / baselines.MonthsBeforeEntryBaseline
+      )::NUMERIC,
+      2
+    )
     ELSE NULL
   END AS Weighted_coverage_ratio_before_entry,
   baselines.IsEntryDateMissing AS Is_entry_date_missing,
