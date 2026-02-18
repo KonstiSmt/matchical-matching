@@ -45,6 +45,7 @@ Every prompt must use this section order and heading levels:
 - Always call categories first to confirm the category ID. Do not assume category IDs.
 - If a prompt is requested, fetch the active prompt and compare with the repo files. If different, update the repo files to match the active prompt.
 - Only post prompt updates when the user explicitly instructs to post. When asked to post, provide a bash command the user can run (do not execute the post yourself).
+- For every POST command comment, always start the comment with `AI:`.
 - Keep post comments short and specific to the change; avoid boilerplate like \"update prompt\" or \"sync schemas\".
 - For posting, use the command format below and fill in the correct category ID, prompt file, and schema paths.
 - The POST payload must include `Value`, `OpenAIJsonSchema`, `GeminiJsonSchma` (backend misspelling), and `Comment` (<= 500 chars).
