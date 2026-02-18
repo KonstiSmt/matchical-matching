@@ -141,6 +141,51 @@ def write_raw_data_sheet(wb: Workbook, headers: Sequence[str], rows: Sequence[Se
         ws.column_dimensions[get_column_letter(col_idx)].width = min(max(len(header) + 2, 12), 38)
 
     header_to_col = {h: get_column_letter(i + 1) for i, h in enumerate(headers)}
+
+    # Recalculate missing-month and coverage-ratio fields in Excel for transparency.
+    # This makes it explicit to users how each derived value is computed.
+    for row_idx in range(2, max_row + 1):
+        baseline_since = f"{header_to_col['Months since entry baseline']}{row_idx}"
+        absolute_since = f"{header_to_col['Absolute months since entry']}{row_idx}"
+        weighted_since = f"{header_to_col['Weighted months since entry']}{row_idx}"
+        absolute_missing_since = f"{header_to_col['Absolute missing months since entry']}{row_idx}"
+        weighted_missing_since = f"{header_to_col['Weighted missing months since entry']}{row_idx}"
+        absolute_ratio_since = f"{header_to_col['Absolute coverage ratio since entry']}{row_idx}"
+        weighted_ratio_since = f"{header_to_col['Weighted coverage ratio since entry']}{row_idx}"
+
+        baseline_before = f"{header_to_col['Months before entry baseline']}{row_idx}"
+        absolute_before = f"{header_to_col['Absolute months before entry']}{row_idx}"
+        weighted_before = f"{header_to_col['Weighted months before entry']}{row_idx}"
+        absolute_missing_before = f"{header_to_col['Absolute missing months before entry']}{row_idx}"
+        weighted_missing_before = f"{header_to_col['Weighted missing months before entry']}{row_idx}"
+        absolute_ratio_before = f"{header_to_col['Absolute coverage ratio before entry']}{row_idx}"
+        weighted_ratio_before = f"{header_to_col['Weighted coverage ratio before entry']}{row_idx}"
+
+        ws[absolute_missing_since] = f"=ROUND({baseline_since}-{absolute_since},2)"
+        ws[weighted_missing_since] = f"=ROUND({baseline_since}-{weighted_since},2)"
+        ws[absolute_ratio_since] = f"=IFERROR({absolute_since}/{baseline_since},\"\")"
+        ws[weighted_ratio_since] = f"=IFERROR({weighted_since}/{baseline_since},\"\")"
+
+        ws[absolute_missing_before] = f"=ROUND({baseline_before}-{absolute_before},2)"
+        ws[weighted_missing_before] = f"=ROUND({baseline_before}-{weighted_before},2)"
+        ws[absolute_ratio_before] = f"=IFERROR({absolute_before}/{baseline_before},\"\")"
+        ws[weighted_ratio_before] = f"=IFERROR({weighted_before}/{baseline_before},\"\")"
+
+    ws.column_dimensions[header_to_col["Absolute coverage ratio since entry"]].width = 20
+    ws.column_dimensions[header_to_col["Weighted coverage ratio since entry"]].width = 20
+    ws.column_dimensions[header_to_col["Absolute coverage ratio before entry"]].width = 20
+    ws.column_dimensions[header_to_col["Weighted coverage ratio before entry"]].width = 20
+
+    for ratio_header in (
+        "Absolute coverage ratio since entry",
+        "Weighted coverage ratio since entry",
+        "Absolute coverage ratio before entry",
+        "Weighted coverage ratio before entry",
+    ):
+        ratio_col = header_to_col[ratio_header]
+        for row_idx in range(2, max_row + 1):
+            ws[f"{ratio_col}{row_idx}"].number_format = "0%"
+
     return header_to_col, max_row
 
 
@@ -261,16 +306,18 @@ def write_model_sheet(wb: Workbook, max_raw_row: int, raw_cols: Dict[str, str], 
         )
 
         ws[f"B{r}"] = (
-            f"=IF(Dashboard!$B$3=\"Weighted\",Raw_data!${raw_cols['Weighted coverage ratio since entry']}{r},"
-            f"Raw_data!${raw_cols['Absolute coverage ratio since entry']}{r})"
+            f"=IFERROR(IF(Dashboard!$B$3=\"Weighted\",Raw_data!${raw_cols['Weighted coverage ratio since entry']}{r},"
+            f"Raw_data!${raw_cols['Absolute coverage ratio since entry']}{r}),\"\")"
         )
         ws[f"C{r}"] = (
-            f"=IF(Dashboard!$B$3=\"Weighted\",Raw_data!${raw_cols['Weighted coverage ratio before entry']}{r},"
-            f"Raw_data!${raw_cols['Absolute coverage ratio before entry']}{r})"
+            f"=IFERROR(IF(Dashboard!$B$3=\"Weighted\",Raw_data!${raw_cols['Weighted coverage ratio before entry']}{r},"
+            f"Raw_data!${raw_cols['Absolute coverage ratio before entry']}{r}),\"\")"
         )
 
         ws[f"D{r}"] = (
-            f"=IF(Raw_data!${raw_cols['Oldest ongoing engagement start date']}{r}=\"\",\"\","
+            f"=IF(OR(Raw_data!${raw_cols['Ongoing engagements']}{r}=\"\","
+            f"Raw_data!${raw_cols['Ongoing engagements']}{r}<=0,"
+            f"Raw_data!${raw_cols['Oldest ongoing engagement start date']}{r}=\"\"),\"\","
             f"IF(Raw_data!${raw_cols['Oldest ongoing engagement start date']}{r}>TODAY(),0,"
             f"DATEDIF(Raw_data!${raw_cols['Oldest ongoing engagement start date']}{r},TODAY(),\"M\")))"
         )
@@ -298,17 +345,17 @@ def write_model_sheet(wb: Workbook, max_raw_row: int, raw_cols: Dict[str, str], 
         ws[f"H{r}"] = f"=--(AND(ISNUMBER(B{r}),B{r}<0.5))"
 
         ws[f"I{r}"] = (
-            f"=MAX(0,(0.5-B{r})*100)+"
+            f"=IFERROR(MAX(0,(0.5-B{r})*100),0)+"
             f"IF(D{r}>=24,20,0)+"
             f"IF(Raw_data!${raw_cols['Engagements with invalid dates']}{r}>0,20,0)+"
             f"IF(Raw_data!${raw_cols['Is work experience since after entry date']}{r}=TRUE,10,0)"
         )
 
-        ws[f"R{r}"] = f"=IF(A{r}=1,I{r}+ROW()/100000000,\"\")"
-        ws[f"S{r}"] = f"=IF(A{r}=1,Raw_data!${raw_cols['Absolute coverage ratio since entry']}{r},\"\")"
-        ws[f"T{r}"] = f"=IF(A{r}=1,Raw_data!${raw_cols['Absolute coverage ratio before entry']}{r},\"\")"
-        ws[f"U{r}"] = f"=IF(A{r}=1,Raw_data!${raw_cols['Weighted coverage ratio since entry']}{r},\"\")"
-        ws[f"V{r}"] = f"=IF(A{r}=1,Raw_data!${raw_cols['Weighted coverage ratio before entry']}{r},\"\")"
+        ws[f"R{r}"] = f"=IF(A{r}=1,IFERROR(I{r},0)+ROW()/100000000,-1E+99)"
+        ws[f"S{r}"] = f"=IF(A{r}=1,IFERROR(Raw_data!${raw_cols['Absolute coverage ratio since entry']}{r},\"\"),\"\")"
+        ws[f"T{r}"] = f"=IF(A{r}=1,IFERROR(Raw_data!${raw_cols['Absolute coverage ratio before entry']}{r},\"\"),\"\")"
+        ws[f"U{r}"] = f"=IF(A{r}=1,IFERROR(Raw_data!${raw_cols['Weighted coverage ratio since entry']}{r},\"\"),\"\")"
+        ws[f"V{r}"] = f"=IF(A{r}=1,IFERROR(Raw_data!${raw_cols['Weighted coverage ratio before entry']}{r},\"\"),\"\")"
 
     choose_expr = (
         "CHOOSE(MATCH(Dashboard!$B$11,{\"Department\",\"Team\",\"Unit\",\"Legal entity\",\"Location\",\"Lead\"},0),"
@@ -502,7 +549,11 @@ def write_dashboard_sheet(wb: Workbook, max_raw_row: int, list_end_rows: Dict[st
     ws["E9"] = f"=IFERROR(MEDIAN(Model!$T$2:$T${end_row}),\"\")"
 
     ws["H5"] = "Ongoing >=24 months"
-    ws["I5"] = f"=SUMPRODUCT((Model!$A$2:$A${end_row}=1)*(Model!$D$2:$D${end_row}>=24))"
+    ws["I5"] = (
+        f"=SUMPRODUCT((Model!$A$2:$A${end_row}=1)"
+        f"*(Raw_data!${raw_cols['Ongoing engagements']}$2:${raw_cols['Ongoing engagements']}${end_row}>0)"
+        f"*(Model!$D$2:$D${end_row}>=24))"
+    )
 
     ws["H6"] = "Invalid-date consultants"
     ws["I6"] = f"=SUMPRODUCT((Model!$A$2:$A${end_row}=1)*(Raw_data!$I$2:$I${end_row}>0))"
@@ -548,9 +599,21 @@ def write_dashboard_sheet(wb: Workbook, max_raw_row: int, list_end_rows: Dict[st
     ws["H14"] = "<12m"
     ws["H15"] = "12-24m"
     ws["H16"] = ">24m"
-    ws["I14"] = f"=SUMPRODUCT((Model!$A$2:$A${end_row}=1)*(Model!$D$2:$D${end_row}<>\"\")*(Model!$D$2:$D${end_row}<12))"
-    ws["I15"] = f"=SUMPRODUCT((Model!$A$2:$A${end_row}=1)*(Model!$D$2:$D${end_row}>=12)*(Model!$D$2:$D${end_row}<24))"
-    ws["I16"] = f"=SUMPRODUCT((Model!$A$2:$A${end_row}=1)*(Model!$D$2:$D${end_row}>=24))"
+    ws["I14"] = (
+        f"=SUMPRODUCT((Model!$A$2:$A${end_row}=1)"
+        f"*(Raw_data!${raw_cols['Ongoing engagements']}$2:${raw_cols['Ongoing engagements']}${end_row}>0)"
+        f"*(Model!$D$2:$D${end_row}<>\"\")*(Model!$D$2:$D${end_row}<12))"
+    )
+    ws["I15"] = (
+        f"=SUMPRODUCT((Model!$A$2:$A${end_row}=1)"
+        f"*(Raw_data!${raw_cols['Ongoing engagements']}$2:${raw_cols['Ongoing engagements']}${end_row}>0)"
+        f"*(Model!$D$2:$D${end_row}>=12)*(Model!$D$2:$D${end_row}<24))"
+    )
+    ws["I16"] = (
+        f"=SUMPRODUCT((Model!$A$2:$A${end_row}=1)"
+        f"*(Raw_data!${raw_cols['Ongoing engagements']}$2:${raw_cols['Ongoing engagements']}${end_row}>0)"
+        f"*(Model!$D$2:$D${end_row}>=24))"
+    )
 
     # Segment table (Top 10)
     ws["A21"] = "Segment hotspot (Top 10 by low coverage rate)"
@@ -595,7 +658,7 @@ def write_dashboard_sheet(wb: Workbook, max_raw_row: int, list_end_rows: Dict[st
 
     for row in range(data_start, data_end + 1):
         rank = row - 36
-        ws[f"K{row}"] = f"=IFERROR(LARGE(Model!$R$2:$R${end_row},{rank}),\"\")"
+        ws[f"K{row}"] = f"=IF({rank}<=$E$5,LARGE(Model!$R$2:$R${end_row},{rank}),\"\")"
         ws[f"A{row}"] = f"=IF($K{row}=\"\",\"\",INDEX(Raw_data!$D$2:$D${end_row},MATCH($K{row},Model!$R$2:$R${end_row},0)))"
         ws[f"B{row}"] = f"=IF($K{row}=\"\",\"\",INDEX(Raw_data!${raw_cols['Entry date']}$2:${raw_cols['Entry date']}${end_row},MATCH($K{row},Model!$R$2:$R${end_row},0)))"
         ws[f"C{row}"] = (
