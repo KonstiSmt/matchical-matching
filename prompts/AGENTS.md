@@ -4,6 +4,11 @@ This directory contains prompts for Matchical's AI pipelines.
 
 ## Prompting Conventions
 
+## Role Section Quality
+- In prompt `# Role` sections, use a human-relatable role that plausibly exists in the target business context.
+- Avoid vague role labels (for example, generic 'specialist' phrasing) when a concrete real-world role is possible.
+- Describe role responsibility and criticality clearly, including why precision and constraints matter for that workflow.
+
 ## Required Structure
 Every prompt must use this section order and heading levels:
 - `# Role`
@@ -23,6 +28,7 @@ Every prompt must use this section order and heading levels:
 - Surface inconsistencies to the user and resolve them in the prompt/examples.
 - Do not add validation or self-check instructions inside prompts.
 - Prompts should not mention prior versions or change history.
+- Prompt text should be written as a present-tense task/step, not as commentary about 'this prompt'.
 
 ## Change Discipline
 - Make targeted changes that address the requested update only, unless a broader review is requested.
@@ -32,6 +38,7 @@ Every prompt must use this section order and heading levels:
 - If a requirement is uncertain or ambiguous, ask a focused clarification question before changing the prompt.
 - Do not reword or simplify existing prompt language unless the user explicitly asks for that wording change.
 - Before adding handling for a potential edge case, confirm with the user that the edge case can occur in runtime.
+- Keep prompt language present-focused only; never refer to previous prompt states or deprecated behavior.
 
 ## Prompt Docs Files (`*.docs.md`)
 - Use prompt docs files for non-runtime context only: intent, non-intent, design decisions, findings, and open questions.
