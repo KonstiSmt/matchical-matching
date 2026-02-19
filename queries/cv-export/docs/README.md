@@ -3,13 +3,14 @@
 ## Scope (Current)
 - Query: `GetConsultantCvTemplateFieldValues`
 - Purpose: return dynamic CV export field values for a consultant by requested key categories.
-- Initial supported mapping: consultant city only.
+- Initial supported mappings: consultant city and consultant country.
 
 ## Input Contract (Current)
 - `@TenantId`
 - `@ConsultantId`
 - `@SelectedKeyCategoryIds` (Expand Inline list)
 - `@Cat_ConsultantCity` (static category parameter for consultant city)
+- `@Cat_ConsultantCountry` (static category parameter for consultant country)
 - `@SystemLanguage`
 
 ## Output Contract (Current)
@@ -30,6 +31,15 @@
   - `Consultant -> ExternalUser -> AddressId -> Address`
 - City value source:
   - `Address.CityLocaleKeyId -> LocaleDict (LanguageId = @SystemLanguage) -> TextValue`
+- Returned value:
+  - `Value = LocaleDict.TextValue`
+
+## Consultant Country Mapping (Current)
+- Uses the same address resolution path as city:
+  - Internal: `Consultant -> ConsultancyUser -> AddressId -> Address`
+  - External: `Consultant -> ExternalUser -> AddressId -> Address`
+- Country value source:
+  - `Address.CountryLocaleKeyId -> LocaleDict (LanguageId = @SystemLanguage) -> TextValue`
 - Returned value:
   - `Value = LocaleDict.TextValue`
 

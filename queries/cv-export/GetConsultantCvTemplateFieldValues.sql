@@ -2,13 +2,15 @@
    Purpose: Return dynamic CV template field values for a consultant.
 
    Initial supported mapping:
-   - @Cat_ConsultantCity -> Address.CityLocaleKeyId -> LocaleDict.TextValue
+   @Cat_ConsultantCity -> Address.CityLocaleKeyId -> LocaleDict.TextValue
+   @Cat_ConsultantCountry -> Address.CountryLocaleKeyId -> LocaleDict.TextValue
 
    Input:
      @TenantId,
      @ConsultantId,
      @SelectedKeyCategoryIds (Expand Inline list),
      @Cat_ConsultantCity,
+     @Cat_ConsultantCountry,
      @SystemLanguage
 
    Output:
@@ -30,6 +32,10 @@ selected_supported_key_category AS (
   SELECT @Cat_ConsultantCity AS KeyCategoryId
   FROM consultant_base
   WHERE @Cat_ConsultantCity IN (@SelectedKeyCategoryIds)
+  UNION ALL
+  SELECT @Cat_ConsultantCountry AS KeyCategoryId
+  FROM consultant_base
+  WHERE @Cat_ConsultantCountry IN (@SelectedKeyCategoryIds)
 ),
 consultant_context AS (
   SELECT
@@ -48,7 +54,13 @@ consultant_context AS (
 )
 SELECT
   selected_supported_key_category.KeyCategoryId AS KeyCategoryId,
-  city_locale.[TextValue] AS Value
+  CASE
+    WHEN selected_supported_key_category.KeyCategoryId = @Cat_ConsultantCity
+      THEN city_locale.[TextValue]
+    WHEN selected_supported_key_category.KeyCategoryId = @Cat_ConsultantCountry
+      THEN country_locale.[TextValue]
+    ELSE NULL
+  END AS Value
 FROM selected_supported_key_category
 JOIN consultant_context
   ON 1 = 1
@@ -57,5 +69,8 @@ LEFT JOIN {Address} address
 LEFT JOIN {LocaleDict} city_locale
   ON city_locale.[LocaleKeyId] = address.[CityLocaleKeyId]
  AND city_locale.[LanguageId] = @SystemLanguage
+LEFT JOIN {LocaleDict} country_locale
+  ON country_locale.[LocaleKeyId] = address.[CountryLocaleKeyId]
+ AND country_locale.[LanguageId] = @SystemLanguage
 ORDER BY
   selected_supported_key_category.KeyCategoryId
