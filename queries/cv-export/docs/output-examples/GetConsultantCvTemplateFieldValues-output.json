@@ -1,0 +1,18 @@
+{
+  "description": "GetConsultantCvTemplateFieldValues output example",
+  "columnOrder": "KeyCategoryId, Value",
+  "singleRow": {
+    "KeyCategoryId": "8b3aa6e8-6fb0-4e79-9234-1234567890ab",
+    "Value": "Berlin"
+  },
+  "exampleResultSet": [
+    {
+      "KeyCategoryId": "8b3aa6e8-6fb0-4e79-9234-1234567890ab",
+      "Value": "Berlin"
+    },
+    {
+      "KeyCategoryId": "8b3aa6e8-6fb0-4e79-9234-1234567890ac",
+      "Value": null
+    }
+  ]
+}
