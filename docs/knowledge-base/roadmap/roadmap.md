@@ -14,3 +14,5 @@ Future-state features and epics are tracked here, separate from current-state ca
 - Current roadmap epics:
   - [Epic: Open Search](./epic-open-search.md)
   - [Epic: Project Layer](./epic-project-layer.md)
+- Working design notes:
+  - [Project Layer Taxonomy and Matching (V1 Working Design)](./project-layer-taxonomy-and-matching-v1.md)
