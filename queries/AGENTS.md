@@ -42,6 +42,11 @@ Do NOT use `STRING_TO_ARRAY` or `UNNEST`. It's already expanded SQL.
 - Query plan efficiency
 - Minimizing row explosion in JOINs
 
+## Tenant Filtering Scope
+
+- Apply tenant filtering once on the query root entity.
+- Do not repeat tenant filters on downstream joins unless a specific use case explicitly requires it.
+
 ---
 
 ## Naming Conventions
