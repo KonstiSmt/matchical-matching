@@ -2,14 +2,14 @@
 
 ## Scope (Current)
 - Query: `GetConsultantCvTemplateFieldValues`
-- Purpose: return dynamic CV export field values for a consultant by requested key categories.
-- Initial supported mapping: consultant city only.
+- Purpose: return dynamic CV export field values from a provided address by requested key categories.
+- Initial supported mappings: consultant city and consultant country.
 
 ## Input Contract (Current)
-- `@TenantId`
-- `@ConsultantId`
+- `@AddressId`
 - `@SelectedKeyCategoryIds` (Expand Inline list)
 - `@Cat_ConsultantCity` (static category parameter for consultant city)
+- `@Cat_ConsultantCountry` (static category parameter for consultant country)
 - `@SystemLanguage`
 
 ## Output Contract (Current)
@@ -17,26 +17,34 @@
 - `Value` (text)
 
 ## Behavior Rules Agreed
-- Root entity in this query is `Consultant`.
-- Tenant is checked on root entity only (`Consultant.TenantId = @TenantId`).
-- Do not apply additional tenant checks on child joins unless explicitly required.
+- Query resolves values from `Address` using provided `@AddressId`.
+- Query does not perform consultant lookup.
+- Caller must pass an `@AddressId` that is already validated for tenant + consultant ownership.
+- If `@AddressId` is `NULL` or empty string, category rows are still returned and address-dependent `Value` results are empty string (`''`).
 - Unmapped categories are skipped.
 - Caller guarantees selected key categories are unique (no distinct handling required).
 
 ## Consultant City Mapping (Current)
-- If consultant is internal (`IsInternal = 1`):
-  - `Consultant -> ConsultancyUser -> AddressId -> Address`
-- If consultant is external (`IsInternal <> 1`):
-  - `Consultant -> ExternalUser -> AddressId -> Address`
+- Address source:
+  - `@AddressId -> Address`
 - City value source:
   - `Address.CityLocaleKeyId -> LocaleDict (LanguageId = @SystemLanguage) -> TextValue`
 - Returned value:
   - `Value = LocaleDict.TextValue`
 
+## Consultant Country Mapping (Current)
+- Uses the same address source as city:
+  - `@AddressId -> Address`
+- Country value source:
+  - `Address.CountryLocaleKeyId -> LocaleDict (LanguageId = @SystemLanguage) -> TextValue`
+- Returned value:
+  - `Value = LocaleDict.TextValue`
+
 ## Null And Safety Expectations
 - If `AddressId` is `NULL`, query must not fail.
-- If address join is missing, `Value` is `NULL`.
-- If locale row for `@SystemLanguage` is missing, `Value` is `NULL`.
+- If `AddressId` is `NULL` or empty string, city/country value resolution is skipped and `Value` falls back to empty string (`''`).
+- If address join is missing, `Value` is empty string (`''`).
+- If locale row for `@SystemLanguage` is missing, `Value` is empty string (`''`).
 
 ## Planned Extension Direction
 - More key category mappings will be added later.
