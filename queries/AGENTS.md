@@ -118,6 +118,13 @@ LEFT JOIN {LocaleDict} name_locale
 
 ---
 
+## Reporting Artifacts
+
+- Store generated report files (for example `.xlsx`) under repository-root `output/`, not inside `queries/` subfolders.
+- Keep query documentation and output examples in `queries/**/docs/`.
+
+---
+
 ## Query Modules
 
 | Module | Purpose |

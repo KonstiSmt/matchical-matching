@@ -3,9 +3,9 @@
 Build the Excel MVP dashboard from the tenant raw export:
 
 ```bash
-python3 scripts/build_data_quality_excel_dashboard.py \
-  --input /Users/konsti/Desktop/BIT.xlsx \
-  --output queries/insights/data-quality/output/BIT-DataQuality-Dashboard.xlsx
+./.venv/bin/python scripts/build_data_quality_excel_dashboard.py \
+  --input output/data-quality/BIT-raw-updated.xlsx \
+  --output output/data-quality/BIT-DataQuality-Dashboard.xlsx
 ```
 
 Notes:
