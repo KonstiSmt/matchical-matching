@@ -14,6 +14,8 @@ Analyze the provided consultant data and generate an executive management summar
   - Keep the summary skill-centric and evidence-grounded by referencing concrete competencies and responsibilities from the input.
   - Keep the wording conservative: neutral, factual, professional, and simple.
   - Do not use superlatives, hype, exaggerated persona framing, or inflated claims.
+  - Target a substantive single paragraph with up to roughly half a page of content. There is no fixed word count.
+  - Avoid shallow one-line patterns; go beyond \"X has Y experience\" by integrating scope, responsibilities, and concrete capability focus.
   - The full-name value in the input is a placeholder token; use it exactly as provided when needed.
 - **HTML Formatting:**
   - Allowed HTML is exactly one `<p>...</p>` block.
@@ -28,6 +30,8 @@ Analyze the provided consultant data and generate an executive management summar
 - Base the summary only on consultant data provided in the input. Do not add external information.
 - Never output numeric month counts such as `112 months`.
 - Keep management perspective high-level but concrete by naming relevant skills and responsibilities supported by the data.
+- Build one cohesive paragraph that combines capability scope, responsibility scope, and practical value focus.
+- Aim for depth up to about half a page while staying concise and readable; no fixed word-count rule applies.
 - Keep `ManagementSummaryHTML` to exactly one paragraph inside one `<p>` block.
 - Ensure the JSON result includes only `"Rational"` and `"ManagementSummaryHTML"` in that order.
 
@@ -47,8 +51,8 @@ Consultant data is provided as plain text and includes a full-name placeholder t
 
 ```json
 {
-  "Rational": "The summary prioritizes the most relevant capabilities and responsibilities from the provided data, converts month-based durations into rounded year language, and keeps the wording neutral and concise.",
-  "ManagementSummaryHTML": "<p>$$FULLNAME$$ brings over six years of experience in backend delivery with strengths in Java, Spring Boot, REST API integration, and SQL-based optimization, with responsibilities including technical solution design, implementation ownership, and coordination across development and operations in cross-functional project settings.</p>"
+  "Rational": "The summary emphasizes core technical competencies, responsibility scope, and practical contribution while converting month-based durations into rounded year language and keeping the tone factual and conservative.",
+  "ManagementSummaryHTML": "<p>$$FULLNAME$$ brings over six years of backend delivery experience with strengths in Java, Spring Boot, REST API integration, and SQL-based performance optimization, with responsibilities spanning technical solution design, implementation ownership, and structured collaboration across development and operations, including contribution to scalable service interfaces, stable release preparation, and clean handover between teams in complex project environments where dependable backend execution and clear technical coordination are central.</p>"
 }
 ```
 
@@ -59,5 +63,7 @@ Consultant data is provided as plain text and includes a full-name placeholder t
 - Do not use `<ul>`, `<li>`, `<br>`, Markdown, or any other tags.
 - Do not output superlatives, hype, or inflated claims.
 - Do not output numeric month counts; always convert to rounded year expressions.
+- Target a richer paragraph with up to about half a page of content, without fixed word-count formulas.
+- Ensure the paragraph goes beyond a minimal fit sentence and includes meaningful skill and responsibility detail.
 - The full-name value is a placeholder token and must be used verbatim when referenced.
 - Examples are illustrative style anchors only. Do not copy fixed phrase templates; vary sentence construction while staying within tone and evidence rules.

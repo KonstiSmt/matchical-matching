@@ -51,6 +51,7 @@ Every prompt must use this section order and heading levels:
 
 ## DevTools Prompt Workflow
 - Use the DevTools REST API to discover categories, fetch active prompts, and sync local files when requested.
+- When running in a git worktree, source DevTools credentials from the main checkout `.env` before using `scripts/devtools_api.py`.
 - Always call categories first to confirm the category ID. Do not assume category IDs.
 - If a prompt is requested, fetch the active prompt and compare with the repo files. If different, update the repo files to match the active prompt.
 - Only post prompt updates when the user explicitly instructs to post. When asked to post, provide a bash command the user can run (do not execute the post yourself).
