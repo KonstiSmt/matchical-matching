@@ -59,3 +59,7 @@ Repository includes development artifacts for Matchical: queries, prompts, mocku
 - Step 2: resolve all merge conflicts inside the worktree.
 - Step 3: only after conflicts are resolved and validated, merge the worktree branch back into the main checkout.
 - Step 4: do not use the reverse conflict-resolution flow on main first unless the user explicitly overrides.
+
+## Design Documentation Fidelity
+- For style guides and UI documentation, only document tokens/components/rules that are explicitly provided or verified in existing artifacts.
+- Do not invent missing design values or rules.

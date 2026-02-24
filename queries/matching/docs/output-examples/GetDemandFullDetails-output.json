@@ -1,0 +1,181 @@
+{
+  "description": "GetDemandFullDetails output example",
+  "note": "Full details query - returns complete matching breakdown for a single demand against a consultant. One row per demand with all requirements grouped by category. All arrays are ordered by DynamicWeight DESC, then Name ASC.",
+  "columnOrder": "DemandId, IsPinned, MatchingScore, PricePerformanceScore, DemandName, ClientCompanyName, LogoUrl, EuroFixedRate, ClientOffsiteRate, ContingentDays, RequiredLocationName, RequiredLocationColor, MatchingConsultantLocationName, MatchingConsultantLocationColor, RoleSkillsJson, IndustriesJson, FunctionalAreasJson, LanguagesJson, RoleSkills, Industries, FunctionalAreas, Languages",
+  "singleRow": {
+    "DemandId": "660e8400-e29b-41d4-a716-446655440010",
+    "IsPinned": 1,
+    "MatchingScore": 85.5,
+    "PricePerformanceScore": 0,
+    "DemandName": "Senior Java Developer - Munich",
+    "ClientCompanyName": "Allianz SE",
+    "LogoUrl": "https://storage.example.com/logos/allianz.png",
+    "EuroFixedRate": 95.00,
+    "ClientOffsiteRate": 150.00,
+    "ContingentDays": 20,
+    "RequiredLocationName": "Nürnberg",
+    "RequiredLocationColor": "#4A90D9",
+    "MatchingConsultantLocationName": "Germany",
+    "MatchingConsultantLocationColor": "#7CB342",
+    "RoleSkillsJson": "[{\"RoleAliasId\":\"role-001\",\"RoleAliasName\":\"Scrum Master\",\"ConsultantScore\":4,\"RequiredScore\":4,\"DynamicWeight\":25.0,\"PartialScore\":25.0,\"IsMustHave\":0,\"Skills\":[{\"SkillAliasId\":\"skill-001\",\"SkillAliasName\":\"Software Project Management\",\"ConsultantScore\":4,\"RequiredScore\":3,\"DynamicWeight\":20.5,\"PartialScore\":20.5,\"IsMustHave\":1},{\"SkillAliasId\":\"skill-002\",\"SkillAliasName\":\"Java\",\"ConsultantScore\":0,\"RequiredScore\":2,\"DynamicWeight\":13.6,\"PartialScore\":0,\"IsMustHave\":1}]}]",
+    "IndustriesJson": "[{\"IndustryId\":\"ind-001\",\"IndustryName\":\"Public Services\",\"ConsultantScore\":5,\"RequiredScore\":2,\"DynamicWeight\":13.6,\"PartialScore\":13.6,\"IsMustHave\":1}]",
+    "FunctionalAreasJson": "[{\"FunctionalAreaId\":\"fa-001\",\"FunctionalAreaName\":\"Project Management\",\"ConsultantScore\":4,\"RequiredScore\":2,\"DynamicWeight\":13.6,\"PartialScore\":13.6,\"IsMustHave\":1},{\"FunctionalAreaId\":\"fa-002\",\"FunctionalAreaName\":\"Quality Assurance\",\"ConsultantScore\":5,\"RequiredScore\":2,\"DynamicWeight\":13.6,\"PartialScore\":13.6,\"IsMustHave\":1}]",
+    "LanguagesJson": "[{\"LanguageId\":\"lang-001\",\"LanguageName\":\"German\",\"ConsultantScore\":5,\"RequiredScore\":4,\"DynamicWeight\":10.0,\"PartialScore\":10.0,\"IsMustHave\":1,\"ConsultantLevelLabelJson\":\"{\\\"en\\\":\\\"Native\\\",\\\"de\\\":\\\"Muttersprache\\\"}\",\"RequiredLevelLabelJson\":\"{\\\"en\\\":\\\"Proficient\\\",\\\"de\\\":\\\"Fließend\\\"}\"}]",
+    "RoleSkills": [
+      {
+        "RoleAliasId": "role-001",
+        "RoleAliasName": "Scrum Master",
+        "ConsultantScore": 4,
+        "RequiredScore": 4,
+        "DynamicWeight": 25.0,
+        "PartialScore": 25.0,
+        "IsMustHave": 0,
+        "Skills": [
+          {
+            "SkillAliasId": "skill-001",
+            "SkillAliasName": "Software Project Management",
+            "ConsultantScore": 4,
+            "RequiredScore": 3,
+            "DynamicWeight": 20.5,
+            "PartialScore": 20.5,
+            "IsMustHave": 1
+          },
+          {
+            "SkillAliasId": "skill-002",
+            "SkillAliasName": "Java",
+            "ConsultantScore": 0,
+            "RequiredScore": 2,
+            "DynamicWeight": 13.6,
+            "PartialScore": 0,
+            "IsMustHave": 1
+          }
+        ]
+      }
+    ],
+    "Industries": [
+      {
+        "IndustryId": "ind-001",
+        "IndustryName": "Public Services",
+        "ConsultantScore": 5,
+        "RequiredScore": 2,
+        "DynamicWeight": 13.6,
+        "PartialScore": 13.6,
+        "IsMustHave": 1
+      }
+    ],
+    "FunctionalAreas": [
+      {
+        "FunctionalAreaId": "fa-001",
+        "FunctionalAreaName": "Project Management",
+        "ConsultantScore": 4,
+        "RequiredScore": 2,
+        "DynamicWeight": 13.6,
+        "PartialScore": 13.6,
+        "IsMustHave": 1
+      },
+      {
+        "FunctionalAreaId": "fa-002",
+        "FunctionalAreaName": "Quality Assurance",
+        "ConsultantScore": 5,
+        "RequiredScore": 2,
+        "DynamicWeight": 13.6,
+        "PartialScore": 13.6,
+        "IsMustHave": 1
+      }
+    ],
+    "Languages": [
+      {
+        "LanguageId": "lang-001",
+        "LanguageName": "German",
+        "ConsultantScore": 5,
+        "RequiredScore": 4,
+        "DynamicWeight": 10.0,
+        "PartialScore": 10.0,
+        "IsMustHave": 1,
+        "ConsultantLevelLabelJson": "{\"en\":\"Native\",\"de\":\"Muttersprache\"}",
+        "RequiredLevelLabelJson": "{\"en\":\"Proficient\",\"de\":\"Fließend\"}"
+      }
+    ]
+  },
+  "fieldDescriptions": {
+    "DemandId": "Demand.Id - the demand's unique identifier",
+    "IsPinned": "Boolean (0/1): true if consultant is assigned to this demand (exists in DemandConsultants)",
+    "MatchingScore": "Calculated sum of all partial_scores across all requirement categories",
+    "PricePerformanceScore": "Placeholder (returns 0). Cannot calculate for single demand - requires comparison across multiple.",
+    "DemandName": "Demand.NameLocaleKeyId → LocaleDict.TextValue (filtered by @SystemLanguage)",
+    "ClientCompanyName": "Demand.OpportunityId → Opportunity.ClientCompanyId → Company.Name",
+    "LogoUrl": "Demand.OpportunityId → Opportunity.ClientCompanyId → Company.LogoUrl",
+    "EuroFixedRate": "Consultant.EuroFixedRate - the consultant's rate",
+    "ClientOffsiteRate": "Demand.ClientOffsiteRate - rate for margin calculation",
+    "ContingentDays": "Demand.ContingentDays - contingent days for margin calculation",
+    "RequiredLocationName": "Demand.LocationTagId → LocationTag → LocaleDict (the required location)",
+    "RequiredLocationColor": "Demand.LocationTagId → LocationTag.CategoryId → Category.Color (color for location tag display)",
+    "MatchingConsultantLocationName": "The consultant's location that matches the demand location (via LocationTagsClosure)",
+    "MatchingConsultantLocationColor": "ConsultantLocation → LocationTag.CategoryId → Category.Color (color for location tag display)",
+    "RoleSkillsJson": "JSON string - Roles (Cat_Role) with nested Skills (Cat_RoleSkill) grouped by RoleId",
+    "IndustriesJson": "JSON string - Industry requirements (Cat_Industry)",
+    "FunctionalAreasJson": "JSON string - FunctionalArea requirements (Cat_FunctionalArea)",
+    "LanguagesJson": "JSON string - Language requirements (Cat_Language) with level labels",
+    "RoleSkills": "Expanded structure for OutSystems (in query returns NULL, here shows target structure)",
+    "Industries": "Expanded structure for OutSystems (in query returns NULL, here shows target structure)",
+    "FunctionalAreas": "Expanded structure for OutSystems (in query returns NULL, here shows target structure)",
+    "Languages": "Expanded structure for OutSystems (in query returns NULL, here shows target structure)"
+  },
+  "orderingRule": {
+    "description": "All arrays are ordered by DynamicWeight DESC (highest first), then Name ASC (alphabetical)",
+    "primary": "DynamicWeight DESC - requirements with higher weight appear first",
+    "secondary": "Name ASC - alphabetical order when weights are equal (A before Z)"
+  },
+  "roleSkillsStructure": {
+    "description": "Nested structure: Roles contain their associated Skills. Both levels ordered by DynamicWeight DESC, Name ASC.",
+    "roleFields": {
+      "RoleAliasId": "DemandRequirement.RoleAliasId",
+      "RoleAliasName": "RoleAlias → LocaleDict.TextValue",
+      "ConsultantScore": "Experience.Score (1-5, or 0 if no experience)",
+      "RequiredScore": "DemandRequirement.Score",
+      "DynamicWeight": "DemandRequirement.DynamicWeight",
+      "PartialScore": "Calculated contribution to MatchingScore",
+      "IsMustHave": "NOT IsNiceToHave (1 if must-have, 0 if nice-to-have)",
+      "Skills": "Array of skills for this role (ordered by DynamicWeight DESC, SkillAliasName ASC)"
+    },
+    "skillFields": {
+      "SkillAliasId": "DemandRequirement.SkillAliasId",
+      "SkillAliasName": "SkillAlias → LocaleDict.TextValue",
+      "ConsultantScore": "Experience.Score (1-5, or 0 if no experience)",
+      "RequiredScore": "DemandRequirement.Score",
+      "DynamicWeight": "DemandRequirement.DynamicWeight",
+      "PartialScore": "Calculated contribution to MatchingScore",
+      "IsMustHave": "NOT IsNiceToHave (1 if must-have, 0 if nice-to-have)"
+    }
+  },
+  "languagesStructure": {
+    "description": "Languages include level labels for display",
+    "fields": {
+      "LanguageId": "DemandRequirement.LanguageId",
+      "LanguageName": "Language → LocaleDict.TextValue",
+      "ConsultantScore": "Experience.Score (1-6 for languages)",
+      "RequiredScore": "DemandRequirement.Score (1-6 for languages)",
+      "DynamicWeight": "DemandRequirement.DynamicWeight",
+      "PartialScore": "Calculated contribution to MatchingScore",
+      "IsMustHave": "NOT IsNiceToHave (1 if must-have, 0 if nice-to-have)",
+      "ConsultantLevelLabelJson": "LanguageLevel.LabelTranslationsJSON where Order = ConsultantScore",
+      "RequiredLevelLabelJson": "LanguageLevel.LabelTranslationsJSON where Order = RequiredScore"
+    },
+    "languageLevelMapping": {
+      "1": "Beginner",
+      "2": "Elementary",
+      "3": "Intermediate",
+      "4": "Advanced",
+      "5": "Proficient",
+      "6": "Native"
+    }
+  },
+  "partialScoreFormula": {
+    "description": "How PartialScore is calculated for each requirement",
+    "RoleSkill": "IF Score >= ReqScore: DynamicWeight * RoleWeight, ELSE: DynamicWeight * RoleWeight * (Score / ReqScore)",
+    "Others": "IF Score >= ReqScore: DynamicWeight * 100.0, ELSE: DynamicWeight * 100.0 * (Score / ReqScore)",
+    "note": "PartialScore = 0 when ReqScore = 0 or ConsultantScore = 0"
+  },
+  "noSubnestingRule": "Within JSON structures, nested arrays are direct arrays (e.g., 'Skills': [...]), not separate FieldJson + Field pairs. The dual-key pattern only applies at SQL output column level.",
+  "queryNote": "In the actual SQL query, RoleSkills/Industries/FunctionalAreas/Languages columns return NULL. The expanded structures shown here represent the target OutSystems structure definition that matches the JSON data."
+}

@@ -5,8 +5,11 @@
    This is the DETAILS QUERY (Query 4). Called when viewing a single consultant's full match info.
    Returns all requirements with scoring breakdown, grouped by category.
 
-   Input: @ConsultantId (single), @DemandId, @TenantId, @SystemLanguage
-          Category IDs: @Cat_RoleSkill, @Cat_Role, @Cat_Industry, @Cat_FunctionalArea, @Cat_Language
+   Input: @ConsultantId (single), @DemandId, @TenantId, @SystemLanguage,
+          @UseCustomRoles, @RoleSkillScoringModeId
+          Scoring mode IDs: @ScoringMode_StrictRole, @ScoringMode_GlobalSkill, @ScoringMode_RoleFirstHybrid
+          Category IDs: @Cat_RoleSkill, @Cat_Skill, @Cat_CustomRoleSkill, @Cat_CustomSkill,
+                        @Cat_Role, @Cat_CustomRole, @Cat_Industry, @Cat_FunctionalArea, @Cat_Language
 
    Output columns (ordered):
      ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl,
@@ -79,8 +82,8 @@ requirement AS (
     AND NOT (req.[HasMissingKeys] = 1)
 ),
 
-/* _____________ Experience matches with partial_score calculation _____________ */
-experience_match AS (
+/* Non role-skill requirements are unchanged across scoring modes */
+non_roleskill_requirement_effective AS (
   SELECT
     req.RequirementId,
     req.[CategoryId],
@@ -95,72 +98,442 @@ experience_match AS (
     req.ReqScore,
     req.[DynamicWeight],
     req.[RoleWeight],
-    COALESCE(experience.[Score], 0) AS ConsultantScore,
+    req.[IsNiceToHave],
+    req.[TenantId],
+    CAST(NULL AS DOUBLE PRECISION) AS SkillWeightEffective
+  FROM requirement req
+  WHERE NOT (
+    (@UseCustomRoles <> 1 AND req.[CategoryId] = @Cat_RoleSkill)
+    OR (@UseCustomRoles = 1 AND req.[CategoryId] = @Cat_CustomRoleSkill)
+  )
+),
 
-    /* partial_score: same formula as Query 1 branches (handles both RoleSkill and CustomRoleSkill) */
+/* RoleSkill requirements in active role mode */
+roleskill_requirement_raw AS (
+  SELECT
+    req.RequirementId,
+    req.[CategoryId],
+    req.[RoleId],
+    req.[CustomRoleId],
+    req.[SkillId],
+    req.[SkillAliasId],
+    req.[RoleAliasId],
+    req.ReqScore,
+    req.[DynamicWeight],
+    req.[RoleWeight],
+    req.[IsNiceToHave],
+    req.[TenantId]
+  FROM requirement req
+  WHERE (
+    (@UseCustomRoles <> 1 AND req.[CategoryId] = @Cat_RoleSkill)
+    OR (@UseCustomRoles = 1 AND req.[CategoryId] = @Cat_CustomRoleSkill)
+  )
+),
+
+/* Role-only requirement contribution per role bucket (for Global Skill redistribution) */
+roleskill_role_requirement_weight_raw AS (
+  SELECT
+    req.[RoleId],
+    req.[CustomRoleId],
+    SUM(CAST(req.[DynamicWeight] AS DOUBLE PRECISION) * 100.0) AS RoleContribution
+  FROM requirement req
+  WHERE (
+    (@UseCustomRoles <> 1 AND req.[CategoryId] = @Cat_Role)
+    OR (@UseCustomRoles = 1 AND req.[CategoryId] = @Cat_CustomRole)
+  )
+  GROUP BY
+    req.[RoleId],
+    req.[CustomRoleId]
+),
+
+/* Base skill weight (pre-redistribution) */
+roleskill_base_weight_raw AS (
+  SELECT
+    req.RequirementId,
+    req.[RoleId],
+    req.[CustomRoleId],
+    req.[SkillId],
+    req.ReqScore,
+    req.[CategoryId],
+    req.[TenantId],
+    CAST(req.[DynamicWeight] AS DOUBLE PRECISION) * CAST(req.[RoleWeight] AS DOUBLE PRECISION) AS SkillBaseWeight
+  FROM roleskill_requirement_raw req
+),
+
+/* Sum of base skill weights per role bucket */
+roleskill_bucket_weight_sum_raw AS (
+  SELECT
+    base_weight.[RoleId],
+    base_weight.[CustomRoleId],
+    SUM(base_weight.SkillBaseWeight) AS SkillBaseSum
+  FROM roleskill_base_weight_raw base_weight
+  GROUP BY
+    base_weight.[RoleId],
+    base_weight.[CustomRoleId]
+),
+
+/* Per-row redistributed weight (Global Skill mode only) */
+roleskill_weight_after_distribution_raw AS (
+  SELECT
+    req.RequirementId,
+    req.[CategoryId],
+    req.[RoleId],
+    req.[CustomRoleId],
+    req.[SkillId],
+    req.[SkillAliasId],
+    req.[RoleAliasId],
+    req.ReqScore,
+    req.[DynamicWeight],
+    req.[RoleWeight],
+    req.[IsNiceToHave],
+    req.[TenantId],
+    CASE
+      WHEN @RoleSkillScoringModeId = @ScoringMode_GlobalSkill
+           AND COALESCE(bucket_weight.SkillBaseSum, 0) > 0
+      THEN base_weight.SkillBaseWeight
+           + COALESCE(role_weight.RoleContribution, 0)
+             * (
+                 base_weight.SkillBaseWeight
+                 / bucket_weight.SkillBaseSum
+               )
+      ELSE base_weight.SkillBaseWeight
+    END AS SkillWeightAfterDistribution
+  FROM roleskill_requirement_raw req
+  JOIN roleskill_base_weight_raw base_weight
+    ON base_weight.RequirementId = req.RequirementId
+  LEFT JOIN roleskill_bucket_weight_sum_raw bucket_weight
+    ON (
+      (@UseCustomRoles <> 1 AND bucket_weight.[RoleId] = req.[RoleId])
+      OR (@UseCustomRoles = 1 AND bucket_weight.[CustomRoleId] = req.[CustomRoleId])
+    )
+  LEFT JOIN roleskill_role_requirement_weight_raw role_weight
+    ON (
+      (@UseCustomRoles <> 1 AND role_weight.[RoleId] = req.[RoleId])
+      OR (@UseCustomRoles = 1 AND role_weight.[CustomRoleId] = req.[CustomRoleId])
+    )
+),
+
+/* Rank deduplicated global-skill rows by highest required score first */
+roleskill_requirement_ranked_global AS (
+  SELECT
+    req.RequirementId,
+    req.[CategoryId],
+    req.[RoleId],
+    req.[CustomRoleId],
+    req.[SkillId],
+    req.[SkillAliasId],
+    req.[RoleAliasId],
+    req.ReqScore,
+    req.[DynamicWeight],
+    req.[RoleWeight],
+    req.[IsNiceToHave],
+    req.[TenantId],
+    req.SkillWeightAfterDistribution,
+    ROW_NUMBER() OVER (
+      PARTITION BY req.[TenantId], req.[SkillId]
+      ORDER BY req.ReqScore DESC, req.SkillWeightAfterDistribution DESC, req.RequirementId ASC
+    ) AS SkillRank
+  FROM roleskill_weight_after_distribution_raw req
+),
+
+/* Merge global-skill duplicates across role buckets */
+roleskill_requirement_aggregated_global AS (
+  SELECT
+    req.[SkillId],
+    req.[TenantId],
+    MAX(req.ReqScore) AS ReqScore,
+    SUM(req.SkillWeightAfterDistribution) AS SkillWeightEffective,
+    MIN(req.[IsNiceToHave]) AS IsNiceToHave
+  FROM roleskill_weight_after_distribution_raw req
+  GROUP BY
+    req.[SkillId],
+    req.[TenantId]
+),
+
+/* Effective role-skill requirements used for scoring by selected mode */
+roleskill_requirement_effective AS (
+  SELECT
+    req.RequirementId,
+    req.[CategoryId],
+    req.[RoleId],
+    req.[CustomRoleId],
+    req.[SkillId],
+    req.[SkillAliasId],
+    req.[RoleAliasId],
+    NULL AS [IndustryId],
+    NULL AS [FunctionalAreaId],
+    NULL AS [LanguageId],
+    req.ReqScore,
+    req.[DynamicWeight],
+    req.[RoleWeight],
+    req.[IsNiceToHave],
+    req.[TenantId],
+    req.SkillWeightAfterDistribution AS SkillWeightEffective
+  FROM roleskill_weight_after_distribution_raw req
+  WHERE @RoleSkillScoringModeId <> @ScoringMode_GlobalSkill
+
+  UNION ALL
+
+  SELECT
+    rep.RequirementId,
+    rep.[CategoryId],
+    rep.[RoleId],
+    rep.[CustomRoleId],
+    rep.[SkillId],
+    rep.[SkillAliasId],
+    rep.[RoleAliasId],
+    NULL AS [IndustryId],
+    NULL AS [FunctionalAreaId],
+    NULL AS [LanguageId],
+    agg.ReqScore,
+    rep.[DynamicWeight],
+    rep.[RoleWeight],
+    agg.[IsNiceToHave],
+    rep.[TenantId],
+    agg.SkillWeightEffective
+  FROM roleskill_requirement_ranked_global rep
+  JOIN roleskill_requirement_aggregated_global agg
+    ON agg.[SkillId] = rep.[SkillId]
+   AND agg.[TenantId] = rep.[TenantId]
+  WHERE @RoleSkillScoringModeId = @ScoringMode_GlobalSkill
+    AND rep.SkillRank = 1
+),
+
+/* Unified requirement set used by detail scoring */
+requirement_effective AS (
+  SELECT
+    req.RequirementId,
+    req.[CategoryId],
+    req.[RoleId],
+    req.[CustomRoleId],
+    req.[SkillId],
+    req.[SkillAliasId],
+    req.[RoleAliasId],
+    req.[IndustryId],
+    req.[FunctionalAreaId],
+    req.[LanguageId],
+    req.ReqScore,
+    req.[DynamicWeight],
+    req.[RoleWeight],
+    req.[IsNiceToHave],
+    req.[TenantId],
+    req.SkillWeightEffective
+  FROM non_roleskill_requirement_effective req
+
+  UNION ALL
+
+  SELECT
+    req.RequirementId,
+    req.[CategoryId],
+    req.[RoleId],
+    req.[CustomRoleId],
+    req.[SkillId],
+    req.[SkillAliasId],
+    req.[RoleAliasId],
+    req.[IndustryId],
+    req.[FunctionalAreaId],
+    req.[LanguageId],
+    req.ReqScore,
+    req.[DynamicWeight],
+    req.[RoleWeight],
+    req.[IsNiceToHave],
+    req.[TenantId],
+    req.SkillWeightEffective
+  FROM roleskill_requirement_effective req
+),
+
+/* Role-scoped RoleSkill candidate scores */
+roleskill_role_score AS (
+  SELECT
+    req.RequirementId,
+    MAX(experience.[Score]) AS RoleScore
+  FROM roleskill_requirement_effective req
+  JOIN {Experience} experience
+    ON experience.[ConsultantId] = @ConsultantId
+   AND experience.[TenantId] = req.[TenantId]
+   AND experience.[Score] > 0
+   AND (
+     (@UseCustomRoles <> 1
+      AND experience.[CategoryId] = @Cat_RoleSkill
+      AND experience.[RoleId] = req.[RoleId]
+      AND experience.[SkillId] = req.[SkillId])
+     OR (@UseCustomRoles = 1
+         AND experience.[CategoryId] = @Cat_CustomRoleSkill
+         AND experience.[CustomRoleId] = req.[CustomRoleId]
+         AND experience.[SkillId] = req.[SkillId])
+   )
+  GROUP BY req.RequirementId
+),
+
+/* Skill-scoped RoleSkill candidate scores */
+roleskill_global_score AS (
+  SELECT
+    req.RequirementId,
+    MAX(experience.[Score]) AS GlobalScore
+  FROM roleskill_requirement_effective req
+  JOIN {Experience} experience
+    ON experience.[ConsultantId] = @ConsultantId
+   AND experience.[TenantId] = req.[TenantId]
+   AND experience.[Score] > 0
+   AND (
+     (@UseCustomRoles <> 1
+      AND experience.[CategoryId] = @Cat_Skill
+      AND experience.[SkillId] = req.[SkillId])
+     OR (@UseCustomRoles = 1
+         AND experience.[CategoryId] = @Cat_CustomSkill
+         AND experience.[SkillId] = req.[SkillId])
+   )
+  GROUP BY req.RequirementId
+),
+
+/* Effective score for selected RoleSkill scoring mode */
+roleskill_score AS (
+  SELECT
+    score_source.RequirementId,
+    MAX(score_source.RoleScore)   AS RoleScore,
+    MAX(score_source.GlobalScore) AS GlobalScore,
+    CASE
+      WHEN @RoleSkillScoringModeId = @ScoringMode_StrictRole
+      THEN COALESCE(MAX(score_source.RoleScore), 0)
+      WHEN @RoleSkillScoringModeId = @ScoringMode_GlobalSkill
+      THEN COALESCE(MAX(score_source.GlobalScore), 0)
+      WHEN @RoleSkillScoringModeId = @ScoringMode_RoleFirstHybrid
+      THEN GREATEST(
+             COALESCE(MAX(score_source.RoleScore), 0),
+             GREATEST(COALESCE(MAX(score_source.GlobalScore), 0) - 1, 0)
+           )
+      ELSE COALESCE(MAX(score_source.RoleScore), 0)
+    END AS EffectiveScore
+  FROM (
+    SELECT
+      role_score.RequirementId,
+      role_score.RoleScore,
+      CAST(NULL AS INTEGER) AS GlobalScore
+    FROM roleskill_role_score role_score
+
+    UNION ALL
+
+    SELECT
+      global_score.RequirementId,
+      CAST(NULL AS INTEGER) AS RoleScore,
+      global_score.GlobalScore
+    FROM roleskill_global_score global_score
+  ) score_source
+  GROUP BY score_source.RequirementId
+),
+
+/* Experience rows for effective requirement set */
+experience_match_base AS (
+  SELECT
+    req.RequirementId,
+    req.[CategoryId],
+    req.[RoleId],
+    req.[CustomRoleId],
+    req.[SkillId],
+    req.[SkillAliasId],
+    req.[RoleAliasId],
+    req.[IndustryId],
+    req.[FunctionalAreaId],
+    req.[LanguageId],
+    req.ReqScore,
+    req.[DynamicWeight],
+    req.[RoleWeight],
+    COALESCE(
+      req.SkillWeightEffective,
+      CAST(req.[DynamicWeight] AS DOUBLE PRECISION) * CAST(req.[RoleWeight] AS DOUBLE PRECISION)
+    ) AS EffectiveSkillWeight,
+    COALESCE(
+      CASE
+        WHEN (
+          (@UseCustomRoles <> 1 AND req.[CategoryId] = @Cat_RoleSkill)
+          OR (@UseCustomRoles = 1 AND req.[CategoryId] = @Cat_CustomRoleSkill)
+        )
+        THEN roleskill_score.EffectiveScore
+        WHEN (
+          @RoleSkillScoringModeId = @ScoringMode_GlobalSkill
+          AND (
+            (@UseCustomRoles <> 1 AND req.[CategoryId] = @Cat_Role)
+            OR (@UseCustomRoles = 1 AND req.[CategoryId] = @Cat_CustomRole)
+          )
+        )
+        THEN 0
+        ELSE experience.[Score]
+      END,
+      0
+    ) AS ConsultantScore,
+    CASE WHEN req.[IsNiceToHave] = 1 THEN 0 ELSE 1 END AS IsMustHave
+  FROM requirement_effective req
+  LEFT JOIN roleskill_score
+    ON roleskill_score.RequirementId = req.RequirementId
+   AND (
+     (@UseCustomRoles <> 1 AND req.[CategoryId] = @Cat_RoleSkill)
+     OR (@UseCustomRoles = 1 AND req.[CategoryId] = @Cat_CustomRoleSkill)
+   )
+  LEFT JOIN {Experience} experience
+    ON experience.[ConsultantId] = @ConsultantId
+   AND experience.[TenantId] = req.[TenantId]
+   AND (
+     (@RoleSkillScoringModeId <> @ScoringMode_GlobalSkill
+      AND @UseCustomRoles <> 1
+      AND experience.[CategoryId] = @Cat_Role
+      AND req.[CategoryId] = @Cat_Role
+      AND experience.[RoleId] = req.[RoleId]
+      AND experience.[SkillId] IS NULL)
+     OR (@RoleSkillScoringModeId <> @ScoringMode_GlobalSkill
+         AND @UseCustomRoles = 1
+         AND experience.[CategoryId] = @Cat_CustomRole
+         AND req.[CategoryId] = @Cat_CustomRole
+         AND experience.[CustomRoleId] = req.[CustomRoleId]
+         AND experience.[SkillId] IS NULL)
+     OR (experience.[CategoryId] = @Cat_Industry
+         AND req.[CategoryId] = @Cat_Industry
+         AND experience.[IndustryId] = req.[IndustryId])
+     OR (experience.[CategoryId] = @Cat_FunctionalArea
+         AND req.[CategoryId] = @Cat_FunctionalArea
+         AND experience.[FunctionalAreaId] = req.[FunctionalAreaId])
+     OR (experience.[CategoryId] = @Cat_Language
+         AND req.[CategoryId] = @Cat_Language
+         AND experience.[LanguageId] = req.[LanguageId])
+   )
+),
+
+/* Experience matches with partial_score calculation */
+experience_match AS (
+  SELECT
+    base.RequirementId,
+    base.[CategoryId],
+    base.[RoleId],
+    base.[CustomRoleId],
+    base.[SkillId],
+    base.[SkillAliasId],
+    base.[RoleAliasId],
+    base.[IndustryId],
+    base.[FunctionalAreaId],
+    base.[LanguageId],
+    base.ReqScore,
+    base.[DynamicWeight],
+    base.[RoleWeight],
+    base.EffectiveSkillWeight,
+    base.ConsultantScore,
     CAST(
       CASE
-        WHEN req.ReqScore = 0 THEN 0
-        WHEN req.[CategoryId] = @Cat_RoleSkill OR req.[CategoryId] = @Cat_CustomRoleSkill THEN
-          CASE WHEN COALESCE(experience.[Score], 0) >= req.ReqScore
-               THEN req.[DynamicWeight] * CAST(req.[RoleWeight] AS DOUBLE PRECISION)
-               ELSE req.[DynamicWeight] * CAST(req.[RoleWeight] AS DOUBLE PRECISION)
-                    * (CAST(COALESCE(experience.[Score], 0) AS DOUBLE PRECISION) / CAST(req.ReqScore AS DOUBLE PRECISION))
+        WHEN base.ReqScore = 0 THEN 0
+        WHEN base.[CategoryId] = @Cat_RoleSkill OR base.[CategoryId] = @Cat_CustomRoleSkill THEN
+          CASE WHEN base.ConsultantScore >= base.ReqScore
+               THEN base.EffectiveSkillWeight
+               ELSE base.EffectiveSkillWeight
+                    * (CAST(base.ConsultantScore AS DOUBLE PRECISION) / CAST(base.ReqScore AS DOUBLE PRECISION))
           END
         ELSE
-          CASE WHEN COALESCE(experience.[Score], 0) >= req.ReqScore
-               THEN req.[DynamicWeight] * 100.0
-               ELSE req.[DynamicWeight] * 100.0
-                    * (CAST(COALESCE(experience.[Score], 0) AS DOUBLE PRECISION) / CAST(req.ReqScore AS DOUBLE PRECISION))
+          CASE WHEN base.ConsultantScore >= base.ReqScore
+               THEN base.[DynamicWeight] * 100.0
+               ELSE base.[DynamicWeight] * 100.0
+                    * (CAST(base.ConsultantScore AS DOUBLE PRECISION) / CAST(base.ReqScore AS DOUBLE PRECISION))
           END
       END
     AS DOUBLE PRECISION) AS partial_score,
-
-    /* IsMustHave: invert IsNiceToHave */
-    CASE WHEN req.[IsNiceToHave] = 1 THEN 0 ELSE 1 END AS IsMustHave
-
-  FROM requirement req
-  LEFT JOIN {Experience} experience
-    ON experience.[ConsultantId] = @ConsultantId
-    AND experience.[TenantId] = req.[TenantId]
-    AND (
-      /* Standard RoleSkill */
-      (@UseCustomRoles <> 1
-       AND experience.[CategoryId] = @Cat_RoleSkill
-       AND req.[CategoryId] = @Cat_RoleSkill
-       AND experience.[RoleId] = req.[RoleId]
-       AND experience.[SkillId] = req.[SkillId])
-      /* Custom RoleSkill */
-      OR (@UseCustomRoles = 1
-          AND experience.[CategoryId] = @Cat_CustomRoleSkill
-          AND req.[CategoryId] = @Cat_CustomRoleSkill
-          AND experience.[CustomRoleId] = req.[CustomRoleId]
-          AND experience.[SkillId] = req.[SkillId])
-      /* Standard Role */
-      OR (@UseCustomRoles <> 1
-          AND experience.[CategoryId] = @Cat_Role
-          AND req.[CategoryId] = @Cat_Role
-          AND experience.[RoleId] = req.[RoleId]
-          AND experience.[SkillId] IS NULL)
-      /* Custom Role */
-      OR (@UseCustomRoles = 1
-          AND experience.[CategoryId] = @Cat_CustomRole
-          AND req.[CategoryId] = @Cat_CustomRole
-          AND experience.[CustomRoleId] = req.[CustomRoleId]
-          AND experience.[SkillId] IS NULL)
-      /* Industry (unchanged) */
-      OR (experience.[CategoryId] = @Cat_Industry
-          AND req.[CategoryId] = @Cat_Industry
-          AND experience.[IndustryId] = req.[IndustryId])
-      /* FunctionalArea (unchanged) */
-      OR (experience.[CategoryId] = @Cat_FunctionalArea
-          AND req.[CategoryId] = @Cat_FunctionalArea
-          AND experience.[FunctionalAreaId] = req.[FunctionalAreaId])
-      /* Language (unchanged) */
-      OR (experience.[CategoryId] = @Cat_Language
-          AND req.[CategoryId] = @Cat_Language
-          AND experience.[LanguageId] = req.[LanguageId])
-    )
+    base.IsMustHave
+  FROM experience_match_base base
 ),
 
 /* _____________ Matching score aggregate _____________ */
@@ -196,6 +569,23 @@ location_match AS (
   LEFT JOIN {LocaleDict} location_locale
     ON location_locale.[LocaleKeyId] = location_tag.[NameLocaleKeyId]
     AND location_locale.[LanguageId] = @SystemLanguage
+  LIMIT 1
+),
+
+/* Wrapper role for Global Skill mode (highest role weight, deterministic tie-break) */
+role_wrapper_global AS (
+  SELECT
+    role_req.[RoleId],
+    role_req.[CustomRoleId],
+    role_req.[RoleAliasId]
+  FROM requirement role_req
+  WHERE (
+    (@UseCustomRoles <> 1 AND role_req.[CategoryId] = @Cat_Role)
+    OR (@UseCustomRoles = 1 AND role_req.[CategoryId] = @Cat_CustomRole)
+  )
+  ORDER BY
+    role_req.[DynamicWeight] DESC,
+    role_req.RequirementId ASC
   LIMIT 1
 )
 
@@ -267,94 +657,182 @@ SELECT
   /* 21) MatchingConsultantLocationColor */
   lm.MatchingConsultantLocationColor AS MatchingConsultantLocationColor,
 
-  /* 22) RoleSkillsJson (nested: roles with skills inside, ordered by DynamicWeight DESC, Name ASC) */
-  /* Supports both standard roles (RoleAlias) and custom roles (CustomRole → RoleName) */
+  /* 22) RoleSkillsJson (nested roles with skills). Global Skill mode returns one wrapper role with distinct skills. */
   (
-    SELECT COALESCE(
-      json_agg(
-        json_build_object(
-          'RoleAliasId', role_data.RoleAliasId,
-          'RoleAliasName', role_data.RoleAliasName,
-          'ConsultantScore', role_data.ConsultantScore,
-          'RequiredScore', role_data.RequiredScore,
-          'DynamicWeight', role_data.DynamicWeight,
-          'PartialScore', role_data.PartialScore,
-          'IsMustHave', role_data.IsMustHave,
-          'Skills', role_data.Skills
+    CASE
+      WHEN @RoleSkillScoringModeId = @ScoringMode_GlobalSkill THEN (
+        SELECT COALESCE(
+          json_agg(
+            json_build_object(
+              'RoleAliasId', role_data.RoleAliasId,
+              'RoleAliasName', role_data.RoleAliasName,
+              'ConsultantScore', role_data.ConsultantScore,
+              'RequiredScore', role_data.RequiredScore,
+              'DynamicWeight', role_data.DynamicWeight,
+              'PartialScore', role_data.PartialScore,
+              'IsMustHave', role_data.IsMustHave,
+              'Skills', role_data.Skills
+            )
+            ORDER BY role_data.RoleAliasName ASC
+          ),
+          NULL
         )
-        ORDER BY role_data.DynamicWeight DESC, role_data.RoleAliasName ASC
-      ),
-      NULL
-    )
-    FROM (
-      SELECT
-        /* Output RoleAliasId or CustomRoleId depending on mode */
-        CASE WHEN @UseCustomRoles = 1 THEN em_role.[CustomRoleId] ELSE em_role.[RoleAliasId] END AS RoleAliasId,
-        /* Output standard or custom role name */
-        CASE WHEN @UseCustomRoles = 1 THEN custom_role_locale.[TextValue] ELSE role_alias_locale.[TextValue] END AS RoleAliasName,
-        em_role.ConsultantScore AS ConsultantScore,
-        em_role.ReqScore AS RequiredScore,
-        em_role.[DynamicWeight] AS DynamicWeight,
-        em_role.partial_score AS PartialScore,
-        em_role.IsMustHave AS IsMustHave,
-        (
-          SELECT COALESCE(
-            json_agg(
-              json_build_object(
-                'SkillAliasId', em_skill.[SkillAliasId],
-                'SkillAliasName', skill_alias_locale_inner.[TextValue],
-                'ConsultantScore', em_skill.ConsultantScore,
-                'RequiredScore', em_skill.ReqScore,
-                'DynamicWeight', em_skill.[DynamicWeight] * em_skill.[RoleWeight] / 100.0,
-                'PartialScore', em_skill.partial_score,
-                'IsMustHave', em_skill.IsMustHave
+        FROM (
+          SELECT
+            CASE WHEN @UseCustomRoles = 1 THEN wrapper.[CustomRoleId] ELSE wrapper.[RoleAliasId] END AS RoleAliasId,
+            CASE WHEN @UseCustomRoles = 1 THEN custom_role_locale.[TextValue] ELSE role_alias_locale.[TextValue] END AS RoleAliasName,
+            CAST(NULL AS INTEGER) AS ConsultantScore,
+            CAST(NULL AS INTEGER) AS RequiredScore,
+            CAST(NULL AS DOUBLE PRECISION) AS DynamicWeight,
+            CAST(NULL AS DOUBLE PRECISION) AS PartialScore,
+            CAST(NULL AS INTEGER) AS IsMustHave,
+            (
+              SELECT COALESCE(
+                json_agg(
+                  json_build_object(
+                    'SkillAliasId', em_skill.[SkillAliasId],
+                    'SkillAliasName', skill_alias_locale_inner.[TextValue],
+                    'ConsultantScore', em_skill.ConsultantScore,
+                    'RequiredScore', em_skill.ReqScore,
+                    'DynamicWeight', COALESCE(
+                                        em_skill.EffectiveSkillWeight,
+                                        CAST(em_skill.[DynamicWeight] AS DOUBLE PRECISION) * CAST(em_skill.[RoleWeight] AS DOUBLE PRECISION)
+                                      ) / 100.0,
+                    'PartialScore', em_skill.partial_score,
+                    'IsMustHave', em_skill.IsMustHave
+                  )
+                  ORDER BY (COALESCE(
+                              em_skill.EffectiveSkillWeight,
+                              CAST(em_skill.[DynamicWeight] AS DOUBLE PRECISION) * CAST(em_skill.[RoleWeight] AS DOUBLE PRECISION)
+                            ) / 100.0) DESC, skill_alias_locale_inner.[TextValue] ASC
+                ),
+                NULL
               )
-              ORDER BY (em_skill.[DynamicWeight] * em_skill.[RoleWeight] / 100.0) DESC, skill_alias_locale_inner.[TextValue] ASC
-            ),
-            NULL
-          )
-          FROM experience_match em_skill
-          LEFT JOIN {SkillAlias} skill_alias_inner
-            ON skill_alias_inner.[Id] = em_skill.[SkillAliasId]
-          LEFT JOIN {LocaleDict} skill_alias_locale_inner
-            ON skill_alias_locale_inner.[LocaleKeyId] = skill_alias_inner.[NameLocaleKeyId]
-            AND skill_alias_locale_inner.[LanguageId] = @SystemLanguage
-          /* Group skills by role - standard RoleId or CustomRoleId */
-          WHERE (
-            (@UseCustomRoles <> 1
-             AND em_skill.[CategoryId] = @Cat_RoleSkill
-             AND em_skill.[RoleId] = em_role.[RoleId])
-            OR (@UseCustomRoles = 1
-                AND em_skill.[CategoryId] = @Cat_CustomRoleSkill
-                AND em_skill.[CustomRoleId] = em_role.[CustomRoleId])
-          )
-        ) AS Skills
-      FROM experience_match em_role
-      /* Standard Role name via RoleAlias */
-      LEFT JOIN {RoleAlias} role_alias
-        ON @UseCustomRoles <> 1
-        AND role_alias.[Id] = em_role.[RoleAliasId]
-      LEFT JOIN {LocaleDict} role_alias_locale
-        ON @UseCustomRoles <> 1
-        AND role_alias_locale.[LocaleKeyId] = role_alias.[NameLocaleKeyId]
-        AND role_alias_locale.[LanguageId] = @SystemLanguage
-      /* Custom Role name via CustomRole → RoleName */
-      LEFT JOIN {CustomRole} custom_role
-        ON @UseCustomRoles = 1
-        AND custom_role.[Id] = em_role.[CustomRoleId]
-      LEFT JOIN {RoleName} custom_role_name
-        ON @UseCustomRoles = 1
-        AND custom_role_name.[Id] = custom_role.[RoleNameId]
-      LEFT JOIN {LocaleDict} custom_role_locale
-        ON @UseCustomRoles = 1
-        AND custom_role_locale.[LocaleKeyId] = custom_role_name.[NameLocaleKeyId]
-        AND custom_role_locale.[LanguageId] = @SystemLanguage
-      /* Filter to Role or CustomRole category */
-      WHERE (
-        (@UseCustomRoles <> 1 AND em_role.[CategoryId] = @Cat_Role)
-        OR (@UseCustomRoles = 1 AND em_role.[CategoryId] = @Cat_CustomRole)
+              FROM experience_match em_skill
+              LEFT JOIN {SkillAlias} skill_alias_inner
+                ON skill_alias_inner.[Id] = em_skill.[SkillAliasId]
+              LEFT JOIN {LocaleDict} skill_alias_locale_inner
+                ON skill_alias_locale_inner.[LocaleKeyId] = skill_alias_inner.[NameLocaleKeyId]
+               AND skill_alias_locale_inner.[LanguageId] = @SystemLanguage
+              WHERE (
+                (@UseCustomRoles <> 1 AND em_skill.[CategoryId] = @Cat_RoleSkill)
+                OR (@UseCustomRoles = 1 AND em_skill.[CategoryId] = @Cat_CustomRoleSkill)
+              )
+            ) AS Skills
+          FROM role_wrapper_global wrapper
+          LEFT JOIN {RoleAlias} role_alias
+            ON @UseCustomRoles <> 1
+           AND role_alias.[Id] = wrapper.[RoleAliasId]
+          LEFT JOIN {LocaleDict} role_alias_locale
+            ON @UseCustomRoles <> 1
+           AND role_alias_locale.[LocaleKeyId] = role_alias.[NameLocaleKeyId]
+           AND role_alias_locale.[LanguageId] = @SystemLanguage
+          LEFT JOIN {CustomRole} custom_role
+            ON @UseCustomRoles = 1
+           AND custom_role.[Id] = wrapper.[CustomRoleId]
+          LEFT JOIN {RoleName} custom_role_name
+            ON @UseCustomRoles = 1
+           AND custom_role_name.[Id] = custom_role.[RoleNameId]
+          LEFT JOIN {LocaleDict} custom_role_locale
+            ON @UseCustomRoles = 1
+           AND custom_role_locale.[LocaleKeyId] = custom_role_name.[NameLocaleKeyId]
+           AND custom_role_locale.[LanguageId] = @SystemLanguage
+        ) role_data
       )
-    ) role_data
+      ELSE (
+        SELECT COALESCE(
+          json_agg(
+            json_build_object(
+              'RoleAliasId', role_data.RoleAliasId,
+              'RoleAliasName', role_data.RoleAliasName,
+              'ConsultantScore', role_data.ConsultantScore,
+              'RequiredScore', role_data.RequiredScore,
+              'DynamicWeight', role_data.DynamicWeight,
+              'PartialScore', role_data.PartialScore,
+              'IsMustHave', role_data.IsMustHave,
+              'Skills', role_data.Skills
+            )
+            ORDER BY role_data.DynamicWeight DESC, role_data.RoleAliasName ASC
+          ),
+          NULL
+        )
+        FROM (
+          SELECT
+            /* Output RoleAliasId or CustomRoleId depending on mode */
+            CASE WHEN @UseCustomRoles = 1 THEN em_role.[CustomRoleId] ELSE em_role.[RoleAliasId] END AS RoleAliasId,
+            /* Output standard or custom role name */
+            CASE WHEN @UseCustomRoles = 1 THEN custom_role_locale.[TextValue] ELSE role_alias_locale.[TextValue] END AS RoleAliasName,
+            em_role.ConsultantScore AS ConsultantScore,
+            em_role.ReqScore AS RequiredScore,
+            em_role.[DynamicWeight] AS DynamicWeight,
+            em_role.partial_score AS PartialScore,
+            em_role.IsMustHave AS IsMustHave,
+            (
+              SELECT COALESCE(
+                json_agg(
+                  json_build_object(
+                    'SkillAliasId', em_skill.[SkillAliasId],
+                    'SkillAliasName', skill_alias_locale_inner.[TextValue],
+                    'ConsultantScore', em_skill.ConsultantScore,
+                    'RequiredScore', em_skill.ReqScore,
+                    'DynamicWeight', COALESCE(
+                                        em_skill.EffectiveSkillWeight,
+                                        CAST(em_skill.[DynamicWeight] AS DOUBLE PRECISION) * CAST(em_skill.[RoleWeight] AS DOUBLE PRECISION)
+                                      ) / 100.0,
+                    'PartialScore', em_skill.partial_score,
+                    'IsMustHave', em_skill.IsMustHave
+                  )
+                  ORDER BY (COALESCE(
+                              em_skill.EffectiveSkillWeight,
+                              CAST(em_skill.[DynamicWeight] AS DOUBLE PRECISION) * CAST(em_skill.[RoleWeight] AS DOUBLE PRECISION)
+                            ) / 100.0) DESC, skill_alias_locale_inner.[TextValue] ASC
+                ),
+                NULL
+              )
+              FROM experience_match em_skill
+              LEFT JOIN {SkillAlias} skill_alias_inner
+                ON skill_alias_inner.[Id] = em_skill.[SkillAliasId]
+              LEFT JOIN {LocaleDict} skill_alias_locale_inner
+                ON skill_alias_locale_inner.[LocaleKeyId] = skill_alias_inner.[NameLocaleKeyId]
+                AND skill_alias_locale_inner.[LanguageId] = @SystemLanguage
+              /* Group skills by role - standard RoleId or CustomRoleId */
+              WHERE (
+                (@UseCustomRoles <> 1
+                 AND em_skill.[CategoryId] = @Cat_RoleSkill
+                 AND em_skill.[RoleId] = em_role.[RoleId])
+                OR (@UseCustomRoles = 1
+                    AND em_skill.[CategoryId] = @Cat_CustomRoleSkill
+                    AND em_skill.[CustomRoleId] = em_role.[CustomRoleId])
+              )
+            ) AS Skills
+          FROM experience_match em_role
+          /* Standard Role name via RoleAlias */
+          LEFT JOIN {RoleAlias} role_alias
+            ON @UseCustomRoles <> 1
+            AND role_alias.[Id] = em_role.[RoleAliasId]
+          LEFT JOIN {LocaleDict} role_alias_locale
+            ON @UseCustomRoles <> 1
+            AND role_alias_locale.[LocaleKeyId] = role_alias.[NameLocaleKeyId]
+            AND role_alias_locale.[LanguageId] = @SystemLanguage
+          /* Custom Role name via CustomRole → RoleName */
+          LEFT JOIN {CustomRole} custom_role
+            ON @UseCustomRoles = 1
+            AND custom_role.[Id] = em_role.[CustomRoleId]
+          LEFT JOIN {RoleName} custom_role_name
+            ON @UseCustomRoles = 1
+            AND custom_role_name.[Id] = custom_role.[RoleNameId]
+          LEFT JOIN {LocaleDict} custom_role_locale
+            ON @UseCustomRoles = 1
+            AND custom_role_locale.[LocaleKeyId] = custom_role_name.[NameLocaleKeyId]
+            AND custom_role_locale.[LanguageId] = @SystemLanguage
+          /* Filter to Role or CustomRole category */
+          WHERE (
+            (@UseCustomRoles <> 1 AND em_role.[CategoryId] = @Cat_Role)
+            OR (@UseCustomRoles = 1 AND em_role.[CategoryId] = @Cat_CustomRole)
+          )
+        ) role_data
+      )
+    END
   ) AS RoleSkillsJson,
 
   /* 23) IndustriesJson (ordered by DynamicWeight DESC, Name ASC) */

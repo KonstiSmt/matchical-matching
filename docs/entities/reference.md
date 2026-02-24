@@ -140,6 +140,42 @@ Output structure remains unchanged - RoleAliasId/RoleAliasName fields are popula
 
 ---
 
+## RoleSkill Scoring Mode Parameters
+
+RoleSkill and CustomRoleSkill requirements keep their demand requirement category, but consultant score source depends on `@RoleSkillScoringModeId`.
+
+| Parameter | Meaning |
+|-----------|---------|
+| `@RoleSkillScoringModeId` | Selected scoring mode category ID for role-skill matching |
+| `@ScoringMode_StrictRole` | Mode ID: use only role-scoped score (`RoleSkill` / `CustomRoleSkill`) |
+| `@ScoringMode_GlobalSkill` | Mode ID: use only skill-scoped score (`Skill` / `CustomSkill`) |
+| `@ScoringMode_RoleFirstHybrid` | Mode ID: use `max(role_score, max(global_score - 1, 0))` |
+| `@Cat_Skill` | Category ID for Skill experience (`SkillId` key) |
+| `@Cat_CustomSkill` | Category ID for CustomSkill experience (`SkillId` key) |
+
+Mode formulas:
+* Strict Role: `effective_score = role_score`
+* Global Skill: `effective_score = global_score`
+* Role-First Hybrid: `effective_score = max(role_score, max(global_score - 1, 0))`
+
+Global Skill refinement:
+* Role and CustomRole requirements are not used as scoring contributions.
+* Query 1 bypasses mandatory role soft gate and role/category filter enforcement in this mode.
+* Role requirement weight is redistributed to skills under the same role bucket:
+  * `RoleContribution_r = role_requirement.DynamicWeight * 100.0`
+  * `SkillBase_k = skill_requirement.DynamicWeight * skill_requirement.RoleWeight`
+  * `SkillBaseSum_r = SUM(SkillBase_k)`
+  * `SkillWeightEffective_k = SkillBase_k + RoleContribution_r * (SkillBase_k / SkillBaseSum_r)`
+* After redistribution, role-skill requirements are deduplicated by `SkillId`:
+  * `ReqScore = MAX(ReqScore)` across duplicate skills
+  * `SkillWeightEffective = SUM(SkillWeightAfterDistribution)` across duplicate skills
+  * Must-have flag is merged as "any must-have" (`IsNiceToHave = MIN(IsNiceToHave)`)
+* Query 1 filtered role-skill enforcement in this mode uses merged filter dominance: Hard > Soft > Default.
+* Query 4 keeps RoleSkillsJson shape with one wrapper role object and nested distinct skills; wrapper role scoring fields are returned as `NULL`.
+* Wrapper role identity is selected from the highest role requirement dynamic weight (tie-break: lowest requirement id).
+
+---
+
 ## Requirement Name Resolution
 
 | Category | DemandRequirement Field | Join Path |

@@ -12,7 +12,7 @@
     },
     "RationaleCleanVersions": {
       "type": "string",
-      "description": "Brief rationale shared across clean versions (Bullet, Mixed, Text)."
+      "description": "Brief rationale shared across clean versions (Bullet, Mixed, Paragraph)."
     },
     "BulletVersion": {
       "type": "string",
@@ -22,9 +22,9 @@
       "type": "string",
       "description": "Mixed engagement description in HTML."
     },
-    "TextVersion": {
+    "ParagraphVersion": {
       "type": "string",
-      "description": "Text engagement description in HTML."
+      "description": "Paragraph engagement description in HTML."
     }
   },
   "required": [
@@ -33,7 +33,7 @@
     "RationaleCleanVersions",
     "BulletVersion",
     "MixedVersion",
-    "TextVersion"
+    "ParagraphVersion"
   ],
   "additionalProperties": false
 }

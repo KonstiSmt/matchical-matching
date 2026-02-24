@@ -7,6 +7,8 @@ A staffing request to be matched against consultants.
 |-----------|------|-------------|
 | `Id` | GUID | Primary key |
 | `TenantId` | GUID | Tenant isolation |
+| `NameLocaleKeyId` | GUID | FK to LocaleDict (demand name, translatable) |
+| `OpportunityId` | GUID | FK to Opportunity (linked opportunity) |
 | `LocationTagId` | GUID | FK to LocationTag (desired location) |
 | `LocationFilterCategoryId` | GUID | Location filter: Default/Soft/Hard |
 | `AvailabilityFilterCategoryId` | GUID | Availability filter: Default/Soft/Hard |
@@ -17,6 +19,8 @@ A staffing request to be matched against consultants.
 | `ContingentDays` | Integer | Contingent days for margin calculation |
 
 ### Relationships
+- → LocaleDict (via NameLocaleKeyId)
+- → Opportunity (via OpportunityId)
 - → LocationTag (via LocationTagId)
 - → Category (via LocationFilterCategoryId)
 - → Category (via AvailabilityFilterCategoryId)
