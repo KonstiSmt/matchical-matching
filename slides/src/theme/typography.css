@@ -1,0 +1,18 @@
+:root {
+  --font-heading: "Steradian", "Sturdy", "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Commisioner", "Commissioner", "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  --fs-h1: clamp(3rem, 4.8vw, 5.75rem);
+  --fs-h2: clamp(2.2rem, 3.8vw, 4.375rem);
+  --fs-h3: clamp(1.8rem, 2.8vw, 3.375rem);
+  --fs-h4: clamp(1.5rem, 2.2vw, 2.563rem);
+  --fs-h5: clamp(1.2rem, 1.8vw, 1.938rem);
+  --fs-body-lg: 1.375rem;
+  --fs-body: 1.125rem;
+  --fs-body-sm: 1rem;
+  --fs-caption: 0.875rem;
+
+  --lh-tight: 1.08;
+  --lh-heading: 1.15;
+  --lh-body: 1.4;
+}

@@ -1,0 +1,35 @@
+.slide--light {
+  background: var(--color-bg-default) !important;
+  color: var(--color-text-primary);
+}
+
+.slide--light .logo--default {
+  display: block;
+}
+
+.slide--light .logo--inverse {
+  display: none;
+}
+
+.slide--dark {
+  background: var(--color-secondary-main) !important;
+  color: #ffffff;
+}
+
+.slide--dark .logo--default {
+  display: none;
+}
+
+.slide--dark .logo--inverse {
+  display: block;
+}
+
+.slide--dark .kicker {
+  background: rgba(255, 94, 0, 0.18);
+  color: #ffd3b9;
+}
+
+.slide--dark .slide-subtitle,
+.slide--dark .footer-note {
+  color: rgba(255, 255, 255, 0.74);
+}
