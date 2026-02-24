@@ -83,11 +83,15 @@ The summary is used in CV export for decision-makers such as procurement, projec
 
 Examples below are illustrative style anchors, not fixed templates. Do not copy them verbatim.
 
-## Example 1 (English, Strong Evidence)
+For these examples, every output claim must be directly traceable to listed input facts.
+Do not infer soft-quality or outcome claims unless they are explicitly listed in the example input.
+Examples must demonstrate varied opening structures and sentence flow.
+
+## Example 1 (English, Strong Evidence, Technical Profile)
 
 ### Input
 
-- Consultant data: `$$FULLNAME$$`; 96 months backend experience; Java, Spring Boot, REST APIs, PostgreSQL optimization; responsibilities include technical solution design, code ownership, and cross-team coordination.
+- Consultant data: `$$FULLNAME$$`; 96 months backend experience; Java, Spring Boot, REST APIs, PostgreSQL optimization; responsibilities include technical solution design, code ownership, and cross-team release coordination.
 - Demand data: API architecture, backend feature delivery, performance tuning.
 - `demandName`: `Senior Backend Developer`
 - `cvExportLanguage`: `English`
@@ -96,35 +100,35 @@ Examples below are illustrative style anchors, not fixed templates. Do not copy 
 
 ```json
 {
-  "Rational": "Language: English. The summary prioritizes directly matching backend skills and responsibility scope from consultant data, then uses a measured explicit fit statement because evidence strength is high.",
-  "ManagementSummaryHTML": "<p>$$FULLNAME$$ brings over eight years of backend experience with Java, Spring Boot, REST API integration, and PostgreSQL optimization, with responsibilities spanning technical solution design, implementation ownership, release-oriented coordination between development and operations, and structured contribution to scalable service interfaces, and is a good fit for roles such as Senior Backend Developer where API architecture, performance tuning, and reliable backend feature delivery are core requirements in complex implementation contexts.</p>"
+  "Rational": "Language: English. The summary uses directly matching backend capabilities and responsibilities from the consultant data and applies an explicit fit statement because evidence strength is high.",
+  "ManagementSummaryHTML": "<p>With over eight years of backend delivery experience, $$FULLNAME$$ applies Java, Spring Boot, REST API integration, and PostgreSQL optimization in work that includes technical solution design, code ownership, and cross-team release coordination, and is a good fit for roles such as Senior Backend Developer when API architecture, backend feature delivery, and performance tuning are central requirements.</p>"
 }
 ```
 
-## Example 2 (English, Medium Evidence)
+## Example 2 (English, Medium Evidence, Non-Technical Profile)
 
 ### Input
 
-- Consultant data: `$$FULLNAME$$`; 54 months backend/web delivery; Java, REST APIs, SQL; responsibilities include implementation and team coordination.
-- Demand data: backend architecture plus advanced scaling requirements.
-- `demandName`: `Backend Developer`
+- Consultant data: `$$FULLNAME$$`; 84 months in project/program leadership; capabilities include stakeholder governance, risk tracking, dependency management, and delivery planning; responsibilities include coordinating cross-functional teams and facilitating steering meetings.
+- Demand data: multi-team delivery governance and structured progress management.
+- `demandName`: `Program Manager`
 - `cvExportLanguage`: `English`
 
 ### Output
 
 ```json
 {
-  "Rational": "Language: English. The summary highlights relevant overlapping skills and responsibilities and uses cautious relevance wording because evidence is partial.",
-  "ManagementSummaryHTML": "<p>$$FULLNAME$$ brings over four years of experience in backend and web delivery with strengths in Java, REST API integration, and SQL-oriented optimization, including implementation responsibility, interface coordination across teams, and contribution to maintainable service behavior in delivery phases, and is relevant for roles such as Backend Developer in contexts that prioritize structured backend implementation, clean integration boundaries, and stable handover into ongoing operations.</p>"
+  "Rational": "Language: English. The summary focuses on overlapping governance and coordination evidence and uses cautious relevance wording because the match is meaningful but not fully role-identical.",
+  "ManagementSummaryHTML": "<p>Across more than seven years in project and program leadership, $$FULLNAME$$ has covered stakeholder governance, risk tracking, dependency management, and delivery planning with responsibility for coordinating cross-functional teams and facilitating steering meetings, and is relevant for roles such as Program Manager in contexts where multi-team delivery governance and structured progress management are required.</p>"
 }
 ```
 
-## Example 3 (English, Low Evidence)
+## Example 3 (English, Low Evidence, Mismatch)
 
 ### Input
 
-- Consultant data: `$$FULLNAME$$`; primarily frontend profile with limited backend exposure.
-- Demand data: deep backend architecture ownership.
+- Consultant data: `$$FULLNAME$$`; primarily frontend profile; React, TypeScript, UI architecture, API consumption; responsibilities include feature implementation and UI-to-backend integration handoffs.
+- Demand data: deep backend architecture ownership and advanced backend performance tuning.
 - `demandName`: `Senior Backend Developer`
 - `cvExportLanguage`: `English`
 
@@ -132,35 +136,35 @@ Examples below are illustrative style anchors, not fixed templates. Do not copy 
 
 ```json
 {
-  "Rational": "Language: English. The summary stays capability-focused and avoids a direct fit claim because backend overlap is limited in the consultant data.",
-  "ManagementSummaryHTML": "<p>$$FULLNAME$$ contributes experience in application delivery with selected backend touchpoints in API integration and implementation collaboration, with strengths centered on practical cross-functional coordination, structured technical contribution, and reliable participation in delivery workflows where backend work is part of a broader implementation scope.</p>"
+  "Rational": "Language: English. The summary remains capability-focused and omits a direct fit claim because the provided evidence is primarily frontend-oriented.",
+  "ManagementSummaryHTML": "<p>The profile evidence centers on frontend delivery with React, TypeScript, UI architecture, and API consumption, with responsibilities in feature implementation and UI-to-backend integration handoffs across teams, supporting contribution in application delivery contexts that require interface implementation and cross-team technical coordination.</p>"
 }
 ```
 
-## Example 4 (German, Starke Evidenz)
+## Example 4 (German, Starke Evidenz, Nicht-technisches Profil)
 
 ### Input
 
-- Beraterdaten: `$$FULLNAME$$`; 102 Monate Backend-Erfahrung; Java, Spring Boot, REST-APIs, PostgreSQL-Optimierung; Verantwortungen umfassen technisches Lösungsdesign, Code-Verantwortung und Abstimmung zwischen Entwicklung und Betrieb.
-- Bedarfsdaten: API-Architektur, Backend-Feature-Umsetzung, Performance-Optimierung.
-- `demandName`: `Senior Backend Developer`
+- Beraterdaten: `$$FULLNAME$$`; 108 Monate Erfahrung in Programm- und Projektsteuerung; Fähigkeiten umfassen Stakeholdersteuerung, Risiko-Tracking, Abhängigkeitsmanagement und Lieferplanung; Verantwortungen umfassen Koordination bereichsübergreifender Teams und Moderation von Steuerungsrunden.
+- Bedarfsdaten: bereichsübergreifende Delivery-Steuerung, Governance und strukturierte Fortschrittssteuerung.
+- `demandName`: `Senior Program Manager`
 - `cvExportLanguage`: `German`
 
 ### Output
 
 ```json
 {
-  "Rational": "Sprache: Deutsch. Die Zusammenfassung priorisiert klar passende Backend-Skills und Verantwortungsumfang aus den Beraterdaten und verwendet wegen der hohen Evidenz eine sachliche explizite Fit-Aussage.",
-  "ManagementSummaryHTML": "<p>$$FULLNAME$$ verfügt über mehr als acht Jahre Backend-Erfahrung mit Java, Spring Boot, REST-API-Integration und PostgreSQL-Optimierung, mit Verantwortungen in technischem Lösungsdesign, Umsetzungsverantwortung, Release-naher Abstimmung zwischen Entwicklung und Betrieb sowie Beiträgen zu skalierbaren Service-Schnittstellen, und ist damit eine gute Besetzung für Rollen wie Senior Backend Developer, wenn API-Architektur, Performance-Optimierung und belastbare Backend-Feature-Umsetzung in komplexen Lieferkontexten im Fokus stehen.</p>"
+  "Rational": "Sprache: Deutsch. Die Zusammenfassung priorisiert deckungsgleiche Steuerungs- und Governance-Nachweise aus den Beraterdaten und nutzt wegen hoher Evidenz eine sachliche explizite Fit-Aussage.",
+  "ManagementSummaryHTML": "<p>Bei mehr als neun Jahren Erfahrung in Programm- und Projektsteuerung deckt $$FULLNAME$$ Stakeholdersteuerung, Risiko-Tracking, Abhängigkeitsmanagement und Lieferplanung ab und übernimmt Verantwortungen in der Koordination bereichsübergreifender Teams sowie in der Moderation von Steuerungsrunden, und ist damit eine gute Besetzung für Rollen wie Senior Program Manager, wenn bereichsübergreifende Delivery-Steuerung, Governance und strukturierte Fortschrittssteuerung gefordert sind.</p>"
 }
 ```
 
-## Example 5 (German, Mittlere Evidenz)
+## Example 5 (German, Mittlere Evidenz, Technisches Profil)
 
 ### Input
 
-- Beraterdaten: `$$FULLNAME$$`; 58 Monate Backend-/Web-Erfahrung; Java, REST-APIs, SQL; Verantwortungen in Implementierung und teamübergreifender Koordination.
-- Bedarfsdaten: Backend-Architektur mit höheren Skalierungsanforderungen.
+- Beraterdaten: `$$FULLNAME$$`; 60 Monate Erfahrung in Backend-/Web-Delivery; Java, REST-APIs, SQL, Docker; Verantwortungen in Implementierung, Schnittstellenabstimmung und Fehleranalyse.
+- Bedarfsdaten: Service-Integration, API-Wartung und Backend-Stabilisierung.
 - `demandName`: `Backend Developer`
 - `cvExportLanguage`: `German`
 
@@ -168,17 +172,17 @@ Examples below are illustrative style anchors, not fixed templates. Do not copy 
 
 ```json
 {
-  "Rational": "Sprache: Deutsch. Die Zusammenfassung fokussiert auf relevante Überschneidungen bei Skills und Verantwortungen und nutzt eine vorsichtige Relevanzformulierung wegen mittlerer Evidenz.",
-  "ManagementSummaryHTML": "<p>$$FULLNAME$$ bringt über vier Jahre Erfahrung in Backend- und Web-Delivery mit Schwerpunkten in Java, REST-API-Integration und SQL-naher Optimierung sowie Umsetzungsverantwortung und teamübergreifender Koordination mit, und das Profil passt zu Rollen wie Backend Developer in Kontexten mit Fokus auf strukturierter Backend-Umsetzung, klaren Integrationsschnittstellen und stabiler technischer Übergabe in laufende Delivery-Prozesse.</p>"
+  "Rational": "Sprache: Deutsch. Die Zusammenfassung nutzt belegte technische Überschneidungen und Verantwortungen und formuliert die Relevanz vorsichtig wegen mittlerer Evidenz.",
+  "ManagementSummaryHTML": "<p>Im technischen Delivery-Umfeld bringt $$FULLNAME$$ über fünf Jahre Erfahrung mit Java, REST-APIs, SQL und Docker ein, ergänzt durch Verantwortungen in Implementierung, Schnittstellenabstimmung und Fehleranalyse, und das Profil passt zu Rollen wie Backend Developer in Kontexten mit Fokus auf Service-Integration, API-Wartung und Backend-Stabilisierung.</p>"
 }
 ```
 
-## Example 6 (German, Geringe Evidenz)
+## Example 6 (German, Geringe Evidenz, Mismatch)
 
 ### Input
 
-- Beraterdaten: `$$FULLNAME$$`; Schwerpunkt Frontend, begrenzte Backend-Anteile.
-- Bedarfsdaten: Tiefe Backend-Architekturverantwortung.
+- Beraterdaten: `$$FULLNAME$$`; Schwerpunkt PMO- und Delivery-Support; Fähigkeiten in Projektstatus-Reporting, Budgettracking und Meetingsteuerung; Verantwortungen in Terminpflege und Stakeholder-Updates.
+- Bedarfsdaten: tiefes Backend-Design und Performance-Tuning.
 - `demandName`: `Senior Backend Developer`
 - `cvExportLanguage`: `German`
 
@@ -186,8 +190,8 @@ Examples below are illustrative style anchors, not fixed templates. Do not copy 
 
 ```json
 {
-  "Rational": "Sprache: Deutsch. Die Zusammenfassung bleibt bei belegbaren Fähigkeiten und verzichtet wegen geringer Backend-Überschneidung auf eine direkte Fit-Aussage.",
-  "ManagementSummaryHTML": "<p>$$FULLNAME$$ bringt Erfahrung in der Anwendungsentwicklung mit ausgewählten Backend-Anteilen in API-Integration und technischer Umsetzung mit und zeigt belastbare Stärken in praktischer Zusammenarbeit, strukturierter Umsetzung und konkreten Delivery-Beiträgen in vergleichbaren Projektkontexten, ohne über die belegbare Backend-Tiefe hinauszugehen.</p>"
+  "Rational": "Sprache: Deutsch. Die Zusammenfassung bleibt bei den belegten PMO- und Delivery-Support-Fähigkeiten und verzichtet bei dieser Evidenzlage auf eine direkte Fit-Aussage.",
+  "ManagementSummaryHTML": "<p>Der belegte Erfahrungsschwerpunkt liegt auf PMO- und Delivery-Support mit Projektstatus-Reporting, Budgettracking und Meetingsteuerung sowie Verantwortungen in Terminpflege und Stakeholder-Updates, wodurch die nachgewiesenen Beiträge in strukturierter Projektunterstützung und transparenter Steuerung von Umsetzungsabläufen liegen.</p>"
 }
 ```
 
