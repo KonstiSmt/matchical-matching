@@ -8,7 +8,8 @@
     },
     "ProjectName": {
       "type": "string",
-      "description": "Project-centric name, sanitized to remove client identifiers. Never null."
+      "description": "Project-centric name, sanitized to remove client identifiers. Null only when no usable project facts exist.",
+      "nullable": true
     },
     "ClientEntityName": {
       "type": "string",

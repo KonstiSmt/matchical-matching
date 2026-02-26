@@ -7,8 +7,11 @@
       "description": "Concise explanation of extraction choices, null assignments, and date logic path."
     },
     "ProjectName": {
-      "type": "string",
-      "description": "Project-centric name, sanitized to remove client identifiers. Never null."
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Project-centric name, sanitized to remove client identifiers. Null only when no usable project facts exist."
     },
     "ClientEntityName": {
       "type": [
