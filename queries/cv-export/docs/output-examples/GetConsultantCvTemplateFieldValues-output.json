@@ -1,5 +1,5 @@
 {
-  "description": "GetConsultantCvTemplateFieldValues output example",
+  "description": "GetConsultantCvTemplateFieldValues output example (address input, city and country categories)",
   "columnOrder": "KeyCategoryId, Value",
   "singleRow": {
     "KeyCategoryId": "8b3aa6e8-6fb0-4e79-9234-1234567890ab",
@@ -12,7 +12,17 @@
     },
     {
       "KeyCategoryId": "8b3aa6e8-6fb0-4e79-9234-1234567890ac",
-      "Value": null
+      "Value": "Germany"
+    }
+  ],
+  "exampleResultSetWhenAddressMissing": [
+    {
+      "KeyCategoryId": "8b3aa6e8-6fb0-4e79-9234-1234567890ab",
+      "Value": ""
+    },
+    {
+      "KeyCategoryId": "8b3aa6e8-6fb0-4e79-9234-1234567890ac",
+      "Value": ""
     }
   ]
 }

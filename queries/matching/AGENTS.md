@@ -6,7 +6,7 @@
 |-------|---------|--------|
 | Query 1 | Scoring | ConsultantId, MatchingScore, PricePerformanceScore, MatchedRequirementsCount, Count, HasActiveFilters |
 | Query 2 | Preview | Display data for match cards (nested JSON) |
-| Query 3 | Lightweight scoring | ConsultantId, MatchingScore (for recalculation) |
+| Query 3 | Lightweight scoring | DemandId, ConsultantId, MatchingScoreStrict, MatchingScoreHybrid, MatchingScoreSkills, CustomRolesMatchingScoreStrict, CustomRolesMatchingScoreHybrid, CustomRolesMatchingScoreSkills |
 | Query 4 | Full details | Complete matching breakdown with all categories |
 
 ## Output Column Contracts (DO NOT REORDER)
@@ -23,7 +23,7 @@ ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastNam
 
 **Query 3 (GetMatchingScoreByConsultantIds):**
 ```
-ConsultantId, MatchingScore
+DemandId, ConsultantId, MatchingScoreStrict, MatchingScoreHybrid, MatchingScoreSkills, CustomRolesMatchingScoreStrict, CustomRolesMatchingScoreHybrid, CustomRolesMatchingScoreSkills
 ```
 
 **Query 4 (GetConsultantFullDetails):**

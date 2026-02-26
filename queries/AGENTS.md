@@ -10,6 +10,8 @@
 
 **Parameters:** `@ParamName`
 
+**Tenant scoping default:** Include `@TenantId` and tenant filtering by default in all queries. Omit tenant filtering only when explicitly requested for admin/internal global reporting.
+
 **List parameters (Expand Inline):** Use directly in IN clause:
 ```sql
 WHERE consultant.[Id] IN (@ConsultantIds)
@@ -62,6 +64,9 @@ Do NOT use `STRING_TO_ARRAY` or `UNNEST`. It's already expanded SQL.
 
 **Output columns:** Never use plain `Id`. Use `ConsultantId`, `DemandId`, etc.
 
+**Reporting outputs (insights):** Use descriptive, business-readable snake_case column names (avoid raw database attribute naming).
+**Reporting boolean outputs:** Return `TRUE/FALSE` values for boolean output fields (not `0/1`), while still using `0/1` comparisons for persisted boolean columns.
+
 ---
 
 ## JSON Output Conventions
@@ -113,10 +118,18 @@ LEFT JOIN {LocaleDict} name_locale
 
 ---
 
+## Reporting Artifacts
+
+- Store generated report files (for example `.xlsx`) under repository-root `output/`, not inside `queries/` subfolders.
+- Keep query documentation and output examples in `queries/**/docs/`.
+
+---
+
 ## Query Modules
 
 | Module | Purpose |
 |--------|---------|
+| `insights/` | Reporting and data-quality export queries |
 | `matching/` | Consultant-to-demand matching queries |
 
 See module-specific `AGENTS.md` for detailed contracts and regression checklists.

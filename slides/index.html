@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matchical Slides</title>
+    <style>
+      :root {
+        --bg: #f8f8f8;
+        --text: #002839;
+        --accent: #ff5e00;
+      }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      main {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 48px 24px;
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: 42px;
+        line-height: 1.1;
+      }
+      p {
+        margin: 0 0 28px;
+        font-size: 20px;
+      }
+      .deck-list {
+        display: grid;
+        gap: 12px;
+      }
+      .deck-link {
+        display: inline-block;
+        background: white;
+        border: 2px solid #e9f2f6;
+        border-radius: 14px;
+        padding: 16px 18px;
+        font-size: 18px;
+        color: var(--text);
+        text-decoration: none;
+        transition: border-color 0.2s ease, transform 0.2s ease;
+      }
+      .deck-link:hover {
+        border-color: var(--accent);
+        transform: translateY(-1px);
+      }
+      code {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Matchical Slides</h1>
+      <p>Live-first code-based decks. Compare the three design variants, then iterate the chosen direction.</p>
+      <div class="deck-list">
+        <a class="deck-link" href="/decks/variant-a/">Variant A · Premium Sales (Balanced)</a>
+        <a class="deck-link" href="/decks/variant-b/">Variant B · Editorial Minimal (Airy)</a>
+        <a class="deck-link" href="/decks/variant-c/">Variant C · Product Diagram (Balanced)</a>
+        <a class="deck-link" href="/decks/demo/">Legacy Demo (previous iteration)</a>
+      </div>
+    </main>
+  </body>
+</html>

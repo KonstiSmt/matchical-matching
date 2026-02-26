@@ -513,15 +513,16 @@ Pragmatic expectations:
 
 ### Purpose
 
-A lightweight scoring query that returns only `MatchingScore` for specific consultant(s) against a demand. Used when demand requirements or consultant experiences change and scores need recalculation.
+A lightweight bulk-scoring query that returns one row per valid `(DemandId, ConsultantId)` pair and provides all matching scores needed for mode switching.
 
 ### Input Parameters
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `@TenantId` | GUID | Tenant isolation |
-| `@DemandId` | GUID | Target demand |
+| `@DemandIds` | Text (Expand Inline) | Comma-separated demand UUIDs for IN clause |
 | `@ConsultantIds` | Text (Expand Inline) | Comma-separated consultant UUIDs for IN clause |
+| `@UseCustomRoles` | Boolean | When `1`, also calculate custom-role variants |
 | `@Cat_RoleSkill` | Category ID | Category ID for RoleSkill |
 | `@Cat_Skill` | Category ID | Category ID for Skill |
 | `@Cat_Role` | Category ID | Category ID for Role |
@@ -531,74 +532,62 @@ A lightweight scoring query that returns only `MatchingScore` for specific consu
 | `@Cat_Industry` | Category ID | Category ID for Industry |
 | `@Cat_FunctionalArea` | Category ID | Category ID for FunctionalArea |
 | `@Cat_Language` | Category ID | Category ID for Language |
-| `@UseCustomRoles` | Boolean | Switch between standard and custom role categories |
-| `@RoleSkillScoringModeId` | Category ID | Selected role-skill scoring mode |
-| `@ScoringMode_StrictRole` | Category ID | Mode constant for strict role |
-| `@ScoringMode_GlobalSkill` | Category ID | Mode constant for global skill |
-| `@ScoringMode_RoleFirstHybrid` | Category ID | Mode constant for role-first hybrid |
 
 ### Output Columns
 
 | Column | Type | Description |
 |--------|------|-------------|
-| `Id` | GUID | The consultant ID |
-| `MatchingScore` | Decimal | Aggregated score from all matched requirements (0 if no matches) |
+| `DemandId` | GUID | Demand ID from the input list (tenant-valid only) |
+| `ConsultantId` | GUID | Consultant ID from the input list (tenant-valid only) |
+| `MatchingScoreStrict` | Decimal | Standard-role strict score |
+| `MatchingScoreHybrid` | Decimal | Standard-role hybrid score |
+| `MatchingScoreSkills` | Decimal | Standard-role skills/global score |
+| `CustomRolesMatchingScoreStrict` | Decimal/NULL | Custom-role strict score (`NULL` when `@UseCustomRoles <> 1`) |
+| `CustomRolesMatchingScoreHybrid` | Decimal/NULL | Custom-role hybrid score (`NULL` when `@UseCustomRoles <> 1`) |
+| `CustomRolesMatchingScoreSkills` | Decimal/NULL | Custom-role skills/global score (`NULL` when `@UseCustomRoles <> 1`) |
 
 ### Query Architecture
 
-Streamlined pipeline with no filters, no sorting, no pagination:
+Set-based multi-demand and multi-consultant pipeline:
 
 ```
-input_consultant (SELECT from Consultant WHERE Id IN @ConsultantIds)
-    ↓
-requirement (active requirements for demand)
-    ↓
-5 category branches (join to Experience WHERE ConsultantId IN @ConsultantIds)
-    ↓
-partials (UNION ALL)
-    ↓
-scores (GROUP BY ConsultantId → SUM(partial_score))
-    ↓
-final SELECT (LEFT JOIN input_consultant to scores, COALESCE for 0)
+input_demand + input_consultant
+    ->
+input_pair (Demand x Consultant matrix)
+    ->
+requirement_raw + consultant_experience
+    ->
+roleskill branches (strict/hybrid base + skills redistributed/deduplicated)
+    +
+role branch
+    +
+shared non-role branches (industry/functional/language)
+    ->
+mode_score (matrix x mode x variant)
+    ->
+final SELECT (pivot into 8 output columns)
 ```
-
-### Key Differences from Query 1
-
-| Removed | Reason |
-|---------|--------|
-| `demand` CTE | No filters needed |
-| `eligible_consultant` CTE | Direct ConsultantId filtering via input |
-| `filtered_requirement` CTE | No filter enforcement |
-| `kept` CTE | Return all scores, even 0 |
-| `price_performance` CTE | Not needed |
-| Count window function | No pagination |
-| ORDER BY / LIMIT / OFFSET | No pagination |
-| MatchedRequirementsCount | Not needed |
 
 ### Scoring Logic
 
-Identical to Query 1:
-* **RoleSkill**:
-  * Strict/Hybrid: `DynamicWeight * RoleWeight` (proportional if below required score)
-  * Global Skill: redistributed + deduplicated `SkillWeightEffective` by `SkillId` (proportional if below required score)
-* **Role**: `DynamicWeight * 100.0` (proportional if below required score, disabled in Global Skill mode)
-* **Industry**: `DynamicWeight * 100.0` (proportional if below required score)
-* **FunctionalArea**: `DynamicWeight * 100.0` (proportional if below required score)
-* **Language**: `DynamicWeight * 100.0` (proportional if below required score)
+Formula behavior is unchanged from the existing matching logic:
+* **RoleSkill Strict**: role-scoped score against base `DynamicWeight * RoleWeight`
+* **RoleSkill Hybrid**: `effective_score = max(role_score, max(global_score - 1, 0))`
+* **RoleSkill Skills**: skill-scoped score against redistributed and deduplicated global-skill weights
+* **Role**: `DynamicWeight * 100.0`, excluded only for skills mode
+* **Industry / FunctionalArea / Language**: `DynamicWeight * 100.0`, included in all modes
 
-### LEFT JOIN Guarantee
+### Output Guarantees
 
-All input consultants appear in the output:
-* Consultants with matching experience: actual calculated score
-* Consultants with no matching experience: `MatchingScore = 0`
+* Invalid or cross-tenant demand IDs are filtered out before scoring.
+* All tenant-valid demand-consultant input pairs appear in output.
+* Missing matches return `0` for standard scores.
+* Custom-role score columns are `NULL` when `@UseCustomRoles <> 1`.
 
 ### Performance Characteristics
 
-**Expected: Sub-millisecond to few milliseconds**
-
-Why it's fast:
-1. **Direct lookup** via ConsultantId IN (...) with no full table scan
-2. **Experience table indexes** on (ConsultantId, CategoryId, TenantId)
-3. **Simple aggregation** with just SUM, no window functions
-4. **No sorting** as results returned as-is
-5. **Bulk is efficient** as same query works for 1 or 100 consultants
+Why this stays efficient:
+1. Set-based bulk scoring avoids N query loops in application code.
+2. `consultant_experience` and `requirement_raw` are materialized once and reused.
+3. Shared non-role contributions are aggregated once per pair and reused across all modes.
+4. No sorting, pagination, or windowed count in final projection.
