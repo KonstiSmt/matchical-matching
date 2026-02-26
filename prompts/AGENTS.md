@@ -20,6 +20,7 @@ Every prompt must use this section order and heading levels:
 
 ## Output Structure Discipline
 - Keep JSON output keys in a fixed, explicit order and mirror that order in examples.
+- Use PascalCase for structured output keys by default, unless a user explicitly requests a different casing.
 - When output fields or ordering change, update both schema files in `prompts/schemas/`.
 - Do not change any output schema or output key naming unless the user explicitly requests it.
 - If a schema change might be needed but was not explicitly requested, ask the user first.
