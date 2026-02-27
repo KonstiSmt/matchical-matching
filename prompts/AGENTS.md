@@ -4,6 +4,9 @@ This directory contains prompts for Matchical's AI pipelines.
 
 ## Prompting Conventions
 
+## Project Description Perspective
+- In `project-description.md`, clean versions must stay project-centric and must not be narrated from consultant perspective (for example, avoid openings like "as a [role]" or "the consultant ...").
+
 ## Role Section Quality
 - In prompt `# Role` sections, use a human-relatable role that plausibly exists in the target business context.
 - Avoid vague role labels (for example, generic 'specialist' phrasing) when a concrete real-world role is possible.

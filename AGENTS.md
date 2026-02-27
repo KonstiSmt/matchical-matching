@@ -54,6 +54,7 @@ Repository includes development artifacts for Matchical: queries, prompts, mocku
 ## External File Discovery
 - Do not run broad/random filesystem searches for user-provided external files.
 - If external file paths are unclear or unavailable, ask the user to provide or re-provide exact paths.
+- If provided PDF or image content cannot be reliably accessed or parsed, explicitly tell the user and request an alternative format (for example, page images).
 
 ## Worktree Merge Workflow
 - Trigger condition: when the user says a worktree is done and requests merging to the main checkout.
