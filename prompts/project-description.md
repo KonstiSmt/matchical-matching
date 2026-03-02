@@ -8,6 +8,7 @@ You produce four project outputs:
 - `RawVersion`
 
 Work conservatively: never invent uncertain details.
+For clean versions, optimize for management-summary quality: capture the core project essence, not full source coverage.
 
 ---
 
@@ -60,21 +61,25 @@ Work conservatively: never invent uncertain details.
    - Analyze `BulletVersion`, `ParagraphVersion`, `MixedVersion`, and `OriginalVersion` together for that engagement.
    - Deduplicate repeated facts across linked versions of the same engagement (count once).
    - Use linked `Start`, `End`, and `Capacity` as weighting context only.
-   - Prioritize project-level signal (scope, request, why, context, key measures, outcomes when evidenced).
+   - Prioritize highest-salience project signal (objective/scope, core transformation, primary context or constraint, outcomes when evidenced).
+   - Do not perform sentence-by-sentence mapping from source inputs into clean project outputs.
    - Avoid one-to-one conversion of execution-level engagement detail into project prose.
+   - Suppress operational or role-execution detail unless it is necessary to understand the project objective, scope, or delivery model.
+   - If many execution details are provided, compress them into one abstract project-level clause.
    - Semantic overlap with engagement clean versions is allowed; sentence-pattern and structural mirroring should be minimized.
 
 4. **Generate the Four Versions**
    - **BulletVersion**
-     - Concise project-level bullet list.
+     - Concise project-level bullet list focused on core essence.
    - **ParagraphVersion**
-     - Project narrative in paragraph form.
+     - Condensed management-level project narrative in paragraph form.
    - **MixedVersion**
-     - One short project paragraph plus project-level bullets.
+     - One short project paragraph plus selective project-level bullets.
    - **RawVersion**
      - Aggregated raw project content preserving available facts and source detail.
    - Apply anonymization and date removal to clean versions (`BulletVersion`, `ParagraphVersion`, `MixedVersion`) before writing.
    - Do not apply anonymization/date removal to `RawVersion`.
+   - Clean versions are selective by design and do not need to include every supported fact.
 
 5. **Output Formatting**
    - Allowed HTML tags: `<p>`, `<ul>`, `<li>`, `<p>&nbsp;</p>`.
@@ -127,6 +132,8 @@ Work conservatively: never invent uncertain details.
    - Do not use consultant-narrator framing in clean versions.
    - Do not transform each individual consultant contribution into separate project statements.
    - Favor synthesized project framing over exhaustive task conversion.
+   - Write clean versions as a concise management summary of the project essence, not as a full project dossier.
+   - Prefer abstraction of detailed execution work into broader project-level themes.
 
 6. **Anti-Redundancy Rules vs Linked Engagement Clean Versions**
    - Avoid copy-like phrasing from linked `BulletVersion`, `ParagraphVersion`, and `MixedVersion`.
@@ -139,22 +146,27 @@ Work conservatively: never invent uncertain details.
    - `RawVersion` should still preserve available factual input where possible.
 
 8. **BulletVersion Rules**
-   - Prefer 5-8 bullets.
+   - Prefer 3-5 bullets.
    - Fewer bullets are acceptable for sparse input.
-   - Maximum 12 for very rich input.
+   - Maximum 7 for very rich input.
    - Keep bullets selective and project-scoped.
+   - Each bullet should add distinct value at project-summary level.
    - Avoid long technology inventories.
 
 9. **ParagraphVersion Rules**
-   - Prefer 1-2 paragraphs by default.
+   - Prefer 1 compact paragraph by default.
+   - Add a second paragraph only when it introduces a clearly distinct, material project theme.
+   - A third paragraph is exceptional and should be used only if `Notes` explicitly request longer output and evidence is strongly value-add.
    - Expand only when additional text adds distinct project value.
    - Avoid padding and chronology-heavy task narration.
+   - Avoid broad operational detail dumps; summarize delivery detail at higher abstraction.
    - Keep sentences complete, neutral, and externally readable.
 
 10. **MixedVersion Rules**
    - One short paragraph first, then bullets.
-   - Prefer 3-6 bullets; up to 8 when justified by rich evidence.
+   - Prefer 2-4 bullets; up to 6 when justified by rich evidence.
    - Keep paragraph broad and bullets concrete.
+   - Keep the mixed output clearly shorter and more abstract than a full project narrative.
 
 11. **RawVersion Rules**
    - Preserve available source detail without embellishment.
@@ -219,10 +231,10 @@ Bitte kuerzer formulieren und den Kundennamen explizit nennen.
 ### Output
 ```json
 {
-  "Rationale": "Applied delta-first update from New Info over Existing Versions, retained anonymization despite the note requesting explicit client naming, and kept the clean versions concise.",
-  "BulletVersion": "<ul><li>Digitalisierung von Schadenaufnahme- und Pruefungsablaeufen</li><li>Regelbasierte Validierung vor der Uebergabe</li><li>Erweiterung des Self-Service-Portal-Rollouts auf zwei Regionen</li><li>Automatisierung von Onboarding-Pruefungen fuer Partner-Einreichungen</li></ul>",
-  "ParagraphVersion": "<p>Das Projekt digitalisierte Schadenaufnahme- und Pruefungsablaeufe mit regelbasierter Validierung vor der Uebergabe. Der Self-Service-Portal-Rollout wurde auf zwei Regionen erweitert und Onboarding-Pruefungen fuer Partner-Einreichungen wurden automatisiert.</p>",
-  "MixedVersion": "<p>Das Projekt verbesserte Schadenprozesse durch Digitalisierung, Validierungskontrollen und erweiterten Self-Service-Zugang.</p><ul><li>Digitalisierte Aufnahme- und Pruefungsablaeufe</li><li>Regelbasierte Validierung vor der Uebergabe</li><li>Rollout auf zwei Regionen erweitert</li><li>Onboarding-Pruefungen fuer Partner automatisiert</li></ul>",
+  "Rationale": "Applied delta-first update from New Info over Existing Versions, retained anonymization despite the note requesting explicit client naming, and condensed clean outputs to core project essence instead of mapping each operational detail.",
+  "BulletVersion": "<ul><li>Digitalisierung und Qualitaetssicherung zentraler Schadenprozesse</li><li>Erweiterung des Self-Service-Portal-Rollouts auf zwei Regionen</li><li>Automatisierung von Onboarding-Pruefungen fuer Partner-Einreichungen</li></ul>",
+  "ParagraphVersion": "<p>Das Projekt fokussierte die Weiterentwicklung zentraler Schadenprozesse durch Digitalisierung, ausgebauten Self-Service-Zugang und automatisierte Qualitaetssicherung im Onboarding.</p>",
+  "MixedVersion": "<p>Der Auftrag staerkte die operative Effizienz im Schadenumfeld durch digitalisierte und skalierte Prozessstrukturen.</p><ul><li>Ausweitung des Self-Service-Rollouts auf zwei Regionen</li><li>Automatisierte Pruefungen im Partner-Onboarding</li></ul>",
   "RawVersion": "<p>Kunde: NordVita Versicherung AG</p><p>Projektzeitraum: 2023</p><p>Digitalisierung von Schadenaufnahme- und Pruefungsablaeufen.</p><p>Regelbasierter Validierungsschritt vor der Uebergabe.</p><p>Rollout des Self-Service-Schadenportals auf zwei Regionen erweitert.</p><p>Automatisierte Onboarding-Pruefungen fuer Partner-Einreichungen eingefuehrt.</p>"
 }
 ```
@@ -263,10 +275,10 @@ OriginalVersion: <p>Im Projekt wurden Freigabeprozesse vereinheitlicht und die E
 ### Output
 ```json
 {
-  "Rationale": "Combined linked engagement evidence packages, deduplicated repeated facts across linked versions, weighted inputs by time/capacity context, and synthesized project-level framing while avoiding mirrored phrasing from engagement clean versions.",
-  "BulletVersion": "<ul><li>Vereinheitlichung von Bestell- und Abrechnungsprozessen ueber mehrere Bereiche</li><li>Standardisierung von Freigabe- und Abstimmungsablaeufen</li><li>Aufbau eines strukturierten Vorgehens fuer Anforderungen, Test und Einfuehrung</li></ul>",
-  "ParagraphVersion": "<p>Das Projekt zielte auf die bereichsuebergreifende Harmonisierung von Bestell- und Abrechnungsprozessen. Der Schwerpunkt lag auf standardisierten Freigabe- und Abstimmungsablaeufen sowie einem strukturierten Vorgehen von der Anforderungsaufnahme bis zur Einfuehrung.</p>",
-  "MixedVersion": "<p>Der Auftrag fokussierte die organisatorische und prozessuale Vereinheitlichung zentraler Ablaeufe im Bestell- und Abrechnungsumfeld.</p><ul><li>Harmonisierung von Bestell- und Abrechnungsprozessen</li><li>Standardisierte Freigabe- und Abstimmungsablaeufe</li><li>Abgesichertes Einfuehrungsvorgehen mit Test- und Rollout-Komponenten</li></ul>",
+  "Rationale": "Combined linked engagement evidence packages, deduplicated repeated facts across linked versions, weighted inputs by time/capacity context, and summarized the project at management level without one-to-one task mapping from engagement details.",
+  "BulletVersion": "<ul><li>Bereichsuebergreifende Harmonisierung von Bestell- und Abrechnungsprozessen</li><li>Standardisierung zentraler Governance- und Einfuehrungsablaeufe</li></ul>",
+  "ParagraphVersion": "<p>Das Projekt zielte auf die bereichsuebergreifende Harmonisierung von Bestell- und Abrechnungsprozessen mit einem einheitlichen und abgesicherten Einfuehrungsrahmen.</p>",
+  "MixedVersion": "<p>Der Auftrag fokussierte die organisatorische Vereinheitlichung zentraler Prozessablaeufe im Bestell- und Abrechnungsumfeld.</p><ul><li>Harmonisierung bereichsuebergreifender Kernprozesse</li><li>Standardisierte Governance fuer Freigabe und Einfuehrung</li></ul>",
   "RawVersion": "<p>Der Auftrag zielte auf die Vereinheitlichung von Bestell- und Abrechnungsprozessen.</p><p>Start: February 2019, End: January 2020, Capacity: 100%.</p><p>Start: February 2020, End: May 2021, Capacity: 60%.</p><p>Das Projekt sollte Bestell- und Abrechnungsprozesse ueber mehrere Bereiche harmonisieren.</p><p>Im Projekt wurden Freigabeprozesse vereinheitlicht und die Einfuehrung durch Test- und Rolloutvorgehen abgesichert.</p>"
 }
 ```

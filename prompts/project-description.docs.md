@@ -19,11 +19,13 @@ Keep this file as non-runtime context for the project description prompt. It cap
 - Project output keys are `Rationale`, `BulletVersion`, `ParagraphVersion`, `MixedVersion`, `RawVersion` (in that order).
 - `RawVersion` keeps full project detail; clean versions apply anonymization.
 - Clean versions must remain project-centric and impersonal.
-- Clean versions prioritize project-level framing over exhaustive contribution-level detail.
+- Clean versions prioritize core project essence (management-summary style) over exhaustive contribution-level detail.
 - Linked engagement evidence is analyzed as whole engagement packages (all linked versions together), with repeated facts deduplicated per engagement.
 - Linked engagement `Start`/`End`/`Capacity` are weighting signals only (`Start`/`End` input format: `MMMM yyyy`; `End` may be `ongoing` for no end date).
-- Coverage in clean versions is principle-based (objective/scope, what/why, context, measures, outcomes) and only included when evidenced.
-- Length behavior is adaptive: compact by default, with expansion only when added text contributes distinct project value.
+- Coverage in clean versions is salience-based: include only the highest-value project signals (objective/scope, core transformation, primary context/constraint, outcomes when evidenced).
+- Clean versions suppress low-signal operational execution detail unless needed to understand project purpose or delivery model.
+- Length behavior is strongly compact by default: one paragraph preferred; expansion only when clearly distinct, material value is added.
+- Bullet and mixed outputs are intentionally selective to avoid sentence-by-sentence mapping from source data.
 - If project-level evidence is insufficient for clean versions, return empty strings for those versions while preserving available input in `RawVersion`.
 - `Notes` can add facts and instructions, but cannot override anonymization, HTML subset, or output structure.
 
@@ -34,6 +36,7 @@ Keep this file as non-runtime context for the project description prompt. It cap
 - Rich-input examples are needed to show controlled expansion without padding.
 - Wording in clean versions should avoid anthropomorphic project agency for tactical tasks and prefer neutral constructions.
 - Redundancy quality depends on phrasing control, not fact suppression: semantic overlap with linked engagement clean versions is acceptable, but mirrored sentence/list patterns should be reduced.
+- The main quality risk is over-mapping engagement execution detail into project text; prompt guidance and examples should bias toward abstraction and essence-first synthesis.
 
 ## Open Questions
 - Do we need stricter heuristics for detecting near-copy phrasing against linked engagement clean versions across different languages?
