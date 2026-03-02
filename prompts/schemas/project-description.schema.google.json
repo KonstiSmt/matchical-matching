@@ -6,28 +6,28 @@
       "type": "string",
       "description": "Brief rationale describing how inputs were interpreted and any missing information."
     },
-    "RawVersion": {
-      "type": "string",
-      "description": "Aggregated raw project description in HTML."
-    },
     "BulletVersion": {
       "type": "string",
       "description": "Bullet project description in HTML."
+    },
+    "ParagraphVersion": {
+      "type": "string",
+      "description": "Paragraph project description in HTML."
     },
     "MixedVersion": {
       "type": "string",
       "description": "Mixed project description in HTML."
     },
-    "TextVersion": {
+    "RawVersion": {
       "type": "string",
-      "description": "Text project description in HTML."
+      "description": "Aggregated raw project description in HTML."
     }
   },
   "required": [
     "Rationale",
-    "RawVersion",
     "BulletVersion",
+    "ParagraphVersion",
     "MixedVersion",
-    "TextVersion"
+    "RawVersion"
   ]
 }
