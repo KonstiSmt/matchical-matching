@@ -4,9 +4,6 @@ This directory contains prompts for Matchical's AI pipelines.
 
 ## Prompting Conventions
 
-## Project Description Perspective
-- In `project-description.md`, clean versions must stay project-centric and must not be narrated from consultant perspective (for example, avoid openings like "as a [role]" or "the consultant ...").
-
 ## Role Section Quality
 - In prompt `# Role` sections, use a human-relatable role that plausibly exists in the target business context.
 - Avoid vague role labels (for example, generic 'specialist' phrasing) when a concrete real-world role is possible.
@@ -51,6 +48,7 @@ Every prompt must use this section order and heading levels:
 - If a rule changes model output, format, or constraints, update the prompt first and reflect only a short rationale in docs.
 - Keep docs concise and decision-oriented; avoid duplicating full prompt text.
 - Maintain one docs file per prompt when useful (for example, `engagement-description.docs.md`, `project-description.docs.md`).
+- Keep this `prompts/AGENTS.md` file prompt-agnostic; do not add prompt-specific voice, style, or output rules here.
 
 ## DevTools Prompt Workflow
 - Use the DevTools REST API to discover categories, fetch active prompts, and sync local files when requested.

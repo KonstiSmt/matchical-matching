@@ -18,6 +18,7 @@ Keep this file as non-runtime context for the project description prompt. It cap
 - `New Info` may be text-only, image-only, or mixed.
 - `RawVersion` keeps full project detail; clean versions apply anonymization.
 - Clean versions must remain project-centric and impersonal.
+- Clean versions prioritize project-level framing over exhaustive contribution-level detail.
 - Coverage in clean versions is principle-based (objective/scope, what/why, context, measures, outcomes) and only included when evidenced.
 - Length behavior is adaptive: compact by default, with expansion only when added text contributes distinct project value.
 - If project-level evidence is insufficient for clean versions, return empty strings for those versions while preserving available input in `RawVersion`.
@@ -28,6 +29,7 @@ Keep this file as non-runtime context for the project description prompt. It cap
 - Narration-trap examples are needed to prove clean versions avoid consultant framing.
 - Sparse tech-stack examples are needed to prove conservative empty-output fallback.
 - Rich-input examples are needed to show controlled expansion without padding.
+- Wording in clean versions should avoid anthropomorphic project agency for tactical tasks and prefer neutral constructions.
 
 ## Open Questions
 - Do we need stricter anonymization guidance for edge cases such as subsidiaries, branded platforms, or uniquely identifying program names?
