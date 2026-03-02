@@ -26,6 +26,7 @@ Keep this file as non-runtime context for the project description prompt. It cap
 - Clean versions suppress low-signal operational execution detail unless needed to understand project purpose or delivery model.
 - Length behavior is strongly compact by default: one paragraph preferred; expansion only when clearly distinct, material value is added.
 - Bullet and mixed outputs are intentionally selective to avoid sentence-by-sentence mapping from source data.
+- Clean versions must not contain spacer/empty paragraph tags (`<p>&nbsp;</p>`, empty `<p>`).
 - If project-level evidence is insufficient for clean versions, return empty strings for those versions while preserving available input in `RawVersion`.
 - `Notes` can add facts and instructions, but cannot override anonymization, HTML subset, or output structure.
 

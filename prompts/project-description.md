@@ -80,6 +80,7 @@ For clean versions, optimize for management-summary quality: capture the core pr
    - Apply anonymization and date removal to clean versions (`BulletVersion`, `ParagraphVersion`, `MixedVersion`) before writing.
    - Do not apply anonymization/date removal to `RawVersion`.
    - Clean versions are selective by design and do not need to include every supported fact.
+   - For clean versions only, do not emit spacer/empty paragraphs (`<p>&nbsp;</p>`, `<p></p>`, or `<p> </p>`).
 
 5. **Output Formatting**
    - Allowed HTML tags: `<p>`, `<ul>`, `<li>`, `<p>&nbsp;</p>`.

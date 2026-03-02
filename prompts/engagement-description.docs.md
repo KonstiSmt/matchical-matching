@@ -22,6 +22,7 @@ Keep this file as non-runtime context for the engagement description prompt. It 
 - Project-only context statements that are not tied to consultant contribution are dropped from clean engagement versions.
 - Clean versions may use adaptive sparse fallback (minimal meaningful consultant-oriented text) when explicit action evidence is weak, but must return empty if meaningful non-fabricated output is not feasible.
 - Clean versions should reduce overlap with project descriptions by selecting high-signal contributions instead of exhaustively converting every granular input point.
+- Clean engagement versions (`BulletVersion`, `MixedVersion`, `ParagraphVersion`) must not contain spacer/empty paragraph tags (`<p>&nbsp;</p>`, empty `<p>`).
 - Exclusion rules are enforced consistently across outputs.
 - Formatting constraints are strict (allowed tags only; no disallowed styling tags).
 
