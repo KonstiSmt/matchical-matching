@@ -1,0 +1,41 @@
+{
+  "description": "Schema for the structured output of extracted job posting requirements, detailing rationales for the extraction process and the lists of must-have and nice-to-have job requirements.",
+  "type": "object",
+  "properties": {
+    "Rationale": {
+      "type": "string",
+      "description": "A clear and detailed summary explaining step by step how the 'Requirement Extraction Specialist' assessed information quality, converted tasks to requirements if applicable, excluded internal notes, identified the demand, accounted for user input, ensured language consistency, and extracted the requirements. This field can be null if a rationale is not applicable or cannot be meaningfully provided."
+    },
+    "MustHaveRequirementsRationale": {
+      "type": "string",
+      "description": "The specific rationale related to the extraction of must-have requirements, including how they were identified, merged, and quality-assured. This field can be null if a rationale is not applicable or cannot be meaningfully provided."
+    },
+    "MustHaveRequirements": {
+      "type": "array",
+      "description": "An array of strings listing the must-have requirements for the role. Each requirement is a separate string. The array will be empty if no must-have requirements are identified.",
+      "items": {
+        "type": "string",
+        "description": "A single must-have requirement, clearly articulated. It is a stylistic preference that this string does not end with a period."
+      }
+    },
+    "NiceToHaveRequirementsRationale": {
+      "type": "string",
+      "description": "The specific rationale related to the extraction of nice-to-have requirements, including how they were identified, merged, and quality-assured. This field can be null if a rationale is not applicable or cannot be meaningfully provided."
+    },
+    "NiceToHaveRequirements": {
+      "type": "array",
+      "description": "An array of strings listing the nice-to-have requirements for the role. Each requirement is a separate string. The array will be empty if no nice-to-have requirements are identified.",
+      "items": {
+        "type": "string",
+        "description": "A single nice-to-have requirement, clearly articulated. It is a stylistic preference that this string does not end with a period."
+      }
+    }
+  },
+  "required": [
+    "Rationale",
+    "MustHaveRequirementsRationale",
+    "MustHaveRequirements",
+    "NiceToHaveRequirementsRationale",
+    "NiceToHaveRequirements"
+  ]
+}
