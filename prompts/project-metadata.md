@@ -536,3 +536,4 @@ To: 2024-11
 - Do not infer `Industry` or `ClientPseudonym` from weak/generic signals.
 - Do not include client identifiers in `ProjectName`.
 - If input unexpectedly contains multiple project candidates, select the single strongest project signal and ignore the rest.
+
