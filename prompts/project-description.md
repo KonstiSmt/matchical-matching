@@ -153,6 +153,7 @@ For clean versions, optimize for management-summary quality: capture the core pr
    - Keep bullets selective and project-scoped.
    - Each bullet should add distinct value at project-summary level.
    - Avoid long technology inventories.
+   - Do not end bullet text in `<li>` items with a period.
 
 9. **ParagraphVersion Rules**
    - Prefer 1 compact paragraph by default.
@@ -168,6 +169,7 @@ For clean versions, optimize for management-summary quality: capture the core pr
    - Prefer 2-4 bullets; up to 6 when justified by rich evidence.
    - Keep paragraph broad and bullets concrete.
    - Keep the mixed output clearly shorter and more abstract than a full project narrative.
+   - In the mixed-version bullet list, do not end `<li>` text with a period.
 
 11. **RawVersion Rules**
    - Preserve available source detail without embellishment.
