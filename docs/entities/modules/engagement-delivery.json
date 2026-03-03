@@ -1,0 +1,927 @@
+[
+  {
+    "Entity": "Certificate",
+    "Columns": [
+      {
+        "name": "aiclassificationrationale",
+        "dataType": "text"
+      },
+      {
+        "name": "certificatecategoryid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "internalnote",
+        "dataType": "text"
+      },
+      {
+        "name": "isofficial",
+        "dataType": "numeric"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "CertificateCategory",
+    "Columns": [
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "descriptionlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "internalnote",
+        "dataType": "text"
+      },
+      {
+        "name": "isofficial",
+        "dataType": "numeric"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "vectorid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "ConsultantCertificate",
+    "Columns": [
+      {
+        "name": "categoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "certificateid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "consultantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "cvparserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "expirationdate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "externalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "fileid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isaiparsed",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isrelevant",
+        "dataType": "numeric"
+      },
+      {
+        "name": "issuedate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "issuer",
+        "dataType": "character varying"
+      },
+      {
+        "name": "pdffileid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "Education",
+    "Columns": [
+      {
+        "name": "consultantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "cvparserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "degreelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "enddate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "externalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isaiparsed",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isongoing",
+        "dataType": "numeric"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      },
+      {
+        "name": "startdate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "university",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "Engagement",
+    "Columns": [
+      {
+        "name": "absolutemonth",
+        "dataType": "integer"
+      },
+      {
+        "name": "addressid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "capacity",
+        "dataType": "integer"
+      },
+      {
+        "name": "clientpseudonymlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "consultantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "cvparserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "descriptionkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "descriptionlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "enddate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "externalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "functionalareaid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "industryid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isaiparsed",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isdateinvalid",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isongoing",
+        "dataType": "numeric"
+      },
+      {
+        "name": "ispseudonymdefaultoverride",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isupdated",
+        "dataType": "numeric"
+      },
+      {
+        "name": "matid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      },
+      {
+        "name": "parsedmonthduration",
+        "dataType": "integer"
+      },
+      {
+        "name": "projectdays",
+        "dataType": "integer"
+      },
+      {
+        "name": "projectid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "sourcecategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "startdate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "weightedmonth",
+        "dataType": "numeric"
+      }
+    ]
+  },
+  {
+    "Entity": "EngagementLanguages",
+    "Columns": [
+      {
+        "name": "engagementid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "languageid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "languagenewid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "EngagementRoleSkills",
+    "Columns": [
+      {
+        "name": "engagementroleid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "remappedskillaliasid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "skillaliasisid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "EngagementRoleSkillsNew",
+    "Columns": [
+      {
+        "name": "engagementroleid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "skillid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "skillnameid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "EngagementRoles",
+    "Columns": [
+      {
+        "name": "customroleid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "descriptionlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "engagementid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "remappedrolealiasid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "rolealiasid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "weight",
+        "dataType": "numeric"
+      }
+    ]
+  },
+  {
+    "Entity": "FocusArea",
+    "Columns": [
+      {
+        "name": "consultantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "cvexportid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "descriptionlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isaiparsed",
+        "dataType": "numeric"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      },
+      {
+        "name": "shortdescriptionlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "FrameContract",
+    "Columns": [
+      {
+        "name": "clientid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "fileid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "filename",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "opportunityid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "proposalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "ratingmappingkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "FrameContractRole",
+    "Columns": [
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "creatorid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "descriptionlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "descriptiontextlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "framecontractid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "templatedemandid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "HoursRecord",
+    "Columns": [
+      {
+        "name": "enddatetime",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "orderpositionid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "startdatetime",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "JobExperience",
+    "Columns": [
+      {
+        "name": "clientid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "companyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "consultantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "cvparserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "enddate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "externalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "functionalareaid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "industryid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isaiparsed",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isongoing",
+        "dataType": "numeric"
+      },
+      {
+        "name": "rolelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "startdate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "OrderPosition",
+    "Columns": [
+      {
+        "name": "capacity",
+        "dataType": "integer"
+      },
+      {
+        "name": "clientorderid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "clientrate",
+        "dataType": "numeric"
+      },
+      {
+        "name": "contingent",
+        "dataType": "integer"
+      },
+      {
+        "name": "dailyhours",
+        "dataType": "numeric"
+      },
+      {
+        "name": "enddate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "engagementid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isdailyrateclient",
+        "dataType": "numeric"
+      },
+      {
+        "name": "position",
+        "dataType": "character varying"
+      },
+      {
+        "name": "projectorderid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "startdate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Project",
+    "Columns": [
+      {
+        "name": "addressid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "approachlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "approachtagid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "businessprocesstagid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "clientcompanyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "clientid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "clientpseudonymlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "creatorid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "customclientindustryid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "deliverytypetagid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "descriptionkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "descriptionlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "enddate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "externalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "industryid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isclientdefaultoverride",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isindustrydefaultoverride",
+        "dataType": "numeric"
+      },
+      {
+        "name": "ismanaged",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isongoing",
+        "dataType": "numeric"
+      },
+      {
+        "name": "ispseudonymdefaultoverride",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isupdated",
+        "dataType": "numeric"
+      },
+      {
+        "name": "matid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "objectivelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "objectivetagid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "outcomelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "outcometagid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "problemlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "problemtagid4",
+        "dataType": "character varying"
+      },
+      {
+        "name": "projectcapabilitytagid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "projectgroupid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "sourcecategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "startdate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "ProjectGroup",
+    "Columns": [
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      }
+    ]
+  }
+]

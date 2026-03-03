@@ -1,69 +1,35 @@
 # Experience Entity
 
+For complete physical schema, see `docs/entities/modules/matching-core.json`.
+Reference taxonomy details are in `docs/entities/modules/reference-taxonomy.json`.
+
 ## Experience
-Pre-calculated skill/experience scores per consultant per category.
 
-| Attribute | Type | Description |
-|-----------|------|-------------|
-| `Id` | GUID | Primary key |
-| `ConsultantId` | GUID | FK to Consultant |
-| `TenantId` | GUID | Tenant isolation |
-| `CategoryId` | GUID | Category (see below) |
-| `RoleId` | GUID | Key for RoleSkill/Role categories |
-| `SkillId` | GUID | Key for RoleSkill, CustomRoleSkill, Skill, and CustomSkill categories |
-| `CustomRoleId` | GUID | Key for CustomRoleSkill/CustomRole categories |
-| `IndustryId` | GUID | Key for Industry category |
-| `FunctionalAreaId` | GUID | Key for FunctionalArea category |
-| `LanguageId` | GUID | Key for Language category |
-| `Score` | Integer | Pre-calculated experience score (1-5, or 1-6 for languages) |
+| Column (physical) | Type | Usage |
+|---|---|---|
+| `id` | `character varying` | Experience row key |
+| `tenantid` | `character varying` | Tenant scope |
+| `consultantid` | `character varying` | Linked consultant |
+| `categoryid` | `integer` | Experience category |
+| `roleid` | `character varying` | Role key |
+| `skillid` | `character varying` | Skill key |
+| `customroleid` | `character varying` | Custom role key |
+| `industryid` | `character varying` | Industry key |
+| `functionalareaid` | `character varying` | Functional area key |
+| `languageid` | `character varying` | Language key |
+| `score` | `integer` | Normalized score |
+| `totalmonth` | `numeric` | Total months of experience |
+| `absolutemonth` | `integer` | Absolute month count |
+| `weightedmonth` | `numeric` | Weighted month metric |
+| `lastused` | `timestamp with time zone` | Last usage timestamp |
+| `lastthreeyearsusage` | `numeric` | Recent usage indicator |
+| `isongoing` | `numeric` | Ongoing experience flag |
+| `isindirect` | `numeric` | Indirect experience flag |
+| `isactive` | `numeric` | Active flag |
+| `createdat` | `timestamp with time zone` | Created timestamp |
 
-### Relationships
-- → Consultant (via ConsultantId)
-- → Category (via CategoryId)
+## Query Matching Notes
 
----
-
-## Experience Categories
-
-The `CategoryId` determines which key fields are relevant:
-
-| Category | Relevant Keys | Score Range |
-|----------|---------------|-------------|
-| RoleSkill | `RoleId`, `SkillId` | 1-5 |
-| Role | `RoleId` | 1-5 |
-| CustomRoleSkill | `CustomRoleId`, `SkillId` | 1-5 |
-| CustomRole | `CustomRoleId` | 1-5 |
-| Skill | `SkillId` | 1-5 |
-| CustomSkill | `SkillId` | 1-5 |
-| Industry | `IndustryId` | 1-5 |
-| FunctionalArea | `FunctionalAreaId` | 1-5 |
-| Language | `LanguageId` | 1-6 |
-
----
-
-## Scoring Logic
-
-Experience scores are matched against DemandRequirement scores:
-
-- **Full score**: If `Experience.Score >= DemandRequirement.Score`
-- **Partial score**: If below required, proportional: `(ExperienceScore / RequiredScore) * Weight`
-
-### Weight Calculation by Category
-
-| Category | Weight Formula |
-|----------|----------------|
-| RoleSkill | `DynamicWeight * RoleWeight` |
-| All others | `DynamicWeight * 100.0` |
-
----
-
-## Language Levels (Score 1-6)
-
-| Score | Level |
-|-------|-------|
-| 1 | Beginner |
-| 2 | Elementary |
-| 3 | Intermediate |
-| 4 | Advanced |
-| 5 | Proficient |
-| 6 | Native |
+- `DemandRequirement.categoryid` and `Experience.categoryid` must align.
+- Score comparison still follows requirement-threshold logic (`experience.score` vs `demandrequirement.score`).
+- `roleweight` and `dynamicweight` live on `DemandRequirement`, not `Experience`.

@@ -1,189 +1,73 @@
 # Reference Entities
 
+This file keeps the reference entities most used in query work.
+For full schemas, see:
+- `docs/entities/modules/reference-taxonomy.json`
+- `docs/entities/modules/localization-content.json`
+
 ## Status
-Consultant status reference.
 
-| Attribute | Type | Description |
-|-----------|------|-------------|
-| `Id` | GUID | Primary key |
-| `IsReady` | Boolean | Consultant is ready for matching |
-| `IsActive` | Boolean | Status is active |
-| `Label` | Text | English label |
-| `LabelTranslationsJSON` | JSON | Translations: `{"en":"Active","de":"Aktiv"}` |
-
-### Usage
-- Matching eligibility: `StatusId` on Consultant where `IsReady=1` AND `IsActive=1`
-- Employment status display: `EmploymentStatusId` on ConsultancyUser
-
----
+| Column (physical) | Type |
+|---|---|
+| `id` | `integer` |
+| `statuscategoryid` | `integer` |
+| `label` | `character varying` |
+| `labeltranslationsjson` | `character varying` |
+| `isactive` | `numeric` |
+| `isready` | `numeric` |
+| `isresolved` | `numeric` |
+| `order` | `integer` |
+| `color` | `character varying` |
+| `iconcode` | `character varying` |
 
 ## Category
-Generic category entity used for classifying entities.
 
-| Attribute | Type | Description |
-|-----------|------|-------------|
-| `Id` | GUID | Primary key |
-| `Label` | Text | English label |
-| `LabelTranslationsJSON` | JSON | Translations |
-| `Order` | Integer | Sort order |
-| `Color` | Text | Display color (hex code) |
-| `ParentCategoryId` | GUID | FK to parent Category |
-| `IconCode` | Text | Icon identifier |
-
-### Common Uses
-- Experience categories (RoleSkill, Role, Industry, etc.)
-- Filter categories (Default, Soft, Hard)
-- Availability categories (Yes, No, Unknown)
-- Location types (City, Region, Country)
-
----
+| Column (physical) | Type |
+|---|---|
+| `id` | `integer` |
+| `parentcategoryid` | `integer` |
+| `label` | `character varying` |
+| `labeltranslationsjson` | `character varying` |
+| `order` | `integer` |
+| `color` | `character varying` |
+| `iconcode` | `character varying` |
 
 ## LanguageLevel
-Static entity for language proficiency levels.
 
-| Attribute | Type | Description |
-|-----------|------|-------------|
-| `Id` | GUID | Primary key |
-| `Label` | Text | English label |
-| `LabelTranslationsJSON` | JSON | Translations: `{"en":"Native","de":"Muttersprache"}` |
-| `Order` | Integer | Sort order (1-6) |
+| Column (physical) | Type |
+|---|---|
+| `id` | `integer` |
+| `label` | `character varying` |
+| `labeltranslationsjson` | `character varying` |
+| `order` | `integer` |
 
-### Level Mapping
-| Order | Level |
-|-------|-------|
-| 1 | Beginner |
-| 2 | Elementary |
-| 3 | Intermediate |
-| 4 | Advanced |
-| 5 | Proficient |
-| 6 | Native |
+## Role and Skill Taxonomy
 
----
+| Entity | Key columns |
+|---|---|
+| `Role` | `id`, `namelocalekeyid`, `statusid`, `descriptionlocalekeyid` |
+| `RoleAlias` | `id`, `roleid`, `namelocalekeyid`, `statusid`, `mappedrolealiasid` |
+| `RoleName` | `id`, `namelocalekeyid`, `localekeyid`, `customtenantid` |
+| `CustomRole` | `id`, `rolenameid`, `tenantid`, `externalid` |
+| `Skill` | `id`, `namelocalekeyid`, `statusid` |
+| `SkillAlias` | `id`, `skillid`, `namelocalekeyid`, `statusid`, `mappedskillaliasid` |
+| `Industry` | `id`, `namelocalekeyid` |
+| `FunctionalArea` | `id`, `namelocalekeyid` |
+| `Language` | `id`, `namelocalekeyid`, `statusid`, `order` |
 
-## CustomRole
-Custom role definition mapped to a canonical role name. Used when `@UseCustomRoles = 1`.
+## Localization Entities
 
-| Attribute | Type | Description |
-|-----------|------|-------------|
-| `Id` | GUID | Primary key |
-| `RoleNameId` | GUID | FK to RoleName (for localized name) |
-| `ExternalId` | Text | External system identifier |
-| `TenantId` | GUID | Tenant isolation |
+| Entity | Key columns |
+|---|---|
+| `LocaleKey` | `id`, `tenantid`, `createdat` |
+| `LocaleDict` | `id`, `localekeyid`, `languageid`, `textvalue`, `tenantid`, `isapproved` |
+| `LongLocaleKey` | `id`, `tenantid`, `createdat` |
+| `LongLocaleDict` | `id`, `longlocalekeyid`, `languageid`, `textvalue`, `tenantid` |
+| `DescriptionKey` | `id`, `tenantid` |
+| `DescriptionDict` | `id`, `descriptionkeyid`, `descriptionlocalekeyid`, `descriptioncategoryid`, `formatcategoryid` |
+| `BulletKey` | `id`, `tenantid` |
+| `BulletItem` | `id`, `bulletkeyid`, `descriptionlocalekeyid`, `descriptioncategoryid`, `formatcategoryid` |
 
-### Join Path for Name
-```
-CustomRole → RoleName → LocaleDict (via RoleName.NameLocaleKeyId)
-```
+## Join Reminder
 
----
-
-## RoleName
-Canonical role names with localization support.
-
-| Attribute | Type | Description |
-|-----------|------|-------------|
-| `Id` | GUID | Primary key |
-| `NameLocaleKeyId` | GUID | FK to LocaleKey for localized name |
-
-### Usage
-Used for custom role display names via CustomRole.RoleNameId.
-
----
-
-## LocaleDict Joining Pattern
-
-All translatable text is stored via LocaleKey → LocaleDict.
-
-### Standard Join
-```sql
-LEFT JOIN {LocaleDict} name_locale
-  ON name_locale.[LocaleKeyId] = {Entity}.[NameLocaleKeyId]
-  AND name_locale.[LanguageId] = @SystemLanguage
-```
-
-### Entities with LocaleDict
-
-| Entity | Join Path |
-|--------|-----------|
-| Role | Role.NameLocaleKeyId → LocaleDict |
-| RoleAlias | RoleAlias.NameLocaleKeyId → LocaleDict |
-| RoleName | RoleName.NameLocaleKeyId → LocaleDict (for custom roles) |
-| SkillAlias | SkillAlias.NameLocaleKeyId → LocaleDict |
-| Industry | Industry.NameLocaleKeyId → LocaleDict |
-| FunctionalArea | FunctionalArea.NameLocaleKeyId → LocaleDict |
-| Language | Language.NameLocaleKeyId → LocaleDict |
-| LocationTag | LocationTag.NameLocaleKeyId → LocaleDict |
-
----
-
-## Filter Categories
-
-| Parameter | Meaning |
-|-----------|---------|
-| `@Filter_Default` | No filtering, scoring only |
-| `@Filter_Soft` | Soft filter: Score > 0 required |
-| `@Filter_Hard` | Hard filter: Score >= ReqScore required |
-
----
-
-## Custom Roles Parameters
-
-When `@UseCustomRoles = 1`, queries switch from standard Role/RoleSkill matching to CustomRole/CustomRoleSkill matching.
-
-| Parameter | Meaning |
-|-----------|---------|
-| `@UseCustomRoles` | Boolean (0/1): Switch between standard (0) and custom (1) roles |
-| `@Cat_CustomRole` | Category ID for CustomRole experience |
-| `@Cat_CustomRoleSkill` | Category ID for CustomRoleSkill experience |
-
-Output structure remains unchanged - RoleAliasId/RoleAliasName fields are populated with CustomRoleId/CustomRoleName values.
-
----
-
-## RoleSkill Scoring Mode Parameters
-
-RoleSkill and CustomRoleSkill requirements keep their demand requirement category, but consultant score source depends on `@RoleSkillScoringModeId`.
-
-| Parameter | Meaning |
-|-----------|---------|
-| `@RoleSkillScoringModeId` | Selected scoring mode category ID for role-skill matching |
-| `@ScoringMode_StrictRole` | Mode ID: use only role-scoped score (`RoleSkill` / `CustomRoleSkill`) |
-| `@ScoringMode_GlobalSkill` | Mode ID: use only skill-scoped score (`Skill` / `CustomSkill`) |
-| `@ScoringMode_RoleFirstHybrid` | Mode ID: use `max(role_score, max(global_score - 1, 0))` |
-| `@Cat_Skill` | Category ID for Skill experience (`SkillId` key) |
-| `@Cat_CustomSkill` | Category ID for CustomSkill experience (`SkillId` key) |
-
-Mode formulas:
-* Strict Role: `effective_score = role_score`
-* Global Skill: `effective_score = global_score`
-* Role-First Hybrid: `effective_score = max(role_score, max(global_score - 1, 0))`
-
-Global Skill refinement:
-* Role and CustomRole requirements are not used as scoring contributions.
-* Query 1 bypasses mandatory role soft gate and role/category filter enforcement in this mode.
-* Role requirement weight is redistributed to skills under the same role bucket:
-  * `RoleContribution_r = role_requirement.DynamicWeight * 100.0`
-  * `SkillBase_k = skill_requirement.DynamicWeight * skill_requirement.RoleWeight`
-  * `SkillBaseSum_r = SUM(SkillBase_k)`
-  * `SkillWeightEffective_k = SkillBase_k + RoleContribution_r * (SkillBase_k / SkillBaseSum_r)`
-* After redistribution, role-skill requirements are deduplicated by `SkillId`:
-  * `ReqScore = MAX(ReqScore)` across duplicate skills
-  * `SkillWeightEffective = SUM(SkillWeightAfterDistribution)` across duplicate skills
-  * Must-have flag is merged as "any must-have" (`IsNiceToHave = MIN(IsNiceToHave)`)
-* Query 1 filtered role-skill enforcement in this mode uses merged filter dominance: Hard > Soft > Default.
-* Query 4 keeps RoleSkillsJson shape with one wrapper role object and nested distinct skills; wrapper role scoring fields are returned as `NULL`.
-* Wrapper role identity is selected from the highest role requirement dynamic weight (tie-break: lowest requirement id).
-
----
-
-## Requirement Name Resolution
-
-| Category | DemandRequirement Field | Join Path |
-|----------|------------------------|-----------|
-| RoleSkill | `SkillAliasId` | → SkillAlias → LocaleDict |
-| Role | `RoleAliasId` | → RoleAlias → LocaleDict |
-| CustomRoleSkill | `SkillAliasId` | → SkillAlias → LocaleDict |
-| CustomRole | `CustomRoleId` | → CustomRole → RoleName → LocaleDict |
-| Industry | `IndustryId` | → Industry → LocaleDict |
-| FunctionalArea | `FunctionalAreaId` | → FunctionalArea → LocaleDict |
-| Language | `LanguageId` | → Language → LocaleDict |
+Translatable names are mostly resolved with `*localekeyid -> LocaleDict.localekeyid`.

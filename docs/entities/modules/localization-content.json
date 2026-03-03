@@ -1,0 +1,325 @@
+[
+  {
+    "Entity": "BulletItem",
+    "Columns": [
+      {
+        "name": "bulletkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "descriptioncategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "descriptionkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "descriptionlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "formatcategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isapproved",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isfulfilled",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isnicetohave",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isstatic",
+        "dataType": "numeric"
+      },
+      {
+        "name": "localekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "mappingitemid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "notejson",
+        "dataType": "text"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      },
+      {
+        "name": "templatescore",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "BulletKey",
+    "Columns": [
+      {
+        "name": "additionalinfo",
+        "dataType": "text"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "iswaitforupdate",
+        "dataType": "numeric"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "DescriptionDict",
+    "Columns": [
+      {
+        "name": "descriptioncategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "descriptionkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "descriptionlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "formatcategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isapproved",
+        "dataType": "numeric"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "DescriptionKey",
+    "Columns": [
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "DictLookUp",
+    "Columns": [
+      {
+        "name": "categoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "LocaleDict",
+    "Columns": [
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isapproved",
+        "dataType": "numeric"
+      },
+      {
+        "name": "languageid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "localekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "textvalue",
+        "dataType": "text"
+      }
+    ]
+  },
+  {
+    "Entity": "LocaleKey",
+    "Columns": [
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "ishtml",
+        "dataType": "numeric"
+      },
+      {
+        "name": "iswaitforupdate",
+        "dataType": "numeric"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "usecase",
+        "dataType": "text"
+      }
+    ]
+  },
+  {
+    "Entity": "LongLocaleDict",
+    "Columns": [
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isapproved",
+        "dataType": "numeric"
+      },
+      {
+        "name": "languageid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "localekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "longlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "textvalue",
+        "dataType": "text"
+      }
+    ]
+  },
+  {
+    "Entity": "LongLocaleKey",
+    "Columns": [
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "ishtml",
+        "dataType": "numeric"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "usecase",
+        "dataType": "text"
+      }
+    ]
+  },
+  {
+    "Entity": "MappingItem",
+    "Columns": [
+      {
+        "name": "description",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "localekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "mappingkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "MappingKey",
+    "Columns": [
+      {
+        "name": "categoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  }
+]

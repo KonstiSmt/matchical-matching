@@ -1,68 +1,79 @@
 # Consultant Entities
 
+This file keeps query-relevant fields for consultant matching.
+For complete physical schemas, see:
+- `docs/entities/modules/matching-core.json`
+- `docs/entities/modules/consultancy-org.json`
+
 ## Consultant
-Primary entity representing a consultant (internal or external).
 
-| Attribute | Type | Description |
-|-----------|------|-------------|
-| `Id` | GUID | Primary key |
-| `TenantId` | GUID | Tenant isolation |
-| `IsInternal` | Boolean | Internal (ConsultancyUser) vs external (ExternalUser) |
-| `ConsultancyUserId` | GUID | FK to ConsultancyUser (when IsInternal=1) |
-| `ExternalUserId` | GUID | FK to ExternalUser (when IsInternal=0) |
-| `StatusId` | GUID | FK to Status (for matching eligibility: IsReady, IsActive) |
-| `TopRoleId` | GUID | FK to Role (consultant's primary role, for display) |
-| `TopCustomRoleId` | GUID | FK to CustomRole (when custom roles active) |
-| `EuroFixedRate` | Decimal | Rate for price-performance calculation |
-| `AvailabilityCategoryId` | GUID | FK to Category for availability status (Yes/No/Unknown) |
-| `AvailableFrom` | Date | Start date of availability period |
-| `AvailableTo` | Date | End date of availability period |
-| `AvailableDaysPerWeek` | Decimal | Days available per week (e.g., 4.5) |
-| `IsWillingToTravel` | Boolean | Willingness to travel |
-| `MinCapacity`, `MaxCapacity` | Decimal | Capacity range |
-
-### Relationships
-- → ConsultancyUser (via ConsultancyUserId, when IsInternal=1)
-- → ExternalUser (via ExternalUserId, when IsInternal=0)
-- → Status (via StatusId)
-- → Role (via TopRoleId)
-- → CustomRole (via TopCustomRoleId)
-- → Category (via AvailabilityCategoryId)
-
----
+| Column (physical) | Type | Usage |
+|---|---|---|
+| `id` | `character varying` | Consultant primary key |
+| `tenantid` | `character varying` | Tenant scope |
+| `consultancyuserid` | `character varying` | Internal identity link |
+| `externaluserid` | `character varying` | External identity link |
+| `isinternal` | `numeric` | Internal vs external consultant |
+| `isactive` | `numeric` | Active record flag |
+| `isready` | `numeric` | Matching-ready flag |
+| `statusid` | `integer` | Consultant status |
+| `toproleid` | `character varying` | Top role |
+| `topcustomroleid` | `character varying` | Top custom role |
+| `eurofixedrate` | `numeric` | Rate for margin/score calculations |
+| `ratecurrencyid` | `character varying` | Currency reference |
+| `availabilitycategoryid` | `integer` | Availability category |
+| `availablefrom` | `timestamp with time zone` | Availability start |
+| `availableto` | `timestamp with time zone` | Availability end |
+| `availabledaysperweek` | `numeric` | Availability capacity per week |
+| `mincapacity` | `integer` | Minimum assignable capacity |
+| `maxcapacity` | `integer` | Maximum assignable capacity |
+| `iswillingtotravel` | `numeric` | Travel preference |
+| `worksonlyremote` | `numeric` | Remote-only preference |
+| `nextavailabiltydate` | `timestamp with time zone` | Next availability date |
+| `createdat` | `timestamp with time zone` | Created timestamp |
+| `updatedat` | `timestamp with time zone` | Last update timestamp |
 
 ## ConsultancyUser
-Identity fields for internal consultants.
 
-| Attribute | Type | Description |
-|-----------|------|-------------|
-| `Id` | GUID | Primary key |
-| `Email` | Text | Email address |
-| `FirstName` | Text | First name |
-| `LastName` | Text | Last name |
-| `DefaultPhotoUrl` | Text | Photo URL |
-| `DefaultPhotoUrlRound` | Text | Round photo URL (preferred) |
-| `EmploymentStatusId` | GUID | FK to Status (for display: employment status label) |
-
-### Relationships
-- ← Consultant (via ConsultancyUserId)
-- → Status (via EmploymentStatusId)
-
----
+| Column (physical) | Type | Usage |
+|---|---|---|
+| `id` | `character varying` | Internal user key |
+| `tenantid` | `character varying` | Tenant scope |
+| `consultancyid` | `character varying` | Consultancy membership |
+| `email` | `character varying` | Email |
+| `firstname` | `character varying` | First name |
+| `lastname` | `character varying` | Last name |
+| `employmentstatusid` | `integer` | Employment status |
+| `departmentid` | `character varying` | Department |
+| `teamid` | `character varying` | Team |
+| `legalentityid` | `character varying` | Legal entity |
+| `unitid` | `character varying` | Unit |
+| `defaultphotourl` | `character varying` | Default photo |
+| `defaultphotourlround` | `character varying` | Default round photo |
+| `photourl` | `character varying` | Profile photo |
+| `photourlround` | `character varying` | Round profile photo |
+| `isactive` | `numeric` | Active flag |
+| `lastlogin` | `timestamp with time zone` | Last login timestamp |
+| `createdat` | `timestamp with time zone` | Created timestamp |
+| `updatedat` | `timestamp with time zone` | Updated timestamp |
 
 ## ExternalUser
-Identity fields for external consultants.
 
-| Attribute | Type | Description |
-|-----------|------|-------------|
-| `Id` | GUID | Primary key |
-| `Email` | Text | Email address |
-| `FirstName` | Text | First name |
-| `LastName` | Text | Last name |
-| `DefaultPhotoUrl` | Text | Photo URL |
-| `DefaultPhotoUrlRound` | Text | Round photo URL (preferred) |
-
-### Relationships
-- ← Consultant (via ExternalUserId)
-
-**Note:** ExternalUser does NOT have EmploymentStatusId (only internal consultants have employment status).
+| Column (physical) | Type | Usage |
+|---|---|---|
+| `id` | `character varying` | External user key |
+| `tenantid` | `character varying` | Tenant scope |
+| `email` | `character varying` | Email |
+| `firstname` | `character varying` | First name |
+| `lastname` | `character varying` | Last name |
+| `statusid` | `integer` | External user status |
+| `companyid` | `character varying` | Linked company |
+| `partnerid` | `character varying` | Linked partner |
+| `isactive` | `numeric` | Active flag |
+| `isfreelancer` | `numeric` | Freelancer flag |
+| `ispermanent` | `numeric` | Permanent flag |
+| `istemporary` | `numeric` | Temporary flag |
+| `defaultphotourl` | `character varying` | Default photo |
+| `defaultphotourlround` | `character varying` | Default round photo |
+| `createdat` | `timestamp with time zone` | Created timestamp |
+| `updatedat` | `timestamp with time zone` | Updated timestamp |
