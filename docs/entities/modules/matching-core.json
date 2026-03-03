@@ -1178,10 +1178,6 @@
         "dataType": "character varying"
       },
       {
-        "name": "isactive",
-        "dataType": "numeric"
-      },
-      {
         "name": "isindirect",
         "dataType": "numeric"
       },

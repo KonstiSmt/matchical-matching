@@ -25,7 +25,6 @@ Reference taxonomy details are in `docs/entities/modules/reference-taxonomy.json
 | `lastthreeyearsusage` | `numeric` | Recent usage indicator |
 | `isongoing` | `numeric` | Ongoing experience flag |
 | `isindirect` | `numeric` | Indirect experience flag |
-| `isactive` | `numeric` | Active flag |
 | `createdat` | `timestamp with time zone` | Created timestamp |
 
 ## Query Matching Notes
