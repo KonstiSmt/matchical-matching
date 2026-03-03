@@ -20,6 +20,7 @@ Every prompt must use this section order and heading levels:
 
 ## Output Structure Discipline
 - Keep JSON output keys in a fixed, explicit order and mirror that order in examples.
+- Use PascalCase for structured output keys by default, unless a user explicitly requests a different casing.
 - When output fields or ordering change, update both schema files in `prompts/schemas/`.
 - Do not change any output schema or output key naming unless the user explicitly requests it.
 - If a schema change might be needed but was not explicitly requested, ask the user first.
@@ -48,6 +49,7 @@ Every prompt must use this section order and heading levels:
 - If a rule changes model output, format, or constraints, update the prompt first and reflect only a short rationale in docs.
 - Keep docs concise and decision-oriented; avoid duplicating full prompt text.
 - Maintain one docs file per prompt when useful (for example, `engagement-description.docs.md`, `project-description.docs.md`).
+- Keep this `prompts/AGENTS.md` file prompt-agnostic; do not add prompt-specific voice, style, or output rules here.
 
 ## DevTools Prompt Workflow
 - Use the DevTools REST API to discover categories, fetch active prompts, and sync local files when requested.
