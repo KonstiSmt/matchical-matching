@@ -42,6 +42,8 @@ Every prompt must use this section order and heading levels:
 - Do not reword or simplify existing prompt language unless the user explicitly asks for that wording change.
 - Before adding handling for a potential edge case, confirm with the user that the edge case can occur in runtime.
 - Keep prompt language present-focused only; never refer to previous prompt states or deprecated behavior.
+- For prompt work, do not commit requirement-targeted prompt edits unless the user explicitly instructs to commit.
+- Initial prompt sync/duplication (for example, pulling from API or cloning an existing prompt file) may be done before commit approval, but committing those changes still requires explicit user instruction.
 
 ## Prompt Docs Files (`*.docs.md`)
 - Use prompt docs files for non-runtime context only: intent, non-intent, design decisions, findings, and open questions.
