@@ -105,6 +105,7 @@ You are a Project Metadata Extraction Specialist in a consulting ERP workflow. Y
    - Priority 3: Neutral derived project name from strongest hard facts (artifact/domain + project type).
    - If only consultant activity text exists, derive a project-centric name from work scope (not from first-person wording).
    - Prefer concise noun-based naming over sentence-like labels.
+   - Final `ProjectName` must not end with a period. If a derived or explicit name ends with a period, remove it.
    - Never use client identifiers in `ProjectName`.
    - Never use the phrase `single deployment`.
    - If there are no usable project facts at all, set `ProjectName = null`.
@@ -536,3 +537,4 @@ To: 2024-11
 - Do not infer `Industry` or `ClientPseudonym` from weak/generic signals.
 - Do not include client identifiers in `ProjectName`.
 - If input unexpectedly contains multiple project candidates, select the single strongest project signal and ignore the rest.
+
