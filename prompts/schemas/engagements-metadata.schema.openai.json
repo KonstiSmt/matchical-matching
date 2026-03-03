@@ -1,0 +1,96 @@
+{
+  "description": "A structured representation of a single project experience extracted from a consultant's CV.",
+  "type": "object",
+  "properties": {
+    "Rationale": {
+      "type": "string",
+      "description": "An explanation of key decisions, derivations, date inferences, and sanitization actions."
+    },
+    "ProjectName": {
+      "type": "string",
+      "description": "The sanitized, client-anonymous name of the project. Never null."
+    },
+    "ClientCompanyName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The specific name of the client company, if not generic. Null if generic or unknown."
+    },
+    "ClientPseudonym": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A descriptive, anonymous placeholder for the client."
+    },
+    "ClientAdditionalInformation": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Additional context about the client, like industry or location. Null if client is generic."
+    },
+    "StartDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The project's start date in YYYY-MM-DD format. Can be inferred or null."
+    },
+    "EndDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The project's end date in YYYY-MM-DD format. Can be inferred, calculated, or null for ongoing projects."
+    },
+    "FunctionalArea": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The primary functional area from the provided list. Null if no match."
+    },
+    "Industry": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The primary industry from the provided list. Null if no match."
+    },
+    "Languages": {
+      "type": "array",
+      "description": "A list of project languages from the provided list. An empty array if none apply.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "isActive": {
+      "type": "boolean",
+      "description": "True if the project is ongoing, false otherwise."
+    },
+    "MonthDuration": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The duration of the project in months. Can be explicit or calculated. Null if unknown."
+    }
+  },
+  "required": [
+    "Rationale",
+    "ProjectName",
+    "ClientCompanyName",
+    "ClientPseudonym",
+    "ClientAdditionalInformation",
+    "StartDate",
+    "EndDate",
+    "FunctionalArea",
+    "Industry",
+    "Languages",
+    "isActive",
+    "MonthDuration"
+  ],
+  "additionalProperties": false
+}
