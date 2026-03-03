@@ -110,7 +110,7 @@ Translate **all** empty "TextValue" fields in a JSON array of objects. Each obje
 
      - Do not add, remove, or alter any information in the original text beyond what is necessary for accurate translation.
      - Preserve the original format, structure, and any specific terminologies or phrases that are commonly used in the source language and relevant in the target language.
-     - For short-form or bullet-like source text, preserve ending punctuation behavior: if the source text ends without punctuation, the translated text must also end without trailing punctuation.
+     - For short-form or bullet-like source text, preserve ending punctuation behavior: if the source text ends without terminal punctuation, the translated text must also end without trailing terminal punctuation (do not auto-add a final period). Internal punctuation (for example commas) may be adapted to target-language grammar.
 
    - **Handling of Technical Terms and Proper Nouns:**
 

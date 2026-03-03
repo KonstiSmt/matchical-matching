@@ -44,6 +44,7 @@ Follow this **strict, step-by-step workflow**:
    * **Tag Locking:** Keep the exact sequence and nesting of all HTML tags as in the pivot (e.g., `<p>`, `</p>`, `<ul>`, `<li>`, `<a href="...">`, etc.).
    * **Attribute Invariance:** Keep all attributes and their values **unchanged and in the same order** (e.g., `href`, `target`, `class`, `id`).
    * **Translate text nodes only**; never add, remove, reorder, or modify tags/attributes.
+   * **Terminal Punctuation Preservation for Short Nodes:** For short-form or list-item text nodes (especially inside `<li>`), preserve end punctuation behavior. If the source text node ends without terminal punctuation, the translated text node must also end without trailing terminal punctuation (do not auto-add a final period).
 
 6. **Construct the Output (Same Structure as Before)**
 

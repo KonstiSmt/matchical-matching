@@ -54,7 +54,8 @@ Every prompt must use this section order and heading levels:
 - When running in a git worktree, source DevTools credentials from the main checkout `.env` before using `scripts/devtools_api.py`.
 - Always call categories first to confirm the category ID. Do not assume category IDs.
 - If a prompt is requested, fetch the active prompt and compare with the repo files. If different, update the repo files to match the active prompt.
-- When a prompt change requires pulling the active prompt first, follow this order: (1) pull/sync the active prompt into repo files, (2) make a sync-only commit, (3) apply requested prompt edits in a separate commit so diffs remain clear.
+- When a prompt change requires pulling the active prompt first, follow this order: (1) pull/sync the active prompt into repo files, (2) make a sync-only commit, (3) apply requested prompt edits and keep them uncommitted unless the user explicitly asks for a commit.
+- For prompt edit tasks, do not commit the requested prompt edits unless the user explicitly asks for a commit; only sync/pull-in commits are allowed by default.
 - Only post prompt updates when the user explicitly instructs to post. When asked to post, execute the POST directly via `scripts/devtools_api.py` (do not just provide a bash command unless the user explicitly asks for commands only).
 - For every POST command comment, always start the comment with `AI:`.
 - Keep post comments short and specific to the change; avoid boilerplate like \"update prompt\" or \"sync schemas\".
