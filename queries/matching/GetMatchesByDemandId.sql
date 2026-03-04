@@ -15,7 +15,7 @@
    Performance note:
      • MATERIALIZED hints on CTEs (demand, requirement, filtered_requirement, has_filtered_requirements,
        eligible_consultant) prevent PostgreSQL planner instability that can cause 100x slowdowns.
-     • If performance issues occur, check MATERIALIZED first. See queries/matching/CLAUDE.md for details.
+     • If performance issues occur, check MATERIALIZED first. See queries/matching/AGENTS.md for details.
      • Role-skill matching uses selected scoring mode via @RoleSkillScoringModeId.
 
    Output columns (ordered):
