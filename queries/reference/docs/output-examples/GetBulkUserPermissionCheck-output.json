@@ -1,0 +1,128 @@
+{
+  "description": "GetBulkUserPermissionCheck output example",
+  "note": "Per item permission decision output for bulk checks. No list mode fields and no permission level output.",
+  "columnOrder": "PermissionId, PermissionMethodId, AffectedConsultancyUserId, AffectedConsultantId, HasPermission, IsError, ErrorMessage",
+  "singleRow": {
+    "PermissionId": 9,
+    "PermissionMethodId": 1,
+    "AffectedConsultancyUserId": "f3eb8d2d-0000-4000-8000-222222222222",
+    "AffectedConsultantId": null,
+    "HasPermission": true,
+    "IsError": false,
+    "ErrorMessage": null
+  },
+  "exampleScenarios": [
+    {
+      "scenario": "Mixed valid batch with grants and denies",
+      "inputHighlights": {
+        "UserId": "f3eb8d2d-0000-4000-8000-111111111111",
+        "PermissionChecksJson": [
+          {
+            "PermissionId": 9,
+            "PermissionMethodId": 1,
+            "AffectedConsultancyUserId": "f3eb8d2d-0000-4000-8000-222222222222",
+            "AffectedConsultantId": null
+          },
+          {
+            "PermissionId": 10,
+            "PermissionMethodId": 3,
+            "AffectedConsultancyUserId": "f3eb8d2d-0000-4000-8000-333333333333",
+            "AffectedConsultantId": null
+          }
+        ]
+      },
+      "outputRows": [
+        {
+          "PermissionId": 9,
+          "PermissionMethodId": 1,
+          "AffectedConsultancyUserId": "f3eb8d2d-0000-4000-8000-222222222222",
+          "AffectedConsultantId": null,
+          "HasPermission": true,
+          "IsError": false,
+          "ErrorMessage": null
+        },
+        {
+          "PermissionId": 10,
+          "PermissionMethodId": 3,
+          "AffectedConsultancyUserId": "f3eb8d2d-0000-4000-8000-333333333333",
+          "AffectedConsultantId": null,
+          "HasPermission": false,
+          "IsError": false,
+          "ErrorMessage": null
+        }
+      ]
+    },
+    {
+      "scenario": "Item level error and valid item in same batch",
+      "inputHighlights": {
+        "PermissionChecksJson": [
+          {
+            "PermissionId": 9,
+            "PermissionMethodId": null,
+            "AffectedConsultancyUserId": "f3eb8d2d-0000-4000-8000-222222222222",
+            "AffectedConsultantId": null
+          },
+          {
+            "PermissionId": 9,
+            "PermissionMethodId": 1,
+            "AffectedConsultancyUserId": "f3eb8d2d-0000-4000-8000-222222222222",
+            "AffectedConsultantId": null
+          }
+        ]
+      },
+      "outputRows": [
+        {
+          "PermissionId": 9,
+          "PermissionMethodId": null,
+          "AffectedConsultancyUserId": "f3eb8d2d-0000-4000-8000-222222222222",
+          "AffectedConsultantId": null,
+          "HasPermission": false,
+          "IsError": true,
+          "ErrorMessage": "Data permission requires PermissionMethodId"
+        },
+        {
+          "PermissionId": 9,
+          "PermissionMethodId": 1,
+          "AffectedConsultancyUserId": "f3eb8d2d-0000-4000-8000-222222222222",
+          "AffectedConsultantId": null,
+          "HasPermission": true,
+          "IsError": false,
+          "ErrorMessage": null
+        }
+      ]
+    },
+    {
+      "scenario": "Payload level error for malformed JSON",
+      "inputHighlights": {
+        "PermissionChecksJson": "{ invalid-json"
+      },
+      "outputRows": [
+        {
+          "PermissionId": null,
+          "PermissionMethodId": null,
+          "AffectedConsultancyUserId": null,
+          "AffectedConsultantId": null,
+          "HasPermission": false,
+          "IsError": true,
+          "ErrorMessage": "PermissionChecksJson is malformed JSON"
+        }
+      ]
+    },
+    {
+      "scenario": "Empty payload array",
+      "inputHighlights": {
+        "PermissionChecksJson": []
+      },
+      "outputRows": []
+    }
+  ],
+  "fieldDescriptions": {
+    "PermissionId": "Permission identifier from input item (or null for payload-level error rows).",
+    "PermissionMethodId": "Permission method identifier from input item (nullable, or null for payload-level error rows).",
+    "AffectedConsultancyUserId": "Affected consultancy user from input item (nullable, or null for payload-level error rows).",
+    "AffectedConsultantId": "Affected consultant from input item (nullable, or null for payload-level error rows).",
+    "HasPermission": "Final decision for the item. Always false when IsError is true.",
+    "IsError": "True for payload level errors and item level validation errors.",
+    "ErrorMessage": "Human readable reason text. Null when IsError is false."
+  }
+}

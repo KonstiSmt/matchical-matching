@@ -100,20 +100,20 @@ current_user_roles AS (
   SELECT
     consultancy_user_role.[UserRoleId] AS UserRoleId
   FROM {ConsultancyUserRoles} consultancy_user_role
-  CROSS JOIN current_user_scope current_user
-  WHERE consultancy_user_role.[TenantId] = current_user.CurrentTenantId
-    AND consultancy_user_role.[ConsultancyUserId] = current_user.CurrentConsultancyUserId
+  CROSS JOIN current_user_scope current_user_ctx
+  WHERE consultancy_user_role.[TenantId] = current_user_ctx.CurrentTenantId
+    AND consultancy_user_role.[ConsultancyUserId] = current_user_ctx.CurrentConsultancyUserId
 ),
 super_admin_state AS (
   SELECT
     CASE
       WHEN EXISTS (
         SELECT 1
-        FROM current_user_roles current_role
-        CROSS JOIN current_user_scope current_user
+        FROM current_user_roles user_role_ctx
+        CROSS JOIN current_user_scope current_user_ctx
         JOIN {UserRole} user_role
-          ON user_role.[Id] = current_role.UserRoleId
-         AND user_role.[TenantId] = current_user.CurrentTenantId
+          ON user_role.[Id] = user_role_ctx.UserRoleId
+         AND user_role.[TenantId] = current_user_ctx.CurrentTenantId
         WHERE user_role.[IsSuperAdmin] = 1
       ) THEN 1
       ELSE 0
@@ -158,8 +158,8 @@ affected_consultancy_user_state AS (
       WHEN EXISTS (
         SELECT 1
         FROM {ConsultancyUser} affected_consultancy_user
-        CROSS JOIN current_user_scope current_user
-        WHERE affected_consultancy_user.[TenantId] = current_user.CurrentTenantId
+        CROSS JOIN current_user_scope current_user_ctx
+        WHERE affected_consultancy_user.[TenantId] = current_user_ctx.CurrentTenantId
           AND affected_consultancy_user.[Id] = @AffectedConsultancyUserId
       ) THEN 1
       ELSE 0
@@ -175,9 +175,9 @@ affected_consultant_lookup AS (
     consultant.[ConsultancyUserId] AS ConsultantMappedConsultancyUserId
   FROM {Consultant} consultant
   CROSS JOIN input_state input
-  CROSS JOIN current_user_scope current_user
+  CROSS JOIN current_user_scope current_user_ctx
   WHERE input.HasAffectedConsultantInput = 1
-    AND consultant.[TenantId] = current_user.CurrentTenantId
+    AND consultant.[TenantId] = current_user_ctx.CurrentTenantId
     AND consultant.[Id] = @AffectedConsultantId
 ),
 affected_consultant_state AS (
@@ -224,11 +224,11 @@ affected_state AS (
 candidate_permissions AS (
   SELECT
     user_role_permission.[PermissionLevelId] AS PermissionLevelId
-  FROM current_user_roles current_role
-  CROSS JOIN current_user_scope current_user
+  FROM current_user_roles user_role_ctx
+  CROSS JOIN current_user_scope current_user_ctx
   JOIN {UserRolePermissions} user_role_permission
-    ON user_role_permission.[UserRoleId] = current_role.UserRoleId
-   AND user_role_permission.[TenantId] = current_user.CurrentTenantId
+    ON user_role_permission.[UserRoleId] = user_role_ctx.UserRoleId
+   AND user_role_permission.[TenantId] = current_user_ctx.CurrentTenantId
   CROSS JOIN permission_state permission_eval
   WHERE user_role_permission.[PermissionId] = @PermissionId
     AND (
@@ -309,11 +309,11 @@ my_reports_state AS (
       WHEN EXISTS (
         SELECT 1
         FROM {ConsultancyUserClosure} closure
-        CROSS JOIN current_user_scope current_user
+        CROSS JOIN current_user_scope current_user_ctx
         CROSS JOIN affected_state affected
-        WHERE closure.[TenantId] = current_user.CurrentTenantId
+        WHERE closure.[TenantId] = current_user_ctx.CurrentTenantId
           AND closure.[AncestorId] = affected.EffectiveAffectedConsultancyUserId
-          AND closure.[DescendantId] = current_user.CurrentConsultancyUserId
+          AND closure.[DescendantId] = current_user_ctx.CurrentConsultancyUserId
       ) THEN 1
       ELSE 0
     END AS IsMyReportsMatch
@@ -330,7 +330,7 @@ grant_state AS (
     CASE
       WHEN levels.HasAll = 1 OR levels.HasOn = 1 THEN 1
       WHEN levels.HasOwn = 1
-       AND affected.EffectiveAffectedConsultancyUserId = current_user.CurrentConsultancyUserId
+       AND affected.EffectiveAffectedConsultancyUserId = current_user_ctx.CurrentConsultancyUserId
       THEN 1
       WHEN levels.HasMyReports = 1
        AND my_reports.IsMyReportsMatch = 1
@@ -339,27 +339,29 @@ grant_state AS (
     END AS NonListGranted
   FROM candidate_level_state levels
   CROSS JOIN affected_state affected
-  CROSS JOIN current_user_scope current_user
+  CROSS JOIN current_user_scope current_user_ctx
   CROSS JOIN my_reports_state my_reports
 ),
 pre_super_admin_error_state AS (
   SELECT
     CASE
       WHEN input.MissingUserId = 1 THEN 'Missing or invalid UserId'
-      WHEN input.MissingPermissionId = 1 THEN 'Missing or invalid PermissionId'
-      WHEN input.InvalidIsListView = 1 THEN 'Missing or invalid IsListView value'
-      WHEN input.MissingPermissionMethodViewId = 1 THEN 'Missing or invalid PermissionMethodViewId'
-      WHEN input.MissingPermissionLevelConfig = 1 THEN 'Missing permission level configuration input'
-      WHEN current_user.MatchCount = 0 THEN 'Current user not found in tenant'
-      WHEN current_user.MatchCount > 1 THEN 'Multiple current user mappings found in tenant'
+      WHEN current_user_ctx.MatchCount = 0 THEN 'Current user not found in tenant'
+      WHEN current_user_ctx.MatchCount > 1 THEN 'Multiple current user mappings found in tenant'
       ELSE NULL
     END AS ErrorReason
   FROM input_state input
-  CROSS JOIN current_user_scope current_user
+  CROSS JOIN current_user_scope current_user_ctx
 ),
 post_super_admin_error_state AS (
   SELECT
     CASE
+      WHEN input.MissingPermissionId = 1 THEN 'Missing or invalid PermissionId'
+      WHEN input.InvalidIsListView = 1 THEN 'Missing or invalid IsListView value'
+      WHEN input.MissingPermissionLevelConfig = 1 THEN 'Missing permission level configuration input'
+      WHEN @IsListView = 1
+       AND input.MissingPermissionMethodViewId = 1
+      THEN 'Missing or invalid PermissionMethodViewId'
       WHEN permission_eval.PermissionExists = 0 THEN 'Permission not found'
       WHEN permission_eval.IsOperation = 1
        AND @PermissionMethodId IS NOT NULL
@@ -394,7 +396,8 @@ post_super_admin_error_state AS (
       THEN 'Unknown permission level found in matched role permissions'
       ELSE NULL
     END AS ErrorReason
-  FROM permission_state permission_eval
+  FROM input_state input
+  CROSS JOIN permission_state permission_eval
   CROSS JOIN method_state method_eval
   CROSS JOIN affected_state affected
   CROSS JOIN candidate_level_state levels

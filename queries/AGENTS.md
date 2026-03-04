@@ -62,6 +62,10 @@ Do NOT use `STRING_TO_ARRAY` or `UNNEST`. It's already expanded SQL.
 | `d` | `demand` |
 | `e` | `experience` |
 
+**Reserved keyword aliases are forbidden:**
+- Do not use SQL reserved keywords as table/CTE aliases (for example `current_user`, `current_role`, `current_date`, `current_time`, `current_timestamp`, `current_schema`, `current_path`).
+- Use neutral aliases like `<entity>_ctx`, `<entity>_scope`, or full descriptive names.
+
 **Output columns:** Never use plain `Id`. Use `ConsultantId`, `DemandId`, etc.
 
 **Reporting outputs (insights):** Use descriptive, business-readable snake_case column names (avoid raw database attribute naming).
