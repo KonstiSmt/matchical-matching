@@ -1,0 +1,104 @@
+{
+  "description": "GetUserPermissionCheck output example",
+  "note": "Single-row permission decision output for detail mode (isListView=0) and list mode (isListView=1).",
+  "columnOrder": "HasPermission, IsError, ErrorReason, PermissionLevelId",
+  "singleRow": {
+    "HasPermission": true,
+    "IsError": false,
+    "ErrorReason": null,
+    "PermissionLevelId": null
+  },
+  "exampleScenarios": [
+    {
+      "scenario": "Detail mode grant by Own with matching affected target",
+      "inputHighlights": {
+        "IsListView": 0,
+        "PermissionLevel": "Own",
+        "AffectedTargetProvided": true
+      },
+      "output": {
+        "HasPermission": true,
+        "IsError": false,
+        "ErrorReason": null,
+        "PermissionLevelId": null
+      }
+    },
+    {
+      "scenario": "Detail mode normal deny",
+      "inputHighlights": {
+        "IsListView": 0,
+        "PermissionLevel": "Off or no matching grant",
+        "AffectedTargetProvided": true
+      },
+      "output": {
+        "HasPermission": false,
+        "IsError": false,
+        "ErrorReason": null,
+        "PermissionLevelId": null
+      }
+    },
+    {
+      "scenario": "List mode grant with strongest level All",
+      "inputHighlights": {
+        "IsListView": 1,
+        "PermissionMethod": "View",
+        "StrongestGrantLevel": "All"
+      },
+      "output": {
+        "HasPermission": true,
+        "IsError": false,
+        "ErrorReason": null,
+        "PermissionLevelId": 5
+      }
+    },
+    {
+      "scenario": "List mode grant with strongest level MyReports",
+      "inputHighlights": {
+        "IsListView": 1,
+        "PermissionMethod": "View",
+        "StrongestGrantLevel": "MyReports"
+      },
+      "output": {
+        "HasPermission": true,
+        "IsError": false,
+        "ErrorReason": null,
+        "PermissionLevelId": 4
+      }
+    },
+    {
+      "scenario": "List mode no grant",
+      "inputHighlights": {
+        "IsListView": 1,
+        "PermissionMethod": "View",
+        "StrongestGrantLevel": "None"
+      },
+      "output": {
+        "HasPermission": false,
+        "IsError": false,
+        "ErrorReason": null,
+        "PermissionLevelId": null
+      }
+    },
+    {
+      "scenario": "Error case: data permission missing method",
+      "inputHighlights": {
+        "IsListView": 0,
+        "IsOperation": 0,
+        "PermissionMethodProvided": false
+      },
+      "output": {
+        "HasPermission": false,
+        "IsError": true,
+        "ErrorReason": "Data permission requires PermissionMethodId",
+        "PermissionLevelId": null
+      }
+    }
+  ],
+  "fieldDescriptions": {
+    "HasPermission": "Final permission decision. Always false when IsError is true.",
+    "IsError": "True only for validation or consistency errors, not for normal permission denial.",
+    "ErrorReason": "Human-readable error text. Null when IsError is false.",
+    "PermissionLevelId": "Returned only for list mode grants. Null for detail mode and for all error cases."
+  },
+  "listModeLevelPrecedence": "All > MyReports > Own > On"
+}

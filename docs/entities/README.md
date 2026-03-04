@@ -2,7 +2,7 @@
 
 This directory now has two documentation layers:
 
-1. Curated query-facing docs (`consultant.md`, `demand.md`, `experience.md`, `location.md`, `reference.md`)
+1. Curated query-facing docs (`consultant.md`, `consultancy-org.md`, `demand.md`, `experience.md`, `location.md`, `reference.md`)
 2. Full physical schema chunks in `modules/*.json` (derived from the latest JSON snapshot)
 
 Snapshot date for module files: `2026-03-03`.
@@ -10,6 +10,7 @@ Snapshot date for module files: `2026-03-03`.
 ## Curated Query Docs
 
 - **[consultant.md](consultant.md)** - Consultant identities and availability fields
+- **[consultancy-org.md](consultancy-org.md)** - Consultancy user hierarchy, role linkage, and permission join semantics
 - **[demand.md](demand.md)** - Demand and requirement structure used in matching
 - **[experience.md](experience.md)** - Experience score records and matching categories
 - **[location.md](location.md)** - Location hierarchy and consultant-location mapping
