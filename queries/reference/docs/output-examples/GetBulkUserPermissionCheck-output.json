@@ -1,6 +1,6 @@
 {
   "description": "GetBulkUserPermissionCheck output example",
-  "note": "Per item permission decision output for bulk checks. No list mode fields and no permission level output.",
+  "note": "Per item permission decision output for bulk checks. No list mode fields and no permission level output. Super-admin context returns one granted row per parsed item.",
   "columnOrder": "PermissionId, PermissionMethodId, AffectedConsultancyUserId, AffectedConsultantId, HasPermission, IsError, ErrorMessage",
   "singleRow": {
     "PermissionId": 9,
@@ -114,6 +114,31 @@
         "PermissionChecksJson": []
       },
       "outputRows": []
+    },
+    {
+      "scenario": "Super-admin context",
+      "inputHighlights": {
+        "UserId": "f3eb8d2d-0000-4000-8000-999999999999",
+        "PermissionChecksJson": [
+          {
+            "PermissionId": 9,
+            "PermissionMethodId": 1,
+            "AffectedConsultancyUserId": "f3eb8d2d-0000-4000-8000-222222222222",
+            "AffectedConsultantId": null
+          }
+        ]
+      },
+      "outputRows": [
+        {
+          "PermissionId": 9,
+          "PermissionMethodId": 1,
+          "AffectedConsultancyUserId": "f3eb8d2d-0000-4000-8000-222222222222",
+          "AffectedConsultantId": null,
+          "HasPermission": true,
+          "IsError": false,
+          "ErrorMessage": null
+        }
+      ]
     }
   ],
   "fieldDescriptions": {

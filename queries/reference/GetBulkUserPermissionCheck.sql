@@ -30,7 +30,11 @@
      One output row per parsed item when payload level validation passes.
      Payload level errors return one global error row and no item rows.
      Empty JSON array returns zero rows.
-     Super admin grants all parsed items.
+     Super admin returns one row per parsed item with HasPermission = TRUE.
+
+   Boolean permission behavior:
+     When Permission.IsBooleanPermission = 1, affected target input is optional.
+     Missing affected target is not an item error for boolean permissions.
 */
 WITH
 input_state AS (
@@ -89,29 +93,22 @@ payload_parse_state AS (
   SELECT
     input.MissingPayload,
     CASE
-      WHEN input.MissingPayload = 1 THEN 0
-      WHEN pg_input_is_valid(CAST(@PermissionChecksJson AS TEXT), 'jsonb'::regtype) THEN 1
-      ELSE 0
-    END AS IsValidJson,
-    CASE
       WHEN input.MissingPayload = 1 THEN NULL
-      WHEN pg_input_is_valid(CAST(@PermissionChecksJson AS TEXT), 'jsonb'::regtype) THEN CAST(@PermissionChecksJson AS jsonb)
-      ELSE NULL
+      ELSE CAST(@PermissionChecksJson AS jsonb)
     END AS ParsedPayloadJson
   FROM input_state input
 ),
 payload_state AS (
   SELECT
     payload_parse.MissingPayload,
-    payload_parse.IsValidJson,
     CASE
-      WHEN payload_parse.IsValidJson = 1
+      WHEN payload_parse.ParsedPayloadJson IS NOT NULL
        AND jsonb_typeof(payload_parse.ParsedPayloadJson) = 'array'
       THEN 1
       ELSE 0
     END AS IsJsonArray,
     CASE
-      WHEN payload_parse.IsValidJson = 1
+      WHEN payload_parse.ParsedPayloadJson IS NOT NULL
        AND jsonb_typeof(payload_parse.ParsedPayloadJson) = 'array'
       THEN payload_parse.ParsedPayloadJson
       ELSE '[]'::jsonb
@@ -126,7 +123,6 @@ global_error_state AS (
       WHEN current_user_ctx.MatchCount > 1 THEN 'Multiple current user mappings found in tenant'
       WHEN input.MissingPermissionLevelConfig = 1 THEN 'Missing permission level configuration input'
       WHEN payload.MissingPayload = 1 THEN 'PermissionChecksJson is required'
-      WHEN payload.IsValidJson = 0 THEN 'PermissionChecksJson is malformed JSON'
       WHEN payload.IsJsonArray = 0 THEN 'PermissionChecksJson must be a JSON array'
       ELSE NULL
     END AS ErrorReason
@@ -170,6 +166,12 @@ item_input_state AS (
       ELSE 0
     END AS HasPermissionMethodInput,
     CASE
+      WHEN parsed.PermissionMethodIdRaw ~ '^[0-9]+$'
+       AND CAST(parsed.PermissionMethodIdRaw AS INTEGER) > 0
+      THEN 1
+      ELSE 0
+    END AS HasActivePermissionMethodInput,
+    CASE
       WHEN parsed.PermissionMethodIdRaw ~ '^[0-9]+$' THEN CAST(parsed.PermissionMethodIdRaw AS INTEGER)
       ELSE NULL
     END AS PermissionMethodId,
@@ -191,12 +193,29 @@ item_input_state AS (
     END AS AffectedConsultantId
   FROM parsed_items parsed
 ),
+items_for_eval AS (
+  SELECT
+    item_input.InputOrder,
+    item_input.HasPermissionIdInput,
+    item_input.PermissionId,
+    item_input.HasPermissionMethodInput,
+    item_input.HasActivePermissionMethodInput,
+    item_input.PermissionMethodId,
+    item_input.HasAffectedConsultancyUserInput,
+    item_input.AffectedConsultancyUserId,
+    item_input.HasAffectedConsultantInput,
+    item_input.AffectedConsultantId
+  FROM item_input_state item_input
+  CROSS JOIN super_admin_state super_admin
+  WHERE super_admin.IsSuperAdmin = 0
+),
 item_permission_state AS (
   SELECT
     item_input.InputOrder,
     item_input.HasPermissionIdInput,
     item_input.PermissionId,
     item_input.HasPermissionMethodInput,
+    item_input.HasActivePermissionMethodInput,
     item_input.PermissionMethodId,
     item_input.HasAffectedConsultancyUserInput,
     item_input.AffectedConsultancyUserId,
@@ -207,13 +226,14 @@ item_permission_state AS (
       ELSE 0
     END AS PermissionExists,
     permission.[IsOperation] AS IsOperation,
+    permission.[IsBooleanPermission] AS IsBooleanPermission,
     CASE
-      WHEN item_input.PermissionMethodId IS NOT NULL
+      WHEN item_input.HasActivePermissionMethodInput = 1
        AND permission_method.[Id] IS NOT NULL
       THEN 1
       ELSE 0
     END AS MethodExists
-  FROM item_input_state item_input
+  FROM items_for_eval item_input
   LEFT JOIN {Permission} permission
     ON permission.[Id] = item_input.PermissionId
   LEFT JOIN {PermissionMethod} permission_method
@@ -225,9 +245,11 @@ item_target_state AS (
     item_permission.HasPermissionIdInput,
     item_permission.PermissionId,
     item_permission.HasPermissionMethodInput,
+    item_permission.HasActivePermissionMethodInput,
     item_permission.PermissionMethodId,
     item_permission.PermissionExists,
     item_permission.IsOperation,
+    item_permission.IsBooleanPermission,
     item_permission.MethodExists,
     item_permission.HasAffectedConsultancyUserInput,
     item_permission.AffectedConsultancyUserId,
@@ -261,11 +283,13 @@ item_scope_state AS (
     item_target.HasPermissionIdInput,
     item_target.PermissionId,
     item_target.HasPermissionMethodInput,
+    item_target.HasActivePermissionMethodInput,
     item_target.PermissionMethodId,
     item_target.AffectedConsultancyUserId,
     item_target.AffectedConsultantId,
     item_target.PermissionExists,
     item_target.IsOperation,
+    item_target.IsBooleanPermission,
     item_target.MethodExists,
     item_target.HasAffectedConsultancyUserInput,
     item_target.AffectedConsultancyUserExists,
@@ -300,7 +324,11 @@ item_candidate_permissions AS (
    AND role_permission.[TenantId] = current_user_ctx.CurrentTenantId
   WHERE role_permission.[PermissionId] = item_scope.PermissionId
     AND (
-      (item_scope.IsOperation = 0 AND role_permission.[PermissionMethodId] = item_scope.PermissionMethodId)
+      (
+        item_scope.IsOperation = 0
+        AND item_scope.HasActivePermissionMethodInput = 1
+        AND role_permission.[PermissionMethodId] = item_scope.PermissionMethodId
+      )
       OR (item_scope.IsOperation = 1)
     )
 ),
@@ -390,25 +418,29 @@ item_error_state AS (
       WHEN item_scope.PermissionExists = 0
       THEN 'Permission not found'
       WHEN item_scope.IsOperation = 1
-       AND item_scope.HasPermissionMethodInput = 1
-      THEN 'Operation permission must not receive PermissionMethodId'
+       AND item_scope.HasActivePermissionMethodInput = 1
+      THEN 'Operation permission must not receive active PermissionMethodId'
       WHEN item_scope.IsOperation = 0
-       AND item_scope.HasPermissionMethodInput = 0
+       AND item_scope.HasActivePermissionMethodInput = 0
       THEN 'Data permission requires PermissionMethodId'
       WHEN item_scope.IsOperation = 0
-       AND item_scope.HasPermissionMethodInput = 1
+       AND item_scope.HasActivePermissionMethodInput = 1
        AND item_scope.MethodExists = 0
       THEN 'PermissionMethodId not found'
-      WHEN item_scope.HasAffectedConsultancyUserInput = 0
+      WHEN item_scope.IsBooleanPermission = 0
+       AND item_scope.HasAffectedConsultancyUserInput = 0
        AND item_scope.HasAffectedConsultantInput = 0
       THEN 'Affected target is required'
-      WHEN item_scope.HasAffectedConsultancyUserInput = 1
+      WHEN item_scope.IsBooleanPermission = 0
+       AND item_scope.HasAffectedConsultancyUserInput = 1
        AND item_scope.AffectedConsultancyUserExists = 0
       THEN 'Affected ConsultancyUserId not found in tenant'
-      WHEN item_scope.HasAffectedConsultantInput = 1
+      WHEN item_scope.IsBooleanPermission = 0
+       AND item_scope.HasAffectedConsultantInput = 1
        AND item_scope.AffectedConsultantExists = 0
       THEN 'Affected ConsultantId not found in tenant'
-      WHEN item_scope.AffectedInputsMismatch = 1
+      WHEN item_scope.IsBooleanPermission = 0
+       AND item_scope.AffectedInputsMismatch = 1
       THEN 'Affected inputs resolve to different ConsultancyUser records'
       WHEN item_level.HasUnknownLevel = 1
       THEN 'Unknown permission level found in matched role permissions'
@@ -426,7 +458,6 @@ item_result_state AS (
     item_scope.AffectedConsultancyUserId AS AffectedConsultancyUserId,
     item_scope.AffectedConsultantId AS AffectedConsultantId,
     CASE
-      WHEN super_admin.IsSuperAdmin = 1 THEN TRUE
       WHEN item_error.ErrorReason IS NOT NULL THEN FALSE
       WHEN item_level.HasAll = 1 OR item_level.HasOn = 1 THEN TRUE
       WHEN item_level.HasOwn = 1
@@ -438,18 +469,15 @@ item_result_state AS (
       ELSE FALSE
     END AS HasPermission,
     CASE
-      WHEN super_admin.IsSuperAdmin = 1 THEN FALSE
       WHEN item_error.ErrorReason IS NOT NULL THEN TRUE
       ELSE FALSE
     END AS IsError,
     CASE
-      WHEN super_admin.IsSuperAdmin = 1 THEN NULL
       WHEN item_error.ErrorReason IS NOT NULL THEN item_error.ErrorReason
       ELSE NULL
     END AS ErrorReason
   FROM item_scope_state item_scope
   CROSS JOIN current_user_scope current_user_ctx
-  CROSS JOIN super_admin_state super_admin
   JOIN item_level_state item_level
     ON item_level.InputOrder = item_scope.InputOrder
   JOIN item_myreports_state item_myreports
@@ -470,6 +498,23 @@ global_error_result AS (
     global_error.ErrorReason AS ErrorReason
   FROM global_error_state global_error
   WHERE global_error.ErrorReason IS NOT NULL
+),
+item_super_admin_result AS (
+  SELECT
+    1 AS SortGroup,
+    item_input.InputOrder AS SortOrder,
+    item_input.PermissionId AS PermissionId,
+    item_input.PermissionMethodId AS PermissionMethodId,
+    item_input.AffectedConsultancyUserId AS AffectedConsultancyUserId,
+    item_input.AffectedConsultantId AS AffectedConsultantId,
+    TRUE AS HasPermission,
+    FALSE AS IsError,
+    NULL::text AS ErrorReason
+  FROM item_input_state item_input
+  CROSS JOIN global_error_state global_error
+  CROSS JOIN super_admin_state super_admin
+  WHERE global_error.ErrorReason IS NULL
+    AND super_admin.IsSuperAdmin = 1
 ),
 item_result AS (
   SELECT
@@ -498,6 +543,20 @@ final_result AS (
     global_result.IsError,
     global_result.ErrorReason
   FROM global_error_result global_result
+
+  UNION ALL
+
+  SELECT
+    super_admin_result.SortGroup,
+    super_admin_result.SortOrder,
+    super_admin_result.PermissionId,
+    super_admin_result.PermissionMethodId,
+    super_admin_result.AffectedConsultancyUserId,
+    super_admin_result.AffectedConsultantId,
+    super_admin_result.HasPermission,
+    super_admin_result.IsError,
+    super_admin_result.ErrorReason
+  FROM item_super_admin_result super_admin_result
 
   UNION ALL
 

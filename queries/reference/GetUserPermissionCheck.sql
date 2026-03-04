@@ -45,6 +45,10 @@
    Tenant behavior:
      Tenant scope is inferred from current ConsultancyUser resolved by @UserId.
      Affected target records must belong to the same inferred tenant.
+
+   Boolean permission behavior:
+     When Permission.IsBooleanPermission = 1, affected target input is optional.
+     Missing affected target is not an error for boolean permissions.
 */
 WITH
 input_state AS (
@@ -122,7 +126,8 @@ super_admin_state AS (
 permission_scope AS (
   SELECT
     permission.[Id] AS PermissionId,
-    permission.[IsOperation] AS IsOperation
+    permission.[IsOperation] AS IsOperation,
+    permission.[IsBooleanPermission] AS IsBooleanPermission
   FROM {Permission} permission
   WHERE permission.[Id] = @PermissionId
 ),
@@ -136,13 +141,25 @@ permission_state AS (
       SELECT permission_scope.IsOperation
       FROM permission_scope
       LIMIT 1
-    ) AS IsOperation
+    ) AS IsOperation,
+    (
+      SELECT permission_scope.IsBooleanPermission
+      FROM permission_scope
+      LIMIT 1
+    ) AS IsBooleanPermission
 ),
 method_state AS (
   SELECT
     CASE
-      WHEN @PermissionMethodId IS NULL THEN 0
-      WHEN EXISTS (
+      WHEN @PermissionMethodId IS NOT NULL
+       AND @PermissionMethodId > 0
+      THEN 1
+      ELSE 0
+    END AS HasActivePermissionMethodInput,
+    CASE
+      WHEN @PermissionMethodId IS NOT NULL
+       AND @PermissionMethodId > 0
+       AND EXISTS (
         SELECT 1
         FROM {PermissionMethod} permission_method
         WHERE permission_method.[Id] = @PermissionMethodId
@@ -226,13 +243,18 @@ candidate_permissions AS (
     user_role_permission.[PermissionLevelId] AS PermissionLevelId
   FROM current_user_roles user_role_ctx
   CROSS JOIN current_user_scope current_user_ctx
+  CROSS JOIN method_state method_eval
   JOIN {UserRolePermissions} user_role_permission
     ON user_role_permission.[UserRoleId] = user_role_ctx.UserRoleId
    AND user_role_permission.[TenantId] = current_user_ctx.CurrentTenantId
   CROSS JOIN permission_state permission_eval
   WHERE user_role_permission.[PermissionId] = @PermissionId
     AND (
-      (permission_eval.IsOperation = 0 AND user_role_permission.[PermissionMethodId] = @PermissionMethodId)
+      (
+        permission_eval.IsOperation = 0
+        AND method_eval.HasActivePermissionMethodInput = 1
+        AND user_role_permission.[PermissionMethodId] = @PermissionMethodId
+      )
       OR (permission_eval.IsOperation = 1)
     )
 ),
@@ -364,13 +386,13 @@ post_super_admin_error_state AS (
       THEN 'Missing or invalid PermissionMethodViewId'
       WHEN permission_eval.PermissionExists = 0 THEN 'Permission not found'
       WHEN permission_eval.IsOperation = 1
-       AND @PermissionMethodId IS NOT NULL
-      THEN 'Operation permission must not receive PermissionMethodId'
+       AND method_eval.HasActivePermissionMethodInput = 1
+      THEN 'Operation permission must not receive active PermissionMethodId'
       WHEN permission_eval.IsOperation = 0
-       AND @PermissionMethodId IS NULL
+       AND method_eval.HasActivePermissionMethodInput = 0
       THEN 'Data permission requires PermissionMethodId'
       WHEN permission_eval.IsOperation = 0
-       AND @PermissionMethodId IS NOT NULL
+       AND method_eval.HasActivePermissionMethodInput = 1
        AND method_eval.MethodExists = 0
       THEN 'PermissionMethodId not found'
       WHEN @IsListView = 1
@@ -378,19 +400,24 @@ post_super_admin_error_state AS (
       THEN 'List view mode must not receive affected target inputs'
       WHEN @IsListView = 1
        AND permission_eval.IsOperation = 0
+       AND method_eval.HasActivePermissionMethodInput = 1
        AND @PermissionMethodId <> @PermissionMethodViewId
       THEN 'List view mode requires View PermissionMethodId for data permission'
       WHEN @IsListView = 0
+       AND permission_eval.IsBooleanPermission = 0
        AND affected.HasAffectedConsultancyUserInput = 0
        AND affected.HasAffectedConsultantInput = 0
       THEN 'Non list mode requires affected target input'
-      WHEN affected.HasAffectedConsultancyUserInput = 1
+      WHEN permission_eval.IsBooleanPermission = 0
+       AND affected.HasAffectedConsultancyUserInput = 1
        AND affected.AffectedConsultancyUserExists = 0
       THEN 'Affected ConsultancyUserId not found in tenant'
-      WHEN affected.HasAffectedConsultantInput = 1
+      WHEN permission_eval.IsBooleanPermission = 0
+       AND affected.HasAffectedConsultantInput = 1
        AND affected.AffectedConsultantExists = 0
       THEN 'Affected ConsultantId not found in tenant'
-      WHEN affected.AffectedInputsMismatch = 1
+      WHEN permission_eval.IsBooleanPermission = 0
+       AND affected.AffectedInputsMismatch = 1
       THEN 'Affected inputs resolve to different ConsultancyUser records'
       WHEN levels.HasUnknownLevel = 1
       THEN 'Unknown permission level found in matched role permissions'
