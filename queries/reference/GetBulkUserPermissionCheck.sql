@@ -23,14 +23,18 @@
      AffectedConsultancyUserId,
      AffectedConsultantId,
      HasPermission,
+     PermissionLevelId,
      IsError,
-     ErrorMessage
+     ErrorReason
 
    Output contract:
      One output row per parsed item when payload level validation passes.
      Payload level errors return one global error row and no item rows.
      Empty JSON array returns zero rows.
      Super admin returns one row per parsed item with HasPermission = TRUE.
+     HasPermission can be NULL when strongest granted level requires target resolution
+     (Own or MyReports) and no affected target is provided.
+     PermissionLevelId is always the strongest granted level when no error.
 
    Boolean permission behavior:
      When Permission.IsBooleanPermission = 1, affected target input is optional.
@@ -427,20 +431,13 @@ item_error_state AS (
        AND item_scope.HasActivePermissionMethodInput = 1
        AND item_scope.MethodExists = 0
       THEN 'PermissionMethodId not found'
-      WHEN item_scope.IsBooleanPermission = 0
-       AND item_scope.HasAffectedConsultancyUserInput = 0
-       AND item_scope.HasAffectedConsultantInput = 0
-      THEN 'Affected target is required'
-      WHEN item_scope.IsBooleanPermission = 0
-       AND item_scope.HasAffectedConsultancyUserInput = 1
+      WHEN item_scope.HasAffectedConsultancyUserInput = 1
        AND item_scope.AffectedConsultancyUserExists = 0
       THEN 'Affected ConsultancyUserId not found in tenant'
-      WHEN item_scope.IsBooleanPermission = 0
-       AND item_scope.HasAffectedConsultantInput = 1
+      WHEN item_scope.HasAffectedConsultantInput = 1
        AND item_scope.AffectedConsultantExists = 0
       THEN 'Affected ConsultantId not found in tenant'
-      WHEN item_scope.IsBooleanPermission = 0
-       AND item_scope.AffectedInputsMismatch = 1
+      WHEN item_scope.AffectedInputsMismatch = 1
       THEN 'Affected inputs resolve to different ConsultancyUser records'
       WHEN item_level.HasUnknownLevel = 1
       THEN 'Unknown permission level found in matched role permissions'
@@ -458,14 +455,31 @@ item_result_state AS (
     item_scope.AffectedConsultancyUserId AS AffectedConsultancyUserId,
     item_scope.AffectedConsultantId AS AffectedConsultantId,
     CASE
+      WHEN item_error.ErrorReason IS NOT NULL THEN NULL
+      WHEN item_level.HasAll = 1 THEN @PermissionLevelAllId
+      WHEN item_level.HasMyReports = 1 THEN @PermissionLevelMyReportsId
+      WHEN item_level.HasOwn = 1 THEN @PermissionLevelOwnId
+      WHEN item_level.HasOn = 1 THEN @PermissionLevelOnId
+      ELSE NULL
+    END AS PermissionLevelId,
+    CASE
       WHEN item_error.ErrorReason IS NOT NULL THEN FALSE
-      WHEN item_level.HasAll = 1 OR item_level.HasOn = 1 THEN TRUE
-      WHEN item_level.HasOwn = 1
-       AND item_scope.EffectiveAffectedConsultancyUserId = current_user_ctx.CurrentConsultancyUserId
-      THEN TRUE
+      WHEN item_level.HasAll = 1 THEN TRUE
+      WHEN item_level.HasMyReports = 1
+       AND item_scope.EffectiveAffectedConsultancyUserId IS NULL
+      THEN NULL
       WHEN item_level.HasMyReports = 1
        AND item_myreports.IsMyReportsMatch = 1
       THEN TRUE
+      WHEN item_level.HasMyReports = 1 THEN FALSE
+      WHEN item_level.HasOwn = 1
+       AND item_scope.EffectiveAffectedConsultancyUserId IS NULL
+      THEN NULL
+      WHEN item_level.HasOwn = 1
+       AND item_scope.EffectiveAffectedConsultancyUserId = current_user_ctx.CurrentConsultancyUserId
+      THEN TRUE
+      WHEN item_level.HasOwn = 1 THEN FALSE
+      WHEN item_level.HasOn = 1 THEN TRUE
       ELSE FALSE
     END AS HasPermission,
     CASE
@@ -494,6 +508,7 @@ global_error_result AS (
     NULL::text AS AffectedConsultancyUserId,
     NULL::text AS AffectedConsultantId,
     FALSE AS HasPermission,
+    NULL::integer AS PermissionLevelId,
     TRUE AS IsError,
     global_error.ErrorReason AS ErrorReason
   FROM global_error_state global_error
@@ -508,6 +523,7 @@ item_super_admin_result AS (
     item_input.AffectedConsultancyUserId AS AffectedConsultancyUserId,
     item_input.AffectedConsultantId AS AffectedConsultantId,
     TRUE AS HasPermission,
+    @PermissionLevelAllId AS PermissionLevelId,
     FALSE AS IsError,
     NULL::text AS ErrorReason
   FROM item_input_state item_input
@@ -525,6 +541,7 @@ item_result AS (
     item_result_state.AffectedConsultancyUserId AS AffectedConsultancyUserId,
     item_result_state.AffectedConsultantId AS AffectedConsultantId,
     item_result_state.HasPermission,
+    item_result_state.PermissionLevelId,
     item_result_state.IsError,
     item_result_state.ErrorReason
   FROM item_result_state
@@ -540,6 +557,7 @@ final_result AS (
     global_result.AffectedConsultancyUserId,
     global_result.AffectedConsultantId,
     global_result.HasPermission,
+    global_result.PermissionLevelId,
     global_result.IsError,
     global_result.ErrorReason
   FROM global_error_result global_result
@@ -554,6 +572,7 @@ final_result AS (
     super_admin_result.AffectedConsultancyUserId,
     super_admin_result.AffectedConsultantId,
     super_admin_result.HasPermission,
+    super_admin_result.PermissionLevelId,
     super_admin_result.IsError,
     super_admin_result.ErrorReason
   FROM item_super_admin_result super_admin_result
@@ -568,6 +587,7 @@ final_result AS (
     item_result.AffectedConsultancyUserId,
     item_result.AffectedConsultantId,
     item_result.HasPermission,
+    item_result.PermissionLevelId,
     item_result.IsError,
     item_result.ErrorReason
   FROM item_result
@@ -578,8 +598,9 @@ SELECT
   final_result.AffectedConsultancyUserId AS AffectedConsultancyUserId,
   final_result.AffectedConsultantId AS AffectedConsultantId,
   final_result.HasPermission AS HasPermission,
+  final_result.PermissionLevelId AS PermissionLevelId,
   final_result.IsError AS IsError,
-  final_result.ErrorReason AS ErrorMessage
+  final_result.ErrorReason AS ErrorReason
 FROM final_result
 ORDER BY
   final_result.SortGroup,

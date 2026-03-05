@@ -1,21 +1,12 @@
 /* GetUserPermissionCheck : Advanced SQL (Aurora Postgres, ODC)
-   Purpose: Unified permission evaluation for detail actions and list views.
-
-   Modes:
-     Detail mode      : @IsListView = 0
-       Uses affected target inputs and returns final HasPermission decision.
-     List view mode   : @IsListView = 1
-       Does not evaluate per row target in this query.
-       Returns strongest granted PermissionLevelId for caller side filtering.
+   Purpose: Unified permission evaluation that always returns strongest granted PermissionLevelId.
 
    Input:
      @UserId,
      @PermissionId,
      @PermissionMethodId,
-     @IsListView,
      @AffectedConsultancyUserId,
      @AffectedConsultantId,
-     @PermissionMethodViewId,
      @PermissionLevelOnId,
      @PermissionLevelAllId,
      @PermissionLevelOwnId,
@@ -25,22 +16,19 @@
 
    Output columns (ordered):
      HasPermission,
+     PermissionLevelId,
      IsError,
-     ErrorReason,
-     PermissionLevelId
+     ErrorReason
 
    Output contract:
      HasPermission is always FALSE when IsError is TRUE.
+     HasPermission can be NULL when strongest granted level requires target resolution
+     (Own or MyReports) and no affected target is provided.
      ErrorReason is NULL when IsError is FALSE.
-     PermissionLevelId is populated only for list view grants.
-     Detail mode always returns PermissionLevelId as NULL.
+     PermissionLevelId is always the strongest granted level when no error.
 
-   List mode strongest level precedence:
+   Strongest level precedence:
      All, MyReports, Own, On
-
-   Super admin behavior:
-     If current user has IsSuperAdmin role, query returns immediate grant
-     and skips downstream permission and payload validation.
 
    Tenant behavior:
      Tenant scope is inferred from current ConsultancyUser resolved by @UserId.
@@ -61,14 +49,6 @@ input_state AS (
       WHEN @PermissionId IS NULL OR @PermissionId <= 0 THEN 1
       ELSE 0
     END AS MissingPermissionId,
-    CASE
-      WHEN @IsListView IS NULL OR @IsListView NOT IN (0, 1) THEN 1
-      ELSE 0
-    END AS InvalidIsListView,
-    CASE
-      WHEN @PermissionMethodViewId IS NULL OR @PermissionMethodViewId <= 0 THEN 1
-      ELSE 0
-    END AS MissingPermissionMethodViewId,
     CASE
       WHEN @PermissionLevelOnId IS NULL
         OR @PermissionLevelAllId IS NULL
@@ -327,7 +307,6 @@ candidate_level_state AS (
 my_reports_state AS (
   SELECT
     CASE
-      WHEN @IsListView = 1 THEN 0
       WHEN EXISTS (
         SELECT 1
         FROM {ConsultancyUserClosure} closure
@@ -348,17 +327,19 @@ grant_state AS (
       WHEN levels.HasOwn = 1 THEN @PermissionLevelOwnId
       WHEN levels.HasOn = 1 THEN @PermissionLevelOnId
       ELSE NULL
-    END AS ListGrantedPermissionLevelId,
+    END AS StrongestPermissionLevelId,
+    affected.EffectiveAffectedConsultancyUserId,
+    CASE
+      WHEN affected.EffectiveAffectedConsultancyUserId = current_user_ctx.CurrentConsultancyUserId THEN 1
+      ELSE 0
+    END AS IsOwnMatch,
+    my_reports.IsMyReportsMatch,
     CASE
       WHEN levels.HasAll = 1 OR levels.HasOn = 1 THEN 1
-      WHEN levels.HasOwn = 1
-       AND affected.EffectiveAffectedConsultancyUserId = current_user_ctx.CurrentConsultancyUserId
-      THEN 1
-      WHEN levels.HasMyReports = 1
-       AND my_reports.IsMyReportsMatch = 1
-      THEN 1
+      WHEN levels.HasOwn = 1 THEN 1
+      WHEN levels.HasMyReports = 1 THEN 1
       ELSE 0
-    END AS NonListGranted
+    END AS HasAnyGrant
   FROM candidate_level_state levels
   CROSS JOIN affected_state affected
   CROSS JOIN current_user_scope current_user_ctx
@@ -379,11 +360,7 @@ post_super_admin_error_state AS (
   SELECT
     CASE
       WHEN input.MissingPermissionId = 1 THEN 'Missing or invalid PermissionId'
-      WHEN input.InvalidIsListView = 1 THEN 'Missing or invalid IsListView value'
       WHEN input.MissingPermissionLevelConfig = 1 THEN 'Missing permission level configuration input'
-      WHEN @IsListView = 1
-       AND input.MissingPermissionMethodViewId = 1
-      THEN 'Missing or invalid PermissionMethodViewId'
       WHEN permission_eval.PermissionExists = 0 THEN 'Permission not found'
       WHEN permission_eval.IsOperation = 1
        AND method_eval.HasActivePermissionMethodInput = 1
@@ -395,29 +372,13 @@ post_super_admin_error_state AS (
        AND method_eval.HasActivePermissionMethodInput = 1
        AND method_eval.MethodExists = 0
       THEN 'PermissionMethodId not found'
-      WHEN @IsListView = 1
-       AND (affected.HasAffectedConsultancyUserInput = 1 OR affected.HasAffectedConsultantInput = 1)
-      THEN 'List view mode must not receive affected target inputs'
-      WHEN @IsListView = 1
-       AND permission_eval.IsOperation = 0
-       AND method_eval.HasActivePermissionMethodInput = 1
-       AND @PermissionMethodId <> @PermissionMethodViewId
-      THEN 'List view mode requires View PermissionMethodId for data permission'
-      WHEN @IsListView = 0
-       AND permission_eval.IsBooleanPermission = 0
-       AND affected.HasAffectedConsultancyUserInput = 0
-       AND affected.HasAffectedConsultantInput = 0
-      THEN 'Non list mode requires affected target input'
-      WHEN permission_eval.IsBooleanPermission = 0
-       AND affected.HasAffectedConsultancyUserInput = 1
+      WHEN affected.HasAffectedConsultancyUserInput = 1
        AND affected.AffectedConsultancyUserExists = 0
       THEN 'Affected ConsultancyUserId not found in tenant'
-      WHEN permission_eval.IsBooleanPermission = 0
-       AND affected.HasAffectedConsultantInput = 1
+      WHEN affected.HasAffectedConsultantInput = 1
        AND affected.AffectedConsultantExists = 0
       THEN 'Affected ConsultantId not found in tenant'
-      WHEN permission_eval.IsBooleanPermission = 0
-       AND affected.AffectedInputsMismatch = 1
+      WHEN affected.AffectedInputsMismatch = 1
       THEN 'Affected inputs resolve to different ConsultancyUser records'
       WHEN levels.HasUnknownLevel = 1
       THEN 'Unknown permission level found in matched role permissions'
@@ -453,10 +414,30 @@ SELECT
   CASE
     WHEN final_eval.IsError = 1 THEN FALSE
     WHEN super_admin.IsSuperAdmin = 1 THEN TRUE
-    WHEN @IsListView = 1 AND grant_eval.ListGrantedPermissionLevelId IS NOT NULL THEN TRUE
-    WHEN @IsListView = 0 AND grant_eval.NonListGranted = 1 THEN TRUE
+    WHEN grant_eval.StrongestPermissionLevelId = @PermissionLevelAllId THEN TRUE
+    WHEN grant_eval.StrongestPermissionLevelId = @PermissionLevelOnId THEN TRUE
+    WHEN grant_eval.StrongestPermissionLevelId = @PermissionLevelOwnId
+      AND grant_eval.EffectiveAffectedConsultancyUserId IS NULL
+    THEN NULL
+    WHEN grant_eval.StrongestPermissionLevelId = @PermissionLevelOwnId
+      AND grant_eval.IsOwnMatch = 1
+    THEN TRUE
+    WHEN grant_eval.StrongestPermissionLevelId = @PermissionLevelOwnId THEN FALSE
+    WHEN grant_eval.StrongestPermissionLevelId = @PermissionLevelMyReportsId
+      AND grant_eval.EffectiveAffectedConsultancyUserId IS NULL
+    THEN NULL
+    WHEN grant_eval.StrongestPermissionLevelId = @PermissionLevelMyReportsId
+      AND grant_eval.IsMyReportsMatch = 1
+    THEN TRUE
+    WHEN grant_eval.StrongestPermissionLevelId = @PermissionLevelMyReportsId THEN FALSE
+    WHEN grant_eval.HasAnyGrant = 1 THEN TRUE
     ELSE FALSE
   END AS HasPermission,
+  CASE
+    WHEN final_eval.IsError = 1 THEN NULL
+    WHEN super_admin.IsSuperAdmin = 1 THEN @PermissionLevelAllId
+    ELSE grant_eval.StrongestPermissionLevelId
+  END AS PermissionLevelId,
   CASE
     WHEN final_eval.IsError = 1 THEN TRUE
     ELSE FALSE
@@ -464,13 +445,7 @@ SELECT
   CASE
     WHEN final_eval.IsError = 1 THEN final_eval.ErrorReason
     ELSE NULL
-  END AS ErrorReason,
-  CASE
-    WHEN final_eval.IsError = 1 THEN NULL
-    WHEN super_admin.IsSuperAdmin = 1 THEN NULL
-    WHEN @IsListView = 1 THEN grant_eval.ListGrantedPermissionLevelId
-    ELSE NULL
-  END AS PermissionLevelId
+  END AS ErrorReason
 FROM final_state final_eval
 CROSS JOIN super_admin_state super_admin
 CROSS JOIN grant_state grant_eval
