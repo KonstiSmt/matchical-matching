@@ -48,6 +48,7 @@ Do NOT use `STRING_TO_ARRAY` or `UNNEST`. It's already expanded SQL.
 
 - Apply tenant filtering once on the query root entity.
 - Do not repeat tenant filters on downstream joins unless a specific use case explicitly requires it.
+- If current and affected ConsultancyUser records are already tenant-scoped, do not re-check TenantId on downstream joins such as ConsultancyUserRoles, UserRole, UserRolePermissions, or ConsultancyUserClosure.
 
 ---
 

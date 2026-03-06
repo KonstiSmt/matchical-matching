@@ -34,9 +34,6 @@
      Tenant scope is inferred from current ConsultancyUser resolved by @UserId.
      Affected target records must belong to the same inferred tenant.
 
-   Boolean permission behavior:
-     When Permission.IsBooleanPermission = 1, affected target input is optional.
-     Missing affected target is not an error for boolean permissions.
 */
 WITH
 input_state AS (
@@ -85,8 +82,7 @@ current_user_roles AS (
     consultancy_user_role.[UserRoleId] AS UserRoleId
   FROM {ConsultancyUserRoles} consultancy_user_role
   CROSS JOIN current_user_scope current_user_ctx
-  WHERE consultancy_user_role.[TenantId] = current_user_ctx.CurrentTenantId
-    AND consultancy_user_role.[ConsultancyUserId] = current_user_ctx.CurrentConsultancyUserId
+  WHERE consultancy_user_role.[ConsultancyUserId] = current_user_ctx.CurrentConsultancyUserId
 ),
 super_admin_state AS (
   SELECT
@@ -94,10 +90,8 @@ super_admin_state AS (
       WHEN EXISTS (
         SELECT 1
         FROM current_user_roles user_role_ctx
-        CROSS JOIN current_user_scope current_user_ctx
         JOIN {UserRole} user_role
           ON user_role.[Id] = user_role_ctx.UserRoleId
-         AND user_role.[TenantId] = current_user_ctx.CurrentTenantId
         WHERE user_role.[IsSuperAdmin] = 1
       ) THEN 1
       ELSE 0
@@ -106,8 +100,7 @@ super_admin_state AS (
 permission_scope AS (
   SELECT
     permission.[Id] AS PermissionId,
-    permission.[IsOperation] AS IsOperation,
-    permission.[IsBooleanPermission] AS IsBooleanPermission
+    permission.[IsOperation] AS IsOperation
   FROM {Permission} permission
   WHERE permission.[Id] = @PermissionId
 ),
@@ -121,12 +114,7 @@ permission_state AS (
       SELECT permission_scope.IsOperation
       FROM permission_scope
       LIMIT 1
-    ) AS IsOperation,
-    (
-      SELECT permission_scope.IsBooleanPermission
-      FROM permission_scope
-      LIMIT 1
-    ) AS IsBooleanPermission
+    ) AS IsOperation
 ),
 method_state AS (
   SELECT
@@ -222,11 +210,9 @@ candidate_permissions AS (
   SELECT
     user_role_permission.[PermissionLevelId] AS PermissionLevelId
   FROM current_user_roles user_role_ctx
-  CROSS JOIN current_user_scope current_user_ctx
   CROSS JOIN method_state method_eval
   JOIN {UserRolePermissions} user_role_permission
     ON user_role_permission.[UserRoleId] = user_role_ctx.UserRoleId
-   AND user_role_permission.[TenantId] = current_user_ctx.CurrentTenantId
   CROSS JOIN permission_state permission_eval
   WHERE user_role_permission.[PermissionId] = @PermissionId
     AND (
@@ -240,84 +226,64 @@ candidate_permissions AS (
 ),
 candidate_level_state AS (
   SELECT
-    CASE
-      WHEN EXISTS (
-        SELECT 1
-        FROM candidate_permissions candidate
-        WHERE candidate.PermissionLevelId = @PermissionLevelOnId
-      ) THEN 1
-      ELSE 0
-    END AS HasOn,
-    CASE
-      WHEN EXISTS (
-        SELECT 1
-        FROM candidate_permissions candidate
-        WHERE candidate.PermissionLevelId = @PermissionLevelAllId
-      ) THEN 1
-      ELSE 0
-    END AS HasAll,
-    CASE
-      WHEN EXISTS (
-        SELECT 1
-        FROM candidate_permissions candidate
-        WHERE candidate.PermissionLevelId = @PermissionLevelOwnId
-      ) THEN 1
-      ELSE 0
-    END AS HasOwn,
-    CASE
-      WHEN EXISTS (
-        SELECT 1
-        FROM candidate_permissions candidate
-        WHERE candidate.PermissionLevelId = @PermissionLevelMyReportsId
-      ) THEN 1
-      ELSE 0
-    END AS HasMyReports,
-    CASE
-      WHEN EXISTS (
-        SELECT 1
-        FROM candidate_permissions candidate
-        WHERE candidate.PermissionLevelId = @PermissionLevelOffId
-      ) THEN 1
-      ELSE 0
-    END AS HasOff,
-    CASE
-      WHEN EXISTS (
-        SELECT 1
-        FROM candidate_permissions candidate
-        WHERE candidate.PermissionLevelId = @PermissionLevelUnavailableId
-      ) THEN 1
-      ELSE 0
-    END AS HasUnavailable,
-    CASE
-      WHEN EXISTS (
-        SELECT 1
-        FROM candidate_permissions candidate
-        WHERE candidate.PermissionLevelId NOT IN (
+    COALESCE(MAX(
+      CASE
+        WHEN candidate.PermissionLevelId = @PermissionLevelOnId THEN 1
+        ELSE 0
+      END
+    ), 0) AS HasOn,
+    COALESCE(MAX(
+      CASE
+        WHEN candidate.PermissionLevelId = @PermissionLevelAllId THEN 1
+        ELSE 0
+      END
+    ), 0) AS HasAll,
+    COALESCE(MAX(
+      CASE
+        WHEN candidate.PermissionLevelId = @PermissionLevelOwnId THEN 1
+        ELSE 0
+      END
+    ), 0) AS HasOwn,
+    COALESCE(MAX(
+      CASE
+        WHEN candidate.PermissionLevelId = @PermissionLevelMyReportsId THEN 1
+        ELSE 0
+      END
+    ), 0) AS HasMyReports,
+    COALESCE(MAX(
+      CASE
+        WHEN candidate.PermissionLevelId NOT IN (
           @PermissionLevelOnId,
           @PermissionLevelAllId,
           @PermissionLevelOwnId,
           @PermissionLevelMyReportsId,
           @PermissionLevelOffId,
           @PermissionLevelUnavailableId
-        )
-      ) THEN 1
-      ELSE 0
-    END AS HasUnknownLevel
+        ) THEN 1
+        ELSE 0
+      END
+    ), 0) AS HasUnknownLevel
+  FROM candidate_permissions candidate
 ),
 my_reports_state AS (
   SELECT
     CASE
-      WHEN EXISTS (
-        SELECT 1
-        FROM {ConsultancyUserClosure} closure
-        CROSS JOIN current_user_scope current_user_ctx
-        CROSS JOIN affected_state affected
-        WHERE closure.[TenantId] = current_user_ctx.CurrentTenantId
-          AND closure.[AncestorId] = affected.EffectiveAffectedConsultancyUserId
-          AND closure.[DescendantId] = current_user_ctx.CurrentConsultancyUserId
-      ) THEN 1
+      WHEN myreports_hit.IsMyReportsMatch = 1 THEN 1
       ELSE 0
     END AS IsMyReportsMatch
+  FROM candidate_level_state levels
+  CROSS JOIN affected_state affected
+  LEFT JOIN LATERAL (
+    SELECT
+      1 AS IsMyReportsMatch
+    FROM {ConsultancyUserClosure} closure
+    CROSS JOIN current_user_scope current_user_ctx
+    WHERE levels.HasMyReports = 1
+      AND affected.EffectiveAffectedConsultancyUserId IS NOT NULL
+      AND closure.[AncestorId] = affected.EffectiveAffectedConsultancyUserId
+      AND closure.[DescendantId] = current_user_ctx.CurrentConsultancyUserId
+    LIMIT 1
+  ) myreports_hit ON TRUE
 ),
 grant_state AS (
   SELECT

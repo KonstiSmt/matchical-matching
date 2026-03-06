@@ -36,9 +36,6 @@
      (Own or MyReports) and no affected target is provided.
      PermissionLevelId is always the strongest granted level when no error.
 
-   Boolean permission behavior:
-     When Permission.IsBooleanPermission = 1, affected target input is optional.
-     Missing affected target is not an item error for boolean permissions.
 */
 WITH
 input_state AS (
@@ -75,8 +72,7 @@ current_user_roles AS (
     consultancy_user_role.[UserRoleId] AS UserRoleId
   FROM {ConsultancyUserRoles} consultancy_user_role
   CROSS JOIN current_user_scope current_user_ctx
-  WHERE consultancy_user_role.[TenantId] = current_user_ctx.CurrentTenantId
-    AND consultancy_user_role.[ConsultancyUserId] = current_user_ctx.CurrentConsultancyUserId
+  WHERE consultancy_user_role.[ConsultancyUserId] = current_user_ctx.CurrentConsultancyUserId
 ),
 super_admin_state AS (
   SELECT
@@ -84,10 +80,8 @@ super_admin_state AS (
       WHEN EXISTS (
         SELECT 1
         FROM current_user_roles user_role_ctx
-        CROSS JOIN current_user_scope current_user_ctx
         JOIN {UserRole} user_role
           ON user_role.[Id] = user_role_ctx.UserRoleId
-         AND user_role.[TenantId] = current_user_ctx.CurrentTenantId
         WHERE user_role.[IsSuperAdmin] = 1
       ) THEN 1
       ELSE 0
@@ -230,7 +224,6 @@ item_permission_state AS (
       ELSE 0
     END AS PermissionExists,
     permission.[IsOperation] AS IsOperation,
-    permission.[IsBooleanPermission] AS IsBooleanPermission,
     CASE
       WHEN item_input.HasActivePermissionMethodInput = 1
        AND permission_method.[Id] IS NOT NULL
@@ -253,7 +246,6 @@ item_target_state AS (
     item_permission.PermissionMethodId,
     item_permission.PermissionExists,
     item_permission.IsOperation,
-    item_permission.IsBooleanPermission,
     item_permission.MethodExists,
     item_permission.HasAffectedConsultancyUserInput,
     item_permission.AffectedConsultancyUserId,
@@ -293,7 +285,6 @@ item_scope_state AS (
     item_target.AffectedConsultantId,
     item_target.PermissionExists,
     item_target.IsOperation,
-    item_target.IsBooleanPermission,
     item_target.MethodExists,
     item_target.HasAffectedConsultancyUserInput,
     item_target.AffectedConsultancyUserExists,
@@ -320,12 +311,10 @@ item_candidate_permissions AS (
     item_scope.InputOrder,
     role_permission.[PermissionLevelId] AS PermissionLevelId
   FROM item_scope_state item_scope
-  CROSS JOIN current_user_scope current_user_ctx
   JOIN current_user_roles user_role_ctx
     ON 1 = 1
   JOIN {UserRolePermissions} role_permission
     ON role_permission.[UserRoleId] = user_role_ctx.UserRoleId
-   AND role_permission.[TenantId] = current_user_ctx.CurrentTenantId
   WHERE role_permission.[PermissionId] = item_scope.PermissionId
     AND (
       (
@@ -339,78 +328,78 @@ item_candidate_permissions AS (
 item_level_state AS (
   SELECT
     item_scope.InputOrder,
-    CASE
-      WHEN EXISTS (
-        SELECT 1
-        FROM item_candidate_permissions candidate
-        WHERE candidate.InputOrder = item_scope.InputOrder
-          AND candidate.PermissionLevelId = @PermissionLevelOnId
-      ) THEN 1
-      ELSE 0
-    END AS HasOn,
-    CASE
-      WHEN EXISTS (
-        SELECT 1
-        FROM item_candidate_permissions candidate
-        WHERE candidate.InputOrder = item_scope.InputOrder
-          AND candidate.PermissionLevelId = @PermissionLevelAllId
-      ) THEN 1
-      ELSE 0
-    END AS HasAll,
-    CASE
-      WHEN EXISTS (
-        SELECT 1
-        FROM item_candidate_permissions candidate
-        WHERE candidate.InputOrder = item_scope.InputOrder
-          AND candidate.PermissionLevelId = @PermissionLevelOwnId
-      ) THEN 1
-      ELSE 0
-    END AS HasOwn,
-    CASE
-      WHEN EXISTS (
-        SELECT 1
-        FROM item_candidate_permissions candidate
-        WHERE candidate.InputOrder = item_scope.InputOrder
-          AND candidate.PermissionLevelId = @PermissionLevelMyReportsId
-      ) THEN 1
-      ELSE 0
-    END AS HasMyReports,
-    CASE
-      WHEN EXISTS (
-        SELECT 1
-        FROM item_candidate_permissions candidate
-        WHERE candidate.InputOrder = item_scope.InputOrder
-          AND (
-            candidate.PermissionLevelId IS NULL
-            OR candidate.PermissionLevelId NOT IN (
-              @PermissionLevelOnId,
-              @PermissionLevelAllId,
-              @PermissionLevelOwnId,
-              @PermissionLevelMyReportsId,
-              @PermissionLevelOffId,
-              @PermissionLevelUnavailableId
-            )
-          )
-      ) THEN 1
-      ELSE 0
-    END AS HasUnknownLevel
+    COALESCE(MAX(
+      CASE
+        WHEN candidate.PermissionLevelId = @PermissionLevelOnId THEN 1
+        ELSE 0
+      END
+    ), 0) AS HasOn,
+    COALESCE(MAX(
+      CASE
+        WHEN candidate.PermissionLevelId = @PermissionLevelAllId THEN 1
+        ELSE 0
+      END
+    ), 0) AS HasAll,
+    COALESCE(MAX(
+      CASE
+        WHEN candidate.PermissionLevelId = @PermissionLevelOwnId THEN 1
+        ELSE 0
+      END
+    ), 0) AS HasOwn,
+    COALESCE(MAX(
+      CASE
+        WHEN candidate.PermissionLevelId = @PermissionLevelMyReportsId THEN 1
+        ELSE 0
+      END
+    ), 0) AS HasMyReports,
+    COALESCE(MAX(
+      CASE
+        WHEN candidate.InputOrder IS NOT NULL
+         AND (
+           candidate.PermissionLevelId IS NULL
+           OR candidate.PermissionLevelId NOT IN (
+             @PermissionLevelOnId,
+             @PermissionLevelAllId,
+             @PermissionLevelOwnId,
+             @PermissionLevelMyReportsId,
+             @PermissionLevelOffId,
+             @PermissionLevelUnavailableId
+           )
+         )
+        THEN 1
+        ELSE 0
+      END
+    ), 0) AS HasUnknownLevel
   FROM item_scope_state item_scope
+  LEFT JOIN item_candidate_permissions candidate
+    ON candidate.InputOrder = item_scope.InputOrder
+  GROUP BY item_scope.InputOrder
+),
+item_myreports_hits AS (
+  SELECT
+    item_scope.InputOrder,
+    1 AS IsMyReportsMatch
+  FROM item_scope_state item_scope
+  JOIN item_level_state item_level
+    ON item_level.InputOrder = item_scope.InputOrder
+   AND item_level.HasMyReports = 1
+  CROSS JOIN current_user_scope current_user_ctx
+  JOIN {ConsultancyUserClosure} closure
+    ON item_scope.EffectiveAffectedConsultancyUserId IS NOT NULL
+   AND closure.[AncestorId] = item_scope.EffectiveAffectedConsultancyUserId
+   AND closure.[DescendantId] = current_user_ctx.CurrentConsultancyUserId
+  GROUP BY item_scope.InputOrder
 ),
 item_myreports_state AS (
   SELECT
     item_scope.InputOrder,
     CASE
-      WHEN EXISTS (
-        SELECT 1
-        FROM {ConsultancyUserClosure} closure
-        CROSS JOIN current_user_scope current_user_ctx
-        WHERE closure.[TenantId] = current_user_ctx.CurrentTenantId
-          AND closure.[AncestorId] = item_scope.EffectiveAffectedConsultancyUserId
-          AND closure.[DescendantId] = current_user_ctx.CurrentConsultancyUserId
-      ) THEN 1
+      WHEN myreports_hits.IsMyReportsMatch = 1 THEN 1
       ELSE 0
     END AS IsMyReportsMatch
   FROM item_scope_state item_scope
+  LEFT JOIN item_myreports_hits myreports_hits
+    ON myreports_hits.InputOrder = item_scope.InputOrder
 ),
 item_error_state AS (
   SELECT
