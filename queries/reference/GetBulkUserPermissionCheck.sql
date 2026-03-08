@@ -36,6 +36,11 @@
      (Own or MyReports) and no affected target is provided.
      PermissionLevelId is always the strongest granted level when no error.
 
+   Affected consultant behavior:
+     Internal consultant target resolves through Consultant.ConsultancyUserId.
+     External consultant target resolves through ExternalUser.OwnerId, then ExternalUser.CreatorId.
+     If an external consultant has neither OwnerId nor CreatorId, non-boolean permissions require All scope.
+
 */
 WITH
 input_state AS (
@@ -224,6 +229,7 @@ item_permission_state AS (
       ELSE 0
     END AS PermissionExists,
     permission.[IsOperation] AS IsOperation,
+    permission.[IsBooleanPermission] AS IsBooleanPermission,
     CASE
       WHEN item_input.HasActivePermissionMethodInput = 1
        AND permission_method.[Id] IS NOT NULL
@@ -246,6 +252,7 @@ item_target_state AS (
     item_permission.PermissionMethodId,
     item_permission.PermissionExists,
     item_permission.IsOperation,
+    item_permission.IsBooleanPermission,
     item_permission.MethodExists,
     item_permission.HasAffectedConsultancyUserInput,
     item_permission.AffectedConsultancyUserId,
@@ -261,7 +268,30 @@ item_target_state AS (
       WHEN affected_consultant.[Id] IS NOT NULL THEN 1
       ELSE 0
     END AS AffectedConsultantExists,
-    affected_consultant.[ConsultancyUserId] AS ConsultantMappedConsultancyUserId
+    CASE
+      WHEN affected_consultant.[IsInternal] = 1 THEN affected_consultant.[ConsultancyUserId]
+      WHEN affected_external_user.[OwnerId] IS NOT NULL
+       AND TRIM(CAST(affected_external_user.[OwnerId] AS TEXT)) <> ''
+      THEN affected_external_user.[OwnerId]
+      WHEN affected_external_user.[CreatorId] IS NOT NULL
+       AND TRIM(CAST(affected_external_user.[CreatorId] AS TEXT)) <> ''
+      THEN affected_external_user.[CreatorId]
+      ELSE NULL
+    END AS ConsultantMappedConsultancyUserId,
+    CASE
+      WHEN affected_consultant.[Id] IS NOT NULL
+       AND affected_consultant.[IsInternal] <> 1
+       AND (
+         affected_external_user.[OwnerId] IS NULL
+         OR TRIM(CAST(affected_external_user.[OwnerId] AS TEXT)) = ''
+       )
+       AND (
+         affected_external_user.[CreatorId] IS NULL
+         OR TRIM(CAST(affected_external_user.[CreatorId] AS TEXT)) = ''
+       )
+      THEN 1
+      ELSE 0
+    END AS ConsultantRequiresAllScope
   FROM item_permission_state item_permission
   CROSS JOIN current_user_scope current_user_ctx
   LEFT JOIN {ConsultancyUser} affected_consultancy_user
@@ -272,6 +302,9 @@ item_target_state AS (
     ON item_permission.HasAffectedConsultantInput = 1
    AND affected_consultant.[TenantId] = current_user_ctx.CurrentTenantId
    AND affected_consultant.[Id] = item_permission.AffectedConsultantId
+  LEFT JOIN {ExternalUser} affected_external_user
+    ON affected_consultant.[IsInternal] <> 1
+   AND affected_external_user.[Id] = affected_consultant.[ExternalUserId]
 ),
 item_scope_state AS (
   SELECT
@@ -285,11 +318,13 @@ item_scope_state AS (
     item_target.AffectedConsultantId,
     item_target.PermissionExists,
     item_target.IsOperation,
+    item_target.IsBooleanPermission,
     item_target.MethodExists,
     item_target.HasAffectedConsultancyUserInput,
     item_target.AffectedConsultancyUserExists,
     item_target.HasAffectedConsultantInput,
     item_target.AffectedConsultantExists,
+    item_target.ConsultantRequiresAllScope,
     CASE
       WHEN item_target.HasAffectedConsultancyUserInput = 1
        AND item_target.HasAffectedConsultantInput = 1
@@ -303,7 +338,15 @@ item_scope_state AS (
       WHEN item_target.HasAffectedConsultancyUserInput = 1 THEN item_target.AffectedConsultancyUserId
       WHEN item_target.HasAffectedConsultantInput = 1 THEN item_target.ConsultantMappedConsultancyUserId
       ELSE NULL
-    END AS EffectiveAffectedConsultancyUserId
+    END AS EffectiveAffectedConsultancyUserId,
+    CASE
+      WHEN item_target.IsBooleanPermission <> 1
+       AND item_target.HasAffectedConsultancyUserInput = 0
+       AND item_target.HasAffectedConsultantInput = 1
+       AND item_target.ConsultantRequiresAllScope = 1
+      THEN 1
+      ELSE 0
+    END AS RequiresAllScope
   FROM item_target_state item_target
 ),
 item_candidate_permissions AS (
@@ -453,6 +496,10 @@ item_result_state AS (
     END AS PermissionLevelId,
     CASE
       WHEN item_error.ErrorReason IS NOT NULL THEN FALSE
+      WHEN item_scope.RequiresAllScope = 1
+       AND item_level.HasAll = 1
+      THEN TRUE
+      WHEN item_scope.RequiresAllScope = 1 THEN FALSE
       WHEN item_level.HasAll = 1 THEN TRUE
       WHEN item_level.HasMyReports = 1
        AND item_scope.EffectiveAffectedConsultancyUserId IS NULL
