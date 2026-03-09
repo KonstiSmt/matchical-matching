@@ -23,10 +23,12 @@ DEFAULT_PAGE_LIMIT = 50
 DEFAULT_DELTA_OVERLAP_DAYS = 7
 DEFAULT_INTERNAL_DOMAINS = {"matchical.com"}
 CLIENT_BUCKET = "clients"
+PARTNER_BUCKET = "partners"
 OTHER_BUCKET = "other"
-EXTERNAL_BUCKETS = (CLIENT_BUCKET, OTHER_BUCKET)
+EXTERNAL_BUCKETS = (CLIENT_BUCKET, PARTNER_BUCKET, OTHER_BUCKET)
 PERSONAL_EMAIL_DOMAINS = {
     "aol.com",
+    "gmail.com",
     "gmx.com",
     "gmx.de",
     "googlemail.com",
@@ -38,6 +40,7 @@ PERSONAL_EMAIL_DOMAINS = {
     "outlook.com",
     "proton.me",
     "protonmail.com",
+    "t-online.de",
     "web.de",
     "yahoo.com",
 }
@@ -199,6 +202,7 @@ class AccountRecord:
     display_name: str
     account_name: str
     aliases: set[str]
+    name_aliases: set[str]
     contact_names: set[str]
     domain: str | None
 
@@ -510,6 +514,13 @@ def read_markdown_field(path: Path, field_name: str) -> str | None:
     return None
 
 
+def read_markdown_list_field(path: Path, field_name: str) -> list[str]:
+    raw = read_markdown_field(path, field_name)
+    if not raw:
+        return []
+    return [item.strip() for item in raw.split(",") if item.strip()]
+
+
 def load_account_index(root: Path) -> dict[str, AccountRecord]:
     accounts: dict[str, AccountRecord] = {}
     crm_root = root / "crm"
@@ -536,6 +547,7 @@ def load_account_index(root: Path) -> dict[str, AccountRecord]:
                 for contact_name in [read_markdown_field(contact_md, "full_name")]
                 if contact_name
             }
+            name_aliases = set(read_markdown_list_field(account_md, "aliases"))
             accounts[slug] = AccountRecord(
                 slug=slug,
                 path=account_md.parent,
@@ -543,6 +555,7 @@ def load_account_index(root: Path) -> dict[str, AccountRecord]:
                 display_name=slug.replace("-", " ").title(),
                 account_name=account_name,
                 aliases=aliases,
+                name_aliases=name_aliases,
                 contact_names=contact_names,
                 domain=normalized,
             )
@@ -691,6 +704,9 @@ def match_account_from_transcript_text(
         score = 0
         if contains_normalized_phrase(haystack, normalize_match_text(record.account_name)):
             score += 2
+        for alias in record.name_aliases:
+            if contains_normalized_phrase(haystack, normalize_match_text(alias)):
+                score += 2
         for contact_name in record.contact_names:
             if contains_normalized_phrase(haystack, normalize_match_text(contact_name)):
                 score += 3
@@ -743,6 +759,16 @@ def transcript_looks_internal(
     if any(domain not in internal_domain_set for domain in domains):
         return False
     return keyword_score(transcript_evidence_haystack(transcript, sentence_limit=10), INTERNAL_MEETING_KEYWORDS) >= 2
+
+
+def meeting_kind_for_bucket(bucket: str | None) -> str:
+    if bucket == CLIENT_BUCKET:
+        return "client"
+    if bucket == PARTNER_BUCKET:
+        return "partner"
+    if bucket == OTHER_BUCKET:
+        return "other"
+    return "unresolved"
 
 
 def render_transcript_markdown(transcript: dict[str, Any]) -> str:
@@ -905,6 +931,7 @@ def ensure_minimal_account(
         display_name=account_name_from_domain(domain),
         account_name=account_name_from_domain(domain),
         aliases={alias for alias in {normalize_host(domain), apex_domain(domain)} if alias},
+        name_aliases=set(),
         contact_names=set(),
         domain=apex_domain(domain) or normalize_host(domain),
     )
@@ -936,7 +963,7 @@ def route_transcript(
     if dominant_domain and dominant_domain in accounts_by_alias:
         record = accounts_by_alias[dominant_domain]
         return RoutingDecision(
-            meeting_kind="client" if record.bucket == CLIENT_BUCKET else "other",
+            meeting_kind=meeting_kind_for_bucket(record.bucket),
             destination_dir=root / "crm" / record.bucket / record.slug / "meetings" / f"{date_part}-{topic_part}",
             crm_bucket=record.bucket,
             account_slug=record.slug,
@@ -946,7 +973,7 @@ def route_transcript(
     matched_record = match_account_from_transcript_text(transcript, accounts_by_slug)
     if matched_record is not None:
         return RoutingDecision(
-            meeting_kind="client" if matched_record.bucket == CLIENT_BUCKET else "other",
+            meeting_kind=meeting_kind_for_bucket(matched_record.bucket),
             destination_dir=root / "crm" / matched_record.bucket / matched_record.slug / "meetings" / f"{date_part}-{topic_part}",
             crm_bucket=matched_record.bucket,
             account_slug=matched_record.slug,

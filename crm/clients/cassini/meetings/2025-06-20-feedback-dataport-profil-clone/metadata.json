@@ -1,0 +1,70 @@
+{
+  "account_slug": "cassini",
+  "audio_url": "https://cdn.fireflies.ai/01JY3G1KPRZ9B1Q66CB688N1G7/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlkzRzFLUFJaOUIxUTY2Q0I2ODhOMUc3L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=e2ZF3t9hy0NRrGOMQOSNutTT3Kk5Pw2j-cJnvdLuHA68aHtP1teAEacjPt7-tPrXwaYRIasB4lPrbge~de5XYePKsay6q~URk4C8q5pcsy2TeotGJosucuw4eudu39GG-UIxN1yfVPZMfOcx7SFkEtYWxXwqaLQ8el0wn1awFdN1RsnJk2KyPjgKu0rwm5MraUrhoh-wEpk8mUgz-N1XVkKzCaLP4OgLYMRzRz6TIwz2-VuakuLFRKaR2H2~hX6PVTpEmLnqst5ZHN716CEIawPUgUiBxTQfN9~oFx1uAh4hwn8v~fM5oo4VSVswVW9CEAA6UZCfyEC2JE8019gfTg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 68.68000030517578,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:40:54Z",
+  "meeting_at": "2025-06-20T11:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-20T11:00:00.000Z",
+      "leave_time": "2025-06-20T12:08:59.783Z",
+      "name": "Reitzig, Leonie"
+    },
+    {
+      "join_time": "2025-06-20T11:00:00.000Z",
+      "leave_time": "2025-06-20T12:00:57.799Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-06-20T11:01:07.867Z",
+      "leave_time": "2025-06-20T12:08:59.780Z",
+      "name": "Kaufmann, Stefanie"
+    },
+    {
+      "join_time": "2025-06-20T11:01:07.870Z",
+      "leave_time": "2025-06-20T12:08:59.783Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JY3G1KPRZ9B1Q66CB688N1G7",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YTVkZGI2M2UtNDRiZC00NDg1LTljZjYtMDRhNTJkOGZlYzc4@thread.v2/0?context={\"Tid\":\"215a4151-c648-4e92-bac0-0c879d82313a\",\"Oid\":\"25035a05-bdd5-481a-b091-b476758c0d86\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 696,
+  "title": "Feedback Dataport Profil (Clone)",
+  "transcript_created_at": "2025-06-20T11:00:00Z",
+  "transcript_id": "01JY3G1KPRZ9B1Q66CB688N1G7",
+  "transcript_url": "https://app.fireflies.ai/view/01JY3G1KPRZ9B1Q66CB688N1G7",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

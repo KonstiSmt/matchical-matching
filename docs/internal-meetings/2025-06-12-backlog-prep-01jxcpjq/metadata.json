@@ -1,0 +1,87 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01JXCPJQVPGHSKCR5W40A680GW/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlhDUEpRVlBHSFNLQ1I1VzQwQTY4MEdXL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=MO56WNukhxnJtoX0XB6AO3Y1rmWnolmk-v1uFDPXXX2X4iM6DXQbHJ3iiuHlqruePMSa4pXOI6doNLEvxLMY8L6Wq~wr4zyZom2P7D1eijEwcGuMUY6WimmNt-uUrS1W9Zj32Gw3M7oLc1k52B8J7w1bIfeiudxWAqWAUX7EcoXbSprZsOJ79wOOPt-f6tI7fF~m4nzPar8TbxHC1PzDaSt1tregn3TkR1dpFYEjyk9vPQ0XgESVAttLiBHwqNegW~skmvs63LcDdrf12MXZa6QSThW8Ve5LfDFWcAmHbRLEhyufMqp0dgnQG3bghrYKTBXEv3lB2ggCwViYV3fUcA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "delivery",
+  "category_source": "keyword",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 120.08000183105469,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:17Z",
+  "meeting_at": "2025-06-12T08:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-12T08:30:00.000Z",
+      "leave_time": "2025-06-12T09:19:05.638Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-06-12T08:30:00.000Z",
+      "leave_time": null,
+      "name": "Niklas | matchical.com"
+    },
+    {
+      "join_time": "2025-06-12T08:41:42.226Z",
+      "leave_time": null,
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "niklas@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JXCPJQVPGHSKCR5W40A680GW",
+  "meeting_kind": "internal",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MzcxNTg0ZjQtMThmOS00OTc0LTk0ZDctMTE1ZjMyODE2ZTc5@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "niklas@matchical.com,tommy@matchical.com,konsti@matchical.com",
+    "niklas@matchical.com",
+    "tommy@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "niklas@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1557,
+  "title": "Backlog Prep",
+  "transcript_created_at": "2025-06-12T08:30:00Z",
+  "transcript_id": "01JXCPJQVPGHSKCR5W40A680GW",
+  "transcript_url": "https://app.fireflies.ai/view/01JXCPJQVPGHSKCR5W40A680GW",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

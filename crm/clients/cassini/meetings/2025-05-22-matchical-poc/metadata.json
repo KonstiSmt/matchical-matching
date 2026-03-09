@@ -1,0 +1,88 @@
+{
+  "account_slug": "cassini",
+  "audio_url": "https://cdn.fireflies.ai/01JVSJHRHYKRPYS2MHRPN5BM61/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlZTSkhSSFlLUlBZUzJNSFJQTjVCTTYxL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=YYswyJtljwUikL1jJA6jbZ-E91-8hqZ2Otttm9mU~6cLczLGu6J~xydZ--tDRJV-amfG0pw~soG-HKDzxVCx7ctf~d~f2VMZ-5x42XCpqjOXNdRSrVkssmndTZI2FmGqlOO4l3EdJ03kwZNT~wN878L3xJFvooEA8ghMXBf1Bmb5FVHPQZr1jYR~HK~hAhWPjyNG3bxi6MPXS0oSdG1sdMJdd88fyU7Kyks5FH2MuEZ2dx9G3~B4TWq9GrjLOrwGLUiOhHa9PqQolNyYj0htaTJNg~l1hlDE1zAEY8wYZSBTFEAJ3JVNvotw5OPOBqlLaABbA3hd8zrGAPgcJ8oQXg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "cassini.ag",
+    "matchical.com"
+  ],
+  "dominant_domain": "cassini.ag",
+  "duration_minutes": 28.979999542236328,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:44Z",
+  "meeting_at": "2025-05-22T09:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-05-22T09:30:00.000Z",
+      "leave_time": "2025-05-22T09:59:05.497Z",
+      "name": "Stebens, André (Unverified)"
+    },
+    {
+      "join_time": "2025-05-22T09:30:00.000Z",
+      "leave_time": "2025-05-22T09:40:37.675Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-05-22T09:40:37.674Z",
+      "leave_time": "2025-05-22T09:59:05.496Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "andre.stebens@cassini.ag",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JVSJHRHYKRPYS2MHRPN5BM61",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZjM3NzIzMzItZjBmNy00NjA0LTg3ZTEtZWIxMGEyYTZkYjNk@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "andre.stebens@cassini.ag,tommy@matchical.com,konsti@matchical.com",
+    "andre.stebens@cassini.ag",
+    "tommy@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "andre.stebens@cassini.ag",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 342,
+  "title": "Matchical PoC",
+  "transcript_created_at": "2025-05-22T09:30:00Z",
+  "transcript_id": "01JVSJHRHYKRPYS2MHRPN5BM61",
+  "transcript_url": "https://app.fireflies.ai/view/01JVSJHRHYKRPYS2MHRPN5BM61",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

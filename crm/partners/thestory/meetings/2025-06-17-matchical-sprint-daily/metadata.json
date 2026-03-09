@@ -1,0 +1,88 @@
+{
+  "account_slug": "thestory",
+  "audio_url": "https://cdn.fireflies.ai/01JXYZHH6XFDYQ8DX30JJBW8Y0/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlhZWkhINlhGRFlROERYMzBKSkJXOFkwL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=zOKaQTsmLlTxho5E~A-JzRajGSjO-oSvYDmvBsnMsY2~RcweH-BnXl7G42r3jVcxw~S5HCaC6AoztgUrVfex6D2ZBXsHEgKSxjF3rrNZR7BTprHozTtyBHGSAabJpqu7Qj9n4jnh16fhpS~Jo~IyVNXe5FkSRuF5YvXOR10Oj9Ic0DXjy3mfto2x6wAR3X1~cm9RCjKPy75NTdahZsSS1do53GBAvv0VdOF7fqH6O3ThbViUC1WZRhBK9rB4I-~0qPYCq44oRAeZLPIMrDImY5lGeEkw6oVS8qzADTd7DpR3GlybJnqU4Kwrd~2qZk9eyFD~8zdT0MVFsNgw6Gj28Q__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "delivery",
+  "category_source": "keyword",
+  "crm_bucket": "partners",
+  "detected_domains": [
+    "matchical.com",
+    "thestory.pl"
+  ],
+  "dominant_domain": "thestory.pl",
+  "duration_minutes": 47.06999969482422,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "dymitr@thestory.pl",
+  "local_imported_at": "2026-03-09T16:40:57Z",
+  "meeting_at": "2025-06-17T13:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-17T13:00:00.000Z",
+      "leave_time": null,
+      "name": "Dymitr Romanowski"
+    },
+    {
+      "join_time": "2025-06-17T13:00:00.000Z",
+      "leave_time": "2025-06-17T13:04:31.815Z",
+      "name": "Karol Gorus"
+    },
+    {
+      "join_time": "2025-06-17T13:01:11.924Z",
+      "leave_time": "2025-06-17T13:47:06.874Z",
+      "name": "Konstantin Schmitz"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "dymitr@thestory.pl",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "karol.gorus@thestory.pl",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JXYZHH6XFDYQ8DX30JJBW8Y0",
+  "meeting_kind": "partner",
+  "meeting_link": "https://meet.google.com/pvg-ngfs-cko",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "dymitr@thestory.pl,konsti@matchical.com,karol.gorus@thestory.pl",
+    "konsti@matchical.com",
+    "karol.gorus@thestory.pl"
+  ],
+  "participants": [
+    {
+      "email": "dymitr@thestory.pl",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "karol.gorus@thestory.pl",
+      "name": ""
+    }
+  ],
+  "sentence_count": 621,
+  "title": "matchical: Sprint, daily",
+  "transcript_created_at": "2025-06-17T13:00:00Z",
+  "transcript_id": "01JXYZHH6XFDYQ8DX30JJBW8Y0",
+  "transcript_url": "https://app.fireflies.ai/view/01JXYZHH6XFDYQ8DX30JJBW8Y0",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

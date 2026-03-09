@@ -1,0 +1,174 @@
+{
+  "account_slug": "cassini",
+  "audio_url": "https://cdn.fireflies.ai/01JVBZPYF5HQRW6AAS9MR5HCYM/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlZCWlBZRjVIUVJXNkFBUzlNUjVIQ1lNL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=bV23rMtxmxWTMeHyP3tSApd~5q6cQuJQ8~rw~nN9ZR-Z2KYEeoneBOGP5kXbLUAQFDiLusNC-mG8eJtteSoCHd96SMh8Bh8vQvW1IEeHRScA3wIAhmoBhBVr9ksXCSXMQqPO8L0fPh5AsOmInKKgfCIsFBTGyA1j8edZkVL36GTwjgnG~AHsv~bS0eWAKAnhp8rNw9RCXUxDBrS5YzHHj~6mOofItbpr5MsIwUem0BzfarOmHUZXFIIENsJJfqTf1XnDu5~~Jmho992DmVDhqMNGza1aTOnw7U~O2nkWr-Ki93SKF0ooNvq~BrT73g7DFx8dplrGLT5xFjRrJOVQEg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "aleri.de",
+    "cassini.ag",
+    "cassini.de",
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 29.799999237060547,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:49Z",
+  "meeting_at": "2025-05-21T13:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-05-21T13:30:00.000Z",
+      "leave_time": "2025-05-21T13:59:47.840Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-05-21T13:30:58.509Z",
+      "leave_time": "2025-05-21T13:59:47.840Z",
+      "name": "Al-Kadi, Ferras (Unverified)"
+    },
+    {
+      "join_time": "2025-05-21T13:30:58.510Z",
+      "leave_time": "2025-05-21T13:46:04.524Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-05-21T13:31:06.726Z",
+      "leave_time": "2025-05-21T13:59:53.973Z",
+      "name": "Gilles, Jochen (Unverified)"
+    },
+    {
+      "join_time": "2025-05-21T13:31:21.809Z",
+      "leave_time": "2025-05-21T13:59:47.840Z",
+      "name": "Iwanowski, Marcus (Unverified)"
+    },
+    {
+      "join_time": "2025-05-21T13:31:21.812Z",
+      "leave_time": "2025-05-21T13:59:47.840Z",
+      "name": "Stebens, André (Unverified)"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": "Andre.stebens@cassini.ag",
+      "email": "andre.stebens@cassini.ag",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Ferras.al-kadi@aleri.de",
+      "email": "ferras.al-kadi@aleri.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Jochen.gilles@cassini.de",
+      "email": "jochen.gilles@cassini.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Marcus.iwanowski@aleri.de",
+      "email": "marcus.iwanowski@aleri.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Tommy | matchical.com",
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Jansen, Wilma",
+      "email": "wilma.jansen@cassini.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JVBZPYF5HQRW6AAS9MR5HCYM",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MTliMGM3Y2MtNzAzOC00MzY0LWFhZDQtYzY3YThlOTk3YTFj@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "andre.stebens@cassini.ag,ferras.al-kadi@aleri.de,jochen.gilles@cassini.de,marcus.iwanowski@aleri.de,tommy@matchical.com,wilma.jansen@cassini.de,konsti@matchical.com",
+    "andre.stebens@cassini.ag",
+    "ferras.al-kadi@aleri.de",
+    "jochen.gilles@cassini.de",
+    "marcus.iwanowski@aleri.de",
+    "tommy@matchical.com",
+    "wilma.jansen@cassini.de",
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "andre.stebens@cassini.ag",
+      "name": "Andre.stebens@cassini.ag"
+    },
+    {
+      "email": "ferras.al-kadi@aleri.de",
+      "name": "Ferras.al-kadi@aleri.de"
+    },
+    {
+      "email": "jochen.gilles@cassini.de",
+      "name": "Jochen.gilles@cassini.de"
+    },
+    {
+      "email": "marcus.iwanowski@aleri.de",
+      "name": "Marcus.iwanowski@aleri.de"
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "email": "wilma.jansen@cassini.de",
+      "name": "Jansen, Wilma"
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "andre.stebens@cassini.ag",
+      "name": ""
+    },
+    {
+      "email": "ferras.al-kadi@aleri.de",
+      "name": ""
+    },
+    {
+      "email": "jochen.gilles@cassini.de",
+      "name": ""
+    },
+    {
+      "email": "marcus.iwanowski@aleri.de",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "wilma.jansen@cassini.de",
+      "name": ""
+    }
+  ],
+  "sentence_count": 329,
+  "title": "Cassini <> matchical",
+  "transcript_created_at": "2025-05-21T13:30:00Z",
+  "transcript_id": "01JVBZPYF5HQRW6AAS9MR5HCYM",
+  "transcript_url": "https://app.fireflies.ai/view/01JVBZPYF5HQRW6AAS9MR5HCYM",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01JXWPNRSYVK5ZNPAEGNX5NV9M/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlhXUE5SU1lWSzVaTlBBRUdOWDVOVjlNL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=wf846unKk2adrfwHd27LFCbozSyY9t9maqiGv-NudkD~69fD08aB89IU~7Jyq9B4JHgYDvFbMoWlJj9P1EpniJi8Fa3vGlnXdfLncp4ep-FCCycrNgOz5Rh3Pd4~HW1p5St8GVBeYRICdpkY0KNPniM2-cGgyDkw0YL4hJ6oOafn5vXQENtqSb70RdIaMNzKHvdaAfeElXAE~Vz8ppTBiFd--IpVHzYBfTnbE0ji4JEcUunOUsZ4bRENbAK0bR9-FV56QSJaO57HAQyXlwUzVFF3T34-F3iQ9na0e98exJ7ugAf-KoeAe20c2MYqx5Bcu6l2OP8UvQ2oYFCIWJAXIA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 36.66999816894531,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:40:37Z",
+  "meeting_at": "2025-06-23T09:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-23T09:00:00.000Z",
+      "leave_time": "2025-06-23T09:37:10.397Z",
+      "name": "ERDMANN Lars"
+    },
+    {
+      "join_time": "2025-06-23T09:00:00.000Z",
+      "leave_time": "2025-06-23T09:37:10.398Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-06-23T09:01:12.833Z",
+      "leave_time": "2025-06-23T09:37:10.398Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JXWPNRSYVK5ZNPAEGNX5NV9M",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NjI0MzQ0Y2YtODdkZC00ODI5LWJmZDgtOTFlMjM4N2VmNDEz@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 463,
+  "title": "Abstimmung LaEr <> matchical (Clone)",
+  "transcript_created_at": "2025-06-23T09:00:00Z",
+  "transcript_id": "01JXWPNRSYVK5ZNPAEGNX5NV9M",
+  "transcript_url": "https://app.fireflies.ai/view/01JXWPNRSYVK5ZNPAEGNX5NV9M",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

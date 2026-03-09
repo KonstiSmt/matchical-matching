@@ -1,0 +1,88 @@
+{
+  "account_slug": "taim-gmbh",
+  "audio_url": "https://cdn.fireflies.ai/01JWKK6X34WB7CESBJNBG4BXP1/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSldLSzZYMzRXQjdDRVNCSk5CRzRCWFAxL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=FsKSAzVH2daHzjS80S4uBJSvmevuLy~ITnUK1Sssz9P2han8xFuIN9Cwn~u4RA0XZvVy-HQV8xzWL4n4G6ot8l2uJ9Uyln3DKkkmgHPKMiEbbgUFYEBFK975JJg12n0Y9eB-ADc9k4pxobogmXkvriBlabH-Kt~Ax~9sGaoGGHKcZzx9AieHRTxW6qDgg0jHyJKb4dZg~C8Le55viWO0zAiNGRT-IQKnu-lX3drH7rru35~dnlvo4idYPY9iVcV~epritjBRteDZC1L16Hsdfx5nIAx-xcy6Y5I29VHd~74C6unRSWy3oyhpjw8eI-KPp-dTdFE469a1Tt-TnfEQDw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "partners",
+  "detected_domains": [
+    "matchical.com",
+    "taim-gmbh.de"
+  ],
+  "dominant_domain": "taim-gmbh.de",
+  "duration_minutes": 103.58000183105469,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "tommy@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:25Z",
+  "meeting_at": "2025-06-02T13:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-02T13:00:00.000Z",
+      "leave_time": "2025-06-02T14:50:05.164Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-06-02T13:10:14.072Z",
+      "leave_time": "2025-06-02T14:50:05.161Z",
+      "name": "Daniel Mietasch"
+    },
+    {
+      "join_time": "2025-06-02T13:10:58.697Z",
+      "leave_time": "2025-06-02T14:20:29.832Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "daniel@taim-gmbh.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JWKK6X34WB7CESBJNBG4BXP1",
+  "meeting_kind": "partner",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_OTE0MWZjMjEtZTllZi00ZWU4LThiODQtZGY3MTI3NDc5OTUx@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "tommy@matchical.com,daniel@taim-gmbh.de,konsti@matchical.com",
+    "daniel@taim-gmbh.de",
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "daniel@taim-gmbh.de",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1266,
+  "title": "Abstimmung CRM and customer goals",
+  "transcript_created_at": "2025-06-02T13:00:00Z",
+  "transcript_id": "01JWKK6X34WB7CESBJNBG4BXP1",
+  "transcript_url": "https://app.fireflies.ai/view/01JWKK6X34WB7CESBJNBG4BXP1",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

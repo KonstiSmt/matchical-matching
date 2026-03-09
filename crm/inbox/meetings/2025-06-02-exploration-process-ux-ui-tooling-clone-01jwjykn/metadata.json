@@ -1,0 +1,60 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01JWJYKNRDE2KRNQWQCS5JHNZG/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSldKWUtOUkRFMktSTlFXUUNTNUpITlpHL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=XgFcwXIQ4lvwVhxffnoQP2rrfbNZuu2pOcu8I6O5f6inLHOgAZTVQMK66ftuEXHOhbW6nSOapBXtik487KOwi~vEdDqiGy4Zn8AHeHN2dFkRcHNZJeaYNJAxws9A7kdYxz9L~UUdNPIqR0zgnOm3vJlS4TbJfD9k2KP7r7EVcjgv24j920AOq3ntcEEcwL1lL6rSP8G4kjtyjvkW~S~ZlBD-0MDKq3TA6d4hRz6CbhlSTEAjHYNZMcLvypU9NPrmP6qPDBL5eBFQMlzLmd0j0euBggB2WdP2IR5QiIp8uIPuGrUbVjYOUox0nzM70Fno3uEsps3Bfjb~j6IHg60StQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "operations",
+  "category_source": "keyword",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 120.08999633789062,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:26Z",
+  "meeting_at": "2025-06-02T06:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-02T06:30:00.000Z",
+      "leave_time": "2025-06-02T06:37:34.812Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-06-02T06:38:43.738Z",
+      "leave_time": null,
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JWJYKNRDE2KRNQWQCS5JHNZG",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MTIxOWRhOTUtZWY1Yi00MDM2LTk5MGUtY2FiMGEwYjA4Njk1@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1025,
+  "title": "Exploration - Process UX/UI Tooling (Clone)",
+  "transcript_created_at": "2025-06-02T06:30:00Z",
+  "transcript_id": "01JWJYKNRDE2KRNQWQCS5JHNZG",
+  "transcript_url": "https://app.fireflies.ai/view/01JWJYKNRDE2KRNQWQCS5JHNZG",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

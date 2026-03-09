@@ -1,0 +1,75 @@
+{
+  "account_slug": "cassini",
+  "audio_url": "https://cdn.fireflies.ai/01JW6HXJFKVT8P9GV6CA64PJKN/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlc2SFhKRktWVDhQOUdWNkNBNjRQSktOL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=xo9FZJQAgjn9~oYJSjvnIoAxX8UcsO7G0JAdXAEyjYk4jJb1okQ1~VSGZcai-WzXRJBHXfEBMLHBgWKfBAgPIRJ5AxIJdbOJEdYRXXfZLlaPXqvadUJTxWauEOnaL37F8bePw-9zn0opUXhMHL3iI3UMJoQlYilnS7W1HwtelJO~0Ci7HWJhs5OX4Jjww5hwGsJOHujYLPyaKGFPuqa27~Vrw0YAjRN0j~oAzvoK8s7b8DCzok3s-NPYgfCzQlCweghB4zq1cm~ew7xPbugzfPUztcXDVAefWKR8ouYalsDqebYjRdcVutRL0vIutoSZ81e7~2e8G2nhM1Mrvu3~~w__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 33.75,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:30Z",
+  "meeting_at": "2025-05-28T09:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-05-28T09:30:00.000Z",
+      "leave_time": "2025-05-28T10:05:40.753Z",
+      "name": "Hilgers, Karsten"
+    },
+    {
+      "join_time": "2025-05-28T09:30:00.000Z",
+      "leave_time": "2025-05-28T10:05:40.755Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-05-28T09:30:00.000Z",
+      "leave_time": "2025-05-28T10:05:40.755Z",
+      "name": "Pottinger, Kristina"
+    },
+    {
+      "join_time": "2025-05-28T09:30:00.000Z",
+      "leave_time": "2025-05-28T10:05:40.755Z",
+      "name": "Stebens, André"
+    },
+    {
+      "join_time": "2025-05-28T09:30:00.000Z",
+      "leave_time": "2025-05-28T10:05:40.755Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JW6HXJFKVT8P9GV6CA64PJKN",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NGI0ZTU3NTgtOGU3Ni00NDk1LTgwZmYtOGZjNGQxZDk3MzQ4@thread.v2/0?context={\"Tid\":\"215a4151-c648-4e92-bac0-0c879d82313a\",\"Oid\":\"e76fd2c8-a918-4f6e-a230-5a363c5edf27\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 327,
+  "title": "Cassini Consulting und matchical - Austausch zu Verträgen (Datenschutz) (Clone)",
+  "transcript_created_at": "2025-05-28T09:30:00Z",
+  "transcript_id": "01JW6HXJFKVT8P9GV6CA64PJKN",
+  "transcript_url": "https://app.fireflies.ai/view/01JW6HXJFKVT8P9GV6CA64PJKN",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

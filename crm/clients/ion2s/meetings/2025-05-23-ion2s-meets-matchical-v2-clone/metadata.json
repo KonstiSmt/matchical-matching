@@ -1,0 +1,65 @@
+{
+  "account_slug": "ion2s",
+  "audio_url": "https://cdn.fireflies.ai/01JVVX6M0XCYP2TJGT3WM1VR00/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlZWWDZNMFhDWVAyVEpHVDNXTTFWUjAwL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=c4TZHPLQHLj3Ti-xhFtE~xEdK~1640BwOdaqva7PZscZk-yLgeu3Hica864cIjEragEx0Nw7yX3NF5mTB~BmmS1bUEYMs79g6-kHMKpI05UPejoTfCTMdWVyMqkfqvZkRgdNVaGHi62PEL9MtvSqZ9KOTLpaHOlI-UcaH~DpHywRWZQ8Onk0ezVqVxdYbkoex9Oko4mi6NMtpfp97H5JxHZKOObvceHRbg8yWDiAWAotiz7O~Z0We91ykX3oF~iJOmQfMYwC6PAGjEHlq5Yr7g7o0Qh8mQxbC71pJ5C-5rCaOH8cvPOd7MjeH7preeLgXXdo1VC-63GG5YUykk0Gng__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 54.41999816894531,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:37Z",
+  "meeting_at": "2025-05-23T13:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-05-23T13:30:00.000Z",
+      "leave_time": "2025-05-23T14:25:07.855Z",
+      "name": "Florian Kasper"
+    },
+    {
+      "join_time": "2025-05-23T13:30:00.000Z",
+      "leave_time": "2025-05-23T14:24:55.356Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-05-23T13:30:00.000Z",
+      "leave_time": "2025-05-23T14:25:07.859Z",
+      "name": "Rouven Müller-Lüönd"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JVVX6M0XCYP2TJGT3WM1VR00",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MWFkZjQ3YzUtODk1Mi00YzZiLTk2MWItODllNzk4ZjlhZjE4@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 544,
+  "title": "ION2S meets matchical v2 (Clone)",
+  "transcript_created_at": "2025-05-23T13:30:00Z",
+  "transcript_id": "01JVVX6M0XCYP2TJGT3WM1VR00",
+  "transcript_url": "https://app.fireflies.ai/view/01JVVX6M0XCYP2TJGT3WM1VR00",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

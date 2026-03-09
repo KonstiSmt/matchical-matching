@@ -1,0 +1,72 @@
+{
+  "account_slug": "drlivskincare",
+  "audio_url": "https://cdn.fireflies.ai/01JRSKQQAQEHVTJ0X0A3181CEH/audio.mp3?Expires=1773290408&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlJTS1FRQVFFSFZUSjBYMEEzMTgxQ0VIL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwOH19fV19&Signature=jZdXVdJu~4wJFOsfyVlzIv9K7dt4lzpDAZ-yhv0pyTR8Pyaro5y4TdjRGPkWEb0QQ5ZKY5PG6pg6MuQmoqpVkW01a3bAn717wfKP0FW5HkRFisgZnYDZD3JAxra52Ulf-w7xct-3nstKNeeVvdvXKsakqJLkJRxBsYlE45PDo4WaJkkqb08wN8JoT-y-NvbilIKUQ6GjApYOQ7fgBYJvUNP50sn4eO0Q3BfAoDzwhd3HFk-gNJ3Zrl1tTk2TvB1UJj1-fGjVfZ8M2Nz7nC6T8KMyzFUxVOzZm3Zn7aZxiGzSqHL3EAJYY18~sJ6rYY-Jx88mMWRmoD8AtIid0j~afw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "other",
+  "detected_domains": [
+    "drlivskincare.com",
+    "matchical.com"
+  ],
+  "dominant_domain": "drlivskincare.com",
+  "duration_minutes": 31.8700008392334,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:42:40Z",
+  "meeting_at": "2025-04-14T14:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-04-14T14:00:00.000Z",
+      "leave_time": "2025-04-14T14:32:30.002Z",
+      "name": "Konstantin Schmitz"
+    },
+    {
+      "join_time": "2025-04-14T14:04:34.665Z",
+      "leave_time": "2025-04-14T14:32:30.004Z",
+      "name": "Timon Oberholzer"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "timon@drlivskincare.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JRSKQQAQEHVTJ0X0A3181CEH",
+  "meeting_kind": "other",
+  "meeting_link": "https://meet.google.com/avi-hqbd-drz",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com,timon@drlivskincare.com",
+    "timon@drlivskincare.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "timon@drlivskincare.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 423,
+  "title": "Check in",
+  "transcript_created_at": "2025-04-14T14:00:00Z",
+  "transcript_id": "01JRSKQQAQEHVTJ0X0A3181CEH",
+  "transcript_url": "https://app.fireflies.ai/view/01JRSKQQAQEHVTJ0X0A3181CEH",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

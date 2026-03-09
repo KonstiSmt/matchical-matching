@@ -33,6 +33,15 @@ crm/
           actions.md
           source/
             <raw files>
+  partners/
+    <partner-slug>/
+      account.md
+      contacts/
+        <person-slug>.md
+      meetings/
+        YYYY-MM-DD-<topic>/
+          transcript.md
+          metadata.json
   other/
     <entity-slug>/
       account.md
@@ -57,8 +66,9 @@ Transcript is usually the best default because it is fastest to parse and easies
 
 - Use ISO dates (`YYYY-MM-DD`) in folder names.
 - Store raw Fireflies imports under `meetings/` with `transcript.md` and `metadata.json`.
-- Keep `clients/` limited to real clients and clear potential clients.
-- Route partners, peers, private relationships, and other non-client entities into `other/`.
+- Keep `clients/` for both current clients and potential clients.
+- Route partners into `partners/`.
+- Route peers, private relationships, and low-priority non-client entities into `other/`.
 - Use `meeting-notes/` only for curated analysis artifacts that are created later on demand.
 - Store original non-Fireflies source files unchanged under `meeting-notes/.../source/` when you create a curated note package.
 - Update `account.md` when a human or a later workflow explicitly decides to enrich the account record.

@@ -1,0 +1,99 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01JRCNX6TERPJW5RB4QCMG1D27/audio.mp3?Expires=1773290408&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlJDTlg2VEVSUEpXNVJCNFFDTUcxRDI3L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwOH19fV19&Signature=Gur6Sl1wl~nwgC5ImARCZhs~yggW7TTv3B6x451PB3uFIqT6GL8JWRMZZWVyUxsNVME6nns2ZzZgngA-JJ~0aVOWdEOReeN9yhNmI~w-57YsA0aKP7BgDD~~nR4W58uUyGgk0RnKYx-UNRvQqGFMlaxzFT-AiLllBVnaH2u-nHZLZN8~Lw9xxnYC6YbI1I~0jt4FhNAwBBlUAw1yW5Bq5cIPwzQEov9rlUq0yAU9175PGDcIGLalR27BKpBwyaXcDEaBM3SkZvU9MZos88NEjScSz7xruhwvx0Q~x6w90XjW9B-9UNEOBui51HNmyDdSzx0JTyk-U0WwFsXBAGbKlA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "wavestone.eu"
+  ],
+  "dominant_domain": "wavestone.eu",
+  "duration_minutes": 46.939998626708984,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:42:48Z",
+  "meeting_at": "2025-04-11T07:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-04-11T07:00:00.000Z",
+      "leave_time": "2025-04-11T07:45:36.499Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-04-11T07:02:01.200Z",
+      "leave_time": "2025-04-11T07:45:44.060Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-04-11T07:02:01.201Z",
+      "leave_time": "2025-04-11T07:09:18.260Z",
+      "name": "Niklas | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "niklas@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "thomas.bauer.ext@wavestone.eu",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JRCNX6TERPJW5RB4QCMG1D27",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MWY0OTNjN2MtNTE4MS00MDllLWI1YmItNDc2NGM1MmFkOWU1@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com,niklas@matchical.com,tommy@matchical.com,thomas.bauer.ext@wavestone.eu",
+    "niklas@matchical.com",
+    "tommy@matchical.com",
+    "thomas.bauer.ext@wavestone.eu"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "niklas@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "thomas.bauer.ext@wavestone.eu",
+      "name": ""
+    }
+  ],
+  "sentence_count": 646,
+  "title": "Daily",
+  "transcript_created_at": "2025-04-11T07:00:00Z",
+  "transcript_id": "01JRCNX6TERPJW5RB4QCMG1D27",
+  "transcript_url": "https://app.fireflies.ai/view/01JRCNX6TERPJW5RB4QCMG1D27",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

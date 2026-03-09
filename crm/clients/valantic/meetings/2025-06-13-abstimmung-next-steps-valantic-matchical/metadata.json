@@ -1,0 +1,105 @@
+{
+  "account_slug": "valantic",
+  "audio_url": "https://cdn.fireflies.ai/01JXF8ZQS7Z467T6V2XS6Q7CVZ/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlhGOFpRUzdaNDY3VDZWMlhTNlE3Q1ZaL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=h2aGAsSClkdowGdKiDC7F3NKHp1NfEsGGADiKvTc5Et9~E9Z8d76dKGasco-RS9NSXJpkJbnEgH5vqT7oKpjGXEGNRxhD-GvBMr~HznoWeOEkzTVF7dGW1Xj29xSL1az4sm6iHZw9lFQ8A~fkAHrwW76ZsgghcYj7aA0Ne-~j10UYR6R9T7FmmN~YbR5Rx5~lwbcsjQUeNu-ISelqb1EY1MpVgLG2jqGZqqyfdEkwMUG2HSwPNfqnNcBxztPox2oR9g-k2MnjTw52yVtD71t8dAbpSUjavoxT04pgzj~WWDcnZ02Pti4jzJj1VcEEYOPikbC7WqVo79IXR4QT6Bamw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "planning",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "taim-gmbh.de",
+    "valantic.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 44.9900016784668,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "tommy@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:09Z",
+  "meeting_at": "2025-06-13T09:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-13T09:00:00.000Z",
+      "leave_time": "2025-06-13T09:45:54.092Z",
+      "name": "Alexander Scherdin"
+    },
+    {
+      "join_time": "2025-06-13T09:00:00.000Z",
+      "leave_time": "2025-06-13T09:45:54.094Z",
+      "name": "Daniel Mietasch"
+    },
+    {
+      "join_time": "2025-06-13T09:00:00.000Z",
+      "leave_time": "2025-06-13T09:45:54.094Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-06-13T09:01:42.496Z",
+      "leave_time": "2025-06-13T09:45:54.094Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "alexander.scherdin@nxt.valantic.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "daniel@taim-gmbh.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JXF8ZQS7Z467T6V2XS6Q7CVZ",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZjRlZDZlMTItNDY5Ny00ZDgyLWEyMWMtNmViMWQ1ZjFiZDA5@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "tommy@matchical.com,alexander.scherdin@nxt.valantic.com,daniel@taim-gmbh.de,konsti@matchical.com",
+    "alexander.scherdin@nxt.valantic.com",
+    "daniel@taim-gmbh.de",
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "alexander.scherdin@nxt.valantic.com",
+      "name": ""
+    },
+    {
+      "email": "daniel@taim-gmbh.de",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 420,
+  "title": "Abstimmung next steps Valantic <> matchical",
+  "transcript_created_at": "2025-06-13T09:00:00Z",
+  "transcript_id": "01JXF8ZQS7Z467T6V2XS6Q7CVZ",
+  "transcript_url": "https://app.fireflies.ai/view/01JXF8ZQS7Z467T6V2XS6Q7CVZ",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

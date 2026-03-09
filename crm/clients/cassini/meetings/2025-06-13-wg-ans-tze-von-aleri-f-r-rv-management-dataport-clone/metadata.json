@@ -1,0 +1,85 @@
+{
+  "account_slug": "cassini",
+  "audio_url": "https://cdn.fireflies.ai/01JXHKAZDAK8RK6Y9SJREY4GPR/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlhIS0FaREFLOFJLNlk5U0pSRVk0R1BSL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=BXJE5hJzELt~r2y6XBR0WsLCHuYWPryxmBnhWY5jd54v5dUkFHDwiBpNZJ9VPYdvVG9MDLfdUT8rL1Tkr5yZ2o1L3t0G1X0iEbSkeWM~05P832z3UM2i392ZbOVtwBTfHUuEIoR8WSYY6-uymnBwnKxIXS~r-cGvkOsfzXsPafcV6sF9SL2j5OORZDnVMAJyvJqu2G5cnW1ffpa3cKzZhtdmRvGlQFBdWM5BNSx5Nx-C~FcBoq4CJ99yR-Ks0w2f-UBiUPDVncSor4JU3T09DtAb1bAqegpBjU7plVYcNlhgIifS28LA00Zp9UVBzHUhavj0b7JbOuZK8zojUU6yTA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 69.76000213623047,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:07Z",
+  "meeting_at": "2025-06-13T13:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-13T13:30:00.000Z",
+      "leave_time": "2025-06-13T14:39:51.120Z",
+      "name": "Gilles, Jochen"
+    },
+    {
+      "join_time": "2025-06-13T13:30:00.000Z",
+      "leave_time": "2025-06-13T14:39:51.121Z",
+      "name": "Reitzig, Leonie"
+    },
+    {
+      "join_time": "2025-06-13T13:30:00.000Z",
+      "leave_time": "2025-06-13T14:39:51.121Z",
+      "name": "Stebens, André"
+    },
+    {
+      "join_time": "2025-06-13T13:30:50.287Z",
+      "leave_time": "2025-06-13T14:39:51.121Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-06-13T13:32:21.582Z",
+      "leave_time": "2025-06-13T14:39:51.121Z",
+      "name": "Schmidt, Philip"
+    },
+    {
+      "join_time": "2025-06-13T13:32:28.582Z",
+      "leave_time": "2025-06-13T14:39:51.121Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-06-13T13:33:42.279Z",
+      "leave_time": "2025-06-13T14:32:14.637Z",
+      "name": "Georg, Julian Alexander"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JXHKAZDAK8RK6Y9SJREY4GPR",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NDBjOTkzOTgtNWRjYS00MWJhLWE3ZDktZGI5ODEzMDZlM2Qz@thread.v2/0?context={\"Tid\":\"215a4151-c648-4e92-bac0-0c879d82313a\",\"Oid\":\"41a8b2f5-aecf-427c-ad46-9d6bfaa1ca5e\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 679,
+  "title": "WG: Ansätze von Aleri für RV Management Dataport (Clone)",
+  "transcript_created_at": "2025-06-13T13:30:00Z",
+  "transcript_id": "01JXHKAZDAK8RK6Y9SJREY4GPR",
+  "transcript_url": "https://app.fireflies.ai/view/01JXHKAZDAK8RK6Y9SJREY4GPR",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

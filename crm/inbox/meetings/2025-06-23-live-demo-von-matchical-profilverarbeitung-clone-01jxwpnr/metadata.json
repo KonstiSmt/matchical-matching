@@ -1,0 +1,75 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01JXWPNRSP4VPYX40W1BXDE6KF/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlhXUE5SU1A0VlBZWDQwVzFCWERFNktGL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=MIEDpgsfMiHJjvEGZqd1iS1ddr5m8-9NkI3Pf-211rKORM5B2AscrlmJn0HlV13MLGsD2FWOUfoVTSuHMDBJtHoX9eQAbwyqfoFBctsvk52fber-w-pk9DrxNk8hF3xxAbQCyfvH9FrkIDnm7RFvph-37OtmohdWd4RfeO0Jos-ZfWprzwhkTuP7ya3Rf-tITXzC3wgBJgdogW~djFH5BNj94Kf488IprQlmBi0bbEMtAdJGa0VCTA2DbCq~7VKuE-2NeqPQOGvenbH16aVwxDMzfEPcsVRdn82jhZz21tAOOs0vujSQqfAhvzpp1kMlEiFryenNPJirgndXjWgQ8A__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 82.22000122070312,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:40:30Z",
+  "meeting_at": "2025-06-23T12:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-23T12:00:00.000Z",
+      "leave_time": "2025-06-23T13:22:19.218Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-06-23T12:00:00.000Z",
+      "leave_time": "2025-06-23T13:22:19.220Z",
+      "name": "Stein, Hendrik"
+    },
+    {
+      "join_time": "2025-06-23T12:00:00.000Z",
+      "leave_time": "2025-06-23T13:22:19.220Z",
+      "name": "Volmich, Michael"
+    },
+    {
+      "join_time": "2025-06-23T12:00:49.363Z",
+      "leave_time": "2025-06-23T13:22:19.220Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-06-23T12:00:49.365Z",
+      "leave_time": "2025-06-23T13:21:03.973Z",
+      "name": "Weidler, Matthias"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JXWPNRSP4VPYX40W1BXDE6KF",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ODNlZDgwZDctN2Y1NC00MzVlLTk2MDItOTFhMjFhZmQyY2Uz@thread.v2/0?context={\"Tid\":\"d837af40-1177-4648-b50e-eb2c08d71867\",\"Oid\":\"3630b9aa-44e6-4cf8-98c2-42e64e6517ed\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 935,
+  "title": "Live-Demo von matchical (Profilverarbeitung) (Clone)",
+  "transcript_created_at": "2025-06-23T12:00:00Z",
+  "transcript_id": "01JXWPNRSP4VPYX40W1BXDE6KF",
+  "transcript_url": "https://app.fireflies.ai/view/01JXWPNRSP4VPYX40W1BXDE6KF",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

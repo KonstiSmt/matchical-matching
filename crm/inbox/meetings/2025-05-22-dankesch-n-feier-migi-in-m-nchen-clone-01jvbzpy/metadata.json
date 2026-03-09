@@ -1,0 +1,49 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01JVBZPYEDDZ2N218PZ99NJHCR/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlZCWlBZRUREWjJOMjE4UFo5OU5KSENSL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=JJrwYdfMMi3HSTAyqX18b4hSrXkYr0NI~VW86yXo-DlW5tpxqPpeeNU20zl6~Pw2WD2vWnWyLFFaUasuxZtWAkbbNQIj~kMNibttcg4~G4yidcoohJ6PV0eWbLWe0OT4f9mAiP6TWosJ-H222GDPIYQC9djaEKbNrDW8Pc4nA59kqTjpm7PdyaC2L4bLDRDPNQFQLX5DOTjUy8DRKYZjczexrDwtrqlrIEzbgXMmqKAE9YKsYxgmvxE5WHbH7puaXSGXni-1wxB-zFY25SWUO3o~9cseVMGJhfo21saRlGW9oE63SVTCf1TkU0smyBpWZZ32aVnnbuZGiCOchYdAzw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 10.5,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:40Z",
+  "meeting_at": "2025-05-22T16:30:00Z",
+  "meeting_attendance": [],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JVBZPYEDDZ2N218PZ99NJHCR",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YjM3Njc5MjItMzU1Ni00MDYxLTk0NDEtNGZmY2E2YmYzN2Y5@thread.v2/0?context={\"Tid\":\"5de96c96-c87c-4dce-aad9-f5c557b52ac1\",\"Oid\":\"b2a292a0-6ef3-4b31-a29d-9666141517a0\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 0,
+  "title": "Dankeschön-Feier MiGi in München  (Clone)",
+  "transcript_created_at": "2025-05-22T16:30:00Z",
+  "transcript_id": "01JVBZPYEDDZ2N218PZ99NJHCR",
+  "transcript_url": "https://app.fireflies.ai/view/01JVBZPYEDDZ2N218PZ99NJHCR",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

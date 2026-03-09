@@ -1,0 +1,65 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01JYPD6TT4S2RFBY728B9P964Y/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSllQRDZUVDRTMlJGQlk3MjhCOVA5NjRZL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=TEL4iAJ~hk8GE3dw7nIOil-A5WnLU4hERrQ3FmlSFC6S4myz58Y7xDNxCMI2ZhqJ6uJe4ZaZMun6r2Vg4hBWHPRoIvfqbfzm6tHsYzqpank68~mmcJd4zsTb8oCHHgImWyJNQoRnZIjUnE7cKMMAY-cJn0aZByiKdNW6GE-pD8CRziR8ypenH6zghyNUfp0eXB9Dn2uMh3mMxuMstLxwMYa394brDQF1EmZxFeeVS0D3M115ce2t2rsf-IVxJPTSsnwYHHo3BIjyrqXAan9FWUBkh9qrkEBwspXFQC0Gw8zleK8lmndhCnJRhC7~tOPZrfR2f6cSa~707mUB-NtZkw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 51.06999969482422,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:40:14Z",
+  "meeting_at": "2025-06-27T14:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-27T14:00:00.000Z",
+      "leave_time": "2025-06-27T14:51:07.435Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-06-27T14:00:48.122Z",
+      "leave_time": "2025-06-27T14:51:07.439Z",
+      "name": "Sebastian  Rümmelein I Alpinum Solutions"
+    },
+    {
+      "join_time": "2025-06-27T14:00:48.124Z",
+      "leave_time": "2025-06-27T14:51:07.439Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JYPD6TT4S2RFBY728B9P964Y",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZmJlMjBhMTEtNTA0ZS00N2NiLWFmZDYtOGFlMzYwZTFlN2Ew@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 494,
+  "title": "Abstimmung Rollenkategorisierung (Clone)",
+  "transcript_created_at": "2025-06-27T14:00:00Z",
+  "transcript_id": "01JYPD6TT4S2RFBY728B9P964Y",
+  "transcript_url": "https://app.fireflies.ai/view/01JYPD6TT4S2RFBY728B9P964Y",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

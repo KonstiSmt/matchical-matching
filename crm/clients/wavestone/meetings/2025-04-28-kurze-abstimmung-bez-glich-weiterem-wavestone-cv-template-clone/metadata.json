@@ -1,0 +1,70 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01JSSF9N32RYAQWKVG9E7DZVW6/audio.mp3?Expires=1773290408&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlNTRjlOMzJSWUFRV0tWRzlFN0RaVlc2L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwOH19fV19&Signature=ciHkRVWtdEzgNyDhbRPFaiWImIMFNqe9a~zAAu8vIWoj5yTwlt8IvU4OXNRGz5HkS3eX2ImWdSONluqb2m0aMhzjJBDT~y-yCbztloyc2EJH8eagqm5I9SKlyQRBLHRGOt1qSQKN7rXmd~Dvmn8IlTv2Vivj5oqjjD~X6blpzc3vDczHZrPVZxNhDJmGxuZE2lbz2Q0okX1J-yZWAdk8rBsuINtEMTP7BXoKdVo~05SAmkZav7b6JQAv8OCIw41ZIrf4PyZWRBCEBVVZXuqM576hUJJsIKWcVWSC6UTsMCoqU1vTRYoG-lTTsVy9gynur04gkIBbi~5ot7wURnaeKw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 33.099998474121094,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:42:22Z",
+  "meeting_at": "2025-04-28T14:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-04-28T14:00:00.000Z",
+      "leave_time": "2025-04-28T14:32:37.656Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-04-28T14:00:47.358Z",
+      "leave_time": "2025-04-28T14:32:37.654Z",
+      "name": "ARNAUT Inesa"
+    },
+    {
+      "join_time": "2025-04-28T14:04:14.374Z",
+      "leave_time": "2025-04-28T14:32:37.656Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-04-28T14:08:40.101Z",
+      "leave_time": "2025-04-28T14:32:37.655Z",
+      "name": "FISCHER Manuel"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JSSF9N32RYAQWKVG9E7DZVW6",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ODMzZWE2MDItMzlkYS00MTFiLThmZjgtNjBhOTZkOGYxNmRj@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 403,
+  "title": "Kurze Abstimmung bezüglich weiterem Wavestone-CV-Template (Clone)",
+  "transcript_created_at": "2025-04-28T14:00:00Z",
+  "transcript_id": "01JSSF9N32RYAQWKVG9E7DZVW6",
+  "transcript_url": "https://app.fireflies.ai/view/01JSSF9N32RYAQWKVG9E7DZVW6",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}
