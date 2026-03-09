@@ -1,0 +1,55 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01JKDEZ1VDCE8MMEA18RTJ6D1K/audio.mp3?Expires=1773265219&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSktERVoxVkRDRThNTUVBMThSVEo2RDFLL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI2NTIxOX19fV19&Signature=ev2NvenoEPNTkAV1wUY0mVdIcs-B8YYq79DZexNSJ2cxP~VDWu4s5qTcNQVd3hzyeVYLpfhFo4Rm~toAepVR1o14RYLL06gYzgllvQDrvMtN7aSgvxev4L~dK7LGoBgA7XXJ2baj2Q4V5XuL0jsmWWXUyKyiCcTySZL2pezVrSoXBxoyhYcnjV6SgB4RNE4xs~9AY8CdsQdTUnIgx9lkxR3sWtmcvZcJDsi0Muvv~mvE0Y4kdJI-gCL~UtGQ-JOxbHMTmT9AZ-L4unQxFpD97snjystcAeLq9x6ro0ewJLuVcS2eUL8DoBtDtY8uxMCmjqJxBHPb4qrV8pKuPhqGGA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 82,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": null,
+  "local_imported_at": "2026-03-09T10:26:22Z",
+  "meeting_at": "2025-02-06T11:36:35Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-02-06T11:36:35.559Z",
+      "leave_time": "2025-02-06T11:58:02.030Z",
+      "name": "Dymitr Romanowski"
+    },
+    {
+      "join_time": "2025-02-06T11:36:35.559Z",
+      "leave_time": "2025-02-06T12:28:38.609Z",
+      "name": "Jan Wandrey"
+    },
+    {
+      "join_time": "2025-02-06T11:36:35.559Z",
+      "leave_time": "2025-02-06T12:28:38.609Z",
+      "name": "Konstantin Schmitz"
+    }
+  ],
+  "meeting_attendees": [],
+  "meeting_id": "01JKDEZ1VDCE8MMEA18RTJ6D1K",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://meet.google.com/ebq-czdh-skp?authuser=konstantin.schmitz@thestory.pl",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 842,
+  "title": "konsti@matchical.com - Thu, 06 Feb 2025 11:05:18 GMT - Untitled",
+  "transcript_created_at": "2025-02-06T11:05:00Z",
+  "transcript_id": "01JKDEZ1VDCE8MMEA18RTJ6D1K",
+  "transcript_url": "https://app.fireflies.ai/view/01JKDEZ1VDCE8MMEA18RTJ6D1K",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

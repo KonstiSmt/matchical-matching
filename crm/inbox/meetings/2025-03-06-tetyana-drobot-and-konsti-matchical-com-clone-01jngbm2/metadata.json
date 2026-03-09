@@ -1,0 +1,59 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01JNGBM227ZG4MDGGWPXXEDFK3/audio.mp3?Expires=1773265216&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSk5HQk0yMjdaRzRNREdHV1BYWEVERkszL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI2NTIxNn19fV19&Signature=bhzEjSmfa8iU7~NiOrn1HToX2ets4qseY5zQFbQ~BqcuvbCHj8xdhd7~7jJusJl-C8qhkLQ1p-pfgq02x-TVLTOfPAmpDjLIawxzZKuMdRYEoX64uvmY4GFsMx0mI28n29tzzQd4T-DiouA7v20-3Uzz2vvgd8x8n8LiAQ3-PBQUH-hApheYjenrmRtfUC2n9sK5PLcb4U7hc~WTJYMFrgWYmT766Z33Wftwf7b3DmnBlbp8qxbinyARzEDtY8qoV~Q451f45waBSPbCLt4ABit22ywBQ7yqu2cdMDJYf8cRjqHqsVSpOrXobpEgpG9W-LhafeEj3rcHStY4nIyAbA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 36.279998779296875,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T10:25:10Z",
+  "meeting_at": "2025-03-06T11:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-03-06T11:00:00.000Z",
+      "leave_time": "2025-03-06T11:35:43.583Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-03-06T11:00:00.000Z",
+      "leave_time": "2025-03-06T11:35:43.583Z",
+      "name": "Tetyana Drobot (Unverified)"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JNGBM227ZG4MDGGWPXXEDFK3",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MGMwMWQyN2YtYzIxMi00ZTk4LTgwMWUtNzEzNTllYzQzMjU1@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 418,
+  "title": "Tetyana Drobot and Konsti | matchical.com (Clone)",
+  "transcript_created_at": "2025-03-06T11:00:00Z",
+  "transcript_id": "01JNGBM227ZG4MDGGWPXXEDFK3",
+  "transcript_url": "https://app.fireflies.ai/view/01JNGBM227ZG4MDGGWPXXEDFK3",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

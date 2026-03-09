@@ -1,0 +1,59 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01JNZK99JQT033D05Z468JRMY1/audio.mp3?Expires=1773265216&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSk5aSzk5SlFUMDMzRDA1WjQ2OEpSTVkxL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI2NTIxNn19fV19&Signature=lYgBPsiIQkwIOHtOpOHkqwWulbfyKMuKGH5Ia7rcccZWSRpTFysGx2RDonaxynYjGQVzKUP-hM8Qai~LDeQU6Z65M2Tu5w8KJKEfp2c2OGPotF3b~cdwIFN-6N6LcH7DEyvcMh~TBreFjjfyiOnH4pcY6mkgTPlJiN0Zugi0nNJ-T3OJtMBFvXL-cPBWMPumBO9byRfBEx1DDMieqQR8pF4KGwYETGN4h8SmaQGj59jmEeQDqxXbBUkqkmZ9QbHJOCzNeU5u0DRvEEtQih38b2IJZLsaECUpmcJDJ5UJxkEDdgg6wduJG8NKH762sPMCmA4zM5wC-gNKs4SnQqFHCQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 120.08999633789062,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T10:24:44Z",
+  "meeting_at": "2025-03-12T08:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-03-12T08:00:00.000Z",
+      "leave_time": null,
+      "name": "Bauer, Thomas (Unverified)"
+    },
+    {
+      "join_time": "2025-03-12T08:00:00.000Z",
+      "leave_time": null,
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JNZK99JQT033D05Z468JRMY1",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MWY0OTNjN2MtNTE4MS00MDllLWI1YmItNDc2NGM1MmFkOWU1@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1450,
+  "title": "Daily (Clone)",
+  "transcript_created_at": "2025-03-12T08:00:00Z",
+  "transcript_id": "01JNZK99JQT033D05Z468JRMY1",
+  "transcript_url": "https://app.fireflies.ai/view/01JNZK99JQT033D05Z468JRMY1",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

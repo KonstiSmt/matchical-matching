@@ -1,0 +1,48 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01JP02MPBM5NKD3M2YKV6N7T0K/audio.mp3?Expires=1773265216&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlAwMk1QQk01TktEM00yWUtWNk43VDBLL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI2NTIxNn19fV19&Signature=ddJ4UnK257Z2qnXSqHTRXxlxGOHp2jQAtWg4jTXVQlZkhDL6k8qOwpKoy1AEimSgnie~JlsUgNCxD6PhXbcGaKYqNBhmEs2l0dBpzsFKZRjKthruQsAJwLj5jtijOwVwL43LHrjmvZA9ZrsWp7UmfTsi~aAaQuFJb~uCkNlMAFMKgi-Vg7GJ7kK-ZHjw9TczE8Qe1lBR6p6mj~KMSuqfCwTFVypekbYj83C3miSD9CLCTz-QvmOoHTZ4DXSGeMjNYO0dzRrNGyvWr7mnV~rXpXtHgeiws5zTCCUB0HvrrWBqhdzzB-CPse7LmOU8xVlJDL2dtFyuA0N~4gKDN-hleQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 67.88999938964844,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T10:24:42Z",
+  "meeting_at": "2025-03-12T13:00:00Z",
+  "meeting_attendance": [],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JP02MPBM5NKD3M2YKV6N7T0K",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://zoom.us/j/7485659779",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1268,
+  "title": "Konsti - Session 5 (Clone)",
+  "transcript_created_at": "2025-03-12T13:00:00Z",
+  "transcript_id": "01JP02MPBM5NKD3M2YKV6N7T0K",
+  "transcript_url": "https://app.fireflies.ai/view/01JP02MPBM5NKD3M2YKV6N7T0K",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

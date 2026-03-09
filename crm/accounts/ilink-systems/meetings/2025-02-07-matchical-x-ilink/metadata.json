@@ -1,0 +1,103 @@
+{
+  "account_slug": "ilink-systems",
+  "audio_url": "https://cdn.fireflies.ai/SIEyCFAO7FplsMiK/audio.mp3?Expires=1773267978&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpL1NJRXlDRkFPN0ZwbHNNaUsvYXVkaW8ubXAzIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzczMjY3OTc4fX19XX0_&Signature=WZXv12BqDYq25aALBFu8xpx-juFEr5zKqxUEhb35LYS1-V50DXznirGWtuj2-v6QdHGqP9Kquu858cF8xK4Wqq7ALvhS6hnTkJ7OCbvM2AXmR~FHjCp9zYTWbyDct3oh52lVG4fKolhgQEflWjmRES~XihuFKZ1HQgklNuMFTJy8ehDJJro4yX2Dz40H9h-gYJ7CNuhTrcF21sSV~93yarwd6WSNFvBabnrMlut-Rti4PeoOQvFBOiuryjSU~tLZiu6Cwqi7U7nYObR0gp7nrxGUrTCPZ4T9bAXQUge38r7jBR2yPiPdz0wX6whozF8NCm7ax6ywVF-SCLiQbOstog__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "detected_domains": [
+    "ilink-systems.com",
+    "matchical.com"
+  ],
+  "dominant_domain": "ilink-systems.com",
+  "duration_minutes": 58,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "lucas@matchical.com",
+  "local_imported_at": "2026-03-09T10:26:19Z",
+  "meeting_at": "2025-02-07T11:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-02-07T11:00:00.000Z",
+      "leave_time": "2025-02-07T11:32:50.692Z",
+      "name": "Garima Sharma (Unverified)"
+    },
+    {
+      "join_time": "2025-02-07T11:00:00.000Z",
+      "leave_time": "2025-02-07T11:58:26.417Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-02-07T11:00:00.000Z",
+      "leave_time": "2025-02-07T11:58:26.418Z",
+      "name": "Lucas | matchical.com"
+    },
+    {
+      "join_time": "2025-02-07T11:00:00.000Z",
+      "leave_time": "2025-02-07T11:58:26.418Z",
+      "name": "Ranjith V P (Unverified)"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "lucas@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "garimas@ilink-systems.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "ranjith.vp@ilink-systems.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "SIEyCFAO7FplsMiK",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YTdjODIzZjQtMWU1OS00ZGMxLWEyMGMtZTk3Mjg4OTJkOWMy@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"f88858fd-e55c-4c3a-8d5c-09c85cb36b2c\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "lucas@matchical.com,garimas@ilink-systems.com,ranjith.vp@ilink-systems.com,konsti@matchical.com",
+    "garimas@ilink-systems.com",
+    "ranjith.vp@ilink-systems.com",
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "lucas@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "garimas@ilink-systems.com",
+      "name": ""
+    },
+    {
+      "email": "ranjith.vp@ilink-systems.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 705,
+  "title": "Matchical x iLink",
+  "transcript_created_at": "2025-02-07T11:00:00Z",
+  "transcript_id": "SIEyCFAO7FplsMiK",
+  "transcript_url": "https://app.fireflies.ai/view/SIEyCFAO7FplsMiK",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

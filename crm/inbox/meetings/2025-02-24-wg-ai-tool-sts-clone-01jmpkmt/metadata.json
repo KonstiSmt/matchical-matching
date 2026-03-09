@@ -1,0 +1,59 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01JMPKMTMTAKVP1N9E6701E2KH/audio.mp3?Expires=1773265216&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSk1QS01UTVRBS1ZQMU45RTY3MDFFMktIL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI2NTIxNn19fV19&Signature=zsEXa2-ixJCeI-hZvTaTiqd-FptWZVCsQpDI3KUHKNeWcfnZzSaxinVsgWBP3zJyRsAfWO8VlX-vOiuXW7W~YlJ9NvvCowwkeyoQpLvqAQuRL3QhDV~2BV0vcEHEOM5gwhwIizrFEZcD0MY5cj9bAd931Y3WcOiVjWmk71P0HDBd~oAokBGVP~jVnmZsfAvFUGszZfa~MAUEwGUZoipjB~ovVw~3PeNCk4TNhMGx-ITbMkHD~Vdek6mhH9xoDDz54B~lIzr~6auMcz89DYq4-0jyXa~pR5xCLzNT03QD2pv283H0GIq1iQaY~fA1q-oE7UA3BQaD-HQMdeYk8a0B1A__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 34,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T10:25:43Z",
+  "meeting_at": "2025-02-24T10:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-02-24T10:00:00.000Z",
+      "leave_time": "2025-02-24T10:35:56.241Z",
+      "name": "Bauer, Thomas"
+    },
+    {
+      "join_time": "2025-02-24T10:00:00.000Z",
+      "leave_time": "2025-02-24T10:35:56.241Z",
+      "name": "Konsti | matchical.com (Unverified)"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JMPKMTMTAKVP1N9E6701E2KH",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_Njc5YmFkOTMtODI0OS00OGM5LTliNmEtMTI4MWM0NjgyOTMx@thread.v2/0?context={\"Tid\":\"d9a88f1c-c7fe-4245-b405-8e572770ce7f\",\"Oid\":\"d933f4be-ba04-470d-a63b-1afd708c9751\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 385,
+  "title": "WG: AI Tool STS (Clone)",
+  "transcript_created_at": "2025-02-24T10:00:00Z",
+  "transcript_id": "01JMPKMTMTAKVP1N9E6701E2KH",
+  "transcript_url": "https://app.fireflies.ai/view/01JMPKMTMTAKVP1N9E6701E2KH",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01JPZBCPNMY4VDP222CNXE7T60/audio.mp3?Expires=1773265216&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlBaQkNQTk1ZNFZEUDIyMkNOWEU3VDYwL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI2NTIxNn19fV19&Signature=sjLmUik4C7j-6dmmrjCPRDVTB6M-B8eqU1nM2U-K2H6YrQpr9fMaIF4SW31OtM34KZuNgvxrsYdeEUrbVD9g4T-9hFUhkISVpjTXHJm~e~8~HjiE-PW1RPRAdeIJYEceu8mhrFnbW1CFZImwe6WqvxM9iQdX5DSa55Q8YgspikaYLcOwpbwK8UZoP0LGNQdfNKMwTkwmNvsTkIHDdqfP89jlv9IqHctbUU1iMPq5K5clNmCC5qmU-IdtV2MT~bYBLwxSMrzwj1d4Cwu~OZxSFprqHX0BqfbUpIsR4w5NrAHhiiE5x4cHZgkJXo3Ujl7X-7qdDZfL2YDvfDG~apOnoA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 57.5,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T10:24:31Z",
+  "meeting_at": "2025-03-24T10:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-03-24T10:00:00.000Z",
+      "leave_time": "2025-03-24T10:17:44.485Z",
+      "name": "Bauer, Thomas"
+    },
+    {
+      "join_time": "2025-03-24T10:00:00.000Z",
+      "leave_time": "2025-03-24T11:04:42.711Z",
+      "name": "Kleindienst, Sören"
+    },
+    {
+      "join_time": "2025-03-24T10:00:00.000Z",
+      "leave_time": "2025-03-24T11:04:42.712Z",
+      "name": "Konsti | matchical.com (Unverified)"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JPZBCPNMY4VDP222CNXE7T60",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_OGM0ODQzODYtYmQ2OS00NjIzLTliNGMtODk4MDk1MzJhNDNm@thread.v2/0?context={\"Tid\":\"d9a88f1c-c7fe-4245-b405-8e572770ce7f\",\"Oid\":\"79b91bc4-5d6d-4c5b-8ddc-e0f1e2f618b3\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 593,
+  "title": "Abstimmung GDPR-Prozess (Clone)",
+  "transcript_created_at": "2025-03-24T10:00:00Z",
+  "transcript_id": "01JPZBCPNMY4VDP222CNXE7T60",
+  "transcript_url": "https://app.fireflies.ai/view/01JPZBCPNMY4VDP222CNXE7T60",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

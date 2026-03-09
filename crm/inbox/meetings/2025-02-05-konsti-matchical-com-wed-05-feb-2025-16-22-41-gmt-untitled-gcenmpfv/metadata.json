@@ -1,0 +1,55 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/gCEnmpFvFxxnkgg4/audio.mp3?Expires=1773267852&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpL2dDRW5tcEZ2Rnh4bmtnZzQvYXVkaW8ubXAzIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzczMjY3ODUyfX19XX0_&Signature=OwnSplAvNw0Y6tOl~U9LTarB2kiCMVMQv7z9l2042q2mIL6Lq6TukqblgZxB8Aoaz8p933Wbrqz7e2D5sARY21A6YF6e5kc5TxsMW3hsEw8Asx0R9tcHD243g3kaA2z5DxzCl54JzO3Xyx31z3R~twpzxzJZnSuTPYlql4i-yKV1Vph2kE4ZmMxVqIpUk3RAkRYcIc307flL59TIePNJ65mPrD2FOGx2dPB2X~fEMBbLKzUBgnAjrnWmXr-zlgpqk56U9If7IqYp2~kPpUtJiH4j-KYMx-UwnCKNX~2JDekyra0sUqYW6uTbu4RO~SOQtvG1AwBVNIREgGX~Lchbkg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 121,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": null,
+  "local_imported_at": "2026-03-09T10:26:29Z",
+  "meeting_at": "2025-02-05T16:22:41Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-02-05T16:22:41.000Z",
+      "leave_time": "2025-02-05T18:25:02.764Z",
+      "name": "Bauer, Thomas (Unverified)"
+    },
+    {
+      "join_time": "2025-02-05T16:22:41.000Z",
+      "leave_time": "2025-02-05T18:25:02.764Z",
+      "name": "Chico | matchical.com"
+    },
+    {
+      "join_time": "2025-02-05T16:22:41.000Z",
+      "leave_time": "2025-02-05T18:25:02.764Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [],
+  "meeting_id": "gCEnmpFvFxxnkgg4",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_MTA5ZDRiNDUtYjQ3Mi00MmUxLTgxODItNTk5Yzk3YjllN2E4%40thread.v2/0?context={%22Tid%22:%2272f6dc59-f82d-4250-a094-7bf068065dc7%22,%22Oid%22:%2248960763-8ac3-462c-8a8d-04da8ef3be42%22}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1769,
+  "title": "konsti@matchical.com - Wed, 05 Feb 2025 16:22:41 GMT - Untitled",
+  "transcript_created_at": "2025-02-05T16:25:00Z",
+  "transcript_id": "gCEnmpFvFxxnkgg4",
+  "transcript_url": "https://app.fireflies.ai/view/gCEnmpFvFxxnkgg4",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

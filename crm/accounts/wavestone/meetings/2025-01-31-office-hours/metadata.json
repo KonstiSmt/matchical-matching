@@ -1,0 +1,103 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/VuqrXI7VWs794JZo/audio.mp3?Expires=1773265219&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpL1Z1cXJYSTdWV3M3OTRKWm8vYXVkaW8ubXAzIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzczMjY1MjE5fX19XX0_&Signature=vnm7EZ3QK4Ia6bbiwOeH9M~h0g36Ta2eHEDwkD0vDkyD1-00XOcU1aoNo7SOlRhj8WaxCwIBxlpu5eBTTgLOq~qa7cLD-4OZ3EXoAQr2QNy48Y5GCm1I2u4KWfaeJl1E3HWXZzgi7~wkTIOL-qFMUPo2u44p~~U7AvLvJwB0lvPcV-mq-G6EIBxPX3UEhFKGm3RJcEbodFbqTqjNd8GDZvRorV9r9a81yshX04BeB6dpFSHUCIwO5TcrwZwlPBFHCLd63r7kW-o3aoA4LBRhhWcwqLvpkNM45qzOcudX9wk8fDKVXa1eh8GUSyRlyQcSUqt8A0-Pc1vIIkAKnelB4A__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "detected_domains": [
+    "matchical.com",
+    "wavestone.eu"
+  ],
+  "dominant_domain": "wavestone.eu",
+  "duration_minutes": 18,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T10:26:34Z",
+  "meeting_at": "2025-01-31T14:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-01-31T14:00:00.000Z",
+      "leave_time": "2025-01-31T14:14:48.137Z",
+      "name": "Chico | matchical.com"
+    },
+    {
+      "join_time": "2025-01-31T14:12:22.642Z",
+      "leave_time": null,
+      "name": "Bauer, Thomas (Unverified)"
+    },
+    {
+      "join_time": "2025-01-31T14:14:48.137Z",
+      "leave_time": null,
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-01-31T14:14:48.137Z",
+      "leave_time": null,
+      "name": "Lucas | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "niklas@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "lucas@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "thomas.bauer@wavestone.eu",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "VuqrXI7VWs794JZo",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MTA5ZDRiNDUtYjQ3Mi00MmUxLTgxODItNTk5Yzk3YjllN2E4@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "niklas@matchical.com,lucas@matchical.com,thomas.bauer@wavestone.eu,konsti@matchical.com",
+    "niklas@matchical.com",
+    "lucas@matchical.com",
+    "thomas.bauer@wavestone.eu"
+  ],
+  "participants": [
+    {
+      "email": "niklas@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "lucas@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "thomas.bauer@wavestone.eu",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 150,
+  "title": "Office hours",
+  "transcript_created_at": "2025-01-31T14:00:00Z",
+  "transcript_id": "VuqrXI7VWs794JZo",
+  "transcript_url": "https://app.fireflies.ai/view/VuqrXI7VWs794JZo",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

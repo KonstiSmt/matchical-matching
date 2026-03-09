@@ -1,0 +1,98 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/iGlC3Fja7OF05rVp/audio.mp3?Expires=1773265220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpL2lHbEMzRmphN09GMDVyVnAvYXVkaW8ubXAzIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzczMjY1MjIwfX19XX0_&Signature=bWeJ3dT-tXtfng8H1WZ~BYKmdByJeHaGyH5XhKgxMbmQtiXFnV-RdKDfjFFjKAvICL09gZOGJmtSl0k9afTBGWBmkpfCvQZ3Zag8xEL1N3WwYQi~a-boB6MTHBQPXGyH8MP-TyHbH78NgQg~CwwkFTLcSe3zffsVJsWJIYxEGKLFjn77DNaDIc2DL0uRTFq0XRQWXOzBuX-xXHfxW7eDTIeRh7opUZz-ek1KAPJwncqdqb7cIsMG0cdWfZpSILNab6eegPmhj031OF1Eyu9W25WS70Iu5mQSMUAvINUciK7wKnExGEG8Tpg5dPJli40one5UQxXScKOlE2e9KqcYng__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "planning",
+  "category_source": "keyword",
+  "detected_domains": [
+    "matchical.com",
+    "wavestone.eu"
+  ],
+  "dominant_domain": "wavestone.eu",
+  "duration_minutes": 71,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T10:27:00Z",
+  "meeting_at": "2025-01-14T09:15:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-01-14T09:15:00.000Z",
+      "leave_time": "2025-01-14T10:23:59.064Z",
+      "name": "Chico | matchical.com"
+    },
+    {
+      "join_time": "2025-01-14T09:15:00.000Z",
+      "leave_time": "2025-01-14T10:23:59.064Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-01-14T09:15:00.000Z",
+      "leave_time": "2025-01-14T10:23:49.512Z",
+      "name": "Lucas | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "thomas.bauer@wavestone.eu",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "lucas@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "niklas@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "iGlC3Fja7OF05rVp",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YjFkN2YwMTItYmRmZC00NDU3LWJmN2QtYmVlMjA3OTg2MmE1@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "thomas.bauer@wavestone.eu,lucas@matchical.com,niklas@matchical.com,konsti@matchical.com",
+    "thomas.bauer@wavestone.eu",
+    "lucas@matchical.com",
+    "niklas@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "thomas.bauer@wavestone.eu",
+      "name": ""
+    },
+    {
+      "email": "lucas@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "niklas@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1164,
+  "title": "Mini Sprint planning",
+  "transcript_created_at": "2025-01-14T09:15:00Z",
+  "transcript_id": "iGlC3Fja7OF05rVp",
+  "transcript_url": "https://app.fireflies.ai/view/iGlC3Fja7OF05rVp",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}
