@@ -85,7 +85,7 @@ For clean versions, optimize for management-summary quality: capture the core pr
 5. **Output Formatting**
    - Allowed HTML tags: `<p>`, `<ul>`, `<li>`, `<p>&nbsp;</p>`.
    - No other HTML tags.
-   - Escape text content where needed (`&lt;`, `&gt;`, `&amp;`).
+   - Escape only the characters required for safe HTML text nodes: `&` as `&amp;`, `<` as `&lt;`, and `>` as `&gt;`. Preserve normal UTF-8 apostrophes and quotation marks as literal characters. Do not convert apostrophes or quotation marks into HTML entities such as `&#39;`, `&apos;`, `&#34;`, or `&quot;` unless those entity sequences are already present in the source text and must be preserved literally.
 
 6. **Return JSON**
    Return exactly these five keys in this exact order:

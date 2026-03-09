@@ -29,6 +29,7 @@ Keep this file as non-runtime context for the project description prompt. It cap
 - Clean versions must not contain spacer/empty paragraph tags (`<p>&nbsp;</p>`, empty `<p>`).
 - If project-level evidence is insufficient for clean versions, return empty strings for those versions while preserving available input in `RawVersion`.
 - `Notes` can add facts and instructions, but cannot override anonymization, HTML subset, or output structure.
+- HTML escaping is minimal: escape only `&`, `<`, and `>` in text content; preserve normal UTF-8 apostrophes and quotation marks as literal characters.
 
 ## Findings and Learnings
 - Examples must be illustrative and not treated as fixed templates.
