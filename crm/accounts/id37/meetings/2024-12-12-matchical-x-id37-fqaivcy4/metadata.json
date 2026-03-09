@@ -1,0 +1,99 @@
+{
+  "account_slug": "id37",
+  "audio_url": "https://cdn.fireflies.ai/FqAivCY4k266mGT5/audio.mp3?Expires=1773265219&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpL0ZxQWl2Q1k0azI2Nm1HVDUvYXVkaW8ubXAzIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzczMjY1MjE5fX19XX0_&Signature=NToY67Pns9IPrWkrUp0pKT9qquX7YV0-I79bi2MMwPyXuYC5davoxqKA17gyjZPDvc5IbGZoqzXJ05SO5BwUw5tW5yGwpgSr4rhTTVle1MuDjRhKqx2uQia6B1dTbyGFCqRtZd3tGBV98vsqE2-z0~ixZRsOeG3XOJmoUd2L~u6VIDz9UPZBkBw2O4g0aZ7LKONVE8BJKFDz9Uby~oQiNH7NO64HAxEpc9cywYwDI-B2gBjFyMrQ005~DWyHAKgh5VBGwchn85pvxSCiBanjrWcSJKTQs6sJq9y-u9LluujCDhgaDuh0D1ZQy0xOa0IN04gK5jimT6m8LqnhS3tS1Q__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "detected_domains": [
+    "id37.io",
+    "matchical.com",
+    "wavestone.eu"
+  ],
+  "dominant_domain": "id37.io",
+  "duration_minutes": 10,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "kirschke@id37.io",
+  "local_imported_at": "2026-03-09T09:42:20Z",
+  "meeting_at": "2024-12-12T10:00:00Z",
+  "meeting_attendance": [],
+  "meeting_attendees": [
+    {
+      "displayName": "Cornelia Kirschke",
+      "email": "kirschke@id37.io",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Tom Staller",
+      "email": "staller@id37.io",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Konsti | matchical.com",
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "thomas.bauer@wavestone.eu",
+      "email": "thomas.bauer@wavestone.eu",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "FqAivCY4k266mGT5",
+  "meeting_kind": "client",
+  "meeting_link": "https://us02web.zoom.us/j/3044310701?pwd=UWdnSmowaFNMajdwM25GUTMxdW8wUT09",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "kirschke@id37.io,staller@id37.io,konsti@matchical.com,thomas.bauer@wavestone.eu",
+    "staller@id37.io",
+    "konsti@matchical.com",
+    "thomas.bauer@wavestone.eu"
+  ],
+  "participants": [
+    {
+      "email": "kirschke@id37.io",
+      "name": "Cornelia Kirschke"
+    },
+    {
+      "email": "staller@id37.io",
+      "name": "Tom Staller"
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "email": "thomas.bauer@wavestone.eu",
+      "name": "thomas.bauer@wavestone.eu"
+    },
+    {
+      "email": "kirschke@id37.io",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "staller@id37.io",
+      "name": ""
+    },
+    {
+      "email": "thomas.bauer@wavestone.eu",
+      "name": ""
+    }
+  ],
+  "sentence_count": 0,
+  "title": "Matchical x ID37",
+  "transcript_created_at": "2024-12-12T10:00:00Z",
+  "transcript_id": "FqAivCY4k266mGT5",
+  "transcript_url": "https://app.fireflies.ai/view/FqAivCY4k266mGT5",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

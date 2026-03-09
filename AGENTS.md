@@ -44,6 +44,7 @@ Repository includes development artifacts for Matchical: queries, prompts, mocku
 - Do not add one-off task instructions to AGENTS files.
 - Keep new rules short, testable, and non-duplicative.
 - If a new rule conflicts with an existing rule, ask for clarification before changing AGENTS files.
+- For Fireflies meeting imports that cannot be confidently classified, ask the user for the destination first during interactive work; if no guidance is available, place the meeting under `crm/inbox/meetings/`.
 
 ## Entity Schema Updates
 - For user-provided entity JSON updates, refresh `docs/entities/` manually (AI-assisted) and do not add automatic reorganization scripts for this workflow.

@@ -8,11 +8,38 @@
   ],
   "dominant_domain": null,
   "duration_minutes": 55.220001220703125,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
   "local_imported_at": "2026-03-09T09:32:25Z",
   "meeting_at": "2026-03-05T13:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-03-05T13:30:00.000Z",
+      "leave_time": "2026-03-05T14:26:43.062Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2026-03-05T13:30:00.000Z",
+      "leave_time": "2026-03-05T14:26:43.062Z",
+      "name": "Rolf Schiebelhut"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
   "meeting_id": "01KJYK9ZC7Z5NN83TC7VW0NJWR",
   "meeting_kind": "client",
   "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZGFkYWZlMGUtZjI0My00MWMyLTk0NGQtYmU3ZWI2ZmY1NjAx@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
   "participants": [
     {
       "email": "konsti@matchical.com",
@@ -23,5 +50,8 @@
   "transcript_created_at": "2026-03-05T13:30:00Z",
   "transcript_id": "01KJYK9ZC7Z5NN83TC7VW0NJWR",
   "transcript_url": "https://app.fireflies.ai/view/01KJYK9ZC7Z5NN83TC7VW0NJWR",
-  "video_url": "https://cdn.fireflies.ai/01KJYK9ZC7Z5NN83TC7VW0NJWR/video.mp4?Expires=1773262432&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0pZSzlaQzdaNU5OODNUQzdWVzBOSldSL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI2MjQzMn19fV19&Signature=TL06E6Cm4OH8dLSSg~amUo8cKLWHR2i91cAuHvQFviOBOOXlkn46KmpAx5tPSCevITvxM3G9tQCoUOFEZMLw8F2tGUYzjcepImM6sECT7alT6V8jLgTS180sYr0tz03dnznR-TGCojryoDKp6IzQQPADru6HW-q5GQ9Y8Q9CmP77syAmomZdMrwOwPFRw7nUnF1Cg56FCx4tMXPYILza5uZyExVErbhde1Iy2e5d0N9aqupJ9w40--iejmCPISDNPP83uYSkBPsLbt~4sRXp8PHx-bkE-2-uuZU5LolZgf90DjtTTi5VnK~4iOM6kbCRwKVfKX~Xue5u9zPxkJ2ylw__&Key-Pair-Id=K25ZJR0UZVF4CM"
+  "video_url": "https://cdn.fireflies.ai/01KJYK9ZC7Z5NN83TC7VW0NJWR/video.mp4?Expires=1773262432&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0pZSzlaQzdaNU5OODNUQzdWVzBOSldSL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI2MjQzMn19fV19&Signature=TL06E6Cm4OH8dLSSg~amUo8cKLWHR2i91cAuHvQFviOBOOXlkn46KmpAx5tPSCevITvxM3G9tQCoUOFEZMLw8F2tGUYzjcepImM6sECT7alT6V8jLgTS180sYr0tz03dnznR-TGCojryoDKp6IzQQPADru6HW-q5GQ9Y8Q9CmP77syAmomZdMrwOwPFRw7nUnF1Cg56FCx4tMXPYILza5uZyExVErbhde1Iy2e5d0N9aqupJ9w40--iejmCPISDNPP83uYSkBPsLbt~4sRXp8PHx-bkE-2-uuZU5LolZgf90DjtTTi5VnK~4iOM6kbCRwKVfKX~Xue5u9zPxkJ2ylw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
 }

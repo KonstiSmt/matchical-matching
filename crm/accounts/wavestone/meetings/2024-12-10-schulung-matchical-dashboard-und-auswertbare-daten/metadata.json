@@ -1,0 +1,122 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/2wfOzj7nA7MWn0RX/audio.mp3?Expires=1773265219&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzJ3Zk96ajduQTdNV24wUlgvYXVkaW8ubXAzIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzczMjY1MjE5fX19XX0_&Signature=jS4eh1q-CTv-dNgIhpzDVqbpkuL7FlG3V6CMhe0VQXwtenkIVUYvaYE1zhv2LQC~JV~-KPbvYxrnwNzFb9c6zc9qV6qqfmz9aa738~wOa9aqgAlKx3TM4RzdF~tLluxMJQpJVHEipkHH51b0rGblpBAwv7w0nXK8VRDNe0bLtND7m4otEpAtR-9xHx6v37-4OGJBjRsvpPZizdg1JmPlGCB1zJxOtZzKTPGlU1Ykq0nFn2o4rx-35BpBSwHBh23MxRZMAiLQHeSIbU3xCTLOX6eMuyT8hpyoJNIMJtj9hHcy0lwt65ACAx~X1UpxGnsE2lMSl8-PwEJ9YZq6iENZsQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "detected_domains": [
+    "matchical.com",
+    "wavestone.eu"
+  ],
+  "dominant_domain": "wavestone.eu",
+  "duration_minutes": 61,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "daniela.holzmann@wavestone.eu",
+  "local_imported_at": "2026-03-09T09:40:52Z",
+  "meeting_at": "2024-12-10T13:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2024-12-10T13:00:00.000Z",
+      "leave_time": "2024-12-10T14:02:20.866Z",
+      "name": "Blechschmidt, Astrid"
+    },
+    {
+      "join_time": "2024-12-10T13:00:00.000Z",
+      "leave_time": "2024-12-10T14:02:20.866Z",
+      "name": "Holzmann, Daniela"
+    },
+    {
+      "join_time": "2024-12-10T13:00:00.000Z",
+      "leave_time": "2024-12-10T14:02:20.866Z",
+      "name": "Konsti | matchical.com (Unverified)"
+    },
+    {
+      "join_time": "2024-12-10T13:00:00.000Z",
+      "leave_time": "2024-12-10T14:02:20.866Z",
+      "name": "Schneider, Helene"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": "Holzmann, Daniela",
+      "email": "daniela.holzmann@wavestone.eu",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Blechschmidt, Astrid",
+      "email": "astrid.blechschmidt@wavestone.eu",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Konsti | matchical.com",
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Fischer, Manuel",
+      "email": "manuel.fischer@wavestone.eu",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "2wfOzj7nA7MWn0RX",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NTVkZmI5NDgtNjViOS00ZWU3LTg0NGYtMzQ4Yzg1OTNmZjVi@thread.v2/0?context={\"Tid\":\"d9a88f1c-c7fe-4245-b405-8e572770ce7f\",\"Oid\":\"3040e3c9-a41c-4f5c-be98-1d1c9ea8ab1f\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "daniela.holzmann@wavestone.eu,astrid.blechschmidt@wavestone.eu,konsti@matchical.com,manuel.fischer@wavestone.eu",
+    "astrid.blechschmidt@wavestone.eu",
+    "konsti@matchical.com",
+    "manuel.fischer@wavestone.eu"
+  ],
+  "participants": [
+    {
+      "email": "daniela.holzmann@wavestone.eu",
+      "name": "Holzmann, Daniela"
+    },
+    {
+      "email": "astrid.blechschmidt@wavestone.eu",
+      "name": "Blechschmidt, Astrid"
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "email": "manuel.fischer@wavestone.eu",
+      "name": "Fischer, Manuel"
+    },
+    {
+      "email": "daniela.holzmann@wavestone.eu",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "daniela.holzmann@wavestone.eu,astrid.blechschmidt@wavestone.eu,konsti@matchical.com,manuel.fischer@wavestone.eu",
+      "name": ""
+    },
+    {
+      "email": "astrid.blechschmidt@wavestone.eu",
+      "name": ""
+    },
+    {
+      "email": "manuel.fischer@wavestone.eu",
+      "name": ""
+    }
+  ],
+  "title": "Schulung Matchical Dashboard und auswertbare Daten",
+  "transcript_created_at": "2024-12-10T13:00:00Z",
+  "transcript_id": "2wfOzj7nA7MWn0RX",
+  "transcript_url": "https://app.fireflies.ai/view/2wfOzj7nA7MWn0RX",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

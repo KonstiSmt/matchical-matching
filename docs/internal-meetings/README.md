@@ -19,4 +19,4 @@ docs/internal-meetings/
 
 ## Metadata
 
-Each `metadata.json` file includes the original Fireflies IDs, participants, detected domains, meeting kind, and a broad category tag.
+Each `metadata.json` file includes the original Fireflies IDs, raw participant and attendance fields, detected domains, meeting kind, and a broad category tag.

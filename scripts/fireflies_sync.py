@@ -561,15 +561,23 @@ def extract_attendees(transcript: dict[str, Any]) -> list[dict[str, str]]:
 
     participant_emails = transcript.get("participants") or []
     for participant_email in participant_emails:
-        email = str(participant_email or "").strip().lower()
-        if not email:
-            continue
-        key = ("", email)
-        if key not in seen_keys:
-            attendees.append({"name": "", "email": email})
-            seen_keys.add(key)
+        for email in split_email_candidates(str(participant_email or "")):
+            key = ("", email)
+            if key not in seen_keys:
+                attendees.append({"name": "", "email": email})
+                seen_keys.add(key)
 
     return attendees
+
+
+def split_email_candidates(value: str) -> list[str]:
+    parts = re.split(r"[;,]", value)
+    candidates = []
+    for part in parts:
+        candidate = part.strip().lower()
+        if candidate and "@" in candidate:
+            candidates.append(candidate)
+    return candidates
 
 
 def attendee_email_domains(attendees: Iterable[dict[str, str]]) -> list[str]:
@@ -686,7 +694,17 @@ def render_transcript_markdown(transcript: dict[str, Any]) -> str:
             rendered_lines.append(f"**{speaker}**: {text}")
 
     if len(rendered_lines) == 2:
-        raise FirefliesError(f"Transcript {transcript['id']} returned no sentence data.")
+        rendered_lines.append("_Fireflies returned no sentence-level transcript data for this meeting._")
+        attendance_names = [
+            str(item.get("name") or "").strip()
+            for item in transcript.get("meeting_attendance") or []
+            if isinstance(item, dict) and str(item.get("name") or "").strip()
+        ]
+        if attendance_names:
+            rendered_lines.append("")
+            rendered_lines.append("Known attendees:")
+            for name in attendance_names:
+                rendered_lines.append(f"- {name}")
 
     rendered_lines.append("")
     return "\n".join(rendered_lines)
@@ -723,7 +741,15 @@ def build_metadata(
         "meeting_at": to_utc_iso(meeting_at) if meeting_at else None,
         "transcript_created_at": to_utc_iso(transcript_created_at) if transcript_created_at else None,
         "duration_minutes": transcript.get("duration"),
+        "sentence_count": len(transcript.get("sentences") or []),
+        "host_email": transcript.get("host_email"),
+        "organizer_email": transcript.get("organizer_email"),
         "participants": attendees,
+        "participant_emails": list(transcript.get("participants") or []),
+        "meeting_attendees": list(transcript.get("meeting_attendees") or []),
+        "meeting_attendance": list(transcript.get("meeting_attendance") or []),
+        "fireflies_users": list(transcript.get("fireflies_users") or []),
+        "workspace_users": list(transcript.get("workspace_users") or []),
         "detected_domains": detected_domains_from_attendees(attendees),
         "transcript_url": transcript.get("transcript_url"),
         "meeting_link": transcript.get("meeting_link"),
