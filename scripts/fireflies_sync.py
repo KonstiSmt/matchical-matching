@@ -22,6 +22,9 @@ API_URL = "https://api.fireflies.ai/graphql"
 DEFAULT_PAGE_LIMIT = 50
 DEFAULT_DELTA_OVERLAP_DAYS = 7
 DEFAULT_INTERNAL_DOMAINS = {"matchical.com"}
+CLIENT_BUCKET = "clients"
+OTHER_BUCKET = "other"
+EXTERNAL_BUCKETS = (CLIENT_BUCKET, OTHER_BUCKET)
 PERSONAL_EMAIL_DOMAINS = {
     "aol.com",
     "gmx.com",
@@ -85,6 +88,39 @@ CATEGORY_KEYWORDS: dict[str, tuple[str, ...]] = {
         "recruit",
         "process",
     ),
+}
+CLIENT_RELATIONSHIP_KEYWORDS: dict[str, int] = {
+    "demo": 2,
+    "pitch": 2,
+    "pricing": 2,
+    "proposal": 2,
+    "discovery": 2,
+    "workshop": 2,
+    "staffing": 2,
+    "solution": 2,
+    "use case": 2,
+    "pilot": 2,
+    "intro": 1,
+    "follow-up": 1,
+    "onboarding": 1,
+    "presentation": 1,
+    "vorstellung": 1,
+    "check in": 1,
+    "office hours": 1,
+}
+INTERNAL_MEETING_KEYWORDS: dict[str, int] = {
+    "daily": 2,
+    "sprint planning": 2,
+    "backlog": 2,
+    "refinement": 2,
+    "user story mapping": 2,
+    "team alignment": 2,
+    "debrief": 1,
+    "prep": 1,
+    "brainstorming": 1,
+    "abstimmung": 1,
+    "retro": 1,
+    "retrospective": 1,
 }
 EMPTY_STATE = {
     "imported_transcript_ids": [],
@@ -159,6 +195,7 @@ query Transcript($transcriptId: String!) {
 class AccountRecord:
     slug: str
     path: Path
+    bucket: str
     display_name: str
     account_name: str
     aliases: set[str]
@@ -170,6 +207,7 @@ class AccountRecord:
 class RoutingDecision:
     meeting_kind: str
     destination_dir: Path
+    crm_bucket: str | None
     account_slug: str | None
     dominant_domain: str | None
 
@@ -474,36 +512,40 @@ def read_markdown_field(path: Path, field_name: str) -> str | None:
 
 def load_account_index(root: Path) -> dict[str, AccountRecord]:
     accounts: dict[str, AccountRecord] = {}
-    accounts_root = root / "crm" / "accounts"
-    if not accounts_root.exists():
-        return accounts
-
-    for account_md in sorted(accounts_root.glob("*/account.md")):
-        slug = account_md.parent.name
-        domain = read_account_domain(account_md)
-        account_name = read_markdown_field(account_md, "account_name") or slug.replace("-", " ").title()
-        aliases: set[str] = set()
-        normalized = normalize_host(domain)
-        if normalized:
-            aliases.add(normalized)
-            base = apex_domain(normalized)
-            if base:
-                aliases.add(base)
-        contact_names = {
-            contact_name
-            for contact_md in sorted((account_md.parent / "contacts").glob("*.md"))
-            for contact_name in [read_markdown_field(contact_md, "full_name")]
-            if contact_name
-        }
-        accounts[slug] = AccountRecord(
-            slug=slug,
-            path=account_md.parent,
-            display_name=slug.replace("-", " ").title(),
-            account_name=account_name,
-            aliases=aliases,
-            contact_names=contact_names,
-            domain=normalized,
-        )
+    crm_root = root / "crm"
+    for bucket in EXTERNAL_BUCKETS:
+        bucket_root = crm_root / bucket
+        if not bucket_root.exists():
+            continue
+        for account_md in sorted(bucket_root.glob("*/account.md")):
+            slug = account_md.parent.name
+            if slug in accounts:
+                raise SystemExit(f"Duplicate CRM slug across external buckets: {slug}")
+            domain = read_account_domain(account_md)
+            account_name = read_markdown_field(account_md, "account_name") or slug.replace("-", " ").title()
+            aliases: set[str] = set()
+            normalized = normalize_host(domain)
+            if normalized:
+                aliases.add(normalized)
+                base = apex_domain(normalized)
+                if base:
+                    aliases.add(base)
+            contact_names = {
+                contact_name
+                for contact_md in sorted((account_md.parent / "contacts").glob("*.md"))
+                for contact_name in [read_markdown_field(contact_md, "full_name")]
+                if contact_name
+            }
+            accounts[slug] = AccountRecord(
+                slug=slug,
+                path=account_md.parent,
+                bucket=bucket,
+                display_name=slug.replace("-", " ").title(),
+                account_name=account_name,
+                aliases=aliases,
+                contact_names=contact_names,
+                domain=normalized,
+            )
     return accounts
 
 
@@ -608,15 +650,7 @@ def dominant_external_domain(domains: Iterable[str], *, internal_domain_set: set
 
 
 def categorize_meeting(transcript: dict[str, Any]) -> tuple[str, str]:
-    text_parts = [transcript_title(transcript).lower()]
-    sentences = transcript.get("sentences") or []
-    for sentence in sentences[:12]:
-        if not isinstance(sentence, dict):
-            continue
-        text = str(sentence.get("text") or sentence.get("raw_text") or "").lower()
-        if text:
-            text_parts.append(text)
-    haystack = " ".join(text_parts)
+    haystack = transcript_evidence_haystack(transcript)
 
     matches = Counter()
     for category, keywords in CATEGORY_KEYWORDS.items():
@@ -670,6 +704,45 @@ def match_account_from_transcript_text(
     if best_score and not has_tie:
         return best_record
     return None
+
+
+def transcript_evidence_haystack(transcript: dict[str, Any], *, sentence_limit: int = 20) -> str:
+    evidence_parts = [transcript_title(transcript)]
+    for attendance in transcript.get("meeting_attendance") or []:
+        if not isinstance(attendance, dict):
+            continue
+        name = str(attendance.get("name") or "").strip()
+        if name:
+            evidence_parts.append(name)
+    for sentence in (transcript.get("sentences") or [])[:sentence_limit]:
+        if not isinstance(sentence, dict):
+            continue
+        text = str(sentence.get("text") or sentence.get("raw_text") or "").strip()
+        if text:
+            evidence_parts.append(text)
+    return " ".join(evidence_parts).lower()
+
+
+def keyword_score(haystack: str, keywords: dict[str, int]) -> int:
+    return sum(weight for keyword, weight in keywords.items() if keyword in haystack)
+
+
+def transcript_indicates_client_relationship(transcript: dict[str, Any]) -> bool:
+    return keyword_score(transcript_evidence_haystack(transcript, sentence_limit=16), CLIENT_RELATIONSHIP_KEYWORDS) >= 2
+
+
+def transcript_looks_internal(
+    transcript: dict[str, Any],
+    *,
+    domains: list[str],
+    internal_domain_set: set[str],
+    internal_email_count: int,
+) -> bool:
+    if domains and all(domain in internal_domain_set for domain in domains) and internal_email_count >= 2:
+        return True
+    if any(domain not in internal_domain_set for domain in domains):
+        return False
+    return keyword_score(transcript_evidence_haystack(transcript, sentence_limit=10), INTERNAL_MEETING_KEYWORDS) >= 2
 
 
 def render_transcript_markdown(transcript: dict[str, Any]) -> str:
@@ -757,6 +830,7 @@ def build_metadata(
         "video_url": transcript.get("video_url"),
         "local_imported_at": to_utc_iso(datetime.now(timezone.utc)),
         "meeting_kind": decision.meeting_kind,
+        "crm_bucket": decision.crm_bucket,
         "category": category,
         "category_source": category_source,
         "account_slug": decision.account_slug,
@@ -793,21 +867,24 @@ def unique_account_slug(domain: str, accounts_by_slug: dict[str, AccountRecord])
 def ensure_minimal_account(
     root: Path,
     *,
+    bucket: str,
     slug: str,
     domain: str,
     now: datetime,
 ) -> AccountRecord:
-    account_root = root / "crm" / "accounts" / slug
+    account_root = root / "crm" / bucket / slug
     account_root.mkdir(parents=True, exist_ok=True)
     account_md = account_root / "account.md"
     if not account_md.exists():
+        heading = f"# {account_name_from_domain(domain)}"
         account_md.write_text(
             "\n".join(
                 [
-                    f"# {account_name_from_domain(domain)} account",
+                    heading,
                     "",
                     "## Metadata",
                     "",
+                    f"- crm_bucket: {bucket}",
                     f"- account_name: {account_name_from_domain(domain)}",
                     f"- domain: https://{apex_domain(domain) or domain}",
                     "- status: auto-created from Fireflies import",
@@ -815,7 +892,7 @@ def ensure_minimal_account(
                     "",
                     "## Notes",
                     "",
-                    "- This account folder was auto-created from Fireflies meeting import and should be refined manually later.",
+                    "- This CRM entity was auto-created from Fireflies meeting import and should be refined manually later.",
                     "",
                 ]
             ),
@@ -824,6 +901,7 @@ def ensure_minimal_account(
     return AccountRecord(
         slug=slug,
         path=account_root,
+        bucket=bucket,
         display_name=account_name_from_domain(domain),
         account_name=account_name_from_domain(domain),
         aliases={alias for alias in {normalize_host(domain), apex_domain(domain)} if alias},
@@ -858,15 +936,45 @@ def route_transcript(
     if dominant_domain and dominant_domain in accounts_by_alias:
         record = accounts_by_alias[dominant_domain]
         return RoutingDecision(
-            meeting_kind="client",
-            destination_dir=root / "crm" / "accounts" / record.slug / "meetings" / f"{date_part}-{topic_part}",
+            meeting_kind="client" if record.bucket == CLIENT_BUCKET else "other",
+            destination_dir=root / "crm" / record.bucket / record.slug / "meetings" / f"{date_part}-{topic_part}",
+            crm_bucket=record.bucket,
             account_slug=record.slug,
             dominant_domain=dominant_domain,
         )
 
+    matched_record = match_account_from_transcript_text(transcript, accounts_by_slug)
+    if matched_record is not None:
+        return RoutingDecision(
+            meeting_kind="client" if matched_record.bucket == CLIENT_BUCKET else "other",
+            destination_dir=root / "crm" / matched_record.bucket / matched_record.slug / "meetings" / f"{date_part}-{topic_part}",
+            crm_bucket=matched_record.bucket,
+            account_slug=matched_record.slug,
+            dominant_domain=None,
+        )
+
+    if transcript_looks_internal(
+        transcript,
+        domains=domains,
+        internal_domain_set=internal_domain_set,
+        internal_email_count=internal_email_count,
+    ):
+        return RoutingDecision(
+            meeting_kind="internal",
+            destination_dir=root
+            / "docs"
+            / "internal-meetings"
+            / f"{date_part}-{topic_part}-{transcript_id[:8].lower()}",
+            crm_bucket=None,
+            account_slug=None,
+            dominant_domain=None,
+        )
+
     if dominant_domain:
+        bucket = CLIENT_BUCKET if transcript_indicates_client_relationship(transcript) else OTHER_BUCKET
         record = ensure_minimal_account(
             root,
+            bucket=bucket,
             slug=unique_account_slug(dominant_domain, accounts_by_slug),
             domain=dominant_domain,
             now=datetime.now(timezone.utc),
@@ -875,35 +983,17 @@ def route_transcript(
         for alias in record.aliases:
             accounts_by_alias.setdefault(alias, record)
         return RoutingDecision(
-            meeting_kind="client",
-            destination_dir=root / "crm" / "accounts" / record.slug / "meetings" / f"{date_part}-{topic_part}",
+            meeting_kind="client" if bucket == CLIENT_BUCKET else "other",
+            destination_dir=root / "crm" / bucket / record.slug / "meetings" / f"{date_part}-{topic_part}",
+            crm_bucket=bucket,
             account_slug=record.slug,
             dominant_domain=dominant_domain,
-        )
-
-    matched_record = match_account_from_transcript_text(transcript, accounts_by_slug)
-    if matched_record is not None:
-        return RoutingDecision(
-            meeting_kind="client",
-            destination_dir=root / "crm" / "accounts" / matched_record.slug / "meetings" / f"{date_part}-{topic_part}",
-            account_slug=matched_record.slug,
-            dominant_domain=None,
-        )
-
-    if domains and all(domain in internal_domain_set for domain in domains) and internal_email_count >= 2:
-        return RoutingDecision(
-            meeting_kind="internal",
-            destination_dir=root
-            / "docs"
-            / "internal-meetings"
-            / f"{date_part}-{topic_part}-{transcript_id[:8].lower()}",
-            account_slug=None,
-            dominant_domain=None,
         )
 
     return RoutingDecision(
         meeting_kind="unresolved",
         destination_dir=root / "crm" / "inbox" / "meetings" / f"{date_part}-{topic_part}-{transcript_id[:8].lower()}",
+        crm_bucket=None,
         account_slug=None,
         dominant_domain=dominant_domain,
     )

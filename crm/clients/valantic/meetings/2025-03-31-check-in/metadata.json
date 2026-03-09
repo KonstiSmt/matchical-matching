@@ -1,0 +1,72 @@
+{
+  "account_slug": "valantic",
+  "audio_url": "https://cdn.fireflies.ai/01JQNKQBQ02SRFKGZZWAR669FY/audio.mp3?Expires=1773265216&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlFOS1FCUTAyU1JGS0daWldBUjY2OUZZL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI2NTIxNn19fV19&Signature=NhJ~97gELIi8~QasBEKoEmTXyxLFOULaiBaQG22NfMCNhkLcSxarIHE8GufAJW~eow6FC-1mpPAe0-fyVYNmZock56oyoNblTxV1ZZAzq2vKPTiak0nB685-4fQHZ6hJjDR96ZtFeakJTKR6P4oRIWJ2DOxV4kWgCx1L8tfnPtMg9CJ3xX82IjUJUcE3tl0nhynX2hCejUmTo4AF7ueXjZqzBAbUu9jfKWZB0jiexb-rLSz-8v8e5f-uUJExpLaRdVy7925x6Gw-YMtXSnxp~j~qE9-lZFPhT4UvfqJMdqRXGhrulweRR~lkwsuptvR-RbTrBGtwtZNAz2R3fUNKqQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "valantic.com"
+  ],
+  "dominant_domain": "valantic.com",
+  "duration_minutes": 14.529999732971191,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T10:24:14Z",
+  "meeting_at": "2025-03-31T12:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-03-31T12:00:00.000Z",
+      "leave_time": "2025-03-31T12:16:06.702Z",
+      "name": "Felix Freudenstein"
+    },
+    {
+      "join_time": "2025-03-31T12:00:00.000Z",
+      "leave_time": "2025-03-31T12:16:06.704Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "felix.freudenstein@nxt.valantic.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JQNKQBQ02SRFKGZZWAR669FY",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZjFhMmNmNzMtZTc4My00OWJjLWJiZTMtYzllOTliYmU3ZDZh@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "felix.freudenstein@nxt.valantic.com,konsti@matchical.com",
+    "felix.freudenstein@nxt.valantic.com"
+  ],
+  "participants": [
+    {
+      "email": "felix.freudenstein@nxt.valantic.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 192,
+  "title": "Check in",
+  "transcript_created_at": "2025-03-31T12:00:00Z",
+  "transcript_id": "01JQNKQBQ02SRFKGZZWAR669FY",
+  "transcript_url": "https://app.fireflies.ai/view/01JQNKQBQ02SRFKGZZWAR669FY",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

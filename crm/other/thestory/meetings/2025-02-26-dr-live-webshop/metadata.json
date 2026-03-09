@@ -1,0 +1,105 @@
+{
+  "account_slug": "thestory",
+  "audio_url": "https://cdn.fireflies.ai/01JMYMAJQ1A4R9W0G2FSYM2PXM/audio.mp3?Expires=1773265216&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSk1ZTUFKUTFBNFI5VzBHMkZTWU0yUFhNL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI2NTIxNn19fV19&Signature=GYyxHjeZ7mpooM6Gz9NWB01L3x-U0U~iYB2MgEzXd067mjAjaukZ~HuIxOo67d5rYMkTfsdOT6RNN3mvUtn25EzSd4n4QaLI~hTL48Zn-D~GuE6ZAW5z4vyeJrohOk~GduyEBgijZkMWWhDD4NC6j4pOJmedoRpiy4Dj8Hs8AbJblkH-K8~kYm-BOPJpOQTLVsej9oJhKmlvsLsfwHxUvya6~~cQ7eco~vPicADUFUMr6dX4Bg5x07pVxsFYrhe05LLR379NIS5tbTkmySfrRL4xKj9gMDnEOAztmYGq6MUS237YGSckEiQTIc6W9U5YTy4NkQQGIgxGOJl0EtKAlg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "other",
+  "detected_domains": [
+    "drliv.com",
+    "drlivskincare.com",
+    "matchical.com",
+    "thestory.pl"
+  ],
+  "dominant_domain": "thestory.pl",
+  "duration_minutes": 30.18000030517578,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T10:25:24Z",
+  "meeting_at": "2025-02-26T14:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-02-26T14:00:00.000Z",
+      "leave_time": "2025-02-26T14:33:04.552Z",
+      "name": "Dymitr Romanowski"
+    },
+    {
+      "join_time": "2025-02-26T14:00:00.000Z",
+      "leave_time": "2025-02-26T14:33:04.552Z",
+      "name": "Konstantin Schmitz"
+    },
+    {
+      "join_time": "2025-02-26T14:00:00.000Z",
+      "leave_time": "2025-02-26T14:30:49.744Z",
+      "name": "Timon Oberholzer"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": "Dymitr Romanowski",
+      "email": "dymitr@thestory.pl",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "timon@drliv.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "timon@drlivskincare.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JMYMAJQ1A4R9W0G2FSYM2PXM",
+  "meeting_kind": "other",
+  "meeting_link": "https://meet.google.com/gbf-nqtn-vdo",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "dymitr@thestory.pl,konsti@matchical.com,timon@drliv.com,timon@drlivskincare.com",
+    "dymitr@thestory.pl",
+    "timon@drliv.com",
+    "timon@drlivskincare.com"
+  ],
+  "participants": [
+    {
+      "email": "dymitr@thestory.pl",
+      "name": "Dymitr Romanowski"
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "timon@drliv.com",
+      "name": ""
+    },
+    {
+      "email": "timon@drlivskincare.com",
+      "name": ""
+    },
+    {
+      "email": "dymitr@thestory.pl",
+      "name": ""
+    }
+  ],
+  "sentence_count": 363,
+  "title": "Dr Live Webshop",
+  "transcript_created_at": "2025-02-26T14:00:00Z",
+  "transcript_id": "01JMYMAJQ1A4R9W0G2FSYM2PXM",
+  "transcript_url": "https://app.fireflies.ai/view/01JMYMAJQ1A4R9W0G2FSYM2PXM",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

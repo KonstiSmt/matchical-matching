@@ -1,0 +1,102 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/iqd0B51ZGVphNnFa/audio.mp3?Expires=1773265219&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpL2lxZDBCNTFaR1ZwaE5uRmEvYXVkaW8ubXAzIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzczMjY1MjE5fX19XX0_&Signature=IAL0kLEpHyJrrvjGQ2r-tcaezDPZwT7GH4UHnSPrQXGOJ3v2KZYgND-ibdWHVdvSGwuio52e4MuBLhfjK3-cjIJyzF4JFz7a6ObDCPZPv5IRv5gIbmhxg2A4u7AdhQp0wEjKs0GHioYt6urFaqPf0aVuTLV2N3MgTpWE-n3l8pKCZxL-I6zLLzEapU9pfzkp9k2M-FuFYaxVYdXdCHeOj7U-AqrDPAk5SQL9aovlHZdENA-RUswOGi0PVWMOgcmDMpWrUF3gWm6RUEELHeqMt-Z65hyQZkwjYlXwxLPI18hcUN3rbsXHBEuRtCTtp5tXkbGpd3NTRD9zdVjfmVYX3w__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "wavestone.eu"
+  ],
+  "dominant_domain": "wavestone.eu",
+  "duration_minutes": 130,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T09:40:50Z",
+  "meeting_at": "2024-12-10T16:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2024-12-10T16:00:00.000Z",
+      "leave_time": "2024-12-10T16:35:12.440Z",
+      "name": "Chico | matchical.com"
+    },
+    {
+      "join_time": "2024-12-10T16:00:00.000Z",
+      "leave_time": null,
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2024-12-10T16:24:51.849Z",
+      "leave_time": null,
+      "name": "Bauer, Thomas (Unverified)"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "thomas.bauer@wavestone.eu",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "niklas@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "lucas@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "iqd0B51ZGVphNnFa",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YThjMTI5ZjItMmI0Yi00NzdhLWExZTMtNmM3MzQ2NmIwZWU2@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "thomas.bauer@wavestone.eu,niklas@matchical.com,lucas@matchical.com,konsti@matchical.com",
+    "thomas.bauer@wavestone.eu",
+    "niklas@matchical.com",
+    "lucas@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "thomas.bauer@wavestone.eu",
+      "name": ""
+    },
+    {
+      "email": "niklas@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "lucas@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "thomas.bauer@wavestone.eu,niklas@matchical.com,lucas@matchical.com,konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "title": "Der Prozess",
+  "transcript_created_at": "2024-12-10T16:00:00Z",
+  "transcript_id": "iqd0B51ZGVphNnFa",
+  "transcript_url": "https://app.fireflies.ai/view/iqd0B51ZGVphNnFa",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

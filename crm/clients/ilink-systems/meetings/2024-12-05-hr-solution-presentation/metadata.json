@@ -1,0 +1,108 @@
+{
+  "account_slug": "ilink-systems",
+  "audio_url": "https://cdn.fireflies.ai/UwLr0eYipKfiKPO9/audio.mp3?Expires=1773265219&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpL1V3THIwZVlpcEtmaUtQTzkvYXVkaW8ubXAzIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzczMjY1MjE5fX19XX0_&Signature=togTizU53zv9jve1KCDLM3adQH~9zAMeZzH-vbG4mdH8dw2RSKS-sSFFam9IJ3vF55349PD6gGcktHy6Y-zaaM8eR~cFB9Z~Ry5NQfy-6FBKaGzdIs8EbwcJsi1O6Sf3OxKfhjkqt7i6LPD9A4xl9ex6pZ~mOQjoziKk8Dkbtv1AKiStKIQCifJ2YZRsebZj9NYNecgTOiuUMLm03dVjmyZ~2nMdJr9Bk4FG9A6LskBj~MJrhawa9BdKCqb1fZluy4cY0YxDG4CrJRu9C0HrqTl7tFfnKNWGHMPmDhJfaCg6TqqEFUuivro6k9cTC1V8s5Ro5-5YCjDNCizg-kWJNw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "ilink-systems.com",
+    "matchical.com"
+  ],
+  "dominant_domain": "ilink-systems.com",
+  "duration_minutes": 40,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "joao.garcia@ilink-systems.com",
+  "local_imported_at": "2026-03-09T09:41:04Z",
+  "meeting_at": "2024-12-05T13:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2024-12-05T13:30:00.000Z",
+      "leave_time": "2024-12-05T14:10:50.371Z",
+      "name": "Garima Sharma"
+    },
+    {
+      "join_time": "2024-12-05T13:30:00.000Z",
+      "leave_time": "2024-12-05T14:10:50.371Z",
+      "name": "Joao Garcia"
+    },
+    {
+      "join_time": "2024-12-05T13:30:00.000Z",
+      "leave_time": "2024-12-05T14:05:20.440Z",
+      "name": "Konsti | matchical.com (Unverified)"
+    },
+    {
+      "join_time": "2024-12-05T13:30:00.000Z",
+      "leave_time": "2024-12-05T14:10:50.371Z",
+      "name": "Lucas | matchical.com (Unverified)"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": "Joao Garcia",
+      "email": "joao.garcia@ilink-systems.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Garima Sharma",
+      "email": "garimas@ilink-systems.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Konsti | matchical.com",
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "UwLr0eYipKfiKPO9",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_N2U0M2JiYmEtY2MxOC00NDA0LThmNzMtNThlNjI2YWQ5MjYz@thread.v2/0?context={\"Tid\":\"a8e5d571-43e8-4c3c-96be-344156cf6887\",\"Oid\":\"64503b4a-79c6-44b5-8945-afee54ec9040\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "joao.garcia@ilink-systems.com,garimas@ilink-systems.com,konsti@matchical.com",
+    "garimas@ilink-systems.com",
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "joao.garcia@ilink-systems.com",
+      "name": "Joao Garcia"
+    },
+    {
+      "email": "garimas@ilink-systems.com",
+      "name": "Garima Sharma"
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "email": "joao.garcia@ilink-systems.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "joao.garcia@ilink-systems.com,garimas@ilink-systems.com,konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "garimas@ilink-systems.com",
+      "name": ""
+    }
+  ],
+  "title": "HR solution presentation",
+  "transcript_created_at": "2024-12-05T13:30:00Z",
+  "transcript_id": "UwLr0eYipKfiKPO9",
+  "transcript_url": "https://app.fireflies.ai/view/UwLr0eYipKfiKPO9",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

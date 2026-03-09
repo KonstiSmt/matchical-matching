@@ -1,0 +1,88 @@
+{
+  "account_slug": "yext",
+  "audio_url": "https://cdn.fireflies.ai/0elawqgbAbNFNHaY/audio.mp3?Expires=1773265219&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzBlbGF3cWdiQWJORk5IYVkvYXVkaW8ubXAzIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzczMjY1MjE5fX19XX0_&Signature=PtAk~RYqgbprHNs37I6Z55ZG6G1D3FICh8ejDNi9M8sHKNesZshAKQ5678sRdULqRi~5PAUZ4i9vMioDhCIU1pbbhEOPpKX~c7WIMwKs8ImqRcM8U2MYasIc5LBKU5EGpiGA3arZrQwtjgZ35c7xXkJ2VN6XJ7YGYGFrGQbHy3EKMNfxONhxFrSv6-miw4XckNnZgNMqK~JFTgnRn-5a1eA~F23suinu6Qsy6mUOihxduveHC3PzsNokhR60MKMzOOwsGGr~CwEN159UtK7LihCI-~sAsx6ptejp0De2quu2f2z3rJvfNDzm0304t9FcPV9cQiaQCCi2UyOlM7wF8A__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "crm_bucket": "other",
+  "detected_domains": [
+    "matchical.com",
+    "yext.com"
+  ],
+  "dominant_domain": "yext.com",
+  "duration_minutes": 97,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "lucas@matchical.com",
+  "local_imported_at": "2026-03-09T10:26:51Z",
+  "meeting_at": "2025-01-15T15:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-01-15T15:00:00.000Z",
+      "leave_time": "2025-01-15T16:37:46.205Z",
+      "name": "Christian - Yext (Unverified)"
+    },
+    {
+      "join_time": "2025-01-15T15:00:00.000Z",
+      "leave_time": "2025-01-15T16:02:32.778Z",
+      "name": "Lucas | matchical.com"
+    },
+    {
+      "join_time": "2025-01-15T16:02:32.777Z",
+      "leave_time": "2025-01-15T16:37:46.205Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "lucas@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "cwilhelm@yext.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "0elawqgbAbNFNHaY",
+  "meeting_kind": "other",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NDg5ZjI4ZGYtNDEyNS00NjM3LWJlODktOWI0OWMxZTQ2MmVi@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"f88858fd-e55c-4c3a-8d5c-09c85cb36b2c\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "lucas@matchical.com,cwilhelm@yext.com,konsti@matchical.com",
+    "cwilhelm@yext.com",
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "lucas@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "cwilhelm@yext.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1433,
+  "title": "Matchical Demo",
+  "transcript_created_at": "2025-01-15T15:00:00Z",
+  "transcript_id": "0elawqgbAbNFNHaY",
+  "transcript_url": "https://app.fireflies.ai/view/0elawqgbAbNFNHaY",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}
