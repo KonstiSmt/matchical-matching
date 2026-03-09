@@ -2,7 +2,7 @@
    Purpose: Full details query for a single demand's matching breakdown against a consultant.
    Used when clicking on a demand card to open the sidebar with complete requirement details.
 
-   This is the DETAILS QUERY (Query 7). Called when viewing a single demand's full match info.
+   This is the details query. Called when viewing a single demand's full match info.
    Returns all requirements with scoring breakdown, grouped by category.
 
    Input: @DemandId (single), @ConsultantId, @TenantId, @SystemLanguage
@@ -79,7 +79,7 @@ experience_match AS (
     req.[RoleWeight],
     COALESCE(experience.[Score], 0) AS ConsultantScore,
 
-    /* partial_score: same formula as Query 1 branches (handles both RoleSkill and CustomRoleSkill) */
+    /* partial_score: same formula as GetMatchesByDemandId branches (handles both RoleSkill and CustomRoleSkill) */
     CAST(
       CASE
         WHEN req.ReqScore = 0 THEN 0

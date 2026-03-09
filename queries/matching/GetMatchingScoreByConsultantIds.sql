@@ -2,7 +2,7 @@
    Purpose: return matching scores for demand and consultant combinations.
    Used for recalculating scores before persisting demand-consultant links.
 
-   This is a LIGHTWEIGHT SCORING QUERY (Query 3).
+   This is the lightweight scoring query.
    No filters, no sorting, no pagination. Pure scoring for input demand and consultant lists.
 
    Input: @DemandIds (Expand Inline), @ConsultantIds (Expand Inline), @TenantId,

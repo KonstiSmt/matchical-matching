@@ -7,13 +7,15 @@ Performance analysis and scalability documentation for matching queries.
 ## Query Architecture
 
 ```
-demand (1 row)           →  requirement (~15 rows)
+demand visibility gate (1 row) → demand (0-1 row) → requirement (~15 rows)
                               ↓
 role_requirement (0-3 rows) → has_role_requirements (1 row, scalar)
                               ↓
 filtered_requirement (0-5 rows) → has_filtered_requirements (1 row, scalar)
                               ↓
 eligible_consultant (N consultants filtered)
+    • Inline admin / super-admin / permission gating
+    • Matching visibility permissions treated as operation/feature permissions (no method filter)
     • Tenant filter
     • Status filter (IsReady, IsActive)
     • Internal/External visibility filter
@@ -50,7 +52,8 @@ final (pagination: ORDER BY, LIMIT, OFFSET)
 
 | Stage | Complexity | Notes |
 |-------|------------|-------|
-| demand | O(1) | Primary key lookup |
+| demand visibility gate | O(1) | Demand lookup + constant-scope permission resolution |
+| demand | O(1) | Primary key lookup after visibility gate |
 | requirement | O(R) | Index on (DemandId, TenantId), ~15 rows |
 | role_requirement | O(Rr) | Subset of R by role category, usually tiny |
 | has_role_requirements | O(1) | Scalar EXISTS check |
@@ -93,6 +96,8 @@ Where:
 
 **Scaling factors:**
 - Experience table size dominates performance
+- Admin / super-admin / global-grant paths avoid owner / creator / closure work
+- `MyReports` is the only permission path that touches `ConsultancyUserClosure`
 - Mandatory role soft gate adds one indexed EXISTS check per consultant
 - Filter enforcement adds ~30-50% overhead when active
 - Cold cache (first run): 2-3x slower
@@ -139,9 +144,9 @@ CREATE INDEX IF NOT EXISTS idx_experience_tenant_consultant_category_skill_score
 ON <physical_experience_table_name> ("TenantId", "ConsultantId", "CategoryId", "SkillId", "Score")
 ```
 
-### DemandRequirement Table (for Inverse Matching, Query 5)
+### DemandRequirement Table (for GetMatchesByConsultantId)
 
-Per-category composite indexes needed for Query 5 (GetMatchesByConsultantId), where scoring branches join `consultant_experience → {DemandRequirement}` on category-specific keys. Without these, PostgreSQL must sequential-scan DemandRequirement per branch.
+Per-category composite indexes needed for GetMatchesByConsultantId, where scoring branches join `consultant_experience → {DemandRequirement}` on category-specific keys. Without these, PostgreSQL must sequential-scan DemandRequirement per branch.
 
 | Category | Index Columns |
 |----------|---------------|
@@ -164,8 +169,10 @@ Per-category composite indexes needed for Query 5 (GetMatchesByConsultantId), wh
 | ConsultantLocations | `(ConsultantId, LocationTagId)` | Location filter |
 | LocationTagsClosure | `(AncestorId, DescendantId)` | Location hierarchy (contained) |
 | LocationTagsClosure | `(DescendantId, AncestorId)` | Location hierarchy (covers) |
+| ConsultancyUserClosure | `(DescendantId, AncestorId)` | `MyReports` permission path |
+| CoOwner | `(OpportunityId, ConsultancyUserId)` | Opportunity visibility |
 | Consultant | `(TenantId, StatusId)` | Eligibility filter |
-| DemandRequirement | `(DemandId, TenantId, IsActive)` | Forward requirements lookup (Query 1) |
+| DemandRequirement | `(DemandId, TenantId, IsActive)` | Forward requirements lookup in GetMatchesByDemandId |
 
 ---
 
@@ -173,16 +180,15 @@ Per-category composite indexes needed for Query 5 (GetMatchesByConsultantId), wh
 
 ### Implemented Optimizations
 
-1. **Pre-materialized filter check** (Jan 2026)
-   - Added `has_filtered_requirements` CTE
-   - Evaluates `EXISTS (SELECT 1 FROM filtered_requirement_for_enforcement)` once globally
-   - Previously: evaluated per-consultant in WHERE clause
-   - Impact: Eliminates redundant CTE materialization when no filters active
-
-2. **Early filter enforcement in eligible_consultant** (earlier)
+1. **Early filter enforcement in eligible_consultant** (earlier)
    - Moved filter enforcement from aggregate-based to NOT EXISTS pattern
    - Consultants failing filters excluded before scoring joins
    - Impact: Reduces row volume through scoring pipeline
+
+2. **Inline permission gating** (Mar 2026)
+   - Demand and consultant visibility are resolved inside the same SQL call
+   - Admin / super-admin / global-grant paths skip owner / creator / co-owner / closure lookups
+   - `MyReports` is evaluated last and is the only path that hits `ConsultancyUserClosure`
 
 3. **TenantId-first indexes** (earlier)
    - All Experience indexes start with TenantId
@@ -202,7 +208,7 @@ Per-category composite indexes needed for Query 5 (GetMatchesByConsultantId), wh
 If tenant size grows beyond 100k consultants:
 
 1. **Table partitioning** - Partition Experience table by TenantId
-2. **Pre-computed materialized views** - Cache frequently accessed demand matches
+2. **Pre-computed cached result sets** - Cache frequently accessed demand matches
 3. **Async scoring** - Background job for score computation with cached results
 4. **Sharding** - Distribute tenants across database instances
 
