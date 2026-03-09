@@ -229,7 +229,7 @@ item_permission_state AS (
       ELSE 0
     END AS PermissionExists,
     permission.[IsOperation] AS IsOperation,
-    permission.[IsBooleanPermission] AS IsBooleanPermission,
+    permission.[IsBoolean] AS IsBooleanPermission,
     CASE
       WHEN item_input.HasActivePermissionMethodInput = 1
        AND permission_method.[Id] IS NOT NULL

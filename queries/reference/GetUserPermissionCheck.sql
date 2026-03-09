@@ -106,7 +106,7 @@ permission_scope AS (
   SELECT
     permission.[Id] AS PermissionId,
     permission.[IsOperation] AS IsOperation,
-    permission.[IsBooleanPermission] AS IsBooleanPermission
+    permission.[IsBoolean] AS IsBooleanPermission
   FROM {Permission} permission
   WHERE permission.[Id] = @PermissionId
 ),
