@@ -5,18 +5,27 @@ This folder stores account-level lead research and meeting intelligence in a con
 ## Goals
 
 - Keep one place per customer account.
-- Keep raw source files and curated notes together.
+- Keep raw meeting imports and curated meeting notes together without forcing both for every meeting.
 - Make ICP qualification and next actions easy to track.
 
 ## Folder structure
 
 ```text
 crm/
+  inbox/
+    meetings/
+      YYYY-MM-DD-<topic>-<transcript-id>/
+        transcript.md
+        metadata.json
   accounts/
     <account-slug>/
       account.md
       contacts/
         <person-slug>.md
+      meetings/
+        YYYY-MM-DD-<topic>/
+          transcript.md
+          metadata.json
       meeting-notes/
         YYYY-MM-DD-<topic>/
           notes.md
@@ -37,7 +46,8 @@ Transcript is usually the best default because it is fastest to parse and easies
 ## Working convention
 
 - Use ISO dates (`YYYY-MM-DD`) in folder names.
-- Store original files unchanged under `source/`.
-- Put curated output in `notes.md` and execution follow-ups in `actions.md`.
-- Update `account.md` after every meaningful call.
+- Store raw Fireflies imports under `meetings/` with `transcript.md` and `metadata.json`.
+- Use `meeting-notes/` only for curated analysis artifacts that are created later on demand.
+- Store original non-Fireflies source files unchanged under `meeting-notes/.../source/` when you create a curated note package.
+- Update `account.md` when a human or a later workflow explicitly decides to enrich the account record.
 - Keep claims tagged as `confirmed` or `inferred`.
