@@ -4,6 +4,7 @@
    Input:
      @UserId,
      @PermissionId,
+     @ExternalConsultantPermissionId,
      @PermissionMethodId,
      @AffectedConsultancyUserId,
      @AffectedConsultantId,
@@ -35,6 +36,8 @@
      Affected target records must belong to the same inferred tenant.
 
    Affected consultant behavior:
+     When @ExternalConsultantPermissionId is provided and the affected consultant is external,
+     permission resolution uses @ExternalConsultantPermissionId instead of @PermissionId.
      Internal consultant target resolves through Consultant.ConsultancyUserId.
      External consultant target resolves through ExternalUser.OwnerId, then ExternalUser.CreatorId.
      If an external consultant has neither OwnerId nor CreatorId, non-boolean permissions require All scope.
@@ -102,31 +105,6 @@ super_admin_state AS (
       ELSE 0
     END AS IsSuperAdmin
 ),
-permission_scope AS (
-  SELECT
-    permission.[Id] AS PermissionId,
-    permission.[IsOperation] AS IsOperation,
-    permission.[IsBoolean] AS IsBooleanPermission
-  FROM {Permission} permission
-  WHERE permission.[Id] = @PermissionId
-),
-permission_state AS (
-  SELECT
-    CASE
-      WHEN EXISTS (SELECT 1 FROM permission_scope) THEN 1
-      ELSE 0
-    END AS PermissionExists,
-    (
-      SELECT permission_scope.IsOperation
-      FROM permission_scope
-      LIMIT 1
-    ) AS IsOperation,
-    (
-      SELECT permission_scope.IsBooleanPermission
-      FROM permission_scope
-      LIMIT 1
-    ) AS IsBooleanPermission
-),
 method_state AS (
   SELECT
     CASE
@@ -169,6 +147,10 @@ affected_consultancy_user_state AS (
 affected_consultant_lookup AS (
   SELECT
     CASE
+      WHEN consultant.[IsInternal] = 1 THEN 1
+      ELSE 0
+    END AS IsInternalConsultant,
+    CASE
       WHEN consultant.[IsInternal] = 1 THEN consultant.[ConsultancyUserId]
       WHEN external_user.[OwnerId] IS NOT NULL
        AND TRIM(CAST(external_user.[OwnerId] AS TEXT)) <> ''
@@ -210,6 +192,11 @@ affected_consultant_state AS (
       ELSE 0
     END AS AffectedConsultantExists,
     (
+      SELECT lookup_consultant.IsInternalConsultant
+      FROM affected_consultant_lookup lookup_consultant
+      LIMIT 1
+    ) AS IsInternalConsultant,
+    (
       SELECT lookup_consultant.ConsultantMappedConsultancyUserId
       FROM affected_consultant_lookup lookup_consultant
       LIMIT 1
@@ -227,6 +214,7 @@ affected_state AS (
     affected_consultant.HasAffectedConsultantInput,
     affected_user.AffectedConsultancyUserExists,
     affected_consultant.AffectedConsultantExists,
+    affected_consultant.IsInternalConsultant,
     affected_consultant.ConsultantMappedConsultancyUserId,
     affected_consultant.ConsultantRequiresAllScope,
     CASE
@@ -248,15 +236,55 @@ affected_state AS (
   FROM affected_consultancy_user_state affected_user
   CROSS JOIN affected_consultant_state affected_consultant
 ),
+effective_permission_input AS (
+  SELECT
+    CASE
+      WHEN affected.HasAffectedConsultantInput = 1
+       AND affected.AffectedConsultantExists = 1
+       AND affected.IsInternalConsultant <> 1
+       AND @ExternalConsultantPermissionId IS NOT NULL
+       AND @ExternalConsultantPermissionId > 0
+      THEN @ExternalConsultantPermissionId
+      ELSE @PermissionId
+    END AS EffectivePermissionId
+  FROM affected_state affected
+),
+permission_scope AS (
+  SELECT
+    permission.[Id] AS PermissionId,
+    permission.[IsOperation] AS IsOperation,
+    permission.[IsBoolean] AS IsBooleanPermission
+  FROM {Permission} permission
+  CROSS JOIN effective_permission_input effective_permission
+  WHERE permission.[Id] = effective_permission.EffectivePermissionId
+),
+permission_state AS (
+  SELECT
+    CASE
+      WHEN EXISTS (SELECT 1 FROM permission_scope) THEN 1
+      ELSE 0
+    END AS PermissionExists,
+    (
+      SELECT permission_scope.IsOperation
+      FROM permission_scope
+      LIMIT 1
+    ) AS IsOperation,
+    (
+      SELECT permission_scope.IsBooleanPermission
+      FROM permission_scope
+      LIMIT 1
+    ) AS IsBooleanPermission
+),
 candidate_permissions AS (
   SELECT
     user_role_permission.[PermissionLevelId] AS PermissionLevelId
   FROM current_user_roles user_role_ctx
   CROSS JOIN method_state method_eval
+  CROSS JOIN effective_permission_input effective_permission
   JOIN {UserRolePermissions} user_role_permission
     ON user_role_permission.[UserRoleId] = user_role_ctx.UserRoleId
   CROSS JOIN permission_state permission_eval
-  WHERE user_role_permission.[PermissionId] = @PermissionId
+  WHERE user_role_permission.[PermissionId] = effective_permission.EffectivePermissionId
     AND (
       (
         permission_eval.IsOperation = 0

@@ -1,9 +1,10 @@
 {
   "description": "GetBulkUserPermissionCheck output example",
   "note": "Per-item output includes strongest granted PermissionLevelId. HasPermission can be null when strongest level is Own/MyReports and no affected target is provided.",
-  "columnOrder": "PermissionId, PermissionMethodId, AffectedConsultancyUserId, AffectedConsultantId, HasPermission, PermissionLevelId, IsError, ErrorReason",
+  "columnOrder": "PermissionId, ExternalConsultantPermissionId, PermissionMethodId, AffectedConsultancyUserId, AffectedConsultantId, HasPermission, PermissionLevelId, IsError, ErrorReason",
   "singleRow": {
     "PermissionId": 9,
+    "ExternalConsultantPermissionId": 17,
     "PermissionMethodId": 1,
     "AffectedConsultancyUserId": "f3eb8d2d-0000-4000-8000-222222222222",
     "AffectedConsultantId": null,
@@ -19,6 +20,7 @@
         "PermissionChecksJson": [
           {
             "PermissionId": 9,
+            "ExternalConsultantPermissionId": null,
             "PermissionMethodId": 1,
             "AffectedConsultancyUserId": null,
             "AffectedConsultantId": null
@@ -28,6 +30,7 @@
       "outputRows": [
         {
           "PermissionId": 9,
+          "ExternalConsultantPermissionId": null,
           "PermissionMethodId": 1,
           "AffectedConsultancyUserId": null,
           "AffectedConsultantId": null,
@@ -44,6 +47,7 @@
         "PermissionChecksJson": [
           {
             "PermissionId": 12,
+            "ExternalConsultantPermissionId": 18,
             "PermissionMethodId": 3,
             "AffectedConsultancyUserId": null,
             "AffectedConsultantId": null
@@ -53,6 +57,7 @@
       "outputRows": [
         {
           "PermissionId": 12,
+          "ExternalConsultantPermissionId": 18,
           "PermissionMethodId": 3,
           "AffectedConsultancyUserId": null,
           "AffectedConsultantId": null,
@@ -69,6 +74,7 @@
         "PermissionChecksJson": [
           {
             "PermissionId": 9,
+            "ExternalConsultantPermissionId": null,
             "PermissionMethodId": null,
             "AffectedConsultancyUserId": null,
             "AffectedConsultantId": null
@@ -78,6 +84,7 @@
       "outputRows": [
         {
           "PermissionId": 9,
+          "ExternalConsultantPermissionId": null,
           "PermissionMethodId": null,
           "AffectedConsultancyUserId": null,
           "AffectedConsultantId": null,
@@ -94,6 +101,7 @@
         "PermissionChecksJson": [
           {
             "PermissionId": 9,
+            "ExternalConsultantPermissionId": 17,
             "PermissionMethodId": 1,
             "AffectedConsultancyUserId": "f3eb8d2d-0000-4000-8000-222222222222",
             "AffectedConsultantId": null
@@ -103,6 +111,7 @@
       "outputRows": [
         {
           "PermissionId": 9,
+          "ExternalConsultantPermissionId": 17,
           "PermissionMethodId": 1,
           "AffectedConsultancyUserId": "f3eb8d2d-0000-4000-8000-222222222222",
           "AffectedConsultantId": null,
@@ -116,6 +125,7 @@
   ],
   "fieldDescriptions": {
     "PermissionId": "Permission identifier from input item (or null for payload-level error rows).",
+    "ExternalConsultantPermissionId": "Optional alternate permission identifier used when the affected consultant is external; otherwise the base PermissionId remains in effect.",
     "PermissionMethodId": "Permission method identifier from input item (nullable, or null for payload-level error rows).",
     "AffectedConsultancyUserId": "Affected consultancy user from input item (nullable, or null for payload-level error rows).",
     "AffectedConsultantId": "Affected consultant from input item (nullable, or null for payload-level error rows).",

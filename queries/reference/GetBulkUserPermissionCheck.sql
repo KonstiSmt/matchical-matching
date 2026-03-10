@@ -13,12 +13,14 @@
 
    JSON item shape:
      PermissionId,
+     ExternalConsultantPermissionId,
      PermissionMethodId,
      AffectedConsultancyUserId,
      AffectedConsultantId
 
    Output columns:
      PermissionId,
+     ExternalConsultantPermissionId,
      PermissionMethodId,
      AffectedConsultancyUserId,
      AffectedConsultantId,
@@ -37,6 +39,8 @@
      PermissionLevelId is always the strongest granted level when no error.
 
    Affected consultant behavior:
+     When ExternalConsultantPermissionId is provided and the affected consultant is external,
+     permission resolution uses ExternalConsultantPermissionId instead of PermissionId for that item.
      Internal consultant target resolves through Consultant.ConsultancyUserId.
      External consultant target resolves through ExternalUser.OwnerId, then ExternalUser.CreatorId.
      If an external consultant has neither OwnerId nor CreatorId, non-boolean permissions require All scope.
@@ -144,6 +148,7 @@ parsed_items AS (
   SELECT
     parsed_raw.InputOrder,
     TRIM(COALESCE(parsed_raw.ItemJson ->> 'PermissionId', '')) AS PermissionIdRaw,
+    TRIM(COALESCE(parsed_raw.ItemJson ->> 'ExternalConsultantPermissionId', '')) AS ExternalConsultantPermissionIdRaw,
     TRIM(COALESCE(parsed_raw.ItemJson ->> 'PermissionMethodId', '')) AS PermissionMethodIdRaw,
     TRIM(COALESCE(parsed_raw.ItemJson ->> 'AffectedConsultancyUserId', '')) AS AffectedConsultancyUserIdRaw,
     TRIM(COALESCE(parsed_raw.ItemJson ->> 'AffectedConsultantId', '')) AS AffectedConsultantIdRaw
@@ -153,6 +158,7 @@ item_input_state AS (
   SELECT
     parsed.InputOrder,
     parsed.PermissionIdRaw,
+    parsed.ExternalConsultantPermissionIdRaw,
     parsed.PermissionMethodIdRaw,
     parsed.AffectedConsultancyUserIdRaw,
     parsed.AffectedConsultantIdRaw,
@@ -164,6 +170,10 @@ item_input_state AS (
       WHEN parsed.PermissionIdRaw ~ '^[0-9]+$' THEN CAST(parsed.PermissionIdRaw AS INTEGER)
       ELSE NULL
     END AS PermissionId,
+    CASE
+      WHEN parsed.ExternalConsultantPermissionIdRaw ~ '^[0-9]+$' THEN CAST(parsed.ExternalConsultantPermissionIdRaw AS INTEGER)
+      ELSE NULL
+    END AS ExternalConsultantPermissionId,
     CASE
       WHEN parsed.PermissionMethodIdRaw <> '' THEN 1
       ELSE 0
@@ -201,6 +211,7 @@ items_for_eval AS (
     item_input.InputOrder,
     item_input.HasPermissionIdInput,
     item_input.PermissionId,
+    item_input.ExternalConsultantPermissionId,
     item_input.HasPermissionMethodInput,
     item_input.HasActivePermissionMethodInput,
     item_input.PermissionMethodId,
@@ -212,11 +223,12 @@ items_for_eval AS (
   CROSS JOIN super_admin_state super_admin
   WHERE super_admin.IsSuperAdmin = 0
 ),
-item_permission_state AS (
+item_target_state AS (
   SELECT
     item_input.InputOrder,
     item_input.HasPermissionIdInput,
     item_input.PermissionId,
+    item_input.ExternalConsultantPermissionId,
     item_input.HasPermissionMethodInput,
     item_input.HasActivePermissionMethodInput,
     item_input.PermissionMethodId,
@@ -225,49 +237,20 @@ item_permission_state AS (
     item_input.HasAffectedConsultantInput,
     item_input.AffectedConsultantId,
     CASE
-      WHEN permission.[Id] IS NOT NULL THEN 1
-      ELSE 0
-    END AS PermissionExists,
-    permission.[IsOperation] AS IsOperation,
-    permission.[IsBoolean] AS IsBooleanPermission,
-    CASE
-      WHEN item_input.HasActivePermissionMethodInput = 1
-       AND permission_method.[Id] IS NOT NULL
-      THEN 1
-      ELSE 0
-    END AS MethodExists
-  FROM items_for_eval item_input
-  LEFT JOIN {Permission} permission
-    ON permission.[Id] = item_input.PermissionId
-  LEFT JOIN {PermissionMethod} permission_method
-    ON permission_method.[Id] = item_input.PermissionMethodId
-),
-item_target_state AS (
-  SELECT
-    item_permission.InputOrder,
-    item_permission.HasPermissionIdInput,
-    item_permission.PermissionId,
-    item_permission.HasPermissionMethodInput,
-    item_permission.HasActivePermissionMethodInput,
-    item_permission.PermissionMethodId,
-    item_permission.PermissionExists,
-    item_permission.IsOperation,
-    item_permission.IsBooleanPermission,
-    item_permission.MethodExists,
-    item_permission.HasAffectedConsultancyUserInput,
-    item_permission.AffectedConsultancyUserId,
-    item_permission.HasAffectedConsultantInput,
-    item_permission.AffectedConsultantId,
-    CASE
-      WHEN item_permission.HasAffectedConsultancyUserInput = 0 THEN NULL
+      WHEN item_input.HasAffectedConsultancyUserInput = 0 THEN NULL
       WHEN affected_consultancy_user.[Id] IS NOT NULL THEN 1
       ELSE 0
     END AS AffectedConsultancyUserExists,
     CASE
-      WHEN item_permission.HasAffectedConsultantInput = 0 THEN NULL
+      WHEN item_input.HasAffectedConsultantInput = 0 THEN NULL
       WHEN affected_consultant.[Id] IS NOT NULL THEN 1
       ELSE 0
     END AS AffectedConsultantExists,
+    CASE
+      WHEN affected_consultant.[IsInternal] = 1 THEN 1
+      WHEN affected_consultant.[Id] IS NOT NULL THEN 0
+      ELSE NULL
+    END AS IsInternalConsultant,
     CASE
       WHEN affected_consultant.[IsInternal] = 1 THEN affected_consultant.[ConsultancyUserId]
       WHEN affected_external_user.[OwnerId] IS NOT NULL
@@ -288,66 +271,114 @@ item_target_state AS (
        AND (
          affected_external_user.[CreatorId] IS NULL
          OR TRIM(CAST(affected_external_user.[CreatorId] AS TEXT)) = ''
-       )
+      )
       THEN 1
       ELSE 0
-    END AS ConsultantRequiresAllScope
-  FROM item_permission_state item_permission
+    END AS ConsultantRequiresAllScope,
+    CASE
+      WHEN item_input.HasAffectedConsultantInput = 1
+       AND affected_consultant.[Id] IS NOT NULL
+       AND affected_consultant.[IsInternal] <> 1
+       AND item_input.ExternalConsultantPermissionId IS NOT NULL
+       AND item_input.ExternalConsultantPermissionId > 0
+      THEN item_input.ExternalConsultantPermissionId
+      ELSE item_input.PermissionId
+    END AS EffectivePermissionId
+  FROM items_for_eval item_input
   CROSS JOIN current_user_scope current_user_ctx
   LEFT JOIN {ConsultancyUser} affected_consultancy_user
-    ON item_permission.HasAffectedConsultancyUserInput = 1
+    ON item_input.HasAffectedConsultancyUserInput = 1
    AND affected_consultancy_user.[TenantId] = current_user_ctx.CurrentTenantId
-   AND affected_consultancy_user.[Id] = item_permission.AffectedConsultancyUserId
+   AND affected_consultancy_user.[Id] = item_input.AffectedConsultancyUserId
   LEFT JOIN {Consultant} affected_consultant
-    ON item_permission.HasAffectedConsultantInput = 1
+    ON item_input.HasAffectedConsultantInput = 1
    AND affected_consultant.[TenantId] = current_user_ctx.CurrentTenantId
-   AND affected_consultant.[Id] = item_permission.AffectedConsultantId
+   AND affected_consultant.[Id] = item_input.AffectedConsultantId
   LEFT JOIN {ExternalUser} affected_external_user
     ON affected_consultant.[IsInternal] <> 1
    AND affected_external_user.[Id] = affected_consultant.[ExternalUserId]
 ),
-item_scope_state AS (
+item_permission_state AS (
   SELECT
     item_target.InputOrder,
     item_target.HasPermissionIdInput,
     item_target.PermissionId,
+    item_target.ExternalConsultantPermissionId,
+    item_target.EffectivePermissionId,
     item_target.HasPermissionMethodInput,
     item_target.HasActivePermissionMethodInput,
     item_target.PermissionMethodId,
-    item_target.AffectedConsultancyUserId,
-    item_target.AffectedConsultantId,
-    item_target.PermissionExists,
-    item_target.IsOperation,
-    item_target.IsBooleanPermission,
-    item_target.MethodExists,
     item_target.HasAffectedConsultancyUserInput,
-    item_target.AffectedConsultancyUserExists,
+    item_target.AffectedConsultancyUserId,
     item_target.HasAffectedConsultantInput,
+    item_target.AffectedConsultantId,
+    item_target.AffectedConsultancyUserExists,
     item_target.AffectedConsultantExists,
+    item_target.IsInternalConsultant,
+    item_target.ConsultantMappedConsultancyUserId,
     item_target.ConsultantRequiresAllScope,
     CASE
-      WHEN item_target.HasAffectedConsultancyUserInput = 1
-       AND item_target.HasAffectedConsultantInput = 1
-       AND item_target.AffectedConsultancyUserExists = 1
-       AND item_target.AffectedConsultantExists = 1
-       AND item_target.AffectedConsultancyUserId <> item_target.ConsultantMappedConsultancyUserId
+      WHEN permission.[Id] IS NOT NULL THEN 1
+      ELSE 0
+    END AS PermissionExists,
+    permission.[IsOperation] AS IsOperation,
+    permission.[IsBoolean] AS IsBooleanPermission,
+    CASE
+      WHEN item_target.HasActivePermissionMethodInput = 1
+       AND permission_method.[Id] IS NOT NULL
+      THEN 1
+      ELSE 0
+    END AS MethodExists
+  FROM item_target_state item_target
+  LEFT JOIN {Permission} permission
+    ON permission.[Id] = item_target.EffectivePermissionId
+  LEFT JOIN {PermissionMethod} permission_method
+    ON permission_method.[Id] = item_target.PermissionMethodId
+),
+item_scope_state AS (
+  SELECT
+    item_permission.InputOrder,
+    item_permission.HasPermissionIdInput,
+    item_permission.PermissionId,
+    item_permission.ExternalConsultantPermissionId,
+    item_permission.EffectivePermissionId,
+    item_permission.HasPermissionMethodInput,
+    item_permission.HasActivePermissionMethodInput,
+    item_permission.PermissionMethodId,
+    item_permission.AffectedConsultancyUserId,
+    item_permission.AffectedConsultantId,
+    item_permission.PermissionExists,
+    item_permission.IsOperation,
+    item_permission.IsBooleanPermission,
+    item_permission.MethodExists,
+    item_permission.HasAffectedConsultancyUserInput,
+    item_permission.AffectedConsultancyUserExists,
+    item_permission.HasAffectedConsultantInput,
+    item_permission.AffectedConsultantExists,
+    item_permission.ConsultantRequiresAllScope,
+    CASE
+      WHEN item_permission.HasAffectedConsultancyUserInput = 1
+       AND item_permission.HasAffectedConsultantInput = 1
+       AND item_permission.AffectedConsultancyUserExists = 1
+       AND item_permission.AffectedConsultantExists = 1
+       AND item_permission.AffectedConsultancyUserId <> item_permission.ConsultantMappedConsultancyUserId
       THEN 1
       ELSE 0
     END AS AffectedInputsMismatch,
     CASE
-      WHEN item_target.HasAffectedConsultancyUserInput = 1 THEN item_target.AffectedConsultancyUserId
-      WHEN item_target.HasAffectedConsultantInput = 1 THEN item_target.ConsultantMappedConsultancyUserId
+      WHEN item_permission.HasAffectedConsultancyUserInput = 1 THEN item_permission.AffectedConsultancyUserId
+      WHEN item_permission.HasAffectedConsultantInput = 1 THEN item_permission.ConsultantMappedConsultancyUserId
       ELSE NULL
     END AS EffectiveAffectedConsultancyUserId,
     CASE
-      WHEN item_target.IsBooleanPermission <> 1
-       AND item_target.HasAffectedConsultancyUserInput = 0
-       AND item_target.HasAffectedConsultantInput = 1
-       AND item_target.ConsultantRequiresAllScope = 1
+      WHEN item_permission.IsBooleanPermission <> 1
+       AND item_permission.HasAffectedConsultancyUserInput = 0
+       AND item_permission.HasAffectedConsultantInput = 1
+       AND item_permission.ConsultantRequiresAllScope = 1
       THEN 1
       ELSE 0
     END AS RequiresAllScope
-  FROM item_target_state item_target
+  FROM item_permission_state item_permission
 ),
 item_candidate_permissions AS (
   SELECT
@@ -358,7 +389,7 @@ item_candidate_permissions AS (
     ON 1 = 1
   JOIN {UserRolePermissions} role_permission
     ON role_permission.[UserRoleId] = user_role_ctx.UserRoleId
-  WHERE role_permission.[PermissionId] = item_scope.PermissionId
+  WHERE role_permission.[PermissionId] = item_scope.EffectivePermissionId
     AND (
       (
         item_scope.IsOperation = 0
@@ -483,6 +514,7 @@ item_result_state AS (
   SELECT
     item_scope.InputOrder,
     item_scope.PermissionId AS PermissionId,
+    item_scope.ExternalConsultantPermissionId AS ExternalConsultantPermissionId,
     item_scope.PermissionMethodId AS PermissionMethodId,
     item_scope.AffectedConsultancyUserId AS AffectedConsultancyUserId,
     item_scope.AffectedConsultantId AS AffectedConsultantId,
@@ -540,6 +572,7 @@ global_error_result AS (
     0 AS SortGroup,
     0::bigint AS SortOrder,
     NULL::integer AS PermissionId,
+    NULL::integer AS ExternalConsultantPermissionId,
     NULL::integer AS PermissionMethodId,
     NULL::text AS AffectedConsultancyUserId,
     NULL::text AS AffectedConsultantId,
@@ -555,6 +588,7 @@ item_super_admin_result AS (
     1 AS SortGroup,
     item_input.InputOrder AS SortOrder,
     item_input.PermissionId AS PermissionId,
+    item_input.ExternalConsultantPermissionId AS ExternalConsultantPermissionId,
     item_input.PermissionMethodId AS PermissionMethodId,
     item_input.AffectedConsultancyUserId AS AffectedConsultancyUserId,
     item_input.AffectedConsultantId AS AffectedConsultantId,
@@ -573,6 +607,7 @@ item_result AS (
     1 AS SortGroup,
     item_result_state.InputOrder AS SortOrder,
     item_result_state.PermissionId AS PermissionId,
+    item_result_state.ExternalConsultantPermissionId AS ExternalConsultantPermissionId,
     item_result_state.PermissionMethodId AS PermissionMethodId,
     item_result_state.AffectedConsultancyUserId AS AffectedConsultancyUserId,
     item_result_state.AffectedConsultantId AS AffectedConsultantId,
@@ -589,6 +624,7 @@ final_result AS (
     global_result.SortGroup,
     global_result.SortOrder,
     global_result.PermissionId,
+    global_result.ExternalConsultantPermissionId,
     global_result.PermissionMethodId,
     global_result.AffectedConsultancyUserId,
     global_result.AffectedConsultantId,
@@ -604,6 +640,7 @@ final_result AS (
     super_admin_result.SortGroup,
     super_admin_result.SortOrder,
     super_admin_result.PermissionId,
+    super_admin_result.ExternalConsultantPermissionId,
     super_admin_result.PermissionMethodId,
     super_admin_result.AffectedConsultancyUserId,
     super_admin_result.AffectedConsultantId,
@@ -619,6 +656,7 @@ final_result AS (
     item_result.SortGroup,
     item_result.SortOrder,
     item_result.PermissionId,
+    item_result.ExternalConsultantPermissionId,
     item_result.PermissionMethodId,
     item_result.AffectedConsultancyUserId,
     item_result.AffectedConsultantId,
@@ -630,6 +668,7 @@ final_result AS (
 )
 SELECT
   final_result.PermissionId AS PermissionId,
+  final_result.ExternalConsultantPermissionId AS ExternalConsultantPermissionId,
   final_result.PermissionMethodId AS PermissionMethodId,
   final_result.AffectedConsultancyUserId AS AffectedConsultancyUserId,
   final_result.AffectedConsultantId AS AffectedConsultantId,

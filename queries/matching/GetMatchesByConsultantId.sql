@@ -8,9 +8,21 @@
 
    Display data (demand names, details, etc.) comes from GetDemandMatchPreview.
 
-   Permission inputs:
+   Input:
+     @TenantId,
+     @ConsultantId,
      @UserId,
      @IsMatchicalAdmin,
+     @StartIndex,
+     @MaxRecords,
+     @UseCustomRoles,
+     @Cat_Role,
+     @Cat_RoleSkill,
+     @Cat_CustomRole,
+     @Cat_CustomRoleSkill,
+     @Cat_Language,
+     @Cat_FunctionalArea,
+     @Cat_Industry,
      @PermissionInternalConsultantId,
      @PermissionExternalConsultantId,
      @PermissionOpportunityId,
