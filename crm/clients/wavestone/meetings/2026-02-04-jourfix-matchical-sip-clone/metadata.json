@@ -1,0 +1,70 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01KG4S03QRR7DJFME6AXE6252F/audio.mp3?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0c0UzAzUVJSN0RKRk1FNkFYRTYyNTJGL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=anHOLDr05edsS98e10bIbXsA0gPupAaAIBf9npiXiBUAeM60yQfEM1RyEc6Zx5k-RzPXQ2kXo0V7D5ETVTgHGa4SzzkhiN04c2FHriO9aawAUkQ1S~gCErgApVYcVWU6X6PgoJBylqfw~OxepTBlRzSaXjzp5QSA~8RSjMlTx~tsU6l6yOsF3VIL09g2bDs-05R6N6Oj1WNBvEbpeECcgyXfzud-UhzbHbWz14egnnhb7SYoIyhNO79~JgWAl4mJLufRc2gm9UgV5ktChYw12NmIhbfvqPA7ZzjaKIvDReelMPIiFWHZYl5u931ANHOjlGgSjzsjjpb6sxBJIilJGA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 31.270000457763672,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:51:27Z",
+  "meeting_at": "2026-02-04T13:35:17Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-02-04T13:35:17.957Z",
+      "leave_time": "2026-02-04T14:00:55.332Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2026-02-04T13:35:45.557Z",
+      "leave_time": "2026-02-04T14:00:55.332Z",
+      "name": "FISCHER Manuel"
+    },
+    {
+      "join_time": "2026-02-04T13:35:56.623Z",
+      "leave_time": "2026-02-04T14:00:55.332Z",
+      "name": "ARNAUT Inesa"
+    },
+    {
+      "join_time": "2026-02-04T13:35:56.623Z",
+      "leave_time": "2026-02-04T14:00:55.332Z",
+      "name": "WUCHER Oliver"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KG4S03QRR7DJFME6AXE6252F",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MDc4MDg3ZGUtZTc1My00MzM4LTgyZTctZTUwNjA1NmE1OTI0@thread.v2/0?context={\"Tid\":\"5de96c96-c87c-4dce-aad9-f5c557b52ac1\",\"Oid\":\"72a150f5-2876-43d2-a983-681fb2da9191\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 311,
+  "title": "Jourfix Matchical/SIP (Clone)",
+  "transcript_created_at": "2026-02-04T13:30:00Z",
+  "transcript_id": "01KG4S03QRR7DJFME6AXE6252F",
+  "transcript_url": "https://app.fireflies.ai/view/01KG4S03QRR7DJFME6AXE6252F",
+  "video_url": "https://cdn.fireflies.ai/01KG4S03QRR7DJFME6AXE6252F/video.mp4?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0c0UzAzUVJSN0RKRk1FNkFYRTYyNTJGL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=rTnqCvH0B6aWzMIgtK~SFoN-ldoWqUUOByKbB9q8c2Pl~59CpGnOySCdmT-3FXvCO8utM9wipAw7iZ16Ol9lmZ52lWLZ8cqqZtJ~aeFTfp0hmgEXUZsVG3LB5pxhVgKQAf9oky6X67MjDndGcZGidluhzLP4UHRpkLMXELWzuAc1Vm6e-CFPOuzUTWyZfOfoEeQXfqv8wvmnA9sm1MUu9Y1DhVbR~2lKIK5-G-3kRLulv1C82upno2YgCMoLqbR58XARzNV2zTub3mBPXC66MKdwqWkq~BHXZoGHpC-q0nGNy3Ssapck~1eiukehxPiOLHQBs3YNlQBXteKHu9RoSA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

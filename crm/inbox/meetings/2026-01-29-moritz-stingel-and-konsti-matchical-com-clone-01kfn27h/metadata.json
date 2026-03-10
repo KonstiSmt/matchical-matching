@@ -1,0 +1,70 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01KFN27H4TWFCP5R4DBX5S158Y/audio.mp3?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0ZOMjdINFRXRkNQNVI0REJYNVMxNThZL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=XjPTtlD0C0ZQMuMOoqYpzCtOLMxNzFpklcWfWLr-RE0zlhChOuuWwm4FgTZ~dvsTPSFMS3JDkECBimHCoxnj3URwnR9A7Lm4qlff-YcanzmDT1IN9cIGiM72wpvaFKuEVckzUdv7Ca5ohNwZcD1G1XaEiaHhjEpheP82ng6yDMn9qAax32lVtfMe96g1GwDyEDcYjMYRwi7YY~4lLOV7jWzeCSmAp-FXFwBkfrZ9RA0CiNfUFzzk8njiN-Poz-N-rzuC7wuGjCgG9HpVx5bMibyJ4SnclC58sl2ZCmwMxN70ZI72ECxTi0MYXZJKGm9C2PQVaUsPSlUJx83~l47laA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "planning",
+  "category_source": "keyword",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 82.12000274658203,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:51:44Z",
+  "meeting_at": "2026-01-29T13:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-01-29T13:00:00.000Z",
+      "leave_time": "2026-01-29T14:21:49.196Z",
+      "name": "Daniel Grotz"
+    },
+    {
+      "join_time": "2026-01-29T13:00:00.000Z",
+      "leave_time": "2026-01-29T14:21:49.196Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2026-01-29T13:00:00.000Z",
+      "leave_time": "2026-01-29T14:00:15.399Z",
+      "name": "Tony Günther"
+    },
+    {
+      "join_time": "2026-01-29T13:01:21.409Z",
+      "leave_time": "2026-01-29T14:21:49.196Z",
+      "name": "Moritz Stingel"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KFN27H4TWFCP5R4DBX5S158Y",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_M2RmZDJlMzMtNGI5OC00N2Y3LTk5MTQtYmJmNTUwNDFkZjA4@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 913,
+  "title": "Moritz Stingel and Konsti | matchical.com (Clone)",
+  "transcript_created_at": "2026-01-29T13:00:00Z",
+  "transcript_id": "01KFN27H4TWFCP5R4DBX5S158Y",
+  "transcript_url": "https://app.fireflies.ai/view/01KFN27H4TWFCP5R4DBX5S158Y",
+  "video_url": "https://cdn.fireflies.ai/01KFN27H4TWFCP5R4DBX5S158Y/video.mp4?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0ZOMjdINFRXRkNQNVI0REJYNVMxNThZL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=r2QAHBQ7M768Nw1yGqtQ0AsTu3BrEpwB0zKMS7HIGk3o5ai~9fc4pTndJ4XPUUyszr0daD0iyTWM6FWfI9oguboJHydKQEgTKSLzUXi0OhSQXIJe6YEl30gg0GdeJEWWlEff5qcGQvS6wpoUADSgDwZwKe~~YpIMk5Jb1YHuEki-aQ6sBTQY8ktn4FWVj5QlPffUXnXkP3ZfsPUGqVomUMiC7DxQ0s7Y2xvnpUbiKS7mddbdgjXkzYtBc-BlJ5YzAI1c0yfZoD~hXItcfo1v3sPnwX2cgzd3pzmdvbvquMPc7cNbVS3jprSamXGkaIDak7KnFWe~JCda4fQs~sk4UA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01KG4S03QQ0XG7TZS6QTXGVPJ3/audio.mp3?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0c0UzAzUVEwWEc3VFpTNlFUWEdWUEozL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=zV8HWr5n6KUyOPzJLygfCk8W1jwZgjQKrSZgB~~q2xEf~atqgm0cWlMt0UxVR~7lpa2wpjRTaUfhr~2~gdruKbumevsvTecdjJXtQXtk71M0CxGAsquT9FpUlJfURBZ4t31YJygLJ5yKNUTrPhM9L39xufX1z-a4XRyocMAt6dC0M78nDV5r6C4yVYCUrIq37UtQEs6IB3VaW3RvbLierLfxg3S2ZtiAwlEJ2IKTfnfM6lu-0WFUOAQ5EnHO9v6lWFLatpn~hb3OB54K3uj3rD7iKVoDX5FjGKzD6w-t9jbEi9rQ~TIPjl2a~MvoymxtIIclLNSr-T4KYUvsKlWNdw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 63.72999954223633,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:51:35Z",
+  "meeting_at": "2026-02-03T14:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-02-03T14:00:00.000Z",
+      "leave_time": "2026-02-03T15:03:24.388Z",
+      "name": "Bellinghausen, Frank"
+    },
+    {
+      "join_time": "2026-02-03T14:00:00.000Z",
+      "leave_time": "2026-02-03T15:03:24.388Z",
+      "name": "Buerger, Thomas"
+    },
+    {
+      "join_time": "2026-02-03T14:00:00.000Z",
+      "leave_time": "2026-02-03T15:03:24.388Z",
+      "name": "Hoffmann, Brian"
+    },
+    {
+      "join_time": "2026-02-03T14:00:00.000Z",
+      "leave_time": "2026-02-03T15:03:24.388Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2026-02-03T14:00:00.000Z",
+      "leave_time": "2026-02-03T15:03:24.389Z",
+      "name": "Krummholz, Peter"
+    },
+    {
+      "join_time": "2026-02-03T14:00:00.000Z",
+      "leave_time": "2026-02-03T15:02:30.973Z",
+      "name": "Roessler-Cokbudak, Elcin"
+    },
+    {
+      "join_time": "2026-02-03T14:00:00.000Z",
+      "leave_time": "2026-02-03T15:02:00.497Z",
+      "name": "Urbainczyk, Juri"
+    },
+    {
+      "join_time": "2026-02-03T14:00:00.000Z",
+      "leave_time": "2026-02-03T15:03:24.389Z",
+      "name": "Volmich, Michael"
+    },
+    {
+      "join_time": "2026-02-03T14:03:23.364Z",
+      "leave_time": "2026-02-03T15:03:24.389Z",
+      "name": "Schmitt, Daniel"
+    },
+    {
+      "join_time": "2026-02-03T14:17:38.894Z",
+      "leave_time": "2026-02-03T15:03:24.388Z",
+      "name": "Becker, Marcus"
+    },
+    {
+      "join_time": "2026-02-03T14:19:11.926Z",
+      "leave_time": "2026-02-03T15:02:37.967Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KG4S03QQ0XG7TZS6QTXGVPJ3",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_OWFlZjBjMTYtNDJjMS00OGQ1LWEyNzEtYzVjNmIxYmU5Y2I4@thread.v2/0?context={\"Tid\":\"d837af40-1177-4648-b50e-eb2c08d71867\",\"Oid\":\"3630b9aa-44e6-4cf8-98c2-42e64e6517ed\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 997,
+  "title": "Vorstellung Produkt von matchical (Clone)",
+  "transcript_created_at": "2026-02-03T14:00:00Z",
+  "transcript_id": "01KG4S03QQ0XG7TZS6QTXGVPJ3",
+  "transcript_url": "https://app.fireflies.ai/view/01KG4S03QQ0XG7TZS6QTXGVPJ3",
+  "video_url": "https://cdn.fireflies.ai/01KG4S03QQ0XG7TZS6QTXGVPJ3/video.mp4?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0c0UzAzUVEwWEc3VFpTNlFUWEdWUEozL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=zDu1t76UOo21cMznVxjYNQqeUJLwA3VE3b2jJZ5Aq~yixaWjP6JRAFJPcAHLd0bC-jTItB2NV13GABh-2mCzoPYBtwCGua7ZNzuRVBiKfBRftISYihG0Cg~leF4-DpEqFxuTr0lvcFwOMH6Xsjwp9qFluvP9lRBFM~Dmr5RLpNjZKrfr1EhEpK-M7OzkIYaAH9DYueqOzksKsWv9H8VeuPEW04BDlt0T0JaHYyfFItIzIf9RRmrVKYRjGNOxUiO3psVjmRKKBEC4ncWvN6u-n0MK2bsghC7GZLB50c~vAjKjT2c3zwxO~hhl6LM0LD9Zlb4CaJT8VWq-HCtjsTNPjA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01KJ0GXKV00H8ZWD2SH6049EEQ/audio.mp3?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0owR1hLVjAwSDhaV0QyU0g2MDQ5RUVRL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=eJTKGWTVcJouAcbrMQJ8Vf2y5kXiH5mER4-VjCM~Vw~5AgygU8t0k8a0KjqsjDl3Njr8iH9P0mi23vWMnp7LrEJpkLXQqIP1FSBFkOVlw-DYqYj6csshUUvaZsF8g0a1npaWVZVIkcR1AlXGVog9jWdWE18uvoxGuqjLbbGw8jSf~fceG3J0a1eq5kqx3CgH2DkZWoXfiyoqCZR-TCRB4T-U1AycHHRAS~zn82aenivbNRoWxhfz~kn6vili7ynp9iTN0SzVukajvVEGk1mBiVu3SSs2NNdrl08mS7B~RvZtLEplPObMBFEA~pB3AQ2B5xBB2txNImT4YtfOuOse8Q__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "planning",
+  "category_source": "keyword",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 180.64999389648438,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:50:58Z",
+  "meeting_at": "2026-02-23T14:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-02-23T14:00:00.000Z",
+      "leave_time": null,
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2026-02-23T14:02:27.304Z",
+      "leave_time": null,
+      "name": "Michael | matchical.com"
+    },
+    {
+      "join_time": "2026-02-23T14:14:40.708Z",
+      "leave_time": null,
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2026-02-23T14:19:29.764Z",
+      "leave_time": "2026-02-23T15:54:12.635Z",
+      "name": "Bauer, Corinne"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KJ0GXKV00H8ZWD2SH6049EEQ",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_OWIyNGJmMzQtYTdkNC00M2UwLWE4ODYtMGY3ZGZlYTJkNTc4@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1657,
+  "title": "Alignment strategy (Clone)",
+  "transcript_created_at": "2026-02-23T14:00:00Z",
+  "transcript_id": "01KJ0GXKV00H8ZWD2SH6049EEQ",
+  "transcript_url": "https://app.fireflies.ai/view/01KJ0GXKV00H8ZWD2SH6049EEQ",
+  "video_url": "https://cdn.fireflies.ai/01KJ0GXKV00H8ZWD2SH6049EEQ/video.mp4?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0owR1hLVjAwSDhaV0QyU0g2MDQ5RUVRL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=kSVKSfvwClVo9qnzELktTblBMl0LRnnkXH28ehCUrmJqkzPCGhWgWwVjiFzKmpUGWmHE~~~vcOBRxLSewWprsMM~Qt~XugpJ7rpG4FdTYVD7PVEUyBStjdZj57aZKnOW5PXFOo7XewjqtFCoI4ZYNO9QyQQNM4GbPNOxz2HOBVwIksfWs6i~K8BieIgG1ZOPrFysRcGifVorXXwSsVioUMbsadl44LWMZNuVHkCKAmWA-UU8ik8HasSwXeR2yY~vRb157TN9ZQ4plyQvPQVm1PIM2tcJEJbnYP~yw9NMkHsxy646SYaYlCaw0akMa38jtaoOeJ9aR9jF7Nu3i9t0~w__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

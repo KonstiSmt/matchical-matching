@@ -1,0 +1,65 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01KEF8WVVA46F1GTCGYESAX8WG/audio.mp3?Expires=1773355797&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0VGOFdWVkE0NkYxR1RDR1lFU0FYOFdHL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5N319fV19&Signature=EekTK~CQqmUaEbt2vSILMqMaHvfX6x01w3hhb-SgYplsLTAVr9IDYk5QkT5RJkHzZZLA8JUtUikaYtrdz3gd9UB0lwaw-TWEUT2Xes8QslW5JcJkWWXlgalXvgYf-huBKDF-ge9kox8Jim5nC8bbmcaliAYqFXhdWpG0ac50V9TrgjWfXlde3Z1Og~cx4KoCLElWT63CeXrQQWOPcsXCboKrHFoBHNHz9hTLH6Gz1jdCrInsL0pol5GlpJKlj58aq3NLZC3s2HRfkbLvIHmufwZaJweNo9dbI6ZYT9kobTKombESbCn6bSSfS0gn0fN-NERUdyn4qaIj-CJMahNysg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 170.41000366210938,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:52:29Z",
+  "meeting_at": "2026-01-15T13:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-01-15T13:00:00.000Z",
+      "leave_time": "2026-01-15T15:50:01.790Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2026-01-15T13:04:12.671Z",
+      "leave_time": "2026-01-15T15:50:01.790Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2026-01-15T13:05:51.868Z",
+      "leave_time": "2026-01-15T15:50:01.790Z",
+      "name": "Michael | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KEF8WVVA46F1GTCGYESAX8WG",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_Mjc2OTEzMmMtMTM4Ny00NTdlLWJlNGMtMjY1ZDM1Y2ZlNjBh@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1759,
+  "title": "Arbeitsmeeting - Website & pitch deck (Clone)",
+  "transcript_created_at": "2026-01-15T13:00:00Z",
+  "transcript_id": "01KEF8WVVA46F1GTCGYESAX8WG",
+  "transcript_url": "https://app.fireflies.ai/view/01KEF8WVVA46F1GTCGYESAX8WG",
+  "video_url": "https://cdn.fireflies.ai/01KEF8WVVA46F1GTCGYESAX8WG/video.mp4?Expires=1773355797&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0VGOFdWVkE0NkYxR1RDR1lFU0FYOFdHL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5N319fV19&Signature=cn1xpy0OoHvCcpymd~2gFmJMockWsLYLQc0-AZs85INnHtYk21i24ysrKddyJ7KQ4FIm-y7sCN7BR6oJjnyiGK6yONvHHnZdCFpJ-weRR0FWz7l3fS6NA-zASw6WjRuPUsiVp7wiCT1xZocvOdeC8gA8rmXBOLitkKDoYKhpOiyt2VKmdj080pwusZztW~PUPEjucsd9UpFUI2nFf7O7-FJoG4-YmyPBHmVt~8JT7eXbZyLeZVq2a9cWyf8hvBpK71bCcTNKANd5yGLWlrvPMq873schZ9CZeIjRPDBZ7p94mDI9WaEHid~fsF6xhZ3v2qj9OvwI5~9g4hj26b32pw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

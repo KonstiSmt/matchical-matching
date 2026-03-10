@@ -1,0 +1,113 @@
+{
+  "account_slug": "valantic",
+  "audio_url": "https://cdn.fireflies.ai/01KEXWD6FYCJW1HZNFC064V4NS/audio.mp3?Expires=1773355797&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0VYV0Q2RllDSlcxSFpORkMwNjRWNE5TL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5N319fV19&Signature=0VjSePKVZJH9qZkY6dL~gWXzmDx-v0a1LDNspcW~82tBw3~lK6EBcqsIhFjnlwb8EwVNrEodAHkeHRahkNPl0RQZEosjhrkGtaZyPoP-h3YD1STKEvLuy41fTmI6lf4h5FraVM4IzAQiyinoJHX~B54qSOPEuYZ9z-q~5Guuy6Dfx30uLknLZLB47nVRd3nVBWD6IXVKskdHuESqNl0T0g5eOaona5uJB87om6axPRszxZrjRXemlLRh55-dEQrfZDz0diSrkmwnnmtEjCdVcl8aBiiL0EECuhkHYGvmAH8zTRnzBPmcVabC5ANVA7PASv27MXdnuPkGPk43H038ag__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "valantic.com"
+  ],
+  "dominant_domain": "valantic.com",
+  "duration_minutes": 35.59000015258789,
+  "fireflies_users": [
+    "tommy@matchical.com",
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:52:27Z",
+  "meeting_at": "2026-01-16T11:15:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-01-16T11:15:00.000Z",
+      "leave_time": "2026-01-16T11:51:53.745Z",
+      "name": "Felix Freudenstein"
+    },
+    {
+      "join_time": "2026-01-16T11:15:00.000Z",
+      "leave_time": "2026-01-16T11:51:53.745Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2026-01-16T11:15:00.000Z",
+      "leave_time": "2026-01-16T11:51:53.745Z",
+      "name": "Rida Ahmed"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "felix.freudenstein@nxt.valantic.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "rida.ahmed@nxt.valantic.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti | matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KEXWD6FYCJW1HZNFC064V4NS",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_M2RmNGQ3MTktZjQ2YS00YzhlLWE4YjUtZjY3MDUzN2JhNTgz@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "felix.freudenstein@nxt.valantic.com,rida.ahmed@nxt.valantic.com,tommy@matchical.com,konsti",
+    "|",
+    "matchical.com,konsti@matchical.com",
+    "felix.freudenstein@nxt.valantic.com",
+    "rida.ahmed@nxt.valantic.com",
+    "tommy@matchical.com",
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "felix.freudenstein@nxt.valantic.com",
+      "name": ""
+    },
+    {
+      "email": "rida.ahmed@nxt.valantic.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti | matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 399,
+  "title": "JF - Valanitc <> matchical",
+  "transcript_created_at": "2026-01-16T11:15:00Z",
+  "transcript_id": "01KEXWD6FYCJW1HZNFC064V4NS",
+  "transcript_url": "https://app.fireflies.ai/view/01KEXWD6FYCJW1HZNFC064V4NS",
+  "video_url": "https://cdn.fireflies.ai/01KEXWD6FYCJW1HZNFC064V4NS/video.mp4?Expires=1773355797&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0VYV0Q2RllDSlcxSFpORkMwNjRWNE5TL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5N319fV19&Signature=fSA0BpmC1UDTprQ4y3MjGjd5RB8ONKxcn7a~ZNPWUkSxf~NJD5PNydk0J2W-WFSmJVMpNRBgk8xYOYFtscB99ou1amccWzNODjt-k0mhgd8vmv-KPQqWL1mCT2JvJGAhiO1bzkgY2N5cxLrqLDkWWEu4P~oZ1UOld-DiND7G9NotN0W77VPt1-CWw3wN~7ibB315Cacj3f9lJDyb9fTbbg4YGwglboQ2wPX0Mg4A4d5GgVaAcs8OIAyUvcPr77ObqUQbV3VjlMhPBeuinA9cvE25HmthLMr268G5kEya2ehrr1PMlWRmHE3ZG22fcZeAN6jfevagAXvniurx-SOuyQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

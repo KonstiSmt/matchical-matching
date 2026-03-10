@@ -1,0 +1,70 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01KJ9Z863YP83KGSRR6KX7T499/audio.mp3?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0o5Wjg2M1lQODNLR1NSUjZLWDdUNDk5L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=CudUtzba3eLQ7RYDdIKWNpp5-PhDaWP9WWFE1Oq1BbY-fdSe3oHZ~kpU8PjZGM0R5uGzneD7-omimS31kdOEmpj55g0Yn7anqZRtJirxDpsSLLhsjk7z-ts7CPUPIZa2j3L9YtZBwZzpbvMkCBMZ1qpwv6UBk1xrxGgYE9KyM1ej~MoznxUWmStMRu4ozfbM28ss2d2jjgvTcZx3ONmWL81q6JrXsXAK-u0sXH33ChrpHpUskUETLsG6t~J0zTUbadwZLhyO0TSMVVeDJVLyX-fjNFFcuvUeR3hN1R2dJZK4wz0YyqvpaG1~wcKrysEJqpFAWPr9h~EyzcyvjrAu3g__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "delivery",
+  "category_source": "keyword",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 116.38999938964844,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:50:55Z",
+  "meeting_at": "2026-02-25T09:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-02-25T09:30:00.000Z",
+      "leave_time": "2026-02-25T11:26:25.486Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2026-02-25T09:30:00.000Z",
+      "leave_time": "2026-02-25T11:26:25.487Z",
+      "name": "Lino | matchical.com"
+    },
+    {
+      "join_time": "2026-02-25T09:30:00.000Z",
+      "leave_time": "2026-02-25T11:26:14.454Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2026-02-25T09:34:00.490Z",
+      "leave_time": "2026-02-25T11:26:25.487Z",
+      "name": "Niklas | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KJ9Z863YP83KGSRR6KX7T499",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_Y2RhNWQ4YjQtYjBhZC00MjJmLWEzZDEtN2ZjZmRkN2ZiOTkw@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1153,
+  "title": "Alignment Project - Engagement - CV-Export (Clone)",
+  "transcript_created_at": "2026-02-25T09:30:00Z",
+  "transcript_id": "01KJ9Z863YP83KGSRR6KX7T499",
+  "transcript_url": "https://app.fireflies.ai/view/01KJ9Z863YP83KGSRR6KX7T499",
+  "video_url": "https://cdn.fireflies.ai/01KJ9Z863YP83KGSRR6KX7T499/video.mp4?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0o5Wjg2M1lQODNLR1NSUjZLWDdUNDk5L3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=RdHHP7m5zX8yQdP4YPzSVdtEWwRtDBVLLUymek1gkMDcj0n50Oy40Y0FiGJ~~-I-jE5tEF3W6A5l~jy50yl2y-Qj3tJ9XX6l69vHpwIEMwqkmxWahTi~bJ1FDdBM6CNgQFRxZl7zTnGhpWvh3v98xFGm9o8I8CvB72CXNMOdMqGmolLkAueb~HvrV9NoPLwNMH166VZwfzjo23q~OyP3bov9mdHYOPsxLkRCv5e-iJti4vF4bPStpIUZjGobLsxvMLEiCC~cH6hcFZBHx6GZuk9pSuN8KDmpWkTtRYKNGJ5U72bnBpKWQmIcsQD4P8V5~EJKCYnrotTG5V-qL~o0-w__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

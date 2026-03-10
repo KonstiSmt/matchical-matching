@@ -1,0 +1,65 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01KJHX3K96T1MBY4D5GJHRSV2R/audio.mp3?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0pIWDNLOTZUMU1CWTRENUdKSFJTVjJSL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=XQOZ7Um9G3SPZVmEv4WUX4IQtrV3Sylmnu8Ay1V050QVKOmuEU9Nd6iXWr7XWPo7L~yWWeUceIX1ST1u8haxfo~bu3o9upENUWuDu4CySlZlcBCnIQpx5gCShsK9~OT~QjpzO3kGxr7lfDcJTPuJbDNTMLIqJ3eWqBNmAWVuf1vb5bml6OPvOBXY3nRPcoHG4REQu8~cVjUy3-JPylxjnz5jiCXEFg4~GH~mn-tkQf4rxgWVumTxC~9hEN8ED7FoCZUkP2jxdkPZaCcZqqDetuDrZl96RQLZIYELGc5GfME9y7EYLLviKbUG5DsoOpqMQiObdl8lq6w5oouX4Dm0UQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 38.11000061035156,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:50:48Z",
+  "meeting_at": "2026-03-02T10:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-03-02T10:00:00.000Z",
+      "leave_time": "2026-03-02T10:39:46.941Z",
+      "name": "Corinne Reiser (hello_coriinne)"
+    },
+    {
+      "join_time": "2026-03-02T10:00:00.000Z",
+      "leave_time": "2026-03-02T10:39:46.941Z",
+      "name": "Konstantin Schmitz"
+    },
+    {
+      "join_time": "2026-03-02T10:00:00.000Z",
+      "leave_time": "2026-03-02T10:39:46.941Z",
+      "name": "Sabrina Kern"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KJHX3K96T1MBY4D5GJHRSV2R",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://meet.google.com/qxc-khed-pww",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 392,
+  "title": "Austausch STP - Matchical GmbH  (Clone)",
+  "transcript_created_at": "2026-03-02T10:00:00Z",
+  "transcript_id": "01KJHX3K96T1MBY4D5GJHRSV2R",
+  "transcript_url": "https://app.fireflies.ai/view/01KJHX3K96T1MBY4D5GJHRSV2R",
+  "video_url": "https://cdn.fireflies.ai/01KJHX3K96T1MBY4D5GJHRSV2R/video.mp4?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0pIWDNLOTZUMU1CWTRENUdKSFJTVjJSL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=GgW~pNH2VZHHVv~LfcDTQu696sAf078YYoTH2HhisAZLBQY~TkoGrL9tYKUtZYtNg5nco~g~v~Gk1p3YrGBnNpqzZdMA0y0EtFfDQ6qCUtajOCfplMFiuiOjpoeELZ0p04R7te5HI5Umpn6uKbyuVrZyicP2VMTfERt6HoH87ARiH2W1eDtKiM6pMWv0O0eMr4YBqtSzIFbDsR-1fMTDT57U1kZ9M1cEcD3XmXUqb4zFAoi1RR5U1KFaDK6NRxnkJ3dAxvjmQkmUnHbpEr3GOELDnQ1L5u7RqofxBhz2E0Gqk8sm5gZXUqLO6SC6puHOEX6nMXyulPnD35YiqjKGOQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

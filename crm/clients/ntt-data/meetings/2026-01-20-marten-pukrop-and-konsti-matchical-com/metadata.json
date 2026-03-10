@@ -1,0 +1,117 @@
+{
+  "account_slug": "ntt-data",
+  "audio_url": "https://cdn.fireflies.ai/01KF1ABDG8793PX1Z2ZTJ188E2/audio.mp3?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0YxQUJERzg3OTNQWDFaMlpUSjE4OEUyL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=zOrD-KSv7~CsOnaECQ8jAK5nWzau8DpPbfS7b2gmMx27UhTM-R6KlUMK~g82xNR4-QFYfDOjkLlteFHH4dfiHlf0h0FlC0VffgQAix9RBkP-XFQkZXqzvRRFLnT4kaK8p1ionFtumYD50HqzZ0bHLOSb17Y7gQFn5PzgBIUmmBUkJLwaeR-bUlhr~8hl~AXWEvMIhENkC~GSS~0Ci7GtDpdTiN5FGz41OK9jv4dDwgSJePK8BGe3nflxReS2CDW66OnCVwQ-YU3kdkSoz38u0vEcmTSA7weiS46WB5Z3ivfGWKPI-4tyU5~FaDuGKHoSIdT0Kl8wPaJgrrc-8hiTXA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "nttdata.com"
+  ],
+  "dominant_domain": "nttdata.com",
+  "duration_minutes": 60.970001220703125,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:52:17Z",
+  "meeting_at": "2026-01-20T09:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-01-20T09:00:00.000Z",
+      "leave_time": "2026-01-20T10:03:51.726Z",
+      "name": "Andreas Kurz"
+    },
+    {
+      "join_time": "2026-01-20T09:00:00.000Z",
+      "leave_time": "2026-01-20T10:03:51.726Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2026-01-20T09:00:00.000Z",
+      "leave_time": "2026-01-20T10:03:51.726Z",
+      "name": "Lisa-Marie Ebinger"
+    },
+    {
+      "join_time": "2026-01-20T09:00:00.000Z",
+      "leave_time": "2026-01-20T10:01:22.852Z",
+      "name": "Marten Pukrop"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "marten.pukrop@nttdata.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "andreas.kurz@nttdata.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "lisa-marie.ebinger@nttdata.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti | matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KF1ABDG8793PX1Z2ZTJ188E2",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YjM0ZWEzNTctYjE1ZC00NDIwLWFlMWItOWE0YmU1ZWMzZDA1@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "marten.pukrop@nttdata.com,andreas.kurz@nttdata.com,lisa-marie.ebinger@nttdata.com,konsti",
+    "|",
+    "matchical.com,konsti@matchical.com",
+    "marten.pukrop@nttdata.com",
+    "andreas.kurz@nttdata.com",
+    "lisa-marie.ebinger@nttdata.com",
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "marten.pukrop@nttdata.com",
+      "name": ""
+    },
+    {
+      "email": "andreas.kurz@nttdata.com",
+      "name": ""
+    },
+    {
+      "email": "lisa-marie.ebinger@nttdata.com",
+      "name": ""
+    },
+    {
+      "email": "konsti | matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 630,
+  "title": "Marten Pukrop and Konsti | matchical.com",
+  "transcript_created_at": "2026-01-20T09:00:00Z",
+  "transcript_id": "01KF1ABDG8793PX1Z2ZTJ188E2",
+  "transcript_url": "https://app.fireflies.ai/view/01KF1ABDG8793PX1Z2ZTJ188E2",
+  "video_url": "https://cdn.fireflies.ai/01KF1ABDG8793PX1Z2ZTJ188E2/video.mp4?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0YxQUJERzg3OTNQWDFaMlpUSjE4OEUyL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=nazCRy1V9wsurx4~0CZHNC~3qrKKmrK-a~jZq2MZHxkw-IAZDuIVv8ij5NeP0QjhPpVP1I1uTVOgfO3fh2hgL-vQO2lfAVPSuICcDgGkABy~N~m~JqnBHt9yawEf0SCVSXNoGVcHE~Lr~cDloD3awl6ZCWCiqXthbDQGFXlheJrBvWByRQqzn3zHdXPcbI241FMi3U52x9so9tnvSPy15OW3L1NLC0JFB1M4if~4X1uhIl-GH~rSCzsuMMfMDfuyP9LJxInHgUOiqkNMNcEsCMXY0K9XiIOmz4HtvTPfxrXESg5b3yCZBYtxWVLGO6hK6QPEesKEIJThYkqC4UTmxA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

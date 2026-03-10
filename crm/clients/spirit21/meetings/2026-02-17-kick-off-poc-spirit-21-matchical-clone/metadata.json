@@ -1,0 +1,81 @@
+{
+  "account_slug": "spirit21",
+  "audio_url": "https://cdn.fireflies.ai/01KHGDY9R8BNB0YK9Q6MD6FQS7/audio.mp3?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0hHRFk5UjhCTkIwWUs5UTZNRDZGUVM3L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=kbUIpsGhL~li65zM2mFDdZ8PsgPpgCSqSuftC2TJgRmqZdpW2G5IEygWWxkX8u2zAUuPCNKet6tze892J5JEQcrdptDpFcEsS4uCbDh-3WDzdcEJw38A4FXGdEd5-BFYjJEk3r~lzaQP5mQ1pnhELtVJn2KpbHxRgurZlw4rgo9z5Tkjy2tTnLfvgk5Z89zUQRA4mXOLWA6olCAN2LstN75AvqDVLm5kiuj50p0ubkjkmGm0nqhahHrElcBXbEvY73eSGddLvwWRta00Y-MmAL-UTT3eZBbKFC490KZD19o9CXoZac87Q0e6qBAZDkSJ-BJ-usEBILYm4uO6pO7LIg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "planning",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 105.63999938964844,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:51:12Z",
+  "meeting_at": "2026-02-17T10:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-02-17T10:00:00.000Z",
+      "leave_time": "2026-02-17T11:45:22.631Z",
+      "name": "Duschek, Lukas"
+    },
+    {
+      "join_time": "2026-02-17T10:00:00.000Z",
+      "leave_time": "2026-02-17T11:45:16.248Z",
+      "name": "Ellinger, Mario"
+    },
+    {
+      "join_time": "2026-02-17T10:00:00.000Z",
+      "leave_time": "2026-02-17T11:45:16.248Z",
+      "name": "Kaiser, Raphael"
+    },
+    {
+      "join_time": "2026-02-17T10:00:00.000Z",
+      "leave_time": "2026-02-17T11:45:16.248Z",
+      "name": "Kamm, Stefan"
+    },
+    {
+      "join_time": "2026-02-17T10:00:00.000Z",
+      "leave_time": "2026-02-17T11:45:16.248Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2026-02-17T10:00:00.000Z",
+      "leave_time": "2026-02-17T11:45:16.248Z",
+      "name": "Vollmer, Anne Sophia"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KHGDY9R8BNB0YK9Q6MD6FQS7",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MjE3ZjY5ZjItMzJkNy00ZDJhLTkyZGYtYzI5YjIzMGJkMGM1@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1054,
+  "title": "Kick-Off PoC Spirit/21 <> matchical (Clone)",
+  "transcript_created_at": "2026-02-17T10:00:00Z",
+  "transcript_id": "01KHGDY9R8BNB0YK9Q6MD6FQS7",
+  "transcript_url": "https://app.fireflies.ai/view/01KHGDY9R8BNB0YK9Q6MD6FQS7",
+  "video_url": "https://cdn.fireflies.ai/01KHGDY9R8BNB0YK9Q6MD6FQS7/video.mp4?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0hHRFk5UjhCTkIwWUs5UTZNRDZGUVM3L3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=oI0y7ee3DbHfSKUVLxvoJ~tlT3O~lAk0oWwqBRFTmG8HGM9MBeWvX06aVn6TJeGqTcda3SZm8r7YxNw-b9XLAwqkdBzMn2rbew57C3LKANDjLENZoxv4IVhyVVqmhmc7GcOZYP5wYpKQpXo8YligB89BdIzO41VlGqGb8iJ~3USkOvM35gWQFBSOO3ygjBmehAVA~jxYOT0GO9jgx85qTTYxB4pCyDnsPZZzvCuZ~nnueLPMKrKQWTDTEcpQ7TYw6s3do3qZRHEwqDzYGGD8tDPq9iMBn3mwJC-2bV0qFTX~X~2grSLEzcQRx4soIpTGa1LdQAkYcsNQBJoOOeHwdQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_based_reclassification"
+}

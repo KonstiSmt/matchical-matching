@@ -1,0 +1,75 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01KJW6PQ3HWVE6H66DRWRR7DCJ/audio.mp3?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0pXNlBRM0hXVkU2SDY2RFJXUlI3RENKL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=ksWRI7haEftcBGRIjUZkz~IZjHfZKAR2DmdUN0OF3X8QdcD~nmEAYb0eN53x6a-Y6MM14OmL25hoqn5Wp8V0JEQEpq5s1huRFoSiq9ldTfvFLobSWyWTMB9ZU8O32Tl0DPmo4isVB5I5qM4DwZT~KpcC1YEF~t-S0LcECELibEHrxjSvyYoBeAlt9WRmKT-woFNr2Gm5bb2bmG7cuHbYiaQt3nIorxDYL9ny73NgpLtauH82EMDjVT1n3dJw2PbXJ6ZwhHScSBXKTgzeYCvb9OzuAHEC9zv0eDMd1Xyuckt0OXG-V-6PAK4RjoWJO0zIadGwDmhEGghs5g1sN1QO6Q__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "operations",
+  "category_source": "keyword",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 42.939998626708984,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:50:10Z",
+  "meeting_at": "2026-03-06T09:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-03-06T09:30:00.000Z",
+      "leave_time": "2026-03-06T10:13:55.743Z",
+      "name": "Felix Freudenstein"
+    },
+    {
+      "join_time": "2026-03-06T09:30:00.000Z",
+      "leave_time": "2026-03-06T09:50:14.965Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2026-03-06T09:30:00.000Z",
+      "leave_time": "2026-03-06T10:13:55.743Z",
+      "name": "Rida Ahmed"
+    },
+    {
+      "join_time": "2026-03-06T09:30:00.000Z",
+      "leave_time": "2026-03-06T10:13:55.743Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2026-03-06T09:34:29.070Z",
+      "leave_time": "2026-03-06T10:13:55.742Z",
+      "name": "Alexander Scherdin"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KJW6PQ3HWVE6H66DRWRR7DCJ",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZTg5NzJiMTAtZDdmMi00YzMwLTgxYTAtMGIwMWViNWU3YmEz@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 406,
+  "title": "Alignment data privacy process (Clone)",
+  "transcript_created_at": "2026-03-06T09:30:00Z",
+  "transcript_id": "01KJW6PQ3HWVE6H66DRWRR7DCJ",
+  "transcript_url": "https://app.fireflies.ai/view/01KJW6PQ3HWVE6H66DRWRR7DCJ",
+  "video_url": "https://cdn.fireflies.ai/01KJW6PQ3HWVE6H66DRWRR7DCJ/video.mp4?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0pXNlBRM0hXVkU2SDY2RFJXUlI3RENKL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=fPFlGJ5e1DimEIZFt1kxNFHM84Q~l~euJrspirvORKLMTkfaEDXR91CGS-7nhdXUOYddDA0bF3j2e8TythpaCj6DL-LkPsn45Uakm6GCsD9Axqji1NKdLDW9RwPB7w0QAZ2BTXPPe7t5G7I~HxcSil2WQYCwDgQZZVft8RZfVq5ZTAT-osLml6iK-ePvbaT6goWHLkPUHLfP0zyXifFWoisxSuPuz5M3GPLiRdFGjwsty8iiMe0-47ozzBQO-6KfCesDz9pEBrO3UPlnJxKHAppPA4OQkLX5uh7eNVE4WfvKaf5vZmJj7wS-JSfjoV9OG~42TLe5mmJK4nP8it4hUA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

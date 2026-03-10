@@ -1,0 +1,60 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01KE9E1FWSWR09TWB4YHR85D98/audio.mp3?Expires=1773355797&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0U5RTFGV1NXUjA5VFdCNFlIUjg1RDk4L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5N319fV19&Signature=l7wbs5Qh-wJOGTyH4UORCN5qA1WF-818H7PIUjNAZ0s73KcyCBnSQj2GC8uIucUpTfizQ0KPeos09NtOW9efOXyXp9fEBBMbfy8c-m1r9XXMW68sr0O2kBUBl2Mu1ScSXo8UbzsENTFFSs3vazP99KfVe1f24pMbvNOFqjrsZx3h6UB4hsgY0xfymUYL6ctvwtqIG2CdifCtpLbDzBzYx-q82hcsMsni4SiqzDBbBPPJmR5vKE5OhHaINhxs1qk3gA7eviL7tYtkplqWz9rIHDxFoceCfQxTBNxHzGUE1hEPaR0pK8Xia2VH6fezZf1b1Mw0HlD7pRiNZ4IEZQ52sw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 23.350000381469727,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:52:37Z",
+  "meeting_at": "2026-01-08T13:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-01-08T13:00:00.000Z",
+      "leave_time": "2026-01-08T13:23:25.812Z",
+      "name": "Ellinger, Mario"
+    },
+    {
+      "join_time": "2026-01-08T13:00:00.000Z",
+      "leave_time": "2026-01-08T13:23:25.813Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KE9E1FWSWR09TWB4YHR85D98",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZDMxMTRhY2EtYjYzMy00YmQ0LWI2OGItNDUwNTI3M2ViOWI0@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 250,
+  "title": "Check in matchical (Clone)",
+  "transcript_created_at": "2026-01-08T13:00:00Z",
+  "transcript_id": "01KE9E1FWSWR09TWB4YHR85D98",
+  "transcript_url": "https://app.fireflies.ai/view/01KE9E1FWSWR09TWB4YHR85D98",
+  "video_url": "https://cdn.fireflies.ai/01KE9E1FWSWR09TWB4YHR85D98/video.mp4?Expires=1773355797&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0U5RTFGV1NXUjA5VFdCNFlIUjg1RDk4L3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5N319fV19&Signature=g0JuwsW9bKZExVdpseC3WxoOSlsxvvZXtM8p-KZ2fO7FrDH0rI~EbDFC-WTMzO6UEkzld7Vv5rlh2836i~xc20c1JSH7N6PMve6Vtu9BHfqyfsx2jHTUKR8jmMDridfpwLBtzEmwJa~EEzqBiBh78diPj68Ghify~ybAJPDhT5Egt6FrwnjRMUfnIdI7bSXVv0uGo0YrGntZVyN7HcTyXedVa-u-dALHUZ3LVPlbBaomUNLFtPOp7WdQtxqlFufqecNV2uVlxb8CQSdxdLjdpROKAgFsXBtPi8X~EDAHUO4jEpnbN4qM6~hMrz~CdH8WZPXShGgn1dxd2OZ8lFlfQA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}
