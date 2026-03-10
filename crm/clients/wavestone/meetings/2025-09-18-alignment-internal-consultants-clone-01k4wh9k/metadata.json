@@ -1,0 +1,76 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01K4WH9KAWCATGTA9ZDC481BER/audio.mp3?Expires=1773349540&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRXSDlLQVdDQVRHVEE5WkRDNDgxQkVSL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM0OTU0MH19fV19&Signature=1LE~THwQfM~x~ksTp7f9LjrVhCIRNLavQEmEBq561hj2woJRL9W0Tobu~HSwnzDtY~V8ovYBiMeKZntReABdJ3BQnG9S7Ec5~JzNBxU3vO~P-ROipZvAFxC0w8vLQGYO52YLtxjqJbISvXGxAAAHAmWsfHbH6UwoDSe96xwgfM0vDMkFU1ZXz1LlitBQvb~Tsyoem8g6bDQZjGd0jM2Ug0Ge4WIo-ftiFE3H9HiHBv6P5FGvWmSyMlXE0zLnm-35JaiNT279Ns0z~eLDRmEBZrRfvHQ92zOxd~~ZAQLOm8nnECvF~buvCB5jvfv0YuD5Fh9V2FzxOErAmxcfBQlOzw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 58.97999954223633,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:05:52Z",
+  "meeting_at": "2025-09-18T11:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-18T11:30:00.000Z",
+      "leave_time": "2025-09-18T12:28:52.188Z",
+      "name": "GIBBONS Mark"
+    },
+    {
+      "join_time": "2025-09-18T11:30:00.000Z",
+      "leave_time": "2025-09-18T12:28:52.189Z",
+      "name": "SCHOTMAN Hugo"
+    },
+    {
+      "join_time": "2025-09-18T11:30:00.000Z",
+      "leave_time": "2025-09-18T12:28:52.189Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-09-18T11:32:15.891Z",
+      "leave_time": "2025-09-18T11:42:22.067Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-09-18T11:38:37.159Z",
+      "leave_time": "2025-09-18T12:30:04.036Z",
+      "name": "ERDMANN Lars"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K4WH9KAWCATGTA9ZDC481BER",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZGFiNjE4ZWEtZTJmZi00MTg4LWFlZGQtOTc1MDY0YTIzNzk5@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 482,
+  "title": "Alignment internal Consultants (Clone)",
+  "transcript_created_at": "2025-09-18T11:30:00Z",
+  "transcript_id": "01K4WH9KAWCATGTA9ZDC481BER",
+  "transcript_url": "https://app.fireflies.ai/view/01K4WH9KAWCATGTA9ZDC481BER",
+  "video_url": "https://cdn.fireflies.ai/01K4WH9KAWCATGTA9ZDC481BER/video.mp4?Expires=1773349540&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRXSDlLQVdDQVRHVEE5WkRDNDgxQkVSL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM0OTU0MH19fV19&Signature=ObYTMaoLi97zPPg03tyQ14VvY2jOEh1UDvWL-hSpfE9aDzvGt0m7nOYPD5E-RQM62FAqyxUYSMuHGf8sszV75cdgVTiykK49Umtxwixxuw3b4IsKFsfS1twWNdP-WfbGmnGJ4C1-zxSCEf6NQkdzdoI~uLQBOeR-yTtNX-umuh3-mPF-seSZfpNqT8k6itTbA89p3piAlYlZH7793gyUFvdV4EpRU27xR0qk0Fb4oeKY27f40ZlRN-QhF7evb~fteFdH2hLxx3eAcrIIegwGDCDzGfzbFBv-IouW37uiFjIk95ta4Lp0X6lywNFff2skfoGIaCj4byvSZnm4MhAO2Q__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_reclassification"
+}

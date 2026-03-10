@@ -2,7 +2,7 @@
 
 ## Metadata
 
-- aliases: Spirit/21, Spirit 21
+- aliases: Spirit/21, Spirit 21, Ellinger Mario, Anne Sophia Vollmer, Sabrina Liller
 - crm_bucket: clients
 - account_name: Spirit21
 - domain: https://spirit21.com

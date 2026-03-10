@@ -1,0 +1,61 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01JKR2MX2WKNS6ZJ1H2V5EVXRJ/audio.mp3?Expires=1773267967&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSktSMk1YMldLTlM2WkoxSDJWNUVWWFJKL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI2Nzk2N319fV19&Signature=QelWCUVTwcUyo4SCF3V8fQ13~Q5Q53lFGvISNqhbMK-jOlWJnrdNXMn2ANru3Jc2MlFTGyl~EfJy23vXRf7kAW3mtXWuifvEambkNncMymKkwYnDUEzdsarhcKwMEoZ6ThBqqbf4Spy7g~rh-9MF9th1OTmlntHy3plTC5X0Ql0H20v5fMqjknng~UryiFapopFSpbEjbyNsTVaXQlgJLgKiunAOW1rILCNYFxrnD-B8~ARyyNt-CsMDbYygdy5JsKZu9ZM6sgMMFQDCuMg7sjwCMaujfovvpy95mT-g8~63rHTgrgjDl124IJVfPrJy8UFLQSsF4lW5eywj6DFD-w__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 130,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T10:26:07Z",
+  "meeting_at": "2025-02-10T15:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-02-10T15:30:00.000Z",
+      "leave_time": null,
+      "name": "Chico | matchical.com (Unverified)"
+    },
+    {
+      "join_time": "2025-02-10T15:30:00.000Z",
+      "leave_time": null,
+      "name": "Lucas | matchical.com (Unverified)"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JKR2MX2WKNS6ZJ1H2V5EVXRJ",
+  "meeting_kind": "internal",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NjExMzM5NGUtZmE4Yy00NjlhLWFkMjItMTQ0OWMzYzQ3ZmY0@thread.v2/0?context={\"Tid\":\"d9a88f1c-c7fe-4245-b405-8e572770ce7f\",\"Oid\":\"79b91bc4-5d6d-4c5b-8ddc-e0f1e2f618b3\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1524,
+  "title": "User story mapping (Clone)",
+  "transcript_created_at": "2025-02-10T15:30:00Z",
+  "transcript_id": "01JKR2MX2WKNS6ZJ1H2V5EVXRJ",
+  "transcript_url": "https://app.fireflies.ai/view/01JKR2MX2WKNS6ZJ1H2V5EVXRJ",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "crm_bucket": null,
+  "route_reason": "manual_transcript_rule_internal"
+}

@@ -1,0 +1,66 @@
+{
+  "account_slug": "thestory",
+  "audio_url": "https://cdn.fireflies.ai/01JXVRE8ND1VZTGJYJ95QSR171/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlhWUkU4TkQxVlpUR0pZSjk1UVNSMTcxL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=MZ8A6El3fR96u04kEoU~m47fj8xyeYvJIzk5V6w5YJFbI9QBc957x2qffZ7Czox5x7CmpYYX90PY5eC-6zQjKrpXnF1gxt3T430dElGxk61QPQACcKXOmvSSb3LFLETUWUBEv9dZJPvY6m4UY9PdJIIo-gmo5PFvNzXLoMuKXupOSowfLcGq9mtwHhtcU42bkJ0kIou4JWpEOH81kmfKxxqDz5WLQ8sxT1bzbBZ9IS8E0c4SJt09xqJgmDDlK2R0x4nWBv4RabcHMdb0p71fjdTnSUpH3HH0YyR3XcGp5RDfgxMv~oaoULz-e1oAdisPfEYxGLEXjtoqbaydFPn2-w__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "partners",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 70.81999969482422,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:06Z",
+  "meeting_at": "2025-06-16T07:15:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-16T07:15:00.000Z",
+      "leave_time": "2025-06-16T08:27:30.534Z",
+      "name": "Dymitr Romanowski"
+    },
+    {
+      "join_time": "2025-06-16T07:15:00.000Z",
+      "leave_time": "2025-06-16T08:27:30.536Z",
+      "name": "Karol Gorus"
+    },
+    {
+      "join_time": "2025-06-16T07:15:00.000Z",
+      "leave_time": "2025-06-16T08:27:30.536Z",
+      "name": "Konstantin Schmitz"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JXVRE8ND1VZTGJYJ95QSR171",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://meet.google.com/kez-bppq-zsg",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 887,
+  "title": "Konsti<>Dymitr: matchical.com (Clone)",
+  "transcript_created_at": "2025-06-16T07:15:00Z",
+  "transcript_id": "01JXVRE8ND1VZTGJYJ95QSR171",
+  "transcript_url": "https://app.fireflies.ai/view/01JXVRE8ND1VZTGJYJ95QSR171",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_reclassification"
+}

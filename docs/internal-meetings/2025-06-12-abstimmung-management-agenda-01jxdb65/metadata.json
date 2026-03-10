@@ -1,0 +1,105 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01JXDB6525SJX32FXMZ40RM46P/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlhEQjY1MjVTSlgzMkZYTVo0MFJNNDZQL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=ncxY8AConGJf1cOzpA7~jYJ~Os0dqVJbK5twSZZSTEVkCm-pkeQefiqVCy0tl-P1r6d~~OTnCjvLGzozjmadddxTZuA~T7slDMd9lUV-Dit6feRmYqPmdWf2Fxx3dB0kHU6Pu54S2-k6HLZdBrvisSgh6EfJUlWqPl93CVzdx-PwlvqOCpUuvzOfv7KxYVbeeA5p21p7UBWeUt0f7Rccya4bKlk6jaWxw4AvXFTnPnA3hufgdTE9JM~wTTanqthaCeoQOADaBBKIq3nr6h4Fs3LK8T7nDjh2cLRbtK6ZJR1NS7tl0NCERpTI7eHxebQZqQhBtte34f6RZQgaUu0SCA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com",
+    "t-online.de"
+  ],
+  "dominant_domain": "t-online.de",
+  "duration_minutes": 75.38999938964844,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "tommy@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:15Z",
+  "meeting_at": "2025-06-12T12:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-12T12:00:00.000Z",
+      "leave_time": "2025-06-12T13:15:38.904Z",
+      "name": "Niklas | matchical.com"
+    },
+    {
+      "join_time": "2025-06-12T12:01:00.415Z",
+      "leave_time": "2025-06-12T13:15:38.904Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-06-12T12:01:00.418Z",
+      "leave_time": "2025-06-12T13:15:38.904Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-06-12T12:31:36.960Z",
+      "leave_time": "2025-06-12T13:15:38.902Z",
+      "name": "GIRKE Michael"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "michael.girke@t-online.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "niklas@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JXDB6525SJX32FXMZ40RM46P",
+  "meeting_kind": "internal",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NDM3ODI3OWUtMWRjZi00NDBmLWI1NDEtMTYxODNmYWMwNmI5@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "tommy@matchical.com,konsti@matchical.com,michael.girke@t-online.de,niklas@matchical.com",
+    "konsti@matchical.com",
+    "michael.girke@t-online.de",
+    "niklas@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "michael.girke@t-online.de",
+      "name": ""
+    },
+    {
+      "email": "niklas@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 835,
+  "title": "Abstimmung management agenda",
+  "transcript_created_at": "2025-06-12T12:00:00Z",
+  "transcript_id": "01JXDB6525SJX32FXMZ40RM46P",
+  "transcript_url": "https://app.fireflies.ai/view/01JXDB6525SJX32FXMZ40RM46P",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_rule_internal"
+}

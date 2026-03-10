@@ -1,0 +1,61 @@
+{
+  "account_slug": "thestory",
+  "audio_url": "https://cdn.fireflies.ai/01K2CPXKCVVJPAXT0H3TR18ASQ/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzJDUFhLQ1ZWSlBBWFQwSDNUUjE4QVNRL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=j7BZggGYqLPscbU4srmLVKJ1TboOYgO4RGqeSCo7gvDqTn~6rooazWQsdRcr5DRX67LKUbIjo79aGPNmRinfp51AaDnmoFVANHx-23SMiDYQjiV9Ley4z-2brl5-rd9o1BUfN0iESeRn4zMvk4Sbi8XyZkqEKi0TsBuVWxf4epIulvUyddup2L-8veN7F3DbV4UxJuAwwLxbcg6DD5iVUYu2T8Z9AxhMr1gduYVgXKGUr3cRrDNTXNdM~ufzbNZJg7wJJd0hwSHIVh-nRCIGeXujHf3pZuxn8eZMhcikN1BbC5xkl6rrRXi~c6lQTiF77dCk5P7kucbamt93eqrP2w__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "crm_bucket": "partners",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 17.350000381469727,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:11:24Z",
+  "meeting_at": "2025-08-11T14:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-08-11T14:30:00.000Z",
+      "leave_time": "2025-08-11T14:47:30.711Z",
+      "name": "Dymitr Romanowski"
+    },
+    {
+      "join_time": "2025-08-11T14:33:09.374Z",
+      "leave_time": "2025-08-11T14:47:30.712Z",
+      "name": "Konstantin Schmitz"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K2CPXKCVVJPAXT0H3TR18ASQ",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://meet.google.com/rfj-pgvi-aok",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 128,
+  "title": "Konsty / Dymitr: two leads (Clone)",
+  "transcript_created_at": "2025-08-11T14:30:00Z",
+  "transcript_id": "01K2CPXKCVVJPAXT0H3TR18ASQ",
+  "transcript_url": "https://app.fireflies.ai/view/01K2CPXKCVVJPAXT0H3TR18ASQ",
+  "video_url": "https://cdn.fireflies.ai/01K2CPXKCVVJPAXT0H3TR18ASQ/video.mp4?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzJDUFhLQ1ZWSlBBWFQwSDNUUjE4QVNRL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=Aft6dfhsNvun1LPkTqKratQh~TFLDXLOqG0DQznssaiDGvFvoEhMWunUJYvr2KzAFWbD9zKG9tTek3FxEkf9HbJuyT2xrTT3YnfbjsB8HirrhbKfhsfeNwXN2~A1WaVnm2sBnc1YSJ1wXSsumsEysrsEVBnOjpeW4~vMgM9vVwthiT1mGihdKttXnqux98r1zyZganMhHrx7uOfNGfbkrqqsJheYWNMTvhX-79jMezd~YpKAUqY8VlZE1qzdKvi0olTtMXEX5N-AFTd4ifHBHhA9BxJNJapVK~eI8ehB9FiLcIti2UgBo63LW45gdUSjjbWVsVH1a9Pc3kZJL~s~9Q__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_reclassification"
+}

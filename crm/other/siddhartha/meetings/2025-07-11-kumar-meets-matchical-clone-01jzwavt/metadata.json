@@ -1,0 +1,66 @@
+{
+  "account_slug": "siddhartha",
+  "audio_url": "https://cdn.fireflies.ai/01JZWAVT8GCR2M6DH50PDQV8Z5/audio.mp3?Expires=1773292085&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlpXQVZUOEdDUjJNNkRINTBQRFFWOFo1L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA4NX19fV19&Signature=wNuXAoIOsZkjoq7yBdeVftgM5armfIuDbOf5Kpc8lTMi939n-rsMueohVD0mY9A7-9FNeXBqjGBrVWHgb5Cn3VhnxANKky0eNOwVuysG~1paQJUim-oPbsMaSSVIo42CSorsqN1D2A08BDj8Rc3H38wONZezN~GFIgKJDKeXo5d7yjH7buWOAxnUdax561mePAHWy2w2rjZrxXiYOvKoT8LQ4iVwQVW3N4mWQi9OaOYnoGb9k2CnJZkyHWo~WU1tyYhLVJEZD2wzpwfzOj3ssiMokgxk2XA-xVqWVBixxqFkZS9J0HvutZMMIA21OunOFNA5DfQeh6ZCs4NXBYfThg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "other",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 38.5099983215332,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:14:40Z",
+  "meeting_at": "2025-07-11T11:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-11T11:00:00.000Z",
+      "leave_time": "2025-07-11T11:38:37.356Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-07-11T11:00:00.000Z",
+      "leave_time": "2025-07-11T11:38:37.357Z",
+      "name": "Siddhartha (Unverified)"
+    },
+    {
+      "join_time": "2025-07-11T11:03:35.405Z",
+      "leave_time": "2025-07-11T11:38:37.358Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JZWAVT8GCR2M6DH50PDQV8Z5",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZDY2MTNmNjgtNDFiYS00Y2IwLWJlZjctMDU0ZTQ2MjNmYTc0@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 532,
+  "title": "Kumar meets matchical (Clone)",
+  "transcript_created_at": "2025-07-11T11:00:00Z",
+  "transcript_id": "01JZWAVT8GCR2M6DH50PDQV8Z5",
+  "transcript_url": "https://app.fireflies.ai/view/01JZWAVT8GCR2M6DH50PDQV8Z5",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_reclassification"
+}

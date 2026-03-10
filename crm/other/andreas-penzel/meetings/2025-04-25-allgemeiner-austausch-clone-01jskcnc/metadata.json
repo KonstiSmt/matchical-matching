@@ -1,0 +1,66 @@
+{
+  "account_slug": "andreas-penzel",
+  "audio_url": "https://cdn.fireflies.ai/01JSKCNC344FXHE5NE60MZKYVA/audio.mp3?Expires=1773290408&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlNLQ05DMzQ0RlhIRTVORTYwTVpLWVZBL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwOH19fV19&Signature=GJajeLnIhJI93N6eN90IEp6qc16Ucxo-brE7TRMFjdwPwzy3UFNoO6J7rBgzwi1ajEDxiwAjlmt6WXVgs1NozB0HOx-498Kqq2l6~~yOO5yrbToOArZ01JZndwNlzTH6V2JWbPNuPEaS7R28rNiHOqxDnSrd0gAFnrmchfOCyhuPqlqE8SnFaiBSXof7Dj68ATmEze1Sh3BEigbwAqaRHFoUFt6k1-zq2IcdiEnCbkqewPEwGt2Jd9Knxh6iID8E4DYtiaL3fwF4a6yoyuDy2T~-uvfRScJ2CA5q6iV8If~BETbwrpXuSVr~xDZtY4phg5u9fAVvK66M3XLh~ccILg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "planning",
+  "category_source": "keyword",
+  "crm_bucket": "other",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 101,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:42:27Z",
+  "meeting_at": "2025-04-25T08:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-04-25T08:00:00.000Z",
+      "leave_time": "2025-04-25T09:41:44.599Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-04-25T08:00:00.000Z",
+      "leave_time": "2025-04-25T09:41:44.600Z",
+      "name": "PENZEL Andreas"
+    },
+    {
+      "join_time": "2025-04-25T08:00:00.000Z",
+      "leave_time": "2025-04-25T09:41:44.601Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JSKCNC344FXHE5NE60MZKYVA",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NTEzNDAyYWUtMzY1Yi00YWMxLThmN2YtZmEwNzkzMThmNGU0@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1085,
+  "title": "Allgemeiner Austausch :-) (Clone)",
+  "transcript_created_at": "2025-04-25T08:00:00Z",
+  "transcript_id": "01JSKCNC344FXHE5NE60MZKYVA",
+  "transcript_url": "https://app.fireflies.ai/view/01JSKCNC344FXHE5NE60MZKYVA",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_reclassification"
+}

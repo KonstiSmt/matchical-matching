@@ -1,0 +1,66 @@
+{
+  "account_slug": "cassini",
+  "audio_url": "https://cdn.fireflies.ai/01JZMMF303YH8VVR9632E204PF/audio.mp3?Expires=1773292085&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlpNTUYzMDNZSDhWVlI5NjMyRTIwNFBGL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA4NX19fV19&Signature=jH7hieEVKVJQgPHUR3l~3fRpbTrInDF-myAm4hlcgLM~bt1BD-CKK4moEo-FqozM4RHvs-bZEoFlDeLsa9iWBayy6WHMUKoGyEH1BZPAmSUGe-VRx1BG9OTpOve-9~p4QnXE1vA--pLzHDImrUm3nqST17h892Ut5LrV~Af8I6GUIuP~I77WnjD~-wOmVfScS0TlsNA4iLAoUdD2ZWFbqUK7NaHuuKpC0ykTGOHyi7L6DiwzUlmuoc7S8TlayAeLPlk74nA9NNlQ9rAB6sOzZ40t~j9OswakhrMSZnWiI7Vu9SvgVBOr0sMSamF9ZZHwrOOLv6D1HlZl32fjF5FpTg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 60.86000061035156,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:14:36Z",
+  "meeting_at": "2025-07-11T12:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-11T12:00:00.000Z",
+      "leave_time": "2025-07-11T13:00:56.945Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-07-11T12:00:00.000Z",
+      "leave_time": "2025-07-11T13:00:56.946Z",
+      "name": "Stebens, André"
+    },
+    {
+      "join_time": "2025-07-11T12:00:44.724Z",
+      "leave_time": "2025-07-11T13:00:56.946Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JZMMF303YH8VVR9632E204PF",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZGE5OGI2MzAtN2E3OS00ZTViLWFhOTQtYmJlN2M5YmMwNDRl@thread.v2/0?context={\"Tid\":\"215a4151-c648-4e92-bac0-0c879d82313a\",\"Oid\":\"e76fd2c8-a918-4f6e-a230-5a363c5edf27\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 572,
+  "title": "Geschäftsentwicklung matchical (Clone)",
+  "transcript_created_at": "2025-07-11T12:00:00Z",
+  "transcript_id": "01JZMMF303YH8VVR9632E204PF",
+  "transcript_url": "https://app.fireflies.ai/view/01JZMMF303YH8VVR9632E204PF",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_reclassification"
+}

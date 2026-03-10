@@ -2,6 +2,7 @@
 
 ## Metadata
 
+- aliases: Timo Schmidtchen, Felix Sprengling, Christopher Haas, Michael Steinlein, Marko Lukosek, Riccardo Sforza
 - crm_bucket: clients
 - account_name: Constaff
 - domain: https://constaff.com

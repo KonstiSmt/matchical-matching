@@ -5,7 +5,7 @@
 - domain_aliases: cassini.de, aleri.de
 - crm_bucket: clients
 - account_name: Cassini
-- aliases: Aleri
+- aliases: Aleri, Ferras Al-Kadi, Marcus Iwanowski, André Stebens, Oliver van Laak, Michael Seipel
 - domain: https://cassini.ag
 - status: auto-created from Fireflies import
 - last_updated: 2026-03-09

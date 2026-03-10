@@ -2,6 +2,7 @@
 
 ## Metadata
 
+- aliases: Andreas Offenhäuser
 - crm_bucket: clients
 - account_name: Isax
 - domain: https://isax.com

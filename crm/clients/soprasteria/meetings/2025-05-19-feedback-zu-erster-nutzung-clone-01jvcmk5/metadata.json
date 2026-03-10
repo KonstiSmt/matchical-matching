@@ -1,0 +1,71 @@
+{
+  "account_slug": "soprasteria",
+  "audio_url": "https://cdn.fireflies.ai/01JVCMK5699A79CVH13ZVQE1C1/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlZDTUs1Njk5QTc5Q1ZIMTNaVlFFMUMxL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=uiUwaX7O1QDMLIvz4KGwdEFqQXwPescOr6OavIp7dW-9G6rXpySlv-wI7H6v5SFpCF8WC-pP61PVCWs2DfJyEQvqRodBmphJ7sgnbyzoJfGHWVPJD6eG0TceC-bvFFagAEUoe2GxY2QQzKSoATGOtVik1S2DhdnS3WDAsFEx6oeFo0FJJq2XG5Ma7~WqZqHPsKF7PeO-LGmQ4G6tiCLAQyLCfsc3dHe1ah4w1lCn8Tgs3A97QLZC3r4uwNefHfj35GTl79iPmKlKbc4RBkrjA32ESiqS3~8fXDTOr2I~29sjNpEDYd1kLkShQHgCtBPx5tZeWbiXN88pe~m0NcbqkQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "planning",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 13.510000228881836,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:53Z",
+  "meeting_at": "2025-05-19T12:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-05-19T12:00:00.000Z",
+      "leave_time": "2025-05-19T12:13:51.492Z",
+      "name": "KONITZ Sascha"
+    },
+    {
+      "join_time": "2025-05-19T12:00:00.000Z",
+      "leave_time": "2025-05-19T12:13:51.495Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-05-19T12:00:00.000Z",
+      "leave_time": "2025-05-19T12:13:51.495Z",
+      "name": "SCHMIDT Carina"
+    },
+    {
+      "join_time": "2025-05-19T12:01:42.340Z",
+      "leave_time": "2025-05-19T12:13:51.495Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JVCMK5699A79CVH13ZVQE1C1",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZTBmYWM3YzUtNDY0Mi00N2ZlLTkzYWEtN2I3MWVlNGJmODMw@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 178,
+  "title": "Feedback zu erster Nutzung (Clone)",
+  "transcript_created_at": "2025-05-19T12:00:00Z",
+  "transcript_id": "01JVCMK5699A79CVH13ZVQE1C1",
+  "transcript_url": "https://app.fireflies.ai/view/01JVCMK5699A79CVH13ZVQE1C1",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_reclassification"
+}

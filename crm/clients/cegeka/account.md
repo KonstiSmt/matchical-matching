@@ -2,6 +2,7 @@
 
 ## Metadata
 
+- aliases: Jürgen Wüst, Manfred Boegelein
 - crm_bucket: clients
 - account_name: Cegeka
 - domain: https://cegeka.com

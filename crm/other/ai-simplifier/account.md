@@ -2,6 +2,7 @@
 
 ## Metadata
 
+- aliases: Tom Lambotte
 - crm_bucket: other
 - account_name: Ai Simplifier
 - domain: https://ai-simplifier.com

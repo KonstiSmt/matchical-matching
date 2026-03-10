@@ -2,6 +2,7 @@
 
 ## Metadata
 
+- aliases: Sönke Bink
 - crm_bucket: clients
 - account_name: Adesso
 - domain: https://adesso.de

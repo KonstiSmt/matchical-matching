@@ -1,0 +1,66 @@
+{
+  "account_slug": "andreas-penzel",
+  "audio_url": "https://cdn.fireflies.ai/01JP258Y5628R912C536F9P9WC/audio.mp3?Expires=1773265216&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlAyNThZNTYyOFI5MTJDNTM2RjlQOVdDL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI2NTIxNn19fV19&Signature=vhWjKdKPqHpVHenl-xshfQFDb4kkErpH6wZAbkMqMlcCQzanmmiTVIhWha0kt0NGipNX8zX38xKkJQKCaJ8usB3OglCqXJTveA2R2BCmqZkZnzvStUU7HxkrrP2lY3hwDunBU-Fy0zpEQXNvgz1btx3ma4jBqVtRien0RZvg4grwCmSnq5Qq6E9PSK33gVhGRTcp5-6QQM-j3llyTaR9prIzYWP5XuR~K6OOopqZZKVz~uqRSc4fFPTGeBtwkX~41-Ya4O~M-LV1SZhRSMwEcHGTx3hHKPBwyyEdizsjctGoFITepSUKOnPIdKBoVAxPU9XwG1INqPPjG86aWeOSww__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 70.05999755859375,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T10:24:45Z",
+  "meeting_at": "2025-03-11T09:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-03-11T09:00:00.000Z",
+      "leave_time": "2025-03-11T10:08:52.004Z",
+      "name": "Bauer, Thomas"
+    },
+    {
+      "join_time": "2025-03-11T09:00:00.000Z",
+      "leave_time": "2025-03-11T10:08:52.005Z",
+      "name": "Konsti | matchical.com (Unverified)"
+    },
+    {
+      "join_time": "2025-03-11T09:00:00.000Z",
+      "leave_time": "2025-03-11T10:08:52.005Z",
+      "name": "Penzel, Andreas"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JP258Y5628R912C536F9P9WC",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_OTg0ODYyOGMtNDllMC00YzYxLWE3OTQtYzg3YzdjYzYyYmQz@thread.v2/0?context={\"Tid\":\"d9a88f1c-c7fe-4245-b405-8e572770ce7f\",\"Oid\":\"79b91bc4-5d6d-4c5b-8ddc-e0f1e2f618b3\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 740,
+  "title": "WG: Abstimmung AnPe|ThBa (Clone)",
+  "transcript_created_at": "2025-03-11T09:00:00Z",
+  "transcript_id": "01JP258Y5628R912C536F9P9WC",
+  "transcript_url": "https://app.fireflies.ai/view/01JP258Y5628R912C536F9P9WC",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "crm_bucket": "other",
+  "route_reason": "manual_transcript_reclassification"
+}

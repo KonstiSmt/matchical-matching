@@ -1,0 +1,61 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01K574AMNT4E70DBX3YTEF3WRC/audio.mp3?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzU3NEFNTlQ0RTcwREJYM1lURUYzV1JDL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=tSSGtkZ-wZ45Px1XveP-hOLV7jtLt1jQVeoLkeBOjnQF9qRaKiLFap8geTA4Bu4Hp0rOBaKjRZw9Mw64A-u7ndj41vlMG7HsaQsQuVkyofogCtPPvSgLtOjX19nUVY1r1i8x0PnUP6sFiYGBH7RqlDozQoA7p4o~ps59Jr4A8tzQbSKYYsbsTvJRD12Bqo5pDEP28BbAVYO2BLugzHzL4z4MbKPD5ZrYD5yZRQx34Sa2TE4BnoPwIK3kuk7AyyJk1AJBN4rsC3A2KUgcDoHRFf~Bu16VGR94uDzdYwT33FVIon0d1XZG2~XOGVGAeTLKKUSlzxOqSCMwVdGOS4csxw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 17.829999923706055,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:09:12Z",
+  "meeting_at": "2025-09-16T12:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-16T12:30:00.000Z",
+      "leave_time": "2025-09-16T12:52:56.980Z",
+      "name": "Caro (Unverified)"
+    },
+    {
+      "join_time": "2025-09-16T12:30:00.000Z",
+      "leave_time": "2025-09-16T12:52:56.980Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K574AMNT4E70DBX3YTEF3WRC",
+  "meeting_kind": "internal",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZGE5ZGYyY2ItMWM2NS00OWU0LTg5ODItZmY4ZDdhYzA0ODhk@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 180,
+  "title": "Sevdesk (Clone)",
+  "transcript_created_at": "2025-09-16T12:30:00Z",
+  "transcript_id": "01K574AMNT4E70DBX3YTEF3WRC",
+  "transcript_url": "https://app.fireflies.ai/view/01K574AMNT4E70DBX3YTEF3WRC",
+  "video_url": "https://cdn.fireflies.ai/01K574AMNT4E70DBX3YTEF3WRC/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzU3NEFNTlQ0RTcwREJYM1lURUYzV1JDL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=SsQ16~TBC5xKM3zY5gc4pwREoce-4dfbsTxhD1LQMxaEyHXaOlJsKERqy5dxD5ukvHthfl4FMgAl3SFnHdFKJW47ffJRwElBrsHc5tWCqZnJ79SxByMuLBThK6cSygLHSVoihlyZ9V1oGjjBpPiZv9anKbZViW9BnpWjOelgeiYimzm8k1~VNPNi~hsGGHpQ3nvXuwAqQFR~p6pW1C8aDBIUFOoYiqI2SITQIv09bTr4V8c00zyBdnQhclOWjQjoHKJcwH64FcLMfdMRu-tjPwEpXT1LmYJ4pi0a9kHHaQ~VGyLqpf3k3dPPBu5BNTVA-KHqZCzI0qVcETBHbn~lRA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_rule_internal"
+}
