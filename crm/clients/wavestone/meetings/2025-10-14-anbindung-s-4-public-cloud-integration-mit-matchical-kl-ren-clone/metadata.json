@@ -1,0 +1,65 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01K7CMFJ3CQQYQBGMWHMCGJQKZ/audio.mp3?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzdDTUZKM0NRUVlRQkdNV0hNQ0dKUUtaL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=olZwK-M77FJsj84oV55qSzAxzlU1U52cdBC8AcVp9zMhBYFlLxLKaZspG9NPff6cydM9HHOynbQje5seA9r3bq20jdtU4PRD9NMdnBNeQL0bbNoUBsPzVFX5FqeKj4IHrS4mqQXql4aBEAhlRvSANitNfey~N497K3qIE-i1XyYjHs85I-KmFeuTNk1KpofYiENwbJjLipNWkdc48sNCQD8dxqHo5XgHFZfDTrINqzPVlKcX9NLrzm7W00hs~~4BTVaw2A9oViExWjSe8iD10-ZUMmIvzcSQF~RJy0oWxC1J9js27Abdz-2KOifHzDzBmi5JR~AT1Z6TKEFqF0MueQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "delivery",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 38.7599983215332,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:33:52Z",
+  "meeting_at": "2025-10-14T12:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-10-14T12:00:00.000Z",
+      "leave_time": "2025-10-14T12:39:14.079Z",
+      "name": "Ellinger, Mario"
+    },
+    {
+      "join_time": "2025-10-14T12:00:00.000Z",
+      "leave_time": "2025-10-14T12:39:14.080Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-10-14T12:00:00.000Z",
+      "leave_time": "2025-10-14T12:38:43.581Z",
+      "name": "Pietrus, Harald"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K7CMFJ3CQQYQBGMWHMCGJQKZ",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YTliMjBkNjktMWY5MC00ZDkzLTk5YmUtMWJlOGExYWUyNmMx@thread.v2/0?context={\"Tid\":\"253f6bf7-6d0e-458a-b500-4aa22a9ec738\",\"Oid\":\"a1b33282-6dd5-4963-a07f-47a490af8cf2\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 359,
+  "title": "Anbindung S/4 Public Cloud Integration mit Matchical klären (Clone)",
+  "transcript_created_at": "2025-10-14T12:00:00Z",
+  "transcript_id": "01K7CMFJ3CQQYQBGMWHMCGJQKZ",
+  "transcript_url": "https://app.fireflies.ai/view/01K7CMFJ3CQQYQBGMWHMCGJQKZ",
+  "video_url": "https://cdn.fireflies.ai/01K7CMFJ3CQQYQBGMWHMCGJQKZ/video.mp4?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzdDTUZKM0NRUVlRQkdNV0hNQ0dKUUtaL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=cJx3Qp57ItpJz8mgEt3MIq3qK4TyQ0Gg4X8CIqz3d00dA2yB5mqRbzwItbHjFfYupGCAcClqeej18f28I0XKtephXlfgByjadIuA~HqHcSpTP9gAd~XZVpjU7H0rKlQ2VCWumDENbxHl7S4EO9PThdQPx6dVRr5busOvlA5mej8Ygyzlzmu3gqNQ881wfzDxvWU2tiWLAar0jJVcq9YAWvQXMHEBl3YjepsycMRzxb6ZIfgeOiIEYNYUrH1lMvMecdyuIBWjk45RqYDZbW3-PBvWi666kayvdn8IiZBmtHnekEA9JHJZJbXj~ha2l89zo3x8A4BzB5v7FsR0uo0SBA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

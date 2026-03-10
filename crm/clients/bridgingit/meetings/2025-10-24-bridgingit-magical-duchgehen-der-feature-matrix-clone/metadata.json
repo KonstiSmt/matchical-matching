@@ -1,0 +1,70 @@
+{
+  "account_slug": "bridgingit",
+  "audio_url": "https://cdn.fireflies.ai/01K82PTFJX7BGMDPJ9WJXXHTT1/audio.mp3?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzgyUFRGSlg3QkdNRFBKOVdKWFhIVFQxL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=o9iA65k1K8iHtN4ty8ElI3tf1ZXxnN2qBJscxnZc1YDHYxGYe9di4TrSY0jXSuQCqiHQeSGHGWZmqUoKPpq9QL2pvMu3H9Mi2tlPJIRxozNyiGGCBurjqRWk1335Jqp21XnWGlTWzU1C2ytMJrieXai57xKlAP53SIVBhg6CeCQRlLu9IHLZcxfFhm6ysYyFg2oP3zQLJwgDsMJu77Ml7sXrYnB4Tvs1cFia7JtMgyBAKVyR9mHB8yOTU3EIgOfA7OTslQtQiOJlwZt1MOrx8KdR4~GgXX1~xz2Rp4FMj4fvTLdH77T5NKhxvPnR-EMUCjaBjEPXQRBoUlPxrGO10g__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 114.2300033569336,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:33:21Z",
+  "meeting_at": "2025-10-24T07:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-10-24T07:00:00.000Z",
+      "leave_time": "2025-10-24T08:54:24.474Z",
+      "name": "Jens Schumacher"
+    },
+    {
+      "join_time": "2025-10-24T07:00:00.000Z",
+      "leave_time": "2025-10-24T08:54:24.474Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-10-24T07:00:00.000Z",
+      "leave_time": "2025-10-24T08:54:24.474Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-10-24T07:02:08.375Z",
+      "leave_time": "2025-10-24T08:54:24.474Z",
+      "name": "Carsten Schindler"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K82PTFJX7BGMDPJ9WJXXHTT1",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_Yjk1Zjk5NTktMTlhOS00MjQ0LWI3ZDYtMmM4ODMwZDFmMTk2@thread.v2/0?context={\"Tid\":\"6c3b9954-2075-41bc-af53-36e3975951e6\",\"Oid\":\"7e80ecf8-1770-458a-a9bc-11e2eda8f81d\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1141,
+  "title": "bridgingIT / Magical - Duchgehen der Feature-Matrix (Clone)",
+  "transcript_created_at": "2025-10-24T07:00:00Z",
+  "transcript_id": "01K82PTFJX7BGMDPJ9WJXXHTT1",
+  "transcript_url": "https://app.fireflies.ai/view/01K82PTFJX7BGMDPJ9WJXXHTT1",
+  "video_url": "https://cdn.fireflies.ai/01K82PTFJX7BGMDPJ9WJXXHTT1/video.mp4?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzgyUFRGSlg3QkdNRFBKOVdKWFhIVFQxL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=tFGnmDP3jeQcMrDPd7qS1LzsehAV2XrB6LgMr1jV87hc0KFlIv76B0SYIJ8eQMxrIYI5qPxf0Hps5xCMdLt-9w5MNRY9SMqyyPAIDirWXjBYLfLeJxkTqeuiDY6~sZdp0B3~rLe9i~5JHTOwpXoNmLQzFmxSZXsHdHIpv~eFkIo639m8PPzDjJ6KefQuOPBBawk1mstH8hz90UlolkADoIpYfOwM-4Lf~6P39zXsVoREjp5YSkGSmKhemzT-LjfFBoC2SaZbV-8B7YIfVk5fU05QC7fFGkCfqvqqBJmSoFK~Z8BZiSRXu8DEBzrhrm8~qs4VTH8F41oWaU9jrSEXPQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

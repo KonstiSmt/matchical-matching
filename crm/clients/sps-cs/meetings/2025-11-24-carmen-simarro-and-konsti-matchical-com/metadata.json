@@ -1,0 +1,76 @@
+{
+  "account_slug": "sps-cs",
+  "audio_url": "https://cdn.fireflies.ai/01KAKDH8AYEENXQEJCB8AQKEXJ/audio.mp3?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0FLREg4QVlFRU5YUUVKQ0I4QVFLRVhKL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=xM95e~ErOnLy1kP13IAFRDberrQAto7uBTbwK8gcbCWWHjV8hsJfkeEryiFHnq54Yvi4Kkf~eOunKeieB~foJk9ku4l2oPZ~cMyZIOmkVJUEZLMe32ciUXt3U0hxIWgxfeAQEUej018SJSLIucnS5z202HZA4vqlW8mE3mUfIeCH-95IDOa3AVGMxR5BC5Sk1UqHjWS7zE0E3shvZ7XuHKHBmFj2WzMSvTLF0C7zkatSiAJ3D1TIaBrF6E2ZvxUf7TBlzY-f6rLaL2a0h4svy29DKA7zQ-RXbSaG-W4J2Uo6UBE14-A7t0-n6iguvL~S7UpAGT4bnWpE8IZwWNgfFA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "sps-cs.de"
+  ],
+  "dominant_domain": "sps-cs.de",
+  "duration_minutes": 67.58999633789062,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:31:33Z",
+  "meeting_at": "2025-11-24T09:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-11-24T09:30:00.000Z",
+      "leave_time": "2025-11-24T10:37:47.577Z",
+      "name": "Carmen Simarro"
+    },
+    {
+      "join_time": "2025-11-24T09:30:00.000Z",
+      "leave_time": "2025-11-24T10:37:47.577Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": "Carmen Simarro",
+      "email": "info@sps-cs.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KAKDH8AYEENXQEJCB8AQKEXJ",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NDEyYjQ1YTktZDA4Ny00NWVkLTg5NzQtMWZkMDUyYjVmZWNl@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "info@sps-cs.de,konsti@matchical.com",
+    "info@sps-cs.de"
+  ],
+  "participants": [
+    {
+      "email": "info@sps-cs.de",
+      "name": "Carmen Simarro"
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "info@sps-cs.de",
+      "name": ""
+    }
+  ],
+  "sentence_count": 685,
+  "title": "Carmen Simarro and Konsti | matchical.com",
+  "transcript_created_at": "2025-11-24T09:30:00Z",
+  "transcript_id": "01KAKDH8AYEENXQEJCB8AQKEXJ",
+  "transcript_url": "https://app.fireflies.ai/view/01KAKDH8AYEENXQEJCB8AQKEXJ",
+  "video_url": "https://cdn.fireflies.ai/01KAKDH8AYEENXQEJCB8AQKEXJ/video.mp4?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0FLREg4QVlFRU5YUUVKQ0I4QVFLRVhKL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=NgbAE2gTt9Ta-sssCNtAnBPSpSdEmCLsLO9Dq7XsbG0-HqdUJuQe6JfWfH2~CW4qNwLqQitjdBZ4BIeywOodwmsotXT-HCT~6LZjmyjzcsJ3-d9XTQ8UrNwmNnRpjbNbhjm9X0rnCzfyA6pVfZe1OBO5f48hP3IsuUguj2Tp931gwwgOyvJVhbhRmrKaiddS6ZGpfabxY-pjbH9IDbXkOc5gOWV~fzf45bLW06FKIuDDxxHukt-XcgS6m7zJlu0v~MmuwQF8lQ~FaK4KSJ4TMHFpleCKyqHrrUZZgCQh8y6eWYB6rYKleTGZyk6kHPsXs4ZTeH9Y3Qv046zximemhg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "account_slug": "isax",
+  "audio_url": "https://cdn.fireflies.ai/01KB2G1JEBPY37T1E4KF0X3T66/audio.mp3?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0IyRzFKRUJQWTM3VDFFNEtGMFgzVDY2L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=MxUzB20mDq9Mf7kfmO1BbCKIbajyS3KVLf7zcf6oGEq-KosO8~AxQ9QDHmaPn50F0ijBF-TjmBIN2zLKTnOol0WXVfhOBerq3v08aYnojaKJj4pDJfyeWomGi8FmC2v0hIGdOHMB37WF1Ddc-8SUluMsBGwFTqLQ4xW2kBtFPr-TFQjOHbT~3141jqcOLXhNHd1nzGJXvDnI~KQLGVsN8aZCHx1f0AedjKvQ86DgwBdw7QFFlcWX8EuVNemfIhe54~dAUoXjUlm8W7ftvsSC84OncvfKTC4Uw2rYs4VsAdYQOJPGQWvE3~NkWMGZOhmWp2Ucb5pyE30WF1GTLOKHiQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "isax.com",
+    "matchical.com"
+  ],
+  "dominant_domain": "isax.com",
+  "duration_minutes": 39.79999923706055,
+  "fireflies_users": [
+    "tommy@matchical.com",
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:30:52Z",
+  "meeting_at": "2025-12-04T09:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-12-04T09:30:00.000Z",
+      "leave_time": "2025-12-04T10:11:10.363Z",
+      "name": "Andreas Offenhäuser"
+    },
+    {
+      "join_time": "2025-12-04T09:30:00.000Z",
+      "leave_time": "2025-12-04T10:11:10.363Z",
+      "name": "Burak Arslan"
+    },
+    {
+      "join_time": "2025-12-04T09:30:00.000Z",
+      "leave_time": "2025-12-04T10:11:10.363Z",
+      "name": "Ilhan Babac"
+    },
+    {
+      "join_time": "2025-12-04T09:30:00.000Z",
+      "leave_time": "2025-12-04T10:11:10.363Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-12-04T09:30:00.000Z",
+      "leave_time": "2025-12-04T10:11:10.363Z",
+      "name": "Steffen Marquardt"
+    },
+    {
+      "join_time": "2025-12-04T09:30:00.000Z",
+      "leave_time": "2025-12-04T10:11:10.363Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "steffen.marquardt@isax.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "burak.arslan@isax.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "ilhan.babac@isax.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "andreas.offenhaeuser@isax.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "sven.rotzsche@isax.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "layner.sayvongsa@isax.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KB2G1JEBPY37T1E4KF0X3T66",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_Y2Q3YTI4OTEtZjg1Yy00ODM2LTkzNjgtZGY3OTk5OGNiMjk5@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "tommy@matchical.com,steffen.marquardt@isax.com,burak.arslan@isax.com,ilhan.babac@isax.com,andreas.offenhaeuser@isax.com,sven.rotzsche@isax.com,layner.sayvongsa@isax.com,konsti@matchical.com",
+    "tommy@matchical.com",
+    "steffen.marquardt@isax.com",
+    "burak.arslan@isax.com",
+    "ilhan.babac@isax.com",
+    "andreas.offenhaeuser@isax.com",
+    "sven.rotzsche@isax.com",
+    "layner.sayvongsa@isax.com"
+  ],
+  "participants": [
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "steffen.marquardt@isax.com",
+      "name": ""
+    },
+    {
+      "email": "burak.arslan@isax.com",
+      "name": ""
+    },
+    {
+      "email": "ilhan.babac@isax.com",
+      "name": ""
+    },
+    {
+      "email": "andreas.offenhaeuser@isax.com",
+      "name": ""
+    },
+    {
+      "email": "sven.rotzsche@isax.com",
+      "name": ""
+    },
+    {
+      "email": "layner.sayvongsa@isax.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 443,
+  "title": "Check in matchical",
+  "transcript_created_at": "2025-12-04T09:30:00Z",
+  "transcript_id": "01KB2G1JEBPY37T1E4KF0X3T66",
+  "transcript_url": "https://app.fireflies.ai/view/01KB2G1JEBPY37T1E4KF0X3T66",
+  "video_url": "https://cdn.fireflies.ai/01KB2G1JEBPY37T1E4KF0X3T66/video.mp4?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0IyRzFKRUJQWTM3VDFFNEtGMFgzVDY2L3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=H1Ltju-jpAwWdyUovqn-YgDZMJZWiu5LN4TfJnY-K65brbEpWFuyGMWaegm~RkoGmGBZGuzDSHzWg3cCknM5Vs~6Vnlm-LIi0k2JAeWVEFfuWnLI2vBfoRulRZbpomJPQm40ruJawwSDpdeAAUg38kIVSgv5nBxj5w39NC1UoEOt-s8YF3vY2PU2uZbPqvl3XnIuWlJssgfZPf1-10XqKWC2LtW0GuPYFzjNV8vmT~xQhc~UwT6VcKF~nGoY6UxB2JaxcNOrqqqkxJPVfny7ZhPjeMh0xiu4SaCPp6S5ulg7GYBbyB~-fjRU3tc7h69p6P5lDe2DgyUrpqph09Yynw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

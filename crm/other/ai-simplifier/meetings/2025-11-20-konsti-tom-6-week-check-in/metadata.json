@@ -1,0 +1,72 @@
+{
+  "account_slug": "ai-simplifier",
+  "audio_url": "https://cdn.fireflies.ai/01KABPZB7057P6AY92E1YWVX73/audio.mp3?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0FCUFpCNzA1N1A2QVk5MkUxWVdWWDczL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=ppVq4YF6kgWkGG7gF0dZzS8dSRjZaiXCOdHxqVKAgeluOBw9Q-ruYlmg6dOs7OzxqO3~3-NECokVuPTlLWLZfOGzlUXA0J0IKAK9voz4Hzev8X~CUABJQEwaFF-gAU6Z2TCU1uVUaOUaVvA76C9DFP~53d0z2~mt9yllIDKTJAnqIHS2XnSDRQ563dcOP9eeGVIwu7PwdGg3kfHsSg1-Bc~Gqvl~YRTjCODtLi74V5Dw5BkGjI~127WdLHKOIv7zenYs~zLGe3e0B~peUj--Csx~kuF9XBgtEOb~p3Y07NjdyUswLDQFd0RmzrnDCTRtqcpy0AAiiS8mApUWB091Ug__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "other",
+  "detected_domains": [
+    "ai-simplifier.com",
+    "matchical.com"
+  ],
+  "dominant_domain": "ai-simplifier.com",
+  "duration_minutes": 10.5,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "tom@ai-simplifier.com",
+  "local_imported_at": "2026-03-10T09:31:38Z",
+  "meeting_at": "2025-11-20T14:15:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-11-20T14:15:00.000Z",
+      "leave_time": "2025-11-20T14:18:59.866Z",
+      "name": "Tom Lambotte"
+    },
+    {
+      "join_time": "2025-11-20T14:24:56.869Z",
+      "leave_time": "2025-11-20T14:26:22.582Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "tom@ai-simplifier.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KABPZB7057P6AY92E1YWVX73",
+  "meeting_kind": "other",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YWUyMTlmNGEtZjQ0ZC00MTk4LTlmNGMtYWRiZmM3MzkwMDA5@thread.v2/0?context={\"Tid\":\"4fdb7675-2c28-4dfb-8fcf-773be808ea24\",\"Oid\":\"8bf30d7d-0e0c-45ae-b422-f30853ac124e\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "tom@ai-simplifier.com,konsti@matchical.com",
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "tom@ai-simplifier.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 3,
+  "title": "Konsti <> Tom - 6 Week Check-in",
+  "transcript_created_at": "2025-11-20T14:15:00Z",
+  "transcript_id": "01KABPZB7057P6AY92E1YWVX73",
+  "transcript_url": "https://app.fireflies.ai/view/01KABPZB7057P6AY92E1YWVX73",
+  "video_url": "https://cdn.fireflies.ai/01KABPZB7057P6AY92E1YWVX73/video.mp4?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0FCUFpCNzA1N1A2QVk5MkUxWVdWWDczL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=NS4b-qsVtwF9yVRymo1ZmHtKiER4TFgOHYM5TYbbPkhK6Np~NIJsw3WhC90b2wpFfgTp7Uvwx1DEHU~zSupCQPfc-6QLOlcja2RAI4yNjo0dnTvny7qaY18DldsbVmtjRfp~iE-Z0piatZ2k64FGBbKx75cW2VMN8lb53hpQi7HUhQUb-aQfl9qXGKdoE8l5lYGFU0nIXcZAZWuJJH9IC~t72rWKRh-mkIkrZHDYg82pCxiFMEjzVCKtPbvuecM-PnorLjHltQJ0zbQXSzEWPYXWzRXV5pjJ~J8U6SxK1pqE6sN42lDNDYRYzVo2t8-3pc~wsfIS~MD4wCHvZIIe4w__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01KAXJ8PM7541DHWQPBD6NTFNF/audio.mp3?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0FYSjhQTTc1NDFESFdRUEJENk5URk5GL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=e6P3S00YOM3TDmnsnBb-OMmkg19hkVQ2oAQpwZvwqu5CaF~ArnprnIH4eqely2oxq-KnMXz6oQ1-I49S94ZdnKy5ms2O8~EBwrqABpulaLMjGJh7Rndaa6caiJH8ofDMQ3hq2g9JyYzhQDYYDf-SxwCFFt8mcVmyIEeXt2wmDwk4Xs5VFacFfIqTWu-swFnaXKURBlpfafcfimUhGxdEc5VTP-X1~-Hm7C~6HH4PMNbIXUnlDIMbwdTT5VUfxxc61Ki9Vt5slv2qGyDrFVtxaAiSHDJi0Fcf0UywPfRcyzDpHMOifRcAq7ezMJLnhdqmrJ5mqEyvgVvTC3jKPMqd-Q__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "planning",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 323.1600036621094,
+  "fireflies_users": [],
+  "host_email": null,
+  "local_imported_at": "2026-03-10T09:31:31Z",
+  "meeting_at": "2025-11-25T13:10:00Z",
+  "meeting_attendance": [],
+  "meeting_attendees": [],
+  "meeting_id": "01KAXJ8PM7541DHWQPBD6NTFNF",
+  "meeting_kind": "client",
+  "meeting_link": null,
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 3128,
+  "title": "Internal Workshop",
+  "transcript_created_at": "2025-11-25T13:10:00Z",
+  "transcript_id": "01KAXJ8PM7541DHWQPBD6NTFNF",
+  "transcript_url": "https://app.fireflies.ai/view/01KAXJ8PM7541DHWQPBD6NTFNF",
+  "video_url": null,
+  "workspace_users": []
+}

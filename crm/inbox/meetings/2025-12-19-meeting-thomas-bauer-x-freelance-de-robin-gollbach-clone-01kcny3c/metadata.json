@@ -1,0 +1,65 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01KCNY3CPSFXZKQCYM887AVQAN/audio.mp3?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0NOWTNDUFNGWFpLUUNZTTg4N0FWUUFOL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=qqyQuOke4ZAayMb9Lqt~Fc78djW6rBR40mogUEe94cR-dbJVz1Ztc-ZenY9kIazlwHp9~gNyQ3KVwedyjnaUfcvdH~2qbvrqhWGhfhofRD8chyB3lqD32056Wf7VFg3qvbKseIf4p3cqfj94PntPoRzE67LUJr2rL4GSCDFus-88JO0GfO~naWtCr74wTZn4bMIXioAGCFR-6HVsNjyYq4mkZ-5WyrkT~E6gqr33a~HBCJNWqZydTZVYParg4xCwm7SNQv1umJIcuJ9cPI-CY7XlU8ndwb0jo27c7m6RVh9XnFhu~V7siXyyGj90qsuR9D5VaL6LhQsqUZH238AqXw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 44.97999954223633,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:29:47Z",
+  "meeting_at": "2025-12-19T10:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-12-19T10:30:00.000Z",
+      "leave_time": "2025-12-19T11:15:02.178Z",
+      "name": "Robin Gollbach"
+    },
+    {
+      "join_time": "2025-12-19T10:30:00.000Z",
+      "leave_time": "2025-12-19T11:15:02.178Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-12-19T10:31:14.783Z",
+      "leave_time": "2025-12-19T11:15:02.178Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KCNY3CPSFXZKQCYM887AVQAN",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_Njk4MjMwZmItYjVlZi00YzQyLWJmZGQtM2QxYTYxOTkxMjUy@thread.v2/0?context={\"Tid\":\"5846b129-8c98-4422-b528-5c15a8f724b7\",\"Oid\":\"bb60acee-7206-4494-bb72-4472127fa3a4\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 466,
+  "title": "Meeting Thomas Bauer x freelance.de (Robin Gollbach) (Clone)",
+  "transcript_created_at": "2025-12-19T10:30:00Z",
+  "transcript_id": "01KCNY3CPSFXZKQCYM887AVQAN",
+  "transcript_url": "https://app.fireflies.ai/view/01KCNY3CPSFXZKQCYM887AVQAN",
+  "video_url": "https://cdn.fireflies.ai/01KCNY3CPSFXZKQCYM887AVQAN/video.mp4?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0NOWTNDUFNGWFpLUUNZTTg4N0FWUUFOL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=Z7Ew~Ztt7G2I4feBluf6dgLwe41ZX0pPKzKMGO--BFoeSdWTHn9Zu8HvBAAyoOgnG0LNDX5KwsyvNuaECZPI5PoA5zoGTesg5gRTbyks3pdamvFeQ~aR7f3PFwYMqZbhYKg2Ca1heAG7~pLjkNzxL3H9cjWM9pgKeEUeH8hA0Jfp4y3UFy1dps3D8Hu5w1ng1SZVGm3MSEZxm3BO4~3tGVLo9lxOp~OAll04kA6h-y-e91EbqPegOFxbINjf72fOwl99~HMBWao-09ykeJlrRqfxBW6Q4H~fhf61sYlr5WsKUXJ8ks7m2XzEEj4pkJ0FaA1BiRgec0VYf2FKQydBKQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

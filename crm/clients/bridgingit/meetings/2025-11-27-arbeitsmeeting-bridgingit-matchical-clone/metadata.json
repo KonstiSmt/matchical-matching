@@ -1,0 +1,70 @@
+{
+  "account_slug": "bridgingit",
+  "audio_url": "https://cdn.fireflies.ai/01KAKDH89R7DMETJS5QS84MSHN/audio.mp3?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0FLREg4OVI3RE1FVEpTNVFTODRNU0hOL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=vilynz2NF1uc8M0DuJ4K9MC3cfbz2FrbI8sWHclKFYPLAL1aXM16ExwoCo6Y7q8lN1x7AohY3d4gZicg6jV6jYq~0wG7sySh4Jf9KoCOtsXZnkYWyfhd~SohY7bGvA06OoGoUYtdGyGIxzetVrp6HbX24GxJ2vc0-dVjOW0qGFYFsaQgXBmNdcMmaEGr6Ka-6YEV7nsEKp8ggTX2mlBH7aGUNdIu~FJzhh08kUDvyZgZlORkk0FCfgnNVGCx~7TIMSwjGV7U7UPTIF0-TuB4QctFyH3FaRrYpLhh9jKk9Yp8RFJMiAv~3r0PFgVeB3KJXSAY5Plhq9Mig0Grn7sIVA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 136.5,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:31:17Z",
+  "meeting_at": "2025-11-27T12:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-11-27T12:00:00.000Z",
+      "leave_time": "2025-11-27T14:17:25.986Z",
+      "name": "Carsten Schindler"
+    },
+    {
+      "join_time": "2025-11-27T12:00:00.000Z",
+      "leave_time": "2025-11-27T14:17:25.986Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-11-27T12:02:28.610Z",
+      "leave_time": "2025-11-27T14:17:25.985Z",
+      "name": "André Krippendorf"
+    },
+    {
+      "join_time": "2025-11-27T12:11:14.521Z",
+      "leave_time": "2025-11-27T14:17:25.986Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KAKDH89R7DMETJS5QS84MSHN",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_Nzg2YWFkYmQtZGQ4Zi00NzZlLWIwMmUtMGI3YjNiZmNkMDBl@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1112,
+  "title": "Arbeitsmeeting BridgingIT <> matchical (Clone)",
+  "transcript_created_at": "2025-11-27T12:00:00Z",
+  "transcript_id": "01KAKDH89R7DMETJS5QS84MSHN",
+  "transcript_url": "https://app.fireflies.ai/view/01KAKDH89R7DMETJS5QS84MSHN",
+  "video_url": "https://cdn.fireflies.ai/01KAKDH89R7DMETJS5QS84MSHN/video.mp4?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0FLREg4OVI3RE1FVEpTNVFTODRNU0hOL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=y3VFlgrj3QqGoai2Qpwx1jNkr6I6uRy8whDGMHiwwmxiGx-EoENtRr87Vq-XdrIab3CuKPIyvJukNZWIfnq0pA2eEQpnKB-Wwfq0Jfu0bCQLHxnFxzrZ1E5B4DleJpu2QlgGHGRIJwBdzcGsDWVRg2K9364BS-WFGIsDDhCGLMyHEsgbnocFRcX2DSvD3optFFZdaAITUtGS3RLpHlIiOcFOINwHgAem~FegxRcYlV6ueXMI~lwM~t5EsOXLsMs1u2llBNpdzj5eHEATsuPEKA2T9zJ4iy6IY~K4BDmyOtK5IkAKqIbApgtY5OaURWraUzwOUDaSpZVFSvbF5LUpdw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

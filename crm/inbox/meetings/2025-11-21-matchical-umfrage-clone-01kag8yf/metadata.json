@@ -1,0 +1,65 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01KAG8YF7A4WHJ96RNA67SQVPF/audio.mp3?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0FHOFlGN0E0V0hKOTZSTkE2N1NRVlBGL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=uvdn6mRDwhQGFhG6HQzBkA6GSs-eMecoVzLlysu~OXbRYuJMa-BjiztWH5BcKdCP3y-Jnmli2k0~PlrtwH-NRdHUdFdML3nA0fsI05Snl0kUK5~uOLUhUlS2UA3Gx2OVw8vw2xi1CEX1rt9LMSuV7ESKYkFYma1jD1sDHxtdydPrmaY6TIlOE1MFEwFR-c8C9N6Skvv7eNN5bzQCwYng~YgPVR7b5z9OFJ~zmA8oe0eZAqVDmyKyzY~22EhiNRrcLwwnE-E0tJN8eSrwnwUWBnLzQxGQ6o4KsiLCPpY9rJmDETjSRYE50mYqreYAmHJUBHXhOx-pbk846V~Bk7Dp6g__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 59.060001373291016,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:31:36Z",
+  "meeting_at": "2025-11-21T12:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-11-21T12:00:00.000Z",
+      "leave_time": "2025-11-21T12:59:03.704Z",
+      "name": "ARNAUT Inesa"
+    },
+    {
+      "join_time": "2025-11-21T12:00:00.000Z",
+      "leave_time": "2025-11-21T12:59:03.704Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-11-21T12:02:56.655Z",
+      "leave_time": "2025-11-21T12:59:03.705Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KAG8YF7A4WHJ96RNA67SQVPF",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ODA0OWMxOGItZWM5NS00MzQ5LWEzOTEtN2IzZjE2NzBkOTAy@thread.v2/0?context={\"Tid\":\"5de96c96-c87c-4dce-aad9-f5c557b52ac1\",\"Oid\":\"72a150f5-2876-43d2-a983-681fb2da9191\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 642,
+  "title": "Matchical Umfrage (Clone)",
+  "transcript_created_at": "2025-11-21T12:00:00Z",
+  "transcript_id": "01KAG8YF7A4WHJ96RNA67SQVPF",
+  "transcript_url": "https://app.fireflies.ai/view/01KAG8YF7A4WHJ96RNA67SQVPF",
+  "video_url": "https://cdn.fireflies.ai/01KAG8YF7A4WHJ96RNA67SQVPF/video.mp4?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0FHOFlGN0E0V0hKOTZSTkE2N1NRVlBGL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=bG34GlYyPtGVil5XLEc7OFAqQ9i~HDuYPYTa3yYwGOlMkB4CskGLREk09r~~0Gx0z5nEgijWwxuHQ2SErId4fREDIaP6V8lydqZrY3b9EzwJYuIAFPhPekkNXEmYEO55zyk-lL-JXg3oN8ev4kMraHzbCTN1obyS8rECEAwnY~HPh-JNopjKfy5P3YE7cstd40RkW6qulq1L6A4ZWjFIx~8ZXf18Vu8tTi6Fq~a1u4MncuXQ6LiY~lC99OXImx3jqiICEcyvT3zNhMrjECmj1dT2j-XrV86rGE03~Pc78xRbGCxuUJnOu5IuAC-2B95lhUitrY4Ra0LPiM3T84-22w__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01KBZD42ZVD6VF5DGQ44B4CD20/audio.mp3?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0JaRDQyWlZENlZGNURHUTQ0QjRDRDIwL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=XflcNOMft5iONWmLKGyqw4Kyekooqm4jKLQp3wG0Uw68olE1YDzPYxrB2R3grkDuQ53gRSKhIonuke7fYTCLT008RhFlLhYUAZ1Xn~NZ432ZwS-8lNivjLDE9Bld9HCoLmfcaMrWeuP6J8eXDP5yawAYxfUlMvML~5Xs1iHVVLgvh3yFGlRqLOBdnVp0bC7I3qY5EBMVNRWoRW3O~moIqXTjLVgYeu~pjHCtyxG3DZNReZnrEZUrn3w58DKTgZtSADPKsAQ87lI58QwB7nV8PyCrBTXjCyjorTNYjtZDJZBmwKxBfUe8H-ScT0hn9vvG9RmwiIGrRPFUDQ7oMpwLyA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 21.760000228881836,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:30:39Z",
+  "meeting_at": "2025-12-10T13:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-12-10T13:00:00.000Z",
+      "leave_time": "2025-12-10T13:22:40.033Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-12-10T13:00:00.000Z",
+      "leave_time": "2025-12-10T13:22:40.033Z",
+      "name": "Magnus Gernlein"
+    },
+    {
+      "join_time": "2025-12-10T13:00:00.000Z",
+      "leave_time": "2025-12-10T13:22:40.033Z",
+      "name": "Michael Fossler (Unverified)"
+    },
+    {
+      "join_time": "2025-12-10T13:00:00.000Z",
+      "leave_time": "2025-12-10T13:22:40.033Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KBZD42ZVD6VF5DGQ44B4CD20",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YTM0NDljZmQtYThmYi00YjJkLTk2M2YtMzEwMDAyN2U3NWIx@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 285,
+  "title": "Alignment Interface freelancermap.de (Clone)",
+  "transcript_created_at": "2025-12-10T13:00:00Z",
+  "transcript_id": "01KBZD42ZVD6VF5DGQ44B4CD20",
+  "transcript_url": "https://app.fireflies.ai/view/01KBZD42ZVD6VF5DGQ44B4CD20",
+  "video_url": "https://cdn.fireflies.ai/01KBZD42ZVD6VF5DGQ44B4CD20/video.mp4?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0JaRDQyWlZENlZGNURHUTQ0QjRDRDIwL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=NwG2qmvRHuDYT6gLPRCvkroKuzufECWauVdUVNMto45skrrkbycPlfOZXYxv4R805zmmwxqu1N~yJAcGddBF~3cN-gtOcDWYSxfMVrjmNML6HCvTQrtmovExAkjHhNrbxs5uJ3QsDUROPH0tiTTLTdVTYMzkwv6eVAm2VdHAqoEeTdcj9W2F2aRBIjCWBeTh9uuHJMbsRjUqG6epfXuYdrsKBswc2xADGzcOAJjEaEjkIbmCdsRUOOnzGnjrhmlV4sdgZZCrhbbv7k8ey1bccT1aHU2fauMt1CDSRTbEVZDFgeudRQghgv5A9hCxZNWvqyLeD8eYq116TAvjmc58kA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

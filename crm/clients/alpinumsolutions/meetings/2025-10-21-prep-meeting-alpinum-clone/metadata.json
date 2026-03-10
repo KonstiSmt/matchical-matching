@@ -1,0 +1,61 @@
+{
+  "account_slug": "alpinumsolutions",
+  "audio_url": "https://cdn.fireflies.ai/01K82W384K0KTTQG8YQW25W0NB/audio.mp3?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzgyVzM4NEswS1RUUUc4WVFXMjVXME5CL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=NPSouJiNUtmfi6Hkmc1nZdw3~g9g9Y55OO-htHMk6mBhn2AoLsQhhs~8Qe7gaVChB~HrBk9IgukGiMMfZLIX1ySFuHhIIlr05WzYyJOGH3CXo1f64qFDrpN-NImNCyYko8~lzXIXYpnwciWzS0Y7xbN8WzL3G2EWAe80l1CGl1h5KDX-o0DKMyjWUZIDh9RiDLoVEgIHvD~TMuESaYHZUp0GqGD28daxx~5tZzArSX4S7CZeXdOwjpeGY88vg8x0iGITh9qctaMZdG2yWGLSxOL58M13N8u6RvN7BOVDJ-KFliGEuwJODIl3s8mqiH0ysUSLh4uGC0vS9RTQ6GXJMA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 49.619998931884766,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:33:39Z",
+  "meeting_at": "2025-10-21T15:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-10-21T15:30:00.000Z",
+      "leave_time": "2025-10-21T16:31:02.386Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-10-21T15:30:00.000Z",
+      "leave_time": "2025-10-21T16:30:49.885Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K82W384K0KTTQG8YQW25W0NB",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NThlNmEwYzQtMmQxYi00ZWM4LWFkMDUtZWU3NTBkMWM1ZjVh@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 579,
+  "title": "Prep Meeting Alpinum (Clone)",
+  "transcript_created_at": "2025-10-21T15:30:00Z",
+  "transcript_id": "01K82W384K0KTTQG8YQW25W0NB",
+  "transcript_url": "https://app.fireflies.ai/view/01K82W384K0KTTQG8YQW25W0NB",
+  "video_url": "https://cdn.fireflies.ai/01K82W384K0KTTQG8YQW25W0NB/video.mp4?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzgyVzM4NEswS1RUUUc4WVFXMjVXME5CL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=sBQKNB0FXDVpCb8NOsP31x7Il-7FiWiDK~qRD73w5NS6wRHEcbbc9~mK-FXjoC9soQZ9NG68SB7qTyMA2sjUBEkOfXNJ6GEq8pAlF1Igp5BqeyB7DLJyo2XyXbVj-FNYj5Jpp1GoMuhU~8golEP8nEjZEQdu0Gyy1OAJmZQQIajGHDUc8FcxgiImTEH3ftyO3MCB~nCPCqWsSuwZMVsWlVsNrjvy-~yqGTkQ-KTkIcDKqu-HK8G-bUAW1Grm1btLaxlIPusjLSJjXrwHPrnaL770UdzU3suCXA97x-vEAGzWL61J1QUjteFjHXx2aqlTeSKcL1bl1TXcN-OK4EDRDA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_reclassification_from_inbox"
+}

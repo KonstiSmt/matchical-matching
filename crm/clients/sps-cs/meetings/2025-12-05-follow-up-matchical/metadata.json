@@ -1,0 +1,137 @@
+{
+  "account_slug": "sps-cs",
+  "audio_url": "https://cdn.fireflies.ai/01KBD9P316HRMMT8VZY27F0W2Y/audio.mp3?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0JEOVAzMTZIUk1NVDhWWlkyN0YwVzJZL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=rcol63liGmAU2y1gt-PoLGM5NE6qTpbE6O1XKnacB8UkDNCRupKXEcwD0H~bt4B66u62FD81X18to~TV1~cSg8sTbVG-JFQ~S47YMab~S~YZnSWIePIPm1gDDaH0ihZJaUkAn2M678XTfpRk6RvzH24tJ0f9mCpMrzk0L7~Wbyj~LvlskoadivuA6XAjsjGRHn9qs5G0lc3733xFVzmjFhidJP97yMsmuICTICBYCs7QRV~t-A1H-9~X3Ole0GWewq1~rY0STjVJ8~9mWI3uBUcryvlYBfm22awKDxvyweOtIAgkXn9~fVyRu2AihrniWph2VNWpK1OiPg4047aopg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "sps-cs.de"
+  ],
+  "dominant_domain": "sps-cs.de",
+  "duration_minutes": 65.5999984741211,
+  "fireflies_users": [
+    "tommy@matchical.com",
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:30:46Z",
+  "meeting_at": "2025-12-05T13:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-12-05T13:00:00.000Z",
+      "leave_time": "2025-12-05T14:05:38.270Z",
+      "name": "Alexandra Boyde"
+    },
+    {
+      "join_time": "2025-12-05T13:00:00.000Z",
+      "leave_time": "2025-12-05T14:05:38.270Z",
+      "name": "Carmen Simarro"
+    },
+    {
+      "join_time": "2025-12-05T13:00:00.000Z",
+      "leave_time": "2025-12-05T14:05:38.270Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-12-05T13:00:00.000Z",
+      "leave_time": "2025-12-05T14:05:38.270Z",
+      "name": "Michèle Bullmann"
+    },
+    {
+      "join_time": "2025-12-05T13:00:00.000Z",
+      "leave_time": "2025-12-05T14:05:38.270Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-12-05T13:00:00.000Z",
+      "leave_time": "2025-12-05T14:05:38.270Z",
+      "name": "Ulrich Wenzel"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "info@sps-cs.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "alexandra.boyde@sps-cs.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "michele.bullmann@sps-cs.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "ulrich.wenzel@sps-cs.de",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KBD9P316HRMMT8VZY27F0W2Y",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MjhjN2Q1YTItNzYzMS00MzZmLTk1NmMtMzcyMDE2MGU2MjQ1@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com,info@sps-cs.de,tommy@matchical.com,alexandra.boyde@sps-cs.de,michele.bullmann@sps-cs.de,ulrich.wenzel@sps-cs.de",
+    "info@sps-cs.de",
+    "tommy@matchical.com",
+    "alexandra.boyde@sps-cs.de",
+    "michele.bullmann@sps-cs.de",
+    "ulrich.wenzel@sps-cs.de"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "info@sps-cs.de",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "alexandra.boyde@sps-cs.de",
+      "name": ""
+    },
+    {
+      "email": "michele.bullmann@sps-cs.de",
+      "name": ""
+    },
+    {
+      "email": "ulrich.wenzel@sps-cs.de",
+      "name": ""
+    }
+  ],
+  "sentence_count": 722,
+  "title": "Follow up matchical",
+  "transcript_created_at": "2025-12-05T13:00:00Z",
+  "transcript_id": "01KBD9P316HRMMT8VZY27F0W2Y",
+  "transcript_url": "https://app.fireflies.ai/view/01KBD9P316HRMMT8VZY27F0W2Y",
+  "video_url": "https://cdn.fireflies.ai/01KBD9P316HRMMT8VZY27F0W2Y/video.mp4?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0JEOVAzMTZIUk1NVDhWWlkyN0YwVzJZL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=KEUGeUm5M7HZHLLT5-7uzmj-6EQo4KfEme5d2IQBGJZfbWulQWu0oLUm0-k8e1zVkFOM1Fb23teNeKpVAJqhYPgIe~l6otZKgQiEJGZUvo65jpYezlYKWa2BlwTL9S-tFDQz6xF5nf9qLwZ10oifRHkKBXeO53Io9bJL7Nn5ncfu-Bx-1pNsB0bQQhreUINqeUIzXBU8aOSANW3-29g0f8~JJ4V1Xu4Z9c8TDp7Eiv9Th4FyE4gEznRLI4mC4nz7gbcvsDhujXWbeU1ig~z7YZf1j9trZX02L4wGHT75xPZicW8OVsOTwaihUzs-S3JaY01F4Z2OpCLv-En9lQdmGA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

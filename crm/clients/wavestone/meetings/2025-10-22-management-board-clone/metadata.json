@@ -1,0 +1,61 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01K817NGACV0CRP5977T3R4HB0/audio.mp3?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzgxN05HQUNWMENSUDU5NzdUM1I0SEIwL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=S8bLsWsRjMmS2iMqUdrv6HaaowN8PY019h0aQi~57NR8ioJZFh0dbZUg1pCPsb49zVV83XQbjXqwEKzBDnD6Br2aCF~oRzQSZQHYkHzGS4yn9OR-NzK2h4KLDFFUp~X1ji-T~OV-XEPEuhkxyaNNp~zkmOE7dR7okPmY9wDCSnoF8Lc-miCVSSFV9cY9Fjxpjpf7RenAuHwn2~kmfPg5oR2BWGFAtjIIMThwA2yueMv5NESF3NPk1CAN3LGmGm3B41t6SJwrQ2BZEBgQn0tkLPgukmvoL5a7fSfPfrb0xThsWetrc3G4pSVc5IjfWkDRcWKSXKA3wP-4n2jYHmKfng__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 103.27999877929688,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:33:26Z",
+  "meeting_at": "2025-10-22T13:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-10-22T13:30:00.000Z",
+      "leave_time": "2025-10-22T15:13:59.457Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-10-22T13:33:49.781Z",
+      "leave_time": "2025-10-22T15:13:59.457Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K817NGACV0CRP5977T3R4HB0",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ODJhOGFkNTItZGUxNy00NjU1LWI4MGMtMDAyMzhiYzZmZjcz@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1016,
+  "title": "Management board (Clone)",
+  "transcript_created_at": "2025-10-22T13:30:00Z",
+  "transcript_id": "01K817NGACV0CRP5977T3R4HB0",
+  "transcript_url": "https://app.fireflies.ai/view/01K817NGACV0CRP5977T3R4HB0",
+  "video_url": "https://cdn.fireflies.ai/01K817NGACV0CRP5977T3R4HB0/video.mp4?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzgxN05HQUNWMENSUDU5NzdUM1I0SEIwL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=ZB2iAaLoC5dG4LZCRLo5oF6wIgFolFzaDQkvDkjVJtDByw2USXZJy78S8Kb~rLp5aO9RTrUoXF8b3deYL9WGjsm8iu4QJxAtXFNufdrgqZmHAYRLkTwBrcVC84gO3p15AYmNurNO-cA2q8oQzE4EvsHxclBsO9e66HHR16Sdfq6jKk0SKi8YcaLEkzT06~HVA9zlwBOjsdWYUj8YGMTPVm12sElL9td-s1KBjqZTJTdDMT0FVPcBLrO-NZXRWiVsMJUifpf8QAoLTi2neMXIHIEkOpRjQRhInuOCt3HVX9Z3rwPXwlfzSaCzHgaoH-MJJYASSVOB2RaWmYyawKx57A__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_based_reclassification"
+}

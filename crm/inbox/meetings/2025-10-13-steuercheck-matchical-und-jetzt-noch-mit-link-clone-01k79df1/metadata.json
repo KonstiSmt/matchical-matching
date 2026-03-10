@@ -1,0 +1,70 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01K79DF1PWCZP9T2FHXW12FG9G/audio.mp3?Expires=1773350977&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzc5REYxUFdDWlA5VDJGSFhXMTJGRzlHL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3N319fV19&Signature=N1KNawbXXE76yYjMh950I71A3wqXhj1E0qjW3BkYX62vdJvCW8sk4v8LcFAEmZXokIwPMIysEfyt4qAskmUKygog3T1s2HF5H0hAlAxoEYXBar4HopLGuq~LXYxq49RB4pP84aUn~rdLN23gnXl11ymyD8LRRRYk~NytH1ycvRL8un08Ya5OSzlNIhbHbFpvJV0387cPcwKTmUlYCw8f9cjauiC1k1~FB9kVp~oqZL4sUWceJU~v-etMV1M6o4UXk8~8LDn3AlEaBht0k-K91ZanYEJlxb7PgceSfTbF6-O1ARFh9031ei9IP-PGwCD0ue3Rwj7HMiGjhGL6awvLAg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 37.369998931884766,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:34:03Z",
+  "meeting_at": "2025-10-13T07:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-10-13T07:00:00.000Z",
+      "leave_time": "2025-10-13T07:37:42.549Z",
+      "name": "Hubert Barth"
+    },
+    {
+      "join_time": "2025-10-13T07:00:00.000Z",
+      "leave_time": "2025-10-13T07:37:42.549Z",
+      "name": "Michael Girke"
+    },
+    {
+      "join_time": "2025-10-13T07:01:13.652Z",
+      "leave_time": "2025-10-13T07:37:42.549Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-10-13T07:02:55.981Z",
+      "leave_time": "2025-10-13T07:37:42.549Z",
+      "name": "Konsti"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K79DF1PWCZP9T2FHXW12FG9G",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.live.com/meet/9336578855241?p=5xC4sPPd8th8VjGv9v",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 452,
+  "title": "Steuercheck matchical - und jetzt noch mit Link ... (Clone)",
+  "transcript_created_at": "2025-10-13T07:00:00Z",
+  "transcript_id": "01K79DF1PWCZP9T2FHXW12FG9G",
+  "transcript_url": "https://app.fireflies.ai/view/01K79DF1PWCZP9T2FHXW12FG9G",
+  "video_url": "https://cdn.fireflies.ai/01K79DF1PWCZP9T2FHXW12FG9G/video.mp4?Expires=1773350977&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzc5REYxUFdDWlA5VDJGSFhXMTJGRzlHL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3N319fV19&Signature=Jt~QyAHgwMR2xw-t8cqP7IrDnkW63TlN24OE8qtSmWKsAAA37b5C0TzIPgFYphdLocLNPwBT3FJaR94xxlVq~NtHGvxaQfU3MpK4nN7KzJdMb36C5inYLJlnSKm98deTxyRNsrFQVxYhCzWFL7ke7syBLZS0aGQBNYffWDshX8g8wl7Il3GezsmfJtBZPJWVTBExMrDFAcvTZR4YwNGkOShw672Qa5JyTKf~mgQMyDm~~U6uFk-1Ldk02YNLL1G4hONWmTL4~MgDBiQBscXo98G~aC4hTwh7otU3Ev9apkrpsWxhTCqVdd7f1DVv9jaNF~oxWlS3SxWu751ghNRnog__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

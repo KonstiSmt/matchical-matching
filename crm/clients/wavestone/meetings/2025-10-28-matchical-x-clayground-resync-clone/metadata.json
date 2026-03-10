@@ -1,0 +1,70 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01K8NJ4YWJD97B798HMJT38H29/audio.mp3?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzhOSjRZV0pEOTdCNzk4SE1KVDM4SDI5L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=FhxxtCQMYwLoEcvyWfKZ1EMM506amqV7MMBK1DJ2owy5RJihFnMSXrnNTd7YOQT5M8vvjIp7EStmh4YSwXLmN57iGjuRMrZwGGm7tcZixtB0QhFvSxV2OHYbf~NflPYyNz2Fo9~jMdHno8aLGIS6oO7meRhTr5dIfXZPAQ6rpJsBUM0BCJDDLd6LAOsJET5uoU3Q3Q5whciLWMvyILYMxTRf4F4T-7LbdL4f6DBIsuyfYefFsCppZn7-AtH39FGRJLdpXX2-zRkZ2KqFhWz6vUMfPbs4QAZYNghQfUkdqp6OeyHnyFaieB4SZme5FScq8wURIO4OEGTBdfE2A-XBZQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 60.45000076293945,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:32:44Z",
+  "meeting_at": "2025-10-28T18:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-10-28T18:00:00.000Z",
+      "leave_time": "2025-10-28T19:01:22.660Z",
+      "name": "Dominique Michel"
+    },
+    {
+      "join_time": "2025-10-28T18:00:00.000Z",
+      "leave_time": "2025-10-28T19:01:22.660Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-10-28T18:00:00.000Z",
+      "leave_time": null,
+      "name": "read.ai meeting notes (Unverified)"
+    },
+    {
+      "join_time": "2025-10-28T18:03:53.481Z",
+      "leave_time": "2025-10-28T19:01:22.660Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K8NJ4YWJD97B798HMJT38H29",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_M2MxMGUwM2YtMjU1NS00YzcyLWI1MzAtOWZjMjA0ZWYxOGJm@thread.v2/0?context={\"Tid\":\"6dfb9d32-ff0c-40ad-92e8-32391bcb1749\",\"Oid\":\"66ba855d-c08d-4692-b615-37371e91ab29\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 524,
+  "title": "Matchical x Clayground Resync (Clone)",
+  "transcript_created_at": "2025-10-28T18:00:00Z",
+  "transcript_id": "01K8NJ4YWJD97B798HMJT38H29",
+  "transcript_url": "https://app.fireflies.ai/view/01K8NJ4YWJD97B798HMJT38H29",
+  "video_url": "https://cdn.fireflies.ai/01K8NJ4YWJD97B798HMJT38H29/video.mp4?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzhOSjRZV0pEOTdCNzk4SE1KVDM4SDI5L3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=L8S4drJggatHT-i7-hZIUEqB345CNGkYtNMQpSgTL0y4ogO3oUzB-BQGVy8fLjUdhIxizjpUW~5RuoSBV4LmtVl5~lUXSTWyAL2971otTO9LDxapuTF50nvB3tyE5mfzCi7ehI7TRdjRG-la--Y2MIltlThgaQMWI9VhXC3UdiNv7i13~gCi6wyHtXjvCNBbmdwIxGAUWCHwXYwS1jqXWkiY3Z4sJtlQLu-aIgWD83HNtPuwTxswbuabNxE5q61o4Ibr2Olc9y1~YVQIKQQBBBQl~ENyG4OcUB3ppDgrPT9tTjCTlCqeteIkyXf8Eq1wfOnYVs32GHRXG2Eb1YzOyQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

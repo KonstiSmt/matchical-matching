@@ -1,0 +1,110 @@
+{
+  "account_slug": "thinkport",
+  "audio_url": "https://cdn.fireflies.ai/01K8WM0W2037EBEY69GADJCMQC/audio.mp3?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzhXTTBXMjAzN0VCRVk2OUdBREpDTVFDL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=MMkKKUrx5hipdreN~1XHZZy8TK7cGYi4VAPWR2VOeUeubvl4Og4~7~BI9HmUlDQ0buiw6aBm29vv-JKxhupPlIbJd7F3CCTatPVwAalEqqNEcmg-kqVHpxjBE-k1JuUUWYPXZmQSVHaZYPM7RFsIvShZaE20KODLujDudyYVpzYCDrRivQ61UNyfY8CjiyDx42yRykevoUQIU3D4IkjY2Coh6KLVeZI1VwfziRQak6sErFJUXIV55Xc~lQb6ZrtS2fTAje8r-uGwUj-fSIedVEDOOXCJnQGpk354nwrz2jaPYOG~xniB4l3KrMaDz-lIj7Wv8SRq9UQeTArMkzu2aw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "planning",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "thinkport.digital"
+  ],
+  "dominant_domain": "thinkport.digital",
+  "duration_minutes": 60.7599983215332,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:32:34Z",
+  "meeting_at": "2025-10-31T12:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-10-31T12:30:00.000Z",
+      "leave_time": "2025-10-31T13:30:56.953Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-10-31T12:30:00.000Z",
+      "leave_time": "2025-10-31T13:30:56.953Z",
+      "name": "Lukas Petry"
+    },
+    {
+      "join_time": "2025-10-31T12:30:00.000Z",
+      "leave_time": "2025-10-31T13:30:56.953Z",
+      "name": "Samir Hamiani"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "shamiani@thinkport.digital",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tdrechsel@thinkport.digital",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "swetzel@thinkport.digital",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "lpetry@thinkport.digital",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K8WM0W2037EBEY69GADJCMQC",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YzM0MjEwMWYtMzQ1Ni00NTk5LWFiZTktNTQ3ZjZhZGEyN2Fh@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "shamiani@thinkport.digital,tdrechsel@thinkport.digital,swetzel@thinkport.digital,lpetry@thinkport.digital,konsti@matchical.com",
+    "shamiani@thinkport.digital",
+    "tdrechsel@thinkport.digital",
+    "swetzel@thinkport.digital",
+    "lpetry@thinkport.digital"
+  ],
+  "participants": [
+    {
+      "email": "shamiani@thinkport.digital",
+      "name": ""
+    },
+    {
+      "email": "tdrechsel@thinkport.digital",
+      "name": ""
+    },
+    {
+      "email": "swetzel@thinkport.digital",
+      "name": ""
+    },
+    {
+      "email": "lpetry@thinkport.digital",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 610,
+  "title": "Samir Hamiani and Konsti | matchical.com",
+  "transcript_created_at": "2025-10-31T12:30:00Z",
+  "transcript_id": "01K8WM0W2037EBEY69GADJCMQC",
+  "transcript_url": "https://app.fireflies.ai/view/01K8WM0W2037EBEY69GADJCMQC",
+  "video_url": "https://cdn.fireflies.ai/01K8WM0W2037EBEY69GADJCMQC/video.mp4?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzhXTTBXMjAzN0VCRVk2OUdBREpDTVFDL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=O-Ae5XLvsaKARvYW7cuDxM34NIRpLvw-p86O2IR9aL8pbUzFuA6HaNJBPD4NOXUJQjyLdWVEVun6n2vKTZhG1IW2Loj~gj9xJHQNc6C1LpUVya20LjOi7BphNLgXLpO73HM3e0z3wCw2uXMZ9Mf73fk2d7-ZpOtGesZfRS-LH3sfem5308cDmvhg5ZzosfBMs8n8CCsGqsMxuzWyas6k1GTK-ku6-jKJnfgYlpL9QgGuXjXNntsb2~RbJYMHbMrOD39MxZ7AHEZ06E9dVhFst0Rbg0DA4poAYBlv6Eqw8NkRf9jZ2dn59wRJBeg~v5PL3WgCxoYVN9~Y0mzkiw8pkw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

@@ -2,6 +2,7 @@
 
 ## Metadata
 
+- aliases: SIP_ProfileMap_Esra, Sandra Sabanadzovic, Michael Girke
 - domain_aliases: wavestone.com
 - crm_bucket: clients
 - account_name: Wavestone

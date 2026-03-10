@@ -1,0 +1,117 @@
+{
+  "account_slug": "uzuner-consulting",
+  "audio_url": "https://cdn.fireflies.ai/01KAGE35BJ53WBZTYHGX0MCZE2/audio.mp3?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0FHRTM1Qko1M1dCWlRZSEdYME1DWkUyL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=bbiHdHXBRBHEKznns7dwFM~naWWEotYt2cpqPtFeLbgQnZOL0USjTm0nNmXnTPPzQJW2VWnqYyDqi34dIDkZ4Do0eQTZ05sYlH-FuZ-br7MFuSmVG41lOgSXlc6OAM22w29JdufUymtXsUWMFfCdFeoQQZtff7slBjMwI2fIFc6mhPkLXAX6WIdhY-X0TqqJ-VKeluTzxKdLxUJg3ztxsY7mVQPLdFrcBJMxS9I3UZJu7THMrrtTT1SPvn47dlasnQubt05CvMA3d~QRd1NJJ5S0r1TjS12zeFebo1A-H-Y-YLhTFgJnRyzmwUgBHv3TErWnl2DAtEpGpnHis84KBw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "uzuner-consulting.com"
+  ],
+  "dominant_domain": "uzuner-consulting.com",
+  "duration_minutes": 90.9000015258789,
+  "fireflies_users": [
+    "tommy@matchical.com",
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:31:34Z",
+  "meeting_at": "2025-11-21T13:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-11-21T13:00:00.000Z",
+      "leave_time": "2025-11-21T14:31:11.320Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-11-21T13:00:00.000Z",
+      "leave_time": "2025-11-21T14:31:11.320Z",
+      "name": "Yildiz, Senol"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "s.yildiz@uzuner-consulting.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "h.hueseynov@uzuner-consulting.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "t.stehr@uzuner-consulting.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "b.uzuner@uzuner-consulting.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KAGE35BJ53WBZTYHGX0MCZE2",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MjFkOWMxYzgtOGQxYi00MDQ0LWExMDgtZTg1ODY5MjMwOTJj@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com,s.yildiz@uzuner-consulting.com,h.hueseynov@uzuner-consulting.com,tommy@matchical.com,t.stehr@uzuner-consulting.com,b.uzuner@uzuner-consulting.com",
+    "s.yildiz@uzuner-consulting.com",
+    "h.hueseynov@uzuner-consulting.com",
+    "tommy@matchical.com",
+    "t.stehr@uzuner-consulting.com",
+    "b.uzuner@uzuner-consulting.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "s.yildiz@uzuner-consulting.com",
+      "name": ""
+    },
+    {
+      "email": "h.hueseynov@uzuner-consulting.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "t.stehr@uzuner-consulting.com",
+      "name": ""
+    },
+    {
+      "email": "b.uzuner@uzuner-consulting.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 875,
+  "title": "SENOL YILDIZ and Konsti | matchical.com",
+  "transcript_created_at": "2025-11-21T13:00:00Z",
+  "transcript_id": "01KAGE35BJ53WBZTYHGX0MCZE2",
+  "transcript_url": "https://app.fireflies.ai/view/01KAGE35BJ53WBZTYHGX0MCZE2",
+  "video_url": "https://cdn.fireflies.ai/01KAGE35BJ53WBZTYHGX0MCZE2/video.mp4?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0FHRTM1Qko1M1dCWlRZSEdYME1DWkUyL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=hwmCgyOZsuvxMRS4dMj3XtilvB4TeA4BesvFxmrze7fxkshQHJyWe4hjJZ0AIfJFIalyMa~hl8oR~EoVPR90TOT6fROlzDwFzCg81aaYZqiQ4hmLjvPfAeZObJSkMl0UzBREOM9s62tZDZNDE~OUmx1FU2PiVoGcOUefGQkJLuNvlGFonkqJrPD-uWPiyoMVySA0R-awsku3Z4dsMJVXho1xSuCYoPNoYynhUGOUjwWIy0pz9sCxJtTFKOY3xq7TaRn1NYsWkLH7wl5aCX0~kSUtPcllIv3kLgDW0P7xkPiAfoxKE-4sgomEx9XjpvRA25YW5ViEH6qHZlY6ThtZvg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}
