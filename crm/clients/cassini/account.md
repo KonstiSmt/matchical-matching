@@ -2,6 +2,7 @@
 
 ## Metadata
 
+- domain_aliases: cassini.de, aleri.de
 - crm_bucket: clients
 - account_name: Cassini
 - aliases: Aleri

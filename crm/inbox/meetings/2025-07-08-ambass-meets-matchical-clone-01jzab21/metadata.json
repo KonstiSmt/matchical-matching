@@ -1,0 +1,70 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01JZAB21YGJFD4QCA4VJ0Y3HPM/audio.mp3?Expires=1773292085&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlpBQjIxWUdKRkQ0UUNBNFZKMFkzSFBNL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA4NX19fV19&Signature=JRMs9cqkpV648H2PfthPulurLXmXkeg89bk4ah~yn-E58e7rP7Q8ShGEJZiKhdjg0H8ppEsFwn65YG12ROL-GMFN83kR0~hXrupr-3oi7VoE1tRbKTa~d2s1BDkk6pjv~NEa~UKiSNURau9CK-Pt2NPou2oxrw10Qem-KrxOhmFT6nltltaPdogMtZuCha94mj5KXfWak5MoRoU770E~A3qSbiJ6ngQRtlMhwmPzjcT6p1IS~M9LnP-~-WOKTZsfGp3Cw0oHRkhjOsn-2PiGIzBQdwDda40uM94XT6AzR5PfRLhYT-Yas5C-ij24Rm0nNeNg59FWHU7pjrWp1mm8ug__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 72.69000244140625,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:15:24Z",
+  "meeting_at": "2025-07-08T13:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-08T13:00:00.000Z",
+      "leave_time": "2025-07-08T14:13:40.688Z",
+      "name": "Daniel Mietasch"
+    },
+    {
+      "join_time": "2025-07-08T13:00:00.000Z",
+      "leave_time": "2025-07-08T14:13:40.690Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-07-08T13:00:00.000Z",
+      "leave_time": "2025-07-08T14:13:40.690Z",
+      "name": "Mehdi Diouani"
+    },
+    {
+      "join_time": "2025-07-08T13:00:00.000Z",
+      "leave_time": "2025-07-08T14:13:40.690Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JZAB21YGJFD4QCA4VJ0Y3HPM",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZTIwNGFmMDgtZjgwYS00MjkyLWFiODUtNTNkM2E3ZTFiOTM1@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 846,
+  "title": "Ambass meets matchical (Clone)",
+  "transcript_created_at": "2025-07-08T13:00:00Z",
+  "transcript_id": "01JZAB21YGJFD4QCA4VJ0Y3HPM",
+  "transcript_url": "https://app.fireflies.ai/view/01JZAB21YGJFD4QCA4VJ0Y3HPM",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

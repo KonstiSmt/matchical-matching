@@ -1,0 +1,89 @@
+{
+  "account_slug": "cassini",
+  "audio_url": "https://cdn.fireflies.ai/01K0PXFMANHKBJ1G9EZ3NJV4FN/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzBQWEZNQU5IS0JKMUc5RVozTkpWNEZOL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=tuTdIXfeEPXvBkp315ggvzXT4g6uZO--5yYHS8LjUEfArj71AfLWDNoalisBAoBGpnlc3iLwTzsXLf7~JQDUQIJKa7-1fd8-lcIxREju-OKu8im3Ug4GS0agf2xRd1ZPE8GbSHgK-wrnkKfy09mUjUCaZIsSpAh13xoB7q~eXsFUvyiH~iWa6JMU9GWY7tXpUp7FgVfL16Jbb7NO0QmPgKzgRu1hlGVQpunJVqd2XIIrA-IBi6Ojsx7yHL1W-IBclANcd3vmETHwi4381Xc0edp-E5Y7eXPSxqfCdukGhoMS5it-os6OOn5--Tyrd3c83Ve56ZtCsysVgDok-qll1g__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "cassini.ag",
+    "matchical.com"
+  ],
+  "dominant_domain": "cassini.ag",
+  "duration_minutes": 73.6500015258789,
+  "fireflies_users": [
+    "konsti@matchical.com",
+    "tommy@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:12:06Z",
+  "meeting_at": "2025-07-24T14:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-24T14:00:00.000Z",
+      "leave_time": "2025-07-24T15:14:08.643Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-07-24T14:00:00.000Z",
+      "leave_time": "2025-07-24T15:14:08.644Z",
+      "name": "Stebens, André"
+    },
+    {
+      "join_time": "2025-07-24T14:01:34.355Z",
+      "leave_time": "2025-07-24T15:14:08.644Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "andre.stebens@cassini.ag",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K0PXFMANHKBJ1G9EZ3NJV4FN",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YzZkZjI3MTktMGRjMy00ZjQ4LWFlNzMtYWY1MWE3YzVjYmIw@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com,andre.stebens@cassini.ag,tommy@matchical.com",
+    "andre.stebens@cassini.ag",
+    "tommy@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "andre.stebens@cassini.ag",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 565,
+  "title": "Interne Migration matchical",
+  "transcript_created_at": "2025-07-24T14:00:00Z",
+  "transcript_id": "01K0PXFMANHKBJ1G9EZ3NJV4FN",
+  "transcript_url": "https://app.fireflies.ai/view/01K0PXFMANHKBJ1G9EZ3NJV4FN",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

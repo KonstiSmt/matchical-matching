@@ -1,0 +1,148 @@
+{
+  "account_slug": "constaff",
+  "audio_url": "https://cdn.fireflies.ai/01JYTRH4EJRP9AFAN40V1PR8NR/audio.mp3?Expires=1773292085&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSllUUkg0RUpSUDlBRkFONDBWMVBSOE5SL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA4NX19fV19&Signature=GdFMNB6npvf2Dza080ojgTfhuLBQpmnqKZLQSUfuT2itaJwicCBB3r9lX7GpI7nwtbbbs1Ye6SiTMFmiv78qPzWqiiVoyTYWcVT6P91HZQV~RX6r820t8L729QY9Ng4oIMQ-myECRxYgghjn6YPdjYQA0Z9e-D4Sx6-~7b8dyd49L8htHtqSKAprhoBp1W0~wDHlBr8Xl2Bndx2yZ60m0PqiuF6SxkGbanDYgDsWfUKmwZQT4ofFPX3pxvVNAkQTsMnhVrfqSVQz2iZaQQzZ1EWyTgN8TOCxSJFzGNuj7hiOSHCTtjIR6luz~3IgquGhN~pLLIlSav3WKQctkerMtg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "constaff.com",
+    "matchical.com"
+  ],
+  "dominant_domain": "constaff.com",
+  "duration_minutes": 71.16000366210938,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:15:49Z",
+  "meeting_at": "2025-07-01T12:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-01T12:00:00.000Z",
+      "leave_time": "2025-07-01T13:11:21.512Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-07-01T12:00:00.000Z",
+      "leave_time": "2025-07-01T13:11:21.514Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-07-01T12:01:47.313Z",
+      "leave_time": "2025-07-01T12:04:20.674Z",
+      "name": "Riccardo Sforza"
+    },
+    {
+      "join_time": "2025-07-01T12:04:20.672Z",
+      "leave_time": "2025-07-01T13:11:21.514Z",
+      "name": "Michael Steinlein"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "felix.sprengling@constaff.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "riccardo.sforza@constaff.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "michael.steinlein@constaff.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "marko.lukosek@constaff.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "marco.spiess@constaff.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "timo.schmidtchen@constaff.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JYTRH4EJRP9AFAN40V1PR8NR",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZDIxOWU0NzEtOTQyMS00ZGZlLTlkMjQtOTUzZjg2NzQzYzM3@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "felix.sprengling@constaff.com,riccardo.sforza@constaff.com,michael.steinlein@constaff.com,marko.lukosek@constaff.com,marco.spiess@constaff.com,tommy@matchical.com,timo.schmidtchen@constaff.com,konsti@matchical.com",
+    "felix.sprengling@constaff.com",
+    "riccardo.sforza@constaff.com",
+    "michael.steinlein@constaff.com",
+    "marko.lukosek@constaff.com",
+    "marco.spiess@constaff.com",
+    "tommy@matchical.com",
+    "timo.schmidtchen@constaff.com"
+  ],
+  "participants": [
+    {
+      "email": "felix.sprengling@constaff.com",
+      "name": ""
+    },
+    {
+      "email": "riccardo.sforza@constaff.com",
+      "name": ""
+    },
+    {
+      "email": "michael.steinlein@constaff.com",
+      "name": ""
+    },
+    {
+      "email": "marko.lukosek@constaff.com",
+      "name": ""
+    },
+    {
+      "email": "marco.spiess@constaff.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "timo.schmidtchen@constaff.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 744,
+  "title": "Felix Sprengling - Constaff GmbH and Konsti | matchical.com",
+  "transcript_created_at": "2025-07-01T12:00:00Z",
+  "transcript_id": "01JYTRH4EJRP9AFAN40V1PR8NR",
+  "transcript_url": "https://app.fireflies.ai/view/01JYTRH4EJRP9AFAN40V1PR8NR",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

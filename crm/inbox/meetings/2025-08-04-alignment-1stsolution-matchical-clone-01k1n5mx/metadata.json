@@ -1,0 +1,75 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01K1N5MXWV7JTJD1T3HF6DGKJC/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzFONU1YV1Y3SlRKRDFUM0hGNkRHS0pDL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=JqN6id594jY737OaYmg6H6YRcXkHi66KpsPq~8LP3S60RLXNIrn6p3lkq0Yop3zj-bvPJwtfMC-3hOB2K-cx7QybJzxb2Ed4Hp6qbkIVGEUH8OP4CsYPfTGNcVWpb~lVVicdx2lOVnRCltyNDCq5zmLIxIX-pqRvrXiRIC2icubQbfAv65hNYo6kR73GqGeF04LWnScUgPoWW2nI80ugctmfYxYpPhjXotmV9N4r72DXw1IF7I2r-0onxFo1485vFePwS3RmJp7ctNSpguri4OHMjcD9SDDla2r7m8okWItpf7pfzS2iahANvrYhOvHfyUEONUkn4BKhSLvGfz1DUg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 55.83000183105469,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:11:52Z",
+  "meeting_at": "2025-08-04T08:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-08-04T08:00:00.000Z",
+      "leave_time": "2025-08-04T08:55:49.403Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-08-04T08:00:00.000Z",
+      "leave_time": "2025-08-04T08:55:49.403Z",
+      "name": "Stephan Grulich"
+    },
+    {
+      "join_time": "2025-08-04T08:00:00.000Z",
+      "leave_time": "2025-08-04T08:55:49.403Z",
+      "name": "Sven Kruchem"
+    },
+    {
+      "join_time": "2025-08-04T08:00:48.217Z",
+      "leave_time": "2025-08-04T08:55:49.403Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-08-04T08:01:21.166Z",
+      "leave_time": "2025-08-04T08:55:49.401Z",
+      "name": "Christina Gamroth"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K1N5MXWV7JTJD1T3HF6DGKJC",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YTRmNzI4MDktOTkwOS00Yjc0LThjZjktNmEzNjNjZDQ1NDE0@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 559,
+  "title": "Alignment 1stSolution <> matchical (Clone)",
+  "transcript_created_at": "2025-08-04T08:00:00Z",
+  "transcript_id": "01K1N5MXWV7JTJD1T3HF6DGKJC",
+  "transcript_url": "https://app.fireflies.ai/view/01K1N5MXWV7JTJD1T3HF6DGKJC",
+  "video_url": "https://cdn.fireflies.ai/01K1N5MXWV7JTJD1T3HF6DGKJC/video.mp4?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzFONU1YV1Y3SlRKRDFUM0hGNkRHS0pDL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=ZU1Kmz7dV2JFo7ZfUtKCqvU~f0c3yiCRU4dbhmLlEKVi3bzDtymUI9OYaqH2OveTFjkrhxSj7o9A1Bz054m9b-lJpYBzPo42vfdY2CqRL2KV26Xes3bP8zjqXzIXvZpNzoQ-V4QfMdbERnh-U8AUjj2glNsZuIvtYM6Hwd6OIWzKbT1K63ZQVyhrUf9xfo0KmPhsDdhXeR-5bhmKNb98deQisqXsVzgg-766LW5kdtKsZKreu0El7uVuK03BDBiv0DtrEsf2emWev4tS~nhmjctY7pR3I4-1FXOFubEy4WnuwQU3vuGLpGbN-OqbpXob0tWWbbTgCann~sKue~k8Gg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

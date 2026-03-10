@@ -1,0 +1,75 @@
+{
+  "account_slug": "cassini",
+  "audio_url": "https://cdn.fireflies.ai/01JZWAVTA2EEMTDMD9PS8ECHCW/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlpXQVZUQTJFRU1URE1EOVBTOEVDSENXL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=l53q~jge6WON932JUDEwibzDprt3l7xaImWeDd~p4ybs4pRXTycQkt8xHym~0t~VfsWjPNQlqKYS7bZVskvw20sC11OdLiT8EGk~lKaSuJP-cPgnCOSw0lPYuDszB38f7dTFW0CH2Oh6untZi2GXAMez7bxXlZT1dGIDbccBF2soHsgqfUwe-uzE5NB7d6yF8PE~JWC6uxjA0kz0MiL9qxsKpPxPtz0U-DJE8YzvxepYJT9ggDMYkShmY9p01u3tUulTEElBLVd9AAon3RY4uCqXCpR1-QqvYV36XdyxtsnYyFtbRzlRrBC4OtnbH5VOlXWJqCbwoHLk2x17f-W7pg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 46.72999954223633,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:12:50Z",
+  "meeting_at": "2025-07-18T08:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-18T08:00:00.000Z",
+      "leave_time": "2025-07-18T08:47:00.411Z",
+      "name": "Iwanowski, Marcus"
+    },
+    {
+      "join_time": "2025-07-18T08:00:00.000Z",
+      "leave_time": "2025-07-18T08:38:56.416Z",
+      "name": "Stebens, André"
+    },
+    {
+      "join_time": "2025-07-18T08:00:56.701Z",
+      "leave_time": "2025-07-18T08:47:00.411Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-07-18T08:01:19.533Z",
+      "leave_time": "2025-07-18T08:47:00.411Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-07-18T08:26:01.674Z",
+      "leave_time": "2025-07-18T08:47:00.408Z",
+      "name": "Gilles, Jochen"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JZWAVTA2EEMTDMD9PS8ECHCW",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YjJhZDE3NTctMjRjNC00NGUxLWJkOWYtODE2MDRhNzY5Y2I4@thread.v2/0?context={\"Tid\":\"215a4151-c648-4e92-bac0-0c879d82313a\",\"Oid\":\"e76fd2c8-a918-4f6e-a230-5a363c5edf27\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 476,
+  "title": "JF Cassini/Aleri - matchical (Clone)",
+  "transcript_created_at": "2025-07-18T08:00:00Z",
+  "transcript_id": "01JZWAVTA2EEMTDMD9PS8ECHCW",
+  "transcript_url": "https://app.fireflies.ai/view/01JZWAVTA2EEMTDMD9PS8ECHCW",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

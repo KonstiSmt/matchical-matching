@@ -1,0 +1,84 @@
+{
+  "account_slug": "thestory",
+  "audio_url": "https://cdn.fireflies.ai/01K2AJ5ZRSW4P52MXFG322V1RH/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzJBSjVaUlNXNFA1Mk1YRkczMjJWMVJIL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=S4jFtoK5EpyI5-gxUKXaAVyhtuP5JJ46UDSCUVooYPFByd0N8Joge6Hq1YlDXAXCWqBLz3LIhJ0rkdAtmqBlH6NqR8pIj7v3YhTOWrdeffo8NqHrU0bz9fSC5xKzXRzLBPP2emnJx872wMRKJOqIgnj39lZdui-9A-~RKi5q5pqsqzOv-eP~lcS90IOTmLI-kdfqHTcBjLd14P93p38lwOTTkcY49~3L84hwjbUr0GNZ5V8f1F76XhGlxvOudUqDhzyXloW9rrAte7OgEgeN-oWWGhoKqs1EmpqkLTnY72m2m0aL9K4sXiaYlCWD82BXB5pa1QUaqh5QInnw4sKKog__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "partners",
+  "detected_domains": [
+    "247it.pt",
+    "matchical.com",
+    "onmicrosoft.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 32.959999084472656,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:11:26Z",
+  "meeting_at": "2025-08-11T14:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-08-11T14:00:00.000Z",
+      "leave_time": "2025-08-11T14:32:59.696Z",
+      "name": "Carlos Freitas"
+    },
+    {
+      "join_time": "2025-08-11T14:00:00.000Z",
+      "leave_time": "2025-08-11T14:32:59.697Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "cfreitas@247it.pt",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "carlos.freitas@stepaheadcons.onmicrosoft.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K2AJ5ZRSW4P52MXFG322V1RH",
+  "meeting_kind": "partner",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZTY4NzdjMzAtYWI4OS00NmE4LThlMDQtMWIyNWZkZTUwOGRj@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "cfreitas@247it.pt,carlos.freitas@stepaheadcons.onmicrosoft.com,konsti@matchical.com",
+    "cfreitas@247it.pt",
+    "carlos.freitas@stepaheadcons.onmicrosoft.com"
+  ],
+  "participants": [
+    {
+      "email": "cfreitas@247it.pt",
+      "name": ""
+    },
+    {
+      "email": "carlos.freitas@stepaheadcons.onmicrosoft.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 348,
+  "title": "Carlos meets matchical",
+  "transcript_created_at": "2025-08-11T14:00:00Z",
+  "transcript_id": "01K2AJ5ZRSW4P52MXFG322V1RH",
+  "transcript_url": "https://app.fireflies.ai/view/01K2AJ5ZRSW4P52MXFG322V1RH",
+  "video_url": "https://cdn.fireflies.ai/01K2AJ5ZRSW4P52MXFG322V1RH/video.mp4?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzJBSjVaUlNXNFA1Mk1YRkczMjJWMVJIL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=Dk~O0lHSH9sBiDlV7rAfRf73~CDco7brlQIvpNoaF3XjFNe3UgjMqZzXwroSgRRGDKlNULdfQRC76xWCsBc89dnsu2tzINLBwBXisHuAPeyR8K80Pt9D3S1qMPcqh9tyqHfLwYngNO4ImvNd3qv-ErAfGTzWMBikg3DYVaqfeCw~pRdwR0Pg8sB3rpMcDKC7STTIq8wNLg0aRgUERJ0ETorAjATl2j5ScClf3NOlFn4J8hoz~WbA8nLoG1~~jziooiwhMMHdXDhJ3~h6O0NM~6qucxuziNMnTjXvE2iHQBzy7sg8GKnRXppZZxwE4ac9k-DV4W4GOrv4yqo8uzayIQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

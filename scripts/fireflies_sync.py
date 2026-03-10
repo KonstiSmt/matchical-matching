@@ -202,6 +202,7 @@ class AccountRecord:
     display_name: str
     account_name: str
     aliases: set[str]
+    domain_aliases: set[str]
     name_aliases: set[str]
     contact_names: set[str]
     domain: str | None
@@ -541,6 +542,13 @@ def load_account_index(root: Path) -> dict[str, AccountRecord]:
                 base = apex_domain(normalized)
                 if base:
                     aliases.add(base)
+            domain_aliases = {
+                normalized_alias
+                for alias in read_markdown_list_field(account_md, "domain_aliases")
+                for normalized_alias in [normalize_host(alias), apex_domain(normalize_host(alias))]
+                if normalized_alias
+            }
+            aliases.update(domain_aliases)
             contact_names = {
                 contact_name
                 for contact_md in sorted((account_md.parent / "contacts").glob("*.md"))
@@ -555,6 +563,7 @@ def load_account_index(root: Path) -> dict[str, AccountRecord]:
                 display_name=slug.replace("-", " ").title(),
                 account_name=account_name,
                 aliases=aliases,
+                domain_aliases=domain_aliases,
                 name_aliases=name_aliases,
                 contact_names=contact_names,
                 domain=normalized,
@@ -931,6 +940,7 @@ def ensure_minimal_account(
         display_name=account_name_from_domain(domain),
         account_name=account_name_from_domain(domain),
         aliases={alias for alias in {normalize_host(domain), apex_domain(domain)} if alias},
+        domain_aliases=set(),
         name_aliases=set(),
         contact_names=set(),
         domain=apex_domain(domain) or normalize_host(domain),

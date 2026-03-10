@@ -1,0 +1,75 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01K5S4H99W5W48BMDNX35Z1V1E/audio.mp3?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzVTNEg5OVc1VzQ4Qk1ETlgzNVoxVjFFL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=wriDnliIsFzaCSRPmc5kmfJflLc8vz2iczO6ipZR~UiJeIP8~KwKNcszcwnpI8l3XK3MsbNzfxS6BaVMlu7EjXCRG0HByxVpMqKDvCR-MKapxTnMe55fDXJlmnPkH75fX1N-5LcA9pDkWZCb6RISvyDLPf1Bgm3zJYHatuYaOBpg6r8rwOYAZWcIjaoyZXHiqTgFDiiD5zgrUv7CaZ6WhPrxC2i6wRxVMB5dz-tYbR7O1t~YA9HaT8ivE6CSLY1AFj08pxpuB3J74yj3kYJmC0GstygwkyLP~LMulS1qvPO140dqKdvA5g29pI6YMnWzmZARkiyD3bwEfPhJ-16PAg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 31.65999984741211,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:08:14Z",
+  "meeting_at": "2025-09-24T13:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-24T13:00:00.000Z",
+      "leave_time": "2025-09-24T13:31:40.563Z",
+      "name": "FISCHER Manuel"
+    },
+    {
+      "join_time": "2025-09-24T13:00:56.387Z",
+      "leave_time": "2025-09-24T13:31:40.563Z",
+      "name": "SABANADZOVIC Sandra"
+    },
+    {
+      "join_time": "2025-09-24T13:01:14.220Z",
+      "leave_time": "2025-09-24T13:31:40.563Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-09-24T13:02:03.908Z",
+      "leave_time": "2025-09-24T13:31:40.563Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-09-24T13:02:03.908Z",
+      "leave_time": "2025-09-24T13:31:40.563Z",
+      "name": "WUCHER Oliver"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K5S4H99W5W48BMDNX35Z1V1E",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_M2JmMzE4ODMtZjBlMC00OTk4LTg2YzQtYzVjODMyMTQxZmRi@thread.v2/0?context={\"Tid\":\"5de96c96-c87c-4dce-aad9-f5c557b52ac1\",\"Oid\":\"72a150f5-2876-43d2-a983-681fb2da9191\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 278,
+  "title": "Jourfix - SIP_ProfileMap_Esra (Clone)",
+  "transcript_created_at": "2025-09-24T13:00:00Z",
+  "transcript_id": "01K5S4H99W5W48BMDNX35Z1V1E",
+  "transcript_url": "https://app.fireflies.ai/view/01K5S4H99W5W48BMDNX35Z1V1E",
+  "video_url": "https://cdn.fireflies.ai/01K5S4H99W5W48BMDNX35Z1V1E/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzVTNEg5OVc1VzQ4Qk1ETlgzNVoxVjFFL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=w0L5s0C2Nu~NBfsKfSy7OJdi-0VEcFS42mzQNFk2dcy36j6ETC4a6M6rlEuqwrciUveKBurFrdYLBxPuPMtD~bupwOX-2wXJk4M8n0AXNjkv5FLCSXHiPF0IpdICY3DNm1cOyJj~4XikgIpn-cC-hC0XIAnwcmY6Ic0iTAdxJO-rAQBbSkPpNwEdwe5jawQN58LCp~SbMQhPDy2v4dmoCQiDVAxMp4k07K-mq~HIHPOp2N6IadYqDVRtZLePWmfjMLucrwmiw1xYkjEYYsKk-Z7KV-GcAPifKs9OowXlUndGOFuHNsCld9MgXHLff9xN87JyHU7joqeYT8kwzgiTyA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "account_slug": "it42morrow",
+  "audio_url": "https://cdn.fireflies.ai/01K4HVYNR0DA25B8P2VZG3ZCRC/audio.mp3?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRIVllOUjBEQTI1QjhQMlZaRzNaQ1JDL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=Ai079CO9MrgFAuyOgiayKYAkgpLBv5aRO-3CzKyYdCTRS0WHgEnqkNK0uGRcnBAxfBBQxnero28I4WJjY1~mD7H-XqHkn-L0IpTU0ZxHTL13DOTqtu7JscqV69FsCkRoPdo4wiuqF4FPsU8EYRUIUdzpyJE1R-fsN~r52w4Lwj5FSrDLL9Bumqn5mC3XnHk8h5pdtjhGzi-YsFoGaUGexOXgo-HoiEKuJJTFu13pZOn19SflOg30IHg5cEReduXxi4HLYdzGqCkMbYGJR0GfNU5IZoflqgv0ogjlvVyymCCg49hl2iUgvw8LwWaCOjwfYt5zu~QXQT1~cfCaki9nuA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "operations",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "it42morrow.de",
+    "matchical.com"
+  ],
+  "dominant_domain": "it42morrow.de",
+  "duration_minutes": 74.97000122070312,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:09:44Z",
+  "meeting_at": "2025-09-09T07:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-09T07:00:00.000Z",
+      "leave_time": "2025-09-09T08:15:54.601Z",
+      "name": "IFT Jacqueline Strauß"
+    },
+    {
+      "join_time": "2025-09-09T07:00:00.000Z",
+      "leave_time": "2025-09-09T08:15:54.602Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "jacqueline.strauss@it42morrow.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K4HVYNR0DA25B8P2VZG3ZCRC",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NWU1YTkyMTAtNWEwYS00ZGNhLTkyYzYtYzliZmI0Mzg3Zjhm@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "jacqueline.strauss@it42morrow.de,konsti@matchical.com",
+    "jacqueline.strauss@it42morrow.de"
+  ],
+  "participants": [
+    {
+      "email": "jacqueline.strauss@it42morrow.de",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 761,
+  "title": "Jacqueline Strauß and Konsti | matchical.com",
+  "transcript_created_at": "2025-09-09T07:00:00Z",
+  "transcript_id": "01K4HVYNR0DA25B8P2VZG3ZCRC",
+  "transcript_url": "https://app.fireflies.ai/view/01K4HVYNR0DA25B8P2VZG3ZCRC",
+  "video_url": "https://cdn.fireflies.ai/01K4HVYNR0DA25B8P2VZG3ZCRC/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRIVllOUjBEQTI1QjhQMlZaRzNaQ1JDL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=EkcMR88hcZQH9p5gp18EO2YGwIf6ZBTXfWuuHW~l3pwtdS7NXG-2VF-S7R75MxXfzsI5PYrYbSIM88RHNLKLiE4vlkBZMiJ9LxuqgFGv2ncF1zjPap4DFeAWide06EMRlN-4DdsQJklw0wz7-KmteAwNriiAnpwU8V0OA6F8leDEx~7Qn2NWAw6ukb2nOKbY8nvk899QZVnD4EOkNpyE6ZuZwXB8Y4DXyQMYCtx4eczUsB3mTxfZP1GEisvyTMc1GPWTG1Wl~3RBPj1dryiWRUYkCbM8PPSGGjbwuiBBqdoTZCWgi7jTp41Jgk7S2PpbIGbn0Teb~lbmlsOA63BTNQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

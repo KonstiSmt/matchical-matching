@@ -1,0 +1,61 @@
+{
+  "account_slug": "drlivskincare",
+  "audio_url": "https://cdn.fireflies.ai/01K27V10ZS6ZTNAFVSJ193MNEG/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzI3VjEwWlM2WlROQUZWU0oxOTNNTkVHL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=mlYVHjKNGfw-AuLVekWs7cI2175NyIvCgA37RLnRxnbs3FS2vUNCju0nsjbWp-v4jeiGC1P4vbIfGm9bVT6Wmq3gpx75ugTXmZsdcpzWc6ikFWMDWMhDsHvO-9c2QD85tTsaxrMMyJUEZ4PczWPhjCvKD6bFAdGf3BsuYOt-IdIHY9Y00VSYk4iJxrkXZB9b8LuNrGTHpibBCdHuCjMx8HFM2xKf8L-avNpf~udK9IvWfWpZSvTFGzSPoZfmc1kksJORblyw-pB57cfIc1ayAjtW6grvWTP6m~ISXBx8zUvPipIPF-~kP~6n0qqYuZw2Pzo1QcDwFlKI7DzafL1VVg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "other",
+  "detected_domains": [
+    "drlivskincare.com",
+    "matchical.com"
+  ],
+  "dominant_domain": "drlivskincare.com",
+  "duration_minutes": 10.460000038146973,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:11:23Z",
+  "meeting_at": "2025-08-11T15:00:00Z",
+  "meeting_attendance": [],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "timon@drlivskincare.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K27V10ZS6ZTNAFVSJ193MNEG",
+  "meeting_kind": "other",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZTZjYzIzYWItZTk0OC00MjZkLWEwMjAtMzliZWI4ZWFhMjFi@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "timon@drlivskincare.com,konsti@matchical.com",
+    "timon@drlivskincare.com"
+  ],
+  "participants": [
+    {
+      "email": "timon@drlivskincare.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 8,
+  "title": "Check in",
+  "transcript_created_at": "2025-08-11T15:00:00Z",
+  "transcript_id": "01K27V10ZS6ZTNAFVSJ193MNEG",
+  "transcript_url": "https://app.fireflies.ai/view/01K27V10ZS6ZTNAFVSJ193MNEG",
+  "video_url": "https://cdn.fireflies.ai/01K27V10ZS6ZTNAFVSJ193MNEG/video.mp4?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzI3VjEwWlM2WlROQUZWU0oxOTNNTkVHL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=bEsAFsFXiacuMpLBmeTaqOfRDmwVd22XgCax5SctNeBG4G8WdNL-bZ5fTt28IUZjX-lokpddnPGH-tRi3l8zA9fYLRG0mSYgadX8EKd01ZtSZAFjT8t3tCTjcPhcIuDx6gGlTv5ODUIfdJX0BrfDFKCqKmrvWxWIiAliGYdEAaBgknwp1731a3kzASZGoaDXuYrF4pGfyK9Uco99MVlP~a3Z3-EHn39JyZjEgbRkolRBKalN560c5fHHFjn36Jw0y0VAXxWInyems634-nwujvHEJb0aJjgDCWuEodvp4k3D9BCkw1wmXXg~T0vl-l60F~7vXh0OogDR8TvOIoomCQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

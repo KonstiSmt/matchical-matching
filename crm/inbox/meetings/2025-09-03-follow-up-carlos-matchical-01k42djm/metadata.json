@@ -1,0 +1,117 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01K42DJMHZ4WXWZ0Q1PVZGZ37P/audio.mp3?Expires=1773292214&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzQyREpNSFo0V1hXWjBRMVBWWkdaMzdQL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjIxNH19fV19&Signature=celVXW~WOdEHg8YdN6LAG8-OZu9F7yXkt0EcgAK-GbdhFc3JvLwZfFzwVVAwy-W0c~6xQUcxUOCDFBTzHIzGcrIxibhAzTzSIGBqgK-wRWdcTyNUFwSyuTfuV4V4Ykjo75ZRvfdnv~Hh~ngCR9UJSeJZfaukVwhHqwztv4kWD6IyHSDi90crJPqmYBquCx3xqCZBpONCxiPgXQ459mVbFC-gQ8m8wckFiBufz1OBLdiCoTdOlZV8ru7eRzmq0BDEe7JMNVZWjUIhKcZ9o6~ZkJeAKZFoZyzLK-PT02vm~~leP~CqBu0R8XF3j~xqZARfIryWs~7vfUlFefyG9enDuA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "247it.pt",
+    "matchical.com",
+    "onmicrosoft.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 54.810001373291016,
+  "fireflies_users": [
+    "tommy@matchical.com",
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:10:14Z",
+  "meeting_at": "2025-09-03T10:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-03T10:00:00.000Z",
+      "leave_time": "2025-09-03T10:54:49.141Z",
+      "name": "Carlos Freitas"
+    },
+    {
+      "join_time": "2025-09-03T10:00:00.000Z",
+      "leave_time": "2025-09-03T10:54:49.142Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-09-03T10:02:56.550Z",
+      "leave_time": "2025-09-03T10:54:49.142Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-09-03T10:03:04.831Z",
+      "leave_time": "2025-09-03T10:54:49.142Z",
+      "name": "Niklas | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "cfreitas@247it.pt",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "niklas@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "carlos.freitas@stepaheadcons.onmicrosoft.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K42DJMHZ4WXWZ0Q1PVZGZ37P",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZjFiZjU2NTctNjFhNi00N2ExLTkzODgtMDNkNTgzYzJjYjIy@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com,cfreitas@247it.pt,tommy@matchical.com,niklas@matchical.com,carlos.freitas@stepaheadcons.onmicrosoft.com",
+    "cfreitas@247it.pt",
+    "tommy@matchical.com",
+    "niklas@matchical.com",
+    "carlos.freitas@stepaheadcons.onmicrosoft.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "cfreitas@247it.pt",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "niklas@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "carlos.freitas@stepaheadcons.onmicrosoft.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 459,
+  "title": "Follow up Carlos <> matchical",
+  "transcript_created_at": "2025-09-03T10:00:00Z",
+  "transcript_id": "01K42DJMHZ4WXWZ0Q1PVZGZ37P",
+  "transcript_url": "https://app.fireflies.ai/view/01K42DJMHZ4WXWZ0Q1PVZGZ37P",
+  "video_url": "https://cdn.fireflies.ai/01K42DJMHZ4WXWZ0Q1PVZGZ37P/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzQyREpNSFo0V1hXWjBRMVBWWkdaMzdQL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=TEW4b0fXRaXmB-10RMyUtDJZl42BE-g1B2bhjEOVVtnDI9FvCwmU6sNfuzSnRUOb18g6NXKqZ1~AhgaG346RCtygIqTpttHq8rxUEcjBeNGzPa0JewI6pi3rZVD1KOrsWMXwZrjgrQbWaUMNwyEbpm3mhOhJZ5NYRC2PQlA3pFTfUCYPzICmfgR-CmvH8VwD-hm3uWZl-4XfalAwhYQkqKYa2tFaO8xxwrBMKZ22HYB4tRMyH6cH8t4kn-rdVSlQ37ozpY~7vC0ywd~pohI1azZyvVAYUE7~QghehJsLYrEG17Pu43JaDJSOfssDCI92pySS-073sic-9WrP1ZJSxg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

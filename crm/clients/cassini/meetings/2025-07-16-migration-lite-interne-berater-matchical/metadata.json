@@ -1,0 +1,88 @@
+{
+  "account_slug": "cassini",
+  "audio_url": "https://cdn.fireflies.ai/01K04SB7MRYBRAWHKH4G0CV8S9/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzA0U0I3TVJZQlJBV0hLSDRHMENWOFM5L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=cwxt7dYXlMs6wj8B7nPhiNFui5WcPuPBgbCzVhRAGGUPAC4Nf0k3zQGteGUNNHL9iFmU1WR6q9-pJNOVuFu3UGjZVs773hAd7~pzhtjeHgVVQgvp7O-nY~kd0cOCV-SMDRtqte3AXXYVSk8Fuv3Q0Yx7vkYd97-6yJtxZaAZzExuHaSjx67lKLUnU05yfE8XkY0qafLwd~FmmPd-7jEnWEB9quCl-YryZZPaZWjpSX2C5JocjaOarVNsgWJD9RAa~dONBYbwxbJo5I~O3K46Qc~xitQavFHk49GeDIybm2kAZvy5zHEPF0K6J57loZhPM3N6pxYliqmUFYlIrZF0uw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "cassini.ag",
+    "matchical.com"
+  ],
+  "dominant_domain": "cassini.ag",
+  "duration_minutes": 45.15999984741211,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:13:00Z",
+  "meeting_at": "2025-07-16T14:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-16T14:30:00.000Z",
+      "leave_time": "2025-07-16T15:15:49.486Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-07-16T14:30:00.000Z",
+      "leave_time": "2025-07-16T15:15:49.487Z",
+      "name": "Stebens, André"
+    },
+    {
+      "join_time": "2025-07-16T14:35:00.482Z",
+      "leave_time": "2025-07-16T15:15:49.487Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "andre.stebens@cassini.ag",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K04SB7MRYBRAWHKH4G0CV8S9",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MDdjZThlZGEtNDVkNi00Y2Q0LWIzNjktYmYyOTZhOTI0ZjNi@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com,tommy@matchical.com,andre.stebens@cassini.ag",
+    "tommy@matchical.com",
+    "andre.stebens@cassini.ag"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "andre.stebens@cassini.ag",
+      "name": ""
+    }
+  ],
+  "sentence_count": 349,
+  "title": "Migration-Lite (interne Berater) Matchical",
+  "transcript_created_at": "2025-07-16T14:30:00Z",
+  "transcript_id": "01K04SB7MRYBRAWHKH4G0CV8S9",
+  "transcript_url": "https://app.fireflies.ai/view/01K04SB7MRYBRAWHKH4G0CV8S9",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

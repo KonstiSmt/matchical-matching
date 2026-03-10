@@ -1,0 +1,72 @@
+{
+  "account_slug": "alpinumsolutions",
+  "audio_url": "https://cdn.fireflies.ai/01K2X36N3GG652MZQH348GFHF3/audio.mp3?Expires=1773349548&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzJYMzZOM0dHNjUyTVpRSDM0OEdGSEYzL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM0OTU0OH19fV19&Signature=iUmAZ5VcVVrTUpzILaGo-rfRmHzgGR5~Vq9nWcNRtQ2WrT4AOdh4BGt5jJW3FQdZEr1r9w26biEjkZXkh~R6gMKYdiqf72siQdNcSffJLgaft1rAXMbu10u0LH5P5KGhWNLOI6t6iTaHZ0kPty0HbECBsXuhEl7fMQuH9RLWPuJKGw5sMN1iZmvtlluyh88EeTBVUxN0fFqtJRVpQl21eX1ZHxZiLRQeyQ6z4-2xPlP~GUia2K6-N8QU7f1gzbbNQp~8Ru1fr5xFzLm9un6ge8ITMbjXSHog5PLlhDrmPtaOgCIr2yRRmTuOfBDuFlfowuXGSeBnyOKg6L5Vygg92A__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "alpinumsolutions.com",
+    "matchical.com"
+  ],
+  "dominant_domain": "alpinumsolutions.com",
+  "duration_minutes": 40.130001068115234,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:05:59Z",
+  "meeting_at": "2025-08-18T13:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-08-18T13:00:00.000Z",
+      "leave_time": "2025-08-18T13:48:31.201Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-08-18T13:00:00.000Z",
+      "leave_time": "2025-08-18T13:48:31.202Z",
+      "name": "Sebastian  Rümmelein I Alpinum Solutions"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "sebastian.ruemmelein@alpinumsolutions.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K2X36N3GG652MZQH348GFHF3",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YTZmODY0MjYtYTkyYS00OTA0LWE0YjgtNjY0NDYxZGI4ODY3@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "sebastian.ruemmelein@alpinumsolutions.com,konsti@matchical.com",
+    "sebastian.ruemmelein@alpinumsolutions.com"
+  ],
+  "participants": [
+    {
+      "email": "sebastian.ruemmelein@alpinumsolutions.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 376,
+  "title": "Onboarding 2.0",
+  "transcript_created_at": "2025-08-18T13:00:00Z",
+  "transcript_id": "01K2X36N3GG652MZQH348GFHF3",
+  "transcript_url": "https://app.fireflies.ai/view/01K2X36N3GG652MZQH348GFHF3",
+  "video_url": "https://cdn.fireflies.ai/01K2X36N3GG652MZQH348GFHF3/video.mp4?Expires=1773349548&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzJYMzZOM0dHNjUyTVpRSDM0OEdGSEYzL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM0OTU0OH19fV19&Signature=vQ-1ky57UX9EIKfKFv8aGOY4BT2gi2ORsAAO5n3wnAyiqAPGs-y3zS8Aj7I48se4HRNHV8a4lD5SCpHzYcS0t63~9bbNW~-VgAujw-AlGHEdA801CDLPKSzVdScWpbzNjl8d0qy10x29dsAXd4iUu2c7QtJYdjMIu6t5tTaNeje-z~a~KuppzOkyhaYfClDB~ombThjGUpnSBYXYPMY5aMzL3uGovgLRVYz2hyFAXHTcszozTOt5vKLJb4V7mt1bPftsLekGLo3fLA4DkaZI2Gqbl7qPjqP-1LJXrXy0~81Njeb64gd8usJkEqkx-jp6N1ZaLvHxQjg9X97GbfLASA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

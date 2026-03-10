@@ -1,0 +1,65 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01JZWV0REJ9T57S0QP740QF835/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlpXVjBSRUo5VDU3UzBRUDc0MFFGODM1L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=VE8A3snl-diDZ7-hlC2lr8KHmKkTC3X90WubCRU-BhW18FcDxvYHkpAo53gSMFG6CvMC7DLRIrqutqo7vknuROZr~DslInhX8nftrW5IwGArfhd6wO6oZvvfI4dXI2-m7XqEUf3ju~8MfYJttjLIaaOxWYkaXY9B9FcNj7Te-gxl6d2NwAGE3UXR5yQtPIgq0aw6O3G2xqpkQylDAcCtgXIpta4EvMkHA7LWEQiaNnsBwjAug3Vpq9fJkjmJ5r6~cXWWSQHmMAyR0sG4LrS0Ez3~rHMvJXX7sh6wCeNS2Z~Y1IpRzIsdDG9QZZ-tVJ0Q1gGH-qgw6q5tbWMXsQ8IDQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "operations",
+  "category_source": "keyword",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 41.38999938964844,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:14:08Z",
+  "meeting_at": "2025-07-11T15:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-11T15:00:00.000Z",
+      "leave_time": "2025-07-11T15:41:33.469Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-07-11T15:01:24.396Z",
+      "leave_time": "2025-07-11T15:41:24.557Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-07-11T15:03:54.257Z",
+      "leave_time": "2025-07-11T15:41:24.559Z",
+      "name": "WUCHER Oliver"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JZWV0REJ9T57S0QP740QF835",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YWIyYjMwODAtMGVkMy00ZjYyLWI4ZmMtYjA0NDJkMTlkZTYw@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 445,
+  "title": "Kurze Abstimmung (Clone)",
+  "transcript_created_at": "2025-07-11T15:00:00Z",
+  "transcript_id": "01JZWV0REJ9T57S0QP740QF835",
+  "transcript_url": "https://app.fireflies.ai/view/01JZWV0REJ9T57S0QP740QF835",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

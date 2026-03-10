@@ -2,6 +2,7 @@
 
 ## Metadata
 
+- domain_aliases: wavestone.com
 - crm_bucket: clients
 - account_name: Wavestone
 - domain: https://wavestone.eu

@@ -1,0 +1,60 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01K48537MZASKVHD8A72FX743K/audio.mp3?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzQ4NTM3TVpBU0tWSEQ4QTcyRlg3NDNLL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=OTRsbD7hpB7-rXbqDzfVTKoA7BGZ8Q4Pza~t142nNiIBENem6cQW2Sn9ou05pi3t88ivjOWm7twyisKXR18ASm4K-TJVdSno6O77nzXwIJ46i~6PGSKfVW7xXyvSmYuH34ZFRRFAjKffKSg5kplbBR6a1xQKzHf-fL~rZYlee7zjeyZtrxU4p7DSB4iRZ087yLc-i-UkR5Oqcxfc5Cfqtl243IQ0XENniBwh9~~nadro-2Ls9AmwBN7AdRyBjkflOdSuzStl7mV44bfoELS7DFY43sykEOrqjTLUdvMRH05Jco7reay24CFHVrrKPQfz7SoL8Ox6ZacFA59FcCRvDg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 45.97999954223633,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:09:54Z",
+  "meeting_at": "2025-09-04T12:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-04T12:30:00.000Z",
+      "leave_time": "2025-09-04T13:16:21.850Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-09-04T12:30:00.000Z",
+      "leave_time": "2025-09-04T13:16:21.851Z",
+      "name": "Kothe, Maximilian"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K48537MZASKVHD8A72FX743K",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_OGI1YTVjMWQtY2JhMS00NjU2LTkyNzItYTNjZjYwYTdkNGI0@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 461,
+  "title": "Maximilian Kothe and Konsti | matchical.com (Clone)",
+  "transcript_created_at": "2025-09-04T12:30:00Z",
+  "transcript_id": "01K48537MZASKVHD8A72FX743K",
+  "transcript_url": "https://app.fireflies.ai/view/01K48537MZASKVHD8A72FX743K",
+  "video_url": "https://cdn.fireflies.ai/01K48537MZASKVHD8A72FX743K/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzQ4NTM3TVpBU0tWSEQ4QTcyRlg3NDNLL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=nQkJ9t0rh8Nm4qaqTuKgEnLnLW-OaOpnMlF64GRtseE-suizDIt1p5yaXEL0-CygeqSPitxTTROIkCnDnm9FGODK~d8GeK0lbCD0Auj1Kg73WvA2U1gqXWV1OGdwcTT-7gQkLdBoDlg7cb7gPLVUQeoCUK4GO59R1bkpw7p1aAIqusQfuPwjQNZdFyqdcjvk5z9TqXsqE8ZREEGlb9aiFr8KXD1ENQ--igAAPvvcIQeNEICSmF93aVOvy2qSKOKeRAP0aRYrCIdztORWSA4bIY491Vc7355N9bVx4WOu9Q7bLsVgMK~xvwd1NQkSDA7aHLnYx5XtaKOr36jHjQd~Cw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

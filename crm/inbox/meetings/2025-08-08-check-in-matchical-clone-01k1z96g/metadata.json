@@ -1,0 +1,81 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01K1Z96GQWWCYVCVENQYDTE0B7/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzFaOTZHUVdXQ1lWQ1ZFTlFZRFRFMEI3L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=XAXbLkEiIVr1BfzJVIjY0SlQ75t8hasxrf70kKaoZlUYW38Qb3pKWe10G-wpoti0EcRFFLKpulES67viDAXgQASuYZhaUBg8GP8DdkAn9bFD6L9CNkseuUgFwZkIUWTAIsjjuXbYCN99WDlKEr21eABrMULsBIUOI4FlBTyaWvH6s86PY2uUHTGMcspTTASShYZ1gmJ57ETsDNZgxGd6wiJnGgdRdDYMxu8nYPuVjw91zXMGVu2TuUUvz5TsRDqbjjHgvxnJTqg1CSi4P62teWYLxylVwDpiAy~Df6fSkGyeyBxwg95GUEiRE3TyIKxq8KAeCIOp4DVTiKr4nwvZlA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 42.45000076293945,
+  "fireflies_users": [
+    "konsti@matchical.com",
+    "tommy@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:11:28Z",
+  "meeting_at": "2025-08-08T13:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-08-08T13:00:00.000Z",
+      "leave_time": "2025-08-08T13:42:52.652Z",
+      "name": "Kamm, Stefan"
+    },
+    {
+      "join_time": "2025-08-08T13:00:00.000Z",
+      "leave_time": "2025-08-08T13:42:52.652Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-08-08T13:00:00.000Z",
+      "leave_time": "2025-08-08T13:42:52.652Z",
+      "name": "Liller, Sabrina"
+    },
+    {
+      "join_time": "2025-08-08T13:00:00.000Z",
+      "leave_time": "2025-08-08T13:42:52.652Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-08-08T13:00:00.000Z",
+      "leave_time": "2025-08-08T13:42:52.652Z",
+      "name": "Vollmer, Anne Sophia"
+    },
+    {
+      "join_time": "2025-08-08T13:01:16.901Z",
+      "leave_time": "2025-08-08T13:42:52.651Z",
+      "name": "Ellinger, Mario"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K1Z96GQWWCYVCVENQYDTE0B7",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NzY3OTJmNTMtYmMxZi00NGVlLTg2MTAtYmM1MGI2ZDk0NWZj@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 426,
+  "title": "Check in matchical (Clone)",
+  "transcript_created_at": "2025-08-08T13:00:00Z",
+  "transcript_id": "01K1Z96GQWWCYVCVENQYDTE0B7",
+  "transcript_url": "https://app.fireflies.ai/view/01K1Z96GQWWCYVCVENQYDTE0B7",
+  "video_url": "https://cdn.fireflies.ai/01K1Z96GQWWCYVCVENQYDTE0B7/video.mp4?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzFaOTZHUVdXQ1lWQ1ZFTlFZRFRFMEI3L3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=v7QI~hpDrRuhDYD5DbJKcCM9ymK8xVntfvGeLJQwQKk3sHRSyEvb7q1PGtsfgk9-We2HtKdu15d9Q0f9W6OPj~cs7K-q9Q-xbwPUlLttRlieTTYEG5w85xHcHxoB7woMjgLVi7fmiUsZgMQZuPTyY3hKdLferkoDJ11ze5fW-iM2VtdtWX-E3EbfYdsYbDotJUtH3djipsXykMnUEHbmJz3Mz1tf9pZyRJH4BUm1bgRfwkfNa27ltjUNig~X92C61nXOePOWzKN6YnFxHpS4nAvnwUMvFvkGm1ibN8OX6WEqWgR5x1hfTuBUqzVoeJLXBiLqvsS1i0Uw~-wCzqhjiQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

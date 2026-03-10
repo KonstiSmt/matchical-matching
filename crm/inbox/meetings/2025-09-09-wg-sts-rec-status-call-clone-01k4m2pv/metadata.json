@@ -1,0 +1,90 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01K4M2PVMETV98NHPVNVBBZRQJ/audio.mp3?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRNMlBWTUVUVjk4TkhQVk5WQkJaUlFKL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=wW8SCWOihW41GKzeM4jogV5CXzDfdywcpQlO6uxh5jF3BCTmAqFarYw0SKhd0xcL8eV4RtD9WG1mxF2FSziH0-~utM2BImYu~KIh~p1I5O5Am8BzvCB7LWk~WKKNlJ8ARqAO8~ygDNZzF6LoYDwAYgxGvlW1~8fvZ-nCjYH4HsktNmzQ1Wvi8uuN0qH~LvtCC02xZjTlmQR1dTmWDIBoqNEmi5myNhHM29~OU5fqfb3sdLG7cQmSQkEDNHJVVMT6-lZ3rX5viIPMJ7CgF14b1~TEQSB-X~Ykc-mXYT3nRBgHLdd1yx84WkMelAJIZSjSVG1TZf4dg7Uzl-0KyNH86A__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "delivery",
+  "category_source": "keyword",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 54.439998626708984,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:09:43Z",
+  "meeting_at": "2025-09-09T07:15:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-09T07:15:00.000Z",
+      "leave_time": "2025-09-09T08:09:25.866Z",
+      "name": "ABDAGIC Elma"
+    },
+    {
+      "join_time": "2025-09-09T07:15:00.000Z",
+      "leave_time": "2025-09-09T08:09:25.866Z",
+      "name": "HALILOVIC Selma"
+    },
+    {
+      "join_time": "2025-09-09T07:15:00.000Z",
+      "leave_time": "2025-09-09T08:09:10.151Z",
+      "name": "NAMETAK Lejla"
+    },
+    {
+      "join_time": "2025-09-09T07:15:00.000Z",
+      "leave_time": "2025-09-09T08:09:25.866Z",
+      "name": "TAHIROVIC Mirza"
+    },
+    {
+      "join_time": "2025-09-09T07:15:42.245Z",
+      "leave_time": "2025-09-09T08:09:10.150Z",
+      "name": "FISCHER Manuel"
+    },
+    {
+      "join_time": "2025-09-09T07:15:42.245Z",
+      "leave_time": "2025-09-09T08:09:25.866Z",
+      "name": "KANDIAH Vivek"
+    },
+    {
+      "join_time": "2025-09-09T07:15:42.246Z",
+      "leave_time": "2025-09-09T08:09:10.151Z",
+      "name": "RIEDEL Dennis"
+    },
+    {
+      "join_time": "2025-09-09T07:15:42.246Z",
+      "leave_time": "2025-09-09T08:09:10.151Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K4M2PVMETV98NHPVNVBBZRQJ",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_OWM4NGVjZmUtMTdiYy00ZjllLWFjMzQtNzBkMDljYWFlMTY1@thread.v2/0?context={\"Tid\":\"5de96c96-c87c-4dce-aad9-f5c557b52ac1\",\"Oid\":\"80bbe670-2d73-4558-8809-166610fc6fea\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 700,
+  "title": "WG: STS REC Status Call (Clone)",
+  "transcript_created_at": "2025-09-09T07:15:00Z",
+  "transcript_id": "01K4M2PVMETV98NHPVNVBBZRQJ",
+  "transcript_url": "https://app.fireflies.ai/view/01K4M2PVMETV98NHPVNVBBZRQJ",
+  "video_url": "https://cdn.fireflies.ai/01K4M2PVMETV98NHPVNVBBZRQJ/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRNMlBWTUVUVjk4TkhQVk5WQkJaUlFKL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=pV5gtIawRbm2iDQ-K74cPiKn~ouL5LNb8ttmITDc0dYqbS0PyIyf9PISjbqoHyF84BeVx3i-q1vKBq1tw5bKLjzJCHS-8FDYY1A5J44UXjB6zpXPdgtmaz0JTxIv3WO4DaioXcqiU4lu6nQhpIgq~l~vtntOw2ZnR9-SVtccOL-pPPKZExtKDZgcqoEY8j0pJF2RdzId2jvcnyMZtPJKJcBGCBZTtQwudcCOi5D0yBA0uV8p-1ADTNojzuEmcClrajXCQF6AqOEyQ8x4isYZ~6p9MCQOdiJK8JnR9svZDSrJvuIOpWsp3MO1H95VLA4GGeVQIKbjP0BSpVofOMmRYA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

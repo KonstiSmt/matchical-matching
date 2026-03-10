@@ -1,0 +1,77 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01K1DRCPKW579Z05XRXSTZEVJT/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzFEUkNQS1c1NzlaMDVYUlhTVFpFVkpUL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=n5LCHMoCsP2vwljRDtDgU35elqaYT-brtG6HhVgzU4VUkqQtgHewPb~DU4y1R9Cr3AyGHq3Kmb6nzgiPObFPM3dGZ7hQR65q~dtH2zaAjE9PrjEb5XQUUSTHh0nqaFYOdjk5Oaix0QUXD5Gqzq25X5oRvsUKsUpKiPVi47K5NMvoX~d~6OTUW5-PqLsNIJdUq~6CPLEUqiBuxMC5tAunV~40Euy8slIHbq6LRW5VZbBZfL~iTy~u0nJ4FqTgzyYokNoYP83RPMXikRGmhBAEssvlLx2SPWaXNL6GsoXseIBTgBgFeI1-BETorMZsKrGxCPhgSkNWRp20WhD9e1gZ0A__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "icloud.com",
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 28.549999237060547,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:11:54Z",
+  "meeting_at": "2025-08-01T13:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-08-01T13:30:00.000Z",
+      "leave_time": "2025-08-01T13:58:56.533Z",
+      "name": "Henri Wucher"
+    },
+    {
+      "join_time": "2025-08-01T13:30:00.000Z",
+      "leave_time": "2025-08-01T13:58:56.534Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": "Henri Wucher",
+      "email": "hwucher@icloud.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K1DRCPKW579Z05XRXSTZEVJT",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YjA0MTdmMTgtYTE5Yi00ODg0LTkwNGQtNWJlZDJjZDBhM2Qy@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "hwucher@icloud.com,konsti@matchical.com",
+    "hwucher@icloud.com",
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "hwucher@icloud.com",
+      "name": "Henri Wucher"
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "hwucher@icloud.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 264,
+  "title": "Check in",
+  "transcript_created_at": "2025-08-01T13:30:00Z",
+  "transcript_id": "01K1DRCPKW579Z05XRXSTZEVJT",
+  "transcript_url": "https://app.fireflies.ai/view/01K1DRCPKW579Z05XRXSTZEVJT",
+  "video_url": "https://cdn.fireflies.ai/01K1DRCPKW579Z05XRXSTZEVJT/video.mp4?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzFEUkNQS1c1NzlaMDVYUlhTVFpFVkpUL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=hVwElw9O1haayRuaDV1fwyCy62QQwej3t8FpsPz6Ox9ZivS4zJDQhlnCeN-xgG-DlrDS4N5oZYV2EluT-RqeENYM7GIKLHJonkwseLluZhLib2xqvywgkWwr1fEqpeShYdLsf7wqP2M4sSBXzZSRZOUaEn-Jvsmk5ELcbbWfg1WsPE1UCd2C9mrkNKeMNMLufcmiyKxqgKIViZ-YhTV2Utygu0B4m6aKHhYlvk4L4ocUxmzqVAEdX4n-Z0pobHmB9cerQLJic9T8Us9ErOrdvlgLx5oUdyxDpx9OzhneqzlWme87hwMm02kojDfvLl3jQgMo05lORJtcBdUFBPGC4Q__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

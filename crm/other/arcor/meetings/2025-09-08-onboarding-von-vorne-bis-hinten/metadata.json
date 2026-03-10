@@ -1,0 +1,84 @@
+{
+  "account_slug": "arcor",
+  "audio_url": "https://cdn.fireflies.ai/01K47G1JH3PNAAPVEHWWWKE376/audio.mp3?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzQ3RzFKSDNQTkFBUFZFSFdXV0tFMzc2L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=BrumBoYJa4koAN9BKWt7E~GhDW5qSl-mHb4rgZzPbzHcKWFB0tZ-h4kyYCT8SroDgg5XWtFJlO3tufirb1fiV8XFUDuX2Y4bLRvZ4gDRX4Qxu0NbNNez8TvWuW93E1I~4mlnJReyMAyH1jZLU~aFQkEt1nUbdOxtMnt1fqcdKcLUuvFqhoJLllaWOiaoeHA3ypsXkw6O-vhzRKijiLJ-h0s2Q0~As4MQvPaRy826K9VcOpor-1R3bOb1eeRDRHxAAzhj9FaXC09lSgmPs4XbgvsuSk3jlqdhL59KsidFwtQzIWOLJ2zQ7~Fdqvzp-zemAo6K4Wm9Hk34CIXHAfbkfQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "other",
+  "detected_domains": [
+    "arcor.de",
+    "matchical.com"
+  ],
+  "dominant_domain": "arcor.de",
+  "duration_minutes": 144.9199981689453,
+  "fireflies_users": [
+    "tommy@matchical.com",
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:09:50Z",
+  "meeting_at": "2025-09-08T13:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-08T13:00:00.000Z",
+      "leave_time": "2025-09-08T15:29:05.099Z",
+      "name": "Andreas (Unverified)"
+    },
+    {
+      "join_time": "2025-09-08T13:00:00.000Z",
+      "leave_time": "2025-09-08T15:29:05.099Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "andreas_penzel@arcor.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K47G1JH3PNAAPVEHWWWKE376",
+  "meeting_kind": "other",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NzY4Mjg1ZWUtZDczMS00ZjZkLWI0MGYtNTdiOTJhNTg2YmE1@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "andreas_penzel@arcor.de,tommy@matchical.com,konsti@matchical.com",
+    "andreas_penzel@arcor.de",
+    "tommy@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "andreas_penzel@arcor.de",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1215,
+  "title": "Onboarding von vorne bis hinten ;)",
+  "transcript_created_at": "2025-09-08T13:00:00Z",
+  "transcript_id": "01K47G1JH3PNAAPVEHWWWKE376",
+  "transcript_url": "https://app.fireflies.ai/view/01K47G1JH3PNAAPVEHWWWKE376",
+  "video_url": "https://cdn.fireflies.ai/01K47G1JH3PNAAPVEHWWWKE376/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzQ3RzFKSDNQTkFBUFZFSFdXV0tFMzc2L3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=jaPzFco2jSnMmoDEKuoLr6dBphZUIMzPoXFggAHatoKUTwUHy2BKbmDHCwk85m23cV9lJp81Z-yV7P0Bx2BUbIxURVnLvkLC8DL8aRAbd3ttio0rKs5SPYON~rB8rYCQRTx3FQu681BYDq4MCE51I~68AP90gTjKGPMYCEXeARKumuaDNJVdZaGN~eFPmJGRsAGB6L5JJu3oX8Vl5eHpBkw815ZYhf-yppS9rYu5F7e7AmjX~K-l2ZFAVz~BUs~xVpfNZU~ejbTmDbF7ouzxsKy4zjhINhNw7-5DAcHdq7ShT7sDEfH-ghp7jCp1yNg270eAR0nmSCZyRD9aVAjjZQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "account_slug": "thestory",
+  "audio_url": "https://cdn.fireflies.ai/01K4FY5KBSGVQTEJ09NM9CZZK8/audio.mp3?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRGWTVLQlNHVlFURUowOU5NOUNaWks4L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=mRunbww7l68vlw93rV7V3IPAWzXFoDzlukDKjz66yXbjdrN6CFXcX-2A~GJS6PIg6fFISO~4uawVeAdyZz04o6AjAw6U1nujAdsKeOESoro~XQBMwc-iAdXn-px8JoOhutOGzBxJIG-311lpalKd~QHwB4UdrPjuP~w1E0o~WGMT~bOqxMTV~Lq5am9L~q9mnasZa1YKEV4yXaVn~f95F9-sHUuJzN8awvgTsQFU8fSBy5QdgWVN1-68q7sUqJ0Znkk0sobchFIx4AQIU~ShD42x0AnVwxQ6ajOj-ugQStc2HbLU455tg8XCZ2kYEe~Gy5I3HMWo3OTRAE4pySyFJg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "planning",
+  "category_source": "keyword",
+  "crm_bucket": "partners",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 62.52000045776367,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:09:51Z",
+  "meeting_at": "2025-09-08T12:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-08T12:00:00.000Z",
+      "leave_time": "2025-09-08T13:04:16.400Z",
+      "name": "Dymitr Romanowski"
+    },
+    {
+      "join_time": "2025-09-08T12:00:00.000Z",
+      "leave_time": "2025-09-08T13:04:16.400Z",
+      "name": "Karol Gorus"
+    },
+    {
+      "join_time": "2025-09-08T12:00:00.000Z",
+      "leave_time": "2025-09-08T13:04:03.919Z",
+      "name": "Konstantin Schmitz"
+    },
+    {
+      "join_time": "2025-09-08T12:00:00.000Z",
+      "leave_time": "2025-09-08T12:43:36.551Z",
+      "name": "Thomas Bauer"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K4FY5KBSGVQTEJ09NM9CZZK8",
+  "meeting_kind": "partner",
+  "meeting_link": "https://meet.google.com/kqr-oqph-zit",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 603,
+  "title": "matchical <> the story / Sprint planning (Clone)",
+  "transcript_created_at": "2025-09-08T12:00:00Z",
+  "transcript_id": "01K4FY5KBSGVQTEJ09NM9CZZK8",
+  "transcript_url": "https://app.fireflies.ai/view/01K4FY5KBSGVQTEJ09NM9CZZK8",
+  "video_url": "https://cdn.fireflies.ai/01K4FY5KBSGVQTEJ09NM9CZZK8/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRGWTVLQlNHVlFURUowOU5NOUNaWks4L3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=ZG9jpTfb8DQelDOnt0zO4CTFA6vRHIwyU--AQBoa6i6au3DYisFYsANEGHT5i0-oHjXgn3xvusuxdQc9hx8lI-DwLeEEF-lY7ludV1FqF1YTJOtHMnLnR7uTsM86wjMbEuWNhoChwvnHVt4YTyyT82996wRg~l6EuBdGSiSgiDjGrckZULAD8NCOyK77PK1JD7BDR0dwkc6Kij-6le93MRdUnzz5ZNnMNaCkWovyqUzEQfbiaOii1Lo89xF3Ml0-cq2YBxUyORdMCXdthap71j~HhGCNUdiMbXqxuCONJiE-J5Kq3COTa21~X3-pW0d6Q-POZtq18zgFhhVrNmm8rw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

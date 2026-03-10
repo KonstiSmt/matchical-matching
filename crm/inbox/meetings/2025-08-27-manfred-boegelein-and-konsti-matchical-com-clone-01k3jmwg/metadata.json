@@ -1,0 +1,80 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01K3JMWGTQHJPY2053438VDVGW/audio.mp3?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzNKTVdHVFFISlBZMjA1MzQzOFZEVkdXL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=pYDtGYUPQUqIQziE1-9~oyFOFOMvwVE7Wm8m9EebmWIRP4Agt3LicMhvaUDeFcb2lfwo-tTgtlZVpcbISkovc~JNtDheeGKl5hNzy9upn0g--Lg4y1v82mwtgPXodGMnzoWIdAi31VFToi3qMIfuen6JhPCIy26MGzAMcLSdxGLt7Tux0y4eS6vpe5bXgTaNC5ZG~ma2uqRYvja7VA0RQrOtE2wXLcS3TahrmwKBYvNJPZZNVEOQllOMnuRdyqeMETkEqq~swpMU59V5nLXmx45miMJ2h3msgU6IGSsolM150yUlHJMlk-Mqar-2rlVac4ifiZ9KH6XpMRDeVpTm4w__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 69.5199966430664,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:10:32Z",
+  "meeting_at": "2025-08-27T08:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-08-27T08:00:00.000Z",
+      "leave_time": "2025-08-27T09:09:32.184Z",
+      "name": "Jasmin Wenzel"
+    },
+    {
+      "join_time": "2025-08-27T08:00:00.000Z",
+      "leave_time": "2025-08-27T09:09:32.184Z",
+      "name": "Jürgen Wüst"
+    },
+    {
+      "join_time": "2025-08-27T08:00:00.000Z",
+      "leave_time": "2025-08-27T09:09:32.184Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-08-27T08:00:00.000Z",
+      "leave_time": "2025-08-27T09:09:32.183Z",
+      "name": "Manfred Bögelein"
+    },
+    {
+      "join_time": "2025-08-27T08:00:00.000Z",
+      "leave_time": "2025-08-27T09:09:32.184Z",
+      "name": "Marc Wissenbach-Günnel"
+    },
+    {
+      "join_time": "2025-08-27T08:00:00.000Z",
+      "leave_time": "2025-08-27T09:09:32.184Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K3JMWGTQHJPY2053438VDVGW",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YTQxNzljN2EtNzg0NC00MWM0LWE3ZDQtODMzZDBkZGRjNzVi@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 645,
+  "title": "Manfred Boegelein and Konsti | matchical.com (Clone)",
+  "transcript_created_at": "2025-08-27T08:00:00Z",
+  "transcript_id": "01K3JMWGTQHJPY2053438VDVGW",
+  "transcript_url": "https://app.fireflies.ai/view/01K3JMWGTQHJPY2053438VDVGW",
+  "video_url": "https://cdn.fireflies.ai/01K3JMWGTQHJPY2053438VDVGW/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzNKTVdHVFFISlBZMjA1MzQzOFZEVkdXL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=TJ7jn~IcelWmZzVNP9HJWfAGeVWIQjwm2Fg86kGohl2pXrDcJUgOsO36bRhXteCFzEHbaqTaiVGxzgEoyOESKFS6QwMTeUU0S3nuwK8BSbmnQWFhaBwIVcQmPTwSbz8BlW1w0~YbRfyfgfMADRkWEB-THKO8VLNmIbdxQyhPpeqYoCcrskodZvnvcS~bFWiw9giJOaEFcAyMB2DIp-kyvKrC9IdSl57PQvQaOxB4lfdLSdLYzAE93I10aXx9PRsLPGniIWZpPptZbpaMyF4hqPY9xwX46TmClkEC3LGAx~94NKLWi31hiBCp1Zb7A6REFxWH8OwkgmSBGZHperBKVw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01K4Z297BPY1430XNAJ0RZKFA5/audio.mp3?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRaMjk3QlBZMTQzMFhOQUowUlpLRkE1L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=quwPZKM1TEJd1Wr0weIGGpVlERSidh-b03fVFGo2DMx7gnS4Z2cKkbkV~u6~DFyq0SosCA67vAY8q9ier3qJgF9yb3rZZRT4RlAHV-uSeXDYYuUFzqJZeaFR8e180oNLEwdBXJ6~7KD4RwSElY-SNN1ymp-I3dAcmrxA0P9wugxNVytUiJD7XddyvQmjz99EXp7gsTKfsOAEBkePWFcITB6wS9JNGLP-ouVCIo55NZ-tchXteTvx-SwFtmZb-~JfzqQ~d2TM60C3IGDMr1uPQgd9nYyGVgiW8qU3I0qYfN9OG1LevUj-qJKBB~FMoSTCKRBiOUYbpzSUPQc5BPyQ1A__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "247it.pt",
+    "matchical.com",
+    "onmicrosoft.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 180.16000366210938,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:09:20Z",
+  "meeting_at": "2025-09-15T08:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-15T08:00:00.000Z",
+      "leave_time": null,
+      "name": "Carlos Freitas"
+    },
+    {
+      "join_time": "2025-09-15T08:00:00.000Z",
+      "leave_time": null,
+      "name": "Niklas | matchical.com"
+    },
+    {
+      "join_time": "2025-09-15T08:00:47.943Z",
+      "leave_time": null,
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "niklas@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "cfreitas@247it.pt",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "carlos.freitas@stepaheadcons.onmicrosoft.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K4Z297BPY1430XNAJ0RZKFA5",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_OWQ2NDBkYTEtMDlkNC00ZGZhLWI2ZTktMjAzMDA0MWM4N2Iw@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "niklas@matchical.com,cfreitas@247it.pt,carlos.freitas@stepaheadcons.onmicrosoft.com,konsti@matchical.com",
+    "niklas@matchical.com",
+    "cfreitas@247it.pt",
+    "carlos.freitas@stepaheadcons.onmicrosoft.com"
+  ],
+  "participants": [
+    {
+      "email": "niklas@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "cfreitas@247it.pt",
+      "name": ""
+    },
+    {
+      "email": "carlos.freitas@stepaheadcons.onmicrosoft.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 2595,
+  "title": "Onboarding Carlos",
+  "transcript_created_at": "2025-09-15T08:00:00Z",
+  "transcript_id": "01K4Z297BPY1430XNAJ0RZKFA5",
+  "transcript_url": "https://app.fireflies.ai/view/01K4Z297BPY1430XNAJ0RZKFA5",
+  "video_url": "https://cdn.fireflies.ai/01K4Z297BPY1430XNAJ0RZKFA5/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRaMjk3QlBZMTQzMFhOQUowUlpLRkE1L3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=KrgQDqDZYfFufrIZGEPr~Q1EDj3fA4k57fMl56hyYimOUZ16hq7OmwyjqAwrOyQ7EH3WWJzs6U7Tly4JTCSkZGiCQZDxky3mlG6nRHpVumkzkgZ~MQqnPF1F4M1810gowG3xuKp0btxUG~mLIJPKD6fEgmFcyW2LFRmg9Ug6NVMhwFq38d37DF~kZgUeQ9uRkhshCp7FL-Bj6YX4bR3T5B~5kecIGSDhBL0ni3TGMUCPbqhl0cIiB17MHVNCdyKzgE0Ua51ZXtB1GT~VHEQZY9AOeiT6YXpTpwpn1wL6RMeoR6Q5YRDAaWmTb~kxHKhAgmoOzcFQFRsXnm8plrH0xQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

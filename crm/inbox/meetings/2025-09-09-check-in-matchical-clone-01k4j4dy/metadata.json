@@ -1,0 +1,86 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01K4J4DYH89TT5YCD5279GNCR0/audio.mp3?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRKNERZSDg5VFQ1WUNENTI3OUdOQ1IwL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=vwRzN9pequBScxguLhlKqpAWeuwsCK8RPOr~jxtcXO4I5ZZwPX6aAwVz1s0zrmlLPIWNFrguqM7eqc4ci4LcteW9Pe2JV-1Rz-UiqSbAZJjDR2mt~JvrvYmn~Z4V3vG2TGd-Xo~Q37bfjsTaEEJWbXnCfaLAPm6POuxs3vF08uHpgI9y5mJHWXQkQtin1eCqNF5qlUBaQQ0OZBtYpda2X2BGcvAH2vucl7dm-HKhIMWgTsWkUShJ9JWr~IezwVaZ~PPa8-hkjOYuqaJE0RaIeVFMw9EPVwuLFQIIclePWtBoSA5HAyIjf~gPekrbqZAPDldQEvv~107DnmRJWUxOGg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 66.87000274658203,
+  "fireflies_users": [
+    "tommy@matchical.com",
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:09:38Z",
+  "meeting_at": "2025-09-09T12:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-09T12:00:00.000Z",
+      "leave_time": "2025-09-09T13:07:23.053Z",
+      "name": "Ellinger, Mario"
+    },
+    {
+      "join_time": "2025-09-09T12:00:00.000Z",
+      "leave_time": "2025-09-09T13:07:23.053Z",
+      "name": "Heldmaier, Tobias"
+    },
+    {
+      "join_time": "2025-09-09T12:00:00.000Z",
+      "leave_time": "2025-09-09T13:07:23.053Z",
+      "name": "Kamm, Stefan"
+    },
+    {
+      "join_time": "2025-09-09T12:00:00.000Z",
+      "leave_time": "2025-09-09T13:07:23.053Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-09-09T12:00:00.000Z",
+      "leave_time": "2025-09-09T13:07:23.053Z",
+      "name": "Vollmer, Anne Sophia"
+    },
+    {
+      "join_time": "2025-09-09T12:01:20.379Z",
+      "leave_time": "2025-09-09T13:07:23.053Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-09-09T12:35:52.162Z",
+      "leave_time": "2025-09-09T13:07:23.053Z",
+      "name": "Kaiser, Raphael"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K4J4DYH89TT5YCD5279GNCR0",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YjgyMWY1NDMtZTg5ZC00ODA4LTllYzgtMzNkNGQzYWQwYWIw@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 567,
+  "title": "Check in matchical (Clone)",
+  "transcript_created_at": "2025-09-09T12:00:00Z",
+  "transcript_id": "01K4J4DYH89TT5YCD5279GNCR0",
+  "transcript_url": "https://app.fireflies.ai/view/01K4J4DYH89TT5YCD5279GNCR0",
+  "video_url": "https://cdn.fireflies.ai/01K4J4DYH89TT5YCD5279GNCR0/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRKNERZSDg5VFQ1WUNENTI3OUdOQ1IwL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=s~iIF0h06AXnRWhMeGjdP9e8W0FwaHnOClACLb42iPHKdm5nf2yqxbTeqKDsRMAFFKHoOy~KlYVOFLGCyjzW80eX6IybxuJCYbPxbq78ljcepiQDshEaREgJwN4IDaR0wJQHL9MfVuSIp91jnJwo2QBh~ve3ZsIqBwvcGFEUITD8aLYaxdYuBYlTxNtFaoWhX5YXAmUHfp3Gth0d7hOx~6dETMy0H9thl-3uTX4sHhy6X6oFcctpDwZNyaLp736pRbO-uYd-Q3ixaYmxzjw9edoUSf4iDwx1pAcavuY~FlvSUbv~a135UsKy2FVyBw7Wiux0HjgF54RPmq6~ciz3zA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

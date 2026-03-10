@@ -1,0 +1,134 @@
+{
+  "account_slug": "cassini",
+  "audio_url": "https://cdn.fireflies.ai/01K2CSZ30SKVK8HN1CNZEY4TB4/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzJDU1ozMFNLVks4SE4xQ05aRVk0VEI0L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=cXWmFU3nj7GkqGxn~H5zBVtyxvTYVsw554q6u0Pibkw9G7lrMtOoTPCzN3zulAcSxoDRcR7OvjMcyV7E4SOgaalvSmOXfQMXB-mok2~kySKM~97uiUZVfbZ922ZqgjEzhFKO7WGgT9dUBnvGxwifxc0jxJ3wasX~njn5zS9Nt7SOhYBf3VXbyX1ssGlvJlJsMDAxRy-U~AG9FM10omtaDCyhpj2PwhomGPllVNA1E4AzQcSQOIYl3hGgSdrbX~s5qze6QNHmvKC04FBX35ZPkAoz9tEfAtI5YXU7hberv8Bu2SjWL~PROGsWMSmFXl-Mh0LJSZftm9zPd2MfFpL30Q__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "aleri.de",
+    "cassini.de",
+    "matchical.com"
+  ],
+  "dominant_domain": "aleri.de",
+  "duration_minutes": 64.55000305175781,
+  "fireflies_users": [
+    "konsti@matchical.com",
+    "tommy@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:11:07Z",
+  "meeting_at": "2025-08-15T08:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-08-15T08:00:00.000Z",
+      "leave_time": "2025-08-15T09:04:51.319Z",
+      "name": "Al-Kadi, Ferras"
+    },
+    {
+      "join_time": "2025-08-15T08:00:00.000Z",
+      "leave_time": "2025-08-15T08:58:56.984Z",
+      "name": "Iwanowski, Marcus"
+    },
+    {
+      "join_time": "2025-08-15T08:00:00.000Z",
+      "leave_time": "2025-08-15T09:04:51.319Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-08-15T08:00:00.000Z",
+      "leave_time": "2025-08-15T09:04:51.319Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": "Gilles, Jochen",
+      "email": "jochen.gilles@cassini.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Al-Kadi, Ferras",
+      "email": "ferras.al-kadi@aleri.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Iwanowski, Marcus",
+      "email": "marcus.iwanowski@aleri.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Tommy | matchical.com",
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K2CSZ30SKVK8HN1CNZEY4TB4",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZmFlOTY3OTUtZGEyOC00ZDk5LWJhOTUtNThmODY1Mjg3NTdh@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "jochen.gilles@cassini.de,ferras.al-kadi@aleri.de,marcus.iwanowski@aleri.de,tommy@matchical.com,konsti@matchical.com",
+    "jochen.gilles@cassini.de",
+    "ferras.al-kadi@aleri.de",
+    "marcus.iwanowski@aleri.de",
+    "tommy@matchical.com",
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "jochen.gilles@cassini.de",
+      "name": "Gilles, Jochen"
+    },
+    {
+      "email": "ferras.al-kadi@aleri.de",
+      "name": "Al-Kadi, Ferras"
+    },
+    {
+      "email": "marcus.iwanowski@aleri.de",
+      "name": "Iwanowski, Marcus"
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "jochen.gilles@cassini.de",
+      "name": ""
+    },
+    {
+      "email": "ferras.al-kadi@aleri.de",
+      "name": ""
+    },
+    {
+      "email": "marcus.iwanowski@aleri.de",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 650,
+  "title": "Jour fix matchical",
+  "transcript_created_at": "2025-08-15T08:00:00Z",
+  "transcript_id": "01K2CSZ30SKVK8HN1CNZEY4TB4",
+  "transcript_url": "https://app.fireflies.ai/view/01K2CSZ30SKVK8HN1CNZEY4TB4",
+  "video_url": "https://cdn.fireflies.ai/01K2CSZ30SKVK8HN1CNZEY4TB4/video.mp4?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzJDU1ozMFNLVks4SE4xQ05aRVk0VEI0L3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=XX-cH1VVGDSxxZtDhWbypXe8-mhHD1sOYjG75Hy8k84VHyv8lVMhQGi1ecID9FlAEa19ie~mMpvFQ5qcjKlTqXRVs6eKqa0kYb8-kAF8d2SC7Q-qooR3Y0R-u5fSUD08FacOw2sselM200rlejVOfFJSWAHjCrr3YazJ5gQB0kkfTI4Gj9sAkoGlWwuOwAE9xU~9JoYFXID67Wp~QU7YFzsceR7YPAbWdv4mxn6ctI8Tb5xfbvzg3Qi5h7ksbWOMXssIIILfXt0Vn~RLaMAJB0v5-3~WnSnbuasnogG2XZ~c275P6oxFf~aTmO5ODJ~AOdJFh4rm6Xx7R2IIYXT1kg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

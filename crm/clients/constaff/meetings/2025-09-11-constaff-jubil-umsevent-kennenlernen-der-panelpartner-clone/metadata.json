@@ -1,0 +1,65 @@
+{
+  "account_slug": "constaff",
+  "audio_url": "https://cdn.fireflies.ai/01K4QNBNE00XBZ97Z3MKCK4SA9/audio.mp3?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRRTkJORTAwWEJaOTdaM01LQ0s0U0E5L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=UNuza9F3o0cLa55eNtWTMAtnU-E5SobfTkUH~2lpjlA6doYSTUWzuzSAJIM6UN7r8rO0WacGI7zATI2NQfmNRc8vUqJKebuAwHNSGS68KVokq3ixkP4xna4Eu0wWxb8o4g4~owsJdczHMJEqHHCQjMicNPSOOFsbHee9Mhl18PEetFrkpVGTFF7MU2wXGhdmtSSKY84Vy2ua7cruVneeV-MUIw9wRy4FB94pZSTALvlKunTxTkarg4wUNgRyNW6K6xAJhBAFwwzfxqd4pFf0qVXWyVIRhGmmNggnCsH-WGlgroZntdppP1npdQBtgtRKwzN56GbThsREHaXlS6EO5g__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 31.209999084472656,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:09:22Z",
+  "meeting_at": "2025-09-11T14:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-11T14:00:00.000Z",
+      "leave_time": "2025-09-11T14:31:26.281Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-09-11T14:00:00.000Z",
+      "leave_time": "2025-09-11T14:31:26.281Z",
+      "name": "Michelle Kraus"
+    },
+    {
+      "join_time": "2025-09-11T14:04:31.815Z",
+      "leave_time": "2025-09-11T14:31:26.280Z",
+      "name": "christian scholz"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K4QNBNE00XBZ97Z3MKCK4SA9",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZWE3NjgyOGYtYTQ1My00Zjc1LWEwODUtNmQ3ZThmODE0NGM5@thread.v2/0?context={\"Tid\":\"32230f51-3505-4cd5-a18e-45005bbb08b8\",\"Oid\":\"04a62512-f2ed-460e-8a87-acecfc8d3d41\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 357,
+  "title": "Constaff Jubiläumsevent // Kennenlernen der Panelpartner (Clone)",
+  "transcript_created_at": "2025-09-11T14:00:00Z",
+  "transcript_id": "01K4QNBNE00XBZ97Z3MKCK4SA9",
+  "transcript_url": "https://app.fireflies.ai/view/01K4QNBNE00XBZ97Z3MKCK4SA9",
+  "video_url": "https://cdn.fireflies.ai/01K4QNBNE00XBZ97Z3MKCK4SA9/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRRTkJORTAwWEJaOTdaM01LQ0s0U0E5L3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=a9GZvDdJfz6lQOJvO-6jOhTz4Sw2JhAr11NlW0QorpXciZXec27Qv5m4OxC-w81imazkPT5ysuqeA~zuAcyS5DhIKyMLzYTyOhcNlHIsLa0r5rEpFLMUjmP9AZZbLiUIPIvW2fLlJ~kHpfRq3suWgmyqOA5GwmMKiuSP5pEqWdcrqnz~6kXVoLrdGnF3hAyisolbx2X62vmqKQhb9jZrnhCKwj22m~dy89YTekJyEVBGqaiHv2~4pYHRTTT7k5jyiJsu1z7UKg8wi7hgJCCpC7ITeOegT0MuY2RG6Iww0HBsAZZk17LQiPQs49Xh-HWjJ7Je4UnX4ZwaGNNRrJX~2g__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}
