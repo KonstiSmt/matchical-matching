@@ -1,0 +1,76 @@
+{
+  "account_slug": "bridgingit",
+  "audio_url": "https://cdn.fireflies.ai/01KFMXRTMFH1XMV3Q50TCTJQB6/audio.mp3?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0ZNWFJUTUZIMVhNVjNRNTBUQ1RKUUI2L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=BV74IwC-Jfgzrox3imyQ-Y0gnrD~WkJg1ILs-qbQHpCeKCrgusKU56ZEFCrdY6xgtoQx9PcoUZRZyUcrCp0ZIw9tdTgBoPU6teMvqPb-UnIf2oTJlqAtNEF1IUXjzPGPDmgw2eVXuZUnzxCbMvHWlZMz5jnmPpbfkbaunwXvjVeL68m1q~kiVIJ47vyOCCAc3Ww96X~qBGPLbRFhLjfJQe6Fy4PpMsFrKX~~xUtIK5vQS8UOHyUz1s3QIIRQCLXRQmn88Oo1SoWgB1BdfBdhza9vvP~BpLqhE~bbQIciXTM7UIclsFvFW3z74I2Ui9gLn~s3ujsEFD34ScXdO~WSPA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 141.74000549316406,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:51:54Z",
+  "meeting_at": "2026-01-26T15:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-01-26T15:00:00.000Z",
+      "leave_time": "2026-01-26T17:21:30.819Z",
+      "name": "Jens Schumacher"
+    },
+    {
+      "join_time": "2026-01-26T15:00:00.000Z",
+      "leave_time": "2026-01-26T17:21:30.819Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2026-01-26T15:00:00.000Z",
+      "leave_time": "2026-01-26T17:21:30.819Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2026-01-26T15:01:30.760Z",
+      "leave_time": "2026-01-26T16:06:20.552Z",
+      "name": "Carsten Schindler"
+    },
+    {
+      "join_time": "2026-01-26T15:02:14.571Z",
+      "leave_time": "2026-01-26T17:21:30.819Z",
+      "name": "Niklas | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KFMXRTMFH1XMV3Q50TCTJQB6",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_N2RhODE2ZjItOTYzOS00MGIyLTg1YWQtNzBiMzJhNmJkYjQ3@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1814,
+  "title": "Sie folgen: Soft go-live matchical (Clone)",
+  "transcript_created_at": "2026-01-26T15:00:00Z",
+  "transcript_id": "01KFMXRTMFH1XMV3Q50TCTJQB6",
+  "transcript_url": "https://app.fireflies.ai/view/01KFMXRTMFH1XMV3Q50TCTJQB6",
+  "video_url": "https://cdn.fireflies.ai/01KFMXRTMFH1XMV3Q50TCTJQB6/video.mp4?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0ZNWFJUTUZIMVhNVjNRNTBUQ1RKUUI2L3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=pzJrNB5IultBHrfm5G3Vc9Ovblsyn~RQBUzi-RTWZK4lPpHyabLhXmJRl3hEnWuglWFsQMcnjHdTQX7hyNejqcSG00H5-4tx9cefMRAVVLnxYrvQNPLWffCbq-JcI3uTHo4B2uDQEToVPbWQ2UDnM0zHvA4TLyRXcKd7wjxty4SNe54IADB05zndWmNyqLGJHLZCz5mGyyBUf-ZjD9njdCPbYEO8DM68M6lZ6R7nwT6kLc7LWzV0FC~98oH0AXhmuq6UUexneqmzYBu2V-wY96xrBzZFyqARitlxCgmW3yvNzffm3ojQJsi0tn~PHm8qWYztRhpGiDa4sI1dYcNdAw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_name_rule"
+}

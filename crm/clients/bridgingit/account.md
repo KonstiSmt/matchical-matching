@@ -4,7 +4,7 @@
 
 - crm_bucket: clients
 - account_name: bridgingIT
-- aliases: bridgingIT
+- aliases: bridgingIT, Jens Schumacher, Carsten Schindler
 - status: auto-created from Fireflies import
 
 ## Notes

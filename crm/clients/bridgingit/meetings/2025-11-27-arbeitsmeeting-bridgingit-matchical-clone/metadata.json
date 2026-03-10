@@ -66,5 +66,6 @@
   "video_url": "https://cdn.fireflies.ai/01KAKDH89R7DMETJS5QS84MSHN/video.mp4?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0FLREg4OVI3RE1FVEpTNVFTODRNU0hOL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=y3VFlgrj3QqGoai2Qpwx1jNkr6I6uRy8whDGMHiwwmxiGx-EoENtRr87Vq-XdrIab3CuKPIyvJukNZWIfnq0pA2eEQpnKB-Wwfq0Jfu0bCQLHxnFxzrZ1E5B4DleJpu2QlgGHGRIJwBdzcGsDWVRg2K9364BS-WFGIsDDhCGLMyHEsgbnocFRcX2DSvD3optFFZdaAITUtGS3RLpHlIiOcFOINwHgAem~FegxRcYlV6ueXMI~lwM~t5EsOXLsMs1u2llBNpdzj5eHEATsuPEKA2T9zJ4iy6IY~K4BDmyOtK5IkAKqIbApgtY5OaURWraUzwOUDaSpZVFSvbF5LUpdw__&Key-Pair-Id=K25ZJR0UZVF4CM",
   "workspace_users": [
     "konsti@matchical.com"
-  ]
+  ],
+  "route_reason": "manual_name_rule"
 }

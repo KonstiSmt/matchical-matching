@@ -141,5 +141,6 @@
   "transcript_id": "01KCGV911YRFSNWYABDNSWQWD0",
   "transcript_url": "https://app.fireflies.ai/view/01KCGV911YRFSNWYABDNSWQWD0",
   "video_url": "https://cdn.fireflies.ai/01KCGV911YRFSNWYABDNSWQWD0/video.mp4?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0NHVjkxMVlSRlNOV1lBQkROU1dRV0QwL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=0c5ie9ykyjIqLfrI1KWHQqffvIo40-Mx1w1ft7RQaJoYHyHcCOVq7srA-ZvmTZdg4Zuv10r0jmKFKe9ekIm2YDm6EkHQRhOpAe~GqqnSNOp3VG2Ep4b~J9rz3jE0CpbyRjwjawTmke07SvF~3rG2uwZ8I-~penrkrJATM8kUMMomrtAexxoHUY3B5hzJ266g2eZ-~CSnrT61zLjyHgpfCo5LVlhXJRbk-MJ68Ril1ClWDXIdqhuRBaLi3gRbkbG1~54Fsyl-hSMU6uTVqbeQqxkzZdqSFrbtKqYMXPpWNN~-u-HmAB47AALehjCEeUj47oEYbJAnViAzwrecibXXdg__&Key-Pair-Id=K25ZJR0UZVF4CM",
-  "workspace_users": []
+  "workspace_users": [],
+  "route_reason": "manual_name_rule"
 }

@@ -4,7 +4,7 @@
 
 - crm_bucket: clients
 - account_name: Valantic
-- aliases: vNXT, Valantic Next
+- aliases: vNXT, Valantic Next, Felix Freudenstein, Alexander Scherdin
 - domain: https://valantic.com
 - status: auto-created from Fireflies import
 - last_updated: 2026-03-09

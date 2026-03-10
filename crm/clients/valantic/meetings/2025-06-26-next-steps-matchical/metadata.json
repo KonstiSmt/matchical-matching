@@ -129,5 +129,6 @@
   "video_url": null,
   "workspace_users": [
     "konsti@matchical.com"
-  ]
+  ],
+  "route_reason": "manual_name_rule"
 }

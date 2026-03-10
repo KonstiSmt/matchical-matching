@@ -113,6 +113,9 @@ CLIENT_RELATIONSHIP_KEYWORDS: dict[str, int] = {
 }
 INTERNAL_MEETING_KEYWORDS: dict[str, int] = {
     "daily": 2,
+    "management board": 2,
+    "dev check in": 2,
+    "dev check-in": 2,
     "sprint planning": 2,
     "backlog": 2,
     "refinement": 2,

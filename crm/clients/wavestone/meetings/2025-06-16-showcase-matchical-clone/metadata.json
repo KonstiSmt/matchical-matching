@@ -1,0 +1,66 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01JXR9BYWE03Q1FZAVC7XY93ZQ/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlhSOUJZV0UwM1ExRlpBVkM3WFk5M1pRL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=MBJhwcRrqVuaGt8chE5xAguWwcjdMyXi0Zt5yuGgBZJE0hPRYO4cDhND2bEwpKNZ6TOngqHszWVllVEbDtwJfIfVIfs23d4bz9UotA~ghxuJgAPyLmm6TPzr0XLjQyuPcVpb6PsAa4LC5UjVa9oTDGUp4SX9FzNXFYSShB7nPv~6BCbPN36RDCSTj7sOi-H~CkoyYYx9Yb8-ksPQufgiBiQ0gyFO~sT37i2QU9GPjwA~ndI4mD3IUSITbZYClLQFhgJtgGYGt6z3I3719e3SPUx~~tlH37VnEyJyuwVAmSIiY-iwn~r131obPx9CxmgOEdQ14yBEgE1Y9Z7Ozn0osQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 66.16000366210938,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:01Z",
+  "meeting_at": "2025-06-16T14:02:29Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-16T14:02:29.739Z",
+      "leave_time": "2025-06-16T15:01:07.698Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-06-16T14:02:29.741Z",
+      "leave_time": "2025-06-16T15:07:42.880Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-06-16T14:03:17.474Z",
+      "leave_time": "2025-06-16T15:07:42.881Z",
+      "name": "WUCHER Oliver"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JXR9BYWE03Q1FZAVC7XY93ZQ",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NzFmNjA1OTUtNmEzZC00OWMwLWEwOTEtNzUyZjY1MzZlM2I2@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 678,
+  "title": "Showcase matchical (Clone)",
+  "transcript_created_at": "2025-06-16T14:00:00Z",
+  "transcript_id": "01JXR9BYWE03Q1FZAVC7XY93ZQ",
+  "transcript_url": "https://app.fireflies.ai/view/01JXR9BYWE03Q1FZAVC7XY93ZQ",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_name_rule"
+}

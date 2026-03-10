@@ -54,7 +54,7 @@
     }
   ],
   "meeting_id": "01JWKK6X34WB7CESBJNBG4BXP1",
-  "meeting_kind": "partner",
+  "meeting_kind": "unresolved",
   "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_OTE0MWZjMjEtZTllZi00ZWU4LThiODQtZGY3MTI3NDc5OTUx@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
   "organizer_email": "konsti@matchical.com",
   "participant_emails": [
@@ -84,5 +84,6 @@
   "video_url": null,
   "workspace_users": [
     "konsti@matchical.com"
-  ]
+  ],
+  "route_reason": "manual_name_rule"
 }

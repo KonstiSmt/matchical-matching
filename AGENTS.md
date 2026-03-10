@@ -48,6 +48,8 @@ Repository includes development artifacts for Matchical: queries, prompts, mocku
 - In `crm/`, keep `clients/` for both active clients and potential clients, `partners/` for partner relationships, and `other/` for non-client/non-partner entities.
 - For Fireflies CRM imports, collapse obvious alias or domain variants into the canonical existing CRM entity instead of creating near-duplicate folders.
 - For Fireflies CRM imports, base classification on transcript evidence as well as metadata; do not rely on attendee emails alone when attendance names or transcript text provide stronger routing evidence.
+- For Fireflies CRM imports, treat `Management board`, `Daily`, and `Dev check in` as internal by default unless the transcript clearly shows a different external destination.
+- For Fireflies CRM imports, route `Jourfix - SIP_ProfileMap_Esra` and `Jourfix Matchical/SIP` to `crm/clients/wavestone/`.
 
 ## Entity Schema Updates
 - For user-provided entity JSON updates, refresh `docs/entities/` manually (AI-assisted) and do not add automatic reorganization scripts for this workflow.

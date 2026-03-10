@@ -1,0 +1,71 @@
+{
+  "account_slug": "first-solution",
+  "audio_url": "https://cdn.fireflies.ai/01K8X9RBN8Z0D3V9D1DXHTD7TB/audio.mp3?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzhYOVJCTjhaMEQzVjlEMURYSFREN1RCL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=fN5xkc92UCQ1oGyfIRcx5RDMvhexktdqNvY1FKVeJaJVvOWeqidqjPG~h7ddr3aFE1AAWAYaNZVBP6Hi4Wb3T2dswF9e~Kh8DnNlyph9GhDnrjTb8RFuxxlWuw4xsq2yLsz5VhjX5KlyVor8x2U6D1KI3V8yOnYn-qHckxEOuzM8lw3WzmEbU6d91~cVH7KUmqahavUDeTqfEZHd-K2UI~WsD7pOTujv5~xvNWoiDyjz5-OPLLVcc9~0LkJ7OJqW~1MLsEpz7URZSDNMNmxuWtmF5WpiQioSL2P71JaciK7pdymqJCjXWk8qbp6l8GTB9TaFbmQfzwJ62YDZefgnnw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "operations",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 59.2599983215332,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:32:13Z",
+  "meeting_at": "2025-11-07T10:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-11-07T10:00:00.000Z",
+      "leave_time": "2025-11-07T10:59:37.393Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-11-07T10:00:00.000Z",
+      "leave_time": "2025-11-07T10:59:20.444Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-11-07T10:01:28.550Z",
+      "leave_time": "2025-11-07T10:59:37.393Z",
+      "name": "Stephan Grulich"
+    },
+    {
+      "join_time": "2025-11-07T10:02:34.463Z",
+      "leave_time": "2025-11-07T10:59:37.393Z",
+      "name": "Christina Gamroth"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K8X9RBN8Z0D3V9D1DXHTD7TB",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MmIzMDNiMTEtYmU2Ny00ZDhmLTkzYmYtY2Y0ZThlY2E0NGU4@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 634,
+  "title": "JF - first <> matchical (Clone)",
+  "transcript_created_at": "2025-11-07T10:00:00Z",
+  "transcript_id": "01K8X9RBN8Z0D3V9D1DXHTD7TB",
+  "transcript_url": "https://app.fireflies.ai/view/01K8X9RBN8Z0D3V9D1DXHTD7TB",
+  "video_url": "https://cdn.fireflies.ai/01K8X9RBN8Z0D3V9D1DXHTD7TB/video.mp4?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzhYOVJCTjhaMEQzVjlEMURYSFREN1RCL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=zRZNtBWWQnXIZbeQkoKSjpUAUsOCh0-2dmT72sH6xrMMwdxlfxZ~wVmwtqFpOvvHIKgZUVGAs2caPMjtqkafnbgAEs~IifZDhcDmN6RJzTHRZP-tvxNxU6Wpf-gt9fgmxdmYngfR-muo5~jG-7zMmCEx2imZYqkRmdCCeYS~wcSfNYp8alSkKAWZHQQlgHwIKuzwixzQmFPcBaPG8sZf01gpUgwYkZIMd0EqAH~i9v~N~T1T3w44iDtFzl2vTpYCLpjPn2jcedhNl6KbObYDC~PJ5cEhrG06Qk7O2bkRWPrwLp2qYRxdD90RQcEzn1jjfdVo135LzUEq89yhprOltA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_name_rule"
+}
