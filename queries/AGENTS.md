@@ -113,6 +113,14 @@ LEFT JOIN {LocaleDict} name_locale
 
 ---
 
+## Frontend Database Access
+
+- Frontend DB access / DBAccess / RunSelect queries use `@Entity.attribute` syntax, not OutSystems Advanced SQL `{Entity}.[Attribute]`.
+- Keep reusable frontend DB access syntax and limitation notes in `queries/docs/frontend-database-access.md`.
+- Do not store one-off frontend DB access inspection queries in the repository unless the user explicitly asks for a reusable documented example.
+
+---
+
 ## Editing Rules
 
 1. Provide **full-length query** for copy/paste (no partial snippets)
