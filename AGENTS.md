@@ -69,12 +69,11 @@ Repository includes development artifacts for Matchical: queries, prompts, mocku
 - If external file paths are unclear or unavailable, ask the user to provide or re-provide exact paths.
 - If provided PDF or image content cannot be reliably accessed or parsed, explicitly tell the user and request an alternative format (for example, page images).
 
-## Worktree Merge Workflow
-- Trigger condition: when the user says a worktree is done and requests merging to the main checkout.
-- Step 1: merge or sync the latest main checkout into the worktree branch first.
-- Step 2: resolve all merge conflicts inside the worktree.
-- Step 3: only after conflicts are resolved and validated, merge the worktree branch back into the main checkout.
-- Step 4: do not use the reverse conflict-resolution flow on main first unless the user explicitly overrides.
+## Worktree PR Workflow
+- Default workflow: start each new task from updated `main`, then create a dedicated branch and worktree.
+- After the first meaningful commit, push the branch and open a draft PR so the work is tracked early.
+- Keep the branch current from `main` while working; resolve conflicts in the worktree, not on `main`.
+- When the work is ready, merge through the PR flow, then update local `main` and remove the worktree and local branch.
 
 ## Design Documentation Fidelity
 - For style guides and UI documentation, only document tokens/components/rules that are explicitly provided or verified in existing artifacts.
