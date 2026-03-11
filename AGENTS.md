@@ -11,7 +11,7 @@ Repository includes development artifacts for Matchical: queries, prompts, mocku
 - Use the repository-root virtual environment `.venv/`; do not create virtual environments inside subfolders (for example, under `tmp/`).
 - If a tracked Python script needs third-party packages, list them in repository-root `requirements.txt`.
 - Always use repository-root `.env` for shared environment variables required by scripts and tooling; do not use per-folder env files.
-- In a worktree, if repository-root `.env` is missing and env changes are requested, create `.env` in that worktree and report which keys were added and still need user-provided values.
+- In a worktree, always use the main checkout's repository-root `.env`; never create or modify `.env` inside the worktree.
 
 ## JS Dependency Rules
 - Keep JavaScript dependency manifests and lockfiles tracked in-repo (for example, `slides/package.json` and `slides/pnpm-lock.yaml`); never commit `node_modules/`.
@@ -45,6 +45,9 @@ Repository includes development artifacts for Matchical: queries, prompts, mocku
 - Keep new rules short, testable, and non-duplicative.
 - If a new rule conflicts with an existing rule, ask for clarification before changing AGENTS files.
 
+## Entity Schema Updates
+- For user-provided entity JSON updates, refresh `docs/entities/` manually (AI-assisted) and do not add automatic reorganization scripts for this workflow.
+
 ## Voice Dictation Handling
 - User may issue requests via voice dictation
 - Treat obvious minor transcription errors as intended wording
@@ -53,6 +56,7 @@ Repository includes development artifacts for Matchical: queries, prompts, mocku
 ## External File Discovery
 - Do not run broad/random filesystem searches for user-provided external files.
 - If external file paths are unclear or unavailable, ask the user to provide or re-provide exact paths.
+- If provided PDF or image content cannot be reliably accessed or parsed, explicitly tell the user and request an alternative format (for example, page images).
 
 ## Worktree Merge Workflow
 - Trigger condition: when the user says a worktree is done and requests merging to the main checkout.
