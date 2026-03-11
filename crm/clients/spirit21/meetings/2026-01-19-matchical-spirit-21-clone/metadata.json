@@ -1,0 +1,66 @@
+{
+  "account_slug": "spirit21",
+  "audio_url": "https://cdn.fireflies.ai/01KF5W8SWYKRJZKGVET8FDBMGA/audio.mp3?Expires=1773355797&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0Y1VzhTV1lLUkpaS0dWRVQ4RkRCTUdBL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5N319fV19&Signature=HQTWXHoN6xmTFb0K3NtXdlFGXx9OngK3C79kcRBbKR63nmMkviqg8KRQBNux7Yjk02bsMwOMloU~XDmdhZ~zIMsgF2RaKooUdtfm6j303aZALSsiuFYRNlEHJOakXaldFXTP8CVmARsC0uOpzSBZvRFI9etwjTJxsqvtNU~i5JkZXBVdTpE6mD8HKcShKCwogc8pV0uaNf8eyyez-eU9IovRYa1BbmYpfguS0zUQb1avgp0KiizC3ydMNx6tX8TUfHxAUiecSYtkCcDk3UouE-aKKIKxDrGJnk8wh7k3oFsl-LnBT67BA8WbWQfvY-DYwNOcjiXw5RQatAIEcelydA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 29.389999389648438,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:52:20Z",
+  "meeting_at": "2026-01-19T15:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-01-19T15:30:00.000Z",
+      "leave_time": null,
+      "name": "Ellinger, Mario"
+    },
+    {
+      "join_time": "2026-01-19T15:30:00.000Z",
+      "leave_time": null,
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2026-01-19T15:30:00.000Z",
+      "leave_time": null,
+      "name": "Vollmer, Anne Sophia"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KF5W8SWYKRJZKGVET8FDBMGA",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NTAzYmM3NGUtYmQ2OS00OWVmLTllYjMtMDZkYWVmNWY0ODU1@thread.v2/0?context={\"Tid\":\"253f6bf7-6d0e-458a-b500-4aa22a9ec738\",\"Oid\":\"a1b33282-6dd5-4963-a07f-47a490af8cf2\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 324,
+  "title": "Matchical / SPIRIT/21 (Clone)",
+  "transcript_created_at": "2026-01-19T15:30:00Z",
+  "transcript_id": "01KF5W8SWYKRJZKGVET8FDBMGA",
+  "transcript_url": "https://app.fireflies.ai/view/01KF5W8SWYKRJZKGVET8FDBMGA",
+  "video_url": "https://cdn.fireflies.ai/01KF5W8SWYKRJZKGVET8FDBMGA/video.mp4?Expires=1773355797&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0Y1VzhTV1lLUkpaS0dWRVQ4RkRCTUdBL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5N319fV19&Signature=dV5diI0sm3A4jS4wTx-ZomYO1eBEeZCobWTqAHP~tXfFyZPEHc6gQ7dOEP~G5gzMTLIoLX5Xh66SA7tl3KuDZyxSGCd96kIcxA7uIwePMXA1DBJp8ulx9e4lm2stpN0aqUSvO95YFNS0Tx4yrTS0fbuHluRD9QWCXZtVILiaYQyG~KBD2dd40SVW1~CoMxFqaOl84e~FI-os9w11bQ-2CEcMKVDHtmGWh0Wq2iKhEsIP3wn5ks6dYU39rrt~53F0waIfoaZA3ka-NioHK4Snk4lwxAEHr59d-pizsSVhf98YT4KZemDbNlJdDxNvfU9fq5PKySayWm5HGtrSlmV28A__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_based_reclassification"
+}

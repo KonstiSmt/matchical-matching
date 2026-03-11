@@ -1,0 +1,32 @@
+{
+  "description": "Schema for the output of the translation task. It defines the structure for an object containing a list of translated items, where each item includes the translated HTML text and its corresponding language identifier.",
+  "type": "object",
+  "properties": {
+    "translations": {
+      "description": "An array of translation objects. Each object represents an item that required translation (i.e., had an initially empty 'TextValue' in the input) and now contains the translated HTML string and its language ID.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "TextValue": {
+            "type": "string",
+            "description": "The translated HTML string. All original HTML tags, attributes, and structure are preserved, with only the textual content within the tags having been translated."
+          },
+          "LanguageId": {
+            "type": "string",
+            "description": "The language code (e.g., 'de-DE', 'fr-FR') corresponding to the language of the 'TextValue'."
+          }
+        },
+        "required": [
+          "TextValue",
+          "LanguageId"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "translations"
+  ],
+  "additionalProperties": false
+}

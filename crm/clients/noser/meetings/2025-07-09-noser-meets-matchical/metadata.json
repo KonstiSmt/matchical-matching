@@ -1,0 +1,143 @@
+{
+  "account_slug": "noser",
+  "audio_url": "https://cdn.fireflies.ai/01JZAB21Z500P90K6X9T0G0BFG/audio.mp3?Expires=1773292085&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlpBQjIxWjUwMFA5MEs2WDlUMEcwQkZHL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA4NX19fV19&Signature=lFfv5kYe0iUeJyI97Dbnk-ERAX4Gg0DB0DSxU8V3wqD1-~MXHzJ6jXpnlNpNMVRmU9BVEGIxlL2AzlFzowLIHTBffTcAAFJcqcqhFh6KMXKLqu-qJC4m7pAGkOQippaQdt8BrfvzuCUKRCgUFPFbeGd8AFvn1ZjD4dHu6C0Eyv8rKJYiwjPetTTSfKHKjK9iyPPFsbv0pjidVVYZZKjO3Df5gqGF3hjaoidB6Qcl4Vf6t56YC4mBZoD900mjGy4QgXbhyoUX6VyiJtGJeoSoBoK8H5EKJcdVoJs0KSTzBuV0q1iQthG1BmoPRnRCQ9gvHBZ6E-w2DU4dzOiZdglsSg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "akros.ch",
+    "matchical.com",
+    "noser.com"
+  ],
+  "dominant_domain": "noser.com",
+  "duration_minutes": 180.1300048828125,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:15:05Z",
+  "meeting_at": "2025-07-09T13:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-09T13:00:00.000Z",
+      "leave_time": "2025-07-09T14:00:38.687Z",
+      "name": "Buntefuss Oliver"
+    },
+    {
+      "join_time": "2025-07-09T13:00:00.000Z",
+      "leave_time": "2025-07-09T14:00:38.693Z",
+      "name": "Grädel Manuel"
+    },
+    {
+      "join_time": "2025-07-09T13:00:00.000Z",
+      "leave_time": null,
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-07-09T13:00:00.000Z",
+      "leave_time": "2025-07-09T14:00:38.693Z",
+      "name": "Löw Thorsten"
+    },
+    {
+      "join_time": "2025-07-09T13:00:00.000Z",
+      "leave_time": "2025-07-09T14:00:38.694Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-07-09T13:05:39.974Z",
+      "leave_time": "2025-07-09T14:00:38.693Z",
+      "name": "Ritscher Tobias"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": "oliver.buntefuss@noser.com",
+      "email": "oliver.buntefuss@noser.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Löw Thorsten",
+      "email": "thorsten.loew@akros.ch",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Tobias.ritscher@noser.com",
+      "email": "tobias.ritscher@noser.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Tommy | matchical.com",
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JZAB21Z500P90K6X9T0G0BFG",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YTBmNWFlMGQtODAxNC00YzBhLWIzMDMtNTM4MDYyOTNlMGI1@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "oliver.buntefuss@noser.com,thorsten.loew@akros.ch,tobias.ritscher@noser.com,tommy@matchical.com,konsti@matchical.com",
+    "oliver.buntefuss@noser.com",
+    "thorsten.loew@akros.ch",
+    "tobias.ritscher@noser.com",
+    "tommy@matchical.com",
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "oliver.buntefuss@noser.com",
+      "name": "oliver.buntefuss@noser.com"
+    },
+    {
+      "email": "thorsten.loew@akros.ch",
+      "name": "Löw Thorsten"
+    },
+    {
+      "email": "tobias.ritscher@noser.com",
+      "name": "Tobias.ritscher@noser.com"
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "oliver.buntefuss@noser.com",
+      "name": ""
+    },
+    {
+      "email": "thorsten.loew@akros.ch",
+      "name": ""
+    },
+    {
+      "email": "tobias.ritscher@noser.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 607,
+  "title": "Noser meets matchical",
+  "transcript_created_at": "2025-07-09T13:00:00Z",
+  "transcript_id": "01JZAB21Z500P90K6X9T0G0BFG",
+  "transcript_url": "https://app.fireflies.ai/view/01JZAB21Z500P90K6X9T0G0BFG",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

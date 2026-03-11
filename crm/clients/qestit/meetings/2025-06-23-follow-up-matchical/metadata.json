@@ -1,0 +1,105 @@
+{
+  "account_slug": "qestit",
+  "audio_url": "https://cdn.fireflies.ai/01JXWPNRT7FT9K23CDNPXQQ581/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlhXUE5SVDdGVDlLMjNDRE5QWFFRNTgxL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=kuHEUj7I3EfYBO~QveSedr0ayvCzBVF8sDiwyIQz34ajigcg3MO8xftgnFwF00ZUllPQdHboGRJfnVeNGOy6lMhUZyqGpvJxAzUz-WYnIoVgZ8tLW2iU1aGc63Xt7QbPov1pO~r758M9sptiJVYw0OnwuAN0GyRyPJJihWjqPfo9ntpNMX0a5kJAUoReqP-9cjSZIhRsYtjkXqyg1MzfW~7hXfi3RXXWfLCRxoYYQCOjMma90jiDfoIOsv1trTftVxF~Cuym~zL1rF3J5yyBKEQ-w~zO05vF03Px~6lU1kUV6VujDFfykcNZuiNknpcutsdpudikz7xPjfXM6uR2XQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "qestit.com"
+  ],
+  "dominant_domain": "qestit.com",
+  "duration_minutes": 28.799999237060547,
+  "fireflies_users": [
+    "joern.greschner@qestit.com",
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:40:31Z",
+  "meeting_at": "2025-06-23T11:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-23T11:30:00.000Z",
+      "leave_time": "2025-06-23T11:59:10.172Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-06-23T11:30:00.000Z",
+      "leave_time": "2025-06-23T11:59:10.172Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-06-23T11:31:28.868Z",
+      "leave_time": "2025-06-23T11:59:10.170Z",
+      "name": "Jörn Greschner"
+    },
+    {
+      "join_time": "2025-06-23T11:31:28.869Z",
+      "leave_time": "2025-06-23T11:59:10.172Z",
+      "name": "Marko Macut"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "joern.greschner@qestit.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "marko.macut@qestit.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JXWPNRT7FT9K23CDNPXQQ581",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_Njk3NGVlNDgtNTI3NS00NTQxLTk3OWUtYzQ3Y2QxMmZkZjBm@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "joern.greschner@qestit.com,marko.macut@qestit.com,tommy@matchical.com,konsti@matchical.com",
+    "joern.greschner@qestit.com",
+    "marko.macut@qestit.com",
+    "tommy@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "joern.greschner@qestit.com",
+      "name": ""
+    },
+    {
+      "email": "marko.macut@qestit.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 277,
+  "title": "Follow up matchical",
+  "transcript_created_at": "2025-06-23T11:30:00Z",
+  "transcript_id": "01JXWPNRT7FT9K23CDNPXQQ581",
+  "transcript_url": "https://app.fireflies.ai/view/01JXWPNRT7FT9K23CDNPXQQ581",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

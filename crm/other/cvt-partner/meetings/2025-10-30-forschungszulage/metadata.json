@@ -1,0 +1,72 @@
+{
+  "account_slug": "cvt-partner",
+  "audio_url": "https://cdn.fireflies.ai/01K8RMNR8XPQ1YZQNCCADE47W3/audio.mp3?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzhSTU5SOFhQUTFZWlFOQ0NBREU0N1czL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=gbRx7bMu1MPDL9mM2DYn0HPxiKXHMMHvSzDemyRn2r-6fgMr1sTKEmedjwhXCr16xE~uDrD46gGjfT3z1LDthLKV88E5pYxlkfEi7M85nlQv74tTqxq0EFCy-HS~LVyRCViqEeohgZNCuA0L5KL3vRHh2kIDTKr397UDtVBeOwDuuGCkk2Zj4qksTXDSPcnR9mxbbW6D4ewBiK15oNN54WkjpAIavRP9esixEDTSRIJ-Y6hhmHEG3mQoehwyCmrvcGGqr8lsVlXqLk14Nvw9rEfv8Nl6V-BA5w6SK8qIOTubkCqQpiH3UkhEoy4gD1spXFHWIRqs2wqCKmY5I~QwoA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "other",
+  "detected_domains": [
+    "cvt-partner.com",
+    "matchical.com"
+  ],
+  "dominant_domain": "cvt-partner.com",
+  "duration_minutes": 66.97000122070312,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:32:41Z",
+  "meeting_at": "2025-10-30T10:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-10-30T10:00:00.000Z",
+      "leave_time": "2025-10-30T11:07:36.254Z",
+      "name": "Hubert Barth"
+    },
+    {
+      "join_time": "2025-10-30T10:00:00.000Z",
+      "leave_time": "2025-10-30T11:07:36.254Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "hubert.barth@cvt-partner.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K8RMNR8XPQ1YZQNCCADE47W3",
+  "meeting_kind": "other",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YzZiNTBjNzUtYmEzNS00ZDBlLWJhYjItNTUzMDc3MGY3Y2Ni@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "hubert.barth@cvt-partner.com,konsti@matchical.com",
+    "hubert.barth@cvt-partner.com"
+  ],
+  "participants": [
+    {
+      "email": "hubert.barth@cvt-partner.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 899,
+  "title": "Forschungszulage",
+  "transcript_created_at": "2025-10-30T10:00:00Z",
+  "transcript_id": "01K8RMNR8XPQ1YZQNCCADE47W3",
+  "transcript_url": "https://app.fireflies.ai/view/01K8RMNR8XPQ1YZQNCCADE47W3",
+  "video_url": "https://cdn.fireflies.ai/01K8RMNR8XPQ1YZQNCCADE47W3/video.mp4?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzhSTU5SOFhQUTFZWlFOQ0NBREU0N1czL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=l~vlnbNxzJfqYCI0y-oSukcQyQ4MdwgC3BDW13KlBRwV3B88UGET9lBGBQMpavXh0c6K-m1cwcwuOmj9YErDuDjYcS9lA9HJDjJ7dnVCLjK~q7WFaF8sf4RvZYJhfZbGaLuu1avcZ2R~6YwUX4Yz9KnQWCp8YEAE6lYr3XcXQ3YeIufN9OGdeXpVHpUxDzfFDqKWH~WaSZHunGBv50S6ZgkaPxWAJJQ0ji9vuqzWuFLAXRtoGTzaT5c3e1fGYt1MWite96F7PdS6Abj~nmO1cduXL12SLxSxzlpp8qg4H-2FIcaOlMN2kvrxNRtrkv7RNDJLlseR85MDbuoJc34YDA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "account_slug": "spirit21",
+  "audio_url": "https://cdn.fireflies.ai/01K18Y8N6QZ5AA20YHJZSGB7ZE/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzE4WThONlFaNUFBMjBZSEpaU0dCN1pFL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=MiYxuAlRlWAN5RqNJrhWnha~mhVbGw~7YBj9wmwGcOoHCpVIc7IhnOXvctBpRCl~641y4GW4CkjVeCQXiasbql17ORX4uTxGp3l0RPEmh7~xla4OPBU41GYoFLMXDlO-TvtfYdB1jf48OeaibzpKqe5U7mIU4GjCNWF7M8ZzJGVgudCq1xSnbePUeDNtQiEL1BUkcfeSd18kB5Qz7vTGB5NUKaXo4f2G-KnvKoGEs47jpcCHgu4QxUZEzKWLteF~VZikZc5d8t9Bn5IfRyxRQTyvHBsquDa1EVQ9m8NpbmH3t8fY1ZtI8rSnIqfStHE8h~pzuVRHierG0xQaATyf4w__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "planning",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 74.2300033569336,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:12:00Z",
+  "meeting_at": "2025-07-30T12:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-30T12:00:00.000Z",
+      "leave_time": "2025-07-30T13:14:23.788Z",
+      "name": "Ellinger, Mario"
+    },
+    {
+      "join_time": "2025-07-30T12:00:00.000Z",
+      "leave_time": "2025-07-30T13:14:15.512Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-07-30T12:00:00.000Z",
+      "leave_time": "2025-07-30T13:14:23.789Z",
+      "name": "Vollmer, Anne Sophia"
+    },
+    {
+      "join_time": "2025-07-30T12:01:21.096Z",
+      "leave_time": "2025-07-30T13:14:23.789Z",
+      "name": "Kamm, Stefan"
+    },
+    {
+      "join_time": "2025-07-30T12:02:22.979Z",
+      "leave_time": "2025-07-30T13:00:23.610Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K18Y8N6QZ5AA20YHJZSGB7ZE",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YTE3NDk1ZGEtYjM1NC00YjVlLWJjNmMtODZjM2YyYTQwNWRh@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 718,
+  "title": "Spirit/21 meets matchical (Clone)",
+  "transcript_created_at": "2025-07-30T12:00:00Z",
+  "transcript_id": "01K18Y8N6QZ5AA20YHJZSGB7ZE",
+  "transcript_url": "https://app.fireflies.ai/view/01K18Y8N6QZ5AA20YHJZSGB7ZE",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_reclassification_from_inbox"
+}

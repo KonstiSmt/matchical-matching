@@ -1,0 +1,112 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01KFN27H4RV35RTRGSW180EKP5/audio.mp3?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0ZOMjdINFJWMzVSVFJHU1cxODBFS1A1L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=xIi6HMbWbSFQxtMEux2~2~5CID5Sg-cqSHKbOFfx9ZMWJbHE96jTkc7ryMahAPeFehe5pFmdBNUp2qsEHXLbwzwCLv9YjnyPjGAN9HRhlisFQOoGnZ0TAfA2oYLMWBq5-Ndd56B7pnUYy9GCpQ4HKpm97t0pQEDDP50dZZvBlggSW-VIf2x26CXTH4J66da3Ivf73mhOkOvGe6YljnTJ61IGFbWXTIAWACCcuqWBauyTFvi056Vj5BrqQa4afdvn52-D6OpQlyUVrprShzvQOy~DWP3qwhgbyPx-7-NzvyZ1e7Hr9qC2BMN1Ojr349-t981XglvsaUj1U89coSA~aw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "planning",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "wavestone.com"
+  ],
+  "dominant_domain": "wavestone.com",
+  "duration_minutes": 32.779998779296875,
+  "fireflies_users": [
+    "tommy@matchical.com",
+    "konsti@matchical.com"
+  ],
+  "host_email": "inesa.arnaut@wavestone.com",
+  "local_imported_at": "2026-03-10T10:51:45Z",
+  "meeting_at": "2026-01-29T12:01:27Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-01-29T12:01:27.750Z",
+      "leave_time": "2026-01-29T12:32:38.459Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2026-01-29T12:01:50.166Z",
+      "leave_time": "2026-01-29T12:32:38.459Z",
+      "name": "ARNAUT Inesa"
+    },
+    {
+      "join_time": "2026-01-29T12:02:28.215Z",
+      "leave_time": "2026-01-29T12:32:38.459Z",
+      "name": "WUCHER Oliver"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "inesa.arnaut@wavestone.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "oliver.wucher@wavestone.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "manuel.fischer@wavestone.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KFN27H4RV35RTRGSW180EKP5",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MDc4MDg3ZGUtZTc1My00MzM4LTgyZTctZTUwNjA1NmE1OTI0@thread.v2/0?context={\"Tid\":\"5de96c96-c87c-4dce-aad9-f5c557b52ac1\",\"Oid\":\"72a150f5-2876-43d2-a983-681fb2da9191\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "inesa.arnaut@wavestone.com,tommy@matchical.com,konsti@matchical.com,oliver.wucher@wavestone.com,manuel.fischer@wavestone.com",
+    "tommy@matchical.com",
+    "konsti@matchical.com",
+    "oliver.wucher@wavestone.com",
+    "manuel.fischer@wavestone.com"
+  ],
+  "participants": [
+    {
+      "email": "inesa.arnaut@wavestone.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "oliver.wucher@wavestone.com",
+      "name": ""
+    },
+    {
+      "email": "manuel.fischer@wavestone.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 346,
+  "title": "Sie folgen: Jourfix Matchical/SIP",
+  "transcript_created_at": "2026-01-29T12:00:00Z",
+  "transcript_id": "01KFN27H4RV35RTRGSW180EKP5",
+  "transcript_url": "https://app.fireflies.ai/view/01KFN27H4RV35RTRGSW180EKP5",
+  "video_url": "https://cdn.fireflies.ai/01KFN27H4RV35RTRGSW180EKP5/video.mp4?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0ZOMjdINFJWMzVSVFJHU1cxODBFS1A1L3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=DmmRsP05wiuumqbbHECgptpcuDW0tgCvAHQCzvcKBSLdnmOVXa71hXEepfJ8nFOCpjYp4PYPR70bDY4-xiaPGS-UbUTRhcHK5rxmAl6eH6prgSeNtJzKg2DfyL~AxDRYkyRoWvP6b6eIHGfWoond8P6apwqJOacvLLURS7BDKcSjsFDMYxg3cAN7Ovi-awKQZLxdxoqjPHExlfL6EwprEDqDFvooApMAIAFNV1BxrAcfRV8nSFhHDWQs2IyHZkiEIY8UuLMz6OzG6hbJofAJ0ZF2Cs3BQKYpOXmFu7iKMMm1FYRBxScRjQnuIiRPR8skXxB1E4N5MX6GvUVKPXVoWA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_name_rule"
+}

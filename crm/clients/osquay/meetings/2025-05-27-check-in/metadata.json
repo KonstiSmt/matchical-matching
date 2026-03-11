@@ -1,0 +1,72 @@
+{
+  "account_slug": "osquay",
+  "audio_url": "https://cdn.fireflies.ai/01JW8AG9T25Q8YDZKTYH0A3BXB/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlc4QUc5VDI1UThZRFpLVFlIMEEzQlhCL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=HbYkYGZr-3cSed9-DDCxY4qImeJC4kcQjP8HHi2pZxCEJ1eCmZaZWIIYna8mcfdoulAoCPilPciE6wFa-sPKWUon-YzVR2FZ5tKAhSQVvAtL3radp2IxQ8PkQZny5RRVCgkxnciQI9UxYAG8D2soTdLYzenZ4yTateqiD84Hfvn~TcZBIGZhrOpEH9hQB6IPQetZF0uy9BRdOcZQ9k7xK846VYFJBZfR1ji9tz5J1yzWsp5y7-zPk-YAyweE53xCqT~vGS9iAmnk3boHP1yzcpUlIGQ~vH5qxzwBJ5beVl5vsmO3gPKtKRL9sSUEBzZebzCEMJFzsYwp7UrwO-IqLA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "osquay.com"
+  ],
+  "dominant_domain": "osquay.com",
+  "duration_minutes": 22.209999084472656,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:33Z",
+  "meeting_at": "2025-05-27T07:40:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-05-27T07:40:00.000Z",
+      "leave_time": "2025-05-27T08:02:17.082Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-05-27T07:41:23.148Z",
+      "leave_time": "2025-05-27T08:02:17.080Z",
+      "name": "Joao Garcia"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "joao.garcia@osquay.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JW8AG9T25Q8YDZKTYH0A3BXB",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ODQ5MTBlZWUtYTk4MS00ZmJiLWJiYWQtNjc4NGZlN2E4ZmMx@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "joao.garcia@osquay.com,konsti@matchical.com",
+    "joao.garcia@osquay.com"
+  ],
+  "participants": [
+    {
+      "email": "joao.garcia@osquay.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 295,
+  "title": "Check in",
+  "transcript_created_at": "2025-05-27T07:40:00Z",
+  "transcript_id": "01JW8AG9T25Q8YDZKTYH0A3BXB",
+  "transcript_url": "https://app.fireflies.ai/view/01JW8AG9T25Q8YDZKTYH0A3BXB",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

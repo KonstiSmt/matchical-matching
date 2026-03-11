@@ -1,0 +1,56 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01JNKN0DXQ7CXCDBC05ACXVJJK/audio.mp3?Expires=1773265216&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSk5LTjBEWFE3Q1hDREJDMDVBQ1hWSkpLL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI2NTIxNn19fV19&Signature=L7avP1J46Po4wRm~vslks~xwGk8c6wb4ySvHcuyYemuyAZdXvUKbp5adj56r0CRWJebWufxfQ9m7WGbUTyXDiYPMX~mYQjhDXkJCC5ieke23si9UO19szAUnSsPdY0uXaXuovGCBYQt9LyCS0vXtuoculHBwvtTZAz~kFpF5Mp8MHZzeA0~x~87HJFGtyIPRrnbNjMeclNIEE2QGa9fqXRO8GX-4oJhBBdNPp8sQgEs-94NV83U9TUcbuRwhsWYHgSBRw4-iDptGvBperztp737oGr4LEZJTZ0u40IwFc9IZlROuQYm28tYXdGjkgCFSlH-Zpk4ISj~c2C3haBPo2A__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 120.11000061035156,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T10:25:09Z",
+  "meeting_at": "2025-03-06T13:45:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-03-06T13:45:00.000Z",
+      "leave_time": null,
+      "name": "Chico | matchical.com (Unverified)"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JNKN0DXQ7CXCDBC05ACXVJJK",
+  "meeting_kind": "internal",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YTc3NDM2YjAtZDVhMC00YWQzLWEwZjktNGIxMjNjNzlhOTM0@thread.v2/0?context={\"Tid\":\"d9a88f1c-c7fe-4245-b405-8e572770ce7f\",\"Oid\":\"79b91bc4-5d6d-4c5b-8ddc-e0f1e2f618b3\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1486,
+  "title": "User story mapping part one (Clone)",
+  "transcript_created_at": "2025-03-06T13:45:00Z",
+  "transcript_id": "01JNKN0DXQ7CXCDBC05ACXVJJK",
+  "transcript_url": "https://app.fireflies.ai/view/01JNKN0DXQ7CXCDBC05ACXVJJK",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "crm_bucket": null,
+  "route_reason": "manual_transcript_rule_internal"
+}

@@ -1,0 +1,88 @@
+{
+  "account_slug": "thestory",
+  "audio_url": "https://cdn.fireflies.ai/01JY1J88FQZYAKC7CGT66H5QDR/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlkxSjg4RlFaWUFLQzdDR1Q2Nkg1UURSL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=iPkqThIKtN3yHNreew7aHQxKayd3J9~MWJU296REyRD4fqDIYFnbgnyFRSJ3cHWWzihQhObPg8IRsybmHHnEILYluJ-E4gRSICvuv7V4Gep-gVSbbPLC6EqYtSLgvJlm2CvfZtX63BBnNco5M9EBSlc9DQut9c2Qdbtf~DqoTatWfn-g-1ztNQLrHpHBuvp1U4gtx0B6R9I0ohNI91nMS0CQCSHkmoStwWUWBh1~-~8XWSwit0bhj6tX3cHRGkEmRtwK4Frcs5s9XbkOubTI7pt03eOsrl2MCK4xoIjl-n~tEzotLDgMYilQsFGhTjg~gdhIIETNYdx29yq12QZ2Hg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "delivery",
+  "category_source": "keyword",
+  "crm_bucket": "partners",
+  "detected_domains": [
+    "matchical.com",
+    "thestory.pl"
+  ],
+  "dominant_domain": "thestory.pl",
+  "duration_minutes": 21.06999969482422,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "dymitr@thestory.pl",
+  "local_imported_at": "2026-03-09T16:40:54Z",
+  "meeting_at": "2025-06-18T13:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-18T13:00:00.000Z",
+      "leave_time": null,
+      "name": "Dymitr Romanowski"
+    },
+    {
+      "join_time": "2025-06-18T13:00:00.000Z",
+      "leave_time": null,
+      "name": "Karol Gorus"
+    },
+    {
+      "join_time": "2025-06-18T13:00:00.000Z",
+      "leave_time": null,
+      "name": "Konstantin Schmitz"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "dymitr@thestory.pl",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "karol.gorus@thestory.pl",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JY1J88FQZYAKC7CGT66H5QDR",
+  "meeting_kind": "partner",
+  "meeting_link": "https://meet.google.com/ohs-mgwh-wos",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "dymitr@thestory.pl,konsti@matchical.com,karol.gorus@thestory.pl",
+    "konsti@matchical.com",
+    "karol.gorus@thestory.pl"
+  ],
+  "participants": [
+    {
+      "email": "dymitr@thestory.pl",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "karol.gorus@thestory.pl",
+      "name": ""
+    }
+  ],
+  "sentence_count": 291,
+  "title": "matchical: Sprint, daily",
+  "transcript_created_at": "2025-06-18T13:00:00Z",
+  "transcript_id": "01JY1J88FQZYAKC7CGT66H5QDR",
+  "transcript_url": "https://app.fireflies.ai/view/01JY1J88FQZYAKC7CGT66H5QDR",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

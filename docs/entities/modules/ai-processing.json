@@ -1,0 +1,1043 @@
+[
+  {
+    "Entity": "AIModel",
+    "Columns": [
+      {
+        "name": "aiprovidercategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "audiocachedtokencost",
+        "dataType": "numeric"
+      },
+      {
+        "name": "audiocompletiontokencost",
+        "dataType": "numeric"
+      },
+      {
+        "name": "audioprompttokencost",
+        "dataType": "numeric"
+      },
+      {
+        "name": "cachedtokencost",
+        "dataType": "numeric"
+      },
+      {
+        "name": "completiontokencost",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasgeminithinkingbudget",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasthinkingbudget",
+        "dataType": "numeric"
+      },
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isanthropic",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isfinetuned",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isopenai",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isopenaireasoningmodel",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isperplexity",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isreasoningmodel",
+        "dataType": "numeric"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "llamaparsemodelname",
+        "dataType": "character varying"
+      },
+      {
+        "name": "logourl",
+        "dataType": "character varying"
+      },
+      {
+        "name": "maxtokens",
+        "dataType": "integer"
+      },
+      {
+        "name": "model",
+        "dataType": "character varying"
+      },
+      {
+        "name": "modelname",
+        "dataType": "character varying"
+      },
+      {
+        "name": "openaireasoningeffort",
+        "dataType": "character varying"
+      },
+      {
+        "name": "openroutermodelname",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      },
+      {
+        "name": "prompttokencost",
+        "dataType": "numeric"
+      },
+      {
+        "name": "reasoningeffort",
+        "dataType": "character varying"
+      },
+      {
+        "name": "reasoningeffortnew",
+        "dataType": "character varying"
+      },
+      {
+        "name": "thinkingtokencost",
+        "dataType": "numeric"
+      },
+      {
+        "name": "useautothinking",
+        "dataType": "numeric"
+      }
+    ]
+  },
+  {
+    "Entity": "AIModel_ml",
+    "Columns": [
+      {
+        "name": "_locale",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "llamaparsemodelname",
+        "dataType": "character varying"
+      },
+      {
+        "name": "logourl",
+        "dataType": "character varying"
+      },
+      {
+        "name": "model",
+        "dataType": "character varying"
+      },
+      {
+        "name": "modelname",
+        "dataType": "character varying"
+      },
+      {
+        "name": "openaireasoningeffort",
+        "dataType": "character varying"
+      },
+      {
+        "name": "openroutermodelname",
+        "dataType": "character varying"
+      },
+      {
+        "name": "reasoningeffort",
+        "dataType": "character varying"
+      },
+      {
+        "name": "reasoningeffortnew",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "AIUsage",
+    "Columns": [
+      {
+        "name": "aimodelid",
+        "dataType": "integer"
+      },
+      {
+        "name": "cachedtokens",
+        "dataType": "bigint"
+      },
+      {
+        "name": "completiontokens",
+        "dataType": "bigint"
+      },
+      {
+        "name": "cost",
+        "dataType": "numeric"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "entity",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "inputjson",
+        "dataType": "text"
+      },
+      {
+        "name": "inputjsonold",
+        "dataType": "text"
+      },
+      {
+        "name": "inputtext",
+        "dataType": "text"
+      },
+      {
+        "name": "isfailed",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isflagged",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isjsonmode",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isprocessing",
+        "dataType": "numeric"
+      },
+      {
+        "name": "model",
+        "dataType": "character varying"
+      },
+      {
+        "name": "objectid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "outputjson",
+        "dataType": "text"
+      },
+      {
+        "name": "processingseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "prompttokens",
+        "dataType": "bigint"
+      },
+      {
+        "name": "rawinputjson",
+        "dataType": "text"
+      },
+      {
+        "name": "response",
+        "dataType": "text"
+      },
+      {
+        "name": "secondaryobjectid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "switchedmodel",
+        "dataType": "numeric"
+      },
+      {
+        "name": "systempromptcategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "testingnote",
+        "dataType": "text"
+      },
+      {
+        "name": "testingresponse",
+        "dataType": "text"
+      },
+      {
+        "name": "testingsystemprompt",
+        "dataType": "text"
+      },
+      {
+        "name": "thoughttokens",
+        "dataType": "bigint"
+      },
+      {
+        "name": "tokenss3key",
+        "dataType": "character varying"
+      },
+      {
+        "name": "usecase",
+        "dataType": "character varying"
+      },
+      {
+        "name": "usefortesting",
+        "dataType": "numeric"
+      },
+      {
+        "name": "useopenrouter",
+        "dataType": "numeric"
+      },
+      {
+        "name": "usewebsearch",
+        "dataType": "numeric"
+      }
+    ]
+  },
+  {
+    "Entity": "ArchiveAIUsage",
+    "Columns": [
+      {
+        "name": "aimodelid",
+        "dataType": "integer"
+      },
+      {
+        "name": "cachedtokens",
+        "dataType": "bigint"
+      },
+      {
+        "name": "completiontokens",
+        "dataType": "bigint"
+      },
+      {
+        "name": "cost",
+        "dataType": "numeric"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "entity",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "inputtext",
+        "dataType": "text"
+      },
+      {
+        "name": "isfailed",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isflagged",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isjsonmode",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isprocessing",
+        "dataType": "numeric"
+      },
+      {
+        "name": "model",
+        "dataType": "character varying"
+      },
+      {
+        "name": "objectid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "outputjson",
+        "dataType": "text"
+      },
+      {
+        "name": "processingseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "prompttokens",
+        "dataType": "bigint"
+      },
+      {
+        "name": "rawinputjson",
+        "dataType": "text"
+      },
+      {
+        "name": "response",
+        "dataType": "text"
+      },
+      {
+        "name": "secondaryobjectid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "switchedmodel",
+        "dataType": "numeric"
+      },
+      {
+        "name": "systempromptcategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "testingnote",
+        "dataType": "text"
+      },
+      {
+        "name": "testingresponse",
+        "dataType": "text"
+      },
+      {
+        "name": "testingsystemprompt",
+        "dataType": "text"
+      },
+      {
+        "name": "thoughttokens",
+        "dataType": "bigint"
+      },
+      {
+        "name": "tokenss3key",
+        "dataType": "character varying"
+      },
+      {
+        "name": "usecase",
+        "dataType": "character varying"
+      },
+      {
+        "name": "usefortesting",
+        "dataType": "numeric"
+      },
+      {
+        "name": "useopenrouter",
+        "dataType": "numeric"
+      },
+      {
+        "name": "usewebsearch",
+        "dataType": "numeric"
+      }
+    ]
+  },
+  {
+    "Entity": "DemandParser",
+    "Columns": [
+      {
+        "name": "additionalinformation",
+        "dataType": "text"
+      },
+      {
+        "name": "base64file2sjson",
+        "dataType": "text"
+      },
+      {
+        "name": "base64imagesjson",
+        "dataType": "text"
+      },
+      {
+        "name": "contactsjson",
+        "dataType": "text"
+      },
+      {
+        "name": "contactsseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "convertedimagesfilekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "creatorconsultancyuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "delayinfosent",
+        "dataType": "numeric"
+      },
+      {
+        "name": "demandamount",
+        "dataType": "integer"
+      },
+      {
+        "name": "demanddetectionseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "demandsamount",
+        "dataType": "integer"
+      },
+      {
+        "name": "detecteddemandsjson",
+        "dataType": "text"
+      },
+      {
+        "name": "extracteddemands",
+        "dataType": "integer"
+      },
+      {
+        "name": "extracteddemandsjson",
+        "dataType": "text"
+      },
+      {
+        "name": "extractedframecontractroleid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "fileconversionseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "framecontractroleid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "initframecontractroleid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "iscanceled",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isdemandsonly",
+        "dataType": "numeric"
+      },
+      {
+        "name": "ismigrated",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isready",
+        "dataType": "numeric"
+      },
+      {
+        "name": "metadatajson",
+        "dataType": "text"
+      },
+      {
+        "name": "metadataseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "oldextractedframecontractrol",
+        "dataType": "character varying"
+      },
+      {
+        "name": "opportunityid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "processingseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "proposalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "sourcefilekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "totalcost",
+        "dataType": "numeric"
+      }
+    ]
+  },
+  {
+    "Entity": "OpportunityParser",
+    "Columns": [
+      {
+        "name": "additionalinformation",
+        "dataType": "text"
+      },
+      {
+        "name": "contactsseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "convertedimagesfilekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "creatorconsultancyuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "delayinfosent",
+        "dataType": "numeric"
+      },
+      {
+        "name": "demanddetectionseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "demandsamount",
+        "dataType": "integer"
+      },
+      {
+        "name": "fileconversionseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "finisheddemandsamount",
+        "dataType": "integer"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "initframecontractroleid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "instanceurl",
+        "dataType": "character varying"
+      },
+      {
+        "name": "iscanceled",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isdemandsonly",
+        "dataType": "numeric"
+      },
+      {
+        "name": "locationtagid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "metadataseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "opportunityid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "processingseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "processinstanceid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "sourcefilekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "totalcost",
+        "dataType": "numeric"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "workflowinstanceid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "ProjectParser",
+    "Columns": [
+      {
+        "name": "convertedimagesfilekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "creatorconsultancyuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "cvparserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "delayinfosent",
+        "dataType": "numeric"
+      },
+      {
+        "name": "fileconversionseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "inputtext",
+        "dataType": "text"
+      },
+      {
+        "name": "instanceurl",
+        "dataType": "character varying"
+      },
+      {
+        "name": "iscanceled",
+        "dataType": "numeric"
+      },
+      {
+        "name": "processingseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "processinstanceid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "projectid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "sourcefilekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "totalcost",
+        "dataType": "numeric"
+      }
+    ]
+  },
+  {
+    "Entity": "SkillNormalization",
+    "Columns": [
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "fromtextlc",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isrole",
+        "dataType": "numeric"
+      },
+      {
+        "name": "totext",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "SkillRegistry",
+    "Columns": [
+      {
+        "name": "addtographcertaintycatid",
+        "dataType": "integer"
+      },
+      {
+        "name": "certaintycategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "findnextconcertaintycatid",
+        "dataType": "integer"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "ismanualreview",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isrole",
+        "dataType": "numeric"
+      },
+      {
+        "name": "mappingcertaintycatid",
+        "dataType": "integer"
+      },
+      {
+        "name": "processingseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "relatedskillregistryid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "shortdescription",
+        "dataType": "character varying"
+      },
+      {
+        "name": "skillconceptid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "skillid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "textlc",
+        "dataType": "character varying"
+      },
+      {
+        "name": "textraw",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "workflowinstanceid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "SkillResolutionMap",
+    "Columns": [
+      {
+        "name": "categoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isresolved",
+        "dataType": "numeric"
+      },
+      {
+        "name": "parentrecordid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "recordtemplatejson",
+        "dataType": "character varying"
+      },
+      {
+        "name": "skillregistryid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "templateid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "SystemPrompt",
+    "Columns": [
+      {
+        "name": "aimodelid",
+        "dataType": "integer"
+      },
+      {
+        "name": "categoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "comment",
+        "dataType": "character varying"
+      },
+      {
+        "name": "finetunedmodel",
+        "dataType": "character varying"
+      },
+      {
+        "name": "geminijsonschma",
+        "dataType": "text"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "jsonschema",
+        "dataType": "text"
+      },
+      {
+        "name": "lastupdated",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "oldjsonschema",
+        "dataType": "text"
+      },
+      {
+        "name": "openaijsonschema",
+        "dataType": "text"
+      },
+      {
+        "name": "reasoningeffort",
+        "dataType": "character varying"
+      },
+      {
+        "name": "skipopenrouter",
+        "dataType": "numeric"
+      },
+      {
+        "name": "systempromptcategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "temperature",
+        "dataType": "numeric"
+      },
+      {
+        "name": "thinkingbudget",
+        "dataType": "integer"
+      },
+      {
+        "name": "usefinetunedmodel",
+        "dataType": "numeric"
+      },
+      {
+        "name": "value",
+        "dataType": "text"
+      },
+      {
+        "name": "version",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "SystemPromptCategory",
+    "Columns": [
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "SystemPromptCategory_ml",
+    "Columns": [
+      {
+        "name": "_locale",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      }
+    ]
+  }
+]

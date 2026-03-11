@@ -1,0 +1,104 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01KCGV911XH67JAKEH6Y8DTCYV/audio.mp3?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0NHVjkxMVhINjdKQUtFSDZZOERUQ1lWL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=ThRpS~UlRCQc~rQriKaK81sCxgIH3g1BAEIkEtNptoqUVA7RtQeuyW93s0Y32loLC6LFhowUWYle0rqlLJcS3vcwqmQBGQCWiI471UlH8zss-4ysOVq3vZRsVV7GqBCG4YtIaWDhGGDdvk8F7MzI-mO74m9sGt7gmcnYUzqmEmP0cX6qpzwoNMEBqBPeewV6RB5RnQtvrMGaBGYreocfhzj88y~eJjQHjMstsc-ndFfq-Dcesgyx23YkXfOMpjIz4wep5ktMLnK04pBAJPeLInOw5j0atwoHjHAvHt8TyCIJ3WBYyCrTX9Th6DIzs69m3KEvN6I94ji6mA61GTclHw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 33.61000061035156,
+  "fireflies_users": [
+    "tommy@matchical.com",
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:30:02Z",
+  "meeting_at": "2025-12-18T09:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-12-18T09:30:00.000Z",
+      "leave_time": "2025-12-18T10:04:03.760Z",
+      "name": "Carlos | matchical.com"
+    },
+    {
+      "join_time": "2025-12-18T09:30:00.000Z",
+      "leave_time": "2025-12-18T10:04:03.760Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-12-18T09:30:00.000Z",
+      "leave_time": "2025-12-18T10:04:10.275Z",
+      "name": "Niklas | matchical.com"
+    },
+    {
+      "join_time": "2025-12-18T09:31:58.786Z",
+      "leave_time": "2025-12-18T10:04:10.275Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "carlos@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "niklas@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KCGV911XH67JAKEH6Y8DTCYV",
+  "meeting_kind": "internal",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NDRiMTkyNDAtOGRiMC00ODc3LTg0ZWUtMWVlNzNjMjE5NjU2@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "tommy@matchical.com,carlos@matchical.com,niklas@matchical.com,konsti@matchical.com",
+    "tommy@matchical.com",
+    "carlos@matchical.com",
+    "niklas@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "carlos@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "niklas@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 412,
+  "title": "Daily",
+  "transcript_created_at": "2025-12-18T09:30:00Z",
+  "transcript_id": "01KCGV911XH67JAKEH6Y8DTCYV",
+  "transcript_url": "https://app.fireflies.ai/view/01KCGV911XH67JAKEH6Y8DTCYV",
+  "video_url": "https://cdn.fireflies.ai/01KCGV911XH67JAKEH6Y8DTCYV/video.mp4?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0NHVjkxMVhINjdKQUtFSDZZOERUQ1lWL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=zC0mKoozVbMA0aGFPkKW3xrIA1Kovs0m~nJsyo830r3v4c-W7tUIZ2qZlmf3K7opbKsq8g3DgdzjZNuoEvPN6-MwAqr0~46qkPE-4JHANo2ugnELoMyKBB2r8JDBCjWOI1sSPmD4ZtuEbIdH-v320lJjbh9beMpi~zkjxxsgewExJyXxH21uPkoZLNUBuB3er0cOGuVkg8UFYC6PeP1OiPgTaEeHUOVrJTql84D72ZObwJDQtB7kXVLZLYv-fh5HCKIeG8vtOtLT3b6DRa4GukRtVyVq4S-BKuZLeldpRCRLtSutv6NB8uhLqGAfpaDWgVS63DrXpMfDAcTK9-hGVQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

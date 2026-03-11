@@ -1,0 +1,81 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01K47WMD9244045WFB4F8E2ERE/audio.mp3?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzQ3V01EOTI0NDA0NVdGQjRGOEUyRVJFL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=SMI3ZtH8I3ejQQV2cy0pM3PT8ByL3F9c~L13Yrp7HUh1RiIZvCgBC5r0z45bwYQnR42TO0PeUxK4s4szvI9Dd6JwmK4RFSnNZ-6LWWGEOH3ADTZiCVsfxGtYm1zq3N2Sa29sz8cY75KvlPYnh8lywM-4XnnjSn9hVB70CbKjfoqkm8xH37MahK12od2haZCBOzj69PCJ~bn6ysx3UBPqWQvonmPS3p2TMHp5SteyhvmJURTuFiXtCy4-4FQMNu6es08qmHeDe3Zb2oRf~nt0CXUshLNTmfmkI6OQ5gS6dMMprbeSCODn5zkfC5ZYD5IC0Xi7IXe6eQ5D6hiJ668icw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 53.83000183105469,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:09:58Z",
+  "meeting_at": "2025-09-04T09:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-04T09:30:00.000Z",
+      "leave_time": "2025-09-04T10:03:08.620Z",
+      "name": "ARNAUT Inesa"
+    },
+    {
+      "join_time": "2025-09-04T09:30:50.480Z",
+      "leave_time": "2025-09-04T10:23:49.870Z",
+      "name": "WUCHER Oliver"
+    },
+    {
+      "join_time": "2025-09-04T09:31:00.397Z",
+      "leave_time": "2025-09-04T10:04:49.481Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-09-04T09:31:00.398Z",
+      "leave_time": "2025-09-04T10:04:49.482Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-09-04T09:32:06.011Z",
+      "leave_time": "2025-09-04T10:04:49.482Z",
+      "name": "RÖSCHER Christina"
+    },
+    {
+      "join_time": "2025-09-04T09:32:18.077Z",
+      "leave_time": "2025-09-04T10:03:08.620Z",
+      "name": "FISCHER Manuel"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K47WMD9244045WFB4F8E2ERE",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_N2U4MGI1ZWUtMmEzYS00MGIyLWIwZjktMDEwNmYwNjU5OTcw@thread.v2/0?context={\"Tid\":\"5de96c96-c87c-4dce-aad9-f5c557b52ac1\",\"Oid\":\"3e782f81-a203-419d-aa55-a1b4f41ed5a1\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 286,
+  "title": "Verbesserung Datenqualität ProfileMap - next steps (Clone)",
+  "transcript_created_at": "2025-09-04T09:30:00Z",
+  "transcript_id": "01K47WMD9244045WFB4F8E2ERE",
+  "transcript_url": "https://app.fireflies.ai/view/01K47WMD9244045WFB4F8E2ERE",
+  "video_url": "https://cdn.fireflies.ai/01K47WMD9244045WFB4F8E2ERE/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzQ3V01EOTI0NDA0NVdGQjRGOEUyRVJFL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=awbSHMM~EVaPGuGko-0VrzFhwmua7O~79WMXCw3U5dzTSWRdtxY6Yxd-rw2bGfqZj-BIffwEs~SdxdSQbd7CUNemTKcJkE5vW8Vpu1-YDZ5rXLlaE2I4~CUyQqcriHJSNekbiUN2d8SS9DyDoFfbw5xmc0q83vnMf79II0xmj~pdDr0m30ueeNEQZRUOuL-z6wua~wSrrrK4HtvmgTnrX-oF6nwy84aom5ncq~9c5oILQL4HwJ18HTmMaQr7ABxLbfibY47cIXbLLWdj1Cn6mgPpkputByQcMgzNPBC7caEkgbnzKX9HLY1TMI3iXt0krxPacfEveXAKTJYfreWT~w__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_name_rule"
+}

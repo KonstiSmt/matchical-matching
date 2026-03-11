@@ -1,0 +1,76 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01K18Y8N6P5PCBQ6GAGYE34PVT/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzE4WThONlA1UENCUTZHQUdZRTM0UFZUL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=wTGGsBt5sPAWEpiuM0QNFsLAFkNkIh9unpI77edXtlCKP-9Kkf4e-vO2xQaQwQPcvJwrDhirweOCpYKmk0OfwKqWQBE3tWEX0UGJcIH48fibDJVFDCnGKAduzhOeKBUKx4asVMu6T6rCMIWgiN7hO~u8aE3xQt1Iex2kqPc0Id9lJQCvO39pqr-sbB6QwFqyE0hFS0J4k~9EYBi3bWzMpdQNmqUKccVJ8KmV2XWg6nFHs7w5cFEOMzg3zP7vHs~U5g5q9aay~cctNpTmou9fTmHM~gGovGCqnCB1C7O5KF9SMVY4ANL5mXwxJ-5MN-wcGvHOsfhSG3AkNSKwp8xVgQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 49.849998474121094,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:12:02Z",
+  "meeting_at": "2025-07-30T11:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-30T11:00:00.000Z",
+      "leave_time": null,
+      "name": "Bauer, Thomas (EXT)"
+    },
+    {
+      "join_time": "2025-07-30T11:01:11.206Z",
+      "leave_time": null,
+      "name": "SCHOTMAN Hugo"
+    },
+    {
+      "join_time": "2025-07-30T11:01:48.205Z",
+      "leave_time": null,
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-07-30T11:02:07.953Z",
+      "leave_time": "2025-07-30T11:47:10.846Z",
+      "name": "ERDMANN Lars"
+    },
+    {
+      "join_time": "2025-07-30T11:02:55.737Z",
+      "leave_time": null,
+      "name": "Hugo 2 (Unverified)"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K18Y8N6P5PCBQ6GAGYE34PVT",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MTg4MGFiMWUtNzZlNy00YzE1LWI0NTQtZGQyMWVjNTJhY2Nk@thread.v2/0?context={\"Tid\":\"5de96c96-c87c-4dce-aad9-f5c557b52ac1\",\"Oid\":\"5717461f-0181-4a53-b6aa-72b71787fcb5\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 402,
+  "title": "Tommy | matchical.com - Potential meeting times Hugo Schotman @ Wavestone (Clone)",
+  "transcript_created_at": "2025-07-30T11:00:00Z",
+  "transcript_id": "01K18Y8N6P5PCBQ6GAGYE34PVT",
+  "transcript_url": "https://app.fireflies.ai/view/01K18Y8N6P5PCBQ6GAGYE34PVT",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_reclassification_from_inbox"
+}

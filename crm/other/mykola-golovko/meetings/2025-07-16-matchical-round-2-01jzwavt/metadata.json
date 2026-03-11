@@ -1,0 +1,105 @@
+{
+  "account_slug": "mykola-golovko",
+  "audio_url": "https://cdn.fireflies.ai/01JZWAVTA9H5PMCDHXEYES6PXB/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlpXQVZUQTlINVBNQ0RIWEVZRVM2UFhCL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=RgX5PbfVDmUcaUWoAP6y-14xzBzhLmoR7XeRsShbBb6xX~TRT85TLyuHPS1jcZPplPkK2lYg0dLxW~P9PoJyOUDhRZv1csRMfryBvt~qvPOs3JjBKR1yjd6UajNB6i5jcKUL3DG0MBXVsSnKY-SVH0opLztaDZ7Gc3WQXYvnzkgq-Hv85sitsms6HeMLuvS2Dy25IfoCgH6tlQK~vOcapbx1TELA8v9PUBM8uLQM0zeRMATb22K5iO2eFOLwhTwe9kL9Xec~CGR7XF6~W5O39J5ai7QwhR7kr5br7PN6z6cv5YPb7Q9emjF0n9CesxMefa7H-XVJNAwtSoUtVW6CWw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "other",
+  "detected_domains": [
+    "gmail.com",
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 86.94999694824219,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:13:23Z",
+  "meeting_at": "2025-07-16T12:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-16T12:00:00.000Z",
+      "leave_time": "2025-07-16T13:27:36.504Z",
+      "name": "Golovko Mykola"
+    },
+    {
+      "join_time": "2025-07-16T12:00:00.000Z",
+      "leave_time": "2025-07-16T13:27:36.506Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-07-16T12:00:00.000Z",
+      "leave_time": "2025-07-16T13:27:36.506Z",
+      "name": "Niklas | matchical.com"
+    },
+    {
+      "join_time": "2025-07-16T12:02:29.344Z",
+      "leave_time": "2025-07-16T13:03:33.161Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "mykolagolovko.ui@gmail.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "niklas@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JZWAVTA9H5PMCDHXEYES6PXB",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NjFiZTFmYjMtNjlmYi00M2I0LWIyZDEtM2Q2ZWVkMGJjZDFh@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "mykolagolovko.ui@gmail.com,tommy@matchical.com,niklas@matchical.com,konsti@matchical.com",
+    "mykolagolovko.ui@gmail.com",
+    "tommy@matchical.com",
+    "niklas@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "mykolagolovko.ui@gmail.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "niklas@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 589,
+  "title": "matchical Round 2 ;)",
+  "transcript_created_at": "2025-07-16T12:00:00Z",
+  "transcript_id": "01JZWAVTA9H5PMCDHXEYES6PXB",
+  "transcript_url": "https://app.fireflies.ai/view/01JZWAVTA9H5PMCDHXEYES6PXB",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_reclassification"
+}

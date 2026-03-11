@@ -1,0 +1,95 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/cUKwD5y2YEHuNAw1/audio.mp3?Expires=1773265219&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpL2NVS3dENXkyWUVIdU5BdzEvYXVkaW8ubXAzIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzczMjY1MjE5fX19XX0_&Signature=dH6Asnz2MIK9DrTxCzlv0lzwq77ty242ZsnfkcRhIqjmQIV4UQssmbLEmMYMblgiaGiZrR98t3U6zWQoovTgvDNV8tUVklBGQta9oxSEEiDwOiQdWk1VU95mfQxAgoI5OHVv-WcJA8UuiZcRQRiZXTd7JyOseanCLYaNQ63~xz8MuBzN2-QTqsZ2YbCAMz35n9IT8OIt2Xq6jldoVl2wMndO6QyaaUI6C9ulaRskOmMRHwkFZ05HTVWOcT2xHtnBX177MM5dMEd4vsF5nFpYLT4COdgqIDul-Wp3wOHkUF1fMNyN5VuG~NHcedLWt-PvF8VoGvEjCWMwph~n3c2nZg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "wavestone.eu"
+  ],
+  "dominant_domain": "wavestone.eu",
+  "duration_minutes": 61,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T09:40:51Z",
+  "meeting_at": "2024-12-10T15:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2024-12-10T15:00:00.000Z",
+      "leave_time": "2024-12-10T16:00:28.638Z",
+      "name": "Bauer, Thomas (Unverified)"
+    },
+    {
+      "join_time": "2024-12-10T15:00:00.000Z",
+      "leave_time": "2024-12-10T16:00:28.638Z",
+      "name": "Kleindienst, Sören (Unverified)"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": "Bauer, Thomas",
+      "email": "thomas.bauer@wavestone.eu",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Kleindienst, Sören",
+      "email": "soeren.kleindienst@wavestone.eu",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "cUKwD5y2YEHuNAw1",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_M2ZiMDA4MmQtMWNiMi00YjUwLTk5NTgtYjYzOWU1OTg4MTlm@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "thomas.bauer@wavestone.eu,soeren.kleindienst@wavestone.eu,konsti@matchical.com",
+    "thomas.bauer@wavestone.eu",
+    "soeren.kleindienst@wavestone.eu",
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "thomas.bauer@wavestone.eu",
+      "name": "Bauer, Thomas"
+    },
+    {
+      "email": "soeren.kleindienst@wavestone.eu",
+      "name": "Kleindienst, Sören"
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "thomas.bauer@wavestone.eu,soeren.kleindienst@wavestone.eu,konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "thomas.bauer@wavestone.eu",
+      "name": ""
+    },
+    {
+      "email": "soeren.kleindienst@wavestone.eu",
+      "name": ""
+    }
+  ],
+  "title": "Matchical SaaS Vertrag",
+  "transcript_created_at": "2024-12-10T15:00:00Z",
+  "transcript_id": "cUKwD5y2YEHuNAw1",
+  "transcript_url": "https://app.fireflies.ai/view/cUKwD5y2YEHuNAw1",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

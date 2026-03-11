@@ -1,0 +1,50 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01KFN27H4NR37NW0DF3MARD9B2/audio.mp3?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0ZOMjdINE5SMzdOVzBERjNNQVJEOUIyL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=DJ~Wng4pwbQW2GMJ3qd2jMnEBGdOor970mG9Ev9DUds5XtWnQRscS2LQSDvfoWzKLeOrzTvUODrcpNPvn7RJ-K9Gp9pJsjQHbg8lSDXnm1cVmWyte2Cw0GFyGM73aJpvh8La1I7NmdEmgvZanLsWFsRSb7NVVtPqdci-XL~XOb2CbgMk4PxrUhzLaTTCwn3cy-MOg939k17TlyYpkufq5R33c6ctzezeRoofxDRXLHmNp6uAeVFc~TCaQvrGTVOxT0nsL3cjHj~PaASd-KL7haLCdjBT64gd-E2vTPY9be7tjfRnRy1Ke1L3TaEos4Qh~4lEWEVC0J4PVRxEFW1hEw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 10.949999809265137,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:51:51Z",
+  "meeting_at": "2026-01-28T13:30:00Z",
+  "meeting_attendance": [],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KFN27H4NR37NW0DF3MARD9B2",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MDc4MDg3ZGUtZTc1My00MzM4LTgyZTctZTUwNjA1NmE1OTI0@thread.v2/0?context={\"Tid\":\"5de96c96-c87c-4dce-aad9-f5c557b52ac1\",\"Oid\":\"72a150f5-2876-43d2-a983-681fb2da9191\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 0,
+  "title": "Jourfix Matchical/SIP (Clone)",
+  "transcript_created_at": "2026-01-28T13:30:00Z",
+  "transcript_id": "01KFN27H4NR37NW0DF3MARD9B2",
+  "transcript_url": "https://app.fireflies.ai/view/01KFN27H4NR37NW0DF3MARD9B2",
+  "video_url": "https://cdn.fireflies.ai/01KFN27H4NR37NW0DF3MARD9B2/video.mp4?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0ZOMjdINE5SMzdOVzBERjNNQVJEOUIyL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=x11ivOQNEa8hEUcGpQkAwUEwdiDYjJrWmImy8ytBACRNCTJ7-qiHRejexsRvRHRey7wgEFEZSxSDh9WJJMC6CA2vhv6S3f7MyKFgZRDG4itYIRABMiDc4vacmHbIAtJ12k-inDGwcGUbdRTtQnLsLA3oDbpXMo-Fz4wRxcW7YM6YNc7c1-1vszc5pQdmOKINEyITZF96EzOE~dwG2DYulYaaeGeOdyDKq0Vlg5eJns5HzkD8nFPpuKCg~W2CY1ZzrNpBOrBcfOOBn3NNIkXLQZTzt0ov2DgMHu-sx08IgPwfRlZw3c0BWDbHuxmv7n8HVnzHNf-9NFaMKKnIc7dAVA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_title_rule_wavestone"
+}

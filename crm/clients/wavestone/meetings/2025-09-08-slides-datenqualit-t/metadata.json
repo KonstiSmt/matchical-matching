@@ -1,0 +1,89 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01K4M4BHG05ZS65BRPAW5X07SR/audio.mp3?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRNNEJIRzA1WlM2NUJSUEFXNVgwN1NSL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=NXclkTb8tAr-d9qdI85MFVZsvjjUHDn2LbDQsZOeJMxy~6Q3K9ARJk7ZoQqHivY5stxu4SUlbccmEqm7aoGfv6VKzqs06ZANYqstIyOnMQmHgEfV8LHjAVpW-n~gW9PHcB3XRAk1deda11ciFVH4E9VVXiTvtUTZGCYJfpIvojj49h-ZiGS8yIvg852xT2ADYMz6VASMThCoHgNWi2TIHQfOBMzVx6Kn4we6jM8MQFcHe9NF95QOH052H~VpMl-ZZVdc4zENf6UTYotOdRGMdxrs1IeK3GX66WSZiEr1~yQZ~zgUcjaQvcXqFUYrhBmB9JQgso9UPCpYmFVQsvDZhQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "wavestone.com"
+  ],
+  "dominant_domain": "wavestone.com",
+  "duration_minutes": 70.0999984741211,
+  "fireflies_users": [
+    "tommy@matchical.com",
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:09:53Z",
+  "meeting_at": "2025-09-08T10:15:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-08T10:15:00.000Z",
+      "leave_time": "2025-09-08T11:26:25.859Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-09-08T10:15:00.000Z",
+      "leave_time": "2025-09-08T11:26:25.860Z",
+      "name": "RÖSCHER Christina"
+    },
+    {
+      "join_time": "2025-09-08T10:33:23.021Z",
+      "leave_time": "2025-09-08T11:26:25.860Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "christina.roescher@wavestone.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K4M4BHG05ZS65BRPAW5X07SR",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NTJiMzBkODktNTIxYi00NTI2LWI4YWYtMzcyNTkyZDJlOGY3@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com,christina.roescher@wavestone.com,tommy@matchical.com",
+    "christina.roescher@wavestone.com",
+    "tommy@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "christina.roescher@wavestone.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 636,
+  "title": "Slides Datenqualität",
+  "transcript_created_at": "2025-09-08T10:15:00Z",
+  "transcript_id": "01K4M4BHG05ZS65BRPAW5X07SR",
+  "transcript_url": "https://app.fireflies.ai/view/01K4M4BHG05ZS65BRPAW5X07SR",
+  "video_url": "https://cdn.fireflies.ai/01K4M4BHG05ZS65BRPAW5X07SR/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRNNEJIRzA1WlM2NUJSUEFXNVgwN1NSL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=NO2jJKq6DA5qq4-CtvPq2C~ST6VNfJ6mRvIlM03W0l6pARRLNSTdbyUMdBlicv3RM28FmtWt6JLIjEDOPUj8MLvDgPw1narYSptx6SjVkj4BxO47mNGJR7WY4mga1RVlnbgJUNJgCQjvEZ7DbQJrOBXbPNKxtPG1usmc~Sl8IPCYbF36YpObo~jEV8gofWYyhRCUq3Bdk~7kynmlpjQtBpcvgMa-C~U44naj3jgBOIeqw5IyeiBoR4uinC1Rkmo1d4fKyJcinLQaAWk0KjLvdNy9OFB6T79vQwbfuCqdY~c0mfjtMlYBeCretZtPonzYezwij~5nYlVZtgLTeD3r6w__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

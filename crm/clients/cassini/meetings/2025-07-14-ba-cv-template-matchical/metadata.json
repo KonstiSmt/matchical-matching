@@ -1,0 +1,88 @@
+{
+  "account_slug": "cassini",
+  "audio_url": "https://cdn.fireflies.ai/01JZW8PZXRJQZ51YZWGG8MPX66/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlpXOFBaWFJKUVo1MVlaV0dHOE1QWDY2L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=C2HerYiBl~QCbnCSspKMNssmZNIZDqA~-ItSXxyIP7NesnZogELxduA-quyoG~mcz0D7EIjP5ew8lhiQAtUeB2U6KVGu4N42z7ULRrOEFY7ukR5Ulp3FuWlYTD~7g3nfqrIW2iEpHcWJMOwVN~zDebdfyaOBMjAa-oe5a~kT4wnR9dIYSLP6uVqR~5rvu0jzTWF78LVLzPQ5sTkoxszkRhnee5qIGtMTZvzBOzJ8PnjY9IJOLy7JQcZ7mCriOaC4alUOfaPTwG1jciekyZmNnwRKNq09I4L7wfchCBd28VLBYG7JyG7WVYnhVrzOBv-ZYXeh46IsYBLOM4MBdge9nA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "aleri.de",
+    "matchical.com"
+  ],
+  "dominant_domain": "aleri.de",
+  "duration_minutes": 43.36000061035156,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:13:46Z",
+  "meeting_at": "2025-07-14T11:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-14T11:00:00.000Z",
+      "leave_time": "2025-07-14T11:43:29.887Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-07-14T11:00:57.505Z",
+      "leave_time": "2025-07-14T11:43:29.885Z",
+      "name": "Iwanowski, Marcus"
+    },
+    {
+      "join_time": "2025-07-14T11:01:49.687Z",
+      "leave_time": "2025-07-14T11:43:29.887Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "marcus.iwanowski@aleri.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JZW8PZXRJQZ51YZWGG8MPX66",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZjkxMjZjNDYtYjZiNC00YzA2LThjNzYtMDU2YzIyZDRhYWE3@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "marcus.iwanowski@aleri.de,tommy@matchical.com,konsti@matchical.com",
+    "marcus.iwanowski@aleri.de",
+    "tommy@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "marcus.iwanowski@aleri.de",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 486,
+  "title": "BA CV Template matchical",
+  "transcript_created_at": "2025-07-14T11:00:00Z",
+  "transcript_id": "01JZW8PZXRJQZ51YZWGG8MPX66",
+  "transcript_url": "https://app.fireflies.ai/view/01JZW8PZXRJQZ51YZWGG8MPX66",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

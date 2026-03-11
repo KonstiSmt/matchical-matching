@@ -1,0 +1,65 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01JY9NJ9GGFJ75NVPQRV2P7SST/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlk5Tko5R0dGSjc1TlZQUVJWMlA3U1NUL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=urP2OQHbvoK78RDEAjUvlLUM1DBzYwNHYJEx8JPIf9SoibijH1tsrRh3tuKXSqxVwjLqhd33I~fA5FDfB8yhE7ZmzgWYU5PflulNdkVaXP1G9krXB~gRWLWnbx8gdlS4kfSmlaitXXYUv45hfZ64d34DvMjrA3nDh5IL0wIhWp~DLzdX-CXeuTh64iXIqghsJFmTEtN6HoKTVUPxhMH4ory-DZmwLgS6YHYINCjkDcJXnU6V2wqjmvs8SMhM3th7VAsSPJpM7yZPwsqVYEEy2yO~VvGbv-nu96j4uVgBR27YXny5jPwGTJq2iJ6QxmLALdFsggiTjohvBGoKPTBXWw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 86.13999938964844,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:40:28Z",
+  "meeting_at": "2025-06-23T14:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-23T14:30:00.000Z",
+      "leave_time": "2025-06-23T15:57:34.239Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-06-23T14:33:12.607Z",
+      "leave_time": "2025-06-23T15:57:34.237Z",
+      "name": "andreas_penzel"
+    },
+    {
+      "join_time": "2025-06-23T14:33:12.609Z",
+      "leave_time": "2025-06-23T15:57:23.552Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JY9NJ9GGFJ75NVPQRV2P7SST",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YmEyNTg4NTgtM2RiNC00NTc4LWExYzctY2E3NTJkYzhjZmYz@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 856,
+  "title": "Alignment AnPe <> matchical (Clone)",
+  "transcript_created_at": "2025-06-23T14:30:00Z",
+  "transcript_id": "01JY9NJ9GGFJ75NVPQRV2P7SST",
+  "transcript_url": "https://app.fireflies.ai/view/01JY9NJ9GGFJ75NVPQRV2P7SST",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

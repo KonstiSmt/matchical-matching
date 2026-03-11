@@ -1,0 +1,70 @@
+{
+  "account_slug": "cassini",
+  "audio_url": "https://cdn.fireflies.ai/01KGJ14BJ4ASCQA9SHGGT7MV53/audio.mp3?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0dKMTRCSjRBU0NRQTlTSEdHVDdNVjUzL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=tK70U6Vq~LyvHcXWfFZeNTvA05DZVfy8dAufy9KSei9Lh7OFozGmYOdnHc6z8R7myJ6HdrMUA-amgknfNo3ZStfKgLMkbVx7WkZeINVxfU2h0ttC-PSadCloOKutSlUet1oO4sNThlrZqRl5WBJksLyDSByCqA2VYYJ6YcyyhFnJq-3MOgsYX7l9N7KcKrzcFEkuvDMxw3dSfW4Tg2MSFEwDOWfAXCBGQ7uO8mb5NIJQJLOfPxBaisNJZ9Nv1Ft0gzSuP3oSMpGP-YPqb--atcKjgSrrBqT6vYe-LPY3p1hzYCJ6NH0ne8GxeTePIJCH7RRBsLdb80VLt-tQRPq1ng__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 33.34000015258789,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:51:24Z",
+  "meeting_at": "2026-02-06T08:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-02-06T08:30:00.000Z",
+      "leave_time": "2026-02-06T09:03:31.377Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2026-02-06T08:32:05.952Z",
+      "leave_time": "2026-02-06T09:03:31.377Z",
+      "name": "Al-Kadi, Ferras"
+    },
+    {
+      "join_time": "2026-02-06T08:32:05.953Z",
+      "leave_time": "2026-02-06T09:03:31.377Z",
+      "name": "Stebens, André"
+    },
+    {
+      "join_time": "2026-02-06T08:32:17.618Z",
+      "leave_time": "2026-02-06T09:03:31.377Z",
+      "name": "Iwanowski, Marcus"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KGJ14BJ4ASCQA9SHGGT7MV53",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MmY1Yjg3MjYtZjVkYy00YzgwLThkMjYtNWE4ZDk3YjMxZjQ0@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 329,
+  "title": "JF cassini <> matchical (Clone)",
+  "transcript_created_at": "2026-02-06T08:30:00Z",
+  "transcript_id": "01KGJ14BJ4ASCQA9SHGGT7MV53",
+  "transcript_url": "https://app.fireflies.ai/view/01KGJ14BJ4ASCQA9SHGGT7MV53",
+  "video_url": "https://cdn.fireflies.ai/01KGJ14BJ4ASCQA9SHGGT7MV53/video.mp4?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0dKMTRCSjRBU0NRQTlTSEdHVDdNVjUzL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=nW0ELCRvkOmySnJoLxSSqF7XTPdKeukSV-qCt66jOoeh-AalqfNwZ7G5KZe6L8p5xV3cpkK51CBNfEakG94PWL4t92roodQEj~74eGIzIjEf4Le5YtBJUtHGqGVqDSYQENB-3BmRSFZEWFwx1le-WenM4WRhhnFbhC20J29smC8gwBPjyVD5Vrn8A~QxQ0BPO9E9hKBInXCjDdAUHYb7JSmVRyOi0Gq~a0r1yPMPuLMyRVprO3yZYRAT8tVz6sSO3PZhqTxAQg7JOV0UKDi-TUy2zBQ6ae4YuCapfKhHLsx~rzbQSh7ZxiqhkTdpxbvPlqaIBUMtf-dKChGN-GAR8g__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

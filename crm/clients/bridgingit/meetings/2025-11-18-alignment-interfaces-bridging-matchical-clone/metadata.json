@@ -1,0 +1,71 @@
+{
+  "account_slug": "bridgingit",
+  "audio_url": "https://cdn.fireflies.ai/01KA6RCYKAMMX44QC0WG46QCKV/audio.mp3?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0E2UkNZS0FNTVg0NFFDMFdHNDZRQ0tWL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=Pl0BefXVYO5cICgOHma6r8vmhwrBoLHJcsK4Sont96eF16marxuBp0QlBQwF69SwI6xNy7-W-AP4K2SOrVH1tk1Q-HgIQetACboumXTYd8-0gMidzLjLF0oJ9nUPURDGvCStX9p3x9EK1TvLARVb50~Ktg~XAfUOqpht1Q~PPsx1CJ5gl-1Q4f03DIvjw7fPNN5dt3~x-HSlZ9fHoabzW6n8kXCung-q-OCFWqc2UrYcwgDSylauJNiYl62Z4GMVFB17zfrA-0HdTTVTrn5MlraFZ4dwrZWDJbxsXxfcYAxceLs2kUbZhQsqlRMmbQH-NdG4wAkySgGSmnlIqE9Vcw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 116.22000122070312,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:31:42Z",
+  "meeting_at": "2025-11-18T14:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-11-18T14:00:00.000Z",
+      "leave_time": "2025-11-18T15:56:18.484Z",
+      "name": "Jens Schumacher"
+    },
+    {
+      "join_time": "2025-11-18T14:00:00.000Z",
+      "leave_time": "2025-11-18T15:56:18.484Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-11-18T14:02:12.325Z",
+      "leave_time": "2025-11-18T15:56:18.483Z",
+      "name": "Carsten Schindler"
+    },
+    {
+      "join_time": "2025-11-18T14:03:25.488Z",
+      "leave_time": "2025-11-18T15:56:18.484Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KA6RCYKAMMX44QC0WG46QCKV",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_Mzg0MWZlYTItY2IwMC00NzBhLTljOGEtMmQ1OWI1OWNkYjZk@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1580,
+  "title": "Alignment interfaces bridging <> matchical (Clone)",
+  "transcript_created_at": "2025-11-18T14:00:00Z",
+  "transcript_id": "01KA6RCYKAMMX44QC0WG46QCKV",
+  "transcript_url": "https://app.fireflies.ai/view/01KA6RCYKAMMX44QC0WG46QCKV",
+  "video_url": "https://cdn.fireflies.ai/01KA6RCYKAMMX44QC0WG46QCKV/video.mp4?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0E2UkNZS0FNTVg0NFFDMFdHNDZRQ0tWL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=grQi~0KECr~wHk0-GZud-eI18FNFuvaydh7X4eBA-TMyZPRrWiwUBo8OIUwyZQgc3Eve-2EE8Vv~XGM0cicYBHEOyIqJcGMy6PZC07kPYPqm-4TazX12P3sdIioxCXEAZToN~qE3ej0J8TBhvGjb5gOg8GvnrIblcr4QrxoHrZE0X-Ea5WkTBhUhCTH4cf5CG5qFML~2RanLM9ItakCux~rXsVqhcyTimKXJg~StWcZSTBHJvLAjAfHhuEk4yFWy~zFZf0ke9tANRlOFwabug8~AVYrubiL-Id5Y0mkORoMM~AtPk3Om60BesSwaOh53mbi8FvQj05FMt3KgjcnP5Q__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_name_rule"
+}

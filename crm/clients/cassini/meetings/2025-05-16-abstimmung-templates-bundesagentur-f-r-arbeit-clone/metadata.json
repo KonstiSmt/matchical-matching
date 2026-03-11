@@ -1,0 +1,65 @@
+{
+  "account_slug": "cassini",
+  "audio_url": "https://cdn.fireflies.ai/01JVA3811RETH4H6ZDYS9DWF5C/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlZBMzgxMVJFVEg0SDZaRFlTOURXRjVDL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=YMs3mldcbQoCkqmZcNNWQzZ7HKG5hAtFobDvi8CHEnqI7wHyENDYESCPoWTy~1YtUQZ5ELQNwh2IfXqY9ky6lKe9F2WA7QiP8I8NGIs2daEzR6uYhgkHlwEfrBd9UI1x2Ljtimd3twm~hCrvsnmXHj1Z7CXIJBvwObJhzHf7OJn8qyiu~K1csH3y~klSSdhPE9QUDFA3Wzij4k9QvCVtUpbd67tYbC22t5tI3gxo9p9Xn2JQ6udJr7GGszKwNU7DZlPfGY9kStyZ9TaC66ZjeMvpBHG9iD1u~sD6q8YFKNDlGeMkvIZVESm8mZ5Im4fyp5M0oDCL1Y0FyrfvsbTEdw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 51.86000061035156,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:57Z",
+  "meeting_at": "2025-05-16T11:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-05-16T11:30:00.000Z",
+      "leave_time": "2025-05-16T11:40:38.621Z",
+      "name": "Iwanowski, Marcus (Unverified)"
+    },
+    {
+      "join_time": "2025-05-16T11:30:00.000Z",
+      "leave_time": "2025-05-16T12:21:59.308Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-05-16T11:40:38.620Z",
+      "leave_time": "2025-05-16T12:21:59.310Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JVA3811RETH4H6ZDYS9DWF5C",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_N2RkMGJiYTktYWY2MS00MmQ0LWEzOTctYmY0MDQ2NzFkZWE3@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 554,
+  "title": "Abstimmung Templates Bundesagentur für Arbeit (Clone)",
+  "transcript_created_at": "2025-05-16T11:30:00Z",
+  "transcript_id": "01JVA3811RETH4H6ZDYS9DWF5C",
+  "transcript_url": "https://app.fireflies.ai/view/01JVA3811RETH4H6ZDYS9DWF5C",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "account_slug": "bridgingit",
+  "audio_url": "https://cdn.fireflies.ai/01KHMGK6SNV44ZSF73TG4D30M6/audio.mp3?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0hNR0s2U05WNDRaU0Y3M1RHNEQzME02L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=YKkUwzpAkNiZYeGXf~Eau27x45dqE-0prAgpym9p8zn2pDvLrME72U~FYs9f8tytWIReTs~-NDnFEQewoDriNhobw3fsdBUEFIL6q2Q2BbLW-Vsyn6l0s7reE7EOIgv4gLM7RdKXu8m5P2tJl~biwltsJEhJbSjHlMLuR-nsGrP6ViQcpB1Q4kWzj2GgVRmX~N4O-BqzECIJDrgxzm1rfjFIzZMgnEMv3LckDXWpldCYvcYTPlIwBksfFVULHk4Mh4SjMAUqPY~iIALXGaoADHM1h5xuNZDwNo65bnBlEISoDc6kWa~A1bf7p-o-gLDhcsM~WFO~PnRFlGJZvFii-A__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 70.95999908447266,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:51:16Z",
+  "meeting_at": "2026-02-17T07:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-02-17T07:00:00.000Z",
+      "leave_time": "2026-02-17T08:10:31.977Z",
+      "name": "Jens Schumacher"
+    },
+    {
+      "join_time": "2026-02-17T07:00:00.000Z",
+      "leave_time": "2026-02-17T08:10:31.977Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2026-02-17T07:00:00.000Z",
+      "leave_time": "2026-02-17T08:04:10.204Z",
+      "name": "Rojen Alexander-Gregorian"
+    },
+    {
+      "join_time": "2026-02-17T07:00:00.000Z",
+      "leave_time": "2026-02-17T08:10:42.943Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KHMGK6SNV44ZSF73TG4D30M6",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_OTIzNTc3NjUtZDEzZi00MDY0LTg0OGYtNTllZGYzYTE5Njkz@thread.v2/0?context={\"Tid\":\"6c3b9954-2075-41bc-af53-36e3975951e6\",\"Oid\":\"7e80ecf8-1770-458a-a9bc-11e2eda8f81d\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 685,
+  "title": "[Matchical]  CoE AI - Intro ins Tool (Clone)",
+  "transcript_created_at": "2026-02-17T07:00:00Z",
+  "transcript_id": "01KHMGK6SNV44ZSF73TG4D30M6",
+  "transcript_url": "https://app.fireflies.ai/view/01KHMGK6SNV44ZSF73TG4D30M6",
+  "video_url": "https://cdn.fireflies.ai/01KHMGK6SNV44ZSF73TG4D30M6/video.mp4?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0hNR0s2U05WNDRaU0Y3M1RHNEQzME02L3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=RwIPlURKkNwxNd~3U9iwBm-i51FsdOSp4YpEZa89jF2z2~EMe~e7v0FfXOKKHAwYX7Rw-XnAXOFtM3GfoMRu7uYjDjAT-Rg1YqZU-QVmOPROrGjliHv9qyXhGush9FS5ZgS3XxJ1H45Iqg6-q1xQ5f6xPiBWR9UxT2SS2XoO-OP5ArTXU3Tk9f-8iXmatcWDKmGWEtlNg3HPBwxnq3E6-FiNi5U5N--WdcQqKefQZo6lJXDms~pENlWyRKkEL5ZH1Zpi5sgzsmTTMZQtw-6qiFTS-63rdOf6nX10lvUf3CFpGvmN4jN59OQouJ~UegtNlTPmEPtYX5wUx54FzsdDOQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_name_rule"
+}

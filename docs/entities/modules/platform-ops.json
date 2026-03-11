@@ -1,0 +1,571 @@
+[
+  {
+    "Entity": "ActivityLog",
+    "Columns": [
+      {
+        "name": "activitycategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "creatorcousultancyuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "entity",
+        "dataType": "character varying"
+      },
+      {
+        "name": "externaluserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "filekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "logcategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "longlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "notificationid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "objectid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "DynamicSettings",
+    "Columns": [
+      {
+        "name": "cvchunksize",
+        "dataType": "integer"
+      },
+      {
+        "name": "cvparseractive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "defaultaimodelid",
+        "dataType": "integer"
+      },
+      {
+        "name": "defaultbalancedaimodelid",
+        "dataType": "integer"
+      },
+      {
+        "name": "defaultprecisionaimodelid",
+        "dataType": "integer"
+      },
+      {
+        "name": "defaultreasoningeffort",
+        "dataType": "character varying"
+      },
+      {
+        "name": "defaultsemiprecaimodelid",
+        "dataType": "integer"
+      },
+      {
+        "name": "defaultthinkingbudget",
+        "dataType": "integer"
+      },
+      {
+        "name": "defaultvisionaimodelid",
+        "dataType": "integer"
+      },
+      {
+        "name": "defaultvolumeaimodelid",
+        "dataType": "integer"
+      },
+      {
+        "name": "demandparseractive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "llamaparseaimodelid",
+        "dataType": "integer"
+      },
+      {
+        "name": "llamaparsefallbackaimodelid",
+        "dataType": "integer"
+      },
+      {
+        "name": "llamaparsegpt4omode",
+        "dataType": "numeric"
+      },
+      {
+        "name": "llamaparsemultimodalmode",
+        "dataType": "numeric"
+      },
+      {
+        "name": "quequebrokeractive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "queuesize",
+        "dataType": "integer"
+      },
+      {
+        "name": "stageswitchuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "useopenrouter",
+        "dataType": "numeric"
+      }
+    ]
+  },
+  {
+    "Entity": "EventQueue",
+    "Columns": [
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isrunning",
+        "dataType": "numeric"
+      }
+    ]
+  },
+  {
+    "Entity": "FeatureToggle",
+    "Columns": [
+      {
+        "name": "createdby",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdon",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "description",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "bigint"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "ismissing",
+        "dataType": "numeric"
+      },
+      {
+        "name": "istemporary",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isunderdevelopment",
+        "dataType": "numeric"
+      },
+      {
+        "name": "key",
+        "dataType": "character varying"
+      },
+      {
+        "name": "owneremail",
+        "dataType": "character varying"
+      },
+      {
+        "name": "sprintnumber",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedby",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedon",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "userstoryurl",
+        "dataType": "character varying"
+      },
+      {
+        "name": "version",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "FeatureToggleConfig",
+    "Columns": [
+      {
+        "name": "categorycustomkey",
+        "dataType": "character varying"
+      },
+      {
+        "name": "categoryid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdby",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdon",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "evaluationorder",
+        "dataType": "bigint"
+      },
+      {
+        "name": "featuretoggleid",
+        "dataType": "bigint"
+      },
+      {
+        "name": "filterby",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "bigint"
+      },
+      {
+        "name": "productionactivationdatetime",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "updatedby",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedon",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "FeatureToggleConfigStage",
+    "Columns": [
+      {
+        "name": "featuretoggleconfigid",
+        "dataType": "bigint"
+      },
+      {
+        "name": "id",
+        "dataType": "bigint"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "stageid",
+        "dataType": "bigint"
+      },
+      {
+        "name": "updatedby",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedon",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "Notification",
+    "Columns": [
+      {
+        "name": "categoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "channelcategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "consultancyuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "externaluserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "payloadjson",
+        "dataType": "text"
+      },
+      {
+        "name": "senderconsultancyuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "sendgridmessageid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "NotificationEvent",
+    "Columns": [
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "notificationid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "payloadjson",
+        "dataType": "text"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "ODCEntity",
+    "Columns": [
+      {
+        "name": "app",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdby",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdon",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "description",
+        "dataType": "character varying"
+      },
+      {
+        "name": "entityname",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "bigint"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "modifiedby",
+        "dataType": "character varying"
+      },
+      {
+        "name": "modifiedon",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "physicaltablename",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "ODCEntityColumn",
+    "Columns": [
+      {
+        "name": "datatype",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "bigint"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "odcentityid",
+        "dataType": "bigint"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      },
+      {
+        "name": "physicalcolumnname",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Stage",
+    "Columns": [
+      {
+        "name": "default",
+        "dataType": "numeric"
+      },
+      {
+        "name": "id",
+        "dataType": "bigint"
+      },
+      {
+        "name": "isproduction",
+        "dataType": "numeric"
+      },
+      {
+        "name": "name",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "StoredQuery",
+    "Columns": [
+      {
+        "name": "createdby",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdon",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "bigint"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "modifiedby",
+        "dataType": "character varying"
+      },
+      {
+        "name": "modifiedon",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "query",
+        "dataType": "text"
+      },
+      {
+        "name": "uuid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "TemporaryData",
+    "Columns": [
+      {
+        "name": "ablyjobid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "categoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isautodelete",
+        "dataType": "numeric"
+      },
+      {
+        "name": "json",
+        "dataType": "text"
+      },
+      {
+        "name": "languageid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "note",
+        "dataType": "text"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      },
+      {
+        "name": "referenceobjectid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "secondreferenceobjectid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "value",
+        "dataType": "text"
+      }
+    ]
+  }
+]

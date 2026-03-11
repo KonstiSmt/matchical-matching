@@ -1,0 +1,65 @@
+{
+  "account_slug": "thestory",
+  "audio_url": "https://cdn.fireflies.ai/01K4Q9X5DXSNRC3W9JJ03BAFYC/audio.mp3?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRROVg1RFhTTlJDM1c5SkowM0JBRllDL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=NZFb6faEZ62F0ArW2oK-nUdK4lxhOfj7hVpkC250lfvuG7T35YP6v-qo16ejCAHdEqmvqeqSb81Qy3glZ-kTC7-1l8ftZsWEY-KkRzr1FuyzhPSwGZSgUc6mxGDSU~tDZ8VzWnNIPIzEoiVoMiL0n0TBzF78SAFixtRrgT82CCFH1wvR2g7rVrGaYyxOSbmGPgNAT8bbdSXjyacWN2-rGZ5RKmkW3Gu7EpUft6RdcrOIK-w4y-mQeNZ3eScf1mykJUwU3a7RPCQHHkOqKW6iKvJAJZPWRi4YA2Jq8w~PJlFDbnBjE~HfqKINQcra9MN4iyC5oHDrg2bB-8cTycd8cQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "operations",
+  "category_source": "keyword",
+  "crm_bucket": "partners",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 50.16999816894531,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:09:37Z",
+  "meeting_at": "2025-09-10T11:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-10T11:00:00.000Z",
+      "leave_time": "2025-09-10T11:52:58.355Z",
+      "name": "Dymitr Romanowski"
+    },
+    {
+      "join_time": "2025-09-10T11:00:00.000Z",
+      "leave_time": "2025-09-10T11:52:58.355Z",
+      "name": "Karol Gorus"
+    },
+    {
+      "join_time": "2025-09-10T11:00:00.000Z",
+      "leave_time": "2025-09-10T11:52:58.355Z",
+      "name": "Konstantin Schmitz"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K4Q9X5DXSNRC3W9JJ03BAFYC",
+  "meeting_kind": "partner",
+  "meeting_link": "https://meet.google.com/tqr-ynzx-uxa",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 295,
+  "title": "matchical <> the story: daily (Clone)",
+  "transcript_created_at": "2025-09-10T11:00:00Z",
+  "transcript_id": "01K4Q9X5DXSNRC3W9JJ03BAFYC",
+  "transcript_url": "https://app.fireflies.ai/view/01K4Q9X5DXSNRC3W9JJ03BAFYC",
+  "video_url": "https://cdn.fireflies.ai/01K4Q9X5DXSNRC3W9JJ03BAFYC/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRROVg1RFhTTlJDM1c5SkowM0JBRllDL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=WSmScx0cUG2l4nj70q9QRqtb7eHwgzrTVbagJMAPotL39nflCX-ryrOISkMUyHvDsZMHmXlxjsWGNls2ExfwZaT34cwGL5NFV9PtMgjK30U7t8Bu3MOLN3Jlv6oovJwMEmh9y0dqT7gyykv~JvvfCHUWl2h16IM4b39gw-R3aCKkdomiMJ6Kv8g5LOqNpzBpUs1Mjl9hmz8KuDv-NVQex2DrgwdIeq4mtaA0Q4PXlYb28A1qiM7O9GewFkrnru6v9mM0XGQLcN-sBRbmNx4uGrMvtxw7mBHlvMSa1oDrRl-Ylm39Un2PRSqZ3i0fphZ~k2CbUNA2D~lGw9TIutW-cw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

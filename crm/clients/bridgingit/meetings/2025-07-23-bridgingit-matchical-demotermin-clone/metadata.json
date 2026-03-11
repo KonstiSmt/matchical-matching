@@ -1,0 +1,81 @@
+{
+  "account_slug": "bridgingit",
+  "audio_url": "https://cdn.fireflies.ai/01K0P8WRCTBRG6QVE2988E7RKR/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzBQOFdSQ1RCUkc2UVZFMjk4OEU3UktSL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=t3iQX1R-Yud8vsbJT7ib0PJgnjBAIh4IdmFUAJita7uj5GeYVyX7gncj2vJJz4Msn91ywEG8URA66LT9XTJxiXs60lEq4Q4Qu7H8YM8kMf1NXzzgDg~gmh6uppHCpX44X~6fElmDTScf2ycyMt0TRqcrD45Oodj8UcWS5i5v-bxXPhWkF9P3KER~kBmTVBuZvnXzAJwyedIz3ClQMOG0aaj3fb984opTAcYsDpw8PcNuncKzulQT8~ijQBKFHYx2Lak8ScP4L~0bpywURYywUOfSMEGMz8tqo7-xvjx7B2wEsqmcw2cSmKuBzg0yUmwUnil6sH7COvfksjellVNB1A__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 89.80000305175781,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:12:26Z",
+  "meeting_at": "2025-07-23T09:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-23T09:00:00.000Z",
+      "leave_time": "2025-07-23T10:30:08.869Z",
+      "name": "Jens Schumacher"
+    },
+    {
+      "join_time": "2025-07-23T09:00:00.000Z",
+      "leave_time": "2025-07-23T10:30:08.870Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-07-23T09:00:55.964Z",
+      "leave_time": "2025-07-23T10:30:08.870Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-07-23T09:01:02.580Z",
+      "leave_time": "2025-07-23T10:30:08.870Z",
+      "name": "Thomas Arens"
+    },
+    {
+      "join_time": "2025-07-23T09:01:28.160Z",
+      "leave_time": "2025-07-23T10:30:08.866Z",
+      "name": "Carsten Triebel"
+    },
+    {
+      "join_time": "2025-07-23T09:04:01.988Z",
+      "leave_time": "2025-07-23T10:30:08.869Z",
+      "name": "Gerald Stralucke"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K0P8WRCTBRG6QVE2988E7RKR",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZjNkY2YxNmUtZWM0Ny00NWUyLThhMTItMGNiZTEyNWUxZjg3@thread.v2/0?context={\"Tid\":\"6c3b9954-2075-41bc-af53-36e3975951e6\",\"Oid\":\"7e80ecf8-1770-458a-a9bc-11e2eda8f81d\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1211,
+  "title": "bridgingIT - Matchical - Demotermin  (Clone)",
+  "transcript_created_at": "2025-07-23T09:00:00Z",
+  "transcript_id": "01K0P8WRCTBRG6QVE2988E7RKR",
+  "transcript_url": "https://app.fireflies.ai/view/01K0P8WRCTBRG6QVE2988E7RKR",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_name_rule"
+}

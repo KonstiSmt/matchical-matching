@@ -1,0 +1,89 @@
+{
+  "account_slug": "cegeka",
+  "audio_url": "https://cdn.fireflies.ai/01KK9N1MHJ68JTKCX30FR946TR/audio.mp3?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0s5TjFNSEo2OEpUS0NYMzBGUjk0NlRSL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=TbdKyYbP1ECk4lmNa4CWox8tWs3P22-TsmL27SiCyheYtZusoc5WqTkQFEi17chpb0NKxQnCr9y8lPeV9SSAZsQgP~FGDFYqCr8GJaeCaIVSuoUjJZNAIItLtNcE52DlYzMqhYw5fTxbvmkM3IYka8Jgz3zvtkkcT9o4CKDNtdITxLpCKe5rqgSPkXHasw~A~gm-0wQluwyRTA5PERJ4kJw7BeQQm04VN2gQPIFbJFX94DEX4nm7i51r0jlf4pliT6xxQqT4vahxibNsUPQ6H~MND02rxv7QcK7AlStkyXcA3eC3K6ldvDyGJSyex7YEoR0u7m429NDYvH8EDomYmg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "cegeka.com",
+    "matchical.com"
+  ],
+  "dominant_domain": "cegeka.com",
+  "duration_minutes": 22.110000610351562,
+  "fireflies_users": [
+    "tommy@matchical.com",
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:50:08Z",
+  "meeting_at": "2026-03-09T16:10:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-03-09T16:10:00.000Z",
+      "leave_time": "2026-03-09T16:32:06.377Z",
+      "name": "Christopher Becla"
+    },
+    {
+      "join_time": "2026-03-09T16:10:00.000Z",
+      "leave_time": "2026-03-09T16:32:06.378Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2026-03-09T16:10:00.000Z",
+      "leave_time": "2026-03-09T16:32:06.378Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "christopher.becla@cegeka.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KK9N1MHJ68JTKCX30FR946TR",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_M2ZlNTg2NWYtMGVjMy00NjY5LWEwN2YtMTgxNGU5NTAzNTYz@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "christopher.becla@cegeka.com,tommy@matchical.com,konsti@matchical.com",
+    "christopher.becla@cegeka.com",
+    "tommy@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "christopher.becla@cegeka.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 252,
+  "title": "Interner Datenschutzhinweis",
+  "transcript_created_at": "2026-03-09T16:10:00Z",
+  "transcript_id": "01KK9N1MHJ68JTKCX30FR946TR",
+  "transcript_url": "https://app.fireflies.ai/view/01KK9N1MHJ68JTKCX30FR946TR",
+  "video_url": "https://cdn.fireflies.ai/01KK9N1MHJ68JTKCX30FR946TR/video.mp4?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0s5TjFNSEo2OEpUS0NYMzBGUjk0NlRSL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=fAysggXMY8Z6ZXmNWVnaRVo4p0QQ7hXqM7iWdFbmmgjThj-Qu9jByQl6FYKAOb4W9inAbGpjUiRBn9d0bZQRO0TpTyhDxB4VaFxrIDAmOVMJPnpgV-GzY3lH0jLGHqEAbmZHwPbXUbi~eBQtCO-0AlXzU9xvJOzCFry6X7EMwf4lEHwb7E0UYBRxyIbAW3rv71EHmydBtrWzGF2z05b5TFFvkbB2TvVnt6q0QchD3D7H~qh3NeBG4ZYumPlX~q~CYxZsE5m6wsNvCV1pX-VU9VXmb3-T9n6gf2bNXwuGmFAECDWe~7O1ea8dF3ASdPlEMi4LdxDQOzzuv8vuX4boMw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

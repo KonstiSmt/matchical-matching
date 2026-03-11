@@ -1,0 +1,100 @@
+{
+  "account_slug": "alpinumsolutions",
+  "audio_url": "https://cdn.fireflies.ai/01JXJ604GFA800CEWXA7Q373WY/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlhKNjA0R0ZBODAwQ0VXWEE3UTM3M1dZL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=rvfUEDZrYekTI-vRmuBxKipVZ3RW7l8fkTlzoDEVKrWhhSexMa~YLB5eljNym~VUrCwmINWi1wnlMyXUzHKrefU8hjaFzc7uBi7PpxCbYPIsu2Tk75EDqP5CWWQB52EqgcwgcLsCC7OuhZUwDaZIx-h-pKMp-CuHzkHNYeIGHf55VBxGTLCtwGFTuBHEqjMbG9RakIH1gc96XAp4uTqxf97TCXUiA88d1oJM~tAjTKOYaiYjfft0FvVMFCYjpgURLBA5KVbAE-5JI9Uq9Rr9c1l1v3hkCv6urfMW4gdm8s5CF8Tduy-laHx6eMvb6uOl26vpIf0JPSIx9YPBw8OWOQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "alpinumsolutions.com",
+    "humanis.ch",
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 58.720001220703125,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:04Z",
+  "meeting_at": "2025-06-16T12:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-16T12:00:00.000Z",
+      "leave_time": "2025-06-16T12:59:31.635Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-06-16T12:00:00.000Z",
+      "leave_time": "2025-06-16T12:59:31.636Z",
+      "name": "Sebastian  Rümmelein"
+    },
+    {
+      "join_time": "2025-06-16T12:02:32.911Z",
+      "leave_time": "2025-06-16T12:03:57.674Z",
+      "name": "Lucas | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "lucas@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "sebastian.ruemmelein@alpinumsolutions.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "lucas.schnell@humanis.ch",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JXJ604GFA800CEWXA7Q373WY",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YmY1YWQ5YmEtYWZjNi00NzY1LTliZTQtZjdiZjM5NDUwOTcx@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "lucas@matchical.com,sebastian.ruemmelein@alpinumsolutions.com,lucas.schnell@humanis.ch,konsti@matchical.com",
+    "lucas@matchical.com",
+    "sebastian.ruemmelein@alpinumsolutions.com",
+    "lucas.schnell@humanis.ch"
+  ],
+  "participants": [
+    {
+      "email": "lucas@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "sebastian.ruemmelein@alpinumsolutions.com",
+      "name": ""
+    },
+    {
+      "email": "lucas.schnell@humanis.ch",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 674,
+  "title": "AlpinumSolutions meets matchical",
+  "transcript_created_at": "2025-06-16T12:00:00Z",
+  "transcript_id": "01JXJ604GFA800CEWXA7Q373WY",
+  "transcript_url": "https://app.fireflies.ai/view/01JXJ604GFA800CEWXA7Q373WY",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

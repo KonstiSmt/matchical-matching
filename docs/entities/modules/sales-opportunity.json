@@ -1,0 +1,320 @@
+[
+  {
+    "Entity": "Client",
+    "Columns": [
+      {
+        "name": "companyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "creatorid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "maincontactid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "ownerid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "ratingmappingkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "sourcecategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "ClientOrder",
+    "Columns": [
+      {
+        "name": "contingent",
+        "dataType": "integer"
+      },
+      {
+        "name": "enddate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "fileid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "ordernumber",
+        "dataType": "character varying"
+      },
+      {
+        "name": "projectid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "startdate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Opportunity",
+    "Columns": [
+      {
+        "name": "clientcompanyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "clientid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "clientrequestnumber",
+        "dataType": "character varying"
+      },
+      {
+        "name": "contactwaycategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "creatorid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "deletionflag",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "duedate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "duetime",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "enddate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "externalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "externalurl",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "internalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isaiparsed",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isready",
+        "dataType": "numeric"
+      },
+      {
+        "name": "maincontractorcompanyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "matid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "opportunityid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "projectid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "publictendercategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "startdate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "Partner",
+    "Columns": [
+      {
+        "name": "companyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "creatorid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isfreelancer",
+        "dataType": "numeric"
+      },
+      {
+        "name": "maincontactid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "ownerid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Potential",
+    "Columns": [
+      {
+        "name": "amount",
+        "dataType": "numeric"
+      },
+      {
+        "name": "clientcompanyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "clientid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "creatorid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "descriptionlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "ownerid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "SalesContacts",
+    "Columns": [
+      {
+        "name": "contactid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "ismaincontractor",
+        "dataType": "numeric"
+      },
+      {
+        "name": "opportunityid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "opportunitynewid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "potentialid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "proposalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  }
+]

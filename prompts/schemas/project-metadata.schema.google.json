@@ -1,0 +1,93 @@
+{
+  "description": "Schema for project metadata extraction output.",
+  "type": "object",
+  "properties": {
+    "Rationale": {
+      "type": "string",
+      "description": "Concise explanation of extraction choices, null assignments, and date logic path."
+    },
+    "ProjectName": {
+      "type": "string",
+      "description": "Project-centric name, sanitized to remove client identifiers. Null only when no usable project facts exist.",
+      "nullable": true
+    },
+    "ClientEntityName": {
+      "type": "string",
+      "description": "Explicit client entity name when available; otherwise null.",
+      "nullable": true
+    },
+    "ClientPseudonym": {
+      "type": "string",
+      "description": "Anonymous client pseudonym only when strongly derivable; otherwise null.",
+      "nullable": true
+    },
+    "ClientEntityAdditionalInformation": {
+      "type": "string",
+      "description": "Additional explicit facts about the client entity. Must be null when ClientEntityName is null.",
+      "nullable": true
+    },
+    "StartDate": {
+      "type": "string",
+      "description": "Project start date in YYYY-MM-DD, explicit or inferred from partial data.",
+      "nullable": true
+    },
+    "EndDate": {
+      "type": "string",
+      "description": "Project end date in YYYY-MM-DD, explicit, inferred, calculated, or null when ongoing logic requires.",
+      "nullable": true
+    },
+    "Industry": {
+      "type": "string",
+      "description": "Single industry selected from the provided list, or null when evidence is ambiguous.",
+      "nullable": true
+    },
+    "Address": {
+      "type": "object",
+      "description": "Project-site address fields with stable key presence.",
+      "properties": {
+        "Street": {
+          "type": "string",
+          "description": "Street line of the project-site address, if explicitly present.",
+          "nullable": true
+        },
+        "City": {
+          "type": "string",
+          "description": "City of the project-site address, if explicitly present.",
+          "nullable": true
+        },
+        "PostalCode": {
+          "type": "string",
+          "description": "Postal code of the project-site address, if explicitly present.",
+          "nullable": true
+        },
+        "Country": {
+          "type": "string",
+          "description": "Country of the project-site address, if explicitly present.",
+          "nullable": true
+        }
+      },
+      "required": [
+        "Street",
+        "City",
+        "PostalCode",
+        "Country"
+      ]
+    },
+    "IsOngoing": {
+      "type": "boolean",
+      "description": "True only when explicit ongoing signals or date logic indicate the project is ongoing."
+    }
+  },
+  "required": [
+    "Rationale",
+    "ProjectName",
+    "ClientEntityName",
+    "ClientPseudonym",
+    "ClientEntityAdditionalInformation",
+    "StartDate",
+    "EndDate",
+    "Industry",
+    "Address",
+    "IsOngoing"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "account_slug": "first-solution",
+  "audio_url": "https://cdn.fireflies.ai/01K0KPF7DQ2HTBAQTHRESPGW88/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzBLUEY3RFEySFRCQVFUSFJFU1BHVzg4L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=mQaGkEx7-xcGp4qkhp237S4i1b3hfLMis7EfAWv424DA3FlJK8-nD5qq1s9aR143Dm~Ve4Sk7hxW-vhPKLPA-yZ0Jq3Pi2vgs5mcb4dNXMKqRvCM0FrzLvIK6i8j1uIQ92zUexV5qCmJNP~fxowtK7J-NuIU~3nair3Z9lT1OibDrJaFgfvX2CH4Tq9yuyYuAV~hRUhPTgBANoo2CwakRTtaNFRvfKySjPFOaz1p-lqqK4qpIopdWAdIUrbOTEetNwTKi3OM0kj841Rs15e8YV92OUb~7zFhQAE4YM-vJvPumZIbKngZoiQMflGeiLkXBlgBs7P3~EqbiM62F2ACpA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 81.83999633789062,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:12:38Z",
+  "meeting_at": "2025-07-22T09:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-22T09:30:00.000Z",
+      "leave_time": "2025-07-22T10:51:53.609Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-07-22T09:30:00.000Z",
+      "leave_time": "2025-07-22T10:51:53.609Z",
+      "name": "Paulina Miklar"
+    },
+    {
+      "join_time": "2025-07-22T09:30:00.000Z",
+      "leave_time": "2025-07-22T10:51:53.609Z",
+      "name": "Stephan Grulich"
+    },
+    {
+      "join_time": "2025-07-22T09:30:44.268Z",
+      "leave_time": "2025-07-22T10:51:53.609Z",
+      "name": "Francesca Hameister"
+    },
+    {
+      "join_time": "2025-07-22T09:30:58.699Z",
+      "leave_time": "2025-07-22T10:51:53.608Z",
+      "name": "Christina Gamroth"
+    },
+    {
+      "join_time": "2025-07-22T09:31:37.550Z",
+      "leave_time": "2025-07-22T10:51:53.609Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-07-22T09:32:34.747Z",
+      "leave_time": "2025-07-22T10:51:53.609Z",
+      "name": "Sven Kruchem"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K0KPF7DQ2HTBAQTHRESPGW88",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NTQyYWE0YWItNjk1Ni00NmQ5LTk5MTMtNDIxN2FhMWM1MDg2@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 870,
+  "title": "Onboarding matchical (Clone)",
+  "transcript_created_at": "2025-07-22T09:30:00Z",
+  "transcript_id": "01K0KPF7DQ2HTBAQTHRESPGW88",
+  "transcript_url": "https://app.fireflies.ai/view/01K0KPF7DQ2HTBAQTHRESPGW88",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_name_rule"
+}

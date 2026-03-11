@@ -1,0 +1,66 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01KAKDH89HKQF9MBEV0QAFDB0A/audio.mp3?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0FLREg4OUhLUUY5TUJFVjBRQUZEQjBBL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=T1r6p9PBVz~WpYWl-DlDQFsO67NcE94JQJjzgl~lUwIx8R1cXVw8VjTHAps2B-URjHhIu5RwuTDsJxnE-5-cNoL6SwbLrChUM1pLbikMgzeam~RdE6t2zt3OIqYImj-ebHSaaUqEOcCBJ6VhbS10AvzAW7RolPjKYMMcoiOYo0jR6x2ZoYCh-5qf4JdJu5JI161G6uPt5WjCF6iXEcQkeq0Qp3H0kyojEGJELeLgZ2FvL3-18cFv~1poXRTfQq8oaUgKyvrfuzIpfy528beTd6bsXhcSndgzK7FaW0qq0ATbwIlq00CXfasZO7czsuNgq67vKg1eRT6V0j97SEhxlw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 35.599998474121094,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:31:26Z",
+  "meeting_at": "2025-11-26T14:01:02Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-11-26T14:01:02.545Z",
+      "leave_time": "2025-11-26T14:35:35.561Z",
+      "name": "FISCHER Manuel"
+    },
+    {
+      "join_time": "2025-11-26T14:01:14.160Z",
+      "leave_time": "2025-11-26T14:35:35.561Z",
+      "name": "ARNAUT Inesa"
+    },
+    {
+      "join_time": "2025-11-26T14:03:20.472Z",
+      "leave_time": "2025-11-26T14:35:35.561Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KAKDH89HKQF9MBEV0QAFDB0A",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_M2JmMzE4ODMtZjBlMC00OTk4LTg2YzQtYzVjODMyMTQxZmRi@thread.v2/0?context={\"Tid\":\"5de96c96-c87c-4dce-aad9-f5c557b52ac1\",\"Oid\":\"72a150f5-2876-43d2-a983-681fb2da9191\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 394,
+  "title": "Jourfix - SIP_ProfileMap_Esra (Clone)",
+  "transcript_created_at": "2025-11-26T14:00:00Z",
+  "transcript_id": "01KAKDH89HKQF9MBEV0QAFDB0A",
+  "transcript_url": "https://app.fireflies.ai/view/01KAKDH89HKQF9MBEV0QAFDB0A",
+  "video_url": "https://cdn.fireflies.ai/01KAKDH89HKQF9MBEV0QAFDB0A/video.mp4?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0FLREg4OUhLUUY5TUJFVjBRQUZEQjBBL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=jStdqsnpWdAwuMlkOx58t-sedJPmiCrD1q3F4I7wOsUS9b5YtQ4k0Yoe1BTTitl1JDREjY8x0mFqHJcYZlkC-qtSkxh4j1zcsBSX3KvUN1TcNvPGl3Da9IZGxgX7l6eji9udgtC5objZS5IWAMocE4hS8gHbm~R9uHS9vW7u-KCRMENHYGE2EZWJYVm~yLjoXmxAoncKWzgEVdi4MxhTOykrbWl813vpp6gAk0fmataK~7mQZJ6P0hGpVjAXwY7OrAj3ZugHsQwYZgmhXvzycfDMZ1qPr7CA1Q2iOxt9NVgDi~gxVAsgw-GdJtc~MRfymI1kOh-8b6stpawue9i7~Q__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_title_rule_wavestone"
+}

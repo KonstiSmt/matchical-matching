@@ -1,0 +1,432 @@
+[
+  {
+    "Entity": "Consent",
+    "Columns": [
+      {
+        "name": "consentsourceid",
+        "dataType": "integer"
+      },
+      {
+        "name": "consenttypeid",
+        "dataType": "integer"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "dataprivacytypeid",
+        "dataType": "integer"
+      },
+      {
+        "name": "documenttemplateid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "externaluserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "forwardcontactemail",
+        "dataType": "character varying"
+      },
+      {
+        "name": "forwardon",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "granteddatetime",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "istoforward",
+        "dataType": "numeric"
+      },
+      {
+        "name": "lastresponsedatetime",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "notificationid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "ExternalUserDataPrivacyEXT",
+    "Columns": [
+      {
+        "name": "dataexpirationclient",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "dataexpirationconsultant",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "dataexpirationpartner",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "dataretentionexpirationdate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "hasactiveconsent",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasactiveconsentclient",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasactiveconsentconsultant",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasactiveconsentpartner",
+        "dataType": "numeric"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isfirstremindersent",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "lastinterestdateclient",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "lastinterestdateconsultant",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "lastinterestdatepartner",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "lastinterestshowndate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "manualupdatedat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "manualupdatedby",
+        "dataType": "character varying"
+      },
+      {
+        "name": "secondremindersentdate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "thirdremindersentdate",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "LegitimateInterest",
+    "Columns": [
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "dataprivacytypeid",
+        "dataType": "integer"
+      },
+      {
+        "name": "demandid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "externaluserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "fileid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "interestshowndate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "interesttype",
+        "dataType": "integer"
+      },
+      {
+        "name": "opportunityid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Permission",
+    "Columns": [
+      {
+        "name": "description",
+        "dataType": "text"
+      },
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "isbooleandatapermission",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isoperation",
+        "dataType": "numeric"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      },
+      {
+        "name": "permissionfeatureid",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "PermissionFeature",
+    "Columns": [
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "PermissionFeature_ml",
+    "Columns": [
+      {
+        "name": "_locale",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "PermissionLevel",
+    "Columns": [
+      {
+        "name": "iconsvg",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "PermissionLevel_ml",
+    "Columns": [
+      {
+        "name": "_locale",
+        "dataType": "character varying"
+      },
+      {
+        "name": "iconsvg",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "PermissionMethod",
+    "Columns": [
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "PermissionMethod_ml",
+    "Columns": [
+      {
+        "name": "_locale",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Permission_ml",
+    "Columns": [
+      {
+        "name": "_locale",
+        "dataType": "character varying"
+      },
+      {
+        "name": "description",
+        "dataType": "text"
+      },
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Tenant",
+    "Columns": [
+      {
+        "name": "id",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "UserRole",
+    "Columns": [
+      {
+        "name": "consultancyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isapiuser",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isconsultant",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isdefault",
+        "dataType": "numeric"
+      },
+      {
+        "name": "issuperadmin",
+        "dataType": "numeric"
+      },
+      {
+        "name": "name",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "UserRolePermissions",
+    "Columns": [
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "permissionid",
+        "dataType": "integer"
+      },
+      {
+        "name": "permissionlevelid",
+        "dataType": "integer"
+      },
+      {
+        "name": "permissionmethodid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "userroleid",
+        "dataType": "character varying"
+      }
+    ]
+  }
+]

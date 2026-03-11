@@ -1,0 +1,78 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/4rTgnaEQkbbXhZk9/audio.mp3?Expires=1773265219&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzRyVGduYUVRa2JiWGhaazkvYXVkaW8ubXAzIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzczMjY1MjE5fX19XX0_&Signature=JB7dekWupU8Aetw~Q-AgTcSI7qSIwH~x7nfPoBKaRdJvlW3tkXEpJTI3aaqSQsZS7jeaZC4uZAitkNG9Ewlc0Wk-0a-ydT026SYNT7-l6lxHDIMRFWJrR10rMWmJZTXh3mE-q~S-fXJuJMnIS1SUapRDi1Lx9c9ShtyqzQbW~psA0rc9vReppibb3GHuwQIOv8t6NzhVR~og~pLNZfyxCIuTJtXHmXNafP4EtDgN7M8HLMGfOgP5juNH9oNQbp9mI9zRaGziZi3Iy6tWAeuROO4FkNh2axLUfLq73MYsBn82EtjAEh3v4NzpsVJnY9EflZUqxM6zwqkgn5abEtAWxw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 44,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T09:40:48Z",
+  "meeting_at": "2024-12-11T07:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2024-12-11T07:00:00.000Z",
+      "leave_time": null,
+      "name": "Unknown User (Unverified)"
+    },
+    {
+      "join_time": "2024-12-11T07:00:00.000Z",
+      "leave_time": "2024-12-11T07:43:18.767Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2024-12-11T07:00:00.000Z",
+      "leave_time": "2024-12-11T07:43:18.767Z",
+      "name": "Lucas | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "lucas@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "4rTgnaEQkbbXhZk9",
+  "meeting_kind": "internal",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MGU0YTlkNmYtZWM0Yy00MzQ4LTkxZTItODdhMzcxYzQyOWEx@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "lucas@matchical.com,konsti@matchical.com",
+    "lucas@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "lucas@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "lucas@matchical.com,konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "title": "Sales",
+  "transcript_created_at": "2024-12-11T07:00:00Z",
+  "transcript_id": "4rTgnaEQkbbXhZk9",
+  "transcript_url": "https://app.fireflies.ai/view/4rTgnaEQkbbXhZk9",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "account_slug": "taim-gmbh",
+  "audio_url": "https://cdn.fireflies.ai/01JV96VT57SVF7EAKPMQ80SZYQ/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlY5NlZUNTdTVkY3RUFLUE1RODBTWllRL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=vZFxjDCcDvKYohKNA3Xn4oBiR7qXA3oC4LCdKsDFTjEgkf-ajuyIRwA30vw2tGFwrQ5b0uVxTVg~JXOfELdQk5~djRo4RfIT5oIxb1GKf0bnpySo9lok6sjVQ295Ze5KlE3FhRnmqz4GKRtAW1vp5CBOdwxJ9geknTvwgLv3qdJnmAr7SbjEO~b~zg2t4MOJ7hmgf~WtzTWnBGA~sD4SkoIYC~W5Y~5uhQ~CRhaaN1DYSPCDEfPmoyc5CsT3kJraTjN815z~RdsEk6zFHpJ2cQu7XyuBdxiTiFKRVuk98Hpo4kCp1QpgJr9i20oUC39JdQf0PPrpqVU~29ldwJx72A__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "partners",
+  "detected_domains": [
+    "matchical.com",
+    "taim-gmbh.de"
+  ],
+  "dominant_domain": "taim-gmbh.de",
+  "duration_minutes": 102.6500015258789,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:58Z",
+  "meeting_at": "2025-05-16T08:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-05-16T08:00:00.000Z",
+      "leave_time": "2025-05-16T09:44:35.635Z",
+      "name": "Daniel Mietasch (Unverified)"
+    },
+    {
+      "join_time": "2025-05-16T08:07:48.440Z",
+      "leave_time": "2025-05-16T09:44:35.636Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "daniel@taim-gmbh.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JV96VT57SVF7EAKPMQ80SZYQ",
+  "meeting_kind": "partner",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZThhNzY1NjItNDY5OS00NTIyLTg4MTYtMjBlMzcyZmM4Mzll@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "daniel@taim-gmbh.de,konsti@matchical.com,tommy@matchical.com",
+    "daniel@taim-gmbh.de",
+    "tommy@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "daniel@taim-gmbh.de",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1278,
+  "title": "Endless Leads",
+  "transcript_created_at": "2025-05-16T08:00:00Z",
+  "transcript_id": "01JV96VT57SVF7EAKPMQ80SZYQ",
+  "transcript_url": "https://app.fireflies.ai/view/01JV96VT57SVF7EAKPMQ80SZYQ",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

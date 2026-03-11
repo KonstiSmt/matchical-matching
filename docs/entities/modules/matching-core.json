@@ -1,0 +1,1449 @@
+[
+  {
+    "Entity": "CandidateStage",
+    "Columns": [
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "is_active",
+        "dataType": "numeric"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "CandidateStage_ml",
+    "Columns": [
+      {
+        "name": "_locale",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "ConsultancyUser",
+    "Columns": [
+      {
+        "name": "addressid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "admintenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "apiupdatedat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "auth0userid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "blocklogin",
+        "dataType": "numeric"
+      },
+      {
+        "name": "capacity",
+        "dataType": "integer"
+      },
+      {
+        "name": "consultancyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "contactconsultancyuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "contactuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "defaultphotourl",
+        "dataType": "character varying"
+      },
+      {
+        "name": "defaultphotourlround",
+        "dataType": "character varying"
+      },
+      {
+        "name": "departmentid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "email",
+        "dataType": "character varying"
+      },
+      {
+        "name": "employmentstatusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "entrydate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "exitdate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "externalcertificateids",
+        "dataType": "text"
+      },
+      {
+        "name": "externalengagementids",
+        "dataType": "text"
+      },
+      {
+        "name": "externalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "firstname",
+        "dataType": "character varying"
+      },
+      {
+        "name": "fixprofileimagesisprocessed",
+        "dataType": "numeric"
+      },
+      {
+        "name": "fixprofileimagesrectisbroke",
+        "dataType": "numeric"
+      },
+      {
+        "name": "fixprofileimagesroundisbroke",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hascustomrolesactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "infnoticeallowaiprocessing",
+        "dataType": "numeric"
+      },
+      {
+        "name": "infnoticeisexcluded",
+        "dataType": "numeric"
+      },
+      {
+        "name": "infnoticeresponseat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "infnoticeversionid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "informationnoticeid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "internalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isconsultantroleoverride",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isguest",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isguestactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "ispendingaidataclean",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isrecruiter",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isrequester",
+        "dataType": "numeric"
+      },
+      {
+        "name": "jobrolelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "lastlogin",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "lastname",
+        "dataType": "character varying"
+      },
+      {
+        "name": "leadconsultancyuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "leadid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "leaduserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "legalentityid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "locationid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "mobile",
+        "dataType": "character varying"
+      },
+      {
+        "name": "phone",
+        "dataType": "character varying"
+      },
+      {
+        "name": "photofilekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "photourl",
+        "dataType": "character varying"
+      },
+      {
+        "name": "photourlround",
+        "dataType": "character varying"
+      },
+      {
+        "name": "senioritylevelid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "systemlanguageid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "teamid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "unitid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "userid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "usermasterdataid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Consultant",
+    "Columns": [
+      {
+        "name": "apiupdatedat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "availabilitycategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "availabilitycommentlocalekey",
+        "dataType": "character varying"
+      },
+      {
+        "name": "availabledaysperweek",
+        "dataType": "numeric"
+      },
+      {
+        "name": "availablefrom",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "availableto",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "consultancyuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "duplicateofconsultantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "eurofixedrate",
+        "dataType": "numeric"
+      },
+      {
+        "name": "excecsummaryhtmllocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "experiencesince",
+        "dataType": "integer"
+      },
+      {
+        "name": "externaluserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "fixedrate",
+        "dataType": "numeric"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "iscustomtoprolealias",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isimmediatelyavailable",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isinternal",
+        "dataType": "numeric"
+      },
+      {
+        "name": "ismasterdatacomplete",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isready",
+        "dataType": "numeric"
+      },
+      {
+        "name": "issenioritylevelrate",
+        "dataType": "numeric"
+      },
+      {
+        "name": "iswillingtotravel",
+        "dataType": "numeric"
+      },
+      {
+        "name": "lastexperiencecalculation",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "matid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "maxcapacity",
+        "dataType": "integer"
+      },
+      {
+        "name": "maxraterange",
+        "dataType": "numeric"
+      },
+      {
+        "name": "mergetargetconsultantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "mincapacity",
+        "dataType": "integer"
+      },
+      {
+        "name": "minraterange",
+        "dataType": "numeric"
+      },
+      {
+        "name": "needsrecalculation",
+        "dataType": "numeric"
+      },
+      {
+        "name": "nextavailabiltydate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "noticeperiod",
+        "dataType": "integer"
+      },
+      {
+        "name": "oldstatusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "ratecurrencyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "recalculationreason",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "titleid",
+        "dataType": "integer"
+      },
+      {
+        "name": "topcustomroleid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "toprolealiasid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "toproleid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "usermasterdataid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "usermasterdatumid",
+        "dataType": "bigint"
+      },
+      {
+        "name": "workexperiencesince",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "worksonlyremote",
+        "dataType": "numeric"
+      },
+      {
+        "name": "yearsofexperience",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "ConsultantLanguage",
+    "Columns": [
+      {
+        "name": "consultantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "cvparserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isaiparsed",
+        "dataType": "numeric"
+      },
+      {
+        "name": "languageid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "languagelevelid",
+        "dataType": "integer"
+      },
+      {
+        "name": "languagenewid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "ConsultantLocations",
+    "Columns": [
+      {
+        "name": "consultantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "locationtagid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "Demand",
+    "Columns": [
+      {
+        "name": "addinfolocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "addressid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "availabilityfiltercategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "capacity",
+        "dataType": "integer"
+      },
+      {
+        "name": "clientoffsiterate",
+        "dataType": "numeric"
+      },
+      {
+        "name": "clientonsiterate",
+        "dataType": "numeric"
+      },
+      {
+        "name": "clientrate",
+        "dataType": "numeric"
+      },
+      {
+        "name": "clientrequestnumber",
+        "dataType": "character varying"
+      },
+      {
+        "name": "consultantoffsiterate",
+        "dataType": "numeric"
+      },
+      {
+        "name": "consultantonsiterate",
+        "dataType": "numeric"
+      },
+      {
+        "name": "contingentdays",
+        "dataType": "numeric"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "creatorid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "currencycategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "daylength",
+        "dataType": "numeric"
+      },
+      {
+        "name": "daylengthcategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "deletionflag",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "demandparserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "descriptionkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "descriptionlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "enddate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "experiencefiltercount",
+        "dataType": "integer"
+      },
+      {
+        "name": "externalrecruiteruserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "externalrefid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "extractedframecontractroleid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "framecontractroleid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "internalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "internalrefid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isaiparsed",
+        "dataType": "numeric"
+      },
+      {
+        "name": "iscapacityfilteractive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isdailyrate",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isfinalextractionready",
+        "dataType": "numeric"
+      },
+      {
+        "name": "islocationfilteractive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "issyncedexternal",
+        "dataType": "numeric"
+      },
+      {
+        "name": "lastexternalsync",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "locationfiltercategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "locationtagid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "marginrate",
+        "dataType": "numeric"
+      },
+      {
+        "name": "matid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "musthavebulletkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "musthavedescriptionkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "needsweightrecalculation",
+        "dataType": "numeric"
+      },
+      {
+        "name": "nicetohavebulletkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "nicetohavedescriptionkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "onlyshowfreelancer",
+        "dataType": "numeric"
+      },
+      {
+        "name": "onlyshowpermanent",
+        "dataType": "numeric"
+      },
+      {
+        "name": "onlyshowtemporary",
+        "dataType": "numeric"
+      },
+      {
+        "name": "opportunityid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "opportunityparserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "ownerid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "proposalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "ratecurrencyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "recruiteruserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "remoteinfolocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "remotepercentage",
+        "dataType": "integer"
+      },
+      {
+        "name": "remotepercentagecategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "remoteratio",
+        "dataType": "integer"
+      },
+      {
+        "name": "requesteruserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "resourcesearchcategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "ressourcesamount",
+        "dataType": "integer"
+      },
+      {
+        "name": "socsecuritycategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "startdate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "targetmargin",
+        "dataType": "numeric"
+      },
+      {
+        "name": "tasksbulletkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tasksdescriptionkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tasksjsonlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "taskslocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "temporarystaffingcategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenderlanguageid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "travelexpenses",
+        "dataType": "numeric"
+      },
+      {
+        "name": "travelexpensescategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "travelexpensescmtlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "DemandCertificates",
+    "Columns": [
+      {
+        "name": "bulletitemid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "certificateid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "demandid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "descriptiondictid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "DemandConsultants",
+    "Columns": [
+      {
+        "name": "candidatestageid",
+        "dataType": "integer"
+      },
+      {
+        "name": "consultantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "customrolesmatchingscore",
+        "dataType": "numeric"
+      },
+      {
+        "name": "customrolesmatchscorehybrid",
+        "dataType": "numeric"
+      },
+      {
+        "name": "customrolesmatchscoreskills",
+        "dataType": "numeric"
+      },
+      {
+        "name": "customrolesmatchscorestrict",
+        "dataType": "numeric"
+      },
+      {
+        "name": "demandid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "matchingscore",
+        "dataType": "numeric"
+      },
+      {
+        "name": "matchingscorehybrid",
+        "dataType": "numeric"
+      },
+      {
+        "name": "matchingscoreskills",
+        "dataType": "numeric"
+      },
+      {
+        "name": "matchingscorestrict",
+        "dataType": "numeric"
+      },
+      {
+        "name": "rate",
+        "dataType": "numeric"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "DemandExternalIntegration",
+    "Columns": [
+      {
+        "name": "freelancerdelink",
+        "dataType": "character varying"
+      },
+      {
+        "name": "freelancerdeprojectid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "freelancerdesync",
+        "dataType": "numeric"
+      },
+      {
+        "name": "freelancerdeupdatedat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "freelancermapprojectid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "freelancermapstatus",
+        "dataType": "character varying"
+      },
+      {
+        "name": "freelancermapsync",
+        "dataType": "numeric"
+      },
+      {
+        "name": "freelancermapupdatedat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "joinprojectid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "joinsync",
+        "dataType": "numeric"
+      },
+      {
+        "name": "joinupdatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "DemandRequirement",
+    "Columns": [
+      {
+        "name": "bulletitemid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "categoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "customroleid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "demandid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "descriptiondictid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "dynamicweight",
+        "dataType": "numeric"
+      },
+      {
+        "name": "filtercategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "functionalareaid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "hasmissingkeys",
+        "dataType": "numeric"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "industryid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isduplicate",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isnicetohave",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isstatic",
+        "dataType": "numeric"
+      },
+      {
+        "name": "languageid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "languagelevelid",
+        "dataType": "integer"
+      },
+      {
+        "name": "remappedrolealiasid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "remappedskillaliasid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "rolealiasid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "roleid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "roleweight",
+        "dataType": "integer"
+      },
+      {
+        "name": "score",
+        "dataType": "integer"
+      },
+      {
+        "name": "skillaliasid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "skillid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "Experience",
+    "Columns": [
+      {
+        "name": "absolutemonth",
+        "dataType": "integer"
+      },
+      {
+        "name": "categoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "consultantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "customroleid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "functionalareaid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "industryid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isindirect",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isongoing",
+        "dataType": "numeric"
+      },
+      {
+        "name": "languageid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "lastthreeyearsusage",
+        "dataType": "numeric"
+      },
+      {
+        "name": "lastused",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "roleid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "score",
+        "dataType": "integer"
+      },
+      {
+        "name": "skillid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "totalmonth",
+        "dataType": "numeric"
+      },
+      {
+        "name": "weightedmonth",
+        "dataType": "numeric"
+      }
+    ]
+  },
+  {
+    "Entity": "ExternalUser",
+    "Columns": [
+      {
+        "name": "addressid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "agencycompanyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "agencycontactid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "agencyexpirationdate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "companyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "contactexternaluserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "creatorid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "defaultphotourl",
+        "dataType": "character varying"
+      },
+      {
+        "name": "defaultphotourlround",
+        "dataType": "character varying"
+      },
+      {
+        "name": "email",
+        "dataType": "character varying"
+      },
+      {
+        "name": "externalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "externalurl",
+        "dataType": "character varying"
+      },
+      {
+        "name": "firstname",
+        "dataType": "character varying"
+      },
+      {
+        "name": "fixprofileimagesisprocessed",
+        "dataType": "numeric"
+      },
+      {
+        "name": "fixprofileimagesrectisbroke",
+        "dataType": "numeric"
+      },
+      {
+        "name": "fixprofileimagesroundisbroke",
+        "dataType": "numeric"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isagencyblocked",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isexcecutivecategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "isexcecutiveemployee",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isfreelancer",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isinsurancecoveredcategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "isinsurancecoveredemployee",
+        "dataType": "numeric"
+      },
+      {
+        "name": "ispermanent",
+        "dataType": "numeric"
+      },
+      {
+        "name": "istemporary",
+        "dataType": "numeric"
+      },
+      {
+        "name": "lastname",
+        "dataType": "character varying"
+      },
+      {
+        "name": "mobile",
+        "dataType": "character varying"
+      },
+      {
+        "name": "ownerid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "partnerid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "photofilekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "photourl",
+        "dataType": "character varying"
+      },
+      {
+        "name": "photourlround",
+        "dataType": "character varying"
+      },
+      {
+        "name": "sourceexpirationdate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "sourceexternaluserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "systemlanguageid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "userid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "usermasterdataid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "LocationTag",
+    "Columns": [
+      {
+        "name": "categoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "parentid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "LocationTagsClosure",
+    "Columns": [
+      {
+        "name": "ancestorid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "depth",
+        "dataType": "integer"
+      },
+      {
+        "name": "descendantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      }
+    ]
+  }
+]

@@ -1,0 +1,72 @@
+{
+  "account_slug": "unternehmertum",
+  "audio_url": "https://cdn.fireflies.ai/01JPYPS31ZHV4XHN1EFP07610K/audio.mp3?Expires=1773265216&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlBZUFMzMVpIVjRYSE4xRUZQMDc2MTBLL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI2NTIxNn19fV19&Signature=telK~f88aoW3zStct9zNvtczbxvsFUvIVCxAU7RtIYTiCmn9kPK76VnRfT8I7yoNfChzAgL2hxVx5MRu-PNR9P54uJQ9-EZf4Uy3yBFCmjvBdEIlDywScOzSo65aYxb8gmfY83PYJ2Jk-NxLQ1O3E7gwx6HgBch2sfWX85yMRuKwr6QeuBRxR~a6SK~vJDi5ryrfaHEqpfSJDqcnrpyTP4YjnYUoSbT0WGIC6cnjQLLvV8qxNSN-bQG1L1yZ89gkzomknqAqIMQLcdJwQ0BWRKurZLYXI7yZJqv7cW9ybI87PdyHkfworu0pYMF-LZ6c1FXGPm2-bGAEd9GDqxEAfw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "other",
+  "detected_domains": [
+    "matchical.com",
+    "unternehmertum.de"
+  ],
+  "dominant_domain": "unternehmertum.de",
+  "duration_minutes": 39.34000015258789,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T10:24:32Z",
+  "meeting_at": "2025-03-24T09:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-03-24T09:00:00.000Z",
+      "leave_time": "2025-03-24T09:38:40.917Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-03-24T09:01:12.934Z",
+      "leave_time": "2025-03-24T09:38:40.918Z",
+      "name": "Mauricio Fleischer (Unverified)"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "mauricio.fleischer@unternehmertum.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JPYPS31ZHV4XHN1EFP07610K",
+  "meeting_kind": "other",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NDlhMWZiN2EtNzA1NC00M2RjLWJhOWQtNjc0YTUwZjg1ODRh@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "mauricio.fleischer@unternehmertum.de,konsti@matchical.com",
+    "mauricio.fleischer@unternehmertum.de"
+  ],
+  "participants": [
+    {
+      "email": "mauricio.fleischer@unternehmertum.de",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 437,
+  "title": "Maurice <> matchical",
+  "transcript_created_at": "2025-03-24T09:00:00Z",
+  "transcript_id": "01JPYPS31ZHV4XHN1EFP07610K",
+  "transcript_url": "https://app.fireflies.ai/view/01JPYPS31ZHV4XHN1EFP07610K",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

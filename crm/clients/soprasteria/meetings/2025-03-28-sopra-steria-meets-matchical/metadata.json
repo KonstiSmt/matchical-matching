@@ -1,0 +1,110 @@
+{
+  "account_slug": "soprasteria",
+  "audio_url": "https://cdn.fireflies.ai/01JQ93C3RC4RYT9D0NGJMK03PP/audio.mp3?Expires=1773265216&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlE5M0MzUkM0UllUOUQwTkdKTUswM1BQL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI2NTIxNn19fV19&Signature=YG5o76Gmh0XNoK5mdwcSqlXbniva9i~PkscSY~YtVjj8mtSm~AEaKV1YGE4B8qtKe4vj9uuaXqhWN3fo~MMAmLvSrqQTjUjUL47327FEfkyVReZpe623Jzs-2KIoN5KXjfo6a~9vU1YQDWU4f6N1bM1YLfwxpuPYe4-P3eUodiEsWuUbjnsfrenizx4KycFW81xZezSf~RUudP2U8BnfJCIN~NAfSWxDMNdKr3wiEhdu-Gw16FwKqN4YnVruQQavTeBpT94oYFi1OEb9VRQluid8G2MGOSGaumbcgd4gh44ePIglr8u0fUB2uHLSJfX6w46eOcevljT-1YzHDzauUw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "soprasteria.com",
+    "taim-gmbh.de"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 71.06999969482422,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T10:24:18Z",
+  "meeting_at": "2025-03-28T11:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-03-28T11:00:00.000Z",
+      "leave_time": "2025-03-28T12:11:11.906Z",
+      "name": "KONITZ Sascha (Unverified)"
+    },
+    {
+      "join_time": "2025-03-28T11:00:00.000Z",
+      "leave_time": "2025-03-28T12:11:11.907Z",
+      "name": "SCHMIDT Carina (Unverified)"
+    },
+    {
+      "join_time": "2025-03-28T11:00:00.000Z",
+      "leave_time": "2025-03-28T12:11:11.907Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-03-28T11:10:40.976Z",
+      "leave_time": "2025-03-28T12:02:35.704Z",
+      "name": "BELLISCH Monique (Unverified)"
+    },
+    {
+      "join_time": "2025-03-28T11:10:40.977Z",
+      "leave_time": "2025-03-28T12:11:11.907Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "sascha.konitz@soprasteria.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "daniel@taim-gmbh.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JQ93C3RC4RYT9D0NGJMK03PP",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NTY2ZGNjZjEtMmY5ZC00YjZkLWIzOTMtODI4OTlkMzNhZTQ4@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "sascha.konitz@soprasteria.com,daniel@taim-gmbh.de,tommy@matchical.com,konsti@matchical.com",
+    "sascha.konitz@soprasteria.com",
+    "daniel@taim-gmbh.de",
+    "tommy@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "sascha.konitz@soprasteria.com",
+      "name": ""
+    },
+    {
+      "email": "daniel@taim-gmbh.de",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 787,
+  "title": "Sopra Steria meets matchical",
+  "transcript_created_at": "2025-03-28T11:00:00Z",
+  "transcript_id": "01JQ93C3RC4RYT9D0NGJMK03PP",
+  "transcript_url": "https://app.fireflies.ai/view/01JQ93C3RC4RYT9D0NGJMK03PP",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

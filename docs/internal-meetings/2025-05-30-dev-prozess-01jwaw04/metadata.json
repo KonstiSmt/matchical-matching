@@ -1,0 +1,87 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01JWAW042WCS90Y6CCMKGQ2VNK/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSldBVzA0MldDUzkwWTZDQ01LR1EyVk5LL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=hKxbbOGid0R-FaasbPOC9vWqW5rIbFn8AjUDCf0wiFaMpnZouoeixTK3DFTPW513INEv4~6bMpc83mgxh~76xDzkEqRcQo0ZowEPkN3ujYQPQDJq1x9n58oi63bd2rFW1rXK38dwQcS9nyd8GiERFA2x5d12Hf0DPw5~HBGFbKmIu1gIkHUxhOohhXvOfPsbjYk2VRtEpvBMDlMcnrhilTkXrLDqSz9KOR-twgzbGod4nQSk7BGaDj0lrPN64LZwFxQHXIc5R9m4ZbnNmaxWkzJ1TOw7J0rjo6QxU8~XKdWGlQf1JK-IASlc6tLbtgiwJ~HkSVrK3PM0K4NOB3xfAg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 120.11000061035156,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:28Z",
+  "meeting_at": "2025-05-30T07:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-05-30T07:00:00.000Z",
+      "leave_time": null,
+      "name": "Niklas | matchical.com"
+    },
+    {
+      "join_time": "2025-05-30T07:00:00.000Z",
+      "leave_time": "2025-05-30T07:08:50.155Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-05-30T07:04:21.764Z",
+      "leave_time": null,
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "niklas@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JWAW042WCS90Y6CCMKGQ2VNK",
+  "meeting_kind": "internal",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NmZiNzhiZmMtYWUyMy00NTc1LTg1MDYtYmUyZmNiNDI1MWYz@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "niklas@matchical.com,tommy@matchical.com,konsti@matchical.com",
+    "niklas@matchical.com",
+    "tommy@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "niklas@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1363,
+  "title": "Dev Prozess",
+  "transcript_created_at": "2025-05-30T07:00:00Z",
+  "transcript_id": "01JWAW042WCS90Y6CCMKGQ2VNK",
+  "transcript_url": "https://app.fireflies.ai/view/01JWAW042WCS90Y6CCMKGQ2VNK",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

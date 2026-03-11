@@ -1,0 +1,132 @@
+{
+  "account_slug": "cegeka",
+  "audio_url": "https://cdn.fireflies.ai/01K4WH9KCKP8STKHH40JNRQQ7M/audio.mp3?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRXSDlLQ0tQOFNUS0hINDBKTlJRUTdNL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=b4KiUTDKYyDUuLJx~sg2ae6dj3H6WjnYOlJVvQ~BJfrtgX7I6WsNxOing7m2s6s781sULuRONwTHSsDTdddZT55NgoJj0ujyGeHncPW5Ml-DqAJMeeJzaCrMP4GGvr8LAFTtWIKFJqR6~JG8LXuBeQQZQAeIVQBd4qFO0GrS1I9J4Lq8lTk6ut~XNwjJW2j7foaViThCvMmSmcwuxHFLe7cn7FA5mI-YSU4OqIqrHn15oiAN51bGLXPjv3CK5zWwxioFPOy0PXpedT1piPQrJLKLGD1iHvMRfblSSlCmiie2UZqtzBWas66Oq98nRQgfs8wCjp2plFK-QRHhgo-qqA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "cegeka.com",
+    "matchical.com"
+  ],
+  "dominant_domain": "cegeka.com",
+  "duration_minutes": 23.56999969482422,
+  "fireflies_users": [
+    "tommy@matchical.com",
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:09:14Z",
+  "meeting_at": "2025-09-16T11:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-16T11:30:00.000Z",
+      "leave_time": "2025-09-16T11:53:38.502Z",
+      "name": "Jürgen Wüst"
+    },
+    {
+      "join_time": "2025-09-16T11:30:00.000Z",
+      "leave_time": "2025-09-16T11:53:38.502Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-09-16T11:30:00.000Z",
+      "leave_time": "2025-09-16T11:53:38.502Z",
+      "name": "Manfred Bögelein"
+    },
+    {
+      "join_time": "2025-09-16T11:30:45.890Z",
+      "leave_time": "2025-09-16T11:53:38.502Z",
+      "name": "Jasmin Wenzel"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": "manfred.boegelein@cegeka.com",
+      "email": "manfred.boegelein@cegeka.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "jasmin.wenzel@cegeka.com",
+      "email": "jasmin.wenzel@cegeka.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "juergen.wuest@cegeka.com",
+      "email": "juergen.wuest@cegeka.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Tommy | matchical.com",
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K4WH9KCKP8STKHH40JNRQQ7M",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZDFiNzY3Y2EtMWE0Yy00NjJkLTkwMDktY2MzZGY2OWNmYmM1@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "manfred.boegelein@cegeka.com,jasmin.wenzel@cegeka.com,juergen.wuest@cegeka.com,tommy@matchical.com,konsti@matchical.com",
+    "manfred.boegelein@cegeka.com",
+    "jasmin.wenzel@cegeka.com",
+    "juergen.wuest@cegeka.com",
+    "tommy@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "manfred.boegelein@cegeka.com",
+      "name": "manfred.boegelein@cegeka.com"
+    },
+    {
+      "email": "jasmin.wenzel@cegeka.com",
+      "name": "jasmin.wenzel@cegeka.com"
+    },
+    {
+      "email": "juergen.wuest@cegeka.com",
+      "name": "juergen.wuest@cegeka.com"
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "manfred.boegelein@cegeka.com",
+      "name": ""
+    },
+    {
+      "email": "jasmin.wenzel@cegeka.com",
+      "name": ""
+    },
+    {
+      "email": "juergen.wuest@cegeka.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 254,
+  "title": "Check in matchical",
+  "transcript_created_at": "2025-09-16T11:30:00Z",
+  "transcript_id": "01K4WH9KCKP8STKHH40JNRQQ7M",
+  "transcript_url": "https://app.fireflies.ai/view/01K4WH9KCKP8STKHH40JNRQQ7M",
+  "video_url": "https://cdn.fireflies.ai/01K4WH9KCKP8STKHH40JNRQQ7M/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRXSDlLQ0tQOFNUS0hINDBKTlJRUTdNL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=ZaC0dOO7znSWsEeCEwXYdg2ed9~3fAiHYYdjEFSHzWsSIxcWf36yHYCbGuJbymGyIzUhP4dma7b54RJ2M5qiFJyKG8XJbc8s6z3x-wbg1ubE00TC7mpxmbQTdaLdUSL9EzCVSVO22DXdTuInBZbuupqkZo1lb5R8PxWl9vsvNthoHIEI5gD43YypfJuerlGr6nA7efvaLGgQXdAgIqb3k5MjNHnKpRSPqwAn~e3j9Lq2Sjn5ssQvweRl7DAD7Xmwdruecn4mDyBnxl7gQXHrMC4Q63THuZEpC7Nx~EPJF9PwnYD9euvQqh1gSPbD5VPwcmWrMifVf~jH84gWyxitlg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

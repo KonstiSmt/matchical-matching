@@ -1,0 +1,61 @@
+{
+  "account_slug": "constaff",
+  "audio_url": "https://cdn.fireflies.ai/01K6Z3WGVXCG9NBQTPXTBSQYZV/audio.mp3?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzZaM1dHVlhDRzlOQlFUUFhUQlNRWVpWL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=Hpj98RfEKfecySl0ufHCvHiP9JVDXuj9uaT3g64pfY0SZCcgYuAnrY-~sXx04FAuVe0-URElspk8vqZxlRaZ6INcecAkfRBLCF5LQS--uOns9ceQnAqULawgSEyL2UVwrFiN9YFiyZd0UGyymiOuuDbGO-bGbMyuPe4JIK3XcSdb0p-5t1GsqbJVyE-V3iuWwYO2Mbfx8lJcGxUzEwgPUm9-6BDM3Yf2g6HQ7XWej3vvvlSjP4KwggYKlHvsuVKMGv5LJOwhRezUni-ziHNbTXj9dF~PLcO9TuOgNjQNp6wZRMWEP7CcGXGK3kmCO4prRhlkwF9awi-uuphSWpqtqQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 28,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:34:09Z",
+  "meeting_at": "2025-10-09T07:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-10-09T07:30:00.000Z",
+      "leave_time": "2025-10-09T07:58:11.298Z",
+      "name": "Timo Schmidtchen"
+    },
+    {
+      "join_time": "2025-10-09T07:30:00.000Z",
+      "leave_time": "2025-10-09T07:58:11.299Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K6Z3WGVXCG9NBQTPXTBSQYZV",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YjE4NGVkNDMtYWFjOS00OTdiLWI5YjMtYzMyMTMyNmE1MTVm@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 272,
+  "title": "Alignment Engagement-Reporting (Clone)",
+  "transcript_created_at": "2025-10-09T07:30:00Z",
+  "transcript_id": "01K6Z3WGVXCG9NBQTPXTBSQYZV",
+  "transcript_url": "https://app.fireflies.ai/view/01K6Z3WGVXCG9NBQTPXTBSQYZV",
+  "video_url": "https://cdn.fireflies.ai/01K6Z3WGVXCG9NBQTPXTBSQYZV/video.mp4?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzZaM1dHVlhDRzlOQlFUUFhUQlNRWVpWL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=rT4ofkW3pjkF3OYYCKoEVLHaFAkjLzz478LuH7RQzaimVEUodI-u5yp8muHAtq-e8ba2HV61eJ0zk8MvxINkdbZ-Cb8xwXSxFUiC8QXcQ-j-9buvecNgvGnoiUEyMOLJY9gdUieRDaQ1c-Zp-SNxBBYajizQ0ObUZ-ebAYq6l7Z9YdCO4YSobNPfmAMYASIBTC~xbbRy5zNaEMcYDnXLPaTTERSL70RscnG7Rx4uoO3Kfo~uanbnkiJ3sFt~jiYnr1JXp9Wcs4Gi~4cjhYACwEXaNMEFvB~LxVNrCCLt2CCB4~-i8iEx0l-5XZwHb0frZoGNXa6k6LKChz4VVr-TFA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_reclassification"
+}

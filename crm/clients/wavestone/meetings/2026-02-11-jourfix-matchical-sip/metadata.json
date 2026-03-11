@@ -1,0 +1,112 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01KGRX5DSG0KF0AVR3ZG6EAAPT/audio.mp3?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0dSWDVEU0cwS0YwQVZSM1pHNkVBQVBUL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=0QG5GNbp6ipKmyhAGCB4CHrWCKCwMDd2ZzWqbQaxnU51tBpWUzjpxZ7aNzvDlOJmgvSGVfh~Io8oDJXTzAWugSftoD2pSXqOiI4lePJqej54oHKn3N81D7oFO~HbEZCIKAedGo9ZeAuSPdjPOFrTX-RMkGpAV~kHoMh4qPWUdNT5S2GiqE5-t~ThX9XSa-NVq5tCkibDu20qul1zCv09gUHzbRRcWJsua2TmYipbR9yV32Eemt-zpuYfhF08Uzs48PsNnYlz~Eujc8aK0L8OZ~253owxGNcZvqBPbeAELoGXVxTqybyLW9kThUm0e2-VmzuZl7ZHvaz5jSbunchEwg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "wavestone.com"
+  ],
+  "dominant_domain": "wavestone.com",
+  "duration_minutes": 32.400001525878906,
+  "fireflies_users": [
+    "tommy@matchical.com",
+    "konsti@matchical.com"
+  ],
+  "host_email": "inesa.arnaut@wavestone.com",
+  "local_imported_at": "2026-03-10T10:51:18Z",
+  "meeting_at": "2026-02-11T14:30:57Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-02-11T14:30:57.153Z",
+      "leave_time": "2026-02-11T15:02:09.478Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2026-02-11T14:33:15.247Z",
+      "leave_time": "2026-02-11T15:02:09.478Z",
+      "name": "FISCHER Manuel"
+    },
+    {
+      "join_time": "2026-02-11T14:33:15.248Z",
+      "leave_time": "2026-02-11T15:02:09.478Z",
+      "name": "WUCHER Oliver"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "inesa.arnaut@wavestone.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "oliver.wucher@wavestone.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "manuel.fischer@wavestone.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KGRX5DSG0KF0AVR3ZG6EAAPT",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MDc4MDg3ZGUtZTc1My00MzM4LTgyZTctZTUwNjA1NmE1OTI0@thread.v2/0?context={\"Tid\":\"5de96c96-c87c-4dce-aad9-f5c557b52ac1\",\"Oid\":\"72a150f5-2876-43d2-a983-681fb2da9191\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "inesa.arnaut@wavestone.com,tommy@matchical.com,konsti@matchical.com,oliver.wucher@wavestone.com,manuel.fischer@wavestone.com",
+    "tommy@matchical.com",
+    "konsti@matchical.com",
+    "oliver.wucher@wavestone.com",
+    "manuel.fischer@wavestone.com"
+  ],
+  "participants": [
+    {
+      "email": "inesa.arnaut@wavestone.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "oliver.wucher@wavestone.com",
+      "name": ""
+    },
+    {
+      "email": "manuel.fischer@wavestone.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 278,
+  "title": "Jourfix Matchical/SIP",
+  "transcript_created_at": "2026-02-11T14:30:00Z",
+  "transcript_id": "01KGRX5DSG0KF0AVR3ZG6EAAPT",
+  "transcript_url": "https://app.fireflies.ai/view/01KGRX5DSG0KF0AVR3ZG6EAAPT",
+  "video_url": "https://cdn.fireflies.ai/01KGRX5DSG0KF0AVR3ZG6EAAPT/video.mp4?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0dSWDVEU0cwS0YwQVZSM1pHNkVBQVBUL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=D4HpdfPwdTGm1ESezw9P-yRi358S4fn9Z8iNt4N4R4egsTCf7r0-gEc7hT8cOTj1fAEsOI782zdITOX732pUkUAi9qe5TwFbbfpjfMy20eJtMHeQu8pZR-zL9qjDNOadNGNSZ3SJZMUes6pQMPBlOhTNF-oBXLD~Sbv3uZVvXEABQfXANtFvu3ytcUbXOqZx7Vvn4EWLO3Dl5MwvlnOEBCruGyolG6tX54z8V9TyfiF6yd67ilXLUEfXLTE3-kfguGuwFiH2kagSYD6OhbBp1xNU-vrY~jbmSMyGjFERW5rw5YQ1zpPExIfEMlcrPdedJa7Zh2hJq41X27NGbi6vpw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_title_rule_wavestone"
+}

@@ -1,21 +1,59 @@
 /* GetMatchesByDemandId : Advanced SQL (Aurora Postgres, ODC)
    Purpose: return consultant matches for a demand with scoring, paging, and filters.
 
-   This is the SCORING QUERY (Query 1). Returns only IDs and scores.
-   Display data (names, photos, etc.) comes from GetConsultantMatchPreview (Query 2).
+   This is the scoring query. Returns only IDs and scores.
+   Display data (names, photos, etc.) comes from GetConsultantMatchPreview.
 
    Refactored version:
      • Early NOT EXISTS filter enforcement in ec CTE (consultants failing filters excluded before scoring)
      • Removed aggregate-based filter enforcement (excl_partial, has_filter_partial, IsExcludedMax, HasFilterSum)
      • Removed contract-type filter (OnlyShowFreelancer/Temporary/Permanent)
      • Removed ExperienceFilterCount dependency
-    • Mandatory soft role gate (consultant must match at least one required role with Score > 0;
-      bypassed in Global Skill mode)
+     • Mandatory soft role gate (consultant must match at least one required role with Score > 0;
+       bypassed in Global Skill mode)
+     • Inline permission gating for demand visibility and consultant visibility
+
+   Input:
+     @TenantId,
+     @DemandId,
+     @UserId,
+     @IsMatchicalAdmin,
+     @StartIndex,
+     @MaxRecords,
+     @ShowInternal,
+     @ShowExternal,
+     @UseCustomRoles,
+     @IsInExternalFilterActive,
+     @RoleSkillScoringModeId,
+     @ScoringMode_StrictRole,
+     @ScoringMode_RoleFirstHybrid,
+     @ScoringMode_GlobalSkill,
+     @Cat_Role,
+     @Cat_RoleSkill,
+     @Cat_CustomRole,
+     @Cat_CustomRoleSkill,
+     @Cat_Skill,
+     @Cat_CustomSkill,
+     @Cat_Language,
+     @Cat_FunctionalArea,
+     @Cat_Industry,
+     @AvailabilityCategory_Yes,
+     @AvailabilityCategory_No,
+     @Filter_Default,
+     @Filter_Hard,
+     @Filter_Soft,
+     @PermissionInternalConsultantId,
+     @PermissionExternalConsultantId,
+     @PermissionOpportunityId,
+     @PermissionLevelOnId,
+     @PermissionLevelAllId,
+     @PermissionLevelOwnId,
+     @PermissionLevelMyReportsId
 
    Performance note:
-     • MATERIALIZED hints on CTEs (demand, requirement, filtered_requirement, has_filtered_requirements,
-       eligible_consultant) prevent PostgreSQL planner instability that can cause 100x slowdowns.
-     • If performance issues occur, check MATERIALIZED first. See queries/matching/CLAUDE.md for details.
+     • Matchical admin, super admin, and global grant paths skip owner/creator/co-owner lookups.
+     • ConsultancyUserClosure is only touched in the MyReports path.
+     • Matching visibility permissions are treated as operation/feature permissions and ignore PermissionMethodId.
      • Role-skill matching uses selected scoring mode via @RoleSkillScoringModeId.
 
    Output columns (ordered):
@@ -23,11 +61,162 @@
 */
 
 WITH
+input_state AS (
+  SELECT
+    CASE
+      WHEN @IsMatchicalAdmin = 1 THEN 1
+      ELSE 0
+    END AS IsMatchicalAdmin
+),
+current_user_scope AS (
+  SELECT
+    COUNT(*) AS MatchCount,
+    MIN(consultancy_user.[Id]) AS CurrentConsultancyUserId
+  FROM {ConsultancyUser} consultancy_user
+  CROSS JOIN input_state input
+  WHERE input.IsMatchicalAdmin <> 1
+    AND consultancy_user.[TenantId] = @TenantId
+    AND consultancy_user.[UserId] = @UserId
+),
+current_user_roles AS (
+  SELECT
+    consultancy_user_role.[UserRoleId] AS UserRoleId
+  FROM {ConsultancyUserRoles} consultancy_user_role
+  CROSS JOIN input_state input
+  CROSS JOIN current_user_scope current_user_ctx
+  WHERE input.IsMatchicalAdmin <> 1
+    AND current_user_ctx.MatchCount = 1
+    AND consultancy_user_role.[ConsultancyUserId] = current_user_ctx.CurrentConsultancyUserId
+),
+super_admin_state AS (
+  SELECT
+    CASE
+      WHEN input.IsMatchicalAdmin = 1 THEN 1
+      WHEN EXISTS (
+        SELECT 1
+        FROM current_user_roles user_role_ctx
+        JOIN {UserRole} user_role
+          ON user_role.[Id] = user_role_ctx.UserRoleId
+        WHERE user_role.[IsSuperAdmin] = 1
+      ) THEN 1
+      ELSE 0
+    END AS IsSuperAdmin
+  FROM input_state input
+),
+permission_scope_flags AS (
+  SELECT
+    role_permission.[PermissionId] AS PermissionId,
+    MAX(
+      CASE
+        WHEN role_permission.[PermissionLevelId] IN (@PermissionLevelAllId, @PermissionLevelOnId) THEN 1
+        ELSE 0
+      END
+    ) AS HasGlobalGrant,
+    MAX(
+      CASE
+        WHEN role_permission.[PermissionLevelId] = @PermissionLevelOwnId THEN 1
+        ELSE 0
+      END
+    ) AS HasOwnGrant,
+    MAX(
+      CASE
+        WHEN role_permission.[PermissionLevelId] = @PermissionLevelMyReportsId THEN 1
+        ELSE 0
+      END
+    ) AS HasMyReportsGrant
+  FROM current_user_roles user_role_ctx
+  JOIN {UserRolePermissions} role_permission
+    ON role_permission.[UserRoleId] = user_role_ctx.UserRoleId
+  CROSS JOIN input_state input
+  CROSS JOIN super_admin_state super_admin
+  WHERE input.IsMatchicalAdmin <> 1
+    AND super_admin.IsSuperAdmin <> 1
+    AND role_permission.[PermissionId] IN (
+      @PermissionInternalConsultantId,
+      @PermissionExternalConsultantId,
+      @PermissionOpportunityId
+    )
+    AND role_permission.[PermissionLevelId] IN (
+      @PermissionLevelOnId,
+      @PermissionLevelAllId,
+      @PermissionLevelOwnId,
+      @PermissionLevelMyReportsId
+    )
+  GROUP BY
+    role_permission.[PermissionId]
+),
+internal_consultant_view_scope AS (
+  SELECT
+    COALESCE(MAX(
+      CASE
+        WHEN permission_scope.PermissionId = @PermissionInternalConsultantId THEN permission_scope.HasGlobalGrant
+        ELSE 0
+      END
+    ), 0) AS HasGlobalGrant,
+    COALESCE(MAX(
+      CASE
+        WHEN permission_scope.PermissionId = @PermissionInternalConsultantId THEN permission_scope.HasOwnGrant
+        ELSE 0
+      END
+    ), 0) AS HasOwnGrant,
+    COALESCE(MAX(
+      CASE
+        WHEN permission_scope.PermissionId = @PermissionInternalConsultantId THEN permission_scope.HasMyReportsGrant
+        ELSE 0
+      END
+    ), 0) AS HasMyReportsGrant
+  FROM permission_scope_flags permission_scope
+),
+external_consultant_view_scope AS (
+  SELECT
+    COALESCE(MAX(
+      CASE
+        WHEN permission_scope.PermissionId = @PermissionExternalConsultantId THEN permission_scope.HasGlobalGrant
+        ELSE 0
+      END
+    ), 0) AS HasGlobalGrant,
+    COALESCE(MAX(
+      CASE
+        WHEN permission_scope.PermissionId = @PermissionExternalConsultantId THEN permission_scope.HasOwnGrant
+        ELSE 0
+      END
+    ), 0) AS HasOwnGrant,
+    COALESCE(MAX(
+      CASE
+        WHEN permission_scope.PermissionId = @PermissionExternalConsultantId THEN permission_scope.HasMyReportsGrant
+        ELSE 0
+      END
+    ), 0) AS HasMyReportsGrant
+  FROM permission_scope_flags permission_scope
+),
+opportunity_view_scope AS (
+  SELECT
+    COALESCE(MAX(
+      CASE
+        WHEN permission_scope.PermissionId = @PermissionOpportunityId THEN permission_scope.HasGlobalGrant
+        ELSE 0
+      END
+    ), 0) AS HasGlobalGrant,
+    COALESCE(MAX(
+      CASE
+        WHEN permission_scope.PermissionId = @PermissionOpportunityId THEN permission_scope.HasOwnGrant
+        ELSE 0
+      END
+    ), 0) AS HasOwnGrant,
+    COALESCE(MAX(
+      CASE
+        WHEN permission_scope.PermissionId = @PermissionOpportunityId THEN permission_scope.HasMyReportsGrant
+        ELSE 0
+      END
+    ), 0) AS HasMyReportsGrant
+  FROM permission_scope_flags permission_scope
+),
 /* _____________ Demand context (single row) _____________ */
-demand AS MATERIALIZED (
+base_demand AS (
   SELECT
     {Demand}.[Id]                           AS DemandId,
     {Demand}.[TenantId]                     AS TenantId,
+    {Demand}.[OpportunityId]                AS OpportunityId,
     {Demand}.[LocationTagId]                AS LocationTagId,
     {Demand}.[LocationFilterCategoryId]     AS LocationFilter,
     {Demand}.[AvailabilityFilterCategoryId] AS AvailabilityFilter,
@@ -38,9 +227,84 @@ demand AS MATERIALIZED (
   WHERE {Demand}.[Id] = @DemandId
     AND {Demand}.[TenantId] = @TenantId
 ),
+demand_visibility_targets AS (
+  SELECT
+    co_owner.[ConsultancyUserId] AS TargetConsultancyUserId
+  FROM base_demand demand_ctx
+  CROSS JOIN input_state input
+  CROSS JOIN super_admin_state super_admin
+  CROSS JOIN opportunity_view_scope opportunity_scope
+  JOIN {CoOwner} co_owner
+    ON co_owner.[TenantId] = demand_ctx.TenantId
+   AND co_owner.[OpportunityId] = demand_ctx.OpportunityId
+  WHERE input.IsMatchicalAdmin <> 1
+    AND super_admin.IsSuperAdmin <> 1
+    AND opportunity_scope.HasGlobalGrant <> 1
+    AND (opportunity_scope.HasOwnGrant = 1 OR opportunity_scope.HasMyReportsGrant = 1)
+
+  UNION
+
+  SELECT
+    opportunity.[CreatorId] AS TargetConsultancyUserId
+  FROM base_demand demand_ctx
+  CROSS JOIN input_state input
+  CROSS JOIN super_admin_state super_admin
+  CROSS JOIN opportunity_view_scope opportunity_scope
+  JOIN {Opportunity} opportunity
+    ON opportunity.[Id] = demand_ctx.OpportunityId
+   AND opportunity.[TenantId] = demand_ctx.TenantId
+  WHERE input.IsMatchicalAdmin <> 1
+    AND super_admin.IsSuperAdmin <> 1
+    AND opportunity_scope.HasGlobalGrant <> 1
+    AND (opportunity_scope.HasOwnGrant = 1 OR opportunity_scope.HasMyReportsGrant = 1)
+    AND opportunity.[CreatorId] IS NOT NULL
+    AND TRIM(CAST(opportunity.[CreatorId] AS TEXT)) <> ''
+),
+demand_visibility_state AS (
+  SELECT
+    CASE
+      WHEN input.IsMatchicalAdmin = 1 THEN 1
+      WHEN super_admin.IsSuperAdmin = 1 THEN 1
+      WHEN opportunity_scope.HasGlobalGrant = 1 THEN 1
+      WHEN opportunity_scope.HasOwnGrant = 1
+       AND EXISTS (
+         SELECT 1
+         FROM demand_visibility_targets visibility_target
+         WHERE visibility_target.TargetConsultancyUserId = current_user_ctx.CurrentConsultancyUserId
+       ) THEN 1
+      WHEN opportunity_scope.HasMyReportsGrant = 1
+       AND EXISTS (
+         SELECT 1
+         FROM demand_visibility_targets visibility_target
+         JOIN {ConsultancyUserClosure} closure
+           ON closure.[AncestorId] = visibility_target.TargetConsultancyUserId
+          AND closure.[DescendantId] = current_user_ctx.CurrentConsultancyUserId
+       ) THEN 1
+      ELSE 0
+    END AS IsVisible
+  FROM input_state input
+  CROSS JOIN current_user_scope current_user_ctx
+  CROSS JOIN super_admin_state super_admin
+  CROSS JOIN opportunity_view_scope opportunity_scope
+),
+demand AS (
+  SELECT
+    demand_ctx.DemandId,
+    demand_ctx.TenantId,
+    demand_ctx.OpportunityId,
+    demand_ctx.LocationTagId,
+    demand_ctx.LocationFilter,
+    demand_ctx.AvailabilityFilter,
+    demand_ctx.IsCapacityFilterActive,
+    demand_ctx.Capacity,
+    demand_ctx.ClientOffsiteRate
+  FROM base_demand demand_ctx
+  CROSS JOIN demand_visibility_state demand_visibility
+  WHERE demand_visibility.IsVisible = 1
+),
 
 /* _____________ Requirements (valid only) _____________ */
-requirement AS MATERIALIZED (
+requirement AS (
   SELECT
     req.[Id]               AS RequirementId,
     req.[CategoryId],
@@ -56,6 +320,9 @@ requirement AS MATERIALIZED (
     req.[FilterCategoryId] AS FilterCategory,
     req.[TenantId]
   FROM {DemandRequirement} req
+  JOIN demand demand_ctx
+    ON demand_ctx.DemandId = req.[DemandId]
+   AND demand_ctx.TenantId = req.[TenantId]
   WHERE req.[DemandId] = @DemandId
     AND req.[TenantId]  = @TenantId
     AND req.[IsActive]  = 1
@@ -63,13 +330,16 @@ requirement AS MATERIALIZED (
 ),
 
 /* _____________ Role requirements for mandatory soft role gate _____________ */
-role_requirement AS MATERIALIZED (
+role_requirement AS (
   SELECT
     role_req.[CategoryId],
     role_req.[RoleId],
     role_req.[CustomRoleId],
     role_req.[TenantId]
   FROM {DemandRequirement} role_req
+  JOIN demand demand_ctx
+    ON demand_ctx.DemandId = role_req.[DemandId]
+   AND demand_ctx.TenantId = role_req.[TenantId]
   WHERE role_req.[DemandId] = @DemandId
     AND role_req.[TenantId]  = @TenantId
     AND role_req.[IsActive]  = 1
@@ -80,13 +350,13 @@ role_requirement AS MATERIALIZED (
     )
 ),
 
-/* _____________ Pre-materialized role requirement check (evaluated once, not per consultant) _____________ */
-has_role_requirements AS MATERIALIZED (
+/* _____________ Role requirement check (evaluated once, not per consultant) _____________ */
+has_role_requirements AS (
   SELECT EXISTS (SELECT 1 FROM role_requirement) AS HasRoleRequirements
 ),
 
 /* _____________ Filtered requirements (Hard/Soft only) _____________ */
-filtered_requirement AS MATERIALIZED (
+filtered_requirement AS (
   SELECT
     freq.[Id]               AS RequirementId,
     freq.[CategoryId],
@@ -100,6 +370,9 @@ filtered_requirement AS MATERIALIZED (
     freq.[FilterCategoryId] AS FilterCategory,
     freq.[TenantId]
   FROM {DemandRequirement} freq
+  JOIN demand demand_ctx
+    ON demand_ctx.DemandId = freq.[DemandId]
+   AND demand_ctx.TenantId = freq.[TenantId]
   WHERE freq.[DemandId] = @DemandId
     AND freq.[TenantId]  = @TenantId
     AND freq.[IsActive]  = 1
@@ -108,7 +381,7 @@ filtered_requirement AS MATERIALIZED (
 ),
 
 /* _____________ Effective filtered requirements (Global Skill mode ignores Role/CustomRole filters) _____________ */
-filtered_requirement_effective AS MATERIALIZED (
+filtered_requirement_effective AS (
   SELECT
     filter_req.RequirementId,
     filter_req.[CategoryId],
@@ -132,7 +405,7 @@ filtered_requirement_effective AS MATERIALIZED (
 ),
 
 /* _____________ Filtered role-skill requirements in active role mode _____________ */
-filtered_roleskill_requirement_raw AS MATERIALIZED (
+filtered_roleskill_requirement_raw AS (
   SELECT
     filter_req.RequirementId,
     filter_req.[CategoryId],
@@ -150,7 +423,7 @@ filtered_roleskill_requirement_raw AS MATERIALIZED (
 ),
 
 /* Rank filtered role-skill duplicates for Global Skill mode representative selection */
-filtered_roleskill_requirement_ranked_global AS MATERIALIZED (
+filtered_roleskill_requirement_ranked_global AS (
   SELECT
     filter_req.RequirementId,
     filter_req.[CategoryId],
@@ -168,7 +441,7 @@ filtered_roleskill_requirement_ranked_global AS MATERIALIZED (
 ),
 
 /* Merge filtered role-skill duplicates by SkillId (Hard > Soft > Default) */
-filtered_roleskill_requirement_aggregated_global AS MATERIALIZED (
+filtered_roleskill_requirement_aggregated_global AS (
   SELECT
     filter_req.[SkillId],
     filter_req.[TenantId],
@@ -187,7 +460,7 @@ filtered_roleskill_requirement_aggregated_global AS MATERIALIZED (
 ),
 
 /* Effective filtered role-skill requirements by scoring mode */
-filtered_roleskill_requirement_effective AS MATERIALIZED (
+filtered_roleskill_requirement_effective AS (
   SELECT
     filter_req.RequirementId,
     filter_req.[CategoryId],
@@ -297,7 +570,7 @@ filtered_roleskill_score AS (
 ),
 
 /* Filtered role-skill requirements satisfied by effective score mode */
-filtered_roleskill_pass AS MATERIALIZED (
+filtered_roleskill_pass AS (
   SELECT
     filter_req.RequirementId,
     filter_score.ConsultantId
@@ -344,7 +617,7 @@ filtered_roleskill_pass AS MATERIALIZED (
 ),
 
 /* Effective filtered requirements for consultant enforcement */
-filtered_requirement_for_enforcement AS MATERIALIZED (
+filtered_requirement_for_enforcement AS (
   SELECT
     filter_req.RequirementId,
     filter_req.[CategoryId],
@@ -380,8 +653,8 @@ filtered_requirement_for_enforcement AS MATERIALIZED (
   FROM filtered_roleskill_requirement_effective filter_req
 ),
 
-/* _____________ Pre-materialized filter check (evaluated once, not per consultant) _____________ */
-has_filtered_requirements AS MATERIALIZED (
+/* _____________ Filter check (evaluated once, not per consultant) _____________ */
+has_filtered_requirements AS (
   SELECT (
     /* Requirement filters (Hard/Soft on individual requirements) */
     EXISTS (SELECT 1 FROM filtered_requirement_for_enforcement)
@@ -394,11 +667,16 @@ has_filtered_requirements AS MATERIALIZED (
 ),
 
 /* _____________ Eligible consultants (prefilter + filter enforcement) _____________ */
-eligible_consultant AS MATERIALIZED (
+eligible_consultant AS (
   SELECT consultant.[Id] AS ConsultantId
   FROM {Consultant} consultant
   JOIN {Status} consultant_status
     ON consultant_status.[Id] = consultant.[StatusId]
+  CROSS JOIN input_state input
+  CROSS JOIN current_user_scope current_user_ctx
+  CROSS JOIN super_admin_state super_admin
+  CROSS JOIN internal_consultant_view_scope internal_scope
+  CROSS JOIN external_consultant_view_scope external_scope
   CROSS JOIN demand
   CROSS JOIN has_role_requirements has_role_requirement
   CROSS JOIN has_filtered_requirements has_filter
@@ -413,6 +691,77 @@ eligible_consultant AS MATERIALIZED (
           (NOT (@IsInExternalFilterActive = 1))
           OR (@ShowInternal = consultant.[IsInternal])
           OR (@ShowExternal <> consultant.[IsInternal])
+        )
+
+    /* Permission-aware consultant visibility */
+    AND (
+          input.IsMatchicalAdmin = 1
+          OR super_admin.IsSuperAdmin = 1
+          OR (
+               consultant.[IsInternal] = 1
+               AND (
+                    internal_scope.HasGlobalGrant = 1
+                    OR (
+                         internal_scope.HasOwnGrant = 1
+                         AND consultant.[ConsultancyUserId] = current_user_ctx.CurrentConsultancyUserId
+                       )
+                    OR (
+                         internal_scope.HasMyReportsGrant = 1
+                         AND EXISTS (
+                               SELECT 1
+                               FROM {ConsultancyUserClosure} closure
+                               WHERE closure.[AncestorId] = consultant.[ConsultancyUserId]
+                                 AND closure.[DescendantId] = current_user_ctx.CurrentConsultancyUserId
+                             )
+                       )
+                  )
+             )
+          OR (
+               consultant.[IsInternal] <> 1
+               AND (
+                    external_scope.HasGlobalGrant = 1
+                    OR (
+                         external_scope.HasOwnGrant = 1
+                         AND EXISTS (
+                               SELECT 1
+                               FROM {ExternalUser} external_user
+                               WHERE external_user.[Id] = consultant.[ExternalUserId]
+                                 AND (
+                                      CASE
+                                        WHEN external_user.[OwnerId] IS NOT NULL
+                                         AND TRIM(CAST(external_user.[OwnerId] AS TEXT)) <> ''
+                                        THEN external_user.[OwnerId]
+                                        WHEN external_user.[CreatorId] IS NOT NULL
+                                         AND TRIM(CAST(external_user.[CreatorId] AS TEXT)) <> ''
+                                        THEN external_user.[CreatorId]
+                                        ELSE NULL
+                                      END
+                                     ) = current_user_ctx.CurrentConsultancyUserId
+                             )
+                       )
+                    OR (
+                         external_scope.HasMyReportsGrant = 1
+                         AND EXISTS (
+                               SELECT 1
+                               FROM {ExternalUser} external_user
+                               JOIN {ConsultancyUserClosure} closure
+                                 ON closure.[AncestorId] = (
+                                      CASE
+                                        WHEN external_user.[OwnerId] IS NOT NULL
+                                         AND TRIM(CAST(external_user.[OwnerId] AS TEXT)) <> ''
+                                        THEN external_user.[OwnerId]
+                                        WHEN external_user.[CreatorId] IS NOT NULL
+                                         AND TRIM(CAST(external_user.[CreatorId] AS TEXT)) <> ''
+                                        THEN external_user.[CreatorId]
+                                        ELSE NULL
+                                      END
+                                    )
+                                AND closure.[DescendantId] = current_user_ctx.CurrentConsultancyUserId
+                               WHERE external_user.[Id] = consultant.[ExternalUserId]
+                             )
+                       )
+                  )
+             )
         )
 
     /* Location constraint driven by demand.LocationFilterCategoryId */
@@ -513,7 +862,7 @@ eligible_consultant AS MATERIALIZED (
 
     /* Filter requirement enforcement: consultant must satisfy ALL filtered requirements */
     AND (
-          /* Fast path: HasFilters is pre-materialized (evaluated once, not per consultant) */
+          /* Fast path: HasFilters is evaluated once, not per consultant */
           has_filter.HasFilters = FALSE
           OR
           /* Otherwise: no filtered requirement may be unsatisfied */

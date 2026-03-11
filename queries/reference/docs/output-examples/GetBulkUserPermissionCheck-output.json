@@ -1,0 +1,137 @@
+{
+  "description": "GetBulkUserPermissionCheck output example",
+  "note": "Per-item output includes strongest granted PermissionLevelId. HasPermission can be null when strongest level is Own/MyReports and no affected target is provided.",
+  "columnOrder": "PermissionId, ExternalConsultantPermissionId, PermissionMethodId, AffectedConsultancyUserId, AffectedConsultantId, HasPermission, PermissionLevelId, IsError, ErrorReason",
+  "singleRow": {
+    "PermissionId": 9,
+    "ExternalConsultantPermissionId": 17,
+    "PermissionMethodId": 1,
+    "AffectedConsultancyUserId": "f3eb8d2d-0000-4000-8000-222222222222",
+    "AffectedConsultantId": null,
+    "HasPermission": true,
+    "PermissionLevelId": 5,
+    "IsError": false,
+    "ErrorReason": null
+  },
+  "exampleScenarios": [
+    {
+      "scenario": "Target-independent grant",
+      "inputHighlights": {
+        "PermissionChecksJson": [
+          {
+            "PermissionId": 9,
+            "ExternalConsultantPermissionId": null,
+            "PermissionMethodId": 1,
+            "AffectedConsultancyUserId": null,
+            "AffectedConsultantId": null
+          }
+        ]
+      },
+      "outputRows": [
+        {
+          "PermissionId": 9,
+          "ExternalConsultantPermissionId": null,
+          "PermissionMethodId": 1,
+          "AffectedConsultancyUserId": null,
+          "AffectedConsultantId": null,
+          "HasPermission": true,
+          "PermissionLevelId": 2,
+          "IsError": false,
+          "ErrorReason": null
+        }
+      ]
+    },
+    {
+      "scenario": "Target-dependent grant without target",
+      "inputHighlights": {
+        "PermissionChecksJson": [
+          {
+            "PermissionId": 12,
+            "ExternalConsultantPermissionId": 18,
+            "PermissionMethodId": 3,
+            "AffectedConsultancyUserId": null,
+            "AffectedConsultantId": null
+          }
+        ]
+      },
+      "outputRows": [
+        {
+          "PermissionId": 12,
+          "ExternalConsultantPermissionId": 18,
+          "PermissionMethodId": 3,
+          "AffectedConsultancyUserId": null,
+          "AffectedConsultantId": null,
+          "HasPermission": null,
+          "PermissionLevelId": 3,
+          "IsError": false,
+          "ErrorReason": null
+        }
+      ]
+    },
+    {
+      "scenario": "Item-level error",
+      "inputHighlights": {
+        "PermissionChecksJson": [
+          {
+            "PermissionId": 9,
+            "ExternalConsultantPermissionId": null,
+            "PermissionMethodId": null,
+            "AffectedConsultancyUserId": null,
+            "AffectedConsultantId": null
+          }
+        ]
+      },
+      "outputRows": [
+        {
+          "PermissionId": 9,
+          "ExternalConsultantPermissionId": null,
+          "PermissionMethodId": null,
+          "AffectedConsultancyUserId": null,
+          "AffectedConsultantId": null,
+          "HasPermission": false,
+          "PermissionLevelId": null,
+          "IsError": true,
+          "ErrorReason": "Data permission requires PermissionMethodId"
+        }
+      ]
+    },
+    {
+      "scenario": "Super-admin context",
+      "inputHighlights": {
+        "PermissionChecksJson": [
+          {
+            "PermissionId": 9,
+            "ExternalConsultantPermissionId": 17,
+            "PermissionMethodId": 1,
+            "AffectedConsultancyUserId": "f3eb8d2d-0000-4000-8000-222222222222",
+            "AffectedConsultantId": null
+          }
+        ]
+      },
+      "outputRows": [
+        {
+          "PermissionId": 9,
+          "ExternalConsultantPermissionId": 17,
+          "PermissionMethodId": 1,
+          "AffectedConsultancyUserId": "f3eb8d2d-0000-4000-8000-222222222222",
+          "AffectedConsultantId": null,
+          "HasPermission": true,
+          "PermissionLevelId": 5,
+          "IsError": false,
+          "ErrorReason": null
+        }
+      ]
+    }
+  ],
+  "fieldDescriptions": {
+    "PermissionId": "Permission identifier from input item (or null for payload-level error rows).",
+    "ExternalConsultantPermissionId": "Optional alternate permission identifier used when the affected consultant is external; otherwise the base PermissionId remains in effect.",
+    "PermissionMethodId": "Permission method identifier from input item (nullable, or null for payload-level error rows).",
+    "AffectedConsultancyUserId": "Affected consultancy user from input item (nullable, or null for payload-level error rows).",
+    "AffectedConsultantId": "Affected consultant from input item (nullable, or null for payload-level error rows).",
+    "HasPermission": "Final decision for the item. FALSE when IsError is true; nullable for target-dependent unresolved checks.",
+    "PermissionLevelId": "Strongest granted permission level id (All > MyReports > Own > On) when no error, otherwise null.",
+    "IsError": "True for payload-level and item-level validation errors.",
+    "ErrorReason": "Human-readable error reason. Null when IsError is false."
+  }
+}

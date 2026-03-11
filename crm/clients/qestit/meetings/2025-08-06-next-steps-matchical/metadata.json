@@ -1,0 +1,101 @@
+{
+  "account_slug": "qestit",
+  "audio_url": "https://cdn.fireflies.ai/01K1TWT05NANT4AQZ8WDCRRMX6/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzFUV1QwNU5BTlQ0QVFaOFdEQ1JSTVg2L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=MW1IcLFzgIg5lON0oymB-QWAY2tbryGAYewV7ukcFtmLeLUQyqmxEUPqgquRtVJ4F8zkq8ssJ1sXyrS8~OcntZbFu5jKiDdtqEvZnR0Rd8i38b~3CvnjptM04y1OIJcYKDly0qAGI-Y7YLy2Sq6eSDl4fgkuEoZA~7UVsJud-I92mThC2DJ4Jx~crYpuu5w056YO8AqFFPHBqIdyqdqVca5dbzfvVSKZ0fvhUkEA6PzSG0-fCUIcZhnpw75QzIX0ClTuyoRe6GOv549Q0xlvxJ4M9K4vT9HmXUv8iZgjn4p6EHLSWQzAIbLkEKATO4ncGdiEx2Lz82EM030Fmw8QDQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "planning",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "qestit.com"
+  ],
+  "dominant_domain": "qestit.com",
+  "duration_minutes": 24.84000015258789,
+  "fireflies_users": [
+    "joern.greschner@qestit.com",
+    "konsti@matchical.com",
+    "tommy@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:11:32Z",
+  "meeting_at": "2025-08-06T14:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-08-06T14:00:00.000Z",
+      "leave_time": "2025-08-06T14:26:07.395Z",
+      "name": "Jörn Greschner"
+    },
+    {
+      "join_time": "2025-08-06T14:00:00.000Z",
+      "leave_time": "2025-08-06T14:26:07.397Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-08-06T14:00:00.000Z",
+      "leave_time": "2025-08-06T14:26:07.397Z",
+      "name": "Marko Macut"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "joern.greschner@qestit.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "marko.macut@qestit.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K1TWT05NANT4AQZ8WDCRRMX6",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_OTY4MmQxNzUtZTllZC00Y2M5LTgxZGEtYTg3ZTJkZjVmNTI5@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com,joern.greschner@qestit.com,marko.macut@qestit.com,tommy@matchical.com",
+    "joern.greschner@qestit.com",
+    "marko.macut@qestit.com",
+    "tommy@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "joern.greschner@qestit.com",
+      "name": ""
+    },
+    {
+      "email": "marko.macut@qestit.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 219,
+  "title": "Next steps matchical",
+  "transcript_created_at": "2025-08-06T14:00:00Z",
+  "transcript_id": "01K1TWT05NANT4AQZ8WDCRRMX6",
+  "transcript_url": "https://app.fireflies.ai/view/01K1TWT05NANT4AQZ8WDCRRMX6",
+  "video_url": "https://cdn.fireflies.ai/01K1TWT05NANT4AQZ8WDCRRMX6/video.mp4?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzFUV1QwNU5BTlQ0QVFaOFdEQ1JSTVg2L3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=scYOK35SIwiSoAjp5tYtrskih-BRZ8aonCC0aIHTK9VZJLzMzEqhImQhQfn4Atf3pQQpnWKPR2CKYqPLvW6kNUFkk-P-jnJRw5G8YnAhCDx6rvXS9Fu1FG1n5jZmwp1bN3GRjPWUrRMOcQ0d6Hd1CdYf4xfuQRWxXDPw7vMJBEwf5MCSUqp72LJDaFbB9eZqY-9X2zmsVltHJQqu4skctjM-D0czIbd9l~Hg0A3ZeD3aga1NQXEHiWH1H8Y0kTBvflXmwOTMEA0uC2Ajb9kRiMbe-zlF6Bwei1Hv2MAS99YPpvNtdeUm2y407aTVA~H94fWwMSptNz3G03Pf7zbrhw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

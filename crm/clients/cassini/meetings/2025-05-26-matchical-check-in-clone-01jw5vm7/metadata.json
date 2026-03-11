@@ -1,0 +1,71 @@
+{
+  "account_slug": "cassini",
+  "audio_url": "https://cdn.fireflies.ai/01JW5VM76DN1MVH2RM6V2QYEH8/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlc1Vk03NkROMU1WSDJSTTZWMlFZRUg4L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=SqUTXEmKm7yPxwUB5YqRBsqEIwGN4hfjaKs5jJi6AgAoWzh3QhnwO2AXk7O9nYgrhoBQ0sV0516827G5GO61REx7z3oPlsvR~8monrSXiTmobDIFdf2ElbpNga7gf3IkIAO79t~ZuvKCtinXGCQdmf~o9i4e-aCjpKG0nENvwtVNh8XmQqoFbLfr63Yne-3YLUmAnvttTbGZ04nYQMhewPJLNGSCAd3lD2P3jb5I2D-syb89di40Aq~jgj-eoNNcier~AWo7R51pxhiAB-O5KCOzy-yaRlBmcNd3p0PPP04ldQb7JEtfVjjMcD7tKjrshtdiL~K2s6Cf43viOB2ovA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 52.560001373291016,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:36Z",
+  "meeting_at": "2025-05-26T13:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-05-26T13:00:00.000Z",
+      "leave_time": "2025-05-26T13:52:35.646Z",
+      "name": "Al-Kadi, Ferras"
+    },
+    {
+      "join_time": "2025-05-26T13:00:00.000Z",
+      "leave_time": "2025-05-26T13:52:35.649Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-05-26T13:00:00.000Z",
+      "leave_time": "2025-05-26T13:52:35.649Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-05-26T13:10:48.286Z",
+      "leave_time": "2025-05-26T13:52:35.649Z",
+      "name": "Jansen, Wilma"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JW5VM76DN1MVH2RM6V2QYEH8",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NmY0ZmJkMjYtODYzYi00NjJhLTk3ZGMtYzgzYjZiYmI2Nzky@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 679,
+  "title": "Matchical check in (Clone)",
+  "transcript_created_at": "2025-05-26T13:00:00Z",
+  "transcript_id": "01JW5VM76DN1MVH2RM6V2QYEH8",
+  "transcript_url": "https://app.fireflies.ai/view/01JW5VM76DN1MVH2RM6V2QYEH8",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_reclassification"
+}

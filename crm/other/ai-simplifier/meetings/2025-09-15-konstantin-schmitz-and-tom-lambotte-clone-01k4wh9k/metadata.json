@@ -1,0 +1,66 @@
+{
+  "account_slug": "ai-simplifier",
+  "audio_url": "https://cdn.fireflies.ai/01K4WH9KB61116MB3PB8B38EG5/audio.mp3?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRXSDlLQjYxMTE2TUIzUEI4QjM4RUc1L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=WRso6ZTO319S6r~GMJcmVxUoIlLt4KV-8nxckTOoTLHiqKiBtSs6NO5B0Lym59lzQgQVWUBq6MSJG9ExDhPTFxjnIevR5rgsCwe2XPfq9bt988VNAnS1gZGqj5ZhTSY61Jen8l~1HrxKFwDQ8uGjH2bDwp69rp1tQ8~ENhGwT7amOKkHzKsJhl1fHZJL3KLYIDJLzdPZVj1eKBE9~cCYLp4PyZlzyrPdD85fok4MYzXVkFcMvva4LEwOdxHv1N6FH9W9cn8zjAhJ7GX7TQgVYG-scvSLiCNuJ0W9KdtPEudAL5kZep0cBgbflS3TOTRf2qD76iXikiMCH-8pe~8EPw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "other",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 97.0999984741211,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:09:16Z",
+  "meeting_at": "2025-09-15T18:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-15T18:30:00.000Z",
+      "leave_time": "2025-09-15T20:06:59.781Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-09-15T18:30:00.000Z",
+      "leave_time": "2025-09-15T20:06:59.781Z",
+      "name": "Tom Lambotte"
+    },
+    {
+      "join_time": "2025-09-15T18:30:00.000Z",
+      "leave_time": "2025-09-15T18:30:38.661Z",
+      "name": "Tom's Notetaker (Otter.ai) (Unverified)"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K4WH9KB61116MB3PB8B38EG5",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MTg5NDc2YTQtMjRlMy00M2E3LTg0ZGItNWRmZGE3OGU5NTEy@thread.v2/0?context={\"Tid\":\"4fdb7675-2c28-4dfb-8fcf-773be808ea24\",\"Oid\":\"8bf30d7d-0e0c-45ae-b422-f30853ac124e\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 762,
+  "title": "Konstantin Schmitz and Tom Lambotte (Clone)",
+  "transcript_created_at": "2025-09-15T18:30:00Z",
+  "transcript_id": "01K4WH9KB61116MB3PB8B38EG5",
+  "transcript_url": "https://app.fireflies.ai/view/01K4WH9KB61116MB3PB8B38EG5",
+  "video_url": "https://cdn.fireflies.ai/01K4WH9KB61116MB3PB8B38EG5/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzRXSDlLQjYxMTE2TUIzUEI4QjM4RUc1L3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=YZFshVCNBZSniBGkfToysRunja55Fyfh8fuQoCHWKnOfp8V4b1fzwdb7aWrLjDd7g2OCMV7YHJ7-jwTxvdSHq2rxgMLP8abf2hwb-DMDu0WQ2~eZ4PYG~K2ccYmPjNRYCwJlnsUe6vhzKMOyutHvigXTcZ48IEmGceYOQx~zOxHd5k4qaVdLrCu6tE~JS8iQoB-~PlsVXBWfmdzzvCOGCt~hp8Zp70uxh5h0I~meFX9IJJ1Nr~cxVpN~2oqhjnQVgbPY5v3qotInB-6QIl89TC54IgwyL5B5htnxYNtjGzlh4fjyCaGIsnV4ojbND0JbfOS6-DnEMuXCVbNJC9~ySw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_reclassification"
+}

@@ -1,0 +1,50 @@
+{
+  "account_slug": "ai-simplifier",
+  "audio_url": "https://cdn.fireflies.ai/01KAXJ84XMFXEGM9EF4XVHJEVP/audio.mp3?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0FYSjg0WE1GWEVHTTlFRjRYVkhKRVZQL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=FIVrzzKrY3koYMWoUWHUqRImJBsDkGWqzm7vDc0l7GUMNLdgDom8Vum9L5WzUXHzOKTUtd7NrVBAtYIr~ZuWUgj6mep8RiELo2wmVqKQfppysEQ-1vCymlmV2SDEWaMdyxa9y09mgbEgzsmM604gUrWHVVDVFDjxKY5PAuiXUVapOMhDkP1laQ5xT3uB4wuFpW0d9rBuXOceSwnek3Sjalki7evpaZMoRHcFloozfbX-q6Kzlnbo2oc8vneL9Wc3wA46Q8RHoKEEoXFSTsfg0fbb0Ra7bLvNggHIuqh69myNRp6IxwI2PlBbWXdg8W6gkeDykz2-lPKrYYHIgxbR0Q__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "planning",
+  "category_source": "keyword",
+  "crm_bucket": "other",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 72.04000091552734,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:31:14Z",
+  "meeting_at": "2025-12-01T16:00:00Z",
+  "meeting_attendance": [],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KAXJ84XMFXEGM9EF4XVHJEVP",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://globalmacit.zoom.us/j/7485659779?omn=87348919721",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 760,
+  "title": "Konstantin Schmitz and Tom Lambotte (Clone)",
+  "transcript_created_at": "2025-12-01T16:00:00Z",
+  "transcript_id": "01KAXJ84XMFXEGM9EF4XVHJEVP",
+  "transcript_url": "https://app.fireflies.ai/view/01KAXJ84XMFXEGM9EF4XVHJEVP",
+  "video_url": "https://cdn.fireflies.ai/01KAXJ84XMFXEGM9EF4XVHJEVP/video.mp4?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0FYSjg0WE1GWEVHTTlFRjRYVkhKRVZQL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=M8LysMFmS~rUvgns5-Zj~X3xdDV4IGVGIqZTNNOtvgCWBZ8qdZcXf2tvlKKbWerHAAg7QHLezf8BpciMnbFs-P3yAY50qowbleKaAJTmWmriArwBrkwRUYFRKxweHiA6Ho2eyQuXhYYn2FmyQxpWNBhWVu5L~lCdwyfdOVAtIionftgPsc6k3xEm3Ljag0tZth0swNvkcFIT1~ujmQJK4beDCcvLF-~vSk5GegOiu~RP5pZCSs86GI3ZKk9eHlAPRf8zZuHhrJ9NxrH54dz-lz9mWGMbq57LSy3fY3Q5hCMRjMtL8vu2hXugr6oM0WrrruPRzYQK8R~oc9RBnm4kkg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_reclassification"
+}

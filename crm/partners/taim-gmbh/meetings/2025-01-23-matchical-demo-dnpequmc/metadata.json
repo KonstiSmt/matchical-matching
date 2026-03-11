@@ -1,0 +1,90 @@
+{
+  "account_slug": "taim-gmbh",
+  "audio_url": "https://cdn.fireflies.ai/DNpeQuMc3Kv0Okkr/audio.mp3?Expires=1773265219&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpL0ROcGVRdU1jM0t2ME9ra3IvYXVkaW8ubXAzIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzczMjY1MjE5fX19XX0_&Signature=v7PYiMmRnkvhfbqkcn~3DO6YUCX8SfeKLM9XCeXtuZ3ijkJtmF-TG4I0lMUP6-1PqTd-eelG477pNLoH1usu5pnMiWotfnjOKObyutyzDG8jSdCNn1ZQ~aLubpnAI5qbg3pYyIT3xndJTOOuy3owBiUWkUuTyvqeGZHcVJ~tLOOKh5389HLqRiNuy30BvFB5ig2ZcijZpYtDxnIQiJTlbZ3mY2jEpA5~UFn34XD-F1I0ilNrhoL1jjPf7tvN5cCdKDPi0S1OyAKZgaZFrADuUHanduWWgSqxAsvpFAghoOFgoBWm8rPuLZ71g6nJ0TR56RNg3hPI~oy-KBm4ZNicaQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "detected_domains": [
+    "matchical.com",
+    "taim-gmbh.de",
+    "wavestone.eu"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 75,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T10:26:49Z",
+  "meeting_at": "2025-01-23T11:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-01-23T11:30:00.000Z",
+      "leave_time": "2025-01-23T12:44:50.263Z",
+      "name": "Daniel M (Unverified)"
+    },
+    {
+      "join_time": "2025-01-23T11:30:00.000Z",
+      "leave_time": "2025-01-23T12:26:30.025Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-01-23T11:39:38.664Z",
+      "leave_time": "2025-01-23T12:26:30.022Z",
+      "name": "Bauer, Thomas (Unverified)"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "thomas.bauer@wavestone.eu",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "daniel@taim-gmbh.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "DNpeQuMc3Kv0Okkr",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MWJkZTRlZWUtYWVjMy00NGYyLWI4MjQtOGRhOGRmZDFlNWEy@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "thomas.bauer@wavestone.eu,daniel@taim-gmbh.de,konsti@matchical.com",
+    "thomas.bauer@wavestone.eu",
+    "daniel@taim-gmbh.de"
+  ],
+  "participants": [
+    {
+      "email": "thomas.bauer@wavestone.eu",
+      "name": ""
+    },
+    {
+      "email": "daniel@taim-gmbh.de",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 956,
+  "title": "Matchical Demo",
+  "transcript_created_at": "2025-01-23T11:30:00Z",
+  "transcript_id": "DNpeQuMc3Kv0Okkr",
+  "transcript_url": "https://app.fireflies.ai/view/DNpeQuMc3Kv0Okkr",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "crm_bucket": "partners",
+  "route_reason": "manual_transcript_reclassification"
+}

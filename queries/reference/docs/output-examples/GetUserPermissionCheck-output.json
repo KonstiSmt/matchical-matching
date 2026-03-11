@@ -1,0 +1,99 @@
+{
+  "description": "GetUserPermissionCheck output example",
+  "note": "Single-row permission decision output. PermissionLevelId always reflects the strongest granted level for the effective permission. HasPermission can be null when the strongest level is Own/MyReports and no affected target is provided.",
+  "columnOrder": "HasPermission, PermissionLevelId, IsError, ErrorReason",
+  "singleRow": {
+    "HasPermission": true,
+    "PermissionLevelId": 5,
+    "IsError": false,
+    "ErrorReason": null
+  },
+  "exampleScenarios": [
+    {
+      "scenario": "Direct grant via strongest level All",
+      "inputHighlights": {
+        "AffectedTargetProvided": false,
+        "StrongestGrantLevel": "All"
+      },
+      "output": {
+        "HasPermission": true,
+        "PermissionLevelId": 5,
+        "IsError": false,
+        "ErrorReason": null
+      }
+    },
+    {
+      "scenario": "Target-dependent strongest level Own without target",
+      "inputHighlights": {
+        "AffectedTargetProvided": false,
+        "StrongestGrantLevel": "Own"
+      },
+      "output": {
+        "HasPermission": null,
+        "PermissionLevelId": 3,
+        "IsError": false,
+        "ErrorReason": null
+      }
+    },
+    {
+      "scenario": "Target-dependent grant with matching affected consultant",
+      "inputHighlights": {
+        "AffectedConsultantProvided": true,
+        "StrongestGrantLevel": "MyReports",
+        "AffectedTargetMatchesScope": true
+      },
+      "output": {
+        "HasPermission": true,
+        "PermissionLevelId": 4,
+        "IsError": false,
+        "ErrorReason": null
+      }
+    },
+    {
+      "scenario": "Normal deny with no matching grant",
+      "inputHighlights": {
+        "StrongestGrantLevel": "None"
+      },
+      "output": {
+        "HasPermission": false,
+        "PermissionLevelId": null,
+        "IsError": false,
+        "ErrorReason": null
+      }
+    },
+    {
+      "scenario": "External consultant switches to alternate permission id",
+      "inputHighlights": {
+        "PermissionId": "Internal consultant permission",
+        "ExternalConsultantPermissionId": "External consultant permission",
+        "AffectedConsultantProvided": true,
+        "ResolvedConsultantType": "External"
+      },
+      "output": {
+        "HasPermission": true,
+        "PermissionLevelId": 2,
+        "IsError": false,
+        "ErrorReason": null
+      }
+    },
+    {
+      "scenario": "Error case: data permission missing method",
+      "inputHighlights": {
+        "IsOperation": 0,
+        "PermissionMethodProvided": false
+      },
+      "output": {
+        "HasPermission": false,
+        "PermissionLevelId": null,
+        "IsError": true,
+        "ErrorReason": "Data permission requires PermissionMethodId"
+      }
+    }
+  ],
+  "fieldDescriptions": {
+    "HasPermission": "Final permission decision. Always false when IsError is true; nullable for target-dependent unresolved checks.",
+    "PermissionLevelId": "Strongest granted permission level id (All > MyReports > Own > On) for the effective permission when no error, otherwise null.",
+    "IsError": "True only for validation or consistency errors, not for normal permission denial.",
+    "ErrorReason": "Human-readable error text. Null when IsError is false."
+  }
+}

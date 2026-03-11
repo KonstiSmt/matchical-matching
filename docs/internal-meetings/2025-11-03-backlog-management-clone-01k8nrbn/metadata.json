@@ -1,0 +1,60 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01K8NRBNSS14HN13B1BGYQE1BD/audio.mp3?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzhOUkJOU1MxNEhOMTNCMUJHWVFFMUJEL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=DzrM~QehDA~wv4TuVrVVpBnZbEZAC7QyEwlr~SFhjQw8hawaCD-ndtdNhCuClDSkgmuN8SSLb28Z2hel1j8j8RFBhvZTJjZpnuc-5kLnvN5d5eGJAfQxu2zteqVU0~vQeNj8uB0uvzqTTY0939klMUqpo8KQ9L10ZxDjOTXLEYQiIKkK11LbhkP78TKyZQIV5VNlAIUwl1OIjTeHa~Nrp3IxA8wXeX1dxyRkueleDicc7Cun0MOHFucIuedZPKdZ9dj3LdoZUQ4AJ6R3VSl28jF2wC4z2Cuk7M~sB0Q95h3eLFczzv8JN-t-y-blcLEJsN8mive65fpxi1jFWLrShQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "delivery",
+  "category_source": "keyword",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 102.91000366210938,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:32:23Z",
+  "meeting_at": "2025-11-03T13:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-11-03T13:00:00.000Z",
+      "leave_time": "2025-11-03T14:43:21.630Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-11-03T13:02:09.656Z",
+      "leave_time": "2025-11-03T14:43:21.629Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K8NRBNSS14HN13B1BGYQE1BD",
+  "meeting_kind": "internal",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MTUwMzBkZjAtNmY0MC00MzYxLWE4ZGQtNjQ0MDRiODdkYWVl@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1040,
+  "title": "Backlog management (Clone)",
+  "transcript_created_at": "2025-11-03T13:00:00Z",
+  "transcript_id": "01K8NRBNSS14HN13B1BGYQE1BD",
+  "transcript_url": "https://app.fireflies.ai/view/01K8NRBNSS14HN13B1BGYQE1BD",
+  "video_url": "https://cdn.fireflies.ai/01K8NRBNSS14HN13B1BGYQE1BD/video.mp4?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzhOUkJOU1MxNEhOMTNCMUJHWVFFMUJEL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=hVn6UlWhZPZZiI1Rd1QEQoDlofqDmkL8Z33V~pyyn3e-W~S9s4TgLEawkbBzASr5MJLcWUJXvL2XjWeZR-NW-NWQwidtppr-28KfK6tw1tXH2mwWHCjQLMEbiFyyEl4S3ra5tKr3DR1vLY1~LndpzUS0-2wK3kfLVcXzBMZEAQQoxr4rAOnTpZ5AXCQi8IBEah3CLN63iTkIEJfs0bkkXn0zyfni46UZHIxY-n36A0JHz51fy9fk8GhI4VZdtOWGqJzQ~LQr0U53uKFHb6H6OG8Hlg1GrDXgSKv0grEWWzVVTyLNnSAl5suthn~BXJ8AvYmdD-ci0qFphC5IDNDD2w__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

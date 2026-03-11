@@ -1,0 +1,67 @@
+{
+  "account_slug": "aibuildteam",
+  "audio_url": "https://cdn.fireflies.ai/01KA6RCYK9MWNWQCMHVPBN18J1/audio.mp3?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0E2UkNZSzlNV05XUUNNSFZQQk4xOEoxL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=A2Lkn7FkTqe7eCxf1tgDtmFbkt9eKk-AQJvxKWVYvKgglLYu3NhwDHoa5FbELEC1WHkjLQn2jsppyTqnDY1B2rY9ckBgP-8GQE-P44b8x3gSL4b8STiWkXya3Fjyl9GEH4M86d11t1f92L6XTqSuHUap4~RDKyLXzwcERvWxRH0scE8CoeCRyKopoN-HA39epNrEDPnleXpRVGpEK003-wxf44YjV4aPo45JgfKQZHdxZZvAkpjXyyuAtkbrRfzGPGe5yEF~51kmy9MuopV9kdRS1hx32uR8mb6fJPLCNveKRecxfAA~yCn8z7e8fVT5B5n~D7q-pAF2OcbPVECQnQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "other",
+  "detected_domains": [
+    "aibuildteam.ai",
+    "matchical.com"
+  ],
+  "dominant_domain": "aibuildteam.ai",
+  "duration_minutes": 10.489999771118164,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:31:41Z",
+  "meeting_at": "2025-11-19T12:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-11-19T12:30:00.000Z",
+      "leave_time": "2025-11-19T12:34:25.660Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "joe@aibuildteam.ai",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KA6RCYK9MWNWQCMHVPBN18J1",
+  "meeting_kind": "other",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NGNiMmFhODgtMzY4Yi00Mzc5LTg1ZjMtZDY3YWIyYmY2ODY4@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "joe@aibuildteam.ai,konsti@matchical.com",
+    "joe@aibuildteam.ai"
+  ],
+  "participants": [
+    {
+      "email": "joe@aibuildteam.ai",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 0,
+  "title": "Joe Fier and Konsti | matchical.com",
+  "transcript_created_at": "2025-11-19T12:30:00Z",
+  "transcript_id": "01KA6RCYK9MWNWQCMHVPBN18J1",
+  "transcript_url": "https://app.fireflies.ai/view/01KA6RCYK9MWNWQCMHVPBN18J1",
+  "video_url": "https://cdn.fireflies.ai/01KA6RCYK9MWNWQCMHVPBN18J1/video.mp4?Expires=1773350971&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0E2UkNZSzlNV05XUUNNSFZQQk4xOEoxL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3MX19fV19&Signature=FG9gADpiN9cR9dznFXW4w-EF4oRNnnT02z3R8kmAnP3-wzN-sE7YMJrYtZT4HeJfE1BTRPLt8X3n71sE1r96wg7-yARW0trzkgPaQf33Tt8ogD5wL6NPZM3mr4IoanifQ3wpoLaz-sNM8cnIo~jjq0QnFxLm-JWDzOekU0hU3klwwz3C9OG5aNMv8U8ybqJi49VS6d1fQv6SzIAKWXQl-v4yEXSlJZUYst9QS14ItKnpdh9wSPR0VHqtJ3FnWqdwGChvgxzz1SG1vmRwCbf3jgbo-TZV7belg-HatW2CEEhJq9WyLhc5VYJCGsfEh5OVPWIbfkkH4tas0bzC766XCQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

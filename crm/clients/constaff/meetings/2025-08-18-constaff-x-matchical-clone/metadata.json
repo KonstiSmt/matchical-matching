@@ -1,0 +1,65 @@
+{
+  "account_slug": "constaff",
+  "audio_url": "https://cdn.fireflies.ai/01K2SVT06Y7V77V9SRSHCQ1GJ2/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzJTVlQwNlk3Vjc3VjlTUlNIQ1ExR0oyL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=FqpGbr9ztqE7xzgVmyOYmpdcLlNUcNlRARXQzeaPgZ47RX1ENTAvEi7PZU2EXGQc3yOwa~w~dyK~tqv1XGHgNm3vFc2ThMxhgNPB~yKvkjM2yTE-ajzAVyMMXjaS9nsbePJNMoJr1rntOEKc9vCH2Vz~~SC7a8rdJ1xe0mE~UFyvTwexaOB8fxo-~gdXnsH5GoXUK618AHSGMcEK4NVBE-Fe2Uju3nabgog3HcvRuLg2PXg9~5iLF0ayPX1fZex2ESyncsy4CGU9tpKed3GZaY58wCOaBk8UK0OpoDeilLdsOy8Fyrpwz~kI0dgtq51oiRz2BW0NoMpqAFlHC3RqnA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 21.520000457763672,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:10:52Z",
+  "meeting_at": "2025-08-18T14:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-08-18T14:00:00.000Z",
+      "leave_time": "2025-08-18T14:21:34.334Z",
+      "name": "Felix Sprengling"
+    },
+    {
+      "join_time": "2025-08-18T14:00:00.000Z",
+      "leave_time": "2025-08-18T14:21:34.336Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-08-18T14:04:38.921Z",
+      "leave_time": "2025-08-18T14:21:34.336Z",
+      "name": "Michael Steinlein"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K2SVT06Y7V77V9SRSHCQ1GJ2",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZGM0NDNhODMtNTVkZi00NGFlLWFhYWQtMGIwN2UyYTJjYTli@thread.v2/0?context={\"Tid\":\"32230f51-3505-4cd5-a18e-45005bbb08b8\",\"Oid\":\"c6e45c36-24ee-4798-b341-26dd1382e70a\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 248,
+  "title": "Constaff x Matchical (Clone)",
+  "transcript_created_at": "2025-08-18T14:00:00Z",
+  "transcript_id": "01K2SVT06Y7V77V9SRSHCQ1GJ2",
+  "transcript_url": "https://app.fireflies.ai/view/01K2SVT06Y7V77V9SRSHCQ1GJ2",
+  "video_url": "https://cdn.fireflies.ai/01K2SVT06Y7V77V9SRSHCQ1GJ2/video.mp4?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzJTVlQwNlk3Vjc3VjlTUlNIQ1ExR0oyL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=olxQciNoNe~tZEgH3AszmYbjsJ5Ik4Ztg2Um0fak3iHwzI~YLofM-BOjwyWZXsAIXFrXhh3g22DVT~hs1YjkJDOAtmExx~3GVlmoiNAUQ-tkOmaNnFWg11IR5LEgT10YsCUJvEVtfipxLUIbS9HYgn8-OEh8mZsIFL56OrttrtuBdJJarP1ROdFobQDm-aD3mNcY6jXfdpz9sJhm7y2LeJf0ghYlGPB6vxqGKXz8wGMiPh2vLsmAUsa9vkyrwQi9s3NN3tTQookdhbTv6JnA3X-2x-eoZHSkWTYIW~qjJDYJ0xI9epi46ZGzNTJrTMgrkS8Jf-ft5Cv59AmxoOpB8g__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

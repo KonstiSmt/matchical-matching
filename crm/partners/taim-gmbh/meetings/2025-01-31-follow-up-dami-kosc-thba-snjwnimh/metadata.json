@@ -1,0 +1,80 @@
+{
+  "account_slug": "taim-gmbh",
+  "audio_url": "https://cdn.fireflies.ai/snjwnImHB0S67vFF/audio.mp3?Expires=1773265219&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpL3NuanduSW1IQjBTNjd2RkYvYXVkaW8ubXAzIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzczMjY1MjE5fX19XX0_&Signature=MLk5gO2U6bDJgOe1MIBW2pR5Ewna4EPdthwDQ3WSIHbkeYqZpIPPGzAxce-VSQL8PicBsFhvR4-W7wTsUwxgPoeNsnc0nhUWRo6z88hFvjCiUJMc6nN7q0GUJ1RepEYTBoKldCTZ3mAQW9WG6iZWG7BhesI9eQ3CQ0cJsXrDDN2Ypv4k9QmcgosdEMIlsZaTNZ7XljH0NsfHVpc25OTIXezmBdk50v2zNq2JaKB2S5~LOl5Htoh1YshLKdKtVI68fkSiY73Qx~3-fEZn4RrFfovxyLd4rEIXC8oPyCDEBVWPUf66HACfkp4aGKYH7OXvKcx7WJUG9Pt4dC~FSBFipQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "detected_domains": [
+    "matchical.com",
+    "taim-gmbh.de",
+    "wavestone.eu"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 13,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "thomas.bauer@wavestone.eu",
+  "local_imported_at": "2026-03-09T10:26:35Z",
+  "meeting_at": "2025-01-31T09:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-01-31T09:00:00.000Z",
+      "leave_time": "2025-01-31T09:15:38.661Z",
+      "name": "Konsti | matchical.com (Unverified)"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "thomas.bauer@wavestone.eu",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "daniel@taim-gmbh.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "snjwnImHB0S67vFF",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_Y2FiMWU5YWUtMjIyOS00MmUzLWE4M2YtOTJjNjI1Mzc1MTk0@thread.v2/0?context={\"Tid\":\"d9a88f1c-c7fe-4245-b405-8e572770ce7f\",\"Oid\":\"79b91bc4-5d6d-4c5b-8ddc-e0f1e2f618b3\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "thomas.bauer@wavestone.eu,daniel@taim-gmbh.de,konsti@matchical.com",
+    "daniel@taim-gmbh.de",
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "thomas.bauer@wavestone.eu",
+      "name": ""
+    },
+    {
+      "email": "daniel@taim-gmbh.de",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 12,
+  "title": "Follow-up DaMi|KoSc|ThBa",
+  "transcript_created_at": "2025-01-31T09:00:00Z",
+  "transcript_id": "snjwnImHB0S67vFF",
+  "transcript_url": "https://app.fireflies.ai/view/snjwnImHB0S67vFF",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "crm_bucket": "partners",
+  "route_reason": "manual_transcript_reclassification"
+}

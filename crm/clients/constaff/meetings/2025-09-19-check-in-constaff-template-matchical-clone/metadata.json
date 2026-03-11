@@ -1,0 +1,70 @@
+{
+  "account_slug": "constaff",
+  "audio_url": "https://cdn.fireflies.ai/01K5DQ20PY662GXHXKBVGBT7TR/audio.mp3?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzVEUTIwUFk2NjJHWEhYS0JWR0JUN1RSL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=oSBWNt7UmsYZ9VkE5YYisMEIORCOuyzbc60zAeqIUZF73Gy~dszSKetXtgiANW5A16BlomWOAF7TGiCgQ7RrQothAn74SjfUglbpctHz9yUkK2zsrcxECmTPeRx6NXZhxHHJTXMrKlsMjyjr0Q76bwEDiNqLyfc-cU6dq8V1oDLxmhcUz6tQQ7OgYDztlYylhPp4WCUy5FBEDf2PFWgz9zAqGKzVAssB3rdL92VY-Cczsj0xTdxWjkF-O1xaOOpiVh6mO2IzwUFuBkScsO6cypvWWQP7u82myOvUlmw1udH1iBBVKKMd-7fsVwCBEBZz~RjINl92xqmTMib6aBsLHg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 37.34000015258789,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:08:37Z",
+  "meeting_at": "2025-09-19T09:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-19T09:30:00.000Z",
+      "leave_time": "2025-09-19T10:07:45.543Z",
+      "name": "Felix Sprengling (Unverified)"
+    },
+    {
+      "join_time": "2025-09-19T09:30:00.000Z",
+      "leave_time": "2025-09-19T10:07:45.544Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-09-19T09:31:45.467Z",
+      "leave_time": "2025-09-19T10:07:45.544Z",
+      "name": "Max Müller (Unverified)"
+    },
+    {
+      "join_time": "2025-09-19T09:31:45.468Z",
+      "leave_time": "2025-09-19T10:07:45.544Z",
+      "name": "Niklas | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K5DQ20PY662GXHXKBVGBT7TR",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZjU2NTY2OTUtZjU3OC00MmM1LWE1YjYtYWJlMWQ5YWQ1YzA5@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 428,
+  "title": "Check in Constaff Template matchical (Clone)",
+  "transcript_created_at": "2025-09-19T09:30:00Z",
+  "transcript_id": "01K5DQ20PY662GXHXKBVGBT7TR",
+  "transcript_url": "https://app.fireflies.ai/view/01K5DQ20PY662GXHXKBVGBT7TR",
+  "video_url": "https://cdn.fireflies.ai/01K5DQ20PY662GXHXKBVGBT7TR/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzVEUTIwUFk2NjJHWEhYS0JWR0JUN1RSL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=I4VSOpq4vHb5uoNvuFc-jIOX96WPetJfvRV-FjqfjnsKQ-QvCHxsalMV6L3ePDPiwchoiQqUTPVmlcB89DhUa2gT3gfSKnvakWVaV9sZJyQ1ZbpHusVUFVN0pJl9uH9fRRGYADIE9eiolECjuiFYGu4PKkzzFKpsg~4FQ9GKM9M5kTbBZAqK0KnQTwo0qcYJwntT7Ru9cGk1muC~CTofhf2ILyTa1Z1C8ls5XZxeK9nfpBJphhVmMg5EmxWVx7zP4YcJe34WV~hC63WpCrDMIA57ykmYPPF5tvq0Lkn0D57q7l4iwzEAmYnoHrjFUEpkzxXKsjoJSXbXabnEvuf5oQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

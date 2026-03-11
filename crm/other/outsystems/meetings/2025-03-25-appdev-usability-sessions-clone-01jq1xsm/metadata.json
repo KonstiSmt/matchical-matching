@@ -1,0 +1,50 @@
+{
+  "account_slug": "outsystems",
+  "audio_url": "https://cdn.fireflies.ai/01JQ1XSM5EHSZ7DY2E6Y8WXSGY/audio.mp3?Expires=1773265216&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlExWFNNNUVIU1o3RFkyRTZZOFdYU0dZL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI2NTIxNn19fV19&Signature=cOiLuSFoU-nbjmU7DXQ8n4iYFPlM4NFvSg0iJzgKQGn6ra1pZYW7qc4qd24tH0VdCn2L0s4nGChi2LhXu2aTKNE3gSzwKqrCL32OLF6MJ7TyXqp-qRQsvoCKgocRKbCTMv89KvAGS-c~IABix0BgMtK0QKhKZVjWlDxva41zym3tK9bMGKJxbyOjKby2neqWvZXGH94kwArYFYb8d5nFzoCkNmqtpw8rzxkhfae58boMprd3VLiY9n1xqdlOLIJDvaVwm~31KeY2UfZ1uG5l9wzU51dTzRxijJguDk3~PAn6uNW6hCnAgr86yBwpjQEzd9dyAJQWOrvgJj6HkRET0w__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 48.779998779296875,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T10:24:28Z",
+  "meeting_at": "2025-03-25T14:00:00Z",
+  "meeting_attendance": [],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JQ1XSM5EHSZ7DY2E6Y8WXSGY",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://outsystems.zoom.us/j/91304124738?pwd=CNUa0Baw96Gi47ySY4ZFZviVs9zIZC.1",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 776,
+  "title": "AppDev - Usability Sessions (Clone)",
+  "transcript_created_at": "2025-03-25T14:00:00Z",
+  "transcript_id": "01JQ1XSM5EHSZ7DY2E6Y8WXSGY",
+  "transcript_url": "https://app.fireflies.ai/view/01JQ1XSM5EHSZ7DY2E6Y8WXSGY",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "crm_bucket": "other",
+  "route_reason": "manual_transcript_reclassification"
+}

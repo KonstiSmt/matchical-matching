@@ -1,0 +1,105 @@
+{
+  "account_slug": "cassini",
+  "audio_url": "https://cdn.fireflies.ai/01K17ZA57Z0JCXMV582PASB748/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzE3WkE1N1owSkNYTVY1ODJQQVNCNzQ4L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=yl5q2QjtlfKbEd8~UKVsHhkOqonDieKl7UOPf4pVcVJNrMbbTrs2NU6mI6LWGDxZEmmzW1GSw-HWlEKHNW3K7UC8aKqzYULrA56MvXW6wkq0Zg-JJvmWGL7Sq40rEWmmC5DBztJlaSS0JCaZWE7vkzSFGsmmQlxdbjzgC1qGPOfc7sRVeP-i4aLbktLJoz5QBDI6nLz27sNnCxDAk8MA9g~8I3BqtE201bOhB2dBAVLr9zkDpETEUh74s2zzSBcxUYDNjiGoSxdPWmPkzXV~FGNQ39I5VbGJNOmewY1qVlTQtMQPzfE7dXup7H5FlRYWmVzg3Wx9v~InCxHv0Ni-dw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "cassini.de",
+    "matchical.com"
+  ],
+  "dominant_domain": "cassini.de",
+  "duration_minutes": 42.15999984741211,
+  "fireflies_users": [
+    "konsti@matchical.com",
+    "tommy@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:12:05Z",
+  "meeting_at": "2025-07-28T11:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-28T11:30:00.000Z",
+      "leave_time": "2025-07-28T12:13:04.780Z",
+      "name": "Kaufmann, Stefanie"
+    },
+    {
+      "join_time": "2025-07-28T11:30:00.000Z",
+      "leave_time": "2025-07-28T12:13:04.781Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-07-28T11:30:00.000Z",
+      "leave_time": "2025-07-28T12:13:04.781Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-07-28T11:33:35.678Z",
+      "leave_time": "2025-07-28T12:13:04.781Z",
+      "name": "Reitzig, Leonie"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "stefanie.kaufmann@cassini.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "leonie.reitzig@cassini.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K17ZA57Z0JCXMV582PASB748",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_Njk2Y2MzMDMtYzkzMy00M2EyLWFkOTUtMmJiNjJjMTE2MWY2@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "stefanie.kaufmann@cassini.de,leonie.reitzig@cassini.de,tommy@matchical.com,konsti@matchical.com",
+    "stefanie.kaufmann@cassini.de",
+    "leonie.reitzig@cassini.de",
+    "tommy@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "stefanie.kaufmann@cassini.de",
+      "name": ""
+    },
+    {
+      "email": "leonie.reitzig@cassini.de",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 422,
+  "title": "Dataport matchical",
+  "transcript_created_at": "2025-07-28T11:30:00Z",
+  "transcript_id": "01K17ZA57Z0JCXMV582PASB748",
+  "transcript_url": "https://app.fireflies.ai/view/01K17ZA57Z0JCXMV582PASB748",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

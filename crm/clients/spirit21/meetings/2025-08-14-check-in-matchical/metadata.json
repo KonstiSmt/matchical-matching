@@ -1,0 +1,213 @@
+{
+  "account_slug": "spirit21",
+  "audio_url": "https://cdn.fireflies.ai/01K2CSZ30Z3H1NHG48YE3PT0BX/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzJDU1ozMFozSDFOSEc0OFlFM1BUMEJYL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=wJ7Bn1YdJFCKSr5lr3h1GMcsSKlRGqzRzwn9DL7fGLgz~PMO3boV54o7EC4Ry~-Mt~C5sC2RIpookOc8dplpfPjtDa07JNyx0r1sWpMUNJ7hPNE8Jp5VxFCQ-DaYgAJxK~Dh5lRqGsKxrV90W4J5DIw8zoX7RgOBV8oE5I2pDeD1l6~cHmmZXceZFSBhjoArHJVUS5hE7GOFpAT1WdzPH4tFLbA72Yvs2jP0syDO55w9o50iLVLIvkoAWtXutQRX2MWG6wE8YMdSnlJwKSOESp6HAgwKXrIiKWanrYKsYZNwaHX2NI1qbZHOlgrIQ8XF8mkwdVFHA1jNEWZ1aBJiUg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "spirit21.com"
+  ],
+  "dominant_domain": "spirit21.com",
+  "duration_minutes": 48.63999938964844,
+  "fireflies_users": [
+    "konsti@matchical.com",
+    "tommy@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:11:12Z",
+  "meeting_at": "2025-08-14T08:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-08-14T08:00:00.000Z",
+      "leave_time": "2025-08-14T08:49:38.319Z",
+      "name": "Heldmaier, Tobias"
+    },
+    {
+      "join_time": "2025-08-14T08:00:00.000Z",
+      "leave_time": "2025-08-14T08:49:38.320Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-08-14T08:00:00.000Z",
+      "leave_time": "2025-08-14T08:49:38.320Z",
+      "name": "Liller, Sabrina"
+    },
+    {
+      "join_time": "2025-08-14T08:00:00.000Z",
+      "leave_time": "2025-08-14T08:49:38.321Z",
+      "name": "Vollmer, Anne Sophia"
+    },
+    {
+      "join_time": "2025-08-14T08:01:46.951Z",
+      "leave_time": "2025-08-14T08:49:38.321Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": "jmueller@spirit21.com",
+      "email": "jmueller@spirit21.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "skamm@spirit21.com",
+      "email": "skamm@spirit21.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "avollmer@spirit21.com",
+      "email": "avollmer@spirit21.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Tommy | matchical.com",
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "mrevez@spirit21.com",
+      "email": "mrevez@spirit21.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "theldmaier@spirit21.com",
+      "email": "theldmaier@spirit21.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "sliller@spirit21.com",
+      "email": "sliller@spirit21.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "swoehler@spirit21.com",
+      "email": "swoehler@spirit21.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "nschrade@spirit21.com",
+      "email": "nschrade@spirit21.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K2CSZ30Z3H1NHG48YE3PT0BX",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZmNiODEzYjktZjQwYy00NDZiLWE3MjMtZDE0NjFkZWYwYmFi@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "jmueller@spirit21.com,skamm@spirit21.com,avollmer@spirit21.com,tommy@matchical.com,mrevez@spirit21.com,theldmaier@spirit21.com,sliller@spirit21.com,swoehler@spirit21.com,nschrade@spirit21.com,konsti@matchical.com",
+    "jmueller@spirit21.com",
+    "skamm@spirit21.com",
+    "avollmer@spirit21.com",
+    "tommy@matchical.com",
+    "mrevez@spirit21.com",
+    "theldmaier@spirit21.com",
+    "sliller@spirit21.com",
+    "swoehler@spirit21.com",
+    "nschrade@spirit21.com",
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "jmueller@spirit21.com",
+      "name": "jmueller@spirit21.com"
+    },
+    {
+      "email": "skamm@spirit21.com",
+      "name": "skamm@spirit21.com"
+    },
+    {
+      "email": "avollmer@spirit21.com",
+      "name": "avollmer@spirit21.com"
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "email": "mrevez@spirit21.com",
+      "name": "mrevez@spirit21.com"
+    },
+    {
+      "email": "theldmaier@spirit21.com",
+      "name": "theldmaier@spirit21.com"
+    },
+    {
+      "email": "sliller@spirit21.com",
+      "name": "sliller@spirit21.com"
+    },
+    {
+      "email": "swoehler@spirit21.com",
+      "name": "swoehler@spirit21.com"
+    },
+    {
+      "email": "nschrade@spirit21.com",
+      "name": "nschrade@spirit21.com"
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "jmueller@spirit21.com",
+      "name": ""
+    },
+    {
+      "email": "skamm@spirit21.com",
+      "name": ""
+    },
+    {
+      "email": "avollmer@spirit21.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "mrevez@spirit21.com",
+      "name": ""
+    },
+    {
+      "email": "theldmaier@spirit21.com",
+      "name": ""
+    },
+    {
+      "email": "sliller@spirit21.com",
+      "name": ""
+    },
+    {
+      "email": "swoehler@spirit21.com",
+      "name": ""
+    },
+    {
+      "email": "nschrade@spirit21.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 469,
+  "title": "Check in matchical",
+  "transcript_created_at": "2025-08-14T08:00:00Z",
+  "transcript_id": "01K2CSZ30Z3H1NHG48YE3PT0BX",
+  "transcript_url": "https://app.fireflies.ai/view/01K2CSZ30Z3H1NHG48YE3PT0BX",
+  "video_url": "https://cdn.fireflies.ai/01K2CSZ30Z3H1NHG48YE3PT0BX/video.mp4?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzJDU1ozMFozSDFOSEc0OFlFM1BUMEJYL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=wucsp-w7SYMsKAtzHDqPwq1eoLRga2q3A7cwKKnhro10XOb7SpMUc~8vV8bIGszXHxcc-lVCClTY3AC35SOV4dSZ-MRSsXr7Yip-FEdJ7UNTVR2uYQuXVH9WJ0WFvrSL-z4tk6RHzkk4Ezp9L~fZxScAIoq5B9uK-mQshoUboTfEUj3RtEnZULmQZ-TPXmLJ94U2o32aQphzsZyWKkTytjLtMiqQO-48OznyqU~oS1jOzkm458rHDk1QsbnqZz9N77BQS~DkWBguq~pjbK6VNP3oyxfXwGySv-Wbysl3MG3oFmjpKNHC-SL3Pysn0WGHhnkd4dh1IUZrSN0EgDaJFg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

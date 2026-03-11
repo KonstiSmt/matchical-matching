@@ -1,0 +1,783 @@
+[
+  {
+    "Entity": "CoOwner",
+    "Columns": [
+      {
+        "name": "consultancyuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "demandid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isowner",
+        "dataType": "numeric"
+      },
+      {
+        "name": "opportunityid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "projectid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "proposalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "rolecategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Company",
+    "Columns": [
+      {
+        "name": "additionalinformation",
+        "dataType": "text"
+      },
+      {
+        "name": "addressid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "creatorid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "detailsjson",
+        "dataType": "text"
+      },
+      {
+        "name": "employeecount",
+        "dataType": "integer"
+      },
+      {
+        "name": "externalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "industryid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isdeutschebahn",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isdeutschebahnverbatim",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isprocessing",
+        "dataType": "numeric"
+      },
+      {
+        "name": "issolocompany",
+        "dataType": "numeric"
+      },
+      {
+        "name": "lastdetailsupdate",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "legalform",
+        "dataType": "character varying"
+      },
+      {
+        "name": "linkedinurl",
+        "dataType": "character varying"
+      },
+      {
+        "name": "logosource",
+        "dataType": "character varying"
+      },
+      {
+        "name": "logourl",
+        "dataType": "character varying"
+      },
+      {
+        "name": "name",
+        "dataType": "character varying"
+      },
+      {
+        "name": "ownerid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "parentcompanyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "processingseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "pseudonymlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "remappedcompanyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "revenue",
+        "dataType": "numeric"
+      },
+      {
+        "name": "revenuecurrency",
+        "dataType": "character varying"
+      },
+      {
+        "name": "taxnumber",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "websiteurl",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Consultancy",
+    "Columns": [
+      {
+        "name": "apikey",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "emaildomain",
+        "dataType": "character varying"
+      },
+      {
+        "name": "generalcontactemail",
+        "dataType": "character varying"
+      },
+      {
+        "name": "hasexternalidp",
+        "dataType": "numeric"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "legalentityname",
+        "dataType": "character varying"
+      },
+      {
+        "name": "name",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "ConsultancyKeys",
+    "Columns": [
+      {
+        "name": "apikey",
+        "dataType": "character varying"
+      },
+      {
+        "name": "hubspotappid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "ConsultancyLanguages",
+    "Columns": [
+      {
+        "name": "consultancyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "languageid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "ConsultancySettingsEXT",
+    "Columns": [
+      {
+        "name": "admin_hascustomrolesactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "agencyautosendconsent",
+        "dataType": "numeric"
+      },
+      {
+        "name": "askforconsentagencycsl",
+        "dataType": "numeric"
+      },
+      {
+        "name": "askforconsentclientctc",
+        "dataType": "numeric"
+      },
+      {
+        "name": "askforconsentfreelancercsl",
+        "dataType": "numeric"
+      },
+      {
+        "name": "askforconsentpartnercsl",
+        "dataType": "numeric"
+      },
+      {
+        "name": "askforconsentpartnerctc",
+        "dataType": "numeric"
+      },
+      {
+        "name": "attribute1",
+        "dataType": "character varying"
+      },
+      {
+        "name": "emailconsentlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "firstreminderdaysdistance",
+        "dataType": "integer"
+      },
+      {
+        "name": "freelancerautosendconsent",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasactivelanguagesettings",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hascustomrolesactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasdepartmentsettings",
+        "dataType": "numeric"
+      },
+      {
+        "name": "haslegalentitysettings",
+        "dataType": "numeric"
+      },
+      {
+        "name": "haslocationsettings",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasseniortylvlsettings",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasssoasdefault",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasteamsettings",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasunitsettings",
+        "dataType": "numeric"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "infnoticeallowaiprocessing",
+        "dataType": "numeric"
+      },
+      {
+        "name": "infnoticeaskalways",
+        "dataType": "numeric"
+      },
+      {
+        "name": "infnoticeisonlyfornew",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isactiveconsentagencycsl",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isactiveconsentclientctc",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isactiveconsentfreelancercsl",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isactiveconsentpartnercsl",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isactiveconsentpartnerctc",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isactivedpagencycsl",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isactivedpclientctc",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isactivedpfreelancercsl",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isactivedppartnercsl",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isactivedppartnerctc",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isactiveinformationnotice",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isactivetenant",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isautodelete",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isautodeleteagencycsl",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isautodeleteclientctc",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isautodeletefreelancercsl",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isautodeletepartnercsl",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isautodeletepartnerctc",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isdataprivacyactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isdisablemanualinviteflow",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isexternalparsingactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isinternalparsingactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "ismasterdataactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "navconsultantdefaultinternal",
+        "dataType": "numeric"
+      },
+      {
+        "name": "noconsentretentionperiod",
+        "dataType": "integer"
+      },
+      {
+        "name": "partnerautosendconsent",
+        "dataType": "numeric"
+      },
+      {
+        "name": "refreshreminderperiod",
+        "dataType": "integer"
+      },
+      {
+        "name": "retentionperiodclient",
+        "dataType": "integer"
+      },
+      {
+        "name": "retentionperiodconsultant",
+        "dataType": "integer"
+      },
+      {
+        "name": "retentionperiodpartner",
+        "dataType": "integer"
+      },
+      {
+        "name": "secondreminderdaysdistance",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "thirdreminderdaysdistance",
+        "dataType": "integer"
+      },
+      {
+        "name": "usepartnercontactfallback",
+        "dataType": "numeric"
+      }
+    ]
+  },
+  {
+    "Entity": "ConsultancyUserClosure",
+    "Columns": [
+      {
+        "name": "ancestorid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "consultancyuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "depth",
+        "dataType": "integer"
+      },
+      {
+        "name": "descendantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "distance",
+        "dataType": "integer"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "leadconsultancyuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "ConsultancyUserRoles",
+    "Columns": [
+      {
+        "name": "consultancyuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "userroleid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Contact",
+    "Columns": [
+      {
+        "name": "companyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isinternaltemporary",
+        "dataType": "numeric"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Department",
+    "Columns": [
+      {
+        "name": "categoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "consultancyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "externalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isdefaultconsultant",
+        "dataType": "numeric"
+      },
+      {
+        "name": "leadconsultancyuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "OfficeLocation",
+    "Columns": [
+      {
+        "name": "addressid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "consultancyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "externalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isheadquarter",
+        "dataType": "numeric"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "UserInteraction",
+    "Columns": [
+      {
+        "name": "consultancyuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "duration",
+        "dataType": "bigint"
+      },
+      {
+        "name": "enddatetime",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "entity",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isfirst",
+        "dataType": "numeric"
+      },
+      {
+        "name": "objectid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "startdatetime",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "UserMasterData",
+    "Columns": [
+      {
+        "name": "addressid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "birthday",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "email",
+        "dataType": "character varying"
+      },
+      {
+        "name": "externalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "firstname",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "lastlogin",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "lastname",
+        "dataType": "character varying"
+      },
+      {
+        "name": "mobile",
+        "dataType": "character varying"
+      },
+      {
+        "name": "nationalityid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "photourl",
+        "dataType": "character varying"
+      },
+      {
+        "name": "photourlround",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "systemlanguageid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "titleid",
+        "dataType": "integer"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "userid",
+        "dataType": "character varying"
+      }
+    ]
+  }
+]

@@ -1,8 +1,8 @@
 /* GetConsultantMatchPreview : Advanced SQL (Aurora Postgres, ODC)
    Purpose: Preview query for consultant match cards.
 
-   This is the PREVIEW QUERY (Query 2). Called after GetMatchesByDemandId (Query 1).
-   Takes ConsultantIds from Query 1 and returns display data for preview cards.
+   This is the preview query. Called after GetMatchesByDemandId.
+   Takes ConsultantIds from GetMatchesByDemandId and returns display data for preview cards.
 
    Input: @ConsultantIds (comma-separated, Expand Inline), @DemandId, @TenantId, @SystemLanguage,
           @UseCustomRoles, @RoleSkillScoringModeId,
@@ -15,7 +15,7 @@
      TotalMatchingRequirements, TopMatchesJson, TopMatches
 
    NOTE: MatchingScore and PricePerformanceScore return 0 as placeholders.
-   These values are already calculated in Query 1 and should be mapped in the
+   These values are already calculated in GetMatchesByDemandId and should be mapped in the
    application layer after this query returns.
 */
 
@@ -492,10 +492,10 @@ SELECT
   /* 2) IsPinned - true if consultant is assigned to this demand */
   CASE WHEN demand_consultant.[Id] IS NOT NULL THEN 1 ELSE 0 END AS IsPinned,
 
-  /* 3) MatchingScore - placeholder, filled by app from Query 1 */
+  /* 3) MatchingScore - placeholder, filled by app from GetMatchesByDemandId */
   0 AS MatchingScore,
 
-  /* 4) PricePerformanceScore - placeholder, filled by app from Query 1 */
+  /* 4) PricePerformanceScore - placeholder, filled by app from GetMatchesByDemandId */
   0 AS PricePerformanceScore,
 
   /* 5) FirstName */
@@ -525,7 +525,7 @@ SELECT
   /* 12) EmploymentStatusLabelTranslationsJSON (internal consultants only, NULL for external) */
   employment_status.[LabelTranslationsJSON] AS EmploymentStatusLabelTranslationsJSON,
 
-  /* 13) TotalMatchingRequirements - placeholder, filled by app from Query 1 */
+  /* 13) TotalMatchingRequirements - placeholder, filled by app from GetMatchesByDemandId */
   0 AS TotalMatchingRequirements,
 
   /* 14) TopMatchesJson - JSON array of top matches (excludes Role and CustomRole categories)

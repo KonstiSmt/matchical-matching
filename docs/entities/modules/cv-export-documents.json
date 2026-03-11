@@ -1,0 +1,1074 @@
+[
+  {
+    "Entity": "Address",
+    "Columns": [
+      {
+        "name": "city",
+        "dataType": "character varying"
+      },
+      {
+        "name": "citylocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "country",
+        "dataType": "character varying"
+      },
+      {
+        "name": "countrylocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "postcode",
+        "dataType": "character varying"
+      },
+      {
+        "name": "street",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "CVExport",
+    "Columns": [
+      {
+        "name": "consultancyuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "consultantdatajson",
+        "dataType": "text"
+      },
+      {
+        "name": "consultantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "cvconfigurationjson",
+        "dataType": "text"
+      },
+      {
+        "name": "cvdatajson",
+        "dataType": "text"
+      },
+      {
+        "name": "cvtemplateid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "demandbasedcreationtriggered",
+        "dataType": "numeric"
+      },
+      {
+        "name": "demandid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "documentfileid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "excecsummaryhtmllocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isready",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isreadydemandexecsummary",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isreadydemandfocusareas",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isreadydemandreqjust",
+        "dataType": "numeric"
+      },
+      {
+        "name": "languageid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "musthavebulletkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "nicetohavebulletkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "pdfbase64",
+        "dataType": "text"
+      },
+      {
+        "name": "pdffileid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "processingseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "totalcost",
+        "dataType": "numeric"
+      },
+      {
+        "name": "wordbase64",
+        "dataType": "text"
+      }
+    ]
+  },
+  {
+    "Entity": "CVParser",
+    "Columns": [
+      {
+        "name": "additionalinformation",
+        "dataType": "text"
+      },
+      {
+        "name": "base64imagesjson",
+        "dataType": "text"
+      },
+      {
+        "name": "categoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "certificatesjson",
+        "dataType": "text"
+      },
+      {
+        "name": "certificatesseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "chunklistjson",
+        "dataType": "text"
+      },
+      {
+        "name": "chunksamount",
+        "dataType": "character varying"
+      },
+      {
+        "name": "compressedpdffileid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "consultantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "convertedimagesfilekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "convertertedengagements",
+        "dataType": "integer"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "creatorconsultancyuserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "currentchunknumber",
+        "dataType": "integer"
+      },
+      {
+        "name": "currentfaileddeduplications",
+        "dataType": "integer"
+      },
+      {
+        "name": "cvmarkdown",
+        "dataType": "text"
+      },
+      {
+        "name": "deduplicatedchunks",
+        "dataType": "integer"
+      },
+      {
+        "name": "deduplicationseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "delayinfosent",
+        "dataType": "numeric"
+      },
+      {
+        "name": "duplicatefilecvparserid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "educationjson",
+        "dataType": "text"
+      },
+      {
+        "name": "educationseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "engagementsamount",
+        "dataType": "integer"
+      },
+      {
+        "name": "engagementsextractionseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "engagementsjson",
+        "dataType": "text"
+      },
+      {
+        "name": "engagementslogjson",
+        "dataType": "text"
+      },
+      {
+        "name": "engagementspartsjson",
+        "dataType": "text"
+      },
+      {
+        "name": "extractedchunks",
+        "dataType": "integer"
+      },
+      {
+        "name": "extractedtext",
+        "dataType": "text"
+      },
+      {
+        "name": "failedchunkdeduplications",
+        "dataType": "integer"
+      },
+      {
+        "name": "failedchunkextractions",
+        "dataType": "integer"
+      },
+      {
+        "name": "file",
+        "dataType": "bytea"
+      },
+      {
+        "name": "fileid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "filename",
+        "dataType": "character varying"
+      },
+      {
+        "name": "finishedparsing",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "firstlayerengagementsjson",
+        "dataType": "text"
+      },
+      {
+        "name": "firstlayerverificationjson",
+        "dataType": "text"
+      },
+      {
+        "name": "generalskills",
+        "dataType": "text"
+      },
+      {
+        "name": "generalskillsseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "imageconversionseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "imageseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "isbitengdescreparsed",
+        "dataType": "numeric"
+      },
+      {
+        "name": "iscanceled",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isdeduplication",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isexternal",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isextractionfinished",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isfixed",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isfixednew",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isfreelancer",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isinitialparsing",
+        "dataType": "numeric"
+      },
+      {
+        "name": "ispendingduplicateconsultant",
+        "dataType": "numeric"
+      },
+      {
+        "name": "ispendingduplicatefile",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isqueued",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isready",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isreparsing",
+        "dataType": "numeric"
+      },
+      {
+        "name": "jobexperiencesjson",
+        "dataType": "text"
+      },
+      {
+        "name": "jobexperiencesseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "languagesjson",
+        "dataType": "text"
+      },
+      {
+        "name": "languagesseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "llamaclouddetailedseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "llamacloudjobid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "llamacloudprocessingseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "llamacloudseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "llamaparsedelayinfosent",
+        "dataType": "numeric"
+      },
+      {
+        "name": "llamaparsegpt4omode",
+        "dataType": "numeric"
+      },
+      {
+        "name": "llamaparseimagejobid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "llamaparsejobid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "llamaparsejobstempdataid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "metadataseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "pages",
+        "dataType": "integer"
+      },
+      {
+        "name": "processingseconds",
+        "dataType": "integer"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "totalchunksamount",
+        "dataType": "integer"
+      },
+      {
+        "name": "totalcost",
+        "dataType": "numeric"
+      },
+      {
+        "name": "totalfaileddeduplications",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "CVTemplate",
+    "Columns": [
+      {
+        "name": "basenumberheaderfocusarea",
+        "dataType": "integer"
+      },
+      {
+        "name": "basenumberindustryexpertise",
+        "dataType": "integer"
+      },
+      {
+        "name": "basenumberitcompetency",
+        "dataType": "integer"
+      },
+      {
+        "name": "basenumbernonitcompetency",
+        "dataType": "integer"
+      },
+      {
+        "name": "categoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "clientcompanyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "clientid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "consultancyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "cvtemplatecategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "defaultcontactemail",
+        "dataType": "character varying"
+      },
+      {
+        "name": "defaultsectionsorder",
+        "dataType": "character varying"
+      },
+      {
+        "name": "demandrequired",
+        "dataType": "numeric"
+      },
+      {
+        "name": "document",
+        "dataType": "bytea"
+      },
+      {
+        "name": "docxbase64",
+        "dataType": "text"
+      },
+      {
+        "name": "docxfile",
+        "dataType": "bytea"
+      },
+      {
+        "name": "exportfilenamedatepattern",
+        "dataType": "character varying"
+      },
+      {
+        "name": "exportfilenamepattern",
+        "dataType": "character varying"
+      },
+      {
+        "name": "filename",
+        "dataType": "character varying"
+      },
+      {
+        "name": "handle",
+        "dataType": "character varying"
+      },
+      {
+        "name": "hasadjustablesectionorder",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hascombinedsectioncompetency",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hascontactinformation",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasexecsummary",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasheaderallskills",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasheadercertificates",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasheadereducation",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasheaderexecsummary",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasheaderfocusarea",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasheaderindustry",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasheaderindustryexpertise",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasheaderitcompetencies",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasheaderjobexperience",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasheaderlanguages",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasheaderlongandshortfocusar",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasheadermotivation",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasheadernonitcompetencies",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasheaderrelevantengagements",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasheaderroleexperiences",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasheadertoprole",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasheadervisibilitytoggle",
+        "dataType": "numeric"
+      },
+      {
+        "name": "haslanguagelevel",
+        "dataType": "numeric"
+      },
+      {
+        "name": "haslongandshortfocusareatext",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasoptionimageformat",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasoptionshowlanguagelevel",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasoptionshowskilllevel",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasoptionskillsinengagements",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasoptshowskilllvlindustryex",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasoptshowskilllvlitcomp",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasoptshowskilllvlnonitcomp",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasrequirementlist",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasroundimage",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hassectioncertificates",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hassectioncontactinformation",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hassectioneducations",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hassectionfocusarea",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hassectionheadereducation",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hassectionindustryexpertises",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hassectionitcompetencies",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hassectionjobexperiences",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hassectionlanguages",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hassectionnonitcompetencies",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hassectionprofileimage",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hassectionprojectexperiences",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hassectionsmcompetencies",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hassectiontoprole",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hassenioritylevelforinternal",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasskilllevel",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasskilllvlindustryex",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasskilllvlitcomp",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasskilllvlnonitcomp",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hasskillsinengagement",
+        "dataType": "numeric"
+      },
+      {
+        "name": "hastoprole",
+        "dataType": "numeric"
+      },
+      {
+        "name": "headerdefaultsectionsorder",
+        "dataType": "character varying"
+      },
+      {
+        "name": "headhasoptshowroleexplvl",
+        "dataType": "numeric"
+      },
+      {
+        "name": "headhasoptshowskilllvlindust",
+        "dataType": "numeric"
+      },
+      {
+        "name": "headhasoptshowskilllvlitcomp",
+        "dataType": "numeric"
+      },
+      {
+        "name": "headhasoptshowskilllvlnonitc",
+        "dataType": "numeric"
+      },
+      {
+        "name": "headhasroleexperiencelevel",
+        "dataType": "numeric"
+      },
+      {
+        "name": "headhasskilllevelindustryex",
+        "dataType": "numeric"
+      },
+      {
+        "name": "headhasskilllvlitcomp",
+        "dataType": "numeric"
+      },
+      {
+        "name": "headhasskilllvlnonitcomp",
+        "dataType": "numeric"
+      },
+      {
+        "name": "headsectionlayoutmappingkey",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "islandscapeformat",
+        "dataType": "numeric"
+      },
+      {
+        "name": "ispptxformat",
+        "dataType": "numeric"
+      },
+      {
+        "name": "layoutmappingkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "name",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      },
+      {
+        "name": "projectexpdateformatcategory",
+        "dataType": "integer"
+      },
+      {
+        "name": "ratingmappingkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "requirementsmappingkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "skillsinengagementsdefault",
+        "dataType": "numeric"
+      },
+      {
+        "name": "stringreplacementsjson",
+        "dataType": "text"
+      },
+      {
+        "name": "templates3key",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "CVTemplateField",
+    "Columns": [
+      {
+        "name": "cvtemplateid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "defaultvalue",
+        "dataType": "character varying"
+      },
+      {
+        "name": "defaultvaluelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "dropdownmappingkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "fieldtypecategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "hasvisibilitytoggle",
+        "dataType": "numeric"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "keycategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "labellocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      },
+      {
+        "name": "sourcetypecategoryid",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "DocumentTemplate",
+    "Columns": [
+      {
+        "name": "categoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "consultancyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isroleclient",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isroleconsultant",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isrolepartner",
+        "dataType": "numeric"
+      },
+      {
+        "name": "lastupdatedby",
+        "dataType": "character varying"
+      },
+      {
+        "name": "localekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "textlonglocalehtmlkeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "version",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "File",
+    "Columns": [
+      {
+        "name": "autoorder",
+        "dataType": "bigint"
+      },
+      {
+        "name": "awsurl",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "customorder",
+        "dataType": "integer"
+      },
+      {
+        "name": "externalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "filebase64",
+        "dataType": "text"
+      },
+      {
+        "name": "filecontent",
+        "dataType": "bytea"
+      },
+      {
+        "name": "filecontenturl",
+        "dataType": "character varying"
+      },
+      {
+        "name": "filekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "filemimetype",
+        "dataType": "character varying"
+      },
+      {
+        "name": "filename",
+        "dataType": "character varying"
+      },
+      {
+        "name": "filesize",
+        "dataType": "character varying"
+      },
+      {
+        "name": "googleuri",
+        "dataType": "character varying"
+      },
+      {
+        "name": "hash",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isdefault",
+        "dataType": "numeric"
+      },
+      {
+        "name": "ispublic",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isroundimage",
+        "dataType": "numeric"
+      },
+      {
+        "name": "name",
+        "dataType": "character varying"
+      },
+      {
+        "name": "publicexpirationdatetime",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "s3key",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "FileKey",
+    "Columns": [
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  }
+]

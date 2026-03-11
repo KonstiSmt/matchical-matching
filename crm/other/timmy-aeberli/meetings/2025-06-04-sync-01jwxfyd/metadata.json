@@ -1,0 +1,78 @@
+{
+  "account_slug": "timmy-aeberli",
+  "audio_url": "https://cdn.fireflies.ai/01JWXFYDGTX85YFJQG68DBFZ8Z/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSldYRllER1RYODVZRkpRRzY4REJGWjhaL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=ymd4SjoLsccO0Ff2TnKPiHJtvU64NNcOZ-IxPQ8URAgM36m2C5UX3ZG2mugR3wm6gX2UW4jRpbLqx2I7m6fSgjv9-b47Uhv~MHOyI0o0yQ2HGyq0Na55xrT9zouQbM9w5Iw9zTJPmqTMld7tHGRWNfSE2LPpuPk60eSx5OHioGVlQM82~kWUjxy3aafvbX-2Oi7x3OBry7ARxrlYeZ3NIFOCzq3WeeGNCScEV~s0U~I0Drt1PwAwVFfg0XF5rSpZmGOtimF5ItTzDl8G3j3peDLfUzqLesYU5qNxe1Y3TKuQmIrc24Izi7SEWcoYhdW7ZPo86dkAFVVv8xi6vVablg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "operations",
+  "category_source": "keyword",
+  "crm_bucket": "other",
+  "detected_domains": [
+    "icloud.com",
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 60.33000183105469,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:41:22Z",
+  "meeting_at": "2025-06-04T17:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-04T17:00:00.000Z",
+      "leave_time": "2025-06-04T18:01:14.534Z",
+      "name": "Konstantin Schmitz"
+    },
+    {
+      "join_time": "2025-06-04T17:00:00.000Z",
+      "leave_time": "2025-06-04T17:54:16.211Z",
+      "name": "Vz627 Weiter"
+    },
+    {
+      "join_time": "2025-06-04T17:02:52.637Z",
+      "leave_time": null,
+      "name": "Pascal M."
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "timmy.aeberli@icloud.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JWXFYDGTX85YFJQG68DBFZ8Z",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://meet.google.com/eok-foja-qaz",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com,timmy.aeberli@icloud.com",
+    "timmy.aeberli@icloud.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "timmy.aeberli@icloud.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 764,
+  "title": "Sync",
+  "transcript_created_at": "2025-06-04T17:00:00Z",
+  "transcript_id": "01JWXFYDGTX85YFJQG68DBFZ8Z",
+  "transcript_url": "https://app.fireflies.ai/view/01JWXFYDGTX85YFJQG68DBFZ8Z",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_reclassification"
+}

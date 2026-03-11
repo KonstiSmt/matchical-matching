@@ -1,0 +1,71 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01JMCPRZQ9F2027Q3N08GWN9PN/audio.mp3?Expires=1773265219&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSk1DUFJaUTlGMjAyN1EzTjA4R1dOOVBOL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI2NTIxOX19fV19&Signature=MQDrkzIoJ0KwElhjfvQsMYpEFsHq23gyEQwtmh59V31v71iJ4s4cDdv93KAO36Wh~F7c8qv~nGWu24DM8aW3sBYY5y6xbzlVnRDdnWa1vXHK0j5Q0CkWsxWwn1h72NYudEcbXTvRR5a05nvF47M0a6DpSKtJB5H-YLTbHkb6giyiauw~TNRAVsF8IxSmGXa65xawqEpKshHGVa-Udqf0YeQkR4k1zG-qZAQHBQEc-ATUg7iObCsyNVm~jc5vjfqCuZpR9~rP8mP6n6Uq6QDphq45JLgWRukXYIgf2Btg2g-xZCjvAOVuaKYkmjiiMXx7SnNN9dRANuudDATjVf~mSw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 17,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T10:25:49Z",
+  "meeting_at": "2025-02-20T08:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-02-20T08:30:00.000Z",
+      "leave_time": "2025-02-20T08:47:38.576Z",
+      "name": "Bauer, Thomas (Unverified)"
+    },
+    {
+      "join_time": "2025-02-20T08:30:00.000Z",
+      "leave_time": "2025-02-20T08:47:38.577Z",
+      "name": "Chico | matchical.com"
+    },
+    {
+      "join_time": "2025-02-20T08:30:00.000Z",
+      "leave_time": "2025-02-20T08:47:38.577Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-02-20T08:30:00.000Z",
+      "leave_time": "2025-02-20T08:47:38.577Z",
+      "name": "Lucas | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JMCPRZQ9F2027Q3N08GWN9PN",
+  "meeting_kind": "internal",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NjI1MmE1YjAtZjgxYS00MTA1LWI1YTMtOGZkNzU0MzdjOGQz@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 253,
+  "title": "Daily (Clone)",
+  "transcript_created_at": "2025-02-20T08:30:00Z",
+  "transcript_id": "01JMCPRZQ9F2027Q3N08GWN9PN",
+  "transcript_url": "https://app.fireflies.ai/view/01JMCPRZQ9F2027Q3N08GWN9PN",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "crm_bucket": null,
+  "route_reason": "manual_title_rule_internal"
+}

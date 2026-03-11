@@ -1,0 +1,115 @@
+{
+  "account_slug": "soprasteria",
+  "audio_url": "https://cdn.fireflies.ai/01JTAVFTM517YT8EHED2FHD9ZJ/audio.mp3?Expires=1773290408&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlRBVkZUTTUxN1lUOEVIRUQyRkhEOVpKL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwOH19fV19&Signature=z369t6bZ8vDGyuJ02eUQjGrcEZ~ooPvP~HAP-fu~Zy4pAyiqXxYTZJjIwHX~HoxL22jXeMVMsd91t8tmYzJMqnZm~D0eVGJLX2Fc1QLudOlB39puer445IH~qTzIT7j7HxEC4Sqs3V2brJEFONSdw34yE-HYjmOx-ApDY2x4OfiEjm3qykbUf2~BbQtOBi3TjfynxQudE~lYY29rDfLc3G5R2T5vaCPEq93Q2JeOZ2MCLvw4nY6EbjxWDB3kZ7lUkF6QBjS3G4-Ypo9RN9KSAuSEVKAriDjwZUxRS7CHZt8JnjEKsJeR2Ddi8wOrcQeL42zwIQvDjythTCMcsXqqtQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "soprasteria.com"
+  ],
+  "dominant_domain": "soprasteria.com",
+  "duration_minutes": 77.29000091552734,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:42:19Z",
+  "meeting_at": "2025-05-05T08:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-05-05T08:30:00.000Z",
+      "leave_time": "2025-05-05T09:44:36.750Z",
+      "name": "KONITZ Sascha (Unverified)"
+    },
+    {
+      "join_time": "2025-05-05T08:31:06.722Z",
+      "leave_time": "2025-05-05T09:47:26.164Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-05-05T08:31:06.722Z",
+      "leave_time": "2025-05-05T09:44:55.347Z",
+      "name": "SCHMIDT Carina (Unverified)"
+    },
+    {
+      "join_time": "2025-05-05T08:31:06.722Z",
+      "leave_time": "2025-05-05T09:44:55.349Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "carina.schmidt@soprasteria.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "monique.bellisch@soprasteria.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "sascha.konitz@soprasteria.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JTAVFTM517YT8EHED2FHD9ZJ",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_OTZmOWIzOTYtNTM4OC00OTY5LWI4OTUtNDM0MzU5YTUxNDM1@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "carina.schmidt@soprasteria.com,monique.bellisch@soprasteria.com,sascha.konitz@soprasteria.com,tommy@matchical.com,konsti@matchical.com",
+    "carina.schmidt@soprasteria.com",
+    "monique.bellisch@soprasteria.com",
+    "sascha.konitz@soprasteria.com",
+    "tommy@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "carina.schmidt@soprasteria.com",
+      "name": ""
+    },
+    {
+      "email": "monique.bellisch@soprasteria.com",
+      "name": ""
+    },
+    {
+      "email": "sascha.konitz@soprasteria.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1046,
+  "title": "Onboarding matchical",
+  "transcript_created_at": "2025-05-05T08:30:00Z",
+  "transcript_id": "01JTAVFTM517YT8EHED2FHD9ZJ",
+  "transcript_url": "https://app.fireflies.ai/view/01JTAVFTM517YT8EHED2FHD9ZJ",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

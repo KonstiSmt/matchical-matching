@@ -1,0 +1,107 @@
+{
+  "account_slug": "spirit21",
+  "audio_url": "https://cdn.fireflies.ai/01K9AC0TTDPPKAA008AY1SVA9H/audio.mp3?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzlBQzBUVERQUEtBQTAwOEFZMVNWQTlIL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=xDOcWvzCvSBvyuRkPpG5MgTMS8Zdb~3YFGk5dOUBeK36EscDts0eu4~ITBodIADnWLiM2XV9frhLmW4dwM1YmOGv76mdSTC6gK8C6HOdx9FRwV~NTKGeleVOo-yMAhUWcO48XC9w~7H9hFeoK6qjCROxMvlyC~H2ljROoxEWYNb~hTrmcIXa1VF9zVLBtUmHyRcsvD5-Xbd7R0lPRWACxetjBzOoHDdLTrYuBjXpXXtsvVQ5xsrrYZQCfNNFKCADk-Ms3uwAMnvWu~xUDbitxF01OOXvM4OndU2cvROotu9WjfnO8HfRosu-NRm-Lbp2MWi1nPCp94EJ3n2w5~aWnw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "spirit21.com"
+  ],
+  "dominant_domain": "spirit21.com",
+  "duration_minutes": 58.86000061035156,
+  "fireflies_users": [
+    "tommy@matchical.com"
+  ],
+  "host_email": "avollmer@spirit21.com",
+  "local_imported_at": "2026-03-10T09:32:17Z",
+  "meeting_at": "2025-11-06T12:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-11-06T12:00:00.000Z",
+      "leave_time": "2025-11-06T12:58:59.394Z",
+      "name": "Ellinger, Mario"
+    },
+    {
+      "join_time": "2025-11-06T12:00:00.000Z",
+      "leave_time": "2025-11-06T12:58:17.413Z",
+      "name": "Vollmer, Anne Sophia"
+    },
+    {
+      "join_time": "2025-11-06T12:01:08.384Z",
+      "leave_time": "2025-11-06T12:58:59.394Z",
+      "name": "Doehl, Dennis"
+    },
+    {
+      "join_time": "2025-11-06T12:01:08.385Z",
+      "leave_time": "2025-11-06T12:58:59.394Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-11-06T12:01:08.385Z",
+      "leave_time": "2025-11-06T12:58:59.394Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "avollmer@spirit21.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "mellinger@spirit21.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "ddoehl@spirit21.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K9AC0TTDPPKAA008AY1SVA9H",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZDY3YzQ1OGUtOWJhMy00ZDliLTg4NGEtZjU5ZTRmYTM4NmI3@thread.v2/0?context={\"Tid\":\"253f6bf7-6d0e-458a-b500-4aa22a9ec738\",\"Oid\":\"6cbd40b0-bec9-4706-9bf2-f3594ad6b2b8\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "avollmer@spirit21.com,konsti@matchical.com,mellinger@spirit21.com,ddoehl@spirit21.com",
+    "konsti@matchical.com",
+    "mellinger@spirit21.com",
+    "ddoehl@spirit21.com"
+  ],
+  "participants": [
+    {
+      "email": "avollmer@spirit21.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "mellinger@spirit21.com",
+      "name": ""
+    },
+    {
+      "email": "ddoehl@spirit21.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 626,
+  "title": "Aktueller Bedarf Parsing und Matching",
+  "transcript_created_at": "2025-11-06T12:00:00Z",
+  "transcript_id": "01K9AC0TTDPPKAA008AY1SVA9H",
+  "transcript_url": "https://app.fireflies.ai/view/01K9AC0TTDPPKAA008AY1SVA9H",
+  "video_url": "https://cdn.fireflies.ai/01K9AC0TTDPPKAA008AY1SVA9H/video.mp4?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzlBQzBUVERQUEtBQTAwOEFZMVNWQTlIL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=kMJvJymXcRxWakwQR2YyYTcqOTS9ObeEW~n0r9dAQwar~1w4BKZvoMpkre~iM~1ysIsYOgiqt5uOgfJGN4qqRn6dfQ76KAisTQltEtNJTrBcmCMhmAfPaeipSdzvsQ1~jnhlTUzs4k9EeR~c3w8J1gOe-A5n76arWJle5lTz94~C4oTNbscNIZTvzj~Yzv4M7LzQ9H95mV6Dfrpa03hzHH7ci0dBGd0hDmPTawS3E41~CfHwieK~4lzCDZar0CmiL9J~anbngJEZtktQzSsJscr7XzmQyIuVJZJ523kQFwj6TD2Jn~z3eC-GUsiNZszYTnIgUloOsS9l0WTfRgZsOA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": []
+}

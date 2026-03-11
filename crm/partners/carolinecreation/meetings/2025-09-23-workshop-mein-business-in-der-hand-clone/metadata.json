@@ -1,0 +1,66 @@
+{
+  "account_slug": "carolinecreation",
+  "audio_url": "https://cdn.fireflies.ai/01K5RH0X4GQBAQN171GTFH9VCJ/audio.mp3?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzVSSDBYNEdRQkFRTjE3MUdURkg5VkNKL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=Ba330HhDHKNfgN9aTyaA~xnZY0kkAsneokAjW93VRfINaAgW5PqKyXoavSAp~aaFVNoEObC0tNCwamuj6jVQLP0jDEn17x7pPsM0E2b52L9waU-AwBEyaNv2YUU4XtGZfv2J3-RzQAWNfS3iOBpMc2634DCHVaPcfdGZo6CINkogssRkag~Ph~dH9U820llivAemTGuCGq-LVHaBJnz-qkQZMd3QlLJ60sk8M5tcJR4YY1F8nsPfGb2u7cz3XnMXKwfNpbAbVLF-V~19jzj8zkoS-JItGwURcH8VpXoDhIhKTXFrsJpScKOv3d~ReCvIzHthTp6uU3ynDItUvh5NPA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "partners",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 74.04000091552734,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:08:16Z",
+  "meeting_at": "2025-09-23T14:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-09-23T14:00:00.000Z",
+      "leave_time": "2025-09-23T15:15:59.369Z",
+      "name": "Caroline Schmitz"
+    },
+    {
+      "join_time": "2025-09-23T14:00:00.000Z",
+      "leave_time": "2025-09-23T15:07:28.388Z",
+      "name": "Konstantin Schmitz"
+    },
+    {
+      "join_time": "2025-09-23T14:00:00.000Z",
+      "leave_time": "2025-09-23T15:15:59.369Z",
+      "name": "Manuel Vogler"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K5RH0X4GQBAQN171GTFH9VCJ",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://meet.google.com/cst-vwyq-gto",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 752,
+  "title": "Workshop - Mein Business in der Hand (Clone)",
+  "transcript_created_at": "2025-09-23T14:00:00Z",
+  "transcript_id": "01K5RH0X4GQBAQN171GTFH9VCJ",
+  "transcript_url": "https://app.fireflies.ai/view/01K5RH0X4GQBAQN171GTFH9VCJ",
+  "video_url": "https://cdn.fireflies.ai/01K5RH0X4GQBAQN171GTFH9VCJ/video.mp4?Expires=1773292070&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzVSSDBYNEdRQkFRTjE3MUdURkg5VkNKL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3MH19fV19&Signature=Keuohc24BLgpgybqPCL0~0KCC~YnxareG75A7UGZHV~9bxmjpYL29VCd~QBded3MFJnoSIE~Dr8~LhVEvnYqrK7ifrXyxkKeLQJHs1c~CKZoeiFW9f0rRh0Zc~31OJk9Dh00YM5prGi9kOMIbrwSmjWqDOGBdixPxILK-jyoGBHbPQ2xfKFJl7n52DxgXJQb7joN7x~ELuP7k5H6akt7bzqaKmMS8ZSMwgAI3tXzd~6yaYm~ANN~Ge2DjeXSqTPaHQgOJ7lsuze89YbLCa6MOkKTmUHaMkNmLLg9is0tNX~PYBPKew5kAEfoBfKRFqkdXCaqujALL0rgpUzyYLSUHA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_reclassification_from_inbox"
+}

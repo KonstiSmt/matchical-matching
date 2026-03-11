@@ -1,0 +1,104 @@
+{
+  "account_slug": "andagon",
+  "audio_url": "https://cdn.fireflies.ai/01JXSJJ7D7GVRVP2WJD4JJKJ4A/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlhTSko3RDdHVlJWUDJXSkQ0SkpLSjRBL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=c1T3KYOKFdS3UP7KVipmbYtEJp-27UNAYXwT~UQRgOlIRw3kTV6fDd6XDgRzrmeWTZci329ECVNKPXuZRYUxocgTtYYPn2c5ETkgnPHOKkc5sDgK9II7RdXvpDM8ncj5Bom-ppOnknGW0PfVGInNYUr7sREWh7W3qD0oGsksB24dFvTgtAaZ9sraHov1uCG52FrxdJkhGkmMR1dSuMgrxoDSKEgDG2cMIyGwRIphQr6RVl1ll~~QCaDAiGZ0yZf0GtgeiUkdfCypMjrwAM6Z5A8MKYOuTdkRiaXRfZftrXCOSzUWLNcioj6VjOoKJI3xJb-bZ66GU~~W0RVwYptbdA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "andagon.com",
+    "matchical.com"
+  ],
+  "dominant_domain": "andagon.com",
+  "duration_minutes": 60.7400016784668,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "tommy@matchical.com",
+  "local_imported_at": "2026-03-09T16:40:59Z",
+  "meeting_at": "2025-06-17T07:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-17T07:00:00.000Z",
+      "leave_time": "2025-06-17T08:00:57.616Z",
+      "name": "Guy-Dominic Gorek"
+    },
+    {
+      "join_time": "2025-06-17T07:00:00.000Z",
+      "leave_time": "2025-06-17T08:00:57.617Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-06-17T07:00:00.000Z",
+      "leave_time": "2025-06-17T08:00:57.617Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-06-17T07:00:58.044Z",
+      "leave_time": "2025-06-17T08:00:57.617Z",
+      "name": "Karyna Offermanns"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "g.gorek@andagon.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "k.offermanns@andagon.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JXSJJ7D7GVRVP2WJD4JJKJ4A",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NjEwZTAzZTEtNTBhMy00MTZlLTllNWQtZjM5NTk1MzExMGQ1@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "tommy@matchical.com,g.gorek@andagon.com,k.offermanns@andagon.com,konsti@matchical.com",
+    "g.gorek@andagon.com",
+    "k.offermanns@andagon.com",
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "g.gorek@andagon.com",
+      "name": ""
+    },
+    {
+      "email": "k.offermanns@andagon.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 555,
+  "title": "Andagon meets matchical",
+  "transcript_created_at": "2025-06-17T07:00:00Z",
+  "transcript_id": "01JXSJJ7D7GVRVP2WJD4JJKJ4A",
+  "transcript_url": "https://app.fireflies.ai/view/01JXSJJ7D7GVRVP2WJD4JJKJ4A",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

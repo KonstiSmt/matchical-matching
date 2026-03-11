@@ -1,0 +1,61 @@
+{
+  "account_slug": "spirit21",
+  "audio_url": "https://cdn.fireflies.ai/01KFE6A6EG6ETVAQB58Q9BS3HG/audio.mp3?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0ZFNkE2RUc2RVRWQVFCNThROUJTM0hHL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=Es37p0fuR7ScH9Y3qu52D7uuAZKlS547YUTTF34BO8qzPEER~L7iv~4CBBaVscfshfDH-zeerSn31RAUJVAUJXDTMWCkhHH79pjVBrZFJPiUKMdcQlQflIx3O6XuXao5xVURgWYngqdbve-HAaipSJqnKt64-9JWYdr6gz9nH2hzLPel3radX6MTMARvLBwPWxgkzZwOhZU3XkG4qprABD306arOGyLmURjT4bxBD4USG3dsTjNSgn304niWurhSHk-DRMDUHiwQJ3JyI96EY~-8Y-ppygJi4fJ-z5z80fwpbeRIjnxv0DRagFKZY223Da0Eo5CdMcd-7vSeGr6NTA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 21.829999923706055,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:52:08Z",
+  "meeting_at": "2026-01-22T09:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-01-22T09:30:00.000Z",
+      "leave_time": "2026-01-22T09:51:30.576Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2026-01-22T09:30:00.000Z",
+      "leave_time": "2026-01-22T09:51:30.577Z",
+      "name": "Weiss, Andreas"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KFE6A6EG6ETVAQB58Q9BS3HG",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_OTcyMjE4NzAtMjZkZi00MDM0LTk1N2YtMDM5NjA3NTU1Yjlm@thread.v2/0?context={\"Tid\":\"253f6bf7-6d0e-458a-b500-4aa22a9ec738\",\"Oid\":\"a1b33282-6dd5-4963-a07f-47a490af8cf2\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 175,
+  "title": "Einkaufsverhandlung Matchical - SPIRIT/21 (Clone)",
+  "transcript_created_at": "2026-01-22T09:30:00Z",
+  "transcript_id": "01KFE6A6EG6ETVAQB58Q9BS3HG",
+  "transcript_url": "https://app.fireflies.ai/view/01KFE6A6EG6ETVAQB58Q9BS3HG",
+  "video_url": "https://cdn.fireflies.ai/01KFE6A6EG6ETVAQB58Q9BS3HG/video.mp4?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0ZFNkE2RUc2RVRWQVFCNThROUJTM0hHL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=b0JUb3h6oT4kvw2307LHwUj2xmELrjvhtHJYMrRDw6wh45~KzpoOnwuXANP7o7l3vFeP6orQKteJePvFb6Mnpa~mCWJcqBc-jMwyq9YL8RBrNIMI2oluAzQ3ioVrXo~X8NsQobtQZ-dwywAmfrFWSMX3EMUZhP-j2wWy69L1EL9u3ovYl0LjANWuJpnEbC3IcESHrP6SRBh-FU~AjGnHkqRLLruDrsS4SyPjf83lDx0Z4MxW9~FUySfd1CL8Nw-X9THY9sZfePjs6mp2GbPzIYOZlLoXpyTjd52wOXNQXut7VBhooZ9t9rsLJKU1k-TJhWRcBJLv9VOlEVMKcx~Dgg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_based_reclassification"
+}

@@ -48,6 +48,7 @@ Do NOT use `STRING_TO_ARRAY` or `UNNEST`. It's already expanded SQL.
 
 - Apply tenant filtering once on the query root entity.
 - Do not repeat tenant filters on downstream joins unless a specific use case explicitly requires it.
+- If current and affected ConsultancyUser records are already tenant-scoped, do not re-check TenantId on downstream joins such as ConsultancyUserRoles, UserRole, UserRolePermissions, or ConsultancyUserClosure.
 
 ---
 
@@ -61,6 +62,10 @@ Do NOT use `STRING_TO_ARRAY` or `UNNEST`. It's already expanded SQL.
 | `c` | `consultant` |
 | `d` | `demand` |
 | `e` | `experience` |
+
+**Reserved keyword aliases are forbidden:**
+- Do not use SQL reserved keywords as table/CTE aliases (for example `current_user`, `current_role`, `current_date`, `current_time`, `current_timestamp`, `current_schema`, `current_path`).
+- Use neutral aliases like `<entity>_ctx`, `<entity>_scope`, or full descriptive names.
 
 **Output columns:** Never use plain `Id`. Use `ConsultantId`, `DemandId`, etc.
 
@@ -105,6 +110,14 @@ LEFT JOIN {LocaleDict} name_locale
   ON name_locale.[LocaleKeyId] = {Entity}.[NameLocaleKeyId]
   AND name_locale.[LanguageId] = @SystemLanguage
 ```
+
+---
+
+## Frontend Database Access
+
+- Frontend DB access / DBAccess / RunSelect queries use `@Entity.attribute` syntax, not OutSystems Advanced SQL `{Entity}.[Attribute]`.
+- Keep reusable frontend DB access syntax and limitation notes in `queries/docs/frontend-database-access.md`.
+- Do not store one-off frontend DB access inspection queries in the repository unless the user explicitly asks for a reusable documented example.
 
 ---
 

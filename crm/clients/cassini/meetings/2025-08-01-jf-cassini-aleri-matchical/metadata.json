@@ -1,0 +1,107 @@
+{
+  "account_slug": "cassini",
+  "audio_url": "https://cdn.fireflies.ai/01K1DEF3NXXEGX1JZB60M3TGKP/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzFERUYzTlhYRUdYMUpaQjYwTTNUR0tQL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=OVwbHfqYDSjTELhsPj7Sw1qOkMBIxf-sjSNBeu7vXHr2e352tYElrfn4vCzHank03XyChHVLkgrg04OJCC9zcCFHnlX-GmuFPb2j6MVqPja3wW3qPDOPQmdo6qAJ4XeMSAF0-VGkdOfXm0v4XX4lJd18nZi4D7rdc1g-dUklzbnZ6l8qxpXHC9Aya4UEzIux2xSBjlJIwkMnHiIVAx4crXMfm2ojmcbh7lZNjgNfVv6bEwncD4ppYINUbbkiV~tqR94bGx3NdvzneWoNmmSBwF7qLs8Bsn3V5XLXvju1Flba1evPprmVP3ERV2AKBZadXv9DvtstWyGOd10aADbYIg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "aleri.de",
+    "cassini.de",
+    "matchical.com"
+  ],
+  "dominant_domain": "aleri.de",
+  "duration_minutes": 10.5,
+  "fireflies_users": [
+    "konsti@matchical.com",
+    "tommy@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:11:56Z",
+  "meeting_at": "2025-08-01T08:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-08-01T08:00:00.000Z",
+      "leave_time": "2025-08-01T08:09:23.727Z",
+      "name": "Iwanowski, Marcus"
+    },
+    {
+      "join_time": "2025-08-01T08:00:00.000Z",
+      "leave_time": "2025-08-01T08:09:23.728Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "marcus.iwanowski@aleri.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "jochen.gilles@cassini.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "ferras.al-kadi@aleri.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K1DEF3NXXEGX1JZB60M3TGKP",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NjdmNjE4MWEtMzI5Yy00NjU0LTkzMmUtNzFkOTMyMzIxYTIz@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com,marcus.iwanowski@aleri.de,jochen.gilles@cassini.de,ferras.al-kadi@aleri.de,tommy@matchical.com",
+    "marcus.iwanowski@aleri.de",
+    "jochen.gilles@cassini.de",
+    "ferras.al-kadi@aleri.de",
+    "tommy@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "marcus.iwanowski@aleri.de",
+      "name": ""
+    },
+    {
+      "email": "jochen.gilles@cassini.de",
+      "name": ""
+    },
+    {
+      "email": "ferras.al-kadi@aleri.de",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 109,
+  "title": "JF Cassini/Aleri - matchical",
+  "transcript_created_at": "2025-08-01T08:00:00Z",
+  "transcript_id": "01K1DEF3NXXEGX1JZB60M3TGKP",
+  "transcript_url": "https://app.fireflies.ai/view/01K1DEF3NXXEGX1JZB60M3TGKP",
+  "video_url": "https://cdn.fireflies.ai/01K1DEF3NXXEGX1JZB60M3TGKP/video.mp4?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzFERUYzTlhYRUdYMUpaQjYwTTNUR0tQL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=nxipYhxCrTObX7~n2Ap8D~i59z4nkrmy2nKA2skqforFBK4JHma8Uvd8cuQZhd~49eUoRAIUHZbdd5fu4GRwXchBpeD6SUUftXguRnLbMHyWkNHUtbrUFd1Fmbk54bcq9hZT4Ix0HA2OpL9OItUsIV3Jax1GiN~SzDj7ZiCLMOaHY~DuSUm3ttuM4OXRZPyAdzP4VN~auE64HElu-UP08HKNGsIiZm~wTuAFc2Zt1hgVcRdPKBpiAnmXZzPK7tTLPj7fQFROu~0y-lJhhO1OCIFFtQXEvueZnWJ~teT7hBJDKtuvQpsY5IZ9uVGkTCun8njo-mXKfYVbBM7We-zFrg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

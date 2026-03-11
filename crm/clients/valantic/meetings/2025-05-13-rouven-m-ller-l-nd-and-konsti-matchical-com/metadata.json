@@ -1,0 +1,99 @@
+{
+  "account_slug": "valantic",
+  "audio_url": "https://cdn.fireflies.ai/01JV2E1SN8YXJS2JTYDVD92W4N/audio.mp3?Expires=1773290408&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlYyRTFTTjhZWEpTMkpUWURWRDkyVzROL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwOH19fV19&Signature=j8hO0GvWDn2bGOycXnK1nmuJfnQT-QVxHxzDHvHQpgwTE0qWweM4MumaNZlHL-klvyJiw6C3b~Uk-pEq-4yM4dkUs3QIfswzMgIQmNrYU-xuSFO8E4UvFpmehEcSTXSD3jnxy4OjrOfkAPGAVWxsyFoyH3CDd4g~BFldDBZ~c5vNvOKdXHTtC4pCxY55t~uKNCorg642tfFtgFahu9Q2cdZ9j9O-wwPq36xipoHFOq6VenaAc3uVRomH4nBloZhh3jF41cHbx6SOXuGqd9rGUHkblORna4~3Im8~zC4Hk0arvYEMssQ4v-MywvdS3hq-BD2v7xxQ9OryVkf1pivQLg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "ion2s.com",
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 50.90999984741211,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:42:03Z",
+  "meeting_at": "2025-05-13T10:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-05-13T10:00:00.000Z",
+      "leave_time": "2025-05-13T10:10:48.333Z",
+      "name": "Rouven Müller-Lüönd (Unverified)"
+    },
+    {
+      "join_time": "2025-05-13T10:10:48.333Z",
+      "leave_time": "2025-05-13T10:50:59.845Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-05-13T10:10:48.333Z",
+      "leave_time": "2025-05-13T10:50:59.846Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "florian.kasper@ion2s.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "rml@ion2s.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JV2E1SN8YXJS2JTYDVD92W4N",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MjVlNmMyZGMtNTlhNS00ZWQxLThkNjMtMWUwNzk0M2IxZmE3@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "florian.kasper@ion2s.com,rml@ion2s.com,tommy@matchical.com,konsti@matchical.com",
+    "florian.kasper@ion2s.com",
+    "rml@ion2s.com",
+    "tommy@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "florian.kasper@ion2s.com",
+      "name": ""
+    },
+    {
+      "email": "rml@ion2s.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 519,
+  "title": "Rouven Müller-Lüönd and Konsti | matchical.com",
+  "transcript_created_at": "2025-05-13T10:00:00Z",
+  "transcript_id": "01JV2E1SN8YXJS2JTYDVD92W4N",
+  "transcript_url": "https://app.fireflies.ai/view/01JV2E1SN8YXJS2JTYDVD92W4N",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

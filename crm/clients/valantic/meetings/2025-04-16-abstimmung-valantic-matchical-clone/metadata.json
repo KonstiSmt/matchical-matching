@@ -1,0 +1,85 @@
+{
+  "account_slug": "valantic",
+  "audio_url": "https://cdn.fireflies.ai/01JRSSGT5H12ZNMKK3XPY0SHTV/audio.mp3?Expires=1773290408&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlJTU0dUNUgxMlpOTUtLM1hQWTBTSFRWL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwOH19fV19&Signature=KXFoSV0v2jjNqTYcWO0JbRIBa-NSzDCPZAd3ICIBq5vxkAl7jr3RsaJFCun7nWK6Tv8krw9a5-L80~PtTd3mSwpp7yCem5eDHnXY3KRpSputaj-ICEzNxnmJYKPiicyJ1KMtY-~dWTjDnJ~dX4uDHXf~-UEm-pY~xxiQppdmRmSyvlP5S~uD8WPERSBgdWrJbmrZwo~7YKebB2WCsq1SJ04aUKAz739QD7j7K-Elg9jZM69hfEE7jMo4zVsMk4PA4TJ4pxj06O5FIc31CsQfZ6ZItBKls5byuqONYqGVNxVV3VML6d4gLfl-WZN81rdvRA4Q5E3m8A3XHOyEinFpUw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 47.720001220703125,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:42:32Z",
+  "meeting_at": "2025-04-16T08:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-04-16T08:00:00.000Z",
+      "leave_time": "2025-04-16T08:48:10.283Z",
+      "name": "Felix Freudenstein (Unverified)"
+    },
+    {
+      "join_time": "2025-04-16T08:00:00.000Z",
+      "leave_time": "2025-04-16T08:48:34.501Z",
+      "name": "Shahla Mietasch (Unverified)"
+    },
+    {
+      "join_time": "2025-04-16T08:01:38.351Z",
+      "leave_time": "2025-04-16T08:48:10.284Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-04-16T08:01:38.352Z",
+      "leave_time": "2025-04-16T08:48:10.284Z",
+      "name": "Niklas | matchical.com"
+    },
+    {
+      "join_time": "2025-04-16T08:01:38.352Z",
+      "leave_time": "2025-04-16T08:48:10.284Z",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "join_time": "2025-04-16T08:01:40.916Z",
+      "leave_time": "2025-04-16T08:48:34.499Z",
+      "name": "Daniel Mietasch (Unverified)"
+    },
+    {
+      "join_time": "2025-04-16T08:03:16.363Z",
+      "leave_time": "2025-04-16T08:48:10.282Z",
+      "name": "Alexander Scherdin (Unverified)"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JRSSGT5H12ZNMKK3XPY0SHTV",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_NmU0NmMyZDktZjViNy00MTc0LTgwMDEtODRkZmFmNDJhZDli@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 495,
+  "title": "Abstimmung valantic <> matchical (Clone)",
+  "transcript_created_at": "2025-04-16T08:00:00Z",
+  "transcript_id": "01JRSSGT5H12ZNMKK3XPY0SHTV",
+  "transcript_url": "https://app.fireflies.ai/view/01JRSSGT5H12ZNMKK3XPY0SHTV",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

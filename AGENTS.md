@@ -44,6 +44,17 @@ Repository includes development artifacts for Matchical: queries, prompts, mocku
 - Do not add one-off task instructions to AGENTS files.
 - Keep new rules short, testable, and non-duplicative.
 - If a new rule conflicts with an existing rule, ask for clarification before changing AGENTS files.
+- For Fireflies meeting imports that cannot be confidently classified, ask the user for the destination first during interactive work; if no guidance is available, place the meeting under `crm/inbox/meetings/`.
+- In `crm/`, keep `clients/` for both active clients and potential clients, `partners/` for partner relationships, and `other/` for non-client/non-partner entities.
+- For Fireflies CRM imports, collapse obvious alias or domain variants into the canonical existing CRM entity instead of creating near-duplicate folders.
+- For Fireflies CRM imports, base classification on transcript evidence as well as metadata; do not rely on attendee emails alone when attendance names or transcript text provide stronger routing evidence.
+- For Fireflies CRM imports, treat `Management board`, `Daily`, and `Dev check in` as internal by default unless the transcript clearly shows a different external destination.
+- For Fireflies CRM imports, treat `Konsti | matchical.com`, `Tommy | matchical.com`, `Niklas | matchical.com`, `Bauer, Thomas`, `Carlos | matchical.com`, and `Chico | matchical.com` as internal participant signals.
+- For Fireflies CRM imports, route `Jourfix - SIP_ProfileMap_Esra` and `Jourfix Matchical/SIP` to `crm/clients/wavestone/`.
+- For Fireflies inbox triage and transcript analysis, prioritize client-facing meetings before partner, other, or internal meetings.
+
+## Entity Schema Updates
+- For user-provided entity JSON updates, refresh `docs/entities/` manually (AI-assisted) and do not add automatic reorganization scripts for this workflow.
 
 ## Entity Schema Updates
 - For user-provided entity JSON updates, refresh `docs/entities/` manually (AI-assisted) and do not add automatic reorganization scripts for this workflow.

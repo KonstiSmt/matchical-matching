@@ -1,0 +1,61 @@
+{
+  "account_slug": "christa-kie",
+  "audio_url": "https://cdn.fireflies.ai/01K7H60RT85PXBTZYME92AP4D7/audio.mp3?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzdINjBSVDg1UFhCVFpZTUU5MkFQNEQ3L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=N2TqOBKm5ATOhE7r0GxzgT-3EBp-POVlcqNfaezn5FXapMHM1FI8PKm4Lx3rHaqVeqp3L7HptyDincGMyLHRy5VcrcD-iVwfuLqk7coGNUVnw0fRUrO5i0491t1GqTrQrOvPU~It7ojUYfkEmZZQOZGyahGMJWVoE5PFir8HMj1LHMW8HIL5znfDga-WmF2Zj68pxAcPU07l1pBn0ZYnqUmbn15xytgM~K58zI19iUcJaL1gXJEiqAfln5pVw4k1n3jZZkhT-914zOfLy8PQJtWxfof2qgAfJccKjhh4oOqJGHs4VNbO2il-DATpcZx7zZH843Crk1QgWlhzM5dqvg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "other",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 68.94000244140625,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T09:33:49Z",
+  "meeting_at": "2025-10-15T09:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-10-15T09:30:00.000Z",
+      "leave_time": "2025-10-15T10:39:08.418Z",
+      "name": "Christa Kie"
+    },
+    {
+      "join_time": "2025-10-15T09:30:51.237Z",
+      "leave_time": "2025-10-15T10:39:08.419Z",
+      "name": "Konstantin Schmitz"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K7H60RT85PXBTZYME92AP4D7",
+  "meeting_kind": "other",
+  "meeting_link": "https://meet.google.com/utt-iaom-niw",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 855,
+  "title": "30 Min Meeting between Christa Kie and Konsti (Clone)",
+  "transcript_created_at": "2025-10-15T09:30:00Z",
+  "transcript_id": "01K7H60RT85PXBTZYME92AP4D7",
+  "transcript_url": "https://app.fireflies.ai/view/01K7H60RT85PXBTZYME92AP4D7",
+  "video_url": "https://cdn.fireflies.ai/01K7H60RT85PXBTZYME92AP4D7/video.mp4?Expires=1773350976&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzdINjBSVDg1UFhCVFpZTUU5MkFQNEQ3L3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1MDk3Nn19fV19&Signature=Ux5Z0BROAUe2UlOmFubeNhJBF~5TILVN90393RUu1zGoqSTy3kFDrDqGe9CD21jcfkSxY95Rka4XJLf6G8QXvE9-2tlfFAXUGKRUINEnktSptChZ-1BC-zfs4Jt~iP0FRpld7VAzb09p4SbNvrWssJhxI87IizjSc-mugc1wWFp0VpjzKrfP7OTssGS4CfdZkV~9UQPXpH-Q0alWjYR5XCGD9erWWLTqpMGUE6vyaK-3k~5tOIxBYOpqmTDMmfdPq9bMx3gJzkt7vqOMq-6zUs6lv9i7cUeGRLwNKafwkcjCgnePF-P8AxaHkpGBOzviIl24C7qqvdcNQYNsH5V9kA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_name_rule"
+}

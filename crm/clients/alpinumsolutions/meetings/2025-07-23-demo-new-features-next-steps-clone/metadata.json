@@ -1,0 +1,66 @@
+{
+  "account_slug": "alpinumsolutions",
+  "audio_url": "https://cdn.fireflies.ai/01K0PGBRPZF99D5CHYZSVS1H3D/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzBQR0JSUFpGOTlENUNIWVpTVlMxSDNEL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=uHyz274CILBM9PgJP4wRFYzdrqcHF75SqvSFKRTTMkLKiLTkvdsT1rZYOOLzyokJzEZxrgcxW9X0GPaYcKoeoDGIstdqUCB4Tol9v09hfmKSqAEjxhUZYR9jQWFqc8SmoOjbY4czSFQCEfILluNz4Kb7DSIHQKdi5h85pHADlCUX5uD0yDVraL6HAUT8NoPXrRI4ZSzA~O4d3aCp5FAiEmw-YnodnoNGiuTsXUByMx~x4zURmmoDSRMZnDCsC-7TjQaY-l9i8~dkz~hPcfiTWQr2w03MtSS23J-N9a2kgL73QpkyPysG54WnxxWSY~3L0VaKN0RKfRW2cOCcHjdd5g__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "sales",
+  "category_source": "keyword",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 59.0099983215332,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:12:19Z",
+  "meeting_at": "2025-07-23T12:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-23T12:00:00.000Z",
+      "leave_time": "2025-07-23T12:59:24.379Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-07-23T12:00:00.000Z",
+      "leave_time": "2025-07-23T12:59:24.380Z",
+      "name": "Sebastian  Rümmelein I Alpinum Solutions"
+    },
+    {
+      "join_time": "2025-07-23T12:06:12.981Z",
+      "leave_time": "2025-07-23T12:59:24.380Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K0PGBRPZF99D5CHYZSVS1H3D",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_OTYyNzgwMTItMjExMC00NDQwLThkNDAtOTRiMzI3OTgwMDVk@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"6d7afd2d-b35e-4256-9b09-a523b1609645\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 563,
+  "title": "Demo new features + next steps (Clone)",
+  "transcript_created_at": "2025-07-23T12:00:00Z",
+  "transcript_id": "01K0PGBRPZF99D5CHYZSVS1H3D",
+  "transcript_url": "https://app.fireflies.ai/view/01K0PGBRPZF99D5CHYZSVS1H3D",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_reclassification_from_inbox"
+}

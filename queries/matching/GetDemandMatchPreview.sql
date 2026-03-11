@@ -1,8 +1,8 @@
 /* GetDemandMatchPreview : Advanced SQL (Aurora Postgres, ODC)
    Purpose: Preview query for demand match cards.
 
-   This is the PREVIEW QUERY (Query 6). Called after GetMatchesByConsultantId (Query 5).
-   Takes DemandIds from Query 5 and returns display data for preview cards.
+   This is the preview query. Called after GetMatchesByConsultantId.
+   Takes DemandIds from GetMatchesByConsultantId and returns display data for preview cards.
 
    Input: @DemandIds (comma-separated, Expand Inline), @ConsultantId, @TenantId, @SystemLanguage
 
@@ -11,7 +11,7 @@
      LogoUrl, TotalMatchingRequirements, TopMatchesJson, TopMatches
 
    NOTE: MatchingScore and PricePerformanceScore return 0 as placeholders.
-   These values are already calculated in Query 5 and should be mapped in the
+   These values are already calculated in GetMatchesByConsultantId and should be mapped in the
    application layer after this query returns.
 */
 
@@ -35,7 +35,7 @@ requirement_matches AS (
     req.[CategoryId]          AS CategoryId,
     experience.[Score]        AS ConsultantScore,
 
-    /* partial_score: same formula as Query 2 branches (handles both RoleSkill and CustomRoleSkill) */
+    /* partial_score: same formula as GetConsultantMatchPreview branches (handles both RoleSkill and CustomRoleSkill) */
     CAST(
       CASE
         WHEN req.[Score] = 0 THEN 0
@@ -186,10 +186,10 @@ SELECT
   /* 2) IsPinned - true if consultant is assigned to this demand */
   CASE WHEN demand_consultant.[Id] IS NOT NULL THEN 1 ELSE 0 END AS IsPinned,
 
-  /* 3) MatchingScore - placeholder, filled by app from Query 5 */
+  /* 3) MatchingScore - placeholder, filled by app from GetMatchesByConsultantId */
   0 AS MatchingScore,
 
-  /* 4) PricePerformanceScore - placeholder, filled by app from Query 5 */
+  /* 4) PricePerformanceScore - placeholder, filled by app from GetMatchesByConsultantId */
   0 AS PricePerformanceScore,
 
   /* 5) DemandName */
@@ -201,7 +201,7 @@ SELECT
   /* 7) LogoUrl */
   company.[LogoUrl] AS LogoUrl,
 
-  /* 8) TotalMatchingRequirements - placeholder, filled by app from Query 5 */
+  /* 8) TotalMatchingRequirements - placeholder, filled by app from GetMatchesByConsultantId */
   0 AS TotalMatchingRequirements,
 
   /* 9) TopMatchesJson - JSON array of top matches (excludes Role and CustomRole categories)

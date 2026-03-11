@@ -1,0 +1,56 @@
+{
+  "account_slug": "wavestone",
+  "audio_url": "https://cdn.fireflies.ai/01JZAB21YNQB88JVTJFZ2X8KBD/audio.mp3?Expires=1773292085&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlpBQjIxWU5RQjg4SlZUSkZaMlg4S0JEL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA4NX19fV19&Signature=zgFG9DesFNiK2Ce8m6jnYl~HXDzJjiAnXQoH45n4PeJZwNbuoR~8xbXJo8-p0-eFdpc8kvoXFSRiEndK0sc09r-AsRrXmzmzjMkjfbrkr2suS3APT0I~UoHRa3O-XJpfIzG0oNmJyjR4J6Osjviplx07zAZP-lco6W4IeNGE04D2Uw-aNKfvkAnQu8HrNBZh4BXT1GcpibFFbGQdeRzcPe50c7m80jT0MA~1WfWgjPKZWtCklA-g2-PdWuFfsxzaoo77sPLsCPar1GaswRk1goTEPOprQu4eM2Ftp-Y7vN2SkyRGW5CQJ2DnUcLrdIJ9gh5pO-zL3oykLARe8zQQww__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 10.489999771118164,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:15:08Z",
+  "meeting_at": "2025-07-09T13:01:05Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-09T13:01:05.158Z",
+      "leave_time": "2025-07-09T13:08:10.257Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JZAB21YNQB88JVTJFZ2X8KBD",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_M2JmMzE4ODMtZjBlMC00OTk4LTg2YzQtYzVjODMyMTQxZmRi@thread.v2/0?context={\"Tid\":\"5de96c96-c87c-4dce-aad9-f5c557b52ac1\",\"Oid\":\"72a150f5-2876-43d2-a983-681fb2da9191\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 0,
+  "title": "Jourfix - SIP_ProfileMap_Esra (Clone)",
+  "transcript_created_at": "2025-07-09T13:00:00Z",
+  "transcript_id": "01JZAB21YNQB88JVTJFZ2X8KBD",
+  "transcript_url": "https://app.fireflies.ai/view/01JZAB21YNQB88JVTJFZ2X8KBD",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_title_rule_wavestone"
+}

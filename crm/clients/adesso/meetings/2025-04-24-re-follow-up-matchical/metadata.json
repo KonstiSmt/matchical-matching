@@ -1,0 +1,121 @@
+{
+  "account_slug": "adesso",
+  "audio_url": "https://cdn.fireflies.ai/01JSEH3HHFYNHYCHHR98B40AWT/audio.mp3?Expires=1773290408&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlNFSDNISEZZTkhZQ0hIUjk4QjQwQVdUL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwOH19fV19&Signature=VR5e7FDiJu-7a4jQt9W1mNf4jFfrIKVnl0XYLwbbJGePa~b-xGP6W2rJqYPCdN-pQ1YoNxu7M2xc4crNN7pzGWD2ZhWBY~uCRBhu84~D1cvf~~V3IOKFmGVb4F0LpFzadpMCjGE4yAyky3R5vFJTrzYac7Ynp~12RPe~jw6zzcUR1otor90cwa8FswT-lgLghg68EogRAYWxg~cweqdotVwAaehuH8mqiUugZPRUpt2tePjdvMiT-H6wZHXox7qcnpXRyIuITF1BHWyLfLEoBGpxGwCYaGokYNhp509rZXoK5OIZyDEOhFBF9PdA0er5LXmSp61lD5dwKDCpRQlrFw__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "adesso.de",
+    "matchical.com",
+    "my-ways.io"
+  ],
+  "dominant_domain": "adesso.de",
+  "duration_minutes": 101.91000366210938,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "jana.beckenbauer@adesso.de",
+  "local_imported_at": "2026-03-09T16:42:29Z",
+  "meeting_at": "2025-04-24T09:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-04-24T09:00:00.000Z",
+      "leave_time": "2025-04-24T10:44:38.467Z",
+      "name": "Konsti | matchical.com (Unverified)"
+    },
+    {
+      "join_time": "2025-04-24T09:00:00.000Z",
+      "leave_time": "2025-04-24T10:44:38.468Z",
+      "name": "Schlomski, Dirk"
+    },
+    {
+      "join_time": "2025-04-24T09:03:34.365Z",
+      "leave_time": "2025-04-24T10:44:38.468Z",
+      "name": "Sönke Bink (Unverified)"
+    },
+    {
+      "join_time": "2025-04-24T09:03:34.366Z",
+      "leave_time": "2025-04-24T10:44:38.468Z",
+      "name": "Tommy | matchical.com (Unverified)"
+    },
+    {
+      "join_time": "2025-04-24T09:04:08.181Z",
+      "leave_time": "2025-04-24T10:01:11.946Z",
+      "name": "Beckenbauer, Jana"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "jana.beckenbauer@adesso.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "s.bink@my-ways.io",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "dirk.schlomski@adesso.de",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JSEH3HHFYNHYCHHR98B40AWT",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YmIzOTFhN2EtZjNkZi00YWFmLTk3Y2QtZTU4NjA4ODRiNDA2@thread.v2/0?context={\"Tid\":\"3d355765-67d9-47cd-9c7a-bf31179f56eb\",\"Oid\":\"62c5dbb8-61a6-4c9b-812b-771d4c616caf\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "jana.beckenbauer@adesso.de,konsti@matchical.com,tommy@matchical.com,s.bink@my-ways.io,dirk.schlomski@adesso.de",
+    "konsti@matchical.com",
+    "tommy@matchical.com",
+    "s.bink@my-ways.io",
+    "dirk.schlomski@adesso.de"
+  ],
+  "participants": [
+    {
+      "email": "jana.beckenbauer@adesso.de",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "s.bink@my-ways.io",
+      "name": ""
+    },
+    {
+      "email": "dirk.schlomski@adesso.de",
+      "name": ""
+    }
+  ],
+  "sentence_count": 1226,
+  "title": "RE: Follow up matchical",
+  "transcript_created_at": "2025-04-24T09:00:00Z",
+  "transcript_id": "01JSEH3HHFYNHYCHHR98B40AWT",
+  "transcript_url": "https://app.fireflies.ai/view/01JSEH3HHFYNHYCHHR98B40AWT",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

@@ -1,0 +1,1033 @@
+[
+  {
+    "Entity": "Category",
+    "Columns": [
+      {
+        "name": "color",
+        "dataType": "character varying"
+      },
+      {
+        "name": "iconcode",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "labeltranslationsjson",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      },
+      {
+        "name": "parentcategoryid",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "Category_ml",
+    "Columns": [
+      {
+        "name": "_locale",
+        "dataType": "character varying"
+      },
+      {
+        "name": "color",
+        "dataType": "character varying"
+      },
+      {
+        "name": "iconcode",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "labeltranslationsjson",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Currency",
+    "Columns": [
+      {
+        "name": "euroexchangemultiplier",
+        "dataType": "numeric"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      },
+      {
+        "name": "symbol",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "CustomRole",
+    "Columns": [
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "externalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "rolenameid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "FunctionalArea",
+    "Columns": [
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Industry",
+    "Columns": [
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Language",
+    "Columns": [
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "emojiflag",
+        "dataType": "text"
+      },
+      {
+        "name": "iconflag",
+        "dataType": "text"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "oldlanguagecodemapping",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "LanguageLevel",
+    "Columns": [
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "labeltranslationsjson",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "LanguageLevel_ml",
+    "Columns": [
+      {
+        "name": "_locale",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "labeltranslationsjson",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "ParentCategory",
+    "Columns": [
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "ParentCategory_ml",
+    "Columns": [
+      {
+        "name": "_locale",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Role",
+    "Columns": [
+      {
+        "name": "coreskillexampleslocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "deletionflag",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "descriptionlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "duplicationflag",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "internalnote",
+        "dataType": "text"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "resscopelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "RoleAlias",
+    "Columns": [
+      {
+        "name": "aicertaintyscore",
+        "dataType": "integer"
+      },
+      {
+        "name": "aiclassificationrationale",
+        "dataType": "text"
+      },
+      {
+        "name": "canonicalname",
+        "dataType": "character varying"
+      },
+      {
+        "name": "coreskillexampleslocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "deletionflag",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "descriptionlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "duplicationflag",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "internalnote",
+        "dataType": "text"
+      },
+      {
+        "name": "mappedrolealiasid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "resscopelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "roleid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "vectorid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "RoleName",
+    "Columns": [
+      {
+        "name": "coreskillexampleslocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "customtenantid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "descriptionlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "localekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "resscopelocalekeyid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "SeniorityLevel",
+    "Columns": [
+      {
+        "name": "consultancyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "externalid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "hierarchyorder",
+        "dataType": "integer"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "isdefaultconsultant",
+        "dataType": "numeric"
+      },
+      {
+        "name": "maxraterange",
+        "dataType": "numeric"
+      },
+      {
+        "name": "minraterange",
+        "dataType": "numeric"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "ratecurrencyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "tenantid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Skill",
+    "Columns": [
+      {
+        "name": "categoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "corecompetencieslocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "deletionflag",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "descriptionlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "duplicationflag",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "internalnote",
+        "dataType": "text"
+      },
+      {
+        "name": "islowlearningeffort",
+        "dataType": "numeric"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "scopelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "skillcategoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "typicalusecaseslocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "Skill2",
+    "Columns": [
+      {
+        "name": "category",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "deletionflag",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "name",
+        "dataType": "character varying"
+      },
+      {
+        "name": "status",
+        "dataType": "integer"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "SkillAlias",
+    "Columns": [
+      {
+        "name": "aicertaintyscore",
+        "dataType": "integer"
+      },
+      {
+        "name": "aiclassificationrationale",
+        "dataType": "text"
+      },
+      {
+        "name": "canonicalname",
+        "dataType": "character varying"
+      },
+      {
+        "name": "canonicalnamegerman",
+        "dataType": "character varying"
+      },
+      {
+        "name": "corecompetencieslocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "deletionflag",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "descriptionlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "duplicationflag",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "internalnote",
+        "dataType": "text"
+      },
+      {
+        "name": "mappedskillaliasid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "scopelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "skillid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      },
+      {
+        "name": "typicalusecaseslocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "vectorid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "SkillAlias2",
+    "Columns": [
+      {
+        "name": "aicertaintyscore",
+        "dataType": "integer"
+      },
+      {
+        "name": "canonicalname",
+        "dataType": "character varying"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "deletionflag",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "mappedskillalias",
+        "dataType": "character varying"
+      },
+      {
+        "name": "skill",
+        "dataType": "character varying"
+      },
+      {
+        "name": "status",
+        "dataType": "integer"
+      },
+      {
+        "name": "updatedat",
+        "dataType": "timestamp with time zone"
+      }
+    ]
+  },
+  {
+    "Entity": "SkillHierarchy",
+    "Columns": [
+      {
+        "name": "distance",
+        "dataType": "integer"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "parentskillid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "skillid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "SkillHierarchy2",
+    "Columns": [
+      {
+        "name": "distance",
+        "dataType": "integer"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "parentskill",
+        "dataType": "character varying"
+      },
+      {
+        "name": "skill",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "SkillName",
+    "Columns": [
+      {
+        "name": "corecompetencieslocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "descriptionlocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "localekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "scopelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "typicalusecaseslocalekeyid",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Status",
+    "Columns": [
+      {
+        "name": "actionlabel",
+        "dataType": "character varying"
+      },
+      {
+        "name": "actionlabeltranslationsjson",
+        "dataType": "character varying"
+      },
+      {
+        "name": "color",
+        "dataType": "character varying"
+      },
+      {
+        "name": "iconcode",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "ishumanapproved",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isready",
+        "dataType": "numeric"
+      },
+      {
+        "name": "isresolved",
+        "dataType": "numeric"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "labeltranslationsjson",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      },
+      {
+        "name": "readablelabel",
+        "dataType": "character varying"
+      },
+      {
+        "name": "statuscategoryid",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "StatusCategory",
+    "Columns": [
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "isinternal",
+        "dataType": "numeric"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "StatusCategory_ml",
+    "Columns": [
+      {
+        "name": "_locale",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Status_ml",
+    "Columns": [
+      {
+        "name": "_locale",
+        "dataType": "character varying"
+      },
+      {
+        "name": "actionlabel",
+        "dataType": "character varying"
+      },
+      {
+        "name": "actionlabeltranslationsjson",
+        "dataType": "character varying"
+      },
+      {
+        "name": "color",
+        "dataType": "character varying"
+      },
+      {
+        "name": "iconcode",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "labeltranslationsjson",
+        "dataType": "character varying"
+      },
+      {
+        "name": "readablelabel",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "SystemLanguage",
+    "Columns": [
+      {
+        "name": "emojiflag",
+        "dataType": "text"
+      },
+      {
+        "name": "iconflag",
+        "dataType": "text"
+      },
+      {
+        "name": "isactive",
+        "dataType": "numeric"
+      },
+      {
+        "name": "issystemlanguage",
+        "dataType": "numeric"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "labeltranslationsjson",
+        "dataType": "character varying"
+      },
+      {
+        "name": "languagecode",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "SystemLanguage_ml",
+    "Columns": [
+      {
+        "name": "_locale",
+        "dataType": "character varying"
+      },
+      {
+        "name": "emojiflag",
+        "dataType": "text"
+      },
+      {
+        "name": "iconflag",
+        "dataType": "text"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "labeltranslationsjson",
+        "dataType": "character varying"
+      },
+      {
+        "name": "languagecode",
+        "dataType": "character varying"
+      }
+    ]
+  },
+  {
+    "Entity": "Tag",
+    "Columns": [
+      {
+        "name": "categoryid",
+        "dataType": "integer"
+      },
+      {
+        "name": "createdat",
+        "dataType": "timestamp with time zone"
+      },
+      {
+        "name": "id",
+        "dataType": "character varying"
+      },
+      {
+        "name": "namelocalekeyid",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      },
+      {
+        "name": "statusid",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "Title",
+    "Columns": [
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      },
+      {
+        "name": "order",
+        "dataType": "integer"
+      }
+    ]
+  },
+  {
+    "Entity": "Title_ml",
+    "Columns": [
+      {
+        "name": "_locale",
+        "dataType": "character varying"
+      },
+      {
+        "name": "id",
+        "dataType": "integer"
+      },
+      {
+        "name": "label",
+        "dataType": "character varying"
+      }
+    ]
+  }
+]

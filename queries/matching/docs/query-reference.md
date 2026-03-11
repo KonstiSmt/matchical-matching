@@ -134,8 +134,8 @@ Global Skill refinements:
   * `ReqScore = MAX(ReqScore)` across duplicate skill requirements
   * `SkillWeightEffective = SUM(SkillWeightAfterDistribution)` across duplicate skill requirements
   * Must-have merge is "any must-have" (`IsNiceToHave = MIN(IsNiceToHave)`)
-* Query 1 filtered role-skill merge uses filter precedence: Hard > Soft > Default.
-* Query 4 keeps RoleSkillsJson shape, but in Global Skill mode returns one wrapper role object with role scoring fields as `NULL` and nested distinct skills.
+* GetMatchesByDemandId filtered role-skill merge uses filter precedence: Hard > Soft > Default.
+* GetConsultantFullDetails keeps RoleSkillsJson shape, but in Global Skill mode returns one wrapper role object with role scoring fields as `NULL` and nested distinct skills.
   * Wrapper role identity comes from the highest role requirement dynamic weight (tie-break: lowest requirement id).
 
 ### 2.4 Scoring Model
@@ -167,19 +167,33 @@ This approach eliminates consultants who fail filters **before** the expensive s
 
 The query is organized as a chain of **Common Table Expressions (CTEs)**. Treat each CTE as a named pipeline stage.
 
-### 3.1 `demand` CTE: Demand Context (Single Row)
+### 3.1 Demand visibility gate + `demand` CTE
 
-Extracts demand fields once:
+The demand path is split into two stages:
 
-* `LocationFilter`, `AvailabilityFilter`, capacity flags
-* `CleanedStartDate` computed once:
-  * If demand start date is sentinel, keep sentinel
-  * If demand start date is earlier than today, clamp to today
-  * Else use demand start date
+* `base_demand`: loads the requested demand by `@DemandId` and `@TenantId`
+* inline visibility CTEs: resolve whether the current caller may see the linked opportunity
+* `demand`: returns the demand row only when visibility is granted
 
-This is a correctness + performance pattern: compute once, reuse.
+Visibility order:
 
-**Security:** The CTE filters by both `@DemandId` AND `@TenantId` to ensure tenant isolation.
+1. `@IsMatchicalAdmin = 1`
+2. super admin role
+3. global view grant (`All` / `On`)
+4. `Own`
+5. `MyReports`
+
+Matching visibility permissions are treated as operation/feature permissions:
+
+* no `PermissionMethodId` filter is applied
+* scope is derived directly from the permission row for the fixed matching permission ids
+
+Important performance rule:
+
+* `Opportunity`, `CoOwner`, and `ConsultancyUserClosure` are only touched for `Own` / `MyReports`
+* the global path does not resolve those targets
+
+This is both a security and performance gate: invisible demands fail closed as zero rows before the scoring pipeline starts.
 
 ### 3.2 `requirement` CTE: Active, Valid Demand Requirements
 
@@ -217,7 +231,7 @@ Extracts only requirements where `FilterCategoryId <> @Filter_Default`:
   * merge `ReqScore` as max
   * merge filter category as Hard > Soft > Default
 
-### 3.6 `eligible_consultant` CTE: Prefilter + Filter Enforcement
+### 3.6 `eligible_consultant` CTE: Prefilter + Visibility + Filter Enforcement
 
 The main filtering stage. Returns only consultant identifiers that are eligible.
 
@@ -225,12 +239,20 @@ Includes:
 
 * Tenant constraint
 * Internal/external visibility logic
+* Permission-aware consultant visibility
 * "Not available" exclusion when availability filter is not default
 * Location filtering driven by demand's location filter category (Default / Soft / Hard)
-* Availability window logic using `CleanedStartDate`, next availability date, notice period
 * Capacity constraints
 * **Mandatory role soft-match gate (`Score > 0`)**
 * **Filter requirement enforcement via NOT EXISTS**
+
+Permission-aware consultant visibility:
+
+* Internal consultant target = `Consultant.ConsultancyUserId`
+* External consultant target = `ExternalUser.OwnerId`, falling back to `ExternalUser.CreatorId`
+* Admin / super-admin / global grant paths skip external target and closure lookups
+* `Own` resolves the effective target and compares it to the current consultancy user
+* `MyReports` resolves the effective target, then checks `ConsultancyUserClosure`
 
 Mandatory role soft-match gate:
 * Consultant must match at least one required role (`@Cat_Role` / `@Cat_CustomRole`) with `Experience.Score > 0`
@@ -392,6 +414,8 @@ All indexes use the **TenantId-first pattern** for multi-tenant optimization:
 * `{LocationTagsClosure}`: composite indexes on
   * `(AncestorId, DescendantId)`
   * `(DescendantId, AncestorId)`
+* `{ConsultancyUserClosure}`: composite index on
+  * `(DescendantId, AncestorId)`
 * `{ConsultantLocations}`: composite index on
   * `(ConsultantId, LocationTagId)`
 
@@ -399,6 +423,7 @@ All indexes use the **TenantId-first pattern** for multi-tenant optimization:
 
 * `{DemandRequirement}`: `(DemandId, TenantId, IsActive)`
 * `{Consultant}`: `(TenantId, StatusId)`
+* `{CoOwner}`: `(OpportunityId, ConsultancyUserId)`
 
 ---
 
@@ -464,12 +489,12 @@ Pragmatic expectations:
 ## 9) Current State Summary
 
 * Correct separation of stages via CTEs.
+* **Inline permission gating** denies invisible demand/opportunity data before scoring starts.
 * **Early filter enforcement** in `eligible_consultant` using NOT EXISTS pattern.
-* **Pre-materialized filter check** in `has_filtered_requirements` CTE (evaluated once, not per consultant).
+* **Single-pass filter check** in `has_filtered_requirements` CTE (evaluated once, not per consultant).
 * Prefilter stage limits candidates before expensive scoring joins.
 * Location filter uses `EXISTS` to avoid score multiplication from multiple consultant locations.
 * Count uses `COUNT(*) OVER()` window function for efficient single-pass computation.
-* Cleaned start date computed once and reused.
 * Uses `DOUBLE PRECISION` to reduce cast overhead and keep numeric stability for scoring.
 * Descriptive CTE and alias names for maintainability.
 
@@ -481,6 +506,15 @@ Pragmatic expectations:
 |-----------|-------------|
 | `@DemandId` | ID of the demand to match against |
 | `@TenantId` | Tenant context for multi-tenancy (security: validates demand access) |
+| `@UserId` | Logged-in user used for inline permission resolution |
+| `@IsMatchicalAdmin` | Boolean admin bypass; when `1`, permission gating is skipped |
+| `@PermissionInternalConsultantId` | Static Permission ID for internal consultant visibility |
+| `@PermissionExternalConsultantId` | Static Permission ID for external consultant visibility |
+| `@PermissionOpportunityId` | Static Permission ID for opportunity visibility |
+| `@PermissionLevelOnId` | Static PermissionLevel ID for `On` |
+| `@PermissionLevelAllId` | Static PermissionLevel ID for `All` |
+| `@PermissionLevelOwnId` | Static PermissionLevel ID for `Own` |
+| `@PermissionLevelMyReportsId` | Static PermissionLevel ID for `MyReports` |
 | `@Nulldate` | Sentinel value for "no date" (typically 1900-01-01) |
 | `@Filter_Default` | Filter category ID for "Default" (no filtering) |
 | `@Filter_Soft` | Filter category ID for "Soft" filter |
@@ -509,7 +543,7 @@ Pragmatic expectations:
 
 ---
 
-## 10) GetMatchingScoreByConsultantIds (Query 3)
+## 10) GetMatchingScoreByConsultantIds
 
 ### Purpose
 
@@ -588,6 +622,6 @@ Formula behavior is unchanged from the existing matching logic:
 
 Why this stays efficient:
 1. Set-based bulk scoring avoids N query loops in application code.
-2. `consultant_experience` and `requirement_raw` are materialized once and reused.
+2. `consultant_experience` and `requirement_raw` are scoped once and reused.
 3. Shared non-role contributions are aggregated once per pair and reused across all modes.
 4. No sorting, pagination, or windowed count in final projection.

@@ -1,0 +1,61 @@
+{
+  "account_slug": "alena-arnold",
+  "audio_url": "https://cdn.fireflies.ai/01K2HG0PGYAR6WGCKC09C3Y0JF/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzJIRzBQR1lBUjZXR0NLQzA5QzNZMEpGL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=whrVJmZRRe1lRLji-LqP1ulZJUb3RjxU4CRAndCrZPppuF8cvlDlD0YJaUeKQzzLXua35wz~86COXCWI8ZDoPUxSd7EYx7dMeQkf21oJ6ZSw7NBEQ9SxZ1tya5~VEC4S472Aw7A3wNdtW3cTRK16FnNPedffNGoaltTKAIvqxduV8GdEd155O0iNhMdoUFjuXvLX58eK0BLJttR2l84b-FUwSPtoOAQEdpbDYaymTuUR4wnV9hOiQzjKOVzhGikNcpWznCaN6bfCGtqLPguvwg~1YUz1P1bR9mgTEktm1zCGfqjqT0LxaroBT1mK~OdG1syh1-RG2V2Vj2xT68PbfA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "other",
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 70,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:11:03Z",
+  "meeting_at": "2025-08-15T09:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-08-15T09:00:00.000Z",
+      "leave_time": "2025-08-15T10:14:46.978Z",
+      "name": "Alena Arnold"
+    },
+    {
+      "join_time": "2025-08-15T09:00:00.000Z",
+      "leave_time": "2025-08-15T10:14:46.979Z",
+      "name": "Konsti | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K2HG0PGYAR6WGCKC09C3Y0JF",
+  "meeting_kind": "unresolved",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZGQ5YWYyOWYtYWZkMS00MDljLTlhYWItNmZiNmM3ZWExYjlm@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 761,
+  "title": "Onboarding matchical (Clone)",
+  "transcript_created_at": "2025-08-15T09:00:00Z",
+  "transcript_id": "01K2HG0PGYAR6WGCKC09C3Y0JF",
+  "transcript_url": "https://app.fireflies.ai/view/01K2HG0PGYAR6WGCKC09C3Y0JF",
+  "video_url": "https://cdn.fireflies.ai/01K2HG0PGYAR6WGCKC09C3Y0JF/video.mp4?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzJIRzBQR1lBUjZXR0NLQzA5QzNZMEpGL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=A3MwhgXtni3ifqLNCEWIg8FFzBcIn9riPIu~v6lI-8ldu2DSwDr4e-Z7cHbQFlfZzNRaHk-WtmnVAEP~NYXvVUfpMwHn~WSBZtmza7ojbIHVjQbpNMGzZ33hyJSa1jNqfqVJHfpnMX07oD3phw~FNB2NV6PBkALuTDKy9yPWCasyOSk1J5M7uJI7yfizU25ZIhQdtmo~5m1NGsnzbkLL~2T0h3xmr~Fp-cCYmJybjtKGX61jXKgaJP1xkCbI3NoMYXEayBbu04tob-8etNa6IKrlzoLCUd7FCxrMs344PXYn3adjqBntOm-QU653Hml3XkUgKtP2Ptr1-U9GYCAfZg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_transcript_reclassification"
+}

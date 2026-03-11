@@ -1,0 +1,134 @@
+{
+  "account_slug": "valantic",
+  "audio_url": "https://cdn.fireflies.ai/01JYE7RTYX782N0EWX27X35HXW/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSllFN1JUWVg3ODJOMEVXWDI3WDM1SFhXL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=fOeC-JH1H-3mn8B3uo4Uadps~xS3W4HA9i-DZWUpSp9rb~mxY7esg-9a7ZXbV3xu22iCOTKpY3dVj-1VJ6i0iNW~noRIuD3Ku1j9zjpc7P~82vN8noUKHLIr3B2au1oik~CtE2lfR5Nuh9ipGYByX5P6zK2qQcpgXqgTE497GTijweGGRhxwHSd5gsAsVxHUpS4Br-rhHofj3dy1h7dNk4b3VvNR4sxuXXr46plpPdhCo6qKM8CrvH8MH8DXSqo2iu8hytDoZBAWbFxlG7g8pRfoTJAQodEjrm0v73zn5CnZZcC9hB6wr8T9AzDJGieXU3ehD9UAwPmrLWWQRfWW1Q__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "matchical.com",
+    "taim-gmbh.de",
+    "valantic.com"
+  ],
+  "dominant_domain": "valantic.com",
+  "duration_minutes": 22.450000762939453,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:40:21Z",
+  "meeting_at": "2025-06-26T07:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-26T07:30:00.000Z",
+      "leave_time": "2025-06-26T07:52:31.521Z",
+      "name": "Alexander Scherdin"
+    },
+    {
+      "join_time": "2025-06-26T07:30:00.000Z",
+      "leave_time": "2025-06-26T07:52:31.522Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-06-26T07:30:51.225Z",
+      "leave_time": "2025-06-26T07:52:31.522Z",
+      "name": "Dr. Michael Eble"
+    },
+    {
+      "join_time": "2025-06-26T07:30:51.227Z",
+      "leave_time": "2025-06-26T07:52:31.522Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": "Alexander Scherdin",
+      "email": "alexander.scherdin@nxt.valantic.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Mietasch, Daniel",
+      "email": "daniel@taim-gmbh.de",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Dr. Michael Eble",
+      "email": "michael.eble@nxt.valantic.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": "Tommy | matchical.com",
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JYE7RTYX782N0EWX27X35HXW",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_YTdiMDc5M2QtNWNkOC00NGUxLWE3YmMtMmJhNTIzZDE1OGYz@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "alexander.scherdin@nxt.valantic.com,daniel@taim-gmbh.de,michael.eble@nxt.valantic.com,tommy@matchical.com,konsti@matchical.com",
+    "alexander.scherdin@nxt.valantic.com",
+    "daniel@taim-gmbh.de",
+    "michael.eble@nxt.valantic.com",
+    "tommy@matchical.com",
+    "konsti@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "alexander.scherdin@nxt.valantic.com",
+      "name": "Alexander Scherdin"
+    },
+    {
+      "email": "daniel@taim-gmbh.de",
+      "name": "Mietasch, Daniel"
+    },
+    {
+      "email": "michael.eble@nxt.valantic.com",
+      "name": "Dr. Michael Eble"
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": "Tommy | matchical.com"
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "alexander.scherdin@nxt.valantic.com",
+      "name": ""
+    },
+    {
+      "email": "daniel@taim-gmbh.de",
+      "name": ""
+    },
+    {
+      "email": "michael.eble@nxt.valantic.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 273,
+  "title": "Next steps matchical",
+  "transcript_created_at": "2025-06-26T07:30:00Z",
+  "transcript_id": "01JYE7RTYX782N0EWX27X35HXW",
+  "transcript_url": "https://app.fireflies.ai/view/01JYE7RTYX782N0EWX27X35HXW",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ],
+  "route_reason": "manual_name_rule"
+}

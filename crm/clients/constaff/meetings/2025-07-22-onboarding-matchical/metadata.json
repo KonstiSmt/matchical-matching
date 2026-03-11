@@ -1,0 +1,190 @@
+{
+  "account_slug": "constaff",
+  "audio_url": "https://cdn.fireflies.ai/01K0MB2Y4CHJFW05A11RVA01JH/audio.mp3?Expires=1773292073&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSzBNQjJZNENISkZXMDVBMTFSVkEwMUpIL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MjA3M319fV19&Signature=vnpNQ3618n0LkjqzEqmSLlLwZGkqE~qy2cIyKzA0kpwjvElyOx0Z86DqxFLvo~WD2-g6v9pYRl~XlC8OFinNL72MmdCkjxlplDwf6pTxjodEtZbcxBbCMtJiv~fEtXfJR2Rm2LhpdPMEDahwPGn~ufmqR-gTw9AiFetbgkzs91JcVP6bLZ0LUo9UOhtP3rA2OJbt-4G6wB~A3Nj~OJlyLL05HRbGmsjZhDqwN2-EPulc93kGWtm0aTDX0fe2kScEETa-O2cgdQmr7EN-hKF9aSNoAzwjRHac~v7NvVcu8nZj2CFREUQc9ru7lPeTrEaw4DT3~qGKjy0-IOXzCIKazA__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "clients",
+  "detected_domains": [
+    "constaff.com",
+    "matchical.com"
+  ],
+  "dominant_domain": "constaff.com",
+  "duration_minutes": 66.47000122070312,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T17:12:30Z",
+  "meeting_at": "2025-07-22T12:00:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-07-22T12:00:00.000Z",
+      "leave_time": "2025-07-22T13:07:02.039Z",
+      "name": "Christopher Haas"
+    },
+    {
+      "join_time": "2025-07-22T12:00:00.000Z",
+      "leave_time": "2025-07-22T13:07:02.040Z",
+      "name": "Felix Sprengling"
+    },
+    {
+      "join_time": "2025-07-22T12:00:00.000Z",
+      "leave_time": "2025-07-22T12:02:24.644Z",
+      "name": "Julian Müller"
+    },
+    {
+      "join_time": "2025-07-22T12:00:00.000Z",
+      "leave_time": "2025-07-22T13:07:02.040Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-07-22T12:00:00.000Z",
+      "leave_time": "2025-07-22T13:07:02.040Z",
+      "name": "Marko Lukosek"
+    },
+    {
+      "join_time": "2025-07-22T12:00:00.000Z",
+      "leave_time": "2025-07-22T12:02:35.827Z",
+      "name": "Max Müller"
+    },
+    {
+      "join_time": "2025-07-22T12:01:46.345Z",
+      "leave_time": "2025-07-22T13:07:02.040Z",
+      "name": "Timo Schmidtchen"
+    },
+    {
+      "join_time": "2025-07-22T12:01:46.346Z",
+      "leave_time": "2025-07-22T13:07:02.040Z",
+      "name": "Tommy | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "timo.schmidtchen@constaff.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "michael.steinlein@constaff.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "marko.lukosek@constaff.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "riccardo.sforza@constaff.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "felix.sprengling@constaff.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "julian.mueller@constaff.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "jochen.schulz@constaff.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "tommy@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "christopher.haas@constaff.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01K0MB2Y4CHJFW05A11RVA01JH",
+  "meeting_kind": "client",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZTBlYTdjYjItYjQ2MC00ODU0LWFlOTAtNjBjM2U5YjI3OTA0@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "timo.schmidtchen@constaff.com,michael.steinlein@constaff.com,marko.lukosek@constaff.com,riccardo.sforza@constaff.com,felix.sprengling@constaff.com,julian.mueller@constaff.com,jochen.schulz@constaff.com,tommy@matchical.com,christopher.haas@constaff.com,konsti@matchical.com",
+    "timo.schmidtchen@constaff.com",
+    "michael.steinlein@constaff.com",
+    "marko.lukosek@constaff.com",
+    "riccardo.sforza@constaff.com",
+    "felix.sprengling@constaff.com",
+    "julian.mueller@constaff.com",
+    "jochen.schulz@constaff.com",
+    "tommy@matchical.com",
+    "christopher.haas@constaff.com"
+  ],
+  "participants": [
+    {
+      "email": "timo.schmidtchen@constaff.com",
+      "name": ""
+    },
+    {
+      "email": "michael.steinlein@constaff.com",
+      "name": ""
+    },
+    {
+      "email": "marko.lukosek@constaff.com",
+      "name": ""
+    },
+    {
+      "email": "riccardo.sforza@constaff.com",
+      "name": ""
+    },
+    {
+      "email": "felix.sprengling@constaff.com",
+      "name": ""
+    },
+    {
+      "email": "julian.mueller@constaff.com",
+      "name": ""
+    },
+    {
+      "email": "jochen.schulz@constaff.com",
+      "name": ""
+    },
+    {
+      "email": "tommy@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "christopher.haas@constaff.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 697,
+  "title": "Onboarding matchical",
+  "transcript_created_at": "2025-07-22T12:00:00Z",
+  "transcript_id": "01K0MB2Y4CHJFW05A11RVA01JH",
+  "transcript_url": "https://app.fireflies.ai/view/01K0MB2Y4CHJFW05A11RVA01JH",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

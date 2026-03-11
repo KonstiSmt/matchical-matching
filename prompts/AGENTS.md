@@ -20,6 +20,7 @@ Every prompt must use this section order and heading levels:
 
 ## Output Structure Discipline
 - Keep JSON output keys in a fixed, explicit order and mirror that order in examples.
+- Use PascalCase for structured output keys by default, unless a user explicitly requests a different casing.
 - When output fields or ordering change, update both schema files in `prompts/schemas/`.
 - Do not change any output schema or output key naming unless the user explicitly requests it.
 - If a schema change might be needed but was not explicitly requested, ask the user first.
@@ -41,6 +42,8 @@ Every prompt must use this section order and heading levels:
 - Do not reword or simplify existing prompt language unless the user explicitly asks for that wording change.
 - Before adding handling for a potential edge case, confirm with the user that the edge case can occur in runtime.
 - Keep prompt language present-focused only; never refer to previous prompt states or deprecated behavior.
+- For prompt work, do not commit requirement-targeted prompt edits unless the user explicitly instructs to commit.
+- Initial prompt sync/duplication (for example, pulling from API or cloning an existing prompt file) may be done before commit approval, but committing those changes still requires explicit user instruction.
 
 ## Prompt Docs Files (`*.docs.md`)
 - Use prompt docs files for non-runtime context only: intent, non-intent, design decisions, findings, and open questions.
@@ -48,12 +51,16 @@ Every prompt must use this section order and heading levels:
 - If a rule changes model output, format, or constraints, update the prompt first and reflect only a short rationale in docs.
 - Keep docs concise and decision-oriented; avoid duplicating full prompt text.
 - Maintain one docs file per prompt when useful (for example, `engagement-description.docs.md`, `project-description.docs.md`).
+- Keep this `prompts/AGENTS.md` file prompt-agnostic; do not add prompt-specific voice, style, or output rules here.
 
 ## DevTools Prompt Workflow
 - Use the DevTools REST API to discover categories, fetch active prompts, and sync local files when requested.
+- When running in a git worktree, source DevTools credentials from the main checkout `.env` before using `scripts/devtools_api.py`.
 - Always call categories first to confirm the category ID. Do not assume category IDs.
 - If a prompt is requested, fetch the active prompt and compare with the repo files. If different, update the repo files to match the active prompt.
-- Only post prompt updates when the user explicitly instructs to post. When the user explicitly tells you to do it, execute the post yourself via `scripts/devtools_api.py` instead of only providing a bash command.
+- When a prompt change requires pulling the active prompt first, follow this order: (1) pull/sync the active prompt into repo files, (2) make a sync-only commit, (3) apply requested prompt edits and keep them uncommitted unless the user explicitly asks for a commit.
+- For prompt edit tasks, do not commit the requested prompt edits unless the user explicitly asks for a commit; only sync/pull-in commits are allowed by default.
+- Only post prompt updates when the user explicitly instructs to post. When asked to post, execute the POST directly via `scripts/devtools_api.py` (do not just provide a bash command unless the user explicitly asks for commands only).
 - For every POST command comment, always start the comment with `AI:`.
 - Keep post comments short and specific to the change; avoid boilerplate like \"update prompt\" or \"sync schemas\".
 - For posting, use the command format below and fill in the correct category ID, prompt file, and schema paths.

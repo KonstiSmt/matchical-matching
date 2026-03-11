@@ -1,0 +1,72 @@
+{
+  "account_slug": "vitor-peixeira",
+  "audio_url": "https://cdn.fireflies.ai/01JY4TXPBSH4X5BBWM8F6MV494/audio.mp3?Expires=1773290403&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxSlk0VFhQQlNINFg1QkJXTThGNk1WNDk0L2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzI5MDQwM319fV19&Signature=VWswrYaUUgVPmCFvytSJCgvmRJCC79mmkhn0vLHpcq9DOYAw2vpoQp1AR-aCVdem0sVv0Hr42~LA-oXE-50wOmDzipUFxQAZhmVoQkSUx1-98PKAHcw528nCGdFgs~Kn3AV~C2Ldvac-GR7X8OKHFGXy3oTns5I7FeWNZTAZ4NP676z2dWRfrNSk~~CzeEN91~6~yRisU7~XZ62XOUydZXzQy5Uz~PcFxwT10aABx4RKgjEwsyZrFIMvozfUGYSzgGAjMvUibGENYg3ZebDaLDMkchHR0AG5QbKaYJ~MtpIb39yfsJ0xQXbVV13LyeJNpyxynkpKVe9YxBUdtoTURQ__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "general",
+  "category_source": "default",
+  "crm_bucket": "other",
+  "detected_domains": [
+    "gmail.com",
+    "matchical.com"
+  ],
+  "dominant_domain": "gmail.com",
+  "duration_minutes": 46.849998474121094,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-09T16:40:42Z",
+  "meeting_at": "2025-06-20T14:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2025-06-20T14:30:00.000Z",
+      "leave_time": "2025-06-20T15:18:20.758Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2025-06-20T14:30:00.000Z",
+      "leave_time": "2025-06-20T15:18:20.760Z",
+      "name": "Vitor Peixeira (Unverified)"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "vitorpeixeira97@gmail.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01JY4TXPBSH4X5BBWM8F6MV494",
+  "meeting_kind": "other",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_ZGRkMWRjMWEtM2U1NC00NzdmLWFhNjgtNzEyNDI2ZTY1YjFk@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "vitorpeixeira97@gmail.com,konsti@matchical.com",
+    "vitorpeixeira97@gmail.com"
+  ],
+  "participants": [
+    {
+      "email": "vitorpeixeira97@gmail.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 801,
+  "title": "🔥",
+  "transcript_created_at": "2025-06-20T14:30:00Z",
+  "transcript_id": "01JY4TXPBSH4X5BBWM8F6MV494",
+  "transcript_url": "https://app.fireflies.ai/view/01JY4TXPBSH4X5BBWM8F6MV494",
+  "video_url": null,
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}

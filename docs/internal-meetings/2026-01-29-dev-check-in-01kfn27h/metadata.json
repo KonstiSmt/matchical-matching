@@ -1,0 +1,82 @@
+{
+  "account_slug": null,
+  "audio_url": "https://cdn.fireflies.ai/01KFN27H4PCQ052115NNACP6SJ/audio.mp3?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0ZOMjdINFBDUTA1MjExNU5OQUNQNlNKL2F1ZGlvLm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=SiTrMCu9qO8dZ1Z8Wno4qGl23-TGVEcj5c7z7HaEzbs5ESJoIFvBGiiNpYNgXLuE32mrzkHjj9ybjTYhhymtQ6Y650UU8eBEJ2MJSC9GDClaBrY1j2WdhGFSCjtTM283fr3Lp3YYYL2ldPoE3m1hC8PYcCHlQwmgJ7PTCbd3Y6CvvdakU6xke8OEavtQ4Hr-uoihevKT-e6wqUJfels6-aU0Ex0sZKGOmApFaLjuaG28OcXzQhAeE9z1TxmVaKrL2SwIVNaKM1rWwYw8p5FW44Yssf~DqMYGLkuhTPjxJHzW-M2TrgAJxzhsZ59cZ~7b5Xcj--6RJ75fuvQJszBu4A__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "category": "planning",
+  "category_source": "keyword",
+  "crm_bucket": null,
+  "detected_domains": [
+    "matchical.com"
+  ],
+  "dominant_domain": null,
+  "duration_minutes": 39.66999816894531,
+  "fireflies_users": [
+    "konsti@matchical.com"
+  ],
+  "host_email": "konsti@matchical.com",
+  "local_imported_at": "2026-03-10T10:51:48Z",
+  "meeting_at": "2026-01-29T09:30:00Z",
+  "meeting_attendance": [
+    {
+      "join_time": "2026-01-29T09:30:00.000Z",
+      "leave_time": "2026-01-29T10:09:44.727Z",
+      "name": "Konsti | matchical.com"
+    },
+    {
+      "join_time": "2026-01-29T09:34:51.194Z",
+      "leave_time": "2026-01-29T10:09:44.727Z",
+      "name": "Carlos | matchical.com"
+    }
+  ],
+  "meeting_attendees": [
+    {
+      "displayName": null,
+      "email": "carlos@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "pedro@matchical.com",
+      "location": null,
+      "name": null
+    },
+    {
+      "displayName": null,
+      "email": "konsti@matchical.com",
+      "location": null,
+      "name": null
+    }
+  ],
+  "meeting_id": "01KFN27H4PCQ052115NNACP6SJ",
+  "meeting_kind": "internal",
+  "meeting_link": "https://teams.microsoft.com/l/meetup-join/19:meeting_MDJkM2QyOTQtMTk3Mi00Y2MwLTljNDYtZTlkNDYzZWYzZjk5@thread.v2/0?context={\"Tid\":\"72f6dc59-f82d-4250-a094-7bf068065dc7\",\"Oid\":\"48960763-8ac3-462c-8a8d-04da8ef3be42\"}",
+  "organizer_email": "konsti@matchical.com",
+  "participant_emails": [
+    "carlos@matchical.com,pedro@matchical.com,konsti@matchical.com",
+    "carlos@matchical.com",
+    "pedro@matchical.com"
+  ],
+  "participants": [
+    {
+      "email": "carlos@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "pedro@matchical.com",
+      "name": ""
+    },
+    {
+      "email": "konsti@matchical.com",
+      "name": ""
+    }
+  ],
+  "sentence_count": 366,
+  "title": "Dev check in",
+  "transcript_created_at": "2026-01-29T09:30:00Z",
+  "transcript_id": "01KFN27H4PCQ052115NNACP6SJ",
+  "transcript_url": "https://app.fireflies.ai/view/01KFN27H4PCQ052115NNACP6SJ",
+  "video_url": "https://cdn.fireflies.ai/01KFN27H4PCQ052115NNACP6SJ/video.mp4?Expires=1773355796&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZmlyZWZsaWVzLmFpLzAxS0ZOMjdINFBDUTA1MjExNU5OQUNQNlNKL3ZpZGVvLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3MzM1NTc5Nn19fV19&Signature=cNdcOhH3XvMKlnDHeWocVOH~YvF~M4xPSc27SA3QB8t266apODLHw~fPyy9qoqR8HMrU-OU8EzZLos3R~ej8UE8RAsR5UInehjLRTLXIYKrihvuHvKnNgK0275~S3yDPHFbo-wL7MvoUeie8vjoTeibn5q19PaTtT2h6vMLKmxjCc294FA4jxDrS5nBvY~fCw3cs4jdwD-SmabsHvuUoDfuvAVg5Sc~GgLqBy8VoF9M7zIasndK7yksy0og-32IA865rrWIC6UyzTrSdGcjz6dr~FIJSEp5DIfyNHmKgnY80eSI0OjFRGYOexMfDRQc0mTrVkuta9t2xCvkzRrY3yg__&Key-Pair-Id=K25ZJR0UZVF4CM",
+  "workspace_users": [
+    "konsti@matchical.com"
+  ]
+}
