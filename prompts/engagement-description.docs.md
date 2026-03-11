@@ -25,6 +25,7 @@ Keep this file as non-runtime context for the engagement description prompt. It 
 - Clean engagement versions (`BulletVersion`, `MixedVersion`, `ParagraphVersion`) must not contain spacer/empty paragraph tags (`<p>&nbsp;</p>`, empty `<p>`).
 - Exclusion rules are enforced consistently across outputs.
 - Formatting constraints are strict (allowed tags only; no disallowed styling tags).
+- HTML escaping is minimal: escape only `&`, `<`, and `>` in text content; preserve normal UTF-8 apostrophes and quotation marks as literal characters.
 
 ## Findings and Learnings
 - Contradictions between rules and examples are a frequent failure mode and must be checked on each update.
