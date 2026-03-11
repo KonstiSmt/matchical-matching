@@ -85,7 +85,7 @@ For clean versions, optimize for management-summary quality: capture the core pr
 5. **Output Formatting**
    - Allowed HTML tags: `<p>`, `<ul>`, `<li>`, `<p>&nbsp;</p>`.
    - No other HTML tags.
-   - Escape text content where needed (`&lt;`, `&gt;`, `&amp;`).
+   - Escape only the characters required for safe HTML text nodes: `&` as `&amp;`, `<` as `&lt;`, and `>` as `&gt;`. Preserve normal UTF-8 apostrophes and quotation marks as literal characters. Do not convert apostrophes or quotation marks into HTML entities such as `&#39;`, `&apos;`, `&#34;`, or `&quot;` unless those entity sequences are already present in the source text and must be preserved literally.
 
 6. **Return JSON**
    Return exactly these five keys in this exact order:
@@ -135,6 +135,8 @@ For clean versions, optimize for management-summary quality: capture the core pr
    - Favor synthesized project framing over exhaustive task conversion.
    - Write clean versions as a concise management summary of the project essence, not as a full project dossier.
    - Prefer abstraction of detailed execution work into broader project-level themes.
+   - Do not use engagement-like framing such as `the engagement`, `the assignment`, `Der Einsatz`, `Der Auftrag`, `my role`, or similar phrasing as the main frame of clean versions when the project can be stated directly.
+   - Prefer concrete project subjects such as the transformation, platform, rollout, process model, operating model, or capability being introduced when supported by the input.
 
 6. **Anti-Redundancy Rules vs Linked Engagement Clean Versions**
    - Avoid copy-like phrasing from linked `BulletVersion`, `ParagraphVersion`, and `MixedVersion`.
@@ -163,12 +165,18 @@ For clean versions, optimize for management-summary quality: capture the core pr
    - Avoid padding and chronology-heavy task narration.
    - Avoid broad operational detail dumps; summarize delivery detail at higher abstraction.
    - Keep sentences complete, neutral, and externally readable.
+   - Do not mechanically open with `The project...`, `Das Projekt...`, `Der Auftrag...`, or close equivalents.
+   - Select the opening based on the strongest grounded signal, for example: transformation-first, platform-first, process-first, rollout-first, capability-first, operating-model-first, scope-first, or outcome-first (outcome-first only when explicit and central).
+   - Avoid stock stems such as `The project included`, `The project focused`, `The project involved`, `Das Projekt fokussierte`, or close equivalents when a more concrete subject is available.
 
 10. **MixedVersion Rules**
    - One short paragraph first, then bullets.
    - Prefer 2-4 bullets; up to 6 when justified by rich evidence.
    - Keep paragraph broad and bullets concrete.
    - Keep the mixed output clearly shorter and more abstract than a full project narrative.
+   - Do not mechanically open the paragraph with `The project...`, `Das Projekt...`, `Der Auftrag...`, or close equivalents.
+   - Select the opening based on the strongest grounded signal, for example: transformation-first, platform-first, process-first, rollout-first, capability-first, operating-model-first, scope-first, or outcome-first (outcome-first only when explicit and central).
+   - If `ParagraphVersion` uses one valid opening frame, prefer a different valid frame in `MixedVersion` when the input supports it.
    - In the mixed-version bullet list, do not end `<li>` text with a period.
 
 11. **RawVersion Rules**
@@ -204,8 +212,8 @@ Keep it short and factual.
 {
   "Rationale": "Used image content as primary source, followed the brevity note, and applied clean-version rules without adding speculative detail.",
   "BulletVersion": "<ul><li>Implementation of a new billing platform</li><li>Integration of external payment providers</li><li>Coordination with finance and legal teams</li></ul>",
-  "ParagraphVersion": "<p>The project included implementation of a new billing platform with integrated payment providers and cross-functional coordination with finance and legal stakeholders.</p>",
-  "MixedVersion": "<p>The project established an updated billing capability with integrated payment services.</p><ul><li>Implementation of a new billing platform</li><li>Integration of external payment providers</li><li>Coordination with finance and legal teams</li></ul>",
+  "ParagraphVersion": "<p>A new billing platform with integrated payment providers was implemented alongside cross-functional coordination with finance and legal stakeholders.</p>",
+  "MixedVersion": "<p>Billing capability was modernized through integrated payment services and coordinated stakeholder alignment.</p><ul><li>Implementation of a new billing platform</li><li>Integration of external payment providers</li><li>Coordination with finance and legal teams</li></ul>",
   "RawVersion": "<p>Implemented a new billing platform and integrated payment providers.</p><p>Coordinated with finance and legal teams.</p>"
 }
 ```
@@ -236,8 +244,8 @@ Bitte kuerzer formulieren und den Kundennamen explizit nennen.
 {
   "Rationale": "Applied delta-first update from New Info over Existing Versions, retained anonymization despite the note requesting explicit client naming, and condensed clean outputs to core project essence instead of mapping each operational detail.",
   "BulletVersion": "<ul><li>Digitalisierung und Qualitaetssicherung zentraler Schadenprozesse</li><li>Erweiterung des Self-Service-Portal-Rollouts auf zwei Regionen</li><li>Automatisierung von Onboarding-Pruefungen fuer Partner-Einreichungen</li></ul>",
-  "ParagraphVersion": "<p>Das Projekt fokussierte die Weiterentwicklung zentraler Schadenprozesse durch Digitalisierung, ausgebauten Self-Service-Zugang und automatisierte Qualitaetssicherung im Onboarding.</p>",
-  "MixedVersion": "<p>Der Auftrag staerkte die operative Effizienz im Schadenumfeld durch digitalisierte und skalierte Prozessstrukturen.</p><ul><li>Ausweitung des Self-Service-Rollouts auf zwei Regionen</li><li>Automatisierte Pruefungen im Partner-Onboarding</li></ul>",
+  "ParagraphVersion": "<p>Im Mittelpunkt stand die Weiterentwicklung zentraler Schadenprozesse durch Digitalisierung, ausgebauten Self-Service-Zugang und automatisierte Qualitaetssicherung im Onboarding.</p>",
+  "MixedVersion": "<p>Digitalisierte und skalierte Prozessstrukturen erhoehten die operative Effizienz im Schadenumfeld.</p><ul><li>Ausweitung des Self-Service-Rollouts auf zwei Regionen</li><li>Automatisierte Pruefungen im Partner-Onboarding</li></ul>",
   "RawVersion": "<p>Kunde: NordVita Versicherung AG</p><p>Projektzeitraum: 2023</p><p>Digitalisierung von Schadenaufnahme- und Pruefungsablaeufen.</p><p>Regelbasierter Validierungsschritt vor der Uebergabe.</p><p>Rollout des Self-Service-Schadenportals auf zwei Regionen erweitert.</p><p>Automatisierte Onboarding-Pruefungen fuer Partner-Einreichungen eingefuehrt.</p>"
 }
 ```
@@ -280,8 +288,8 @@ OriginalVersion: <p>Im Projekt wurden Freigabeprozesse vereinheitlicht und die E
 {
   "Rationale": "Combined linked engagement evidence packages, deduplicated repeated facts across linked versions, weighted inputs by time/capacity context, and summarized the project at management level without one-to-one task mapping from engagement details.",
   "BulletVersion": "<ul><li>Bereichsuebergreifende Harmonisierung von Bestell- und Abrechnungsprozessen</li><li>Standardisierung zentraler Governance- und Einfuehrungsablaeufe</li></ul>",
-  "ParagraphVersion": "<p>Das Projekt zielte auf die bereichsuebergreifende Harmonisierung von Bestell- und Abrechnungsprozessen mit einem einheitlichen und abgesicherten Einfuehrungsrahmen.</p>",
-  "MixedVersion": "<p>Der Auftrag fokussierte die organisatorische Vereinheitlichung zentraler Prozessablaeufe im Bestell- und Abrechnungsumfeld.</p><ul><li>Harmonisierung bereichsuebergreifender Kernprozesse</li><li>Standardisierte Governance fuer Freigabe und Einfuehrung</li></ul>",
+  "ParagraphVersion": "<p>Die bereichsuebergreifende Harmonisierung von Bestell- und Abrechnungsprozessen wurde in einen einheitlichen und abgesicherten Einfuehrungsrahmen ueberfuehrt.</p>",
+  "MixedVersion": "<p>Im Zentrum stand die organisatorische Vereinheitlichung zentraler Prozessablaeufe im Bestell- und Abrechnungsumfeld.</p><ul><li>Harmonisierung bereichsuebergreifender Kernprozesse</li><li>Standardisierte Governance fuer Freigabe und Einfuehrung</li></ul>",
   "RawVersion": "<p>Der Auftrag zielte auf die Vereinheitlichung von Bestell- und Abrechnungsprozessen.</p><p>Start: February 2019, End: January 2020, Capacity: 100%.</p><p>Start: February 2020, End: May 2021, Capacity: 60%.</p><p>Das Projekt sollte Bestell- und Abrechnungsprozesse ueber mehrere Bereiche harmonisieren.</p><p>Im Projekt wurden Freigabeprozesse vereinheitlicht und die Einfuehrung durch Test- und Rolloutvorgehen abgesichert.</p>"
 }
 ```

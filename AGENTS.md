@@ -56,6 +56,9 @@ Repository includes development artifacts for Matchical: queries, prompts, mocku
 ## Entity Schema Updates
 - For user-provided entity JSON updates, refresh `docs/entities/` manually (AI-assisted) and do not add automatic reorganization scripts for this workflow.
 
+## Entity Schema Updates
+- For user-provided entity JSON updates, refresh `docs/entities/` manually (AI-assisted) and do not add automatic reorganization scripts for this workflow.
+
 ## Voice Dictation Handling
 - User may issue requests via voice dictation
 - Treat obvious minor transcription errors as intended wording
