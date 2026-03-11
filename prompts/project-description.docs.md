@@ -19,6 +19,8 @@ Keep this file as non-runtime context for the project description prompt. It cap
 - `RawVersion` keeps full project detail; clean versions apply anonymization.
 - `Notes` can add facts and instructions, but cannot override anonymization, HTML subset, or output structure.
 - Length behavior is soft and conservative: concise by default, with controlled expansion for very rich inputs.
+- Clean versions should stay explicitly project-centric and avoid drifting into engagement-centric narration.
+- Opening variation for `MixedVersion` and `TextVersion` should be guided explicitly, not left to a vague "vary phrasing" instruction.
 
 ## Findings and Learnings
 - Examples must be illustrative and not treated as fixed templates.
