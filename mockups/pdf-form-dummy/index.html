@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PDF Form Filler Dummy</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="header">
+        <p class="eyebrow">Matchical Prototype</p>
+        <h1>DB PDF Form Filler</h1>
+        <p class="subhead">
+          Load a PDF template with form fields, fill values in the browser, and
+          download the populated document.
+        </p>
+      </header>
+
+      <section class="panel controls">
+        <div class="control-grid">
+          <label class="control">
+            <span>Template PDF</span>
+            <input id="templateInput" type="file" accept="application/pdf" />
+          </label>
+
+          <label class="control">
+            <span>Search fields</span>
+            <input
+              id="fieldSearch"
+              type="search"
+              placeholder="Type a field name..."
+            />
+          </label>
+
+          <label class="control checkbox">
+            <input id="flattenOutput" type="checkbox" />
+            <span>Flatten output (read-only fields)</span>
+          </label>
+
+          <div class="control actions">
+            <button id="reloadDefaultBtn" type="button">
+              Reload bundled template
+            </button>
+            <button id="downloadBtn" type="button" disabled>
+              Download populated PDF
+            </button>
+          </div>
+        </div>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Detected fields</h2>
+          <span id="fieldCount" class="pill">0</span>
+        </div>
+        <form id="fieldsForm" class="fields-grid"></form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Mapping log</h2>
+          <span id="mappingCount" class="pill">0</span>
+        </div>
+        <p class="muted">
+          Order is based on widget order in the PDF. This helps map UI values to
+          final PDF keys.
+        </p>
+        <div class="mapping-table-wrap">
+          <table class="mapping-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Key</th>
+                <th>Type</th>
+                <th>Source</th>
+                <th>Pages</th>
+              </tr>
+            </thead>
+            <tbody id="mappingBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
