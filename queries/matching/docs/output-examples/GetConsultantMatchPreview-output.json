@@ -1,6 +1,6 @@
 {
   "description": "GetConsultantMatchPreview output example",
-  "note": "Preview query - returns consultant details for match preview cards. One row per consultant. MatchingScore and PricePerformanceScore are placeholders (0) - filled by app from Query 1.",
+  "note": "Preview query - returns consultant details for match preview cards. One row per consultant. MatchingScore and PricePerformanceScore are placeholders (0) - filled by app from GetMatchesByDemandId.",
   "columnOrder": "ConsultantId, IsPinned, MatchingScore, PricePerformanceScore, FirstName, LastName, PhotoUrl, TopRoleName, EuroFixedRate, AvailabilityCategoryId, EmploymentStatusId, EmploymentStatusLabelTranslationsJSON, TotalMatchingRequirements, TopMatchesJson, TopMatches",
   "singleRow": {
     "ConsultantId": "550e8400-e29b-41d4-a716-446655440001",
@@ -88,8 +88,8 @@
   "fieldDescriptions": {
     "ConsultantId": "Consultant.Id - the matched consultant's unique identifier",
     "IsPinned": "Boolean (0/1): true if consultant is already assigned to this demand (exists in DemandConsultants)",
-    "MatchingScore": "Placeholder (returns 0). Actual value from Query 1, mapped in application layer.",
-    "PricePerformanceScore": "Placeholder (returns 0). Actual value from Query 1, mapped in application layer.",
+    "MatchingScore": "Placeholder (returns 0). Actual value from GetMatchesByDemandId, mapped in application layer.",
+    "PricePerformanceScore": "Placeholder (returns 0). Actual value from GetMatchesByDemandId, mapped in application layer.",
     "FirstName": "From ConsultancyUser (if IsInternal=1) or ExternalUser (if IsInternal=0)",
     "LastName": "From ConsultancyUser (if IsInternal=1) or ExternalUser (if IsInternal=0)",
     "PhotoUrl": "DefaultPhotoUrlRound from ConsultancyUser or ExternalUser based on IsInternal",
@@ -124,7 +124,7 @@
   },
   "topMatchesNote": "TopMatchesJson is sorted by partial_score contribution to MatchingScore, not by ConsultantScore. Shows top 3 when exactly 3 non-role matches exist (to avoid showing '+1'), otherwise top 2. Role and CustomRole categories are excluded from this array. A requirement with 8% weight at 4/4 (100% fulfillment = 8% contribution) ranks higher than 10% weight at 3/5 (60% fulfillment = 6% contribution).",
   "appLayerMapping": {
-    "description": "After Query 2 returns, map MatchingScore and PricePerformanceScore from Query 1 results",
+    "description": "After GetConsultantMatchPreview returns, map MatchingScore and PricePerformanceScore from GetMatchesByDemandId results",
     "pseudoCode": "FOR each row in Query2Results: match = Query1Results.Find(r => r.Id == row.ConsultantId); row.MatchingScore = match.MatchingScore; row.PricePerformanceScore = match.PricePerformanceScore"
   }
 }

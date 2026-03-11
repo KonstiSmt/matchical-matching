@@ -1,104 +1,99 @@
 {
   "description": "GetUserPermissionCheck output example",
-  "note": "Single-row permission decision output for detail mode (isListView=0) and list mode (isListView=1).",
-  "columnOrder": "HasPermission, IsError, ErrorReason, PermissionLevelId",
+  "note": "Single-row permission decision output. PermissionLevelId always reflects the strongest granted level for the effective permission. HasPermission can be null when the strongest level is Own/MyReports and no affected target is provided.",
+  "columnOrder": "HasPermission, PermissionLevelId, IsError, ErrorReason",
   "singleRow": {
     "HasPermission": true,
+    "PermissionLevelId": 5,
     "IsError": false,
-    "ErrorReason": null,
-    "PermissionLevelId": null
+    "ErrorReason": null
   },
   "exampleScenarios": [
     {
-      "scenario": "Detail mode grant by Own with matching affected target",
+      "scenario": "Direct grant via strongest level All",
       "inputHighlights": {
-        "IsListView": 0,
-        "PermissionLevel": "Own",
-        "AffectedTargetProvided": true
-      },
-      "output": {
-        "HasPermission": true,
-        "IsError": false,
-        "ErrorReason": null,
-        "PermissionLevelId": null
-      }
-    },
-    {
-      "scenario": "Detail mode normal deny",
-      "inputHighlights": {
-        "IsListView": 0,
-        "PermissionLevel": "Off or no matching grant",
-        "AffectedTargetProvided": true
-      },
-      "output": {
-        "HasPermission": false,
-        "IsError": false,
-        "ErrorReason": null,
-        "PermissionLevelId": null
-      }
-    },
-    {
-      "scenario": "List mode grant with strongest level All",
-      "inputHighlights": {
-        "IsListView": 1,
-        "PermissionMethod": "View",
+        "AffectedTargetProvided": false,
         "StrongestGrantLevel": "All"
       },
       "output": {
         "HasPermission": true,
+        "PermissionLevelId": 5,
         "IsError": false,
-        "ErrorReason": null,
-        "PermissionLevelId": 5
+        "ErrorReason": null
       }
     },
     {
-      "scenario": "List mode grant with strongest level MyReports",
+      "scenario": "Target-dependent strongest level Own without target",
       "inputHighlights": {
-        "IsListView": 1,
-        "PermissionMethod": "View",
-        "StrongestGrantLevel": "MyReports"
+        "AffectedTargetProvided": false,
+        "StrongestGrantLevel": "Own"
+      },
+      "output": {
+        "HasPermission": null,
+        "PermissionLevelId": 3,
+        "IsError": false,
+        "ErrorReason": null
+      }
+    },
+    {
+      "scenario": "Target-dependent grant with matching affected consultant",
+      "inputHighlights": {
+        "AffectedConsultantProvided": true,
+        "StrongestGrantLevel": "MyReports",
+        "AffectedTargetMatchesScope": true
       },
       "output": {
         "HasPermission": true,
+        "PermissionLevelId": 4,
         "IsError": false,
-        "ErrorReason": null,
-        "PermissionLevelId": 4
+        "ErrorReason": null
       }
     },
     {
-      "scenario": "List mode no grant",
+      "scenario": "Normal deny with no matching grant",
       "inputHighlights": {
-        "IsListView": 1,
-        "PermissionMethod": "View",
         "StrongestGrantLevel": "None"
       },
       "output": {
         "HasPermission": false,
+        "PermissionLevelId": null,
         "IsError": false,
-        "ErrorReason": null,
-        "PermissionLevelId": null
+        "ErrorReason": null
+      }
+    },
+    {
+      "scenario": "External consultant switches to alternate permission id",
+      "inputHighlights": {
+        "PermissionId": "Internal consultant permission",
+        "ExternalConsultantPermissionId": "External consultant permission",
+        "AffectedConsultantProvided": true,
+        "ResolvedConsultantType": "External"
+      },
+      "output": {
+        "HasPermission": true,
+        "PermissionLevelId": 2,
+        "IsError": false,
+        "ErrorReason": null
       }
     },
     {
       "scenario": "Error case: data permission missing method",
       "inputHighlights": {
-        "IsListView": 0,
         "IsOperation": 0,
         "PermissionMethodProvided": false
       },
       "output": {
         "HasPermission": false,
+        "PermissionLevelId": null,
         "IsError": true,
-        "ErrorReason": "Data permission requires PermissionMethodId",
-        "PermissionLevelId": null
+        "ErrorReason": "Data permission requires PermissionMethodId"
       }
     }
   ],
   "fieldDescriptions": {
-    "HasPermission": "Final permission decision. Always false when IsError is true.",
+    "HasPermission": "Final permission decision. Always false when IsError is true; nullable for target-dependent unresolved checks.",
+    "PermissionLevelId": "Strongest granted permission level id (All > MyReports > Own > On) for the effective permission when no error, otherwise null.",
     "IsError": "True only for validation or consistency errors, not for normal permission denial.",
-    "ErrorReason": "Human-readable error text. Null when IsError is false.",
-    "PermissionLevelId": "Returned only for list mode grants. Null for detail mode and for all error cases."
-  },
-  "listModeLevelPrecedence": "All > MyReports > Own > On"
+    "ErrorReason": "Human-readable error text. Null when IsError is false."
+  }
 }

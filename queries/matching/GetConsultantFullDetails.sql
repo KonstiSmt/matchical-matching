@@ -2,7 +2,7 @@
    Purpose: Full details query for a single consultant's matching breakdown against a demand.
    Used when clicking on a consultant card to open the sidebar with complete requirement details.
 
-   This is the DETAILS QUERY (Query 4). Called when viewing a single consultant's full match info.
+   This is the details query. Called when viewing a single consultant's full match info.
    Returns all requirements with scoring breakdown, grouped by category.
 
    Input: @ConsultantId (single), @DemandId, @TenantId, @SystemLanguage,
