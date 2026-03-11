@@ -117,6 +117,7 @@ LEFT JOIN {LocaleDict} name_locale
 
 - Frontend DB access / DBAccess / RunSelect queries use `@Entity.attribute` syntax, not OutSystems Advanced SQL `{Entity}.[Attribute]`.
 - Keep reusable frontend DB access syntax and limitation notes in `queries/docs/frontend-database-access.md`.
+- In frontend DB access locale filters, use the full language code format used by the app (for example `'en-US'`) when filtering `languageid`.
 - Do not store one-off frontend DB access inspection queries in the repository unless the user explicitly asks for a reusable documented example.
 
 ---
