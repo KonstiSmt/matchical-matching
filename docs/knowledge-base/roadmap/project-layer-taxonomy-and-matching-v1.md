@@ -1,0 +1,186 @@
+# Project Layer Taxonomy and Matching (V1 Working Design)
+
+## Confirmed Facts
+- This document is planned/future-state design context and not current/live behavior.
+- A project aggregates one or more engagements.
+- Every engagement belongs to exactly one project.
+- Engagement ownership is consultant-centric; project ownership is consultancy-centric.
+- Project-level matching direction includes:
+  - Aggregated role and skill evidence from underlying engagements.
+  - Additional project facets for context and filtering.
+- Engagement taxonomy direction:
+  - Keep `Industry`.
+  - Drop `Functional Area`.
+  - Add `Business Process`.
+  - Add `Delivery Type`.
+- `Solution Domain` is represented via the existing skill graph (skill concepts and aliases, including umbrella concepts), not as a separate facet for now.
+- `Project Category` is currently dropped due to overlap/ambiguity with other facets.
+
+## Assumptions
+- Facet fields may be multi-select at project level (and potentially engagement level) to cover multi-stage projects.
+- Facet values are primarily binary presence signals (`present` / `not present`) rather than manually entered 1-5 scores.
+- Manual multi-select may remain uncapped for now; relevance control is handled in matching logic and UX guidance instead of strict selection limits.
+
+## Notes
+- Open design question:
+  - Final implications of adding `Business Process` and `Delivery Type` on the skill graph are still to be defined.
+  - Specifically: boundary and dedup rules between high-level facet labels and skill concepts/aliases.
+
+- Working project matching dimensions:
+  - Aggregated `Roles` and `Skills` from engagements.
+  - `Business Process` facet.
+  - `Delivery Type` facet.
+  - `Problem Theme` facet.
+  - `Objective Theme` facet.
+  - `Outcome Type` facet.
+  - `Method/Approach` facet.
+  - `Complexity Tier` facet.
+  - `Delivery Scope` facet.
+  - `Project Capability` facet (working canonical catalog below).
+
+- Working project data composition (for project records and export use):
+  - Structured facets and aggregated role/skill evidence are the primary matching inputs.
+  - Project description versions (`RawVersion`, `BulletVersion`, `MixedVersion`, `TextVersion`) remain the holistic narrative layer.
+  - Additional dedicated text fields are planned to support reusable, non-monolithic project storytelling.
+
+- Planned dedicated project text fields (separate from the main description):
+  - `ProblemStatementText`: initial challenge and baseline context.
+  - `ObjectiveText`: intended target state and scope intent.
+  - `OutcomeText`: delivered result and measurable impact when available.
+  - `MethodApproachText`: delivery approach details beyond facet labels.
+
+- Working redundancy guardrails:
+  - Facets classify project context; text fields explain project-specific detail.
+  - Controlled overlap is acceptable, but text should add context/evidence instead of repeating labels.
+  - Avoid storing the same sentence verbatim across multiple text fields.
+  - If a text field introduces a new recurring classification signal, taxonomy/facet mapping should be reviewed.
+
+- Working scoring stance for new project facets:
+  - Facets are treated as binary presence signals rather than manually maintained 1-5 scores.
+  - Matching can rank via weighted overlap across selected facets and aggregated role/skill coverage.
+  - Hard filters should be reserved for explicit must-have constraints; other facets can remain soft ranking signals.
+  - `Outcome Evidence Level` is not part of the current facet model.
+
+- Canonical `Business Process` list (20 buckets, shared reference for engagement + project):
+  - Sales and Lead Management
+  - Quote-to-Order (CPQ)
+  - Order-to-Cash
+  - Source-to-Contract
+  - Procure-to-Pay
+  - Record-to-Report
+  - Treasury and Cash Management
+  - FP&A / Controlling
+  - Tax and Statutory Reporting
+  - Hire-to-Retire
+  - Customer Service / Case Handling
+  - Claims Management
+  - Risk and Compliance (GRC)
+  - KYC / AML / Financial Crime Operations
+  - Master Data Management
+  - Product Lifecycle Management (PLM)
+  - Supply Chain Planning
+  - Plan-to-Produce / Manufacturing
+  - Warehouse and Fulfillment
+  - Transportation and Logistics
+
+- Canonical `Delivery Type` list (12 buckets, shared reference for engagement + project):
+  - Strategy / Assessment
+  - Process / TOM Design
+  - Vendor Selection / Tool Evaluation
+  - Solution Blueprint / Architecture
+  - Implementation / Greenfield
+  - Integration
+  - Migration / Conversion
+  - Upgrade / Modernization
+  - Rollout / Deployment
+  - Stabilization / Hypercare
+  - Optimization / Continuous Improvement
+  - Run / AMS / Support Transition
+
+- Canonical `Problem Theme` list (10 tags, project-level facet catalog):
+  - Manual process burden
+  - Fragmented process landscape
+  - Legacy system constraints
+  - Integration gaps
+  - Data quality / reconciliation issues
+  - Compliance / audit risk
+  - Cost pressure
+  - Scalability / performance bottlenecks
+  - Low transparency / reporting visibility
+  - Operational instability / incidents
+
+- Canonical `Objective Theme` list (10 tags, project-level facet catalog):
+  - Standardize process
+  - Automate workflow
+  - Modernize platform
+  - Migrate to target architecture
+  - Improve integration
+  - Reduce risk / compliance exposure
+  - Improve data foundation
+  - Increase delivery speed
+  - Improve service quality
+  - Reduce run / change cost
+
+- Canonical `Outcome Type` list (12 tags, project-level facet catalog):
+  - Cost reduction
+  - Cycle-time reduction
+  - Error / defect reduction
+  - Compliance improvement
+  - Data quality improvement
+  - Service quality / SLA improvement
+  - Process standardization achieved
+  - Automation level increased
+  - Platform modernization completed
+  - Migration / cutover completed
+  - Rollout completed (scope achieved)
+  - User adoption improvement
+
+- Canonical `Project Capability` list (48 tags, project-level facet catalog):
+  - Enterprise-wide transformation
+  - Multi-country rollout
+  - Global template with local localization
+  - Core system replacement
+  - Greenfield implementation
+  - Brownfield conversion
+  - Large-scale data migration
+  - Legacy decommissioning
+  - Complex cutover orchestration
+  - Near-zero downtime cutover
+  - Post-merger integration
+  - Carve-out / divestiture separation
+  - Shared service center setup
+  - Operating model redesign
+  - PMO at scale
+  - Program recovery / turnaround
+  - Regulatory remediation program
+  - Audit remediation program
+  - Data governance program
+  - Master data harmonization
+  - Integration hub / API modernization
+  - Event-driven integration enablement
+  - Process-mining-led transformation
+  - Automation factory setup (RPA / IPA)
+  - Cloud migration at scale
+  - Platform consolidation
+  - Vendor transition
+  - Managed service transition
+  - Hypercare and stabilization
+  - Performance optimization program
+  - Cost optimization program
+  - Cyber resilience uplift
+  - IAM transformation
+  - Service management transformation
+  - Finance transformation
+  - Procurement transformation
+  - Supply chain transformation
+  - Manufacturing transformation
+  - Customer service transformation
+  - Commercial / sales transformation
+  - HR transformation
+  - Product operating model transformation
+  - Data platform modernization
+  - Enterprise analytics enablement
+  - AI enablement program
+  - Quality assurance transformation
+  - ESG / sustainability reporting enablement
+  - Compliance-by-design implementation

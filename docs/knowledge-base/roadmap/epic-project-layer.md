@@ -10,5 +10,11 @@
 - Scope should remain focused on Matchical-relevant staffing and engagement workflows, not generic ERP project management.
 
 ## Notes
-- Keep this epic high level for now.
-- Add detailed scope, roles, data model, and rollout phases once provided.
+- Keep this epic as the high-level container.
+- Working design note for taxonomy and matching model:
+  - [Project Layer Taxonomy and Matching (V1 Working Design)](./project-layer-taxonomy-and-matching-v1.md)
+- The working design note currently covers:
+  - Engagement and project taxonomy decisions (`Industry`, `Business Process`, `Delivery Type`, and dropped `Functional Area` / `Project Category`).
+  - Canonical facet catalogs for matching (`Business Process`, `Delivery Type`, `Problem Theme`, `Objective Theme`, `Outcome Type`, `Project Capability`).
+  - Project data composition across facets, aggregated role/skill evidence, main description versions, and dedicated text fields (`ProblemStatementText`, `ObjectiveText`, `OutcomeText`, `MethodApproachText`).
+- Add implementation-level scope, data model changes, rollout phases, and migration steps once execution planning starts.
