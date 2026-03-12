@@ -1,13 +1,20 @@
 # Frontend Database Access
 
 This note captures the query conventions for the frontend database access layer used in Matchical UI tooling.
-It is separate from OutSystems ODC Advanced SQL because the syntax and runtime behavior differ.
+It is separate from OutSystems ODC Advanced SQL because the syntax, runtime behavior, and common use cases differ.
 
 ## Scope
 
 - Use this guide when the user asks for a query for the frontend DB access layer, DBAccess, or RunSelect-style access.
+- Treat these requests as separate from the reusable Advanced SQL query rules in `queries/AGENTS.md`.
 - Do not save one-off inspection queries in the repository unless the user explicitly asks for a reusable documented example.
 - Keep long-lived syntax notes and verified limitations here instead of `docs/knowledge-base/`.
+
+## Tenant Filtering
+
+- Do not assume a `@TenantId` input for frontend DB access queries.
+- Do not add tenant filtering by default in this layer.
+- Only add tenant filters or tenant input placeholders when the user explicitly asks for them.
 
 ## Syntax Differences vs Advanced SQL
 
@@ -52,6 +59,10 @@ concat(
 ) AS ConsultantLink
 ```
 
+## Locale Filters
+
+- In frontend DB access locale filters, use the full language code format used by the app, for example `'en-US'`, when filtering `languageid`.
+
 ## Verified Limitation: Pattern Matching on Text
 
 In this frontend access layer, pattern-matching operators such as `LIKE` can fail against text columns because of nondeterministic collations in the DBAccess / RunSelect runtime.
@@ -85,7 +96,6 @@ This pattern worked for checking unresolved `$$FULLNAME$$` placeholders inside c
 ```sql
 SELECT
   @Consultant.id AS ConsultantId,
-  @Consultant.tenantid AS TenantId,
   @Consultancy.name AS ConsultancyName,
   concat('https://app.matchical.com/Consulting/ConsultantDetail?ConsultantId=', @Consultant.id) AS ConsultantLink,
   @Consultant.excecsummaryhtmllocalekeyid AS ExcecSummaryHtmlLocaleKeyId,
