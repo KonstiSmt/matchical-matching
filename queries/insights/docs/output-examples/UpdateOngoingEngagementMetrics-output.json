@@ -1,0 +1,14 @@
+{
+  "description": "UpdateOngoingEngagementMetrics output example",
+  "columnOrder": "UpdatedRows, HasMoreRows",
+  "singleRow": {
+    "UpdatedRows": 10000,
+    "HasMoreRows": 1
+  },
+  "exampleResultSet": [
+    {
+      "UpdatedRows": 10000,
+      "HasMoreRows": 1
+    }
+  ]
+}
